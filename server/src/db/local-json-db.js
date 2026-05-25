@@ -7,6 +7,9 @@ const TABLES = [
   'upload_files',
   'ai_analysis_tasks',
   'diagnosis_decisions',
+  'diagnosis_questions',
+  'question_interactions',
+  'ai_model_traces',
   'payments',
   'report_exports',
   'feedbacks'

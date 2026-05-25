@@ -1,0 +1,10 @@
+Scoremap Student Answer Sheet Analysis
+The student demonstrates a good understanding of core mathematical concepts but needs to improve in providing complete justifications, stating necessary conditions, and verifying final answers. The report highlights specific areas for improvement across four questions.
+Question 1: Triangle Similarity and Side Calculation: The student correctly identified that DE || BC implies corresponding angles are equal, establishing similarity. However, the proof lacked explicit naming of corresponding vertices and a final ratio statement. The calculation of BC = 10 was correct. To improve, the student should write: 'Since DE || BC, ∠ADE = ∠ABC and ∠AED = ∠ACB. Therefore, ΔADE ~ ΔABC by AA similarity. Then, AD/AB = DE/BC, so 3/6 = 5/BC, giving BC = 10.'
+Question 2: Midpoint and Distance: The midpoint calculation was correct: M = (-1, 1). However, the distance formula was applied incorrectly. The student used (2 - 4) instead of (-4 - 2) for the x-difference, leading to an incorrect distance of √8. The correct distance is √((-4 - 2)² + (5 - (-3))²) = √(36 + 64) = √100 = 10. The student should double-check coordinate differences and signs.
+Question 3: Algebraic Simplification: The simplification of (x² - 9)/(x - 3) to x + 3 was correct, but the student omitted the necessary condition x ≠ 3. This condition is crucial because the original expression is undefined at x = 3. The complete answer should be: x + 3, for x ≠ 3.
+Question 4: Recursive Sequence: The student correctly computed a2 = 5 and a3 = 14. However, the description of a checking method was missing. A good verification approach is to substitute back: for a2, check that 3*a1 - 1 = 3*2 - 1 = 5; for a3, check that 3*a2 - 1 = 3*5 - 1 = 14. This ensures each step is verifiable.
+Question 1: Triangle similarity and proportional reasoning
+Question 2: Coordinate geometry: midpoint and distance formulas
+Question 3: Rational expression simplification and domain restrictions
+This report is generated based solely on the uploaded student answer sheet content and is intended for parent-facing score improvement guidance.

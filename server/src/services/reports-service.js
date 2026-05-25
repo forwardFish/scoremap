@@ -2,8 +2,13 @@
 const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
+const { writeEvidenceFile } = require('../../../shared/evidence-paths');
 const { unauthorized } = require('../middleware/auth');
+const { createLocalAiAdapter, LocalAiAdapterError, LocalAiTraceStore } = require('../ai');
 const { LOCAL_OWNER_ID } = require('./diagnosis-orders-service');
+
+const REPORT_QUESTION_QUOTA_TOTAL = 10;
+const QUESTION_QUOTA_TOTAL = 3;
 
 function createId(prefix) {
   return `${prefix}-${crypto.randomBytes(6).toString('hex')}`;
@@ -68,9 +73,10 @@ function createFullReport(order, basicDecision) {
 }
 
 class ReportsService {
-  constructor({ db, exportRootDir }) {
+  constructor({ db, exportRootDir, ai }) {
     this.db = db;
     this.exportRootDir = exportRootDir || path.join(os.tmpdir(), 'scoremap-report-exports');
+    this.ai = ai || createLocalAiAdapter({ traceStore: new LocalAiTraceStore({ db }) });
   }
 
   getBasicDecision(orderId, auth = {}) {
@@ -84,12 +90,29 @@ class ReportsService {
     if (!preview) return notFound('Preview decision not found.');
     let basic = this.getDecision(orderId, 'basic');
     if (!basic) {
+      const visible = preview.preview && Array.isArray(preview.preview.visibleModules)
+        ? preview.preview.visibleModules
+        : [];
+      const aiResult = this.ai.complete({
+        promptId: 'LLM-BASIC-02',
+        input: {
+          orderId,
+          grade: access.order.grade,
+          subject: access.order.subject,
+          previewModuleCount: visible.length,
+          weaknesses: visible.map((item) => item.title)
+        }
+      });
       basic = this.db.upsert('diagnosis_decisions', {
         id: `decision-${orderId}-basic`,
         orderId,
         ownerId: access.order.ownerId,
         level: 'basic',
-        basic: createBasicDecision(access.order, preview.preview)
+        basic: aiResult.output.basicDecision,
+        promptId: aiResult.promptId,
+        traceId: aiResult.traceId,
+        modelAdapter: aiResult.adapter,
+        localOnly: aiResult.localOnly
       });
     }
 
@@ -128,12 +151,47 @@ class ReportsService {
       retryCount: 0,
       errorCode: null
     });
+    let aiResult;
+    try {
+      aiResult = this.ai.complete({
+        promptId: 'LLM-FULL-03',
+        input: {
+          orderId,
+          grade: access.order.grade,
+          subject: access.order.subject,
+          basicSummary: basicResult.body.decision.summary
+        },
+        simulate: input.simulateFullReport
+      });
+    } catch (error) {
+      if (!(error instanceof LocalAiAdapterError)) throw error;
+      return aiFailure(error);
+    }
+    const questionsResult = this.ensureReportQuestionCards(orderId, {
+      reportSummary: aiResult.output.fullReport.summary,
+      forceNoQuestions: input.forceNoQuestionFallback === true,
+      simulate: input.simulateQuestionExtraction
+    }, auth);
+    if (questionsResult.statusCode !== 200 && questionsResult.statusCode !== 201) {
+      return questionsResult;
+    }
+    const quota = this.getQuestionQuota(orderId);
+    const questionCards = summarizeQuestionCards(questionsResult.body.questions);
+    const fullReport = {
+      ...aiResult.output.fullReport,
+      wrongQuestionCards: questionCards,
+      questionInteractionQuota: quota.report
+    };
     const decision = this.db.upsert('diagnosis_decisions', {
       id: `decision-${orderId}-full`,
       orderId,
       ownerId: access.order.ownerId,
       level: 'full',
-      full: createFullReport(access.order, basicResult.body.decision)
+      full: fullReport,
+      promptId: aiResult.promptId,
+      traceId: aiResult.traceId,
+      modelAdapter: aiResult.adapter,
+      localOnly: aiResult.localOnly
     });
     const order = this.db.update('diagnosis_orders', orderId, {
       status: 'full_report_ready',
@@ -145,11 +203,16 @@ class ReportsService {
       statusCode: 200,
       body: {
         taskId: task.id,
-        status: task.status
+        status: task.status,
+        wrongQuestionCards: questionCards,
+        quota
       },
       readback: {
         task: this.db.assertReadback('ai_analysis_tasks', task.id, { status: 'full_report_ready' }),
         decision: this.db.assertReadback('diagnosis_decisions', decision.id, { level: 'full' }),
+        aiTrace: aiResult.trace,
+        questionTrace: questionsResult.readback.aiTrace,
+        questions: questionsResult.readback.questions,
         order
       }
     };
@@ -168,17 +231,129 @@ class ReportsService {
         body: { status: 'error', code: 'FULL_REPORT_NOT_GENERATED' }
       };
     }
+    const questions = this.db.find('diagnosis_questions', (row) => row.orderId === orderId);
     return {
       statusCode: 200,
       body: {
         status: 'full_report_ready',
         accessLevel: access.order.accessLevel,
-        decision: decision.full
+        decision: decision.full,
+        wrongQuestionCards: summarizeQuestionCards(questions),
+        quota: this.getQuestionQuota(orderId)
       },
       readback: {
         order: this.db.assertReadback('diagnosis_orders', orderId, { accessLevel: 'full' }),
-        decision: this.db.assertReadback('diagnosis_decisions', decision.id, { level: 'full' })
+        decision: this.db.assertReadback('diagnosis_decisions', decision.id, { level: 'full' }),
+        questions
       }
+    };
+  }
+
+  ensureReportQuestionCards(orderId, input = {}, auth = {}) {
+    const access = this.assertOrderAccess(orderId, auth);
+    if (access.error) return access.error;
+    if (access.order.accessLevel !== 'full') {
+      return entitlementError('FULL_ENTITLEMENT_REQUIRED');
+    }
+    const existing = this.db.find('diagnosis_questions', (row) => row.orderId === orderId);
+    if (existing.length > 0) {
+      return {
+        statusCode: 200,
+        body: { status: 'ready', questions: existing },
+        readback: {
+          order: this.db.assertReadback('diagnosis_orders', orderId, { accessLevel: 'full' }),
+          questions: existing,
+          aiTrace: null
+        }
+      };
+    }
+
+    let aiResult;
+    try {
+      aiResult = this.ai.complete({
+        promptId: 'LLM-QUESTION-04',
+        input: {
+          orderId,
+          reportSummary: input.reportSummary || 'Local full report wrong-question extraction.',
+          forceNoQuestions: input.forceNoQuestions === true
+        },
+        simulate: input.simulate
+      });
+    } catch (error) {
+      if (!(error instanceof LocalAiAdapterError)) throw error;
+      return aiFailure(error);
+    }
+
+    const extracted = Array.isArray(aiResult.output.questions) ? aiResult.output.questions : [];
+    const sourceQuestions = extracted.length > 0 ? extracted : fallbackQuestionCards(access.order);
+    const order = this.ensureReportQuota(access.order);
+    const questions = sourceQuestions.slice(0, 6).map((item, index) => this.db.insert('diagnosis_questions', {
+      id: `question-${orderId}-${index + 1}`,
+      orderId,
+      ownerId: access.order.ownerId,
+      index: index + 1,
+      title: item.title || `Wrong question ${index + 1}`,
+      originalQuestion: item.originalQuestion || 'Local wrong question stem.',
+      studentAnswer: item.studentAnswer || 'A',
+      correctAnswer: item.correctAnswer || 'B',
+      knowledgePoint: item.knowledgePoint || 'Multi-step calculation',
+      diagnosis: item.diagnosis || 'The solving process skipped a condition check.',
+      explanationSummary: item.explanationSummary || 'Mark the condition, write the formula, solve, and verify the answer.',
+      masteryStatus: item.masteryStatus || 'needs_practice',
+      questionInteractionQuotaTotal: QUESTION_QUOTA_TOTAL,
+      questionInteractionQuotaUsed: 0,
+      questionInteractionQuotaRemaining: QUESTION_QUOTA_TOTAL,
+      promptId: aiResult.promptId,
+      traceId: aiResult.traceId,
+      source: extracted.length > 0 ? 'llm-extraction' : 'fallback'
+    }));
+
+    return {
+      statusCode: 201,
+      body: { status: extracted.length > 0 ? 'created' : 'fallback_created', questions },
+      readback: {
+        order: this.db.assertReadback('diagnosis_orders', orderId, { questionInteractionQuotaTotal: REPORT_QUESTION_QUOTA_TOTAL }),
+        questions: questions.map((question) => this.db.assertReadback('diagnosis_questions', question.id, { orderId })),
+        aiTrace: this.readAiTrace(aiResult.traceId, 'LLM-QUESTION-04') || aiResult.trace,
+        fallbackUsed: extracted.length === 0
+      }
+    };
+  }
+
+  readAiTrace(traceId, promptId) {
+    if (!traceId) return null;
+    const trace = this.db.read('ai_model_traces', traceId);
+    if (!trace) return null;
+    if (promptId && trace.promptId !== promptId) return null;
+    return trace;
+  }
+
+  ensureReportQuota(order) {
+    if (Number.isInteger(order.questionInteractionQuotaTotal)) return order;
+    return this.db.update('diagnosis_orders', order.id, {
+      questionInteractionQuotaTotal: REPORT_QUESTION_QUOTA_TOTAL,
+      questionInteractionQuotaUsed: 0,
+      questionInteractionQuotaRemaining: REPORT_QUESTION_QUOTA_TOTAL
+    });
+  }
+
+  getQuestionQuota(orderId) {
+    const order = this.db.read('diagnosis_orders', orderId);
+    const questions = this.db.find('diagnosis_questions', (row) => row.orderId === orderId);
+    return {
+      report: {
+        total: order.questionInteractionQuotaTotal || REPORT_QUESTION_QUOTA_TOTAL,
+        used: order.questionInteractionQuotaUsed || 0,
+        remaining: Number.isInteger(order.questionInteractionQuotaRemaining)
+          ? order.questionInteractionQuotaRemaining
+          : REPORT_QUESTION_QUOTA_TOTAL
+      },
+      questions: questions.map((question) => ({
+        questionId: question.id,
+        total: question.questionInteractionQuotaTotal,
+        used: question.questionInteractionQuotaUsed,
+        remaining: question.questionInteractionQuotaRemaining
+      }))
     };
   }
 
@@ -279,8 +454,7 @@ class ReportsService {
     const exportId = input.exportId || createId('report-export');
     const fileName = `${exportId}.txt`;
     const filePath = path.join(this.exportRootDir, access.order.ownerId, orderId, fileName);
-    fs.mkdirSync(path.dirname(filePath), { recursive: true });
-    fs.writeFileSync(filePath, renderLocalPdfText(report.body.decision), 'utf8');
+    const resolvedFilePath = writeLocalExportFile(filePath, renderLocalPdfText(report.body.decision));
     const exportRecord = this.db.insert('report_exports', {
       id: exportId,
       orderId,
@@ -288,8 +462,8 @@ class ReportsService {
       status: 'ready',
       format: 'pdf-local-text',
       fileUrl: `local-report-export://${access.order.ownerId}/${orderId}/${fileName}`,
-      filePath,
-      byteLength: fs.statSync(filePath).size
+      filePath: resolvedFilePath,
+      byteLength: fs.statSync(resolvedFilePath).size
     });
     return {
       statusCode: 201,
@@ -352,13 +526,74 @@ class ReportsService {
   }
 }
 
+function writeLocalExportFile(filePath, content) {
+  const normalizedPath = String(filePath).replace(/\\/g, '/');
+  const marker = '/docs/auto-execute/evidence/';
+  const markerIndex = normalizedPath.indexOf(marker);
+  if (markerIndex >= 0) {
+    return writeEvidenceFile(
+      path.resolve(__dirname, '..', '..', '..'),
+      normalizedPath.slice(markerIndex + marker.length).replace(/\//g, path.sep),
+      `${content}\n`
+    );
+  }
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, content, 'utf8');
+  return filePath;
+}
+
 function renderLocalPdfText(report) {
   return [
     report.reportTitle,
     report.summary,
     ...report.modules.map((item) => `${item.title}: ${item.content}`),
+    ...(report.wrongQuestionCards || []).map((item) => `${item.title}: ${item.knowledgePoint}`),
     report.complianceNotice
   ].join('\n');
+}
+
+function summarizeQuestionCards(questions) {
+  return questions.map((question) => ({
+    id: question.id,
+    index: question.index,
+    title: question.title,
+    originalQuestion: question.originalQuestion,
+    studentAnswer: question.studentAnswer,
+    correctAnswer: question.correctAnswer,
+    knowledgePoint: question.knowledgePoint,
+    diagnosis: question.diagnosis,
+    explanationSummary: question.explanationSummary,
+    masteryStatus: question.masteryStatus,
+    quota: {
+      total: question.questionInteractionQuotaTotal,
+      used: question.questionInteractionQuotaUsed,
+      remaining: question.questionInteractionQuotaRemaining
+    },
+    aiTeacherCta: 'Let the AI teacher explain this to the child'
+  }));
+}
+
+function fallbackQuestionCards(order) {
+  return [
+    {
+      title: 'Fallback card: calculation process gap',
+      originalQuestion: `Local ${order.subject} wrong-question context was unavailable, so this card uses the report weakness summary.`,
+      studentAnswer: 'Incomplete process',
+      correctAnswer: 'Write formula, solve, and verify',
+      knowledgePoint: 'Calculation process',
+      diagnosis: 'The model returned no extracted questions; the local service created a conservative practice card.',
+      explanationSummary: 'Use this card to start fixed AI tutor follow-up while keeping the no-question branch explicit.'
+    },
+    {
+      title: 'Fallback card: answer checking gap',
+      originalQuestion: 'Check whether the final answer matches the unit and condition in the original problem.',
+      studentAnswer: 'Unchecked answer',
+      correctAnswer: 'Answer with unit and condition check',
+      knowledgePoint: 'Answer verification',
+      diagnosis: 'The report still needs a second tutor-ready card even when extraction returns no rows.',
+      explanationSummary: 'Review the final unit, compare it with the question condition, and correct the answer format.'
+    }
+  ];
 }
 
 function validationError(message) {
@@ -379,6 +614,20 @@ function notFound(message) {
   return {
     statusCode: 404,
     body: { status: 'error', code: 'NOT_FOUND', message }
+  };
+}
+
+function aiFailure(error) {
+  return {
+    statusCode: 502,
+    body: {
+      status: 'error',
+      code: error.code,
+      traceId: error.trace && error.trace.traceId
+    },
+    readback: {
+      aiTrace: error.trace
+    }
   };
 }
 

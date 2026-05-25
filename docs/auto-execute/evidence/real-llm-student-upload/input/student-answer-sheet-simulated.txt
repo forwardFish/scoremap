@@ -1,0 +1,36 @@
+Student: local acceptance sample
+Grade: middle school
+Subject: mathematics
+Material type: simulated student answer sheet text
+
+Question 1: In triangle ABC, D is on AB and E is on AC. If DE is parallel to BC,
+prove that triangle ADE is similar to triangle ABC, then calculate BC when
+AD = 3, AB = 6, and DE = 5.
+Student answer:
+DE is parallel to BC, so angle D equals angle B and angle E equals angle C.
+The triangles are similar. BC = 5 x 6 / 3 = 10.
+Teacher correction:
+The similarity proof is basically correct, but the student did not name the
+corresponding vertices clearly and skipped the final ratio statement.
+
+Question 2: Point A is (2, -3), point B is (-4, 5). Find the midpoint M and
+the distance AB.
+Student answer:
+M = ((2 - 4) / 2, (-3 + 5) / 2) = (-1, 1).
+AB = sqrt((2 - 4)^2 + (-3 + 5)^2) = sqrt(8).
+Teacher correction:
+The midpoint is correct, but the distance formula used the wrong x difference.
+The correct distance is sqrt((-4 - 2)^2 + (5 + 3)^2) = 10.
+
+Question 3: Simplify (x^2 - 9) / (x - 3), and state the condition.
+Student answer:
+x^2 - 9 = (x - 3)(x + 3), so the answer is x + 3.
+Teacher correction:
+The simplification is correct, but the condition x != 3 is missing.
+
+Question 4: A sequence has a1 = 2 and a(n+1) = 3a(n) - 1. Find a2, a3, and
+describe one checking method.
+Student answer:
+a2 = 6 - 1 = 5. a3 = 15 - 1 = 14.
+Teacher correction:
+The calculation is correct. Add a substitution check so each step is verifiable.

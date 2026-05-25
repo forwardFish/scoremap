@@ -1,8 +1,8 @@
 ﻿const { ReportsService } = require('../services/reports-service');
 const { authFromRequest } = require('../middleware/auth');
 
-function createReportsRouter({ db, exportRootDir }) {
-  const service = new ReportsService({ db, exportRootDir });
+function createReportsRouter({ db, exportRootDir, ai }) {
+  const service = new ReportsService({ db, exportRootDir, ai });
 
   return async function reportsRouter(request, response) {
     const url = new URL(request.url, 'http://127.0.0.1');

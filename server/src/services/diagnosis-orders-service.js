@@ -1,5 +1,6 @@
 ﻿const crypto = require('node:crypto');
 const { unauthorized } = require('../middleware/auth');
+const { createLocalAiAdapter } = require('../ai');
 
 const LOCAL_OWNER_ID = 'local-user-scoremap-t03';
 
@@ -25,9 +26,10 @@ function createPreviewDecision(order) {
 }
 
 class DiagnosisOrdersService {
-  constructor({ db, cloud }) {
+  constructor({ db, cloud, ai }) {
     this.db = db;
     this.cloud = cloud;
+    this.ai = ai || createLocalAiAdapter();
   }
 
   createOrder(input = {}) {
@@ -178,12 +180,25 @@ class DiagnosisOrdersService {
       retryCount,
       errorCode: null
     });
+    const aiResult = this.ai.complete({
+      promptId: 'LLM-PREVIEW-01',
+      input: {
+        orderId,
+        grade: ownerCheck.order.grade,
+        subject: ownerCheck.order.subject,
+        uploadCount: uploads.length
+      }
+    });
     const decision = this.db.upsert('diagnosis_decisions', {
       id: `decision-${orderId}-preview`,
       orderId,
       ownerId: ownerCheck.order.ownerId,
       level: 'preview',
-      preview: createPreviewDecision(ownerCheck.order)
+      preview: aiResult.output.previewDecision,
+      promptId: aiResult.promptId,
+      traceId: aiResult.traceId,
+      modelAdapter: aiResult.adapter,
+      localOnly: aiResult.localOnly
     });
     const order = this.db.update('diagnosis_orders', orderId, {
       status: 'preview_done',
@@ -200,6 +215,7 @@ class DiagnosisOrdersService {
       readback: {
         task: this.db.assertReadback('ai_analysis_tasks', task.id, { status: 'preview_done' }),
         decision: this.db.assertReadback('diagnosis_decisions', decision.id, { level: 'preview' }),
+        aiTrace: aiResult.trace,
         order
       }
     };

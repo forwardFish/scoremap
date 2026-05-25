@@ -1,8 +1,8 @@
 ﻿const { DiagnosisOrdersService } = require('../services/diagnosis-orders-service');
 const { authFromRequest } = require('../middleware/auth');
 
-function createDiagnosisOrdersRouter({ db, cloud }) {
-  const service = new DiagnosisOrdersService({ db, cloud });
+function createDiagnosisOrdersRouter({ db, cloud, ai }) {
+  const service = new DiagnosisOrdersService({ db, cloud, ai });
 
   return async function diagnosisOrdersRouter(request, response) {
     const url = new URL(request.url, 'http://127.0.0.1');

@@ -1,0 +1,1481 @@
+{
+  "users": [
+    {
+      "id": "local-user-scoremap-t03",
+      "role": "parent_owner",
+      "displayName": "Local Parent Owner",
+      "createdAt": "2026-05-25T13:53:55.035Z",
+      "updatedAt": "2026-05-25T13:53:55.035Z"
+    }
+  ],
+  "diagnosis_orders": [
+    {
+      "id": "order-real-llm-20260525135355",
+      "ownerId": "local-user-scoremap-t03",
+      "source": "real-llm-student-upload",
+      "grade": "middle-school",
+      "subject": "mathematics",
+      "examType": "answer-sheet-diagnosis",
+      "materialType": "student-answer-sheet-text",
+      "status": "full_report_ready",
+      "accessLevel": "full",
+      "orderToken": "local-order-token-order-real-llm-20260525135355",
+      "createdAt": "2026-05-25T13:53:55.036Z",
+      "updatedAt": "2026-05-25T13:54:45.141Z",
+      "uploadedCount": 1,
+      "previewTaskId": "task-preview-order-real-llm-20260525135355",
+      "previewDecisionId": "decision-order-real-llm-20260525135355-preview",
+      "fullTaskId": "task-full-order-real-llm-20260525135355",
+      "questionInteractionQuotaTotal": 10,
+      "questionInteractionQuotaUsed": 0,
+      "questionInteractionQuotaRemaining": 10,
+      "fullDecisionId": "decision-order-real-llm-20260525135355-full",
+      "savedReport": true,
+      "savedAt": "1970-01-01T00:00:00.000Z"
+    }
+  ],
+  "upload_files": [
+    {
+      "id": "upload-real-student-answer-sheet",
+      "ownerId": "local-user-scoremap-t03",
+      "orderId": "order-real-llm-20260525135355",
+      "originalName": "student-answer-sheet-simulated.txt",
+      "mimeType": "text/plain; charset=utf-8",
+      "storagePath": "D:\\lyh\\agent\\agent-frame\\scoremap\\docs\\auto-execute\\evidence\\real-llm-student-upload\\local-cloud\\local-user-scoremap-t03\\order-real-llm-20260525135355\\upload-real-student-answer-sheet-student-answer-sheet-simulated.txt",
+      "cloudPath": "local-mock://local-user-scoremap-t03/order-real-llm-20260525135355/upload-real-student-answer-sheet-student-answer-sheet-simulated.txt",
+      "fileId": "local-cloud-file-upload-real-student-answer-sheet",
+      "size": 1452,
+      "adapter": "local-tencent-cloud-mock",
+      "createdAt": "2026-05-25T13:53:55.039Z",
+      "updatedAt": "2026-05-25T13:53:55.040Z",
+      "authorizationAccepted": true,
+      "quality": "normal",
+      "localOnly": true
+    }
+  ],
+  "ai_analysis_tasks": [
+    {
+      "id": "task-preview-order-real-llm-20260525135355",
+      "orderId": "order-real-llm-20260525135355",
+      "ownerId": "local-user-scoremap-t03",
+      "type": "preview",
+      "status": "preview_done",
+      "progress": 100,
+      "currentStep": "preview_decision_ready",
+      "retryCount": 0,
+      "errorCode": null,
+      "createdAt": "2026-05-25T13:53:55.041Z",
+      "updatedAt": "2026-05-25T13:53:55.041Z"
+    },
+    {
+      "id": "task-full-order-real-llm-20260525135355",
+      "orderId": "order-real-llm-20260525135355",
+      "ownerId": "local-user-scoremap-t03",
+      "type": "full",
+      "status": "full_report_ready",
+      "progress": 100,
+      "currentStep": "full_report_ready",
+      "retryCount": 0,
+      "errorCode": null,
+      "createdAt": "2026-05-25T13:54:45.135Z",
+      "updatedAt": "2026-05-25T13:54:45.135Z"
+    }
+  ],
+  "diagnosis_decisions": [
+    {
+      "id": "decision-order-real-llm-20260525135355-preview",
+      "orderId": "order-real-llm-20260525135355",
+      "ownerId": "local-user-scoremap-t03",
+      "level": "preview",
+      "preview": {
+        "summary": "Your child's answer sheet shows a good understanding of core concepts but needs improvement in providing complete proofs, stating conditions, and double-checking calculations. The similarity proof was correct but lacked clear vertex naming and a final ratio statement. The midpoint was correct, but the distance formula had a sign error. The algebraic simplification was correct, but the condition x ≠ 3 was missing. The sequence terms were calculated correctly, but a verification method was not described. Focusing on these areas will help improve scores.",
+        "visibleModules": [
+          {
+            "title": "Proof Completeness",
+            "content": "In Question 1, the similarity proof was essentially correct, but the student did not explicitly name the corresponding vertices (e.g., stating that ∠ADE = ∠ABC and ∠AED = ∠ACB) and omitted the final ratio statement (AD/AB = DE/BC = AE/AC). Encourage your child to write proofs in a step-by-step manner, clearly stating each angle equality and the similarity criterion (AA) used, and always include the proportional relationship."
+          },
+          {
+            "title": "Calculation Accuracy",
+            "content": "In Question 2, the midpoint was correctly calculated as (-1, 1). However, the distance calculation used (2 - 4) instead of (-4 - 2) for the x-difference, leading to an incorrect distance of √8 instead of 10. Remind your child to carefully apply the distance formula: √[(x₂ - x₁)² + (y₂ - y₁)²] and double-check signs, especially with negative coordinates."
+          },
+          {
+            "title": "Conditions and Domain",
+            "content": "In Question 3, the simplification to x + 3 was correct, but the student forgot to state the condition x ≠ 3, which is necessary because the original expression is undefined at x = 3. Emphasize the importance of always specifying restrictions when canceling factors in rational expressions."
+          }
+        ],
+        "lockedModules": [
+          "Detailed error pattern analysis",
+          "Personalized practice recommendations",
+          "Step-by-step solution walkthroughs"
+        ],
+        "cta": "Unlock the full Scoremap report to get a detailed breakdown of your child's mistakes, personalized practice worksheets, and expert video explanations to help them master these topics."
+      },
+      "promptId": "LLM-PREVIEW-01",
+      "traceId": "trace-real-llm-preview-01-0001",
+      "modelAdapter": "deepseek-openai-compatible-real",
+      "localOnly": false,
+      "createdAt": "2026-05-25T13:54:08.605Z",
+      "updatedAt": "2026-05-25T13:54:08.605Z"
+    },
+    {
+      "id": "decision-order-real-llm-20260525135355-basic",
+      "orderId": "order-real-llm-20260525135355",
+      "ownerId": "local-user-scoremap-t03",
+      "level": "basic",
+      "basic": {
+        "reportTitle": "Mathematics Answer Sheet Analysis",
+        "summary": "The student demonstrates a good understanding of core concepts but needs to improve precision in proofs, formula application, and stating conditions. The overall performance is solid with minor errors.",
+        "scoreLevel": "B",
+        "quality": {
+          "recognized": true,
+          "uploadQuality": "clear",
+          "confidence": 0.95
+        },
+        "lossPoints": [
+          "Question 1: Incomplete similarity proof – missing explicit correspondence of vertices and final ratio statement.",
+          "Question 2: Incorrect distance calculation due to sign error in x-difference.",
+          "Question 3: Missing condition x ≠ 3 for simplified expression.",
+          "Question 4: No checking method described for sequence terms."
+        ],
+        "weaknesses": [
+          "Proof writing lacks full logical steps and clear vertex naming.",
+          "Careless sign errors in coordinate geometry.",
+          "Omitting domain restrictions in algebraic simplification.",
+          "Insufficient verification of calculated results."
+        ],
+        "advice": [
+          "Practice writing complete geometric proofs with labeled vertices and concluding statements.",
+          "Double-check coordinate differences and signs when using distance formula.",
+          "Always state restrictions when simplifying rational expressions.",
+          "Develop a habit of verifying answers by substitution or alternative methods."
+        ],
+        "upgradeCta": "Focus on proof completeness and error-checking to move from B to A."
+      },
+      "promptId": "LLM-BASIC-02",
+      "traceId": "trace-real-llm-basic-02-0002",
+      "modelAdapter": "deepseek-openai-compatible-real",
+      "localOnly": false,
+      "createdAt": "2026-05-25T13:54:17.222Z",
+      "updatedAt": "2026-05-25T13:54:17.222Z"
+    },
+    {
+      "id": "decision-order-real-llm-20260525135355-full",
+      "orderId": "order-real-llm-20260525135355",
+      "ownerId": "local-user-scoremap-t03",
+      "level": "full",
+      "full": {
+        "reportTitle": "Scoremap Student Answer Sheet Analysis",
+        "orderId": "order-real-llm-20260525135355",
+        "summary": "The student demonstrates a good understanding of core mathematical concepts but needs to improve in providing complete justifications, stating necessary conditions, and verifying final answers. The report highlights specific areas for improvement across four questions.",
+        "modules": [
+          {
+            "id": "q1",
+            "title": "Question 1: Triangle Similarity and Side Calculation",
+            "content": "The student correctly identified that DE || BC implies corresponding angles are equal, establishing similarity. However, the proof lacked explicit naming of corresponding vertices and a final ratio statement. The calculation of BC = 10 was correct. To improve, the student should write: 'Since DE || BC, ∠ADE = ∠ABC and ∠AED = ∠ACB. Therefore, ΔADE ~ ΔABC by AA similarity. Then, AD/AB = DE/BC, so 3/6 = 5/BC, giving BC = 10.'"
+          },
+          {
+            "id": "q2",
+            "title": "Question 2: Midpoint and Distance",
+            "content": "The midpoint calculation was correct: M = (-1, 1). However, the distance formula was applied incorrectly. The student used (2 - 4) instead of (-4 - 2) for the x-difference, leading to an incorrect distance of √8. The correct distance is √((-4 - 2)² + (5 - (-3))²) = √(36 + 64) = √100 = 10. The student should double-check coordinate differences and signs."
+          },
+          {
+            "id": "q3",
+            "title": "Question 3: Algebraic Simplification",
+            "content": "The simplification of (x² - 9)/(x - 3) to x + 3 was correct, but the student omitted the necessary condition x ≠ 3. This condition is crucial because the original expression is undefined at x = 3. The complete answer should be: x + 3, for x ≠ 3."
+          },
+          {
+            "id": "q4",
+            "title": "Question 4: Recursive Sequence",
+            "content": "The student correctly computed a2 = 5 and a3 = 14. However, the description of a checking method was missing. A good verification approach is to substitute back: for a2, check that 3*a1 - 1 = 3*2 - 1 = 5; for a3, check that 3*a2 - 1 = 3*5 - 1 = 14. This ensures each step is verifiable."
+          }
+        ],
+        "basicSummary": "Overall, the student shows solid computational skills but needs to focus on providing complete reasoning, stating domain restrictions, and verifying results. These habits will improve accuracy and clarity in future assessments.",
+        "complianceNotice": "This report is generated based solely on the uploaded student answer sheet content and is intended for parent-facing score improvement guidance.",
+        "wrongQuestionCards": [
+          {
+            "id": "question-order-real-llm-20260525135355-1",
+            "index": 1,
+            "title": "Question 1",
+            "originalQuestion": "In triangle ABC, D is on AB and E is on AC. If DE is parallel to BC, prove that triangle ADE is similar to triangle ABC, then calculate BC when AD = 3, AB = 6, and DE = 5.",
+            "studentAnswer": "DE is parallel to BC, so angle D equals angle B and angle E equals angle C. The triangles are similar. BC = 5 x 6 / 3 = 10.",
+            "correctAnswer": "Proof: Since DE ∥ BC, ∠ADE = ∠ABC and ∠AED = ∠ACB (corresponding angles). By AA similarity, △ADE ~ △ABC. Calculation: AD/AB = DE/BC → 3/6 = 5/BC → BC = 10.",
+            "knowledgePoint": "Triangle similarity and proportional reasoning",
+            "diagnosis": "The similarity proof lacks explicit naming of corresponding vertices and omits the final ratio statement. The calculation is correct but the reasoning is incomplete.",
+            "explanationSummary": "To improve, state the similarity condition clearly (AA) and write the proportion AD/AB = DE/BC before solving.",
+            "masteryStatus": "Partially mastered",
+            "quota": {
+              "total": 3,
+              "used": 0,
+              "remaining": 3
+            },
+            "aiTeacherCta": "Let the AI teacher explain this to the child"
+          },
+          {
+            "id": "question-order-real-llm-20260525135355-2",
+            "index": 2,
+            "title": "Question 2",
+            "originalQuestion": "Point A is (2, -3), point B is (-4, 5). Find the midpoint M and the distance AB.",
+            "studentAnswer": "M = ((2 - 4) / 2, (-3 + 5) / 2) = (-1, 1). AB = sqrt((2 - 4)^2 + (-3 + 5)^2) = sqrt(8).",
+            "correctAnswer": "Midpoint M = ((2 + (-4))/2, (-3 + 5)/2) = (-1, 1). Distance AB = sqrt((-4 - 2)^2 + (5 - (-3))^2) = sqrt(36 + 64) = 10.",
+            "knowledgePoint": "Coordinate geometry: midpoint and distance formulas",
+            "diagnosis": "The midpoint is correct, but the distance formula used the wrong x difference (2 - 4 instead of -4 - 2) and the wrong y difference (-3 + 5 instead of 5 - (-3)).",
+            "explanationSummary": "Use the distance formula correctly: sqrt((x2 - x1)^2 + (y2 - y1)^2). Be careful with signs.",
+            "masteryStatus": "Needs improvement",
+            "quota": {
+              "total": 3,
+              "used": 0,
+              "remaining": 3
+            },
+            "aiTeacherCta": "Let the AI teacher explain this to the child"
+          },
+          {
+            "id": "question-order-real-llm-20260525135355-3",
+            "index": 3,
+            "title": "Question 3",
+            "originalQuestion": "Simplify (x^2 - 9) / (x - 3), and state the condition.",
+            "studentAnswer": "x^2 - 9 = (x - 3)(x + 3), so the answer is x + 3.",
+            "correctAnswer": "Simplified expression: x + 3, with condition x ≠ 3.",
+            "knowledgePoint": "Rational expression simplification and domain restrictions",
+            "diagnosis": "The simplification is correct, but the condition x ≠ 3 is missing.",
+            "explanationSummary": "Always state the domain restriction when canceling factors to avoid division by zero.",
+            "masteryStatus": "Partially mastered",
+            "quota": {
+              "total": 3,
+              "used": 0,
+              "remaining": 3
+            },
+            "aiTeacherCta": "Let the AI teacher explain this to the child"
+          }
+        ],
+        "questionInteractionQuota": {
+          "total": 10,
+          "used": 0,
+          "remaining": 10
+        }
+      },
+      "promptId": "LLM-FULL-03",
+      "traceId": "trace-real-llm-full-03-0003",
+      "modelAdapter": "deepseek-openai-compatible-real",
+      "localOnly": false,
+      "createdAt": "2026-05-25T13:54:45.137Z",
+      "updatedAt": "2026-05-25T13:54:45.137Z"
+    }
+  ],
+  "diagnosis_questions": [
+    {
+      "id": "question-order-real-llm-20260525135355-1",
+      "orderId": "order-real-llm-20260525135355",
+      "ownerId": "local-user-scoremap-t03",
+      "index": 1,
+      "title": "Question 1",
+      "originalQuestion": "In triangle ABC, D is on AB and E is on AC. If DE is parallel to BC, prove that triangle ADE is similar to triangle ABC, then calculate BC when AD = 3, AB = 6, and DE = 5.",
+      "studentAnswer": "DE is parallel to BC, so angle D equals angle B and angle E equals angle C. The triangles are similar. BC = 5 x 6 / 3 = 10.",
+      "correctAnswer": "Proof: Since DE ∥ BC, ∠ADE = ∠ABC and ∠AED = ∠ACB (corresponding angles). By AA similarity, △ADE ~ △ABC. Calculation: AD/AB = DE/BC → 3/6 = 5/BC → BC = 10.",
+      "knowledgePoint": "Triangle similarity and proportional reasoning",
+      "diagnosis": "The similarity proof lacks explicit naming of corresponding vertices and omits the final ratio statement. The calculation is correct but the reasoning is incomplete.",
+      "explanationSummary": "To improve, state the similarity condition clearly (AA) and write the proportion AD/AB = DE/BC before solving.",
+      "masteryStatus": "Partially mastered",
+      "questionInteractionQuotaTotal": 3,
+      "questionInteractionQuotaUsed": 0,
+      "questionInteractionQuotaRemaining": 3,
+      "promptId": "LLM-QUESTION-04",
+      "traceId": "trace-real-llm-question-04-0004",
+      "source": "real-llm-extraction",
+      "createdAt": "2026-05-25T13:54:45.131Z",
+      "updatedAt": "2026-05-25T13:54:45.131Z"
+    },
+    {
+      "id": "question-order-real-llm-20260525135355-2",
+      "orderId": "order-real-llm-20260525135355",
+      "ownerId": "local-user-scoremap-t03",
+      "index": 2,
+      "title": "Question 2",
+      "originalQuestion": "Point A is (2, -3), point B is (-4, 5). Find the midpoint M and the distance AB.",
+      "studentAnswer": "M = ((2 - 4) / 2, (-3 + 5) / 2) = (-1, 1). AB = sqrt((2 - 4)^2 + (-3 + 5)^2) = sqrt(8).",
+      "correctAnswer": "Midpoint M = ((2 + (-4))/2, (-3 + 5)/2) = (-1, 1). Distance AB = sqrt((-4 - 2)^2 + (5 - (-3))^2) = sqrt(36 + 64) = 10.",
+      "knowledgePoint": "Coordinate geometry: midpoint and distance formulas",
+      "diagnosis": "The midpoint is correct, but the distance formula used the wrong x difference (2 - 4 instead of -4 - 2) and the wrong y difference (-3 + 5 instead of 5 - (-3)).",
+      "explanationSummary": "Use the distance formula correctly: sqrt((x2 - x1)^2 + (y2 - y1)^2). Be careful with signs.",
+      "masteryStatus": "Needs improvement",
+      "questionInteractionQuotaTotal": 3,
+      "questionInteractionQuotaUsed": 0,
+      "questionInteractionQuotaRemaining": 3,
+      "promptId": "LLM-QUESTION-04",
+      "traceId": "trace-real-llm-question-04-0004",
+      "source": "real-llm-extraction",
+      "createdAt": "2026-05-25T13:54:45.132Z",
+      "updatedAt": "2026-05-25T13:54:45.132Z"
+    },
+    {
+      "id": "question-order-real-llm-20260525135355-3",
+      "orderId": "order-real-llm-20260525135355",
+      "ownerId": "local-user-scoremap-t03",
+      "index": 3,
+      "title": "Question 3",
+      "originalQuestion": "Simplify (x^2 - 9) / (x - 3), and state the condition.",
+      "studentAnswer": "x^2 - 9 = (x - 3)(x + 3), so the answer is x + 3.",
+      "correctAnswer": "Simplified expression: x + 3, with condition x ≠ 3.",
+      "knowledgePoint": "Rational expression simplification and domain restrictions",
+      "diagnosis": "The simplification is correct, but the condition x ≠ 3 is missing.",
+      "explanationSummary": "Always state the domain restriction when canceling factors to avoid division by zero.",
+      "masteryStatus": "Partially mastered",
+      "questionInteractionQuotaTotal": 3,
+      "questionInteractionQuotaUsed": 0,
+      "questionInteractionQuotaRemaining": 3,
+      "promptId": "LLM-QUESTION-04",
+      "traceId": "trace-real-llm-question-04-0004",
+      "source": "real-llm-extraction",
+      "createdAt": "2026-05-25T13:54:45.134Z",
+      "updatedAt": "2026-05-25T13:54:45.134Z"
+    }
+  ],
+  "question_interactions": [],
+  "ai_model_traces": [
+    {
+      "id": "trace-real-llm-preview-01-0001",
+      "traceId": "trace-real-llm-preview-01-0001",
+      "promptId": "LLM-PREVIEW-01",
+      "modelAdapter": "deepseek-openai-compatible-real",
+      "requestSummary": {
+        "type": "object",
+        "keys": [
+          "baseUrl",
+          "input",
+          "model",
+          "promptId",
+          "providerId"
+        ],
+        "fields": {
+          "providerId": {
+            "type": "string",
+            "length": 8,
+            "sha256": "6f7ac1823da81d2e",
+            "redacted": false
+          },
+          "baseUrl": {
+            "type": "string",
+            "length": 24,
+            "sha256": "a34e2a4708ed1c61",
+            "redacted": false
+          },
+          "model": {
+            "type": "string",
+            "length": 15,
+            "sha256": "052e4fc0bc88e2a5",
+            "redacted": false
+          },
+          "promptId": {
+            "type": "string",
+            "length": 14,
+            "sha256": "aec91f768a20ee5d",
+            "redacted": false
+          },
+          "input": {
+            "type": "object",
+            "keys": [
+              "grade",
+              "orderId",
+              "subject",
+              "uploadedFileName",
+              "uploadedFileSha256",
+              "uploadedTextExcerpt"
+            ],
+            "fields": {
+              "orderId": {
+                "type": "string",
+                "length": 29,
+                "sha256": "af7f65126910fce4",
+                "redacted": false
+              },
+              "grade": {
+                "type": "string",
+                "length": 13,
+                "sha256": "4784282eccdf2807",
+                "redacted": false
+              },
+              "subject": {
+                "type": "string",
+                "length": 11,
+                "sha256": "c90e097e46db1931",
+                "redacted": false
+              },
+              "uploadedFileName": {
+                "type": "string",
+                "length": 34,
+                "sha256": "873195951ca299fd",
+                "redacted": false
+              },
+              "uploadedFileSha256": {
+                "type": "string",
+                "length": 64,
+                "sha256": "6084a52a13767fdf",
+                "redacted": false
+              },
+              "uploadedTextExcerpt": {
+                "type": "string",
+                "length": 1452,
+                "sha256": "e534b93ded4cfe4a",
+                "redacted": false
+              }
+            }
+          }
+        }
+      },
+      "responseSummary": {
+        "type": "object",
+        "keys": [
+          "previewDecision"
+        ],
+        "fields": {
+          "previewDecision": {
+            "type": "object",
+            "keys": [
+              "cta",
+              "lockedModules",
+              "summary",
+              "visibleModules"
+            ],
+            "fields": {
+              "summary": {
+                "type": "string",
+                "length": 557,
+                "sha256": "9412510c617d8eb0",
+                "redacted": false
+              },
+              "visibleModules": {
+                "type": "array",
+                "length": 3,
+                "items": [
+                  {
+                    "type": "object",
+                    "keys": [
+                      "content",
+                      "title"
+                    ],
+                    "fields": {
+                      "title": {
+                        "type": "string",
+                        "length": 18,
+                        "sha256": "c4e9ab78099c7c61",
+                        "redacted": false
+                      },
+                      "content": {
+                        "type": "string",
+                        "length": 428,
+                        "sha256": "b1706aad01f6272f",
+                        "redacted": false
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "keys": [
+                      "content",
+                      "title"
+                    ],
+                    "fields": {
+                      "title": {
+                        "type": "string",
+                        "length": 20,
+                        "sha256": "8dd49eb212371604",
+                        "redacted": false
+                      },
+                      "content": {
+                        "type": "string",
+                        "length": 355,
+                        "sha256": "68ad3af4e2819592",
+                        "redacted": false
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "keys": [
+                      "content",
+                      "title"
+                    ],
+                    "fields": {
+                      "title": {
+                        "type": "string",
+                        "length": 21,
+                        "sha256": "b2ea01c3f009100a",
+                        "redacted": false
+                      },
+                      "content": {
+                        "type": "string",
+                        "length": 289,
+                        "sha256": "895c750a8c5acdbf",
+                        "redacted": false
+                      }
+                    }
+                  }
+                ]
+              },
+              "lockedModules": {
+                "type": "array",
+                "length": 3,
+                "items": [
+                  {
+                    "type": "string",
+                    "length": 31,
+                    "sha256": "46fd2d4e47fa45ce",
+                    "redacted": false
+                  },
+                  {
+                    "type": "string",
+                    "length": 37,
+                    "sha256": "01dadf446accbf7b",
+                    "redacted": false
+                  },
+                  {
+                    "type": "string",
+                    "length": 34,
+                    "sha256": "9ad313125575a677",
+                    "redacted": false
+                  }
+                ]
+              },
+              "cta": {
+                "type": "string",
+                "length": 183,
+                "sha256": "202a2b182bd009ee",
+                "redacted": false
+              }
+            }
+          }
+        }
+      },
+      "status": "SUCCESS",
+      "errorCode": null,
+      "latencyMs": 13560,
+      "costEstimateCents": 0,
+      "model": "deepseek-v4-pro",
+      "providerId": "deepseek",
+      "localOnly": false,
+      "createdAt": "1970-01-01T00:00:00.000Z",
+      "updatedAt": "2026-05-25T13:54:08.603Z"
+    },
+    {
+      "id": "trace-real-llm-basic-02-0002",
+      "traceId": "trace-real-llm-basic-02-0002",
+      "promptId": "LLM-BASIC-02",
+      "modelAdapter": "deepseek-openai-compatible-real",
+      "requestSummary": {
+        "type": "object",
+        "keys": [
+          "baseUrl",
+          "input",
+          "model",
+          "promptId",
+          "providerId"
+        ],
+        "fields": {
+          "providerId": {
+            "type": "string",
+            "length": 8,
+            "sha256": "6f7ac1823da81d2e",
+            "redacted": false
+          },
+          "baseUrl": {
+            "type": "string",
+            "length": 24,
+            "sha256": "a34e2a4708ed1c61",
+            "redacted": false
+          },
+          "model": {
+            "type": "string",
+            "length": 15,
+            "sha256": "052e4fc0bc88e2a5",
+            "redacted": false
+          },
+          "promptId": {
+            "type": "string",
+            "length": 12,
+            "sha256": "dd5050c1365a9831",
+            "redacted": false
+          },
+          "input": {
+            "type": "object",
+            "keys": [
+              "grade",
+              "orderId",
+              "previewModuleCount",
+              "subject",
+              "uploadedFileName",
+              "uploadedFileSha256",
+              "uploadedTextExcerpt",
+              "weaknesses"
+            ],
+            "fields": {
+              "orderId": {
+                "type": "string",
+                "length": 29,
+                "sha256": "af7f65126910fce4",
+                "redacted": false
+              },
+              "grade": {
+                "type": "string",
+                "length": 13,
+                "sha256": "4784282eccdf2807",
+                "redacted": false
+              },
+              "subject": {
+                "type": "string",
+                "length": 11,
+                "sha256": "c90e097e46db1931",
+                "redacted": false
+              },
+              "uploadedFileName": {
+                "type": "string",
+                "length": 34,
+                "sha256": "873195951ca299fd",
+                "redacted": false
+              },
+              "uploadedFileSha256": {
+                "type": "string",
+                "length": 64,
+                "sha256": "6084a52a13767fdf",
+                "redacted": false
+              },
+              "uploadedTextExcerpt": {
+                "type": "string",
+                "length": 1452,
+                "sha256": "e534b93ded4cfe4a",
+                "redacted": false
+              },
+              "previewModuleCount": {
+                "type": "number",
+                "value": 3
+              },
+              "weaknesses": {
+                "type": "array",
+                "length": 3,
+                "items": [
+                  {
+                    "type": "string",
+                    "length": 18,
+                    "sha256": "c4e9ab78099c7c61",
+                    "redacted": false
+                  },
+                  {
+                    "type": "string",
+                    "length": 20,
+                    "sha256": "8dd49eb212371604",
+                    "redacted": false
+                  },
+                  {
+                    "type": "string",
+                    "length": 21,
+                    "sha256": "b2ea01c3f009100a",
+                    "redacted": false
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "responseSummary": {
+        "type": "object",
+        "keys": [
+          "basicDecision"
+        ],
+        "fields": {
+          "basicDecision": {
+            "type": "object",
+            "keys": [
+              "advice",
+              "lossPoints",
+              "quality",
+              "reportTitle",
+              "scoreLevel",
+              "summary",
+              "upgradeCta",
+              "weaknesses"
+            ],
+            "fields": {
+              "reportTitle": {
+                "type": "string",
+                "length": 33,
+                "sha256": "13c256575d0b3f8f",
+                "redacted": false
+              },
+              "summary": {
+                "type": "string",
+                "length": 201,
+                "sha256": "93d5f378ade38bc4",
+                "redacted": false
+              },
+              "scoreLevel": {
+                "type": "string",
+                "length": 1,
+                "sha256": "df7e70e5021544f4",
+                "redacted": false
+              },
+              "quality": {
+                "type": "object",
+                "keys": [
+                  "confidence",
+                  "recognized",
+                  "uploadQuality"
+                ],
+                "fields": {
+                  "recognized": {
+                    "type": "boolean",
+                    "value": true
+                  },
+                  "uploadQuality": {
+                    "type": "string",
+                    "length": 5,
+                    "sha256": "913a4cb91be20332",
+                    "redacted": false
+                  },
+                  "confidence": {
+                    "type": "number",
+                    "value": 0.95
+                  }
+                }
+              },
+              "lossPoints": {
+                "type": "array",
+                "length": 4,
+                "items": [
+                  {
+                    "type": "string",
+                    "length": 112,
+                    "sha256": "be24fc9c98648dfa",
+                    "redacted": false
+                  },
+                  {
+                    "type": "string",
+                    "length": 77,
+                    "sha256": "a6a18c6be371b006",
+                    "redacted": false
+                  },
+                  {
+                    "type": "string",
+                    "length": 62,
+                    "sha256": "ea181498c44aca06",
+                    "redacted": false
+                  },
+                  {
+                    "type": "string",
+                    "length": 60,
+                    "sha256": "d8d954617a6cdcc6",
+                    "redacted": false
+                  }
+                ]
+              },
+              "weaknesses": {
+                "type": "array",
+                "length": 4,
+                "items": [
+                  {
+                    "type": "string",
+                    "length": 63,
+                    "sha256": "93313a6982175c16",
+                    "redacted": false
+                  },
+                  {
+                    "type": "string",
+                    "length": 44,
+                    "sha256": "9f65de4850660597",
+                    "redacted": false
+                  },
+                  {
+                    "type": "string",
+                    "length": 57,
+                    "sha256": "fb181425108fc1ca",
+                    "redacted": false
+                  },
+                  {
+                    "type": "string",
+                    "length": 48,
+                    "sha256": "7dcd5035789cdfd6",
+                    "redacted": false
+                  }
+                ]
+              },
+              "advice": {
+                "type": "array",
+                "length": 4,
+                "items": [
+                  {
+                    "type": "string",
+                    "length": 91,
+                    "sha256": "070e6510ab38ff22",
+                    "redacted": false
+                  },
+                  {
+                    "type": "string",
+                    "length": 74,
+                    "sha256": "350d46821201970a",
+                    "redacted": false
+                  },
+                  {
+                    "type": "string",
+                    "length": 64,
+                    "sha256": "5c53c470ea025799",
+                    "redacted": false
+                  },
+                  {
+                    "type": "string",
+                    "length": 76,
+                    "sha256": "dea3dd2162983be2",
+                    "redacted": false
+                  }
+                ]
+              },
+              "upgradeCta": {
+                "type": "string",
+                "length": 67,
+                "sha256": "69feee5a9d28635e",
+                "redacted": false
+              }
+            }
+          }
+        }
+      },
+      "status": "SUCCESS",
+      "errorCode": null,
+      "latencyMs": 8606,
+      "costEstimateCents": 0,
+      "model": "deepseek-v4-pro",
+      "providerId": "deepseek",
+      "localOnly": false,
+      "createdAt": "1970-01-01T00:00:00.000Z",
+      "updatedAt": "2026-05-25T13:54:17.220Z"
+    },
+    {
+      "id": "trace-real-llm-full-03-0003",
+      "traceId": "trace-real-llm-full-03-0003",
+      "promptId": "LLM-FULL-03",
+      "modelAdapter": "deepseek-openai-compatible-real",
+      "requestSummary": {
+        "type": "object",
+        "keys": [
+          "baseUrl",
+          "input",
+          "model",
+          "promptId",
+          "providerId"
+        ],
+        "fields": {
+          "providerId": {
+            "type": "string",
+            "length": 8,
+            "sha256": "6f7ac1823da81d2e",
+            "redacted": false
+          },
+          "baseUrl": {
+            "type": "string",
+            "length": 24,
+            "sha256": "a34e2a4708ed1c61",
+            "redacted": false
+          },
+          "model": {
+            "type": "string",
+            "length": 15,
+            "sha256": "052e4fc0bc88e2a5",
+            "redacted": false
+          },
+          "promptId": {
+            "type": "string",
+            "length": 11,
+            "sha256": "38a823d261b05c34",
+            "redacted": false
+          },
+          "input": {
+            "type": "object",
+            "keys": [
+              "basicSummary",
+              "grade",
+              "orderId",
+              "subject",
+              "uploadedFileName",
+              "uploadedFileSha256",
+              "uploadedTextExcerpt"
+            ],
+            "fields": {
+              "orderId": {
+                "type": "string",
+                "length": 29,
+                "sha256": "af7f65126910fce4",
+                "redacted": false
+              },
+              "grade": {
+                "type": "string",
+                "length": 13,
+                "sha256": "4784282eccdf2807",
+                "redacted": false
+              },
+              "subject": {
+                "type": "string",
+                "length": 11,
+                "sha256": "c90e097e46db1931",
+                "redacted": false
+              },
+              "uploadedFileName": {
+                "type": "string",
+                "length": 34,
+                "sha256": "873195951ca299fd",
+                "redacted": false
+              },
+              "uploadedFileSha256": {
+                "type": "string",
+                "length": 64,
+                "sha256": "6084a52a13767fdf",
+                "redacted": false
+              },
+              "uploadedTextExcerpt": {
+                "type": "string",
+                "length": 1452,
+                "sha256": "e534b93ded4cfe4a",
+                "redacted": false
+              },
+              "basicSummary": {
+                "type": "string",
+                "length": 201,
+                "sha256": "93d5f378ade38bc4",
+                "redacted": false
+              }
+            }
+          }
+        }
+      },
+      "responseSummary": {
+        "type": "object",
+        "keys": [
+          "fullReport"
+        ],
+        "fields": {
+          "fullReport": {
+            "type": "object",
+            "keys": [
+              "basicSummary",
+              "complianceNotice",
+              "modules",
+              "orderId",
+              "reportTitle",
+              "summary"
+            ],
+            "fields": {
+              "reportTitle": {
+                "type": "string",
+                "length": 38,
+                "sha256": "152c3469ecb5126b",
+                "redacted": false
+              },
+              "orderId": {
+                "type": "string",
+                "length": 29,
+                "sha256": "af7f65126910fce4",
+                "redacted": false
+              },
+              "summary": {
+                "type": "string",
+                "length": 269,
+                "sha256": "8c7a67280690de0a",
+                "redacted": false
+              },
+              "modules": {
+                "type": "array",
+                "length": 4,
+                "items": [
+                  {
+                    "type": "object",
+                    "keys": [
+                      "content",
+                      "id",
+                      "title"
+                    ],
+                    "fields": {
+                      "id": {
+                        "type": "string",
+                        "length": 2,
+                        "sha256": "c75de8c1b7c3ae52",
+                        "redacted": false
+                      },
+                      "title": {
+                        "type": "string",
+                        "length": 52,
+                        "sha256": "7e133076301f0916",
+                        "redacted": false
+                      },
+                      "content": {
+                        "type": "string",
+                        "length": 426,
+                        "sha256": "8d68917aeed77a23",
+                        "redacted": false
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "keys": [
+                      "content",
+                      "id",
+                      "title"
+                    ],
+                    "fields": {
+                      "id": {
+                        "type": "string",
+                        "length": 2,
+                        "sha256": "bee98bf120e89063",
+                        "redacted": false
+                      },
+                      "title": {
+                        "type": "string",
+                        "length": 33,
+                        "sha256": "cd27f5ce4242df98",
+                        "redacted": false
+                      },
+                      "content": {
+                        "type": "string",
+                        "length": 355,
+                        "sha256": "a2bcb751058eb199",
+                        "redacted": false
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "keys": [
+                      "content",
+                      "id",
+                      "title"
+                    ],
+                    "fields": {
+                      "id": {
+                        "type": "string",
+                        "length": 2,
+                        "sha256": "58e2791934fdd9cf",
+                        "redacted": false
+                      },
+                      "title": {
+                        "type": "string",
+                        "length": 36,
+                        "sha256": "4cfa9f57765f68c3",
+                        "redacted": false
+                      },
+                      "content": {
+                        "type": "string",
+                        "length": 245,
+                        "sha256": "f85d4ce99655e0d7",
+                        "redacted": false
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "keys": [
+                      "content",
+                      "id",
+                      "title"
+                    ],
+                    "fields": {
+                      "id": {
+                        "type": "string",
+                        "length": 2,
+                        "sha256": "112f2dfa31205df3",
+                        "redacted": false
+                      },
+                      "title": {
+                        "type": "string",
+                        "length": 30,
+                        "sha256": "64e34360f5f41613",
+                        "redacted": false
+                      },
+                      "content": {
+                        "type": "string",
+                        "length": 286,
+                        "sha256": "89232ca1932c7f38",
+                        "redacted": false
+                      }
+                    }
+                  }
+                ]
+              },
+              "basicSummary": {
+                "type": "string",
+                "length": 227,
+                "sha256": "1af06ba676cd43a1",
+                "redacted": false
+              },
+              "complianceNotice": {
+                "type": "string",
+                "length": 144,
+                "sha256": "d897d8056bc4fb0b",
+                "redacted": false
+              }
+            }
+          }
+        }
+      },
+      "status": "SUCCESS",
+      "errorCode": null,
+      "latencyMs": 15789,
+      "costEstimateCents": 0,
+      "model": "deepseek-v4-pro",
+      "providerId": "deepseek",
+      "localOnly": false,
+      "createdAt": "1970-01-01T00:00:00.000Z",
+      "updatedAt": "2026-05-25T13:54:33.017Z"
+    },
+    {
+      "id": "trace-real-llm-question-04-0004",
+      "traceId": "trace-real-llm-question-04-0004",
+      "promptId": "LLM-QUESTION-04",
+      "modelAdapter": "deepseek-openai-compatible-real",
+      "requestSummary": {
+        "type": "object",
+        "keys": [
+          "baseUrl",
+          "input",
+          "model",
+          "promptId",
+          "providerId"
+        ],
+        "fields": {
+          "providerId": {
+            "type": "string",
+            "length": 8,
+            "sha256": "6f7ac1823da81d2e",
+            "redacted": false
+          },
+          "baseUrl": {
+            "type": "string",
+            "length": 24,
+            "sha256": "a34e2a4708ed1c61",
+            "redacted": false
+          },
+          "model": {
+            "type": "string",
+            "length": 15,
+            "sha256": "052e4fc0bc88e2a5",
+            "redacted": false
+          },
+          "promptId": {
+            "type": "string",
+            "length": 15,
+            "sha256": "f13d7783c0557cf6",
+            "redacted": false
+          },
+          "input": {
+            "type": "object",
+            "keys": [
+              "grade",
+              "orderId",
+              "reportSummary",
+              "subject",
+              "uploadedFileName",
+              "uploadedFileSha256",
+              "uploadedTextExcerpt"
+            ],
+            "fields": {
+              "orderId": {
+                "type": "string",
+                "length": 29,
+                "sha256": "af7f65126910fce4",
+                "redacted": false
+              },
+              "grade": {
+                "type": "string",
+                "length": 13,
+                "sha256": "4784282eccdf2807",
+                "redacted": false
+              },
+              "subject": {
+                "type": "string",
+                "length": 11,
+                "sha256": "c90e097e46db1931",
+                "redacted": false
+              },
+              "uploadedFileName": {
+                "type": "string",
+                "length": 34,
+                "sha256": "873195951ca299fd",
+                "redacted": false
+              },
+              "uploadedFileSha256": {
+                "type": "string",
+                "length": 64,
+                "sha256": "6084a52a13767fdf",
+                "redacted": false
+              },
+              "uploadedTextExcerpt": {
+                "type": "string",
+                "length": 1452,
+                "sha256": "e534b93ded4cfe4a",
+                "redacted": false
+              },
+              "reportSummary": {
+                "type": "string",
+                "length": 269,
+                "sha256": "8c7a67280690de0a",
+                "redacted": false
+              }
+            }
+          }
+        }
+      },
+      "responseSummary": {
+        "type": "object",
+        "keys": [
+          "questions"
+        ],
+        "fields": {
+          "questions": {
+            "type": "array",
+            "length": 3,
+            "items": [
+              {
+                "type": "object",
+                "keys": [
+                  "correctAnswer",
+                  "diagnosis",
+                  "explanationSummary",
+                  "knowledgePoint",
+                  "masteryStatus",
+                  "originalQuestion",
+                  "studentAnswer",
+                  "title"
+                ],
+                "fields": {
+                  "title": {
+                    "type": "string",
+                    "length": 10,
+                    "sha256": "02ecd63e4f1632ff",
+                    "redacted": false
+                  },
+                  "originalQuestion": {
+                    "type": "string",
+                    "length": 171,
+                    "sha256": "b71a6704c0f3f6c9",
+                    "redacted": false
+                  },
+                  "studentAnswer": {
+                    "type": "string",
+                    "length": 123,
+                    "sha256": "6bb6ebedca088119",
+                    "redacted": false
+                  },
+                  "correctAnswer": {
+                    "type": "string",
+                    "length": 155,
+                    "sha256": "ebcbd130c73eb0e9",
+                    "redacted": false
+                  },
+                  "knowledgePoint": {
+                    "type": "string",
+                    "length": 46,
+                    "sha256": "47e76185eb34a3b4",
+                    "redacted": false
+                  },
+                  "diagnosis": {
+                    "type": "string",
+                    "length": 165,
+                    "sha256": "1dab32bfdd55cd54",
+                    "redacted": false
+                  },
+                  "explanationSummary": {
+                    "type": "string",
+                    "length": 110,
+                    "sha256": "5a84059d0455d2e0",
+                    "redacted": false
+                  },
+                  "masteryStatus": {
+                    "type": "string",
+                    "length": 18,
+                    "sha256": "3a207c6b5ad3d780",
+                    "redacted": false
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "keys": [
+                  "correctAnswer",
+                  "diagnosis",
+                  "explanationSummary",
+                  "knowledgePoint",
+                  "masteryStatus",
+                  "originalQuestion",
+                  "studentAnswer",
+                  "title"
+                ],
+                "fields": {
+                  "title": {
+                    "type": "string",
+                    "length": 10,
+                    "sha256": "6f6cb2379d5b20df",
+                    "redacted": false
+                  },
+                  "originalQuestion": {
+                    "type": "string",
+                    "length": 80,
+                    "sha256": "fe348b8ed284d236",
+                    "redacted": false
+                  },
+                  "studentAnswer": {
+                    "type": "string",
+                    "length": 87,
+                    "sha256": "2928dd10c5c57daa",
+                    "redacted": false
+                  },
+                  "correctAnswer": {
+                    "type": "string",
+                    "length": 118,
+                    "sha256": "d4d44cab5dbc1f16",
+                    "redacted": false
+                  },
+                  "knowledgePoint": {
+                    "type": "string",
+                    "length": 51,
+                    "sha256": "a778fba1343ef99c",
+                    "redacted": false
+                  },
+                  "diagnosis": {
+                    "type": "string",
+                    "length": 160,
+                    "sha256": "862e0d85763cfc7e",
+                    "redacted": false
+                  },
+                  "explanationSummary": {
+                    "type": "string",
+                    "length": 91,
+                    "sha256": "506de620398d4c41",
+                    "redacted": false
+                  },
+                  "masteryStatus": {
+                    "type": "string",
+                    "length": 17,
+                    "sha256": "4f4eb66adacf747e",
+                    "redacted": false
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "keys": [
+                  "correctAnswer",
+                  "diagnosis",
+                  "explanationSummary",
+                  "knowledgePoint",
+                  "masteryStatus",
+                  "originalQuestion",
+                  "studentAnswer",
+                  "title"
+                ],
+                "fields": {
+                  "title": {
+                    "type": "string",
+                    "length": 10,
+                    "sha256": "0382a3d975fd0415",
+                    "redacted": false
+                  },
+                  "originalQuestion": {
+                    "type": "string",
+                    "length": 54,
+                    "sha256": "5ab6dcf82159f818",
+                    "redacted": false
+                  },
+                  "studentAnswer": {
+                    "type": "string",
+                    "length": 49,
+                    "sha256": "f0054920c5c16336",
+                    "redacted": false
+                  },
+                  "correctAnswer": {
+                    "type": "string",
+                    "length": 51,
+                    "sha256": "67f4fba2e5697987",
+                    "redacted": false
+                  },
+                  "knowledgePoint": {
+                    "type": "string",
+                    "length": 58,
+                    "sha256": "8d14f3cf38abaf3e",
+                    "redacted": false
+                  },
+                  "diagnosis": {
+                    "type": "string",
+                    "length": 66,
+                    "sha256": "bbba955e690f1070",
+                    "redacted": false
+                  },
+                  "explanationSummary": {
+                    "type": "string",
+                    "length": 85,
+                    "sha256": "1f2c219ec34cbcc0",
+                    "redacted": false
+                  },
+                  "masteryStatus": {
+                    "type": "string",
+                    "length": 18,
+                    "sha256": "3a207c6b5ad3d780",
+                    "redacted": false
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "status": "SUCCESS",
+      "errorCode": null,
+      "latencyMs": 12108,
+      "costEstimateCents": 0,
+      "model": "deepseek-v4-pro",
+      "providerId": "deepseek",
+      "localOnly": false,
+      "createdAt": "1970-01-01T00:00:00.000Z",
+      "updatedAt": "2026-05-25T13:54:45.128Z"
+    }
+  ],
+  "payments": [
+    {
+      "id": "payment-basic-4ef6c03d89e0",
+      "orderId": "order-real-llm-20260525135355",
+      "ownerId": "local-user-scoremap-t03",
+      "paymentType": "basic",
+      "channel": "local-wechat-pay-mock",
+      "amountCents": 100,
+      "status": "paid",
+      "mockTransactionId": "tx-payment-basic-4ef6c03d89e0",
+      "callbackCount": 1,
+      "createdAt": "2026-05-25T13:54:08.609Z",
+      "updatedAt": "2026-05-25T13:54:08.610Z",
+      "paidAt": "1970-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "payment-full-a3b394bbd974",
+      "orderId": "order-real-llm-20260525135355",
+      "ownerId": "local-user-scoremap-t03",
+      "paymentType": "full",
+      "channel": "local-wechat-pay-mock",
+      "amountCents": 990,
+      "status": "paid",
+      "mockTransactionId": "tx-payment-full-a3b394bbd974",
+      "callbackCount": 1,
+      "createdAt": "2026-05-25T13:54:17.224Z",
+      "updatedAt": "2026-05-25T13:54:17.226Z",
+      "paidAt": "1970-01-01T00:00:00.000Z"
+    }
+  ],
+  "report_exports": [
+    {
+      "id": "report-export-order-real-llm-20260525135355",
+      "orderId": "order-real-llm-20260525135355",
+      "ownerId": "local-user-scoremap-t03",
+      "status": "ready",
+      "format": "pdf-local-text",
+      "fileUrl": "local-report-export://local-user-scoremap-t03/order-real-llm-20260525135355/report-export-order-real-llm-20260525135355.txt",
+      "filePath": "D:\\lyh\\agent\\agent-frame\\scoremap\\docs\\auto-execute\\evidence\\real-llm-student-upload\\local-report-exports\\local-user-scoremap-t03\\order-real-llm-20260525135355\\report-export-order-real-llm-20260525135355.txt",
+      "byteLength": 2148,
+      "createdAt": "2026-05-25T13:54:45.145Z",
+      "updatedAt": "2026-05-25T13:54:45.145Z"
+    }
+  ],
+  "feedbacks": []
+}

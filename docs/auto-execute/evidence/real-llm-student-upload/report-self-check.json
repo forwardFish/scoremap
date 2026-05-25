@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "checkedAt": "2026-05-25T13:54:45.213Z",
+  "report": "docs/REAL_LLM_STUDENT_UPLOAD_ACCEPTANCE_REPORT.md",
+  "machineEvidence": "docs/auto-execute/evidence/real-llm-student-upload/student-upload-real-llm-summary.json",
+  "checkedEvidence": [
+    "docs/auto-execute/evidence/real-llm-student-upload/student-upload-real-llm-summary.json",
+    "docs/auto-execute/evidence/real-llm-student-upload/real-llm-db.json",
+    "docs/auto-execute/evidence/real-llm-student-upload/input/student-answer-sheet-simulated.txt",
+    "docs/auto-execute/evidence/real-llm-student-upload/local-report-exports/local-user-scoremap-t03/order-real-llm-20260525135355/report-export-order-real-llm-20260525135355.txt"
+  ],
+  "failures": []
+}

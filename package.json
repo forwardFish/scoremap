@@ -8,6 +8,7 @@
     "e2e:owner": "node --test --test-isolation=none tests/e2e/owner-click-flow.test.js",
     "e2e:api-db": "node --test --test-isolation=none --test-concurrency=1 tests/api/api-db-readback-e2e.test.js",
     "visual:scoremap": "node tools/ui-visual/run-scoremap-visual.mjs",
+    "acceptance:real-llm-upload": "node scripts/acceptance/run-real-llm-student-upload.mjs && node scripts/acceptance/verify-real-llm-student-upload-report.mjs",
     "build": "node scripts/build-local-runtime.mjs"
   },
   "engines": {

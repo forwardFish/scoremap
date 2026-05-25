@@ -5,6 +5,9 @@
     upload_files: new Map(),
     ai_analysis_tasks: new Map(),
     diagnosis_decisions: new Map(),
+    diagnosis_questions: new Map(),
+    question_interactions: new Map(),
+    ai_model_traces: new Map(),
     payments: new Map(),
     report_exports: new Map(),
     feedbacks: new Map()

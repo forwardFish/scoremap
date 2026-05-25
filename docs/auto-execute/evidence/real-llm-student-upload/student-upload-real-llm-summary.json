@@ -1,0 +1,241 @@
+{
+  "schemaVersion": "1.0",
+  "status": "PASS",
+  "generatedAt": "2026-05-25T13:54:45.147Z",
+  "input": {
+    "sourcePath": "D:\\lyh\\agent\\agent-frame\\scoremap\\docs\\auto-execute\\fixtures\\student-answer-sheet-simulated.txt",
+    "copiedEvidencePath": "docs/auto-execute/evidence/real-llm-student-upload/input/student-answer-sheet-simulated.txt",
+    "fileName": "student-answer-sheet-simulated.txt",
+    "byteLength": 1452,
+    "sha256": "e534b93ded4cfe4a0b9db7d443cbb0850e6a8fc070d5652316acac6b8736378a"
+  },
+  "model": {
+    "providerId": "deepseek",
+    "baseUrl": "https://api.deepseek.com",
+    "model": "deepseek-v4-pro",
+    "keyPresent": true,
+    "keySource": "printersheet-server-env",
+    "keyRedacted": true
+  },
+  "order": {
+    "id": "order-real-llm-20260525135355",
+    "ownerId": "local-user-scoremap-t03",
+    "source": "real-llm-student-upload",
+    "grade": "middle-school",
+    "subject": "mathematics",
+    "examType": "answer-sheet-diagnosis",
+    "materialType": "student-answer-sheet-text",
+    "status": "full_report_ready",
+    "accessLevel": "full",
+    "orderToken": "local-order-token-order-real-llm-20260525135355",
+    "createdAt": "2026-05-25T13:53:55.036Z",
+    "updatedAt": "2026-05-25T13:54:45.141Z",
+    "uploadedCount": 1,
+    "previewTaskId": "task-preview-order-real-llm-20260525135355",
+    "previewDecisionId": "decision-order-real-llm-20260525135355-preview",
+    "fullTaskId": "task-full-order-real-llm-20260525135355",
+    "questionInteractionQuotaTotal": 10,
+    "questionInteractionQuotaUsed": 0,
+    "questionInteractionQuotaRemaining": 10,
+    "fullDecisionId": "decision-order-real-llm-20260525135355-full",
+    "savedReport": true,
+    "savedAt": "1970-01-01T00:00:00.000Z"
+  },
+  "upload": {
+    "id": "upload-real-student-answer-sheet",
+    "ownerId": "local-user-scoremap-t03",
+    "orderId": "order-real-llm-20260525135355",
+    "originalName": "student-answer-sheet-simulated.txt",
+    "mimeType": "text/plain; charset=utf-8",
+    "storagePath": "D:\\lyh\\agent\\agent-frame\\scoremap\\docs\\auto-execute\\evidence\\real-llm-student-upload\\local-cloud\\local-user-scoremap-t03\\order-real-llm-20260525135355\\upload-real-student-answer-sheet-student-answer-sheet-simulated.txt",
+    "cloudPath": "local-mock://local-user-scoremap-t03/order-real-llm-20260525135355/upload-real-student-answer-sheet-student-answer-sheet-simulated.txt",
+    "fileId": "local-cloud-file-upload-real-student-answer-sheet",
+    "size": 1452,
+    "adapter": "local-tencent-cloud-mock",
+    "createdAt": "2026-05-25T13:53:55.039Z",
+    "updatedAt": "2026-05-25T13:53:55.040Z",
+    "authorizationAccepted": true,
+    "quality": "normal",
+    "localOnly": true
+  },
+  "report": {
+    "title": "Scoremap Student Answer Sheet Analysis",
+    "summary": "The student demonstrates a good understanding of core mathematical concepts but needs to improve in providing complete justifications, stating necessary conditions, and verifying final answers. The report highlights specific areas for improvement across four questions.",
+    "moduleCount": 4,
+    "wrongQuestionCardCount": 3,
+    "savedReport": {
+      "saved": true,
+      "orderId": "order-real-llm-20260525135355",
+      "savedAt": "1970-01-01T00:00:00.000Z"
+    },
+    "export": {
+      "exportId": "report-export-order-real-llm-20260525135355",
+      "fileUrl": "local-report-export://local-user-scoremap-t03/order-real-llm-20260525135355/report-export-order-real-llm-20260525135355.txt",
+      "readback": {
+        "status": "ready",
+        "exportId": "report-export-order-real-llm-20260525135355",
+        "orderId": "order-real-llm-20260525135355",
+        "fileUrl": "local-report-export://local-user-scoremap-t03/order-real-llm-20260525135355/report-export-order-real-llm-20260525135355.txt",
+        "byteLength": 2148
+      }
+    }
+  },
+  "traces": [
+    {
+      "traceId": "trace-real-llm-preview-01-0001",
+      "promptId": "LLM-PREVIEW-01",
+      "modelAdapter": "deepseek-openai-compatible-real",
+      "model": "deepseek-v4-pro",
+      "providerId": "deepseek",
+      "status": "SUCCESS",
+      "errorCode": null,
+      "localOnly": false,
+      "latencyMs": 13560
+    },
+    {
+      "traceId": "trace-real-llm-basic-02-0002",
+      "promptId": "LLM-BASIC-02",
+      "modelAdapter": "deepseek-openai-compatible-real",
+      "model": "deepseek-v4-pro",
+      "providerId": "deepseek",
+      "status": "SUCCESS",
+      "errorCode": null,
+      "localOnly": false,
+      "latencyMs": 8606
+    },
+    {
+      "traceId": "trace-real-llm-full-03-0003",
+      "promptId": "LLM-FULL-03",
+      "modelAdapter": "deepseek-openai-compatible-real",
+      "model": "deepseek-v4-pro",
+      "providerId": "deepseek",
+      "status": "SUCCESS",
+      "errorCode": null,
+      "localOnly": false,
+      "latencyMs": 15789
+    },
+    {
+      "traceId": "trace-real-llm-question-04-0004",
+      "promptId": "LLM-QUESTION-04",
+      "modelAdapter": "deepseek-openai-compatible-real",
+      "model": "deepseek-v4-pro",
+      "providerId": "deepseek",
+      "status": "SUCCESS",
+      "errorCode": null,
+      "localOnly": false,
+      "latencyMs": 12108
+    }
+  ],
+  "checks": {
+    "requiredPromptIds": [
+      "LLM-PREVIEW-01",
+      "LLM-BASIC-02",
+      "LLM-FULL-03",
+      "LLM-QUESTION-04"
+    ],
+    "missingPrompts": [],
+    "failedTraceCount": 0,
+    "modelMismatchCount": 0,
+    "secretLeak": false,
+    "questionCountAtLeastTwo": true,
+    "dbReadback": {
+      "order": true,
+      "upload": true,
+      "fullDecision": true,
+      "export": true
+    }
+  },
+  "evidence": {
+    "machineSummary": "docs/auto-execute/evidence/real-llm-student-upload/student-upload-real-llm-summary.json",
+    "report": "docs/REAL_LLM_STUDENT_UPLOAD_ACCEPTANCE_REPORT.md",
+    "databaseSnapshot": "docs/auto-execute/evidence/real-llm-student-upload/real-llm-db.json",
+    "copiedInput": "docs/auto-execute/evidence/real-llm-student-upload/input/student-answer-sheet-simulated.txt",
+    "exportedReport": "docs/auto-execute/evidence/real-llm-student-upload/local-report-exports/local-user-scoremap-t03/order-real-llm-20260525135355/report-export-order-real-llm-20260525135355.txt"
+  },
+  "steps": [
+    {
+      "name": "createOrder",
+      "statusCode": 201,
+      "responseStatus": "created",
+      "readbackPresent": true
+    },
+    {
+      "name": "uploadFiles",
+      "statusCode": 200,
+      "responseStatus": "uploaded",
+      "readbackPresent": true
+    },
+    {
+      "name": "startPreviewAnalysis",
+      "statusCode": 200,
+      "responseStatus": "preview_done",
+      "readbackPresent": true
+    },
+    {
+      "name": "getPreviewDecision",
+      "statusCode": 200,
+      "responseStatus": "preview_done",
+      "readbackPresent": true
+    },
+    {
+      "name": "createBasicPayment",
+      "statusCode": 201,
+      "responseStatus": "pending",
+      "readbackPresent": true
+    },
+    {
+      "name": "basicPaymentCallback",
+      "statusCode": 200,
+      "responseStatus": "paid",
+      "readbackPresent": true
+    },
+    {
+      "name": "getBasicDecision",
+      "statusCode": 200,
+      "responseStatus": "basic_ready",
+      "readbackPresent": true
+    },
+    {
+      "name": "createFullPayment",
+      "statusCode": 201,
+      "responseStatus": "pending",
+      "readbackPresent": true
+    },
+    {
+      "name": "fullPaymentCallback",
+      "statusCode": 200,
+      "responseStatus": "paid",
+      "readbackPresent": true
+    },
+    {
+      "name": "generateFullReport",
+      "statusCode": 200,
+      "responseStatus": "full_report_ready",
+      "readbackPresent": true
+    },
+    {
+      "name": "getFullReport",
+      "statusCode": 200,
+      "responseStatus": "full_report_ready",
+      "readbackPresent": true
+    },
+    {
+      "name": "saveReport",
+      "statusCode": 200,
+      "responseStatus": "ok",
+      "readbackPresent": true
+    },
+    {
+      "name": "exportPdf",
+      "statusCode": 201,
+      "responseStatus": "ready",
+      "readbackPresent": true
+    },
+    {
+      "name": "getReportExport",
+      "statusCode": 200,
+      "responseStatus": "ready",
+      "readbackPresent": true
+    }
+  ]
+}
