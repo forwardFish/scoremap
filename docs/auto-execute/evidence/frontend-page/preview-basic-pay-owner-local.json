@@ -1,0 +1,47 @@
+{
+  "status": "PASS_WITH_LIMITATION",
+  "command": "npm test -- preview-basic-pay",
+  "requirementIds": [
+    "R05",
+    "R06",
+    "R15"
+  ],
+  "ownerJourneyEvidence": {
+    "status": "PASS_WITH_LIMITATION",
+    "scenarios": [
+      "O02",
+      "O03",
+      "O10"
+    ],
+    "clickPath": [
+      "/pages/preview/index",
+      "unlock-basic",
+      "/pages/basic-pay/index",
+      "confirm-basic-pay",
+      "/pages/basic-result/index"
+    ],
+    "apiEvidence": "docs/auto-execute/evidence/frontend-page/preview-basic-pay-api-db.json",
+    "dbEvidence": "docs/auto-execute/evidence/frontend-page/preview-basic-pay-api-db.json",
+    "limitation": "T09 records deterministic C05/C06 owner actions. Full rendered O01-O12 owner E2E remains assigned to T15."
+  },
+  "visualEvidence": {
+    "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+    "references": [
+      "docs/UI/小程序/分析报告.png",
+      "docs/UI/小程序/1元支付.png",
+      "docs/UI/小程序/stitch_codex_development_blueprints/1/screen.png"
+    ],
+    "expectedVisualCommand": "npm run visual:scoremap -- preview basic-pay",
+    "limitation": "T09 visual runner produces deterministic structural artifacts and metrics. Pixel-perfect screenshot capture remains assigned to T14."
+  },
+  "localOnly": {
+    "status": "PASS",
+    "localOnly": true,
+    "adapterMode": "local-mock",
+    "paymentAdapter": "local-wechat-pay-mock",
+    "cloudAdapter": "local-tencent-cloud-mock",
+    "databaseAdapter": "local-in-memory-db"
+  },
+  "forbiddenRemoteFindings": [],
+  "secretFindings": []
+}

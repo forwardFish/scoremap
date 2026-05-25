@@ -1,0 +1,25 @@
+{
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "command": "npm run visual:scoremap -- preview basic-pay",
+  "route": "/pages/basic-pay/index",
+  "reference": "docs/UI/小程序/1元支付.png",
+  "stitchReference": "docs/UI/小程序/stitch_codex_development_blueprints/1/screen.png",
+  "actual": "docs/auto-execute/evidence/frontend-page/visual/basic-pay/actual-basic-pay-structure.svg",
+  "diff": "docs/auto-execute/evidence/frontend-page/visual/basic-pay/diff-basic-pay-manual-review.svg",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "structuralChecks": {
+    "hasStepper": true,
+    "hasReportSummary": true,
+    "hasLockedModules": true,
+    "hasCompleteBasicPayButton": true,
+    "avoidsFullReportCopy": true
+  },
+  "pixelDiff": {
+    "status": "MANUAL_REVIEW_REQUIRED",
+    "ratio": null,
+    "reason": "This T09 runner produces deterministic structural visual evidence only; T14 owns full screenshot and pixelmatch harness."
+  }
+}

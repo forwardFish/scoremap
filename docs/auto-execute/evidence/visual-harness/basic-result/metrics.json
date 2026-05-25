@@ -1,0 +1,48 @@
+{
+  "id": "UI-C07",
+  "screen": "basic-result",
+  "route": "/pages/basic-result/index",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "reference": "docs/UI/小程序/ChatGPT Image 2026年5月22日 23_02_21.png",
+  "declaredReference": "docs/UI/小程序/ChatGPT Image 2026年5月22日 23_02_21.png",
+  "stitchReference": null,
+  "miniappActualAsset": "scoremap-miniapp/assets/reference/basic-result.jpg",
+  "actual": "docs/auto-execute/evidence/visual-harness/basic-result/actual.jpg",
+  "diff": "docs/auto-execute/evidence/visual-harness/basic-result/diff.svg",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "comparison": {
+    "method": "artifact-metadata-equivalence",
+    "reference": {
+      "exists": true,
+      "path": "docs/UI/小程序/ChatGPT Image 2026年5月22日 23_02_21.png",
+      "bytes": 1465696,
+      "sha256": "44e41e601d7e854898fbd53031a510cd8e0b029107ec11e8a48261f71f431aa1",
+      "extension": ".png"
+    },
+    "actual": {
+      "exists": true,
+      "path": "docs/auto-execute/evidence/visual-harness/basic-result/actual.jpg",
+      "bytes": 141463,
+      "sha256": "a5f545dce81d3afb0ab90f14376a211752f91de8b485a9d96aa1798f431314cf",
+      "extension": ".jpg"
+    },
+    "byteLengthDelta": 1324233,
+    "sha256Equal": false,
+    "rasterPixelRatio": null
+  },
+  "pixelDiff": {
+    "status": "MANUAL_REVIEW_REQUIRED",
+    "ratio": null,
+    "threshold": null,
+    "canClaimPixelPerfect": false,
+    "reason": "No live WeChat simulator raster is available in this local harness for this derived or missing-reference page."
+  },
+  "localOnly": {
+    "usesLocalFixtures": true,
+    "remoteNetworkCalls": 0
+  },
+  "knownGaps": []
+}

@@ -1,0 +1,27 @@
+{
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "command": "npm run visual:scoremap -- home",
+  "route": "/pages/index/index",
+  "reference": "docs/UI/小程序/首页.png",
+  "stitchReference": "docs/UI/小程序/stitch_codex_development_blueprints/ai_2/screen.png",
+  "actual": "docs/auto-execute/evidence/frontend-page/visual/home/actual-home-structure.svg",
+  "diff": "docs/auto-execute/evidence/frontend-page/visual/home/diff-home-manual-review.svg",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "structuralChecks": {
+    "hasLogoTitle": true,
+    "hasUploadCard": true,
+    "hasPrivacyAuthorization": true,
+    "hasSampleEntry": true,
+    "hasMyReportsEntry": true,
+    "hasRecentReports": true,
+    "hasBottomTabs": true
+  },
+  "pixelDiff": {
+    "status": "MANUAL_REVIEW_REQUIRED",
+    "ratio": null,
+    "reason": "This T07 runner produces deterministic structural visual evidence only; T14 owns full screenshot and pixelmatch harness."
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "command": "npm --prefix server test -- orders uploads preview",
+  "apiCalls": [
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders",
+      "responseStatus": 400,
+      "response": {
+        "status": "error",
+        "code": "VALIDATION_ERROR",
+        "message": "Missing required fields: grade, subject, examType, materialType"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/{orderId}/analysis-progress",
+      "responseStatus": 403,
+      "response": {
+        "status": "error",
+        "code": "ORDER_FORBIDDEN"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/{orderId}/uploads",
+      "responseStatus": 400,
+      "response": {
+        "status": "error",
+        "code": "VALIDATION_ERROR",
+        "message": "authorizationAccepted must be true before upload."
+      }
+    }
+  ],
+  "dbReadback": {
+    "orderStillOwned": {
+      "id": "order-2634ba5ce639",
+      "ownerId": "local-user-scoremap-t03",
+      "source": "T03-auth",
+      "grade": "grade-5",
+      "subject": "math",
+      "examType": "unit-test",
+      "materialType": "answer-sheet",
+      "status": "uploaded",
+      "accessLevel": "preview",
+      "orderToken": "local-order-token-order-2634ba5ce639",
+      "createdAt": "2026-05-25T02:55:22.687Z",
+      "updatedAt": "2026-05-25T02:55:22.696Z",
+      "uploadedCount": 1
+    }
+  }
+}

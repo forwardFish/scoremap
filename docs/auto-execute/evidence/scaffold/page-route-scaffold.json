@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "command": "npm test",
+  "launchRoute": "/pages/scaffold/index",
+  "routes": [
+    {
+      "id": "scaffold-home",
+      "path": "/pages/scaffold/index",
+      "controls": [
+        {
+          "id": "start-local-check",
+          "label": "Local scaffold check",
+          "action": {
+            "type": "api",
+            "method": "GET",
+            "path": "/api/scaffold/ping"
+          }
+        },
+        {
+          "id": "readback-local-db",
+          "label": "Local DB readback",
+          "action": {
+            "type": "api",
+            "method": "POST",
+            "path": "/api/scaffold/db-readback"
+          }
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "start-local-check",
+      "target": "/api/scaffold/ping",
+      "expected": "API call returns local adapter status."
+    },
+    {
+      "id": "readback-local-db",
+      "target": "/api/scaffold/db-readback",
+      "expected": "API call mutates and reads back diagnosis_orders locally."
+    }
+  ],
+  "pageJump": {
+    "from": "app launch",
+    "to": "/pages/scaffold/index",
+    "assertion": "launch route resolves to scaffold page state"
+  }
+}

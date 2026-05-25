@@ -1,0 +1,156 @@
+﻿{
+    "taskId":  "T17",
+    "guard":  "local-only",
+    "status":  "PASS",
+    "checkedAt":  "2026-05-25T02:56:14.2479842Z",
+    "environment":  {
+                        "LOCAL_ONLY":  "true (defaulted by local runtime)",
+                        "SCOREMAP_ADAPTER_MODE":  "local-mock (defaulted by local runtime)",
+                        "processEnvValuesRedacted":  true
+                    },
+    "requiredEvidence":  [
+                             {
+                                 "path":  "docs/auto-execute/evidence/api-db-e2e/assertions.json",
+                                 "exists":  true,
+                                 "status":  "PASS"
+                             },
+                             {
+                                 "path":  "docs/auto-execute/evidence/api-db-e2e/summary.json",
+                                 "exists":  true,
+                                 "status":  "PASS"
+                             },
+                             {
+                                 "path":  "docs/auto-execute/evidence/api-db-e2e/api-trace.json",
+                                 "exists":  true,
+                                 "status":  "PASS"
+                             },
+                             {
+                                 "path":  "docs/auto-execute/evidence/api-db-e2e/db-snapshot.json",
+                                 "exists":  true,
+                                 "status":  "PASS"
+                             },
+                             {
+                                 "path":  "docs/auto-execute/evidence/api-db/summary.json",
+                                 "exists":  true,
+                                 "status":  "PASS"
+                             },
+                             {
+                                 "path":  "docs/auto-execute/evidence/owner/journey-summary.json",
+                                 "exists":  true,
+                                 "status":  "PASS"
+                             },
+                             {
+                                 "path":  "docs/auto-execute/evidence/visual-harness/summary.json",
+                                 "exists":  true,
+                                 "status":  "PASS"
+                             },
+                             {
+                                 "path":  "docs/auto-execute/evidence/visual/summary.json",
+                                 "exists":  true,
+                                 "status":  "PASS"
+                             }
+                         ],
+    "localOnlyAssertions":  [
+                                {
+                                    "status":  "PASS",
+                                    "environment":  {
+                                                        "status":  "PASS",
+                                                        "localOnly":  true,
+                                                        "adapterMode":  "local-mock",
+                                                        "paymentAdapter":  "local-wechat-pay-mock",
+                                                        "cloudAdapter":  "local-tencent-cloud-mock",
+                                                        "databaseAdapter":  "local-in-memory-db"
+                                                    },
+                                    "paymentAdapter":  {
+                                                           "status":  "PASS",
+                                                           "adapter":  "local-wechat-pay-mock",
+                                                           "remoteCalls":  [
+
+                                                                           ],
+                                                           "supportedStatuses":  [
+                                                                                     "paid",
+                                                                                     "failed",
+                                                                                     "cancelled"
+                                                                                 ]
+                                                       },
+                                    "cloudAdapter":  {
+                                                         "status":  "PASS",
+                                                         "adapter":  "local-tencent-cloud-mock",
+                                                         "rootDir":  "D:\\lyh\\agent\\agent-frame\\scoremap\\docs\\auto-execute\\evidence\\api-db-e2e\\local-cloud",
+                                                         "remoteCalls":  [
+
+                                                                         ]
+                                                     },
+                                    "forbiddenRemoteFindings":  [
+
+                                                                ],
+                                    "remoteCalls":  [
+
+                                                    ]
+                                },
+                                {
+                                    "LOCAL_ONLY":  "true",
+                                    "SCOREMAP_ADAPTER_MODE":  "local-mock",
+                                    "paymentAdapter":  "local-wechat-pay-mock",
+                                    "cloudAdapter":  "local-tencent-cloud-mock",
+                                    "databaseAdapter":  "local-json-db",
+                                    "remoteCalls":  [
+
+                                                    ]
+                                },
+                                {
+                                    "LOCAL_ONLY":  "true",
+                                    "SCOREMAP_ADAPTER_MODE":  "local-mock",
+                                    "paymentAdapter":  "local-wechat-pay-mock",
+                                    "cloudAdapter":  "local-tencent-cloud-mock",
+                                    "databaseAdapter":  "local-json-db",
+                                    "remoteCalls":  [
+
+                                                    ]
+                                }
+                            ],
+    "remoteScan":  {
+                       "scannedRoots":  [
+                                            "server",
+                                            "scoremap-miniapp",
+                                            "shared",
+                                            "tests",
+                                            "scripts",
+                                            "docs/auto-execute/evidence"
+                                        ],
+                       "scannedFileCount":  397,
+                       "allowedSentinelFiles":  [
+                                                    "shared/local-only.js",
+                                                    "scripts/acceptance/run-local-only-guard.ps1",
+                                                    "docs/auto-execute/scoremap-auto-execute-master-plan.md",
+                                                    "docs/auto-execute/scoremap-development-standard.md",
+                                                    "docs/auto-execute/scoremap-software-test-standard.md",
+                                                    "docs/auto-execute/scoremap-standard-test-plan.md",
+                                                    "docs/auto-execute/scoremap-final-acceptance-gate.md",
+                                                    "docs/auto-execute/scoremap-tasks/T17-local-only-guards-secret-scan.md"
+                                                ],
+                       "findings":  [
+
+                                    ]
+                   },
+    "apiEvidence":  [
+                        "docs/auto-execute/evidence/api-db-e2e/api-trace.json",
+                        "docs/auto-execute/evidence/api-db/summary.json"
+                    ],
+    "dbEvidence":  [
+                       "docs/auto-execute/evidence/api-db-e2e/db-snapshot.json"
+                   ],
+    "pageEvidence":  [
+                         "docs/auto-execute/evidence/owner/journey-summary.json"
+                     ],
+    "visualEvidence":  [
+                           "docs/auto-execute/evidence/visual-harness/summary.json",
+                           "docs/auto-execute/evidence/visual/summary.json"
+                       ],
+    "ownerJourneyEvidence":  [
+                                 "docs/auto-execute/evidence/owner/journey-summary.json"
+                             ],
+    "failures":  [
+
+                 ]
+}

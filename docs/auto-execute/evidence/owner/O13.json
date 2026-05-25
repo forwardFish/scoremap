@@ -1,0 +1,772 @@
+{
+  "scenarioId": "O13",
+  "status": "PASS",
+  "command": "npm run e2e:owner",
+  "requirementIds": [
+    "R01",
+    "R03",
+    "R04",
+    "R05",
+    "R06",
+    "R07",
+    "R08",
+    "R09",
+    "R10",
+    "R14"
+  ],
+  "clickPath": [
+    "all-page-state-controls",
+    "all-target-routes-exist-in-app-json"
+  ],
+  "routeEvidence": {
+    "checkedControls": 32,
+    "targetRoutes": [
+      "/pages/index/index",
+      "/pages/preview/index",
+      "/pages/reports/index",
+      "/pages/my/index",
+      "/pages/analysis/index",
+      "/pages/basic-pay/index",
+      "/pages/basic-result/index",
+      "/pages/full-unlock/index",
+      "/pages/full-report-entry/index",
+      "/pages/full-report/index",
+      "/pages/orders/index",
+      "/pages/feedback/index"
+    ]
+  },
+  "apiEvidence": [
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders",
+      "payloadSummary": {
+        "orderId": "order-t07-home-upload",
+        "source": "home-upload",
+        "grade": "grade-5",
+        "subject": "math",
+        "examType": "unit-test",
+        "materialType": "answer-sheet"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "created",
+        "orderId": "order-t07-home-upload",
+        "orderToken": "local-order-token-order-t07-home-upload"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t07-home-upload/uploads",
+      "payloadSummary": {
+        "uploadId": "upload-t07-home-upload",
+        "authorizationAccepted": true,
+        "files": "array(1)"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "uploaded",
+        "orderId": "order-t07-home-upload",
+        "uploadedCount": 1
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t07-home-upload/start-preview-analysis",
+      "payloadSummary": {
+        "taskId": "task-t07-preview"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "preview_done",
+        "taskId": "task-t07-preview"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t07-home-upload/generate-full",
+      "payloadSummary": {
+        "source": "T11-fixture-seed"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/my/reports",
+      "payloadSummary": {
+        "source": "home-recent-reports"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "items": [
+          {
+            "orderId": "order-t07-home-upload",
+            "title": "Score analysis report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "preview_done",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-t15-control-analyzing",
+            "title": "Control analyzing report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "analyzing",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-t15-control-failed",
+            "title": "Control failed report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "failed",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/my/reports",
+      "payloadSummary": {
+        "source": "home-my-reports-entry"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "items": [
+          {
+            "orderId": "order-t07-home-upload",
+            "title": "Score analysis report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "preview_done",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-t15-control-analyzing",
+            "title": "Control analyzing report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "analyzing",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-t15-control-failed",
+            "title": "Control failed report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "failed",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t07-home-upload/analysis-progress",
+      "payloadSummary": {
+        "source": "manual-refresh",
+        "elapsedMs": 0
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "preview_done",
+        "progress": 100,
+        "currentStep": "preview_ready",
+        "steps": [
+          {
+            "id": "read-material",
+            "text": "uploaded material recognized",
+            "status": "done"
+          },
+          {
+            "id": "match-subject",
+            "text": "grade and subject matched",
+            "status": "done"
+          },
+          {
+            "id": "locate-loss-points",
+            "text": "locating score-loss points",
+            "status": "active"
+          },
+          {
+            "id": "generate-preview",
+            "text": "generating preview advice",
+            "status": "done"
+          }
+        ],
+        "errorCode": null
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/my/reports",
+      "payloadSummary": {
+        "source": "analysis-later-view",
+        "orderId": "order-t07-home-upload"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "items": [
+          {
+            "orderId": "order-t07-home-upload",
+            "title": "Score analysis report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "preview_done",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-t15-control-analyzing",
+            "title": "Control analyzing report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "analyzing",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-t15-control-failed",
+            "title": "Control failed report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "failed",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t15-control-failed/start-preview-analysis",
+      "payloadSummary": {
+        "taskId": "task-t08-retry-order-t15-control-failed",
+        "retry": true,
+        "progress": 10,
+        "currentStep": "reading_material"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "analyzing",
+        "taskId": "task-t08-retry-order-t15-control-failed"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t07-home-upload/preview-decision",
+      "payloadSummary": {
+        "source": "preview-page-load"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "preview_done",
+        "accessLevel": "preview",
+        "decision": {
+          "visibleModules": [
+            "overview",
+            "loss-points",
+            "advice"
+          ],
+          "lockedModules": [
+            "full-report"
+          ]
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/my/reports",
+      "payloadSummary": {
+        "source": "preview-later-view",
+        "orderId": "order-t07-home-upload"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "items": [
+          {
+            "orderId": "order-t07-home-upload",
+            "title": "Score analysis report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "preview_done",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-t15-control-analyzing",
+            "title": "Control analyzing report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "analyzing",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-t15-control-failed",
+            "title": "Control failed report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "analyzing",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-t07-home-upload",
+        "paymentType": "basic",
+        "amountYuan": 1,
+        "source": "basic-pay-confirm"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "paid",
+        "paymentId": "payment-t06-basic",
+        "amountYuan": 1,
+        "paymentParams": {
+          "adapter": "local-mock"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/wechat/callback",
+      "payloadSummary": {
+        "paymentId": "payment-t06-basic",
+        "status": "paid",
+        "mockTransactionId": "local-mock-basic-order-t07-home-upload"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "ok": true,
+        "status": "paid",
+        "paymentId": "payment-t06-basic"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t07-home-upload/basic-decision",
+      "payloadSummary": {
+        "source": "basic-pay-success"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "decision": {
+          "level": "basic",
+          "summary": "Most score loss comes from calculation accuracy and incomplete geometry proof steps.",
+          "evidenceQuality": "medium",
+          "quality": {
+            "uploadQuality": "normal",
+            "confidence": 0.86,
+            "recognized": true
+          },
+          "mainLossPoints": [
+            "Calculation carry and sign errors appear in multi-step questions.",
+            "Geometry proof steps miss key conditions before the conclusion."
+          ],
+          "priorityWeaknesses": [
+            "Rational-number operations",
+            "Auxiliary-line proof planning"
+          ],
+          "initialAdvice": [
+            "Spend 15 minutes daily correcting similar calculation errors.",
+            "Write the proof condition, reason, and conclusion as three separate lines."
+          ],
+          "upgradeCta": "Unlock the complete score improvement report"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-t07-home-upload",
+        "paymentType": "full",
+        "amountYuan": 9.9,
+        "source": "full-unlock-confirm"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "paid",
+        "paymentId": "payment-t06-full",
+        "amountYuan": 9.9,
+        "paymentParams": {
+          "adapter": "local-mock"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/wechat/callback",
+      "payloadSummary": {
+        "paymentId": "payment-t06-full",
+        "status": "paid",
+        "mockTransactionId": "local-mock-full-order-t07-home-upload"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "ok": true,
+        "status": "paid",
+        "paymentId": "payment-t06-full"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t07-home-upload/generate-full",
+      "payloadSummary": {
+        "source": "full-unlock-paid"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t07-home-upload/full-report",
+      "payloadSummary": {
+        "source": "full-unlock-readback"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_report_ready",
+        "decision": {
+          "level": "full",
+          "reportTitle": "Complete score improvement report",
+          "orderId": "order-t07-home-upload",
+          "generatedStatus": "full_report_ready",
+          "summary": "Local complete score improvement report for a parent owner review.",
+          "modules": [
+            {
+              "id": "knowledge-diagnosis",
+              "title": "Knowledge diagnosis",
+              "content": "Calculation rules and formula usage need staged practice."
+            },
+            {
+              "id": "loss-point-breakdown",
+              "title": "Per-question loss point breakdown",
+              "content": "Mark the missing condition, formula, solving process, and final verification."
+            },
+            {
+              "id": "seven-day-plan",
+              "title": "7-day score improvement plan",
+              "content": "Three correction reviews, two targeted exercise days, and one final mistake-book review."
+            },
+            {
+              "id": "parent-guidance",
+              "title": "Parent guidance",
+              "content": "Use process feedback and avoid guaranteed-score promises."
+            }
+          ],
+          "tabs": [
+            "overview",
+            "loss points",
+            "7-day plan",
+            "parent guidance"
+          ],
+          "complianceNotice": "Local mock report only. No guaranteed-score promise is displayed."
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t07-home-upload/save-report",
+      "payloadSummary": {
+        "source": "full-report-entry-save"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "saved": true
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t07-home-upload/save-report",
+      "payloadSummary": {
+        "source": "full-report-page-save"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "saved": true
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/my/reports",
+      "payloadSummary": {
+        "source": "reports-page-list",
+        "filter": "all"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "items": [
+          {
+            "orderId": "order-t07-home-upload",
+            "title": "Complete score improvement report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "preview_done",
+            "accessLevel": "full",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": true,
+            "paymentStatus": "paid",
+            "paidAmountYuan": 10.9
+          },
+          {
+            "orderId": "order-t15-control-analyzing",
+            "title": "Control analyzing report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "analyzing",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-t15-control-failed",
+            "title": "Control failed report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "analyzing",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t07-home-upload/feedback",
+      "payloadSummary": {
+        "feedbackId": "feedback-t15-control",
+        "decisionLevel": "full",
+        "rating": "very_helpful",
+        "tags": "array(2)",
+        "text": "本地 T12 反馈：知道下一步怎么做。",
+        "source": "T12-feedback-page"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "created",
+        "feedbackId": "feedback-t15-control"
+      }
+    }
+  ],
+  "dbEvidence": {
+    "order": {
+      "id": "order-t07-home-upload",
+      "ownerId": "local-user-scoremap-t06",
+      "status": "preview_done",
+      "accessLevel": "full",
+      "source": "home-upload",
+      "uploadedCount": 1,
+      "savedReport": true
+    },
+    "payments": [
+      {
+        "id": "payment-t06-basic",
+        "orderId": "order-t07-home-upload",
+        "ownerId": "local-user-scoremap-t06",
+        "paymentType": "basic",
+        "amountYuan": 1,
+        "status": "paid",
+        "adapter": "local-wechat-pay-mock",
+        "mockTransactionId": "local-mock-basic-order-t07-home-upload",
+        "callbackAdapter": "local-wechat-pay-mock"
+      },
+      {
+        "id": "payment-t06-full",
+        "orderId": "order-t07-home-upload",
+        "ownerId": "local-user-scoremap-t06",
+        "paymentType": "full",
+        "amountYuan": 9.9,
+        "status": "paid",
+        "adapter": "local-wechat-pay-mock",
+        "mockTransactionId": "local-mock-full-order-t07-home-upload",
+        "callbackAdapter": "local-wechat-pay-mock"
+      }
+    ],
+    "feedback": {
+      "id": "feedback-t15-control",
+      "orderId": "order-t07-home-upload",
+      "ownerId": "local-user-scoremap-t06",
+      "decisionLevel": "full",
+      "rating": "very_helpful",
+      "tags": [
+        "判断清楚",
+        "知道下一步怎么做"
+      ],
+      "text": "本地 T12 反馈：知道下一步怎么做。",
+      "source": "T12-feedback-page"
+    }
+  },
+  "visualEvidence": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/index/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/home/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/home/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/home/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/home/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/analysis/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/analysis/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/analysis/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/analysis/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/analysis/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/preview/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/preview/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/preview/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/preview/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/preview/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/basic-pay/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/basic-pay/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/basic-pay/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/basic-pay/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/basic-pay/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/basic-result/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/basic-result/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/basic-result/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/basic-result/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/basic-result/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/full-unlock/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/full-unlock/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/full-unlock/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/full-unlock/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/full-unlock/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/full-report-entry/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/full-report-entry/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/full-report-entry/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/full-report-entry/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/full-report-entry/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/full-report/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/full-report/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/full-report/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/full-report/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/full-report/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/my/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/my/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/my/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/my/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/my/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/reports/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/reports/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/reports/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/reports/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/reports/summary.json"
+    }
+  ],
+  "localOnly": {
+    "LOCAL_ONLY": "true",
+    "adapterMode": "local-mock",
+    "paymentAdapter": "local-wechat-pay-mock",
+    "cloudAdapter": "local-tencent-cloud-mock",
+    "databaseAdapter": "local-fixture-store",
+    "remoteCalls": []
+  }
+}

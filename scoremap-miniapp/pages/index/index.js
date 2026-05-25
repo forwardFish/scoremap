@@ -1,0 +1,249 @@
+﻿if (typeof Page === 'function') {
+  const { createReplicaPage } = require('../../utils/replica-runtime');
+  createReplicaPage({
+  "title": "AI 提分决策",
+  "reference": "/assets/reference/home.jpg",
+  "derived": false,
+  "hotspots": [
+    {
+      "action": "upload",
+      "label": "上传资料",
+      "className": "home-upload"
+    },
+    {
+      "action": "sample",
+      "label": "查看样例",
+      "className": "home-sample"
+    },
+    {
+      "action": "reports",
+      "label": "我的报告",
+      "className": "home-reports"
+    },
+    {
+      "action": "my",
+      "label": "我的",
+      "className": "tab-my"
+    }
+  ],
+  "actions": {
+    "upload": {
+      "url": "/pages/analysis/index"
+    },
+    "sample": {
+      "url": "/pages/preview/index"
+    },
+    "reports": {
+      "url": "/pages/reports/index"
+    },
+    "my": {
+      "url": "/pages/my/index"
+    }
+  },
+  "cards": []
+});
+} else {
+const { createMiniappApiClient } = require('../../services/api-client');
+
+const HOME_ROUTE = '/pages/index/index';
+const ANALYSIS_ROUTE = '/pages/analysis/index';
+const REPORTS_ROUTE = '/pages/reports/index';
+const PREVIEW_ROUTE = '/pages/preview/index';
+const MY_ROUTE = '/pages/my/index';
+
+function createIndexPageState(client = createMiniappApiClient()) {
+  return createHomeUploadPageState(client);
+}
+
+function createHomeUploadPageState(client = createMiniappApiClient()) {
+  let privacyAccepted = false;
+  let authorizationModalVisible = false;
+  let toast = null;
+  let lastOrderId = null;
+  let recentReports = [];
+
+  const page = {
+    route: '/pages/index/index',
+    tab: 'home',
+    uiReference: {
+      png: 'docs/UI/小程序/首页.png',
+      stitch: 'docs/UI/小程序/stitch_codex_development_blueprints/ai_2/screen.png'
+    },
+    title: 'AI 提分决策',
+    subtitle: '上传试卷或答题卡，先看免费初判，再决定是否解锁完整报告',
+    uploadCard: {
+      title: '上传资料',
+      description: '支持试卷、答题卡、错题照片，本地 mock 会生成预览分析任务。',
+      acceptedTypes: ['answer-sheet', 'exam-paper', 'wrong-question-photo'],
+      privacyRequired: true
+    },
+    quickActions: [
+      { id: 'view-sample-report', text: '查看样例', targetRoute: PREVIEW_ROUTE },
+      { id: 'open-my-reports', text: '我的报告', targetRoute: REPORTS_ROUTE }
+    ],
+    bottomTabs: [
+      { id: 'home', text: '首页', route: HOME_ROUTE, active: true },
+      { id: 'my', text: '我的', route: MY_ROUTE, active: false }
+    ],
+    controls: [
+      {
+        id: 'upload-material',
+        text: '上传资料',
+        run() {
+          return page.tapUploadMaterial();
+        }
+      },
+      {
+        id: 'confirm-upload-authorization',
+        text: '同意授权并选择本地图片',
+        run() {
+          return page.confirmUploadAuthorization();
+        }
+      },
+      {
+        id: 'cancel-upload-authorization',
+        text: '暂不同意',
+        run() {
+          return page.cancelUploadAuthorization();
+        }
+      },
+      {
+        id: 'view-sample-report',
+        text: '查看样例',
+        run() {
+          return page.viewSampleReport();
+        }
+      },
+      {
+        id: 'view-recent-reports',
+        text: '最近报告',
+        run() {
+          return page.openRecentReports();
+        }
+      },
+      {
+        id: 'open-my-reports',
+        text: '我的报告',
+        run() {
+          return page.openMyReports();
+        }
+      }
+    ],
+    getState() {
+      return {
+        route: HOME_ROUTE,
+        title: page.title,
+        uploadCard: page.uploadCard,
+        authorizationModal: {
+          id: 'upload-authorization',
+          visible: authorizationModalVisible,
+          accepted: privacyAccepted,
+          requiredCopy: [
+            '仅用于本次 AI 提分分析',
+            '资料会写入本地 mock upload_files',
+            '不会调用真实腾讯云、微信支付或线上数据库'
+          ]
+        },
+        recentReports,
+        toast,
+        lastOrderId,
+        controls: page.controls.map((control) => ({ id: control.id, text: control.text })),
+        bottomTabs: page.bottomTabs
+      };
+    },
+    tapUploadMaterial() {
+      toast = null;
+      if (!privacyAccepted) {
+        authorizationModalVisible = true;
+        return {
+          status: 'AUTH_REQUIRED',
+          modalId: 'upload-authorization',
+          visible: true,
+          disabledReason: 'upload requires privacy authorization before local file selection'
+        };
+      }
+      return createOrderUploadAndStartAnalysis();
+    },
+    confirmUploadAuthorization() {
+      privacyAccepted = true;
+      authorizationModalVisible = false;
+      return createOrderUploadAndStartAnalysis();
+    },
+    cancelUploadAuthorization() {
+      privacyAccepted = false;
+      authorizationModalVisible = false;
+      toast = '需要同意资料授权后才能上传分析';
+      return {
+        status: 'CANCELLED',
+        toast,
+        targetRoute: HOME_ROUTE,
+        disabledReason: 'privacy authorization declined'
+      };
+    },
+    viewSampleReport() {
+      return {
+        status: 'NAVIGATE',
+        targetRoute: PREVIEW_ROUTE,
+        query: { sample: 'true' }
+      };
+    },
+    openRecentReports() {
+      const response = client.request('GET', '/api/my/reports', { source: 'home-recent-reports' });
+      recentReports = response.body.items;
+      return {
+        status: 'NAVIGATE',
+        targetRoute: REPORTS_ROUTE,
+        reportsCount: recentReports.length
+      };
+    },
+    openMyReports() {
+      const response = client.request('GET', '/api/my/reports', { source: 'home-my-reports-entry' });
+      recentReports = response.body.items;
+      return {
+        status: 'SWITCH_TAB_OR_NAVIGATE',
+        targetRoute: REPORTS_ROUTE,
+        reportsCount: recentReports.length
+      };
+    },
+    openMyTab() {
+      return {
+        status: 'SWITCH_TAB',
+        targetRoute: MY_ROUTE
+      };
+    }
+  };
+
+  function createOrderUploadAndStartAnalysis() {
+    const order = client.request('POST', '/api/diagnosis-orders', {
+      orderId: 'order-t07-home-upload',
+      source: 'home-upload',
+      grade: 'grade-5',
+      subject: 'math',
+      examType: 'unit-test',
+      materialType: 'answer-sheet'
+    });
+    lastOrderId = order.body.orderId;
+
+    client.request('POST', `/api/diagnosis-orders/${lastOrderId}/uploads`, {
+      uploadId: 'upload-t07-home-upload',
+      authorizationAccepted: true,
+      files: ['local-fixture-answer-sheet-t07']
+    });
+    client.request('POST', `/api/diagnosis-orders/${lastOrderId}/start-preview-analysis`, {
+      taskId: 'task-t07-preview'
+    });
+
+    return {
+      status: 'UPLOADED',
+      targetRoute: ANALYSIS_ROUTE,
+      orderId: lastOrderId,
+      modalClosed: true
+    };
+  }
+
+  return page;
+}
+
+module.exports = { createHomeUploadPageState, createIndexPageState };
+
+}

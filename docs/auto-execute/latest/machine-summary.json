@@ -1,0 +1,14 @@
+﻿{
+  "runId": "T00-20260522-local",
+  "taskId": "T00",
+  "status": "PASS",
+  "projectRoot": "D:\\lyh\\agent\\agent-frame\\scoremap",
+  "surface": "documentation+harness",
+  "localOnly": true,
+  "productionDataUsed": false,
+  "realPaymentTriggered": false,
+  "realCloudDataWritten": false,
+  "requiredCommand": "powershell -ExecutionPolicy Bypass -File scripts/acceptance/check-report-integrity.ps1",
+  "resultJson": "docs/auto-execute/results/T00.json",
+  "handoff": "docs/auto-execute/latest/T00-HANDOFF.md"
+}

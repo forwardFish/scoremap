@@ -1,0 +1,149 @@
+﻿{
+  "taskId": "T07",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "implementedFiles": [
+    "package.json",
+    "scripts/run-tests.mjs",
+    "scoremap-miniapp/pages/index/index.js",
+    "scoremap-miniapp/pages/index/home-upload.test.js",
+    "scoremap-miniapp/pages/index/visual-home.js",
+    "docs/auto-execute/evidence/frontend-page/home-page-route-controls.json",
+    "docs/auto-execute/evidence/frontend-page/home-upload-api-db.json",
+    "docs/auto-execute/evidence/frontend-page/home-upload-owner-local.json",
+    "docs/auto-execute/evidence/frontend-page/visual/home/actual-home-structure.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/home/diff-home-manual-review.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/home/metrics-home.json",
+    "docs/auto-execute/evidence/frontend-page/visual/home/summary-home.json",
+    "docs/auto-execute/results/T07.json",
+    "docs/auto-execute/latest/T07-HANDOFF.md"
+  ],
+  "tests": [
+    {
+      "command": "npm test -- home-upload",
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "observed": "PowerShell blocked C:\\Program Files\\nodejs\\npm.ps1 before project code ran.",
+      "equivalentCommand": "npm.cmd test -- home-upload",
+      "equivalentStatus": "PASS",
+      "equivalentObserved": "3 tests passed, 0 failed"
+    },
+    {
+      "command": "npm.cmd test -- home-upload",
+      "status": "PASS",
+      "observed": "3 tests passed, 0 failed",
+      "evidence": [
+        "docs/auto-execute/evidence/frontend-page/home-page-route-controls.json",
+        "docs/auto-execute/evidence/frontend-page/home-upload-api-db.json",
+        "docs/auto-execute/evidence/frontend-page/home-upload-owner-local.json"
+      ]
+    },
+    {
+      "command": "npm run visual:scoremap -- home",
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "observed": "PowerShell blocked C:\\Program Files\\nodejs\\npm.ps1 before project code ran.",
+      "equivalentCommand": "npm.cmd run visual:scoremap -- home",
+      "equivalentStatus": "PASS_NEEDS_MANUAL_UI_REVIEW"
+    },
+    {
+      "command": "npm.cmd run visual:scoremap -- home",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "observed": "Wrote structural actual/diff/metrics evidence for home; pixel diff remains manual review.",
+      "evidence": [
+        "docs/auto-execute/evidence/frontend-page/visual/home/actual-home-structure.svg",
+        "docs/auto-execute/evidence/frontend-page/visual/home/diff-home-manual-review.svg",
+        "docs/auto-execute/evidence/frontend-page/visual/home/metrics-home.json",
+        "docs/auto-execute/evidence/frontend-page/visual/home/summary-home.json"
+      ]
+    },
+    {
+      "command": "npm.cmd test -- miniapp-shell",
+      "status": "PASS",
+      "observed": "4 tests passed, 0 failed",
+      "reason": "Regression for the package test selector and T06 shell boundary."
+    },
+    {
+      "command": "npm.cmd run build",
+      "status": "PASS",
+      "observed": "T01 local runtime scaffold build PASS"
+    }
+  ],
+  "pageEvidence": [
+    {
+      "status": "PASS",
+      "route": "/pages/index/index",
+      "evidence": "docs/auto-execute/evidence/frontend-page/home-page-route-controls.json",
+      "summary": "C01 home state includes upload card, authorization modal trigger, sample report entry, recent reports entry, my reports entry, and bottom tab metadata."
+    },
+    {
+      "status": "PASS",
+      "route": "/pages/index/index -> /pages/analysis/index",
+      "evidence": "docs/auto-execute/evidence/frontend-page/home-upload-api-db.json",
+      "summary": "C02 authorization confirmation creates a local order, upload record, preview analysis task, and navigates to analysis."
+    }
+  ],
+  "apiEvidence": [
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/frontend-page/home-upload-api-db.json",
+      "calls": [
+        "POST /api/diagnosis-orders",
+        "POST /api/diagnosis-orders/order-t07-home-upload/uploads",
+        "POST /api/diagnosis-orders/order-t07-home-upload/start-preview-analysis",
+        "GET /api/my/reports"
+      ]
+    }
+  ],
+  "dbEvidence": [
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/frontend-page/home-upload-api-db.json",
+      "tables": [
+        "diagnosis_orders",
+        "upload_files",
+        "ai_analysis_tasks",
+        "diagnosis_decisions"
+      ],
+      "summary": "Readback confirms order preview_done, upload authorizationAccepted=true, local analysis task, and preview decision fixture."
+    }
+  ],
+  "visualEvidence": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "reference": "docs/UI/小程序/首页.png",
+      "stitchReference": "docs/UI/小程序/stitch_codex_development_blueprints/ai_2/screen.png",
+      "actual": "docs/auto-execute/evidence/frontend-page/visual/home/actual-home-structure.svg",
+      "diff": "docs/auto-execute/evidence/frontend-page/visual/home/diff-home-manual-review.svg",
+      "metrics": "docs/auto-execute/evidence/frontend-page/visual/home/metrics-home.json",
+      "summary": "Structural visual checks pass, but pixel-perfect screenshot comparison is deferred to the visual harness task."
+    }
+  ],
+  "ownerJourneyEvidence": [
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "evidence": "docs/auto-execute/evidence/frontend-page/home-upload-owner-local.json",
+      "coveredScenario": "O01",
+      "clickPath": "/pages/index/index -> upload-material -> upload-authorization modal -> confirm-upload-authorization -> /pages/analysis/index",
+      "limitation": "T07 records deterministic C01/C02 owner actions. Full rendered owner E2E remains assigned to T15."
+    }
+  ],
+  "localOnlyEvidence": [
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/frontend-page/home-upload-owner-local.json",
+      "summary": "LOCAL_ONLY=true, SCOREMAP_ADAPTER_MODE=local-mock, local payment/cloud/database labels, forbidden remote findings=[], secret findings=[]."
+    }
+  ],
+  "knownGaps": [
+    {
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "gap": "The literal PowerShell npm command is blocked by host execution policy; npm.cmd equivalent passed."
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "gap": "T07 created structural visual actual/diff/metrics evidence but did not perform pixel-perfect screenshot diff; T14 owns the full visual harness."
+    },
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "gap": "Full O01-O12 owner journey with rendered screenshots remains assigned to T15."
+    }
+  ]
+}

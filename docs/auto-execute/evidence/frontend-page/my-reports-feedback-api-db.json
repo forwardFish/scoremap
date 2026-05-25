@@ -1,0 +1,410 @@
+{
+  "status": "PASS",
+  "command": "npm test -- my-reports-feedback",
+  "requirementIds": [
+    "R10",
+    "R15"
+  ],
+  "ownerScenarioIds": [
+    "O05",
+    "O07"
+  ],
+  "apiEvidence": {
+    "myReports": [
+      {
+        "method": "GET",
+        "path": "/api/my/reports",
+        "payloadSummary": {
+          "source": "my-page-summary"
+        },
+        "responseStatus": 200,
+        "responseBody": {
+          "status": "ok",
+          "items": [
+            {
+              "orderId": "order-t12-full",
+              "title": "五年级数学单元测验完整报告",
+              "grade": "五年级",
+              "subject": "数学",
+              "examType": "单元测验",
+              "status": "full_done",
+              "accessLevel": "full",
+              "createdAt": "2026-05-22T10:00:00Z",
+              "savedReport": true,
+              "paymentStatus": "paid",
+              "paidAmountYuan": 10.9
+            },
+            {
+              "orderId": "order-t12-analyzing",
+              "title": "分析中的数学资料",
+              "grade": "五年级",
+              "subject": "数学",
+              "examType": "课后练习",
+              "status": "analyzing",
+              "accessLevel": "preview",
+              "createdAt": "2026-05-23T08:00:00Z",
+              "savedReport": false,
+              "paymentStatus": "unpaid",
+              "paidAmountYuan": 0
+            }
+          ]
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/api/my/reports",
+        "payloadSummary": {
+          "source": "reports-page-list",
+          "filter": "all"
+        },
+        "responseStatus": 200,
+        "responseBody": {
+          "status": "ok",
+          "items": [
+            {
+              "orderId": "order-t12-full",
+              "title": "五年级数学单元测验完整报告",
+              "grade": "五年级",
+              "subject": "数学",
+              "examType": "单元测验",
+              "status": "full_done",
+              "accessLevel": "full",
+              "createdAt": "2026-05-22T10:00:00Z",
+              "savedReport": true,
+              "paymentStatus": "paid",
+              "paidAmountYuan": 10.9
+            },
+            {
+              "orderId": "order-t12-analyzing",
+              "title": "分析中的数学资料",
+              "grade": "五年级",
+              "subject": "数学",
+              "examType": "课后练习",
+              "status": "analyzing",
+              "accessLevel": "preview",
+              "createdAt": "2026-05-23T08:00:00Z",
+              "savedReport": false,
+              "paymentStatus": "unpaid",
+              "paidAmountYuan": 0
+            }
+          ]
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/api/my/reports",
+        "payloadSummary": {
+          "source": "orders-page-orders",
+          "mode": "orders"
+        },
+        "responseStatus": 200,
+        "responseBody": {
+          "status": "ok",
+          "items": [
+            {
+              "orderId": "order-t12-full",
+              "title": "五年级数学单元测验完整报告",
+              "grade": "五年级",
+              "subject": "数学",
+              "examType": "单元测验",
+              "status": "full_done",
+              "accessLevel": "full",
+              "createdAt": "2026-05-22T10:00:00Z",
+              "savedReport": true,
+              "paymentStatus": "paid",
+              "paidAmountYuan": 10.9
+            },
+            {
+              "orderId": "order-t12-analyzing",
+              "title": "分析中的数学资料",
+              "grade": "五年级",
+              "subject": "数学",
+              "examType": "课后练习",
+              "status": "analyzing",
+              "accessLevel": "preview",
+              "createdAt": "2026-05-23T08:00:00Z",
+              "savedReport": false,
+              "paymentStatus": "unpaid",
+              "paidAmountYuan": 0
+            }
+          ]
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/api/my/reports",
+        "payloadSummary": {
+          "source": "orders-page-purchases",
+          "mode": "purchases"
+        },
+        "responseStatus": 200,
+        "responseBody": {
+          "status": "ok",
+          "items": [
+            {
+              "orderId": "order-t12-full",
+              "title": "五年级数学单元测验完整报告",
+              "grade": "五年级",
+              "subject": "数学",
+              "examType": "单元测验",
+              "status": "full_done",
+              "accessLevel": "full",
+              "createdAt": "2026-05-22T10:00:00Z",
+              "savedReport": true,
+              "paymentStatus": "paid",
+              "paidAmountYuan": 10.9
+            },
+            {
+              "orderId": "order-t12-analyzing",
+              "title": "分析中的数学资料",
+              "grade": "五年级",
+              "subject": "数学",
+              "examType": "课后练习",
+              "status": "analyzing",
+              "accessLevel": "preview",
+              "createdAt": "2026-05-23T08:00:00Z",
+              "savedReport": false,
+              "paymentStatus": "unpaid",
+              "paidAmountYuan": 0
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "pageJumpEvidence": [
+    {
+      "controlId": "open-full-report-card",
+      "result": {
+        "status": "NAVIGATE",
+        "orderId": "order-t12-full",
+        "targetRoute": "/pages/full-report/index",
+        "disabledReason": null
+      }
+    },
+    {
+      "controlId": "open-analyzing-report-card",
+      "result": {
+        "status": "NAVIGATE",
+        "orderId": "order-t12-analyzing",
+        "targetRoute": "/pages/analysis/index",
+        "disabledReason": null
+      }
+    }
+  ],
+  "dbReadback": {
+    "reports": [
+      {
+        "id": "order-t12-full",
+        "ownerId": "local-user-scoremap-t06",
+        "title": "五年级数学单元测验完整报告",
+        "grade": "五年级",
+        "subject": "数学",
+        "examType": "单元测验",
+        "status": "full_done",
+        "accessLevel": "full",
+        "savedReport": true,
+        "createdAt": "2026-05-22T10:00:00Z",
+        "source": "T12-my-reports-fixture"
+      },
+      {
+        "id": "order-t12-analyzing",
+        "ownerId": "local-user-scoremap-t06",
+        "title": "分析中的数学资料",
+        "grade": "五年级",
+        "subject": "数学",
+        "examType": "课后练习",
+        "status": "analyzing",
+        "accessLevel": "preview",
+        "createdAt": "2026-05-23T08:00:00Z",
+        "source": "T12-my-reports-fixture"
+      }
+    ],
+    "payments": [
+      {
+        "id": "payment-t12-basic",
+        "orderId": "order-t12-full",
+        "ownerId": "local-user-scoremap-t06",
+        "paymentType": "basic",
+        "amountYuan": 1,
+        "status": "paid",
+        "adapter": "local-wechat-pay-mock"
+      },
+      {
+        "id": "payment-t12-full",
+        "orderId": "order-t12-full",
+        "ownerId": "local-user-scoremap-t06",
+        "paymentType": "full",
+        "amountYuan": 9.9,
+        "status": "paid",
+        "adapter": "local-wechat-pay-mock"
+      }
+    ],
+    "fullOrder": {
+      "id": "order-t12-full",
+      "ownerId": "local-user-scoremap-t06",
+      "title": "五年级数学单元测验完整报告",
+      "grade": "五年级",
+      "subject": "数学",
+      "examType": "单元测验",
+      "status": "full_done",
+      "accessLevel": "full",
+      "savedReport": true,
+      "createdAt": "2026-05-22T10:00:00Z",
+      "source": "T12-my-reports-fixture"
+    },
+    "analyzingTask": {
+      "id": "task-t12-analyzing",
+      "orderId": "order-t12-analyzing",
+      "ownerId": "local-user-scoremap-t06",
+      "type": "preview",
+      "status": "analyzing",
+      "progress": 45,
+      "currentStep": "locate-loss-points"
+    }
+  },
+  "renderedStates": {
+    "reports": {
+      "route": "/pages/reports/index",
+      "title": "我的报告",
+      "uiReference": {
+        "prd": "PRD C12 我的报告列表页"
+      },
+      "filterTabs": [
+        {
+          "id": "all",
+          "text": "全部",
+          "active": true
+        },
+        {
+          "id": "analyzing",
+          "text": "分析中",
+          "active": false
+        },
+        {
+          "id": "generated",
+          "text": "已生成",
+          "active": false
+        },
+        {
+          "id": "failed",
+          "text": "失败/待补",
+          "active": false
+        }
+      ],
+      "controls": [
+        {
+          "id": "load-my-reports",
+          "text": "刷新报告",
+          "api": "GET /api/my/reports"
+        }
+      ],
+      "emptyState": {
+        "visible": false
+      },
+      "cards": [
+        {
+          "orderId": "order-t12-full",
+          "title": "五年级数学单元测验完整报告",
+          "grade": "五年级",
+          "subject": "数学",
+          "examType": "单元测验",
+          "createdAt": "2026-05-22T10:00:00Z",
+          "status": "full_done",
+          "statusText": "完整报告已解锁",
+          "paymentStatus": "paid",
+          "accessLevel": "full",
+          "targetRoute": "/pages/full-report/index",
+          "actionText": "查看完整报告",
+          "savedReport": true
+        },
+        {
+          "orderId": "order-t12-analyzing",
+          "title": "分析中的数学资料",
+          "grade": "五年级",
+          "subject": "数学",
+          "examType": "课后练习",
+          "createdAt": "2026-05-23T08:00:00Z",
+          "status": "analyzing",
+          "statusText": "分析中",
+          "paymentStatus": "unpaid",
+          "accessLevel": "preview",
+          "targetRoute": "/pages/analysis/index",
+          "actionText": "查看进度",
+          "savedReport": false
+        }
+      ]
+    },
+    "orders": {
+      "route": "/pages/orders/index",
+      "title": "订单记录",
+      "mode": "orders",
+      "controls": [
+        {
+          "id": "back-my",
+          "text": "My",
+          "targetRoute": "/pages/my/index"
+        },
+        {
+          "id": "load-order-records",
+          "text": "刷新记录",
+          "api": "GET /api/my/reports"
+        }
+      ],
+      "records": [
+        {
+          "orderId": "order-t12-full",
+          "title": "五年级数学单元测验完整报告",
+          "status": "full_done",
+          "accessLevel": "full",
+          "paymentStatus": "paid",
+          "paidAmountYuan": 10.9,
+          "visibleInPurchaseMode": true
+        },
+        {
+          "orderId": "order-t12-analyzing",
+          "title": "分析中的数学资料",
+          "status": "analyzing",
+          "accessLevel": "preview",
+          "paymentStatus": "unpaid",
+          "paidAmountYuan": 0,
+          "visibleInPurchaseMode": true
+        }
+      ],
+      "emptyState": {
+        "visible": false
+      }
+    },
+    "purchases": {
+      "route": "/pages/orders/index",
+      "title": "购买记录",
+      "mode": "purchases",
+      "controls": [
+        {
+          "id": "back-my",
+          "text": "My",
+          "targetRoute": "/pages/my/index"
+        },
+        {
+          "id": "load-order-records",
+          "text": "刷新记录",
+          "api": "GET /api/my/reports"
+        }
+      ],
+      "records": [
+        {
+          "orderId": "order-t12-full",
+          "title": "五年级数学单元测验完整报告",
+          "status": "full_done",
+          "accessLevel": "full",
+          "paymentStatus": "paid",
+          "paidAmountYuan": 10.9,
+          "visibleInPurchaseMode": true
+        }
+      ],
+      "emptyState": {
+        "visible": false
+      }
+    }
+  }
+}

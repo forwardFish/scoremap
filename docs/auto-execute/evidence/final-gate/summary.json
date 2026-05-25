@@ -1,0 +1,276 @@
+﻿{
+    "taskId":  "T18",
+    "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+    "generatedAt":  "2026-05-25T02:56:35.3651345Z",
+    "taskResults":  [
+                        {
+                            "taskId":  "T00",
+                            "result":  "docs/auto-execute/results/T00.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T00-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS"
+                        },
+                        {
+                            "taskId":  "T01",
+                            "result":  "docs/auto-execute/results/T01.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T01-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS_WITH_LIMITATION"
+                        },
+                        {
+                            "taskId":  "T02",
+                            "result":  "docs/auto-execute/results/T02.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T02-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS_WITH_LIMITATION"
+                        },
+                        {
+                            "taskId":  "T03",
+                            "result":  "docs/auto-execute/results/T03.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T03-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS_WITH_LIMITATION"
+                        },
+                        {
+                            "taskId":  "T04",
+                            "result":  "docs/auto-execute/results/T04.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T04-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS_WITH_LIMITATION"
+                        },
+                        {
+                            "taskId":  "T05",
+                            "result":  "docs/auto-execute/results/T05.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T05-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS_WITH_LIMITATION"
+                        },
+                        {
+                            "taskId":  "T06",
+                            "result":  "docs/auto-execute/results/T06.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T06-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS_WITH_LIMITATION"
+                        },
+                        {
+                            "taskId":  "T07",
+                            "result":  "docs/auto-execute/results/T07.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T07-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS_NEEDS_MANUAL_UI_REVIEW"
+                        },
+                        {
+                            "taskId":  "T08",
+                            "result":  "docs/auto-execute/results/T08.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T08-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS_NEEDS_MANUAL_UI_REVIEW"
+                        },
+                        {
+                            "taskId":  "T09",
+                            "result":  "docs/auto-execute/results/T09.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T09-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS_NEEDS_MANUAL_UI_REVIEW"
+                        },
+                        {
+                            "taskId":  "T10",
+                            "result":  "docs/auto-execute/results/T10.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T10-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS_NEEDS_MANUAL_UI_REVIEW"
+                        },
+                        {
+                            "taskId":  "T11",
+                            "result":  "docs/auto-execute/results/T11.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T11-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS_NEEDS_MANUAL_UI_REVIEW"
+                        },
+                        {
+                            "taskId":  "T12",
+                            "result":  "docs/auto-execute/results/T12.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T12-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS_NEEDS_MANUAL_UI_REVIEW"
+                        },
+                        {
+                            "taskId":  "T13",
+                            "result":  "docs/auto-execute/results/T13.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T13-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS"
+                        },
+                        {
+                            "taskId":  "T14",
+                            "result":  "docs/auto-execute/results/T14.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T14-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS_NEEDS_MANUAL_UI_REVIEW"
+                        },
+                        {
+                            "taskId":  "T15",
+                            "result":  "docs/auto-execute/results/T15.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T15-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS_NEEDS_MANUAL_UI_REVIEW"
+                        },
+                        {
+                            "taskId":  "T16",
+                            "result":  "docs/auto-execute/results/T16.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T16-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS_NEEDS_MANUAL_UI_REVIEW"
+                        },
+                        {
+                            "taskId":  "T17",
+                            "result":  "docs/auto-execute/results/T17.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T17-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS"
+                        }
+                    ],
+    "taskStatusCounts":  {
+                             "PASS":  3,
+                             "PASS_WITH_LIMITATION":  6,
+                             "PASS_NEEDS_MANUAL_UI_REVIEW":  9
+                         },
+    "requiredEvidence":  [
+                             {
+                                 "label":  "visual aggregate",
+                                 "path":  "docs/auto-execute/evidence/visual/summary.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual harness",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/summary.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "owner journey",
+                                 "path":  "docs/auto-execute/evidence/owner/journey-summary.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "api-db aggregate",
+                                 "path":  "docs/auto-execute/evidence/api-db/summary.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "api trace",
+                                 "path":  "docs/auto-execute/evidence/api-db-e2e/api-trace.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "db snapshot",
+                                 "path":  "docs/auto-execute/evidence/api-db-e2e/db-snapshot.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "api-db assertions",
+                                 "path":  "docs/auto-execute/evidence/api-db-e2e/assertions.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "local-only guard",
+                                 "path":  "docs/auto-execute/evidence/safety/local-only.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "secret guard",
+                                 "path":  "docs/auto-execute/evidence/safety/secret-guard.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "report integrity",
+                                 "path":  "docs/auto-execute/latest/T00-integrity.log",
+                                 "exists":  true
+                             }
+                         ],
+    "pageEvidence":  [
+                         "docs/auto-execute/evidence/owner/journey-summary.json",
+                         "docs/auto-execute/evidence/owner/O01.json",
+                         "docs/auto-execute/evidence/owner/O02.json",
+                         "docs/auto-execute/evidence/owner/O03.json",
+                         "docs/auto-execute/evidence/owner/O04.json",
+                         "docs/auto-execute/evidence/owner/O05.json",
+                         "docs/auto-execute/evidence/owner/O06.json",
+                         "docs/auto-execute/evidence/owner/O07.json",
+                         "docs/auto-execute/evidence/owner/O08.json",
+                         "docs/auto-execute/evidence/owner/O09.json",
+                         "docs/auto-execute/evidence/owner/O10.json",
+                         "docs/auto-execute/evidence/owner/O11.json",
+                         "docs/auto-execute/evidence/owner/O12.json"
+                     ],
+    "apiEvidence":  [
+                        "docs/auto-execute/evidence/api-db-e2e/api-trace.json",
+                        "docs/auto-execute/evidence/api-db-e2e/assertions.json",
+                        "docs/auto-execute/evidence/api-db/summary.json"
+                    ],
+    "dbEvidence":  [
+                       "docs/auto-execute/evidence/api-db-e2e/db-snapshot.json",
+                       "docs/auto-execute/evidence/api-db-e2e/operator-export.json"
+                   ],
+    "visualEvidence":  [
+                           "docs/auto-execute/evidence/visual/summary.json",
+                           "docs/auto-execute/evidence/visual-harness/summary.json"
+                       ],
+    "ownerJourneyEvidence":  [
+                                 "docs/auto-execute/evidence/owner/journey-summary.json"
+                             ],
+    "localOnlyEvidence":  [
+                              "docs/auto-execute/evidence/safety/local-only.json",
+                              "docs/auto-execute/evidence/safety/secret-guard.json"
+                          ],
+    "limitations":  [
+                        "T01 is PASS_WITH_LIMITATION",
+                        "T02 is PASS_WITH_LIMITATION",
+                        "T03 is PASS_WITH_LIMITATION",
+                        "T04 is PASS_WITH_LIMITATION",
+                        "T05 is PASS_WITH_LIMITATION",
+                        "T06 is PASS_WITH_LIMITATION",
+                        "T07 is PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "T08 is PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "T09 is PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "T10 is PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "T11 is PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "T12 is PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "T14 is PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "T15 is PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "T16 is PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "Visual screen UI-C01 requires manual UI review",
+                        "Visual screen UI-C03 requires manual UI review",
+                        "Visual screen UI-C04 requires manual UI review",
+                        "Visual screen UI-C05 requires manual UI review",
+                        "Visual screen UI-C06 requires manual UI review",
+                        "Visual screen UI-C07 requires manual UI review",
+                        "Visual screen UI-C08 requires manual UI review",
+                        "Visual screen UI-C09 requires manual UI review",
+                        "Visual screen UI-C10 requires manual UI review",
+                        "Visual screen UI-C11 requires manual UI review",
+                        "Visual screen UI-C12 requires manual UI review",
+                        "Visual screen UI-C12 has no standalone reference file",
+                        "API/DB summary status is PASS_NEEDS_MANUAL_UI_REVIEW"
+                    ],
+    "failures":  [
+
+                 ]
+}

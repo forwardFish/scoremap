@@ -1,0 +1,111 @@
+{
+  "status": "PASS",
+  "command": "npm --prefix server test -- auth recovery errors",
+  "requirementIds": [
+    "R11"
+  ],
+  "apiCalls": [
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/{orderId}/basic-decision",
+      "branch": "anonymous_without_token",
+      "responseStatus": 401,
+      "response": {
+        "status": "error",
+        "code": "UNAUTHENTICATED",
+        "message": "Local login is required for this protected resource."
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/{orderId}/preview-decision",
+      "branch": "anonymous_order_token_bound",
+      "responseStatus": 200,
+      "response": {
+        "status": "preview_done",
+        "accessLevel": "preview"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/{orderId}/preview-decision",
+      "branch": "wrong_owner",
+      "responseStatus": 403,
+      "response": {
+        "status": "error",
+        "code": "ORDER_FORBIDDEN"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/{orderId}/basic-decision",
+      "branch": "unpaid_basic_denied",
+      "responseStatus": 403,
+      "response": {
+        "status": "error",
+        "code": "BASIC_ENTITLEMENT_REQUIRED"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/{orderId}/basic-decision",
+      "branch": "missing_order",
+      "responseStatus": 404,
+      "response": {
+        "status": "error",
+        "code": "NOT_FOUND",
+        "message": "Diagnosis order not found."
+      }
+    }
+  ],
+  "dbReadback": {
+    "order": {
+      "id": "order-411cb0ab4fde",
+      "ownerId": "local-user-scoremap-t03",
+      "source": "T13-authz",
+      "grade": "grade-5",
+      "subject": "math",
+      "examType": "unit-test",
+      "materialType": "answer-sheet",
+      "status": "preview_done",
+      "accessLevel": "preview",
+      "orderToken": "local-order-token-order-411cb0ab4fde",
+      "createdAt": "2026-05-25T02:55:22.487Z",
+      "updatedAt": "2026-05-25T02:55:22.518Z",
+      "uploadedCount": 1,
+      "previewTaskId": "task-3c50b485ca5e",
+      "previewDecisionId": "decision-order-411cb0ab4fde-preview"
+    },
+    "decision": {
+      "id": "decision-order-411cb0ab4fde-preview",
+      "orderId": "order-411cb0ab4fde",
+      "ownerId": "local-user-scoremap-t03",
+      "level": "preview",
+      "preview": {
+        "summary": "Local mock preview decision is ready.",
+        "visibleModules": [
+          {
+            "title": "Paper overview",
+            "content": "Answer-sheet structure and basic material metadata were recognized."
+          },
+          {
+            "title": "Main score-loss points",
+            "content": "Calculation-step completeness needs focused review."
+          },
+          {
+            "title": "Improvement advice",
+            "content": "Review mistake categories before unlocking the complete initial decision."
+          }
+        ],
+        "lockedModules": [
+          "Full knowledge diagnosis",
+          "Per-question improvement advice",
+          "Complete score improvement report"
+        ],
+        "cta": "1 CNY unlock complete initial decision"
+      },
+      "createdAt": "2026-05-25T02:55:22.516Z",
+      "updatedAt": "2026-05-25T02:55:22.516Z"
+    }
+  }
+}

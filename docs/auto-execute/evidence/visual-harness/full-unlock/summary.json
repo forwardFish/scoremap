@@ -1,0 +1,9 @@
+{
+  "id": "UI-C08",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "reference": "docs/UI/小程序/stitch_codex_development_blueprints/_4/screen.png",
+  "actual": "docs/auto-execute/evidence/visual-harness/full-unlock/actual.jpg",
+  "diff": "docs/auto-execute/evidence/visual-harness/full-unlock/diff.svg",
+  "metrics": "docs/auto-execute/evidence/visual-harness/full-unlock/metrics.json",
+  "knownGaps": []
+}

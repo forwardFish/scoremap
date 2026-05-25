@@ -1,0 +1,82 @@
+﻿{
+  "taskId": "T17",
+  "status": "PASS",
+  "implementedFiles": [
+    "scripts/acceptance/run-local-only-guard.ps1",
+    "scripts/acceptance/run-secret-guard.ps1",
+    "docs/auto-execute/evidence/safety/local-only.json",
+    "docs/auto-execute/evidence/safety/secret-guard.json",
+    "docs/auto-execute/results/T17.json",
+    "docs/auto-execute/latest/T17-HANDOFF.md"
+  ],
+  "tests": [
+    {
+      "command": "powershell -ExecutionPolicy Bypass -File scripts/acceptance/run-local-only-guard.ps1; powershell -ExecutionPolicy Bypass -File scripts/acceptance/run-secret-guard.ps1",
+      "status": "REPAIR_REQUIRED",
+      "evidence": "Initial run reached the new scripts but failed on host PowerShell portability issues: strict property access on mixed JSON evidence and unavailable System.IO.Path.GetRelativePath."
+    },
+    {
+      "command": "powershell -ExecutionPolicy Bypass -File scripts/acceptance/run-local-only-guard.ps1; powershell -ExecutionPolicy Bypass -File scripts/acceptance/run-secret-guard.ps1",
+      "status": "PASS",
+      "evidence": "run-local-only-guard PASS and run-secret-guard PASS. Evidence written to docs/auto-execute/evidence/safety/local-only.json and docs/auto-execute/evidence/safety/secret-guard.json."
+    }
+  ],
+  "pageEvidence": [
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/journey-summary.json",
+      "details": "Existing T15 O01-O12 owner journey evidence is present and was required by the local-only guard evidence existence checks."
+    }
+  ],
+  "apiEvidence": [
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/api-db-e2e/api-trace.json",
+      "details": "Existing T16 trace covers 34 local API calls, including local payment callback paths."
+    },
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/api-db/summary.json",
+      "details": "Existing T16 API/DB summary records LOCAL_ONLY=true, local-mock adapter mode, local WeChat Pay mock, local Tencent Cloud mock, and zero remote calls."
+    }
+  ],
+  "dbEvidence": [
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/api-db-e2e/db-snapshot.json",
+      "details": "Existing T16 DB snapshot records local readback for users, diagnosis_orders, upload_files, ai_analysis_tasks, diagnosis_decisions, payments, report_exports, and feedbacks."
+    }
+  ],
+  "visualEvidence": [
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "evidence": "docs/auto-execute/evidence/visual-harness/summary.json",
+      "details": "T17 verifies safety boundaries and references existing T14 deterministic visual artifacts. It does not claim a new raster pixel-perfect visual pass."
+    },
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "evidence": "docs/auto-execute/evidence/visual/summary.json",
+      "details": "Aggregate visual evidence exists and is included in local-only guard required evidence checks."
+    }
+  ],
+  "ownerJourneyEvidence": [
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/journey-summary.json",
+      "details": "Existing T15 owner journey summary covers O01-O12 and is included in local-only guard evidence checks."
+    }
+  ],
+  "localOnlyEvidence": [
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/safety/local-only.json",
+      "details": "Guard checked required API/DB/page/visual/owner evidence, verified LOCAL_ONLY/local-mock/local payment/local cloud/local DB markers, confirmed remoteCalls arrays are empty, and scanned 253 source/evidence files with no forbidden remote findings."
+    },
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/safety/secret-guard.json",
+      "details": "Secret guard scanned 297 source/result/latest/evidence files, wrote no environment values to evidence, redacted matching environment variable names, and found no secret-shaped values or secret-like files."
+    }
+  ],
+  "knownGaps": []
+}

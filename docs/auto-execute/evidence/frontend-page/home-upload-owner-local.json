@@ -1,0 +1,40 @@
+{
+  "status": "PASS_WITH_LIMITATION",
+  "command": "npm test -- home-upload",
+  "requirementIds": [
+    "R01",
+    "R02",
+    "R15"
+  ],
+  "ownerJourneyEvidence": {
+    "status": "PASS_WITH_LIMITATION",
+    "scenario": "O01",
+    "clickPath": [
+      "/pages/index/index",
+      "upload-material",
+      "upload-authorization modal",
+      "confirm-upload-authorization",
+      "/pages/analysis/index"
+    ],
+    "apiEvidence": "docs/auto-execute/evidence/frontend-page/home-upload-api-db.json",
+    "dbEvidence": "docs/auto-execute/evidence/frontend-page/home-upload-api-db.json",
+    "limitation": "T07 records deterministic owner click actions for C01/C02. Full O01-O12 rendered owner E2E remains assigned to T15."
+  },
+  "visualEvidence": {
+    "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+    "reference": "docs/UI/小程序/首页.png",
+    "stitchReference": "docs/UI/小程序/stitch_codex_development_blueprints/ai_2/screen.png",
+    "expectedVisualCommand": "npm run visual:scoremap -- home",
+    "limitation": "T07 has a local structural visual artifact and metrics. Pixel-perfect screenshot capture remains assigned to the visual harness task."
+  },
+  "localOnly": {
+    "status": "PASS",
+    "localOnly": true,
+    "adapterMode": "local-mock",
+    "paymentAdapter": "local-wechat-pay-mock",
+    "cloudAdapter": "local-tencent-cloud-mock",
+    "databaseAdapter": "local-in-memory-db"
+  },
+  "forbiddenRemoteFindings": [],
+  "secretFindings": []
+}

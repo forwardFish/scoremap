@@ -1,0 +1,360 @@
+{
+  "status": "PASS",
+  "command": "npm test -- miniapp-shell",
+  "requirementIds": [
+    "R01",
+    "R02",
+    "R03",
+    "R05",
+    "R06",
+    "R07",
+    "R08",
+    "R09",
+    "R10"
+  ],
+  "apiCalls": [
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders",
+      "payloadSummary": {
+        "orderId": "order-t06-shell",
+        "source": "miniapp-shell",
+        "grade": "grade-5",
+        "subject": "math",
+        "examType": "unit-test",
+        "materialType": "answer-sheet"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "created",
+        "orderId": "order-t06-shell",
+        "orderToken": "local-order-token-order-t06-shell"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t06-shell/uploads",
+      "payloadSummary": {
+        "authorizationAccepted": true,
+        "files": "array(1)"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "uploaded",
+        "orderId": "order-t06-shell",
+        "uploadedCount": 1
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t06-shell/start-preview-analysis",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "preview_done",
+        "taskId": "task-t06-preview"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t06-shell/analysis-progress",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "preview_done",
+        "progress": 100,
+        "currentStep": "preview_ready",
+        "steps": [
+          {
+            "id": "read-material",
+            "text": "uploaded material recognized",
+            "status": "done"
+          },
+          {
+            "id": "match-subject",
+            "text": "grade and subject matched",
+            "status": "done"
+          },
+          {
+            "id": "locate-loss-points",
+            "text": "locating score-loss points",
+            "status": "active"
+          },
+          {
+            "id": "generate-preview",
+            "text": "generating preview advice",
+            "status": "done"
+          }
+        ],
+        "errorCode": null
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t06-shell/preview-decision",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "preview_done",
+        "accessLevel": "preview",
+        "decision": {
+          "visibleModules": [
+            "overview",
+            "loss-points",
+            "advice"
+          ],
+          "lockedModules": [
+            "full-report"
+          ]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-t06-shell",
+        "paymentType": "basic"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "paid",
+        "paymentId": "payment-t06-basic",
+        "amountYuan": 1,
+        "paymentParams": {
+          "adapter": "local-mock"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t06-shell/basic-decision",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "decision": {
+          "level": "basic",
+          "summary": "孩子本次主要失分来自计算准确性和几何证明表达。",
+          "evidenceQuality": "medium",
+          "mainLossPoints": [
+            "计算失误",
+            "几何证明步骤不完整"
+          ],
+          "priorityWeaknesses": [
+            "有理数运算",
+            "辅助线思路"
+          ],
+          "initialAdvice": [
+            "每天 15 分钟同类计算纠错",
+            "整理几何证明步骤模板"
+          ]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-t06-shell",
+        "paymentType": "full"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "paid",
+        "paymentId": "payment-t06-full",
+        "amountYuan": 9.9,
+        "paymentParams": {
+          "adapter": "local-mock"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t06-shell/generate-full",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t06-shell/full-report",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_report_ready",
+        "decision": {
+          "level": "full",
+          "reportTitle": "Complete score improvement report",
+          "orderId": "order-t06-shell",
+          "generatedStatus": "full_report_ready",
+          "summary": "Local complete score improvement report for a parent owner review.",
+          "modules": [
+            {
+              "id": "knowledge-diagnosis",
+              "title": "Knowledge diagnosis",
+              "content": "Calculation rules and formula usage need staged practice."
+            },
+            {
+              "id": "loss-point-breakdown",
+              "title": "Per-question loss point breakdown",
+              "content": "Mark the missing condition, formula, solving process, and final verification."
+            },
+            {
+              "id": "seven-day-plan",
+              "title": "7-day score improvement plan",
+              "content": "Three correction reviews, two targeted exercise days, and one final mistake-book review."
+            },
+            {
+              "id": "parent-guidance",
+              "title": "Parent guidance",
+              "content": "Use process feedback and avoid guaranteed-score promises."
+            }
+          ],
+          "tabs": [
+            "overview",
+            "loss points",
+            "7-day plan",
+            "parent guidance"
+          ],
+          "complianceNotice": "Local mock report only. No guaranteed-score promise is displayed."
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t06-shell/save-report",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "saved": true
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t06-shell/feedback",
+      "payloadSummary": {
+        "rating": 5
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "created",
+        "feedbackId": "feedback-t06-shell"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t06-shell/export-pdf",
+      "payloadSummary": {},
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "ready",
+        "exportId": "export-t06-shell",
+        "fileUrl": "local-report-export://order-t06-shell/export-t06-shell.pdf"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/my/reports",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "items": [
+          {
+            "orderId": "order-t06-shell",
+            "title": "Complete score improvement report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "preview_done",
+            "accessLevel": "full",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": true,
+            "paymentStatus": "paid",
+            "paidAmountYuan": 10.9
+          }
+        ]
+      }
+    }
+  ],
+  "dbReadback": {
+    "order": {
+      "id": "order-t06-shell",
+      "ownerId": "local-user-scoremap-t06",
+      "status": "preview_done",
+      "accessLevel": "full",
+      "source": "miniapp-shell",
+      "uploadedCount": 1,
+      "savedReport": true
+    },
+    "upload": {
+      "id": "upload-t06-shell",
+      "orderId": "order-t06-shell",
+      "ownerId": "local-user-scoremap-t06",
+      "authorizationAccepted": true,
+      "localOnly": true
+    },
+    "previewTask": {
+      "id": "task-t06-preview",
+      "orderId": "order-t06-shell",
+      "ownerId": "local-user-scoremap-t06",
+      "type": "preview",
+      "status": "preview_done",
+      "progress": 100,
+      "currentStep": "preview_ready",
+      "errorCode": null,
+      "retryCount": 0
+    },
+    "fullTask": {
+      "id": "task-t06-full",
+      "orderId": "order-t06-shell",
+      "ownerId": "local-user-scoremap-t06",
+      "type": "full",
+      "status": "full_done"
+    },
+    "payments": [
+      {
+        "id": "payment-t06-basic",
+        "orderId": "order-t06-shell",
+        "ownerId": "local-user-scoremap-t06",
+        "paymentType": "basic",
+        "amountYuan": 1,
+        "status": "paid",
+        "adapter": "local-wechat-pay-mock"
+      },
+      {
+        "id": "payment-t06-full",
+        "orderId": "order-t06-shell",
+        "ownerId": "local-user-scoremap-t06",
+        "paymentType": "full",
+        "amountYuan": 9.9,
+        "status": "paid",
+        "adapter": "local-wechat-pay-mock"
+      }
+    ],
+    "feedback": {
+      "id": "feedback-t06-shell",
+      "orderId": "order-t06-shell",
+      "ownerId": "local-user-scoremap-t06",
+      "decisionLevel": "full",
+      "rating": 5,
+      "tags": [],
+      "text": "",
+      "source": "miniapp-feedback"
+    },
+    "reportExport": {
+      "id": "export-t06-shell",
+      "orderId": "order-t06-shell",
+      "ownerId": "local-user-scoremap-t06",
+      "status": "ready",
+      "format": "application/pdf",
+      "fileUrl": "local-report-export://order-t06-shell/export-t06-shell.pdf",
+      "filePath": "docs/auto-execute/evidence/frontend-page/pdf/order-t06-shell-export-t06-shell.pdf",
+      "byteLength": 1315
+    }
+  }
+}

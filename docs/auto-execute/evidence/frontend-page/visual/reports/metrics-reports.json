@@ -1,0 +1,26 @@
+{
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "command": "npm run visual:scoremap -- my reports",
+  "route": "/pages/reports/index",
+  "reference": "PRD C12 我的报告列表页",
+  "stitchReference": null,
+  "actual": "docs/auto-execute/evidence/frontend-page/visual/reports/actual-reports-structure.svg",
+  "diff": "docs/auto-execute/evidence/frontend-page/visual/reports/diff-reports-manual-review.svg",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "structuralChecks": {
+    "hasStatusTabs": true,
+    "hasReportCards": true,
+    "hasAnalyzingCard": true,
+    "hasFullReportCard": true,
+    "hasPaymentStatus": true,
+    "noGenericEmptyDashboard": true
+  },
+  "pixelDiff": {
+    "status": "MANUAL_REVIEW_REQUIRED",
+    "ratio": null,
+    "reason": "This T12 runner produces deterministic structural visual evidence only; T14 owns full screenshot and pixelmatch harness."
+  }
+}

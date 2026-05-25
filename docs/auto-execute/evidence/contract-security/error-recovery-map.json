@@ -1,0 +1,89 @@
+{
+  "status": "PASS",
+  "command": "npm --prefix server test -- auth recovery errors",
+  "apiCalls": [
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/{orderId}/start-preview-analysis",
+      "branch": "timeout",
+      "responseStatus": 202,
+      "response": {
+        "taskId": "task-4d3fb87a26ee",
+        "status": "timeout",
+        "errorCode": "ANALYSIS_TIMEOUT",
+        "retryAvailable": true
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/not-found-route",
+      "branch": "404",
+      "responseStatus": 404,
+      "response": {
+        "status": "error",
+        "code": "NOT_FOUND"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders",
+      "branch": "500_bad_json",
+      "responseStatus": 500,
+      "response": {
+        "status": "error",
+        "code": "TEST_SERVER_ERROR",
+        "message": "Expected property name or '}' in JSON at position 1 (line 1 column 2)"
+      }
+    }
+  ],
+  "ownerJourneyEvidence": {
+    "status": "PASS_WITH_LIMITATION",
+    "scenarioIds": [
+      "O10",
+      "O11"
+    ],
+    "recoveryMap": {
+      "unauthenticated": {
+        "status": "RECOVERABLE",
+        "targetRoute": "/pages/index/index",
+        "message": "登录状态已失效，请重新进入。"
+      },
+      "notFound": {
+        "status": "RECOVERABLE",
+        "targetRoute": "/pages/index/index",
+        "message": "本地记录不存在，请重新上传。"
+      },
+      "serverError": {
+        "status": "RETRYABLE",
+        "targetRoute": null,
+        "message": "本地服务异常，请重试。"
+      },
+      "timeout": {
+        "status": "RETRYABLE",
+        "targetRoute": null,
+        "message": "处理超时，可刷新或稍后查看。"
+      }
+    },
+    "reason": "T13 covers route/API recovery states used by owner journeys; exact owner click traces are assigned to T15."
+  },
+  "dbReadback": {
+    "timeoutOrder": {
+      "id": "order-15c6d48c573d",
+      "ownerId": "local-user-scoremap-t03",
+      "source": "T13-errors",
+      "grade": "grade-5",
+      "subject": "math",
+      "examType": "unit-test",
+      "materialType": "answer-sheet",
+      "status": "timeout",
+      "accessLevel": "preview",
+      "orderToken": "local-order-token-order-15c6d48c573d",
+      "createdAt": "2026-05-25T02:55:22.623Z",
+      "updatedAt": "2026-05-25T02:55:22.646Z",
+      "uploadedCount": 1,
+      "previewTaskId": "task-1b4ea1a739c4",
+      "previewDecisionId": "decision-order-15c6d48c573d-preview",
+      "errorCode": "ANALYSIS_TIMEOUT"
+    }
+  }
+}

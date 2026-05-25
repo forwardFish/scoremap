@@ -1,0 +1,132 @@
+{
+  "status": "PASS",
+  "command": "npm --prefix server test -- payment entitlement",
+  "apiCalls": [
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "branch": "validation",
+      "responseStatus": 400,
+      "response": {
+        "status": "error",
+        "code": "VALIDATION_ERROR",
+        "message": "paymentType must be basic or full."
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "branch": "owner_denial",
+      "responseStatus": 403,
+      "response": {
+        "status": "error",
+        "code": "ORDER_FORBIDDEN"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/wechat/callback",
+      "branch": "failed",
+      "responseStatus": 200,
+      "response": {
+        "ok": true,
+        "status": "failed",
+        "paymentId": "payment-t04-failed",
+        "orderId": "order-9d82cee3f7e1",
+        "accessLevel": "preview",
+        "idempotent": false,
+        "repaired": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/wechat/callback",
+      "branch": "cancelled",
+      "responseStatus": 200,
+      "response": {
+        "ok": true,
+        "status": "cancelled",
+        "paymentId": "payment-t04-cancelled",
+        "orderId": "order-9d82cee3f7e1",
+        "accessLevel": "preview",
+        "idempotent": false,
+        "repaired": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/wechat/callback",
+      "branch": "compensation_repair",
+      "responseStatus": 200,
+      "response": {
+        "ok": true,
+        "status": "paid",
+        "paymentId": "payment-t04-repair",
+        "orderId": "order-9d82cee3f7e1",
+        "accessLevel": "basic",
+        "idempotent": true,
+        "repaired": true
+      }
+    }
+  ],
+  "dbReadback": {
+    "failedPayment": {
+      "id": "payment-t04-failed",
+      "orderId": "order-9d82cee3f7e1",
+      "ownerId": "local-user-scoremap-t03",
+      "paymentType": "basic",
+      "channel": "local-wechat-pay-mock",
+      "amountCents": 100,
+      "status": "failed",
+      "mockTransactionId": null,
+      "callbackCount": 1,
+      "createdAt": "2026-05-25T02:55:22.830Z",
+      "updatedAt": "2026-05-25T02:55:22.835Z",
+      "paidAt": null
+    },
+    "cancelledPayment": {
+      "id": "payment-t04-cancelled",
+      "orderId": "order-9d82cee3f7e1",
+      "ownerId": "local-user-scoremap-t03",
+      "paymentType": "basic",
+      "channel": "local-wechat-pay-mock",
+      "amountCents": 100,
+      "status": "cancelled",
+      "mockTransactionId": null,
+      "callbackCount": 1,
+      "createdAt": "2026-05-25T02:55:22.839Z",
+      "updatedAt": "2026-05-25T02:55:22.842Z",
+      "paidAt": null
+    },
+    "repairedOrder": {
+      "id": "order-9d82cee3f7e1",
+      "ownerId": "local-user-scoremap-t03",
+      "source": "T04-errors",
+      "grade": "grade-5",
+      "subject": "math",
+      "examType": "unit-test",
+      "materialType": "answer-sheet",
+      "status": "basic_paid",
+      "accessLevel": "basic",
+      "orderToken": "local-order-token-order-9d82cee3f7e1",
+      "createdAt": "2026-05-25T02:55:22.814Z",
+      "updatedAt": "2026-05-25T02:55:22.854Z",
+      "uploadedCount": 1,
+      "previewTaskId": "task-02a4541fb3a0",
+      "previewDecisionId": "decision-order-9d82cee3f7e1-preview"
+    }
+  },
+  "localOnly": {
+    "paymentAdapter": {
+      "status": "PASS",
+      "adapter": "local-wechat-pay-mock",
+      "remoteCalls": [],
+      "supportedStatuses": [
+        "paid",
+        "failed",
+        "cancelled"
+      ]
+    },
+    "remoteCalls": []
+  }
+}

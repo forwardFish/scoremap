@@ -1,0 +1,235 @@
+{
+  "status": "PASS",
+  "command": "npm --prefix server test -- report feedback export",
+  "requirementIds": [
+    "R09",
+    "R10"
+  ],
+  "pageJumpEvidence": {
+    "status": "PASS_WITH_LIMITATION",
+    "route": "/pages/full-unlock/index -> /pages/full-report-entry/index -> /pages/full-report/index -> /pages/reports/index",
+    "clickPath": "O04/O05 API-backed path: generate full -> view full report -> save report -> list my reports",
+    "reason": "T05 owns backend report APIs; frontend route rendering and exact clicks are assigned to T11/T12/T15."
+  },
+  "apiCalls": [
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/{orderId}/basic-decision",
+      "responseStatus": 200,
+      "response": {
+        "status": "basic_ready",
+        "accessLevel": "full",
+        "decision": {
+          "reportTitle": "Complete initial score decision",
+          "summary": "Local basic decision for grade-5 math.",
+          "scoreLevel": "needs-focused-improvement",
+          "quality": {
+            "recognized": true,
+            "uploadQuality": "normal",
+            "confidence": 0.86
+          },
+          "lossPoints": [
+            "Calculation process is incomplete in multi-step questions.",
+            "Key formulas are present but final answer checking is weak."
+          ],
+          "weaknesses": [
+            "Paper overview",
+            "Main score-loss points",
+            "Improvement advice"
+          ],
+          "advice": [
+            "Review mistake categories before the next practice round.",
+            "Keep every calculation step visible for teacher review."
+          ],
+          "upgradeCta": "Unlock the complete score improvement report"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/{orderId}/generate-full",
+      "responseStatus": 200,
+      "response": {
+        "taskId": "task-full-d8fc3b17d594",
+        "status": "full_report_ready"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/{orderId}/full-report",
+      "responseStatus": 200,
+      "response": {
+        "status": "full_report_ready",
+        "accessLevel": "full",
+        "decision": {
+          "reportTitle": "Complete score improvement report",
+          "orderId": "order-3273eb671dd5",
+          "summary": "Local full report for grade-5 math.",
+          "modules": [
+            {
+              "id": "knowledge-diagnosis",
+              "title": "Knowledge diagnosis",
+              "content": "Calculation rules, formula usage, and answer checking need staged practice."
+            },
+            {
+              "id": "question-level-advice",
+              "title": "Per-question improvement advice",
+              "content": "Mark the missing condition, write the formula, solve, then verify the unit."
+            },
+            {
+              "id": "seven-day-plan",
+              "title": "7-day score improvement plan",
+              "content": "Three short reviews, two targeted exercises, and one full correction review."
+            },
+            {
+              "id": "parent-guidance",
+              "title": "Parent guidance",
+              "content": "Focus feedback on process completeness instead of a guaranteed score outcome."
+            }
+          ],
+          "basicSummary": "Local basic decision for grade-5 math.",
+          "complianceNotice": "Local mock report only; no guaranteed score wording."
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/{orderId}/save-report",
+      "responseStatus": 200,
+      "response": {
+        "saved": true,
+        "orderId": "order-3273eb671dd5",
+        "savedAt": "1970-01-01T00:00:00.000Z"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/my/reports",
+      "responseStatus": 200,
+      "response": {
+        "status": "ok",
+        "items": [
+          {
+            "orderId": "order-3273eb671dd5",
+            "status": "full_report_ready",
+            "accessLevel": "full",
+            "saved": true,
+            "paymentCount": 2,
+            "decisionLevels": [
+              "basic",
+              "full",
+              "preview"
+            ],
+            "feedbackCount": 0,
+            "exportCount": 0
+          }
+        ]
+      }
+    }
+  ],
+  "dbReadback": {
+    "order": {
+      "id": "order-3273eb671dd5",
+      "ownerId": "local-user-scoremap-t03",
+      "source": "T05-report",
+      "grade": "grade-5",
+      "subject": "math",
+      "examType": "unit-test",
+      "materialType": "answer-sheet",
+      "status": "full_report_ready",
+      "accessLevel": "full",
+      "orderToken": "local-order-token-order-3273eb671dd5",
+      "createdAt": "2026-05-25T02:55:22.864Z",
+      "updatedAt": "2026-05-25T02:55:22.904Z",
+      "uploadedCount": 1,
+      "previewTaskId": "task-0bf9fe1c4af3",
+      "previewDecisionId": "decision-order-3273eb671dd5-preview",
+      "fullTaskId": "task-full-d8fc3b17d594",
+      "fullDecisionId": "decision-order-3273eb671dd5-full",
+      "savedReport": true,
+      "savedAt": "1970-01-01T00:00:00.000Z"
+    },
+    "basicDecision": {
+      "id": "decision-order-3273eb671dd5-basic",
+      "orderId": "order-3273eb671dd5",
+      "ownerId": "local-user-scoremap-t03",
+      "level": "basic",
+      "basic": {
+        "reportTitle": "Complete initial score decision",
+        "summary": "Local basic decision for grade-5 math.",
+        "scoreLevel": "needs-focused-improvement",
+        "quality": {
+          "recognized": true,
+          "uploadQuality": "normal",
+          "confidence": 0.86
+        },
+        "lossPoints": [
+          "Calculation process is incomplete in multi-step questions.",
+          "Key formulas are present but final answer checking is weak."
+        ],
+        "weaknesses": [
+          "Paper overview",
+          "Main score-loss points",
+          "Improvement advice"
+        ],
+        "advice": [
+          "Review mistake categories before the next practice round.",
+          "Keep every calculation step visible for teacher review."
+        ],
+        "upgradeCta": "Unlock the complete score improvement report"
+      },
+      "createdAt": "2026-05-25T02:55:22.893Z",
+      "updatedAt": "2026-05-25T02:55:22.894Z"
+    },
+    "fullTask": {
+      "id": "task-full-d8fc3b17d594",
+      "orderId": "order-3273eb671dd5",
+      "ownerId": "local-user-scoremap-t03",
+      "type": "full",
+      "status": "full_report_ready",
+      "progress": 100,
+      "currentStep": "full_report_ready",
+      "retryCount": 0,
+      "errorCode": null,
+      "createdAt": "2026-05-25T02:55:22.897Z",
+      "updatedAt": "2026-05-25T02:55:22.897Z"
+    },
+    "fullDecision": {
+      "id": "decision-order-3273eb671dd5-full",
+      "orderId": "order-3273eb671dd5",
+      "ownerId": "local-user-scoremap-t03",
+      "level": "full",
+      "full": {
+        "reportTitle": "Complete score improvement report",
+        "orderId": "order-3273eb671dd5",
+        "summary": "Local full report for grade-5 math.",
+        "modules": [
+          {
+            "id": "knowledge-diagnosis",
+            "title": "Knowledge diagnosis",
+            "content": "Calculation rules, formula usage, and answer checking need staged practice."
+          },
+          {
+            "id": "question-level-advice",
+            "title": "Per-question improvement advice",
+            "content": "Mark the missing condition, write the formula, solve, then verify the unit."
+          },
+          {
+            "id": "seven-day-plan",
+            "title": "7-day score improvement plan",
+            "content": "Three short reviews, two targeted exercises, and one full correction review."
+          },
+          {
+            "id": "parent-guidance",
+            "title": "Parent guidance",
+            "content": "Focus feedback on process completeness instead of a guaranteed score outcome."
+          }
+        ],
+        "basicSummary": "Local basic decision for grade-5 math.",
+        "complianceNotice": "Local mock report only; no guaranteed score wording."
+      },
+      "createdAt": "2026-05-25T02:55:22.898Z",
+      "updatedAt": "2026-05-25T02:55:22.898Z"
+    }
+  }
+}

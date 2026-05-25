@@ -1,0 +1,234 @@
+{
+  "status": "PASS",
+  "command": "npm test -- analysis-failure",
+  "requirementIds": [
+    "R03"
+  ],
+  "ownerScenarioIds": [
+    "O02",
+    "O07"
+  ],
+  "uiReference": {
+    "png": "docs/UI/小程序/AI分析.png",
+    "stitch": "docs/UI/小程序/stitch_codex_development_blueprints/ai_1/screen.png"
+  },
+  "route": "/pages/analysis/index",
+  "renderedState": {
+    "route": "/pages/analysis/index",
+    "orderId": "order-t08-analysis",
+    "title": "AI 正在分析中",
+    "estimateText": "通常需要 10-30 秒",
+    "progress": 100,
+    "status": "preview_done",
+    "currentStep": "preview_ready",
+    "steps": [
+      {
+        "id": "read-material",
+        "text": "uploaded material recognized",
+        "status": "done"
+      },
+      {
+        "id": "match-subject",
+        "text": "grade and subject matched",
+        "status": "done"
+      },
+      {
+        "id": "locate-loss-points",
+        "text": "locating score-loss points",
+        "status": "active"
+      },
+      {
+        "id": "generate-preview",
+        "text": "generating preview advice",
+        "status": "done"
+      }
+    ],
+    "pollIntervalMs": 2000,
+    "timeoutMs": 30000,
+    "toast": null,
+    "controls": [
+      {
+        "id": "later-view",
+        "text": "稍后查看"
+      },
+      {
+        "id": "refresh-progress",
+        "text": "刷新进度"
+      }
+    ],
+    "uiReference": {
+      "png": "docs/UI/小程序/AI分析.png",
+      "stitch": "docs/UI/小程序/stitch_codex_development_blueprints/ai_1/screen.png"
+    }
+  },
+  "pageJumpEvidence": [
+    {
+      "controlId": "refresh-progress",
+      "result": {
+        "status": "PENDING",
+        "targetRoute": "/pages/analysis/index",
+        "source": "manual-refresh",
+        "nextPollInMs": 2000,
+        "progress": 68
+      }
+    },
+    {
+      "controlId": "later-view",
+      "result": {
+        "status": "NAVIGATE",
+        "targetRoute": "/pages/reports/index",
+        "reportsCount": 1,
+        "toast": "已保存到我的报告，可稍后继续查看"
+      }
+    },
+    {
+      "event": "auto-complete",
+      "result": {
+        "status": "READY",
+        "targetRoute": "/pages/preview/index",
+        "source": "poll",
+        "progress": 100
+      }
+    }
+  ],
+  "apiCalls": [
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t08-analysis/analysis-progress",
+      "payloadSummary": {
+        "source": "poll",
+        "elapsedMs": 2000
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "analyzing",
+        "progress": 68,
+        "currentStep": "locate-loss-points",
+        "steps": [
+          {
+            "id": "read-material",
+            "text": "uploaded material recognized",
+            "status": "done"
+          },
+          {
+            "id": "match-subject",
+            "text": "grade and subject matched",
+            "status": "done"
+          },
+          {
+            "id": "locate-loss-points",
+            "text": "locating score-loss points",
+            "status": "active"
+          },
+          {
+            "id": "generate-preview",
+            "text": "generating preview advice",
+            "status": "pending"
+          }
+        ],
+        "errorCode": null
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t08-analysis/analysis-progress",
+      "payloadSummary": {
+        "source": "manual-refresh",
+        "elapsedMs": 0
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "analyzing",
+        "progress": 68,
+        "currentStep": "locate-loss-points",
+        "steps": [
+          {
+            "id": "read-material",
+            "text": "uploaded material recognized",
+            "status": "done"
+          },
+          {
+            "id": "match-subject",
+            "text": "grade and subject matched",
+            "status": "done"
+          },
+          {
+            "id": "locate-loss-points",
+            "text": "locating score-loss points",
+            "status": "active"
+          },
+          {
+            "id": "generate-preview",
+            "text": "generating preview advice",
+            "status": "pending"
+          }
+        ],
+        "errorCode": null
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/my/reports",
+      "payloadSummary": {
+        "source": "analysis-later-view",
+        "orderId": "order-t08-analysis"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "items": [
+          {
+            "orderId": "order-t08-analysis",
+            "title": "Analysis in progress",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "analyzing",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t08-analysis/analysis-progress",
+      "payloadSummary": {
+        "source": "poll",
+        "elapsedMs": 4000
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "preview_done",
+        "progress": 100,
+        "currentStep": "preview_ready",
+        "steps": [
+          {
+            "id": "read-material",
+            "text": "uploaded material recognized",
+            "status": "done"
+          },
+          {
+            "id": "match-subject",
+            "text": "grade and subject matched",
+            "status": "done"
+          },
+          {
+            "id": "locate-loss-points",
+            "text": "locating score-loss points",
+            "status": "active"
+          },
+          {
+            "id": "generate-preview",
+            "text": "generating preview advice",
+            "status": "done"
+          }
+        ],
+        "errorCode": null
+      }
+    }
+  ]
+}

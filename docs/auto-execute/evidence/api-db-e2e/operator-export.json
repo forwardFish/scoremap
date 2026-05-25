@@ -1,0 +1,431 @@
+{
+  "status": "PASS",
+  "exportedAt": "1970-01-01T00:00:00.000Z",
+  "localOnly": true,
+  "tables": {
+    "users": [
+      {
+        "id": "local-user-scoremap-t03",
+        "role": "parent_owner",
+        "displayName": "Local Parent Owner",
+        "createdAt": "2026-05-25T02:55:45.897Z",
+        "updatedAt": "2026-05-25T02:55:45.994Z"
+      }
+    ],
+    "diagnosis_orders": [
+      {
+        "id": "order-bd735e64c606",
+        "ownerId": "local-user-scoremap-t03",
+        "source": "T16-main",
+        "grade": "grade-5",
+        "subject": "math",
+        "examType": "unit-test",
+        "materialType": "answer-sheet",
+        "status": "failed",
+        "accessLevel": "full",
+        "orderToken": "local-order-token-order-bd735e64c606",
+        "createdAt": "2026-05-25T02:55:45.901Z",
+        "updatedAt": "2026-05-25T02:55:45.992Z",
+        "uploadedCount": 1,
+        "previewTaskId": "task-7fa876ef654f",
+        "previewDecisionId": "decision-order-bd735e64c606-preview",
+        "fullTaskId": "task-full-352fc57e9d1c",
+        "fullDecisionId": "decision-order-bd735e64c606-full",
+        "savedReport": true,
+        "savedAt": "1970-01-01T00:00:00.000Z",
+        "errorCode": "LOW_QUALITY_IMAGE"
+      },
+      {
+        "id": "order-c8d6a47fb8ad",
+        "ownerId": "local-user-scoremap-t03",
+        "source": "T16-full-denied",
+        "grade": "grade-5",
+        "subject": "math",
+        "examType": "unit-test",
+        "materialType": "answer-sheet",
+        "status": "preview_done",
+        "accessLevel": "preview",
+        "orderToken": "local-order-token-order-c8d6a47fb8ad",
+        "createdAt": "2026-05-25T02:55:45.977Z",
+        "updatedAt": "2026-05-25T02:55:45.986Z",
+        "uploadedCount": 1,
+        "previewTaskId": "task-9949b10191bd",
+        "previewDecisionId": "decision-order-c8d6a47fb8ad-preview"
+      },
+      {
+        "id": "order-bf6e77273a11",
+        "ownerId": "local-user-scoremap-t03",
+        "source": "T16-timeout",
+        "grade": "grade-5",
+        "subject": "math",
+        "examType": "unit-test",
+        "materialType": "answer-sheet",
+        "status": "timeout",
+        "accessLevel": "preview",
+        "orderToken": "local-order-token-order-bf6e77273a11",
+        "createdAt": "2026-05-25T02:55:45.995Z",
+        "updatedAt": "2026-05-25T02:55:46.015Z",
+        "uploadedCount": 1,
+        "previewTaskId": "task-10d8b0d3461e",
+        "previewDecisionId": "decision-order-bf6e77273a11-preview",
+        "errorCode": "ANALYSIS_TIMEOUT"
+      }
+    ],
+    "upload_files": [
+      {
+        "id": "upload-t16-main",
+        "ownerId": "local-user-scoremap-t03",
+        "orderId": "order-bd735e64c606",
+        "originalName": "main.png",
+        "mimeType": "image/png",
+        "storagePath": "D:\\lyh\\agent\\agent-frame\\scoremap\\docs\\auto-execute\\evidence\\api-db-e2e\\local-cloud\\local-user-scoremap-t03\\order-bd735e64c606\\upload-t16-main-main.png",
+        "cloudPath": "local-mock://local-user-scoremap-t03/order-bd735e64c606/upload-t16-main-main.png",
+        "fileId": "local-cloud-file-upload-t16-main",
+        "size": 29,
+        "adapter": "local-tencent-cloud-mock",
+        "createdAt": "2026-05-25T02:55:45.912Z",
+        "updatedAt": "2026-05-25T02:55:45.913Z",
+        "authorizationAccepted": true,
+        "quality": "normal",
+        "localOnly": true
+      },
+      {
+        "id": "upload-t16-full-denied",
+        "ownerId": "local-user-scoremap-t03",
+        "orderId": "order-c8d6a47fb8ad",
+        "originalName": "full-denied.png",
+        "mimeType": "image/png",
+        "storagePath": "D:\\lyh\\agent\\agent-frame\\scoremap\\docs\\auto-execute\\evidence\\api-db-e2e\\local-cloud\\local-user-scoremap-t03\\order-c8d6a47fb8ad\\upload-t16-full-denied-full-denied.png",
+        "cloudPath": "local-mock://local-user-scoremap-t03/order-c8d6a47fb8ad/upload-t16-full-denied-full-denied.png",
+        "fileId": "local-cloud-file-upload-t16-full-denied",
+        "size": 29,
+        "adapter": "local-tencent-cloud-mock",
+        "createdAt": "2026-05-25T02:55:45.980Z",
+        "updatedAt": "2026-05-25T02:55:45.981Z",
+        "authorizationAccepted": true,
+        "quality": "normal",
+        "localOnly": true
+      },
+      {
+        "id": "upload-t16-timeout",
+        "ownerId": "local-user-scoremap-t03",
+        "orderId": "order-bf6e77273a11",
+        "originalName": "timeout.png",
+        "mimeType": "image/png",
+        "storagePath": "D:\\lyh\\agent\\agent-frame\\scoremap\\docs\\auto-execute\\evidence\\api-db-e2e\\local-cloud\\local-user-scoremap-t03\\order-bf6e77273a11\\upload-t16-timeout-timeout.png",
+        "cloudPath": "local-mock://local-user-scoremap-t03/order-bf6e77273a11/upload-t16-timeout-timeout.png",
+        "fileId": "local-cloud-file-upload-t16-timeout",
+        "size": 29,
+        "adapter": "local-tencent-cloud-mock",
+        "createdAt": "2026-05-25T02:55:45.999Z",
+        "updatedAt": "2026-05-25T02:55:46.000Z",
+        "authorizationAccepted": true,
+        "quality": "normal",
+        "localOnly": true
+      }
+    ],
+    "ai_analysis_tasks": [
+      {
+        "id": "task-7fa876ef654f",
+        "orderId": "order-bd735e64c606",
+        "ownerId": "local-user-scoremap-t03",
+        "type": "preview",
+        "status": "preview_done",
+        "progress": 100,
+        "currentStep": "preview_decision_ready",
+        "retryCount": 0,
+        "errorCode": null,
+        "createdAt": "2026-05-25T02:55:45.918Z",
+        "updatedAt": "2026-05-25T02:55:45.918Z"
+      },
+      {
+        "id": "task-full-352fc57e9d1c",
+        "orderId": "order-bd735e64c606",
+        "ownerId": "local-user-scoremap-t03",
+        "type": "full",
+        "status": "full_report_ready",
+        "progress": 100,
+        "currentStep": "full_report_ready",
+        "retryCount": 0,
+        "errorCode": null,
+        "createdAt": "2026-05-25T02:55:45.954Z",
+        "updatedAt": "2026-05-25T02:55:45.954Z"
+      },
+      {
+        "id": "task-9949b10191bd",
+        "orderId": "order-c8d6a47fb8ad",
+        "ownerId": "local-user-scoremap-t03",
+        "type": "preview",
+        "status": "preview_done",
+        "progress": 100,
+        "currentStep": "preview_decision_ready",
+        "retryCount": 0,
+        "errorCode": null,
+        "createdAt": "2026-05-25T02:55:45.984Z",
+        "updatedAt": "2026-05-25T02:55:45.984Z"
+      },
+      {
+        "id": "task-t16-failure-branch",
+        "orderId": "order-bd735e64c606",
+        "ownerId": "local-user-scoremap-t03",
+        "type": "preview",
+        "status": "failed",
+        "progress": 0,
+        "currentStep": "quality_check",
+        "retryCount": 1,
+        "errorCode": "LOW_QUALITY_IMAGE",
+        "createdAt": "2026-05-25T02:55:45.991Z",
+        "updatedAt": "2026-05-25T02:55:45.991Z"
+      },
+      {
+        "id": "task-10d8b0d3461e",
+        "orderId": "order-bf6e77273a11",
+        "ownerId": "local-user-scoremap-t03",
+        "type": "preview",
+        "status": "preview_done",
+        "progress": 100,
+        "currentStep": "preview_decision_ready",
+        "retryCount": 0,
+        "errorCode": null,
+        "createdAt": "2026-05-25T02:55:46.004Z",
+        "updatedAt": "2026-05-25T02:55:46.004Z"
+      },
+      {
+        "id": "task-t16-timeout",
+        "orderId": "order-bf6e77273a11",
+        "ownerId": "local-user-scoremap-t03",
+        "type": "preview",
+        "status": "timeout",
+        "progress": 65,
+        "currentStep": "local_mock_timeout",
+        "retryCount": 1,
+        "errorCode": "ANALYSIS_TIMEOUT",
+        "createdAt": "2026-05-25T02:55:46.013Z",
+        "updatedAt": "2026-05-25T02:55:46.013Z"
+      }
+    ],
+    "diagnosis_decisions": [
+      {
+        "id": "decision-order-bd735e64c606-preview",
+        "orderId": "order-bd735e64c606",
+        "ownerId": "local-user-scoremap-t03",
+        "level": "preview",
+        "preview": {
+          "summary": "Local mock preview decision is ready.",
+          "visibleModules": [
+            {
+              "title": "Paper overview",
+              "content": "Answer-sheet structure and basic material metadata were recognized."
+            },
+            {
+              "title": "Main score-loss points",
+              "content": "Calculation-step completeness needs focused review."
+            },
+            {
+              "title": "Improvement advice",
+              "content": "Review mistake categories before unlocking the complete initial decision."
+            }
+          ],
+          "lockedModules": [
+            "Full knowledge diagnosis",
+            "Per-question improvement advice",
+            "Complete score improvement report"
+          ],
+          "cta": "1 CNY unlock complete initial decision"
+        },
+        "createdAt": "2026-05-25T02:55:45.919Z",
+        "updatedAt": "2026-05-25T02:55:45.919Z"
+      },
+      {
+        "id": "decision-order-bd735e64c606-basic",
+        "orderId": "order-bd735e64c606",
+        "ownerId": "local-user-scoremap-t03",
+        "level": "basic",
+        "basic": {
+          "reportTitle": "Complete initial score decision",
+          "summary": "Local basic decision for grade-5 math.",
+          "scoreLevel": "needs-focused-improvement",
+          "quality": {
+            "recognized": true,
+            "uploadQuality": "normal",
+            "confidence": 0.86
+          },
+          "lossPoints": [
+            "Calculation process is incomplete in multi-step questions.",
+            "Key formulas are present but final answer checking is weak."
+          ],
+          "weaknesses": [
+            "Paper overview",
+            "Main score-loss points",
+            "Improvement advice"
+          ],
+          "advice": [
+            "Review mistake categories before the next practice round.",
+            "Keep every calculation step visible for teacher review."
+          ],
+          "upgradeCta": "Unlock the complete score improvement report"
+        },
+        "createdAt": "2026-05-25T02:55:45.942Z",
+        "updatedAt": "2026-05-25T02:55:45.942Z"
+      },
+      {
+        "id": "decision-order-bd735e64c606-full",
+        "orderId": "order-bd735e64c606",
+        "ownerId": "local-user-scoremap-t03",
+        "level": "full",
+        "full": {
+          "reportTitle": "Complete score improvement report",
+          "orderId": "order-bd735e64c606",
+          "summary": "Local full report for grade-5 math.",
+          "modules": [
+            {
+              "id": "knowledge-diagnosis",
+              "title": "Knowledge diagnosis",
+              "content": "Calculation rules, formula usage, and answer checking need staged practice."
+            },
+            {
+              "id": "question-level-advice",
+              "title": "Per-question improvement advice",
+              "content": "Mark the missing condition, write the formula, solve, then verify the unit."
+            },
+            {
+              "id": "seven-day-plan",
+              "title": "7-day score improvement plan",
+              "content": "Three short reviews, two targeted exercises, and one full correction review."
+            },
+            {
+              "id": "parent-guidance",
+              "title": "Parent guidance",
+              "content": "Focus feedback on process completeness instead of a guaranteed score outcome."
+            }
+          ],
+          "basicSummary": "Local basic decision for grade-5 math.",
+          "complianceNotice": "Local mock report only; no guaranteed score wording."
+        },
+        "createdAt": "2026-05-25T02:55:45.955Z",
+        "updatedAt": "2026-05-25T02:55:45.955Z"
+      },
+      {
+        "id": "decision-order-c8d6a47fb8ad-preview",
+        "orderId": "order-c8d6a47fb8ad",
+        "ownerId": "local-user-scoremap-t03",
+        "level": "preview",
+        "preview": {
+          "summary": "Local mock preview decision is ready.",
+          "visibleModules": [
+            {
+              "title": "Paper overview",
+              "content": "Answer-sheet structure and basic material metadata were recognized."
+            },
+            {
+              "title": "Main score-loss points",
+              "content": "Calculation-step completeness needs focused review."
+            },
+            {
+              "title": "Improvement advice",
+              "content": "Review mistake categories before unlocking the complete initial decision."
+            }
+          ],
+          "lockedModules": [
+            "Full knowledge diagnosis",
+            "Per-question improvement advice",
+            "Complete score improvement report"
+          ],
+          "cta": "1 CNY unlock complete initial decision"
+        },
+        "createdAt": "2026-05-25T02:55:45.985Z",
+        "updatedAt": "2026-05-25T02:55:45.985Z"
+      },
+      {
+        "id": "decision-order-bf6e77273a11-preview",
+        "orderId": "order-bf6e77273a11",
+        "ownerId": "local-user-scoremap-t03",
+        "level": "preview",
+        "preview": {
+          "summary": "Local mock preview decision is ready.",
+          "visibleModules": [
+            {
+              "title": "Paper overview",
+              "content": "Answer-sheet structure and basic material metadata were recognized."
+            },
+            {
+              "title": "Main score-loss points",
+              "content": "Calculation-step completeness needs focused review."
+            },
+            {
+              "title": "Improvement advice",
+              "content": "Review mistake categories before unlocking the complete initial decision."
+            }
+          ],
+          "lockedModules": [
+            "Full knowledge diagnosis",
+            "Per-question improvement advice",
+            "Complete score improvement report"
+          ],
+          "cta": "1 CNY unlock complete initial decision"
+        },
+        "createdAt": "2026-05-25T02:55:46.006Z",
+        "updatedAt": "2026-05-25T02:55:46.006Z"
+      }
+    ],
+    "payments": [
+      {
+        "id": "payment-t16-basic-main",
+        "orderId": "order-bd735e64c606",
+        "ownerId": "local-user-scoremap-t03",
+        "paymentType": "basic",
+        "channel": "local-wechat-pay-mock",
+        "amountCents": 100,
+        "status": "paid",
+        "mockTransactionId": "mock-tx-t16-basic-main",
+        "callbackCount": 1,
+        "createdAt": "2026-05-25T02:55:45.930Z",
+        "updatedAt": "2026-05-25T02:55:45.937Z",
+        "paidAt": "1970-01-01T00:00:00.000Z"
+      },
+      {
+        "id": "payment-t16-full-main",
+        "orderId": "order-bd735e64c606",
+        "ownerId": "local-user-scoremap-t03",
+        "paymentType": "full",
+        "channel": "local-wechat-pay-mock",
+        "amountCents": 990,
+        "status": "paid",
+        "mockTransactionId": "mock-tx-t16-full-main",
+        "callbackCount": 1,
+        "createdAt": "2026-05-25T02:55:45.947Z",
+        "updatedAt": "2026-05-25T02:55:45.951Z",
+        "paidAt": "1970-01-01T00:00:00.000Z"
+      }
+    ],
+    "report_exports": [
+      {
+        "id": "report-export-t16-main",
+        "orderId": "order-bd735e64c606",
+        "ownerId": "local-user-scoremap-t03",
+        "status": "ready",
+        "format": "pdf-local-text",
+        "fileUrl": "local-report-export://local-user-scoremap-t03/order-bd735e64c606/report-export-t16-main.txt",
+        "filePath": "D:\\lyh\\agent\\agent-frame\\scoremap\\docs\\auto-execute\\evidence\\api-db-e2e\\local-report-exports\\local-user-scoremap-t03\\order-bd735e64c606\\report-export-t16-main.txt",
+        "byteLength": 530,
+        "createdAt": "2026-05-25T02:55:45.968Z",
+        "updatedAt": "2026-05-25T02:55:45.968Z"
+      }
+    ],
+    "feedbacks": [
+      {
+        "id": "feedback-t16-main",
+        "orderId": "order-bd735e64c606",
+        "ownerId": "local-user-scoremap-t03",
+        "decisionLevel": "full",
+        "rating": 5,
+        "tags": [
+          "api-db-e2e"
+        ],
+        "text": "Local T16 API DB readback feedback.",
+        "createdAt": "2026-05-25T02:55:45.963Z",
+        "updatedAt": "2026-05-25T02:55:45.963Z"
+      }
+    ]
+  }
+}

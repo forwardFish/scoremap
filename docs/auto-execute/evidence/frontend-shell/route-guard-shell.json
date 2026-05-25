@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "command": "npm test -- miniapp-shell",
+  "requirementIds": [
+    "R03",
+    "R04",
+    "R05",
+    "R06",
+    "R07",
+    "R08",
+    "R09",
+    "R11"
+  ],
+  "assertions": [
+    {
+      "input": null,
+      "targetRoute": "/pages/index/index",
+      "actualRoute": "/pages/index/index"
+    },
+    {
+      "input": {
+        "status": "uploaded",
+        "accessLevel": "preview"
+      },
+      "targetRoute": "/pages/analysis/index",
+      "actualRoute": "/pages/analysis/index"
+    },
+    {
+      "input": {
+        "status": "failed",
+        "accessLevel": "preview"
+      },
+      "targetRoute": "/pages/failure/index",
+      "actualRoute": "/pages/failure/index"
+    },
+    {
+      "input": {
+        "status": "preview_done",
+        "accessLevel": "preview"
+      },
+      "targetRoute": "/pages/preview/index",
+      "actualRoute": "/pages/preview/index"
+    },
+    {
+      "input": {
+        "status": "preview_done",
+        "accessLevel": "basic"
+      },
+      "targetRoute": "/pages/basic-result/index",
+      "actualRoute": "/pages/basic-result/index"
+    },
+    {
+      "input": {
+        "status": "preview_done",
+        "accessLevel": "full"
+      },
+      "targetRoute": "/pages/full-report-entry/index",
+      "actualRoute": "/pages/full-report-entry/index"
+    },
+    {
+      "input": {
+        "status": "preview_done",
+        "accessLevel": "full",
+        "savedReport": true
+      },
+      "targetRoute": "/pages/full-report/index",
+      "actualRoute": "/pages/full-report/index"
+    }
+  ]
+}

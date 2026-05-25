@@ -1,0 +1,93 @@
+{
+  "status": "PASS_WITH_LIMITATION",
+  "command": "npm test -- my-reports-feedback",
+  "requirementIds": [
+    "R10",
+    "R15"
+  ],
+  "ownerJourneyEvidence": {
+    "status": "PASS_WITH_LIMITATION",
+    "scenarios": [
+      "O05",
+      "O06",
+      "O07"
+    ],
+    "clickPath": [
+      "/pages/my/index",
+      "open-reports",
+      "/pages/reports/index",
+      "open-full-report-card",
+      "/pages/full-report/index",
+      "/pages/my/index",
+      "open-feedback",
+      "/pages/feedback/index",
+      "submit-feedback"
+    ],
+    "apiEvidence": "docs/auto-execute/evidence/frontend-page/my-reports-feedback-api-db.json",
+    "dbEvidence": "docs/auto-execute/evidence/frontend-page/my-reports-feedback-api-db.json",
+    "limitation": "T12 records deterministic C11/C12 owner actions. Full rendered O01-O12 owner E2E remains assigned to T15."
+  },
+  "feedbackEvidence": {
+    "route": "/pages/feedback/index",
+    "submit": {
+      "status": "FEEDBACK_SUBMITTED",
+      "apiStatus": 201,
+      "targetRoute": "/pages/my/index",
+      "response": {
+        "status": "created",
+        "feedbackId": "feedback-t12-my"
+      },
+      "dbReadback": {
+        "id": "feedback-t12-my",
+        "orderId": "order-t12-full",
+        "ownerId": "local-user-scoremap-t06",
+        "decisionLevel": "full",
+        "rating": "very_helpful",
+        "tags": [
+          "判断清楚",
+          "知道下一步怎么做"
+        ],
+        "text": "本地 T12 反馈：知道下一步怎么做。",
+        "source": "T12-feedback-page"
+      },
+      "toast": "反馈已记录"
+    },
+    "apiCall": {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t12-full/feedback",
+      "payloadSummary": {
+        "feedbackId": "feedback-t12-my",
+        "decisionLevel": "full",
+        "rating": "very_helpful",
+        "tags": "array(2)",
+        "text": "本地 T12 反馈：知道下一步怎么做。",
+        "source": "T12-feedback-page"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "created",
+        "feedbackId": "feedback-t12-my"
+      }
+    }
+  },
+  "visualEvidence": {
+    "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+    "references": [
+      "docs/UI/小程序/我的.png",
+      "docs/UI/小程序/stitch_codex_development_blueprints/_1/screen.png",
+      "PRD C12 我的报告列表页"
+    ],
+    "expectedVisualCommand": "npm run visual:scoremap -- my reports",
+    "limitation": "T12 visual runner produces deterministic structural artifacts and metrics. Pixel-perfect screenshot capture remains assigned to T14."
+  },
+  "localOnly": {
+    "status": "PASS",
+    "localOnly": true,
+    "adapterMode": "local-mock",
+    "paymentAdapter": "local-wechat-pay-mock",
+    "cloudAdapter": "local-tencent-cloud-mock",
+    "databaseAdapter": "local-in-memory-db"
+  },
+  "forbiddenRemoteFindings": [],
+  "secretFindings": []
+}

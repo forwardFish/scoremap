@@ -1,0 +1,94 @@
+{
+  "status": "PASS",
+  "command": "npm --prefix server test -- report feedback export",
+  "apiCalls": [
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/{orderId}/basic-decision",
+      "branch": "preview_only_denied",
+      "responseStatus": 403,
+      "response": {
+        "status": "error",
+        "code": "BASIC_ENTITLEMENT_REQUIRED"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/{orderId}/full-report",
+      "branch": "owner_denial",
+      "responseStatus": 403,
+      "response": {
+        "status": "error",
+        "code": "ORDER_FORBIDDEN"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/{orderId}/full-report",
+      "branch": "not_generated",
+      "responseStatus": 409,
+      "response": {
+        "status": "error",
+        "code": "FULL_REPORT_NOT_GENERATED"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/{orderId}/feedback",
+      "branch": "validation",
+      "responseStatus": 400,
+      "response": {
+        "status": "error",
+        "code": "VALIDATION_ERROR",
+        "message": "decisionLevel must be basic or full."
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/report-exports/{exportId}",
+      "branch": "not_found",
+      "responseStatus": 404,
+      "response": {
+        "status": "error",
+        "code": "NOT_FOUND",
+        "message": "Report export not found."
+      }
+    }
+  ],
+  "dbReadback": {
+    "previewOnlyOrder": {
+      "id": "order-5e3a68b2e232",
+      "ownerId": "local-user-scoremap-t03",
+      "source": "T05-preview-only",
+      "grade": "grade-5",
+      "subject": "math",
+      "examType": "unit-test",
+      "materialType": "answer-sheet",
+      "status": "preview_done",
+      "accessLevel": "preview",
+      "orderToken": "local-order-token-order-5e3a68b2e232",
+      "createdAt": "2026-05-25T02:55:22.968Z",
+      "updatedAt": "2026-05-25T02:55:22.985Z",
+      "uploadedCount": 1,
+      "previewTaskId": "task-a990822c9969",
+      "previewDecisionId": "decision-order-5e3a68b2e232-preview"
+    },
+    "protectedOrder": {
+      "id": "order-c08695e779a3",
+      "ownerId": "local-user-scoremap-t03",
+      "source": "T05-errors",
+      "grade": "grade-5",
+      "subject": "math",
+      "examType": "unit-test",
+      "materialType": "answer-sheet",
+      "status": "full_paid",
+      "accessLevel": "full",
+      "orderToken": "local-order-token-order-c08695e779a3",
+      "createdAt": "2026-05-25T02:55:22.990Z",
+      "updatedAt": "2026-05-25T02:55:23.017Z",
+      "uploadedCount": 1,
+      "previewTaskId": "task-e7a4bcb8f381",
+      "previewDecisionId": "decision-order-c08695e779a3-preview"
+    }
+  }
+}

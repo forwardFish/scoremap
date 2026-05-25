@@ -1,0 +1,161 @@
+{
+  "taskId": "T14",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "command": "npm run visual:scoremap -- all",
+  "generatedAt": "2026-05-25T02:55:52.696Z",
+  "localOnly": {
+    "LOCAL_ONLY": "true",
+    "adapterMode": "local-mock",
+    "remoteCalls": []
+  },
+  "method": {
+    "capture": "local deterministic miniapp page-state SVG capture",
+    "comparison": "reference/actual artifact existence, byte/hash metrics, and manual-review diff SVG",
+    "pixelmatch": "not installed; no pixel-perfect PASS claimed"
+  },
+  "screens": [
+    {
+      "id": "UI-C01",
+      "screen": "home",
+      "route": "/pages/index/index",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "reference": "docs/UI/小程序/首页.png",
+      "actual": "docs/auto-execute/evidence/visual-harness/home/actual.jpg",
+      "diff": "docs/auto-execute/evidence/visual-harness/home/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/home/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/home/summary.json",
+      "knownGaps": []
+    },
+    {
+      "id": "UI-C03",
+      "screen": "analysis",
+      "route": "/pages/analysis/index",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "reference": "docs/UI/小程序/AI分析.png",
+      "actual": "docs/auto-execute/evidence/visual-harness/analysis/actual.jpg",
+      "diff": "docs/auto-execute/evidence/visual-harness/analysis/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/analysis/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/analysis/summary.json",
+      "knownGaps": []
+    },
+    {
+      "id": "UI-C04",
+      "screen": "failure",
+      "route": "/pages/failure/index",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "reference": "docs/UI/小程序/处理失败.png",
+      "actual": "docs/auto-execute/evidence/visual-harness/failure/actual.jpg",
+      "diff": "docs/auto-execute/evidence/visual-harness/failure/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/failure/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/failure/summary.json",
+      "knownGaps": []
+    },
+    {
+      "id": "UI-C05",
+      "screen": "preview",
+      "route": "/pages/preview/index",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "reference": "docs/UI/小程序/分析报告.png",
+      "actual": "docs/auto-execute/evidence/visual-harness/preview/actual.jpg",
+      "diff": "docs/auto-execute/evidence/visual-harness/preview/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/preview/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/preview/summary.json",
+      "knownGaps": []
+    },
+    {
+      "id": "UI-C06",
+      "screen": "basic-pay",
+      "route": "/pages/basic-pay/index",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "reference": "docs/UI/小程序/1元支付.png",
+      "actual": "docs/auto-execute/evidence/visual-harness/basic-pay/actual.jpg",
+      "diff": "docs/auto-execute/evidence/visual-harness/basic-pay/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/basic-pay/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/basic-pay/summary.json",
+      "knownGaps": []
+    },
+    {
+      "id": "UI-C07",
+      "screen": "basic-result",
+      "route": "/pages/basic-result/index",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "reference": "docs/UI/小程序/ChatGPT Image 2026年5月22日 23_02_21.png",
+      "actual": "docs/auto-execute/evidence/visual-harness/basic-result/actual.jpg",
+      "diff": "docs/auto-execute/evidence/visual-harness/basic-result/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/basic-result/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/basic-result/summary.json",
+      "knownGaps": []
+    },
+    {
+      "id": "UI-C08",
+      "screen": "full-unlock",
+      "route": "/pages/full-unlock/index",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "reference": "docs/UI/小程序/stitch_codex_development_blueprints/_4/screen.png",
+      "actual": "docs/auto-execute/evidence/visual-harness/full-unlock/actual.jpg",
+      "diff": "docs/auto-execute/evidence/visual-harness/full-unlock/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/full-unlock/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/full-unlock/summary.json",
+      "knownGaps": []
+    },
+    {
+      "id": "UI-C09",
+      "screen": "full-report-entry",
+      "route": "/pages/full-report-entry/index",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "reference": "docs/UI/小程序/完整提分报告.png",
+      "actual": "docs/auto-execute/evidence/visual-harness/full-report-entry/actual.jpg",
+      "diff": "docs/auto-execute/evidence/visual-harness/full-report-entry/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/full-report-entry/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/full-report-entry/summary.json",
+      "knownGaps": []
+    },
+    {
+      "id": "UI-C10",
+      "screen": "full-report",
+      "route": "/pages/full-report/index",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "reference": "docs/UI/小程序/stitch_codex_development_blueprints/ai_pdf/screen.png",
+      "actual": "docs/auto-execute/evidence/visual-harness/full-report/actual.jpg",
+      "diff": "docs/auto-execute/evidence/visual-harness/full-report/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/full-report/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/full-report/summary.json",
+      "knownGaps": []
+    },
+    {
+      "id": "UI-C11",
+      "screen": "my",
+      "route": "/pages/my/index",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "reference": "docs/UI/小程序/我的.png",
+      "actual": "docs/auto-execute/evidence/visual-harness/my/actual.jpg",
+      "diff": "docs/auto-execute/evidence/visual-harness/my/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/my/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/my/summary.json",
+      "knownGaps": []
+    },
+    {
+      "id": "UI-C12",
+      "screen": "reports",
+      "route": "/pages/reports/index",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "reference": null,
+      "actual": "docs/auto-execute/evidence/visual-harness/reports/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/reports/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/reports/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/reports/summary.json",
+      "knownGaps": [
+        {
+          "status": "MANUAL_REVIEW_REQUIRED",
+          "reason": "PRD C12 report-list reference; no standalone PNG exists in docs/UI."
+        }
+      ]
+    }
+  ],
+  "knownGaps": [
+    {
+      "status": "MANUAL_REVIEW_REQUIRED",
+      "reason": "PRD C12 report-list reference; no standalone PNG exists in docs/UI."
+    }
+  ]
+}

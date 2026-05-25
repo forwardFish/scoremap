@@ -1,0 +1,11 @@
+﻿{
+  "status": "PASS",
+  "command": "npm test",
+  "method": "POST",
+  "path": "/api/scaffold/db-readback",
+  "responseStatus": 200,
+  "mutationTable": "diagnosis_orders",
+  "insertedId": "scaffold-order-001",
+  "readbackId": "scaffold-order-001",
+  "readbackMatched": true
+}

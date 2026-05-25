@@ -1,0 +1,18 @@
+﻿{
+  "runId": "T00-20260522-local",
+  "taskId": "T00",
+  "source": "docs/auto-execute/evidence/documentation+harness/gap-list.json",
+  "openRepairRequiredGaps": [],
+  "deferredOutOfScopeGaps": [
+    {
+      "id": "T00-GAP-001",
+      "ownerTask": "T01-T18",
+      "reason": "Product page/API/DB/visual/owner evidence is outside the T00 documentation+harness boundary."
+    },
+    {
+      "id": "T00-GAP-002",
+      "ownerTask": "T06-T14",
+      "reason": "External Stitch image URL replacement is downstream implementation work."
+    }
+  ]
+}

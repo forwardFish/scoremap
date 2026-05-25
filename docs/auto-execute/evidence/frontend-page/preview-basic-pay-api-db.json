@@ -1,0 +1,217 @@
+{
+  "status": "PASS",
+  "command": "npm test -- preview-basic-pay",
+  "requirementIds": [
+    "R05",
+    "R06"
+  ],
+  "ownerScenarioIds": [
+    "O03",
+    "O10"
+  ],
+  "apiEvidence": {
+    "paymentCreate": {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-t09-pay",
+        "paymentType": "basic",
+        "amountYuan": 1,
+        "source": "basic-pay-confirm"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "paid",
+        "paymentId": "payment-t06-basic",
+        "amountYuan": 1,
+        "paymentParams": {
+          "adapter": "local-mock"
+        }
+      }
+    },
+    "paymentCallback": {
+      "method": "POST",
+      "path": "/api/payments/wechat/callback",
+      "payloadSummary": {
+        "paymentId": "payment-t06-basic",
+        "status": "paid",
+        "mockTransactionId": "local-mock-basic-order-t09-pay"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "ok": true,
+        "status": "paid",
+        "paymentId": "payment-t06-basic"
+      }
+    },
+    "basicDecision": {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t09-pay/basic-decision",
+      "payloadSummary": {
+        "source": "basic-pay-success"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "decision": {
+          "level": "basic",
+          "summary": "孩子本次主要失分来自计算准确性和几何证明表达。",
+          "evidenceQuality": "medium",
+          "mainLossPoints": [
+            "计算失误",
+            "几何证明步骤不完整"
+          ],
+          "priorityWeaknesses": [
+            "有理数运算",
+            "辅助线思路"
+          ],
+          "initialAdvice": [
+            "每天 15 分钟同类计算纠错",
+            "整理几何证明步骤模板"
+          ]
+        }
+      }
+    }
+  },
+  "pageJumpEvidence": [
+    {
+      "controlId": "back-preview",
+      "result": {
+        "status": "NAVIGATE",
+        "targetRoute": "/pages/preview/index",
+        "query": {
+          "orderId": "order-t09-pay"
+        }
+      }
+    },
+    {
+      "controlId": "confirm-basic-pay",
+      "result": {
+        "status": "PAID",
+        "targetRoute": "/pages/basic-result/index",
+        "paymentId": "payment-t06-basic",
+        "paymentCreateStatus": 201,
+        "callbackStatus": 200,
+        "basicDecisionStatus": 200,
+        "accessLevel": "basic",
+        "paymentReadback": {
+          "id": "payment-t06-basic",
+          "orderId": "order-t09-pay",
+          "ownerId": "local-user-scoremap-t06",
+          "paymentType": "basic",
+          "amountYuan": 1,
+          "status": "paid",
+          "adapter": "local-wechat-pay-mock",
+          "mockTransactionId": "local-mock-basic-order-t09-pay",
+          "callbackAdapter": "local-wechat-pay-mock"
+        },
+        "orderReadback": {
+          "id": "order-t09-pay",
+          "ownerId": "local-user-scoremap-t06",
+          "status": "preview_done",
+          "accessLevel": "basic",
+          "source": "T09-preview-basic-pay"
+        },
+        "toast": "1 元完整初判已解锁"
+      }
+    }
+  ],
+  "dbReadback": {
+    "order": {
+      "id": "order-t09-pay",
+      "ownerId": "local-user-scoremap-t06",
+      "status": "preview_done",
+      "accessLevel": "basic",
+      "source": "T09-preview-basic-pay"
+    },
+    "previewDecision": {
+      "id": "decision-order-t09-pay-preview",
+      "orderId": "order-t09-pay",
+      "ownerId": "local-user-scoremap-t06",
+      "level": "preview",
+      "preview": {
+        "reportTitle": "初一数学月考分析",
+        "summary": "整体基础较好，计算粗心和几何证明是本次失分的主要原因。",
+        "visibleModules": [
+          {
+            "id": "main-loss-points",
+            "title": "主要丢分点",
+            "summary": "计算失误、几何证明步骤不完整。"
+          },
+          {
+            "id": "priority-weakness",
+            "title": "优先补弱点",
+            "summary": "优先提升有理数运算和辅助线意识。"
+          },
+          {
+            "id": "initial-advice",
+            "title": "初步建议",
+            "summary": "先用 7 天做基础纠错和同类题复盘。"
+          }
+        ],
+        "lockedModules": [
+          {
+            "id": "detailed-cause",
+            "title": "详细错因判断"
+          },
+          {
+            "id": "seven-day-plan",
+            "title": "7 天行动建议"
+          },
+          {
+            "id": "next-step",
+            "title": "下一步建议"
+          }
+        ],
+        "unlockPriceYuan": 1
+      }
+    },
+    "payment": {
+      "id": "payment-t06-basic",
+      "orderId": "order-t09-pay",
+      "ownerId": "local-user-scoremap-t06",
+      "paymentType": "basic",
+      "amountYuan": 1,
+      "status": "paid",
+      "adapter": "local-wechat-pay-mock",
+      "mockTransactionId": "local-mock-basic-order-t09-pay",
+      "callbackAdapter": "local-wechat-pay-mock"
+    },
+    "basicDecision": {
+      "id": "decision-order-t09-pay-basic",
+      "orderId": "order-t09-pay",
+      "ownerId": "local-user-scoremap-t06",
+      "level": "basic",
+      "basic": {
+        "level": "basic",
+        "summary": "孩子本次主要失分来自计算准确性和几何证明表达。",
+        "evidenceQuality": "medium",
+        "mainLossPoints": [
+          "计算失误",
+          "几何证明步骤不完整"
+        ],
+        "priorityWeaknesses": [
+          "有理数运算",
+          "辅助线思路"
+        ],
+        "initialAdvice": [
+          "每天 15 分钟同类计算纠错",
+          "整理几何证明步骤模板"
+        ]
+      }
+    },
+    "allPayments": [
+      {
+        "id": "payment-t06-basic",
+        "orderId": "order-t09-pay",
+        "ownerId": "local-user-scoremap-t06",
+        "paymentType": "basic",
+        "amountYuan": 1,
+        "status": "paid",
+        "adapter": "local-wechat-pay-mock",
+        "mockTransactionId": "local-mock-basic-order-t09-pay",
+        "callbackAdapter": "local-wechat-pay-mock"
+      }
+    ]
+  }
+}

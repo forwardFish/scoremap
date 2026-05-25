@@ -1,0 +1,27 @@
+{
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "command": "npm run visual:scoremap -- basic-result full-unlock",
+  "route": "/pages/basic-result/index",
+  "reference": "docs/UI/小程序/完整初判结果.png",
+  "alternateReference": "docs/UI/小程序/ChatGPT Image 2026年5月22日 23_02_21.png",
+  "stitchReference": null,
+  "actual": "docs/auto-execute/evidence/frontend-page/visual/basic-result/actual-basic-result-structure.svg",
+  "diff": "docs/auto-execute/evidence/frontend-page/visual/basic-result/diff-basic-result-manual-review.svg",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "structuralChecks": {
+    "hasSummary": true,
+    "hasQuality": true,
+    "hasLossPoints": true,
+    "hasWeaknesses": true,
+    "hasAdvice": true,
+    "hasNinePointNineUpgrade": true
+  },
+  "pixelDiff": {
+    "status": "MANUAL_REVIEW_REQUIRED",
+    "ratio": null,
+    "reason": "This T10 runner produces deterministic structural visual evidence only; T14 owns full screenshot and pixelmatch harness."
+  }
+}

@@ -1,0 +1,36 @@
+﻿{
+  "pages": [
+    "pages/index/index",
+    "pages/analysis/index",
+    "pages/failure/index",
+    "pages/preview/index",
+    "pages/basic-pay/index",
+    "pages/basic-result/index",
+    "pages/full-unlock/index",
+    "pages/full-report-entry/index",
+    "pages/full-report/index",
+    "pages/my/index",
+    "pages/reports/index",
+    "pages/orders/index",
+    "pages/feedback/index",
+    "pages/scaffold/index"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarTitleText": "Scoremap",
+    "navigationStyle": "custom",
+    "backgroundColor": "#f7f4ef",
+    "backgroundTextStyle": "light"
+  }
+}

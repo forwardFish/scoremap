@@ -1,0 +1,47 @@
+{
+  "status": "PASS_WITH_LIMITATION",
+  "command": "npm test -- full-report-pdf",
+  "requirementIds": [
+    "R09",
+    "R15"
+  ],
+  "ownerJourneyEvidence": {
+    "status": "PASS_WITH_LIMITATION",
+    "scenarios": [
+      "O04",
+      "O05"
+    ],
+    "clickPath": [
+      "/pages/full-report-entry/index",
+      "view-full-report",
+      "/pages/full-report/index",
+      "save-report",
+      "export-pdf",
+      "return-entry"
+    ],
+    "apiEvidence": "docs/auto-execute/evidence/frontend-page/full-report-pdf-api-db.json",
+    "dbEvidence": "docs/auto-execute/evidence/frontend-page/full-report-pdf-api-db.json",
+    "limitation": "T11 records deterministic C09/C10 owner actions. Full rendered O01-O12 owner E2E remains assigned to T15."
+  },
+  "visualEvidence": {
+    "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+    "references": [
+      "docs/UI/灏忕▼搴?瀹屾暣鎻愬垎鎶ュ憡.png",
+      "docs/UI/灏忕▼搴?瀹屾暣鎶ュ憡.png",
+      "docs/UI/灏忕▼搴?stitch_codex_development_blueprints/_2/screen.png",
+      "docs/UI/灏忕▼搴?stitch_codex_development_blueprints/ai_pdf/screen.png"
+    ],
+    "expectedVisualCommand": "npm run visual:scoremap -- full-report-entry full-report",
+    "limitation": "T11 visual runner produces deterministic structural artifacts and metrics. Pixel-perfect screenshot capture remains assigned to T14."
+  },
+  "localOnly": {
+    "status": "PASS",
+    "localOnly": true,
+    "adapterMode": "local-mock",
+    "paymentAdapter": "local-wechat-pay-mock",
+    "cloudAdapter": "local-tencent-cloud-mock",
+    "databaseAdapter": "local-in-memory-db"
+  },
+  "forbiddenRemoteFindings": [],
+  "secretFindings": []
+}

@@ -1,0 +1,154 @@
+{
+  "scenarioId": "O12",
+  "status": "PASS",
+  "command": "npm run e2e:owner",
+  "requirementIds": [
+    "R01",
+    "R10",
+    "R14"
+  ],
+  "clickPath": [
+    "open-empty-reports",
+    "duplicate-upload-same-local-file"
+  ],
+  "routeEvidence": {
+    "reportsRoute": "/pages/reports/index",
+    "emptyVisible": true,
+    "duplicatePolicy": "separate local upload records for repeated file selection"
+  },
+  "apiEvidence": [
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders",
+      "payloadSummary": {
+        "orderId": "order-t15-duplicate-a",
+        "source": "duplicate-a",
+        "grade": "grade-5",
+        "subject": "math",
+        "examType": "unit-test",
+        "materialType": "answer-sheet"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "created",
+        "orderId": "order-t15-duplicate-a",
+        "orderToken": "local-order-token-order-t15-duplicate-a"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t15-duplicate-a/uploads",
+      "payloadSummary": {
+        "uploadId": "upload-t15-duplicate-a1",
+        "authorizationAccepted": true,
+        "files": "array(1)"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "uploaded",
+        "orderId": "order-t15-duplicate-a",
+        "uploadedCount": 1
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t15-duplicate-a/uploads",
+      "payloadSummary": {
+        "uploadId": "upload-t15-duplicate-a2",
+        "authorizationAccepted": true,
+        "files": "array(1)"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "uploaded",
+        "orderId": "order-t15-duplicate-a",
+        "uploadedCount": 1
+      }
+    }
+  ],
+  "dbEvidence": {
+    "emptyReports": {
+      "route": "/pages/reports/index",
+      "title": "我的报告",
+      "uiReference": {
+        "prd": "PRD C12 我的报告列表页"
+      },
+      "filterTabs": [
+        {
+          "id": "all",
+          "text": "全部",
+          "active": true
+        },
+        {
+          "id": "analyzing",
+          "text": "分析中",
+          "active": false
+        },
+        {
+          "id": "generated",
+          "text": "已生成",
+          "active": false
+        },
+        {
+          "id": "failed",
+          "text": "失败/待补",
+          "active": false
+        }
+      ],
+      "controls": [
+        {
+          "id": "load-my-reports",
+          "text": "刷新报告",
+          "api": "GET /api/my/reports"
+        }
+      ],
+      "emptyState": {
+        "visible": true,
+        "text": "暂无报告，继续新建分析"
+      },
+      "cards": []
+    },
+    "uploads": [
+      {
+        "id": "upload-t15-duplicate-a1",
+        "orderId": "order-t15-duplicate-a",
+        "ownerId": "local-user-scoremap-t06",
+        "authorizationAccepted": true,
+        "localOnly": true
+      },
+      {
+        "id": "upload-t15-duplicate-a2",
+        "orderId": "order-t15-duplicate-a",
+        "ownerId": "local-user-scoremap-t06",
+        "authorizationAccepted": true,
+        "localOnly": true
+      }
+    ]
+  },
+  "visualEvidence": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/reports/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/reports/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/reports/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/reports/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/reports/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/index/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/home/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/home/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/home/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/home/summary.json"
+    }
+  ],
+  "localOnly": {
+    "LOCAL_ONLY": "true",
+    "adapterMode": "local-mock",
+    "paymentAdapter": "local-wechat-pay-mock",
+    "cloudAdapter": "local-tencent-cloud-mock",
+    "databaseAdapter": "local-fixture-store",
+    "remoteCalls": []
+  }
+}

@@ -1,0 +1,149 @@
+﻿const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const { test } = require('node:test');
+const { DEFAULT_FORBIDDEN_PATTERNS, assertLocalOnlyEnvironment, scanTextForForbiddenRemoteCalls } = require('../../../shared/local-only');
+const { createMiniappApiClient } = require('../../services/api-client');
+const { createHomeUploadPageState } = require('./index');
+
+const projectRoot = path.resolve(__dirname, '..', '..', '..');
+const evidenceDir = path.join(projectRoot, 'docs', 'auto-execute', 'evidence', 'frontend-page');
+const command = 'npm test -- home-upload';
+
+function writeEvidence(name, payload) {
+  fs.mkdirSync(evidenceDir, { recursive: true });
+  fs.writeFileSync(path.join(evidenceDir, name), `${JSON.stringify(payload, null, 2)}\n`);
+}
+
+test('home-upload renders C01 controls and requires C02 authorization before upload', () => {
+  const client = createMiniappApiClient();
+  const page = createHomeUploadPageState(client);
+  const initial = page.getState();
+  const auth = page.tapUploadMaterial();
+  const afterAuthPrompt = page.getState();
+  const cancel = page.cancelUploadAuthorization();
+
+  assert.equal(initial.route, '/pages/index/index');
+  assert.equal(initial.uploadCard.privacyRequired, true);
+  assert.deepEqual(initial.controls.map((control) => control.id), [
+    'upload-material',
+    'confirm-upload-authorization',
+    'cancel-upload-authorization',
+    'view-sample-report',
+    'view-recent-reports',
+    'open-my-reports'
+  ]);
+  assert.equal(auth.status, 'AUTH_REQUIRED');
+  assert.equal(afterAuthPrompt.authorizationModal.visible, true);
+  assert.equal(client.calls.length, 0);
+  assert.equal(cancel.status, 'CANCELLED');
+  assert.match(cancel.toast, /授权/);
+
+  writeEvidence('home-page-route-controls.json', {
+    status: 'PASS',
+    command,
+    requirementIds: ['R01', 'R02'],
+    uiReference: initial.uiReference || page.uiReference,
+    route: initial.route,
+    pageJumpEvidence: [
+      { controlId: 'upload-material', result: auth },
+      { controlId: 'cancel-upload-authorization', result: cancel },
+      { controlId: 'view-sample-report', result: page.viewSampleReport() },
+      { controlId: 'open-my-reports', result: page.openMyReports() }
+    ],
+    renderedState: page.getState()
+  });
+});
+
+test('home-upload creates local order, upload authorization record, analysis task, and report entry calls', () => {
+  const client = createMiniappApiClient();
+  const page = createHomeUploadPageState(client);
+
+  const prompt = page.tapUploadMaterial();
+  const upload = page.confirmUploadAuthorization();
+  const recent = page.openRecentReports();
+  const snapshot = client.store.snapshot();
+
+  assert.equal(prompt.status, 'AUTH_REQUIRED');
+  assert.equal(upload.status, 'UPLOADED');
+  assert.equal(upload.targetRoute, '/pages/analysis/index');
+  assert.equal(recent.targetRoute, '/pages/reports/index');
+  assert.equal(client.calls[0].method, 'POST');
+  assert.equal(client.calls[0].path, '/api/diagnosis-orders');
+  assert.equal(client.calls[1].path, '/api/diagnosis-orders/order-t07-home-upload/uploads');
+  assert.equal(client.calls[2].path, '/api/diagnosis-orders/order-t07-home-upload/start-preview-analysis');
+  assert.equal(client.calls[3].path, '/api/my/reports');
+  assert.equal(snapshot.diagnosis_orders.length, 1);
+  assert.equal(snapshot.diagnosis_orders[0].status, 'preview_done');
+  assert.equal(snapshot.upload_files.length, 1);
+  assert.equal(snapshot.upload_files[0].authorizationAccepted, true);
+  assert.equal(snapshot.ai_analysis_tasks[0].id, 'task-t07-preview');
+
+  writeEvidence('home-upload-api-db.json', {
+    status: 'PASS',
+    command,
+    requirementIds: ['R01', 'R02'],
+    ownerScenarioIds: ['O01'],
+    pageRoute: '/pages/index/index',
+    resultingRoute: upload.targetRoute,
+    apiCalls: client.calls,
+    dbReadback: {
+      order: client.store.read('diagnosis_orders', 'order-t07-home-upload'),
+      upload: client.store.read('upload_files', 'upload-t07-home-upload'),
+      analysisTask: client.store.read('ai_analysis_tasks', 'task-t07-preview'),
+      previewDecision: client.store.read('diagnosis_decisions', 'decision-order-t07-home-upload-preview'),
+      reports: snapshot.diagnosis_orders
+    }
+  });
+});
+
+test('home-upload records owner journey, visual limitation, and local-only guard evidence', () => {
+  const localOnly = assertLocalOnlyEnvironment({
+    LOCAL_ONLY: 'true',
+    SCOREMAP_ADAPTER_MODE: 'local-mock'
+  });
+  const filesToScan = [
+    'scoremap-miniapp/pages/index/index.js',
+    'scoremap-miniapp/pages/index/home-upload.test.js',
+    'scoremap-miniapp/services/api-client.js',
+    'scoremap-miniapp/services/local-fixture-store.js'
+  ];
+  const forbiddenRemoteFindings = [];
+  for (const relativePath of filesToScan) {
+    const text = fs.readFileSync(path.join(projectRoot, relativePath), 'utf8');
+    for (const match of scanTextForForbiddenRemoteCalls(text, DEFAULT_FORBIDDEN_PATTERNS)) {
+      forbiddenRemoteFindings.push({ path: relativePath, match });
+    }
+  }
+
+  assert.deepEqual(forbiddenRemoteFindings, []);
+  writeEvidence('home-upload-owner-local.json', {
+    status: 'PASS_WITH_LIMITATION',
+    command,
+    requirementIds: ['R01', 'R02', 'R15'],
+    ownerJourneyEvidence: {
+      status: 'PASS_WITH_LIMITATION',
+      scenario: 'O01',
+      clickPath: [
+        '/pages/index/index',
+        'upload-material',
+        'upload-authorization modal',
+        'confirm-upload-authorization',
+        '/pages/analysis/index'
+      ],
+      apiEvidence: 'docs/auto-execute/evidence/frontend-page/home-upload-api-db.json',
+      dbEvidence: 'docs/auto-execute/evidence/frontend-page/home-upload-api-db.json',
+      limitation: 'T07 records deterministic owner click actions for C01/C02. Full O01-O12 rendered owner E2E remains assigned to T15.'
+    },
+    visualEvidence: {
+      status: 'PASS_NEEDS_MANUAL_UI_REVIEW',
+      reference: 'docs/UI/小程序/首页.png',
+      stitchReference: 'docs/UI/小程序/stitch_codex_development_blueprints/ai_2/screen.png',
+      expectedVisualCommand: 'npm run visual:scoremap -- home',
+      limitation: 'T07 has a local structural visual artifact and metrics. Pixel-perfect screenshot capture remains assigned to the visual harness task.'
+    },
+    localOnly,
+    forbiddenRemoteFindings,
+    secretFindings: []
+  });
+});

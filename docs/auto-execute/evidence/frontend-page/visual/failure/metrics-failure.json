@@ -1,0 +1,25 @@
+{
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "command": "npm run visual:scoremap -- analysis failure",
+  "route": "/pages/failure/index",
+  "reference": "docs/UI/小程序/处理失败.png",
+  "stitchReference": "docs/UI/小程序/stitch_codex_development_blueprints/_3/screen.png",
+  "actual": "docs/auto-execute/evidence/frontend-page/visual/failure/actual-failure-structure.svg",
+  "diff": "docs/auto-execute/evidence/frontend-page/visual/failure/diff-failure-manual-review.svg",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "structuralChecks": {
+    "hasFailureTitle": true,
+    "hasReason": true,
+    "hasRetry": true,
+    "hasReupload": true,
+    "hasBackHome": true
+  },
+  "pixelDiff": {
+    "status": "MANUAL_REVIEW_REQUIRED",
+    "ratio": null,
+    "reason": "T08 emits structural visual artifacts. T14 owns screenshot capture and pixel diff."
+  }
+}

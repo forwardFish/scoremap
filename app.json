@@ -1,0 +1,36 @@
+﻿{
+  "pages": [
+    "scoremap-miniapp/pages/index/index",
+    "scoremap-miniapp/pages/analysis/index",
+    "scoremap-miniapp/pages/failure/index",
+    "scoremap-miniapp/pages/preview/index",
+    "scoremap-miniapp/pages/basic-pay/index",
+    "scoremap-miniapp/pages/basic-result/index",
+    "scoremap-miniapp/pages/full-unlock/index",
+    "scoremap-miniapp/pages/full-report-entry/index",
+    "scoremap-miniapp/pages/full-report/index",
+    "scoremap-miniapp/pages/my/index",
+    "scoremap-miniapp/pages/reports/index",
+    "scoremap-miniapp/pages/orders/index",
+    "scoremap-miniapp/pages/feedback/index",
+    "scoremap-miniapp/pages/scaffold/index"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "scoremap-miniapp/pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "scoremap-miniapp/pages/my/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarTitleText": "Scoremap",
+    "navigationStyle": "custom",
+    "backgroundColor": "#f7f4ef",
+    "backgroundTextStyle": "light"
+  }
+}

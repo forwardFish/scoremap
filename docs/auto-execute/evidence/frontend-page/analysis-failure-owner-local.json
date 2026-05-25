@@ -1,0 +1,53 @@
+{
+  "status": "PASS_WITH_LIMITATION",
+  "command": "npm test -- analysis-failure",
+  "requirementIds": [
+    "R03",
+    "R04",
+    "R15"
+  ],
+  "ownerJourneyEvidence": {
+    "status": "PASS_WITH_LIMITATION",
+    "scenarios": [
+      "O02",
+      "O07",
+      "O08",
+      "O09",
+      "O11"
+    ],
+    "clickPath": [
+      "/pages/analysis/index",
+      "refresh-progress",
+      "/pages/failure/index",
+      "retry-analysis",
+      "/pages/analysis/index",
+      "/pages/failure/index",
+      "reupload",
+      "/pages/index/index"
+    ],
+    "apiEvidence": "docs/auto-execute/evidence/frontend-page/analysis-failure-api-db.json",
+    "dbEvidence": "docs/auto-execute/evidence/frontend-page/analysis-failure-api-db.json",
+    "limitation": "T08 records deterministic C03/C04 owner actions. Full rendered O01-O12 owner E2E remains assigned to T15."
+  },
+  "visualEvidence": {
+    "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+    "references": [
+      "docs/UI/小程序/AI分析.png",
+      "docs/UI/小程序/处理失败.png",
+      "docs/UI/小程序/stitch_codex_development_blueprints/ai_1/screen.png",
+      "docs/UI/小程序/stitch_codex_development_blueprints/_3/screen.png"
+    ],
+    "expectedVisualCommand": "npm run visual:scoremap -- analysis failure",
+    "limitation": "T08 visual runner produces deterministic structural artifacts and metrics. Pixel-perfect screenshot capture remains assigned to T14."
+  },
+  "localOnly": {
+    "status": "PASS",
+    "localOnly": true,
+    "adapterMode": "local-mock",
+    "paymentAdapter": "local-wechat-pay-mock",
+    "cloudAdapter": "local-tencent-cloud-mock",
+    "databaseAdapter": "local-in-memory-db"
+  },
+  "forbiddenRemoteFindings": [],
+  "secretFindings": []
+}

@@ -1,0 +1,111 @@
+{
+  "status": "PASS",
+  "command": "npm --prefix server test -- payment entitlement",
+  "requirementIds": [
+    "R06"
+  ],
+  "pageJumpEvidence": {
+    "status": "PASS_WITH_LIMITATION",
+    "route": "/pages/preview/index -> /pages/basic-pay/index -> /pages/basic-result/index",
+    "clickPath": "O03: tap 1 CNY unlock -> confirm local mock payment -> paid callback",
+    "reason": "T04 owns backend payment APIs; frontend route implementation, screenshots, and click trace remain assigned to T09/T10/T15."
+  },
+  "apiCalls": [
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "responseStatus": 201,
+      "response": {
+        "status": "pending",
+        "paymentId": "payment-basic-8ba74431c70f",
+        "orderId": "order-d68dfa2f7df3",
+        "paymentType": "basic",
+        "amountCents": 100,
+        "amountYuan": 1,
+        "idempotent": false,
+        "paymentParams": {
+          "provider": "local-wechat-pay-mock",
+          "paymentId": "payment-basic-8ba74431c70f",
+          "orderId": "order-d68dfa2f7df3",
+          "amountCents": 100,
+          "nonceStr": "local-nonce-payment-basic-8ba74431c70f",
+          "package": "prepay_id=local_payment-basic-8ba74431c70f",
+          "signType": "LOCAL_MOCK",
+          "paySign": "local-signature-payment-basic-8ba74431c70f"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "responseStatus": 200,
+      "idempotent": true
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/wechat/callback",
+      "responseStatus": 200,
+      "response": {
+        "ok": true,
+        "status": "paid",
+        "paymentId": "payment-basic-8ba74431c70f",
+        "orderId": "order-d68dfa2f7df3",
+        "accessLevel": "basic",
+        "idempotent": false,
+        "repaired": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/wechat/callback",
+      "responseStatus": 200,
+      "idempotent": true
+    }
+  ],
+  "dbReadback": {
+    "payment": {
+      "id": "payment-basic-8ba74431c70f",
+      "orderId": "order-d68dfa2f7df3",
+      "ownerId": "local-user-scoremap-t03",
+      "paymentType": "basic",
+      "channel": "local-wechat-pay-mock",
+      "amountCents": 100,
+      "status": "paid",
+      "mockTransactionId": "mock-tx-t04-basic",
+      "callbackCount": 1,
+      "createdAt": "2026-05-25T02:55:22.758Z",
+      "updatedAt": "2026-05-25T02:55:22.762Z",
+      "paidAt": "1970-01-01T00:00:00.000Z"
+    },
+    "order": {
+      "id": "order-d68dfa2f7df3",
+      "ownerId": "local-user-scoremap-t03",
+      "source": "T04-basic",
+      "grade": "grade-5",
+      "subject": "math",
+      "examType": "unit-test",
+      "materialType": "answer-sheet",
+      "status": "basic_paid",
+      "accessLevel": "basic",
+      "orderToken": "local-order-token-order-d68dfa2f7df3",
+      "createdAt": "2026-05-25T02:55:22.741Z",
+      "updatedAt": "2026-05-25T02:55:22.763Z",
+      "uploadedCount": 1,
+      "previewTaskId": "task-5b84fd0d928d",
+      "previewDecisionId": "decision-order-d68dfa2f7df3-preview"
+    }
+  },
+  "localOnly": {
+    "paymentAdapter": {
+      "status": "PASS",
+      "adapter": "local-wechat-pay-mock",
+      "remoteCalls": [],
+      "supportedStatuses": [
+        "paid",
+        "failed",
+        "cancelled"
+      ]
+    },
+    "remoteCalls": []
+  }
+}

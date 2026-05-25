@@ -1,0 +1,296 @@
+{
+  "status": "PASS",
+  "command": "npm test -- my-reports-feedback",
+  "requirementIds": [
+    "R10"
+  ],
+  "ownerScenarioIds": [
+    "O05",
+    "O06",
+    "O07"
+  ],
+  "uiReferences": [
+    "UI-C11",
+    "UI-C12"
+  ],
+  "route": "/pages/my/index",
+  "renderedState": {
+    "route": "/pages/my/index",
+    "title": "我的",
+    "tab": "my",
+    "uiReference": {
+      "png": "docs/UI/小程序/我的.png",
+      "stitch": "docs/UI/小程序/stitch_codex_development_blueprints/_1/screen.png"
+    },
+    "profile": {
+      "avatarText": "家长",
+      "nickname": "匿名家长",
+      "userId": "local-user-scoremap-t06",
+      "copyControl": {
+        "id": "copy-user-id",
+        "text": "复制 ID"
+      }
+    },
+    "rightsCard": {
+      "title": "我的权益",
+      "subtitle": "已购报告权益 / 内测体验权益",
+      "proTreatment": "MVP placeholder only; no subscription, renewal, or real membership purchase is exposed."
+    },
+    "stats": [
+      {
+        "id": "generated-reports",
+        "label": "已生成报告",
+        "value": 1
+      },
+      {
+        "id": "analyzing",
+        "label": "分析中",
+        "value": 1
+      },
+      {
+        "id": "need-material",
+        "label": "待补资料",
+        "value": 0
+      }
+    ],
+    "recentReports": [
+      {
+        "orderId": "order-t12-full",
+        "title": "五年级数学单元测验完整报告",
+        "grade": "五年级",
+        "subject": "数学",
+        "examType": "单元测验",
+        "status": "full_done",
+        "accessLevel": "full",
+        "createdAt": "2026-05-22T10:00:00Z",
+        "savedReport": true,
+        "paymentStatus": "paid",
+        "paidAmountYuan": 10.9
+      },
+      {
+        "orderId": "order-t12-analyzing",
+        "title": "分析中的数学资料",
+        "grade": "五年级",
+        "subject": "数学",
+        "examType": "课后练习",
+        "status": "analyzing",
+        "accessLevel": "preview",
+        "createdAt": "2026-05-23T08:00:00Z",
+        "savedReport": false,
+        "paymentStatus": "unpaid",
+        "paidAmountYuan": 0
+      }
+    ],
+    "quickEntries": [
+      {
+        "id": "open-reports",
+        "text": "我的报告",
+        "targetRoute": "/pages/reports/index"
+      },
+      {
+        "id": "open-orders",
+        "text": "订单记录",
+        "targetRoute": "/pages/orders/index"
+      },
+      {
+        "id": "open-purchases",
+        "text": "购买记录",
+        "targetRoute": "/pages/orders/index"
+      },
+      {
+        "id": "open-feedback",
+        "text": "帮助与反馈",
+        "targetRoute": "/pages/feedback/index"
+      }
+    ],
+    "controls": [
+      {
+        "id": "load-my-reports",
+        "text": "刷新我的报告",
+        "api": "GET /api/my/reports"
+      },
+      {
+        "id": "copy-user-id",
+        "text": "复制 ID",
+        "toast": "本地用户 ID 已复制"
+      },
+      {
+        "id": "open-reports",
+        "text": "我的报告",
+        "targetRoute": "/pages/reports/index"
+      },
+      {
+        "id": "open-orders",
+        "text": "订单记录",
+        "targetRoute": "/pages/orders/index"
+      },
+      {
+        "id": "open-purchases",
+        "text": "购买记录",
+        "targetRoute": "/pages/orders/index"
+      },
+      {
+        "id": "open-feedback",
+        "text": "帮助与反馈",
+        "targetRoute": "/pages/feedback/index"
+      },
+      {
+        "id": "new-analysis",
+        "text": "继续新建分析",
+        "targetRoute": "/pages/index/index"
+      }
+    ],
+    "bottomTabs": [
+      {
+        "id": "home",
+        "text": "首页",
+        "targetRoute": "/pages/index/index",
+        "active": false
+      },
+      {
+        "id": "my",
+        "text": "我的",
+        "targetRoute": "/pages/my/index",
+        "active": true
+      }
+    ]
+  },
+  "pageJumpEvidence": [
+    {
+      "controlId": "copy-user-id",
+      "result": {
+        "status": "COPIED",
+        "toast": "本地用户 ID 已复制",
+        "userId": "local-user-scoremap-t06"
+      }
+    },
+    {
+      "controlId": "open-reports",
+      "result": {
+        "status": "NAVIGATE",
+        "targetRoute": "/pages/reports/index"
+      }
+    },
+    {
+      "controlId": "open-orders",
+      "result": {
+        "status": "NAVIGATE",
+        "targetRoute": "/pages/orders/index",
+        "filter": "orders"
+      }
+    },
+    {
+      "controlId": "open-purchases",
+      "result": {
+        "status": "NAVIGATE",
+        "targetRoute": "/pages/orders/index",
+        "filter": "purchases"
+      }
+    },
+    {
+      "controlId": "open-feedback",
+      "result": {
+        "status": "NAVIGATE",
+        "targetRoute": "/pages/feedback/index",
+        "query": {
+          "orderId": "order-t12-full"
+        }
+      }
+    },
+    {
+      "controlId": "new-analysis",
+      "result": {
+        "status": "SWITCH_TAB",
+        "targetRoute": "/pages/index/index"
+      }
+    }
+  ],
+  "summary": {
+    "status": "MY_REPORTS_READY",
+    "apiStatus": 200,
+    "reportCount": 2,
+    "generatedCount": 1,
+    "analyzingCount": 1,
+    "needMaterialCount": 0
+  },
+  "apiCalls": [
+    {
+      "method": "GET",
+      "path": "/api/my/reports",
+      "payloadSummary": {
+        "source": "my-page-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "items": [
+          {
+            "orderId": "order-t12-full",
+            "title": "五年级数学单元测验完整报告",
+            "grade": "五年级",
+            "subject": "数学",
+            "examType": "单元测验",
+            "status": "full_done",
+            "accessLevel": "full",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": true,
+            "paymentStatus": "paid",
+            "paidAmountYuan": 10.9
+          },
+          {
+            "orderId": "order-t12-analyzing",
+            "title": "分析中的数学资料",
+            "grade": "五年级",
+            "subject": "数学",
+            "examType": "课后练习",
+            "status": "analyzing",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-23T08:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/my/reports",
+      "payloadSummary": {
+        "source": "my-page-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "items": [
+          {
+            "orderId": "order-t12-full",
+            "title": "五年级数学单元测验完整报告",
+            "grade": "五年级",
+            "subject": "数学",
+            "examType": "单元测验",
+            "status": "full_done",
+            "accessLevel": "full",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": true,
+            "paymentStatus": "paid",
+            "paidAmountYuan": 10.9
+          },
+          {
+            "orderId": "order-t12-analyzing",
+            "title": "分析中的数学资料",
+            "grade": "五年级",
+            "subject": "数学",
+            "examType": "课后练习",
+            "status": "analyzing",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-23T08:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          }
+        ]
+      }
+    }
+  ]
+}

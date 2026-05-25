@@ -1,0 +1,135 @@
+﻿{
+    "taskId":  "T15",
+    "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+    "implementedFiles":  [
+                             "package.json",
+                             "tests/e2e/owner-click-flow.test.js",
+                             "docs/auto-execute/evidence/owner/O01.json",
+                             "docs/auto-execute/evidence/owner/O02.json",
+                             "docs/auto-execute/evidence/owner/O03.json",
+                             "docs/auto-execute/evidence/owner/O04.json",
+                             "docs/auto-execute/evidence/owner/O05.json",
+                             "docs/auto-execute/evidence/owner/O06.json",
+                             "docs/auto-execute/evidence/owner/O07.json",
+                             "docs/auto-execute/evidence/owner/O08.json",
+                             "docs/auto-execute/evidence/owner/O09.json",
+                             "docs/auto-execute/evidence/owner/O10.json",
+                             "docs/auto-execute/evidence/owner/O11.json",
+                             "docs/auto-execute/evidence/owner/O12.json",
+                             "docs/auto-execute/evidence/owner/journey-summary.json",
+                             "docs/auto-execute/results/T15.json",
+                             "docs/auto-execute/latest/T15-HANDOFF.md"
+                         ],
+    "tests":  [
+                  {
+                      "command":  "npm run e2e:owner",
+                      "status":  "BLOCKED_BY_ENVIRONMENT",
+                      "evidence":  "PowerShell blocked C:\\Program Files\\nodejs\\npm.ps1 before project code ran."
+                  },
+                  {
+                      "command":  "npm.cmd run e2e:owner",
+                      "status":  "REPAIR_REQUIRED",
+                      "evidence":  "Initial equivalent run failed in O12 empty-report fixture because createReportsPageState seeds default reports; repaired the T15 test to use createStateFromItems([], ...)."
+                  },
+                  {
+                      "command":  "npm.cmd run e2e:owner",
+                      "status":  "PASS",
+                      "evidence":  "Node test runner passed 1/1 tests and generated O01-O12 plus journey-summary evidence under docs/auto-execute/evidence/owner/."
+                  },
+                  {
+                      "command":  "local-only forbidden endpoint and credential-marker scan (pattern redacted in report; see task evidence)",
+                      "status":  "PASS",
+                      "evidence":  "No matches returned for T15 test/evidence/package files."
+                  }
+              ],
+    "pageEvidence":  [
+                         "docs/auto-execute/evidence/owner/O01.json",
+                         "docs/auto-execute/evidence/owner/O02.json",
+                         "docs/auto-execute/evidence/owner/O03.json",
+                         "docs/auto-execute/evidence/owner/O04.json",
+                         "docs/auto-execute/evidence/owner/O05.json",
+                         "docs/auto-execute/evidence/owner/O06.json",
+                         "docs/auto-execute/evidence/owner/O07.json",
+                         "docs/auto-execute/evidence/owner/O08.json",
+                         "docs/auto-execute/evidence/owner/O09.json",
+                         "docs/auto-execute/evidence/owner/O10.json",
+                         "docs/auto-execute/evidence/owner/O11.json",
+                         "docs/auto-execute/evidence/owner/O12.json",
+                         "docs/auto-execute/evidence/owner/journey-summary.json"
+                     ],
+    "apiEvidence":  [
+                        "docs/auto-execute/evidence/owner/O01.json",
+                        "docs/auto-execute/evidence/owner/O02.json",
+                        "docs/auto-execute/evidence/owner/O03.json",
+                        "docs/auto-execute/evidence/owner/O04.json",
+                        "docs/auto-execute/evidence/owner/O05.json",
+                        "docs/auto-execute/evidence/owner/O06.json",
+                        "docs/auto-execute/evidence/owner/O07.json",
+                        "docs/auto-execute/evidence/owner/O08.json",
+                        "docs/auto-execute/evidence/owner/O09.json",
+                        "docs/auto-execute/evidence/owner/O10.json",
+                        "docs/auto-execute/evidence/owner/O11.json",
+                        "docs/auto-execute/evidence/owner/O12.json"
+                    ],
+    "dbEvidence":  [
+                       "docs/auto-execute/evidence/owner/O01.json",
+                       "docs/auto-execute/evidence/owner/O02.json",
+                       "docs/auto-execute/evidence/owner/O03.json",
+                       "docs/auto-execute/evidence/owner/O04.json",
+                       "docs/auto-execute/evidence/owner/O05.json",
+                       "docs/auto-execute/evidence/owner/O06.json",
+                       "docs/auto-execute/evidence/owner/O07.json",
+                       "docs/auto-execute/evidence/owner/O08.json",
+                       "docs/auto-execute/evidence/owner/O09.json",
+                       "docs/auto-execute/evidence/owner/O10.json",
+                       "docs/auto-execute/evidence/owner/O11.json",
+                       "docs/auto-execute/evidence/owner/O12.json",
+                       "docs/auto-execute/evidence/owner/journey-summary.json"
+                   ],
+    "visualEvidence":  [
+                           {
+                               "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                               "summary":  "docs/auto-execute/evidence/owner/journey-summary.json",
+                               "visualHarnessSummary":  "docs/auto-execute/evidence/visual-harness/summary.json",
+                               "details":  "Each O01-O12 scenario references T14 deterministic SVG actual/diff/metrics evidence for the routes it visits. Raster pixel-perfect review remains manual."
+                           }
+                       ],
+    "ownerJourneyEvidence":  [
+                                 {
+                                     "status":  "PASS",
+                                     "summary":  "docs/auto-execute/evidence/owner/journey-summary.json",
+                                     "scenarioCount":  12,
+                                     "scenarios":  [
+                                                       "docs/auto-execute/evidence/owner/O01.json",
+                                                       "docs/auto-execute/evidence/owner/O02.json",
+                                                       "docs/auto-execute/evidence/owner/O03.json",
+                                                       "docs/auto-execute/evidence/owner/O04.json",
+                                                       "docs/auto-execute/evidence/owner/O05.json",
+                                                       "docs/auto-execute/evidence/owner/O06.json",
+                                                       "docs/auto-execute/evidence/owner/O07.json",
+                                                       "docs/auto-execute/evidence/owner/O08.json",
+                                                       "docs/auto-execute/evidence/owner/O09.json",
+                                                       "docs/auto-execute/evidence/owner/O10.json",
+                                                       "docs/auto-execute/evidence/owner/O11.json",
+                                                       "docs/auto-execute/evidence/owner/O12.json"
+                                                   ]
+                                 }
+                             ],
+    "localOnlyEvidence":  [
+                              {
+                                  "status":  "PASS",
+                                  "evidence":  "docs/auto-execute/evidence/owner/journey-summary.json",
+                                  "details":  "LOCAL_ONLY=true, SCOREMAP_ADAPTER_MODE=local-mock, local payment/cloud/database adapters, and zero remote calls recorded."
+                              },
+                              {
+                                  "status":  "PASS",
+                                  "evidence":  "T15 rg local-only/secret scan returned no matches for production payment/cloud/database endpoints or secret-like tokens."
+                              }
+                          ],
+    "knownGaps":  [
+                      {
+                          "status":  "MANUAL_REVIEW_REQUIRED",
+                          "reason":  "T15 uses local deterministic page-state and T14 SVG/metrics visual artifacts; no live miniapp runtime screenshot or raster pixel diff is available in this task boundary."
+                      }
+                  ]
+}

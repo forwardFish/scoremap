@@ -1,0 +1,95 @@
+{
+  "status": "PASS",
+  "command": "npm --prefix server test -- orders uploads preview",
+  "apiCalls": [
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/{orderId}/start-preview-analysis",
+      "branch": "low_quality",
+      "responseStatus": 422,
+      "response": {
+        "taskId": "task-bb10c7ecd2ce",
+        "status": "failed",
+        "errorCode": "LOW_QUALITY_IMAGE",
+        "retryAvailable": true
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/{orderId}/start-preview-analysis",
+      "branch": "timeout",
+      "responseStatus": 202,
+      "response": {
+        "taskId": "task-52bd990b2549",
+        "status": "timeout",
+        "errorCode": "ANALYSIS_TIMEOUT",
+        "retryAvailable": true
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/{orderId}/analysis-progress",
+      "branch": "timeout",
+      "responseStatus": 200,
+      "response": {
+        "orderId": "order-1e677ceccdd7",
+        "taskId": "task-52bd990b2549",
+        "status": "timeout",
+        "progress": 65,
+        "currentStep": "local_mock_timeout",
+        "errorCode": "ANALYSIS_TIMEOUT",
+        "steps": [
+          {
+            "id": "upload_received",
+            "label": "Upload received",
+            "done": true
+          },
+          {
+            "id": "quality_check",
+            "label": "Local quality check",
+            "done": true
+          },
+          {
+            "id": "preview_decision_ready",
+            "label": "Preview decision generated",
+            "done": false
+          }
+        ]
+      }
+    }
+  ],
+  "dbReadback": {
+    "lowQualityOrder": {
+      "id": "order-7fa954cd0fa5",
+      "ownerId": "local-user-scoremap-t03",
+      "source": "T03-low-quality",
+      "grade": "grade-5",
+      "subject": "math",
+      "examType": "unit-test",
+      "materialType": "answer-sheet",
+      "status": "failed",
+      "accessLevel": "preview",
+      "orderToken": "local-order-token-order-7fa954cd0fa5",
+      "createdAt": "2026-05-25T02:55:22.705Z",
+      "updatedAt": "2026-05-25T02:55:22.717Z",
+      "uploadedCount": 1,
+      "errorCode": "LOW_QUALITY_IMAGE"
+    },
+    "timeoutOrder": {
+      "id": "order-1e677ceccdd7",
+      "ownerId": "local-user-scoremap-t03",
+      "source": "T03-timeout",
+      "grade": "grade-5",
+      "subject": "math",
+      "examType": "unit-test",
+      "materialType": "answer-sheet",
+      "status": "timeout",
+      "accessLevel": "preview",
+      "orderToken": "local-order-token-order-1e677ceccdd7",
+      "createdAt": "2026-05-25T02:55:22.721Z",
+      "updatedAt": "2026-05-25T02:55:22.730Z",
+      "uploadedCount": 1,
+      "errorCode": "ANALYSIS_TIMEOUT"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "metrics": {
+    "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+    "command": "npm run visual:scoremap -- preview basic-pay",
+    "route": "/pages/preview/index",
+    "reference": "docs/UI/小程序/分析报告.png",
+    "stitchReference": null,
+    "actual": "docs/auto-execute/evidence/frontend-page/visual/preview/actual-preview-structure.svg",
+    "diff": "docs/auto-execute/evidence/frontend-page/visual/preview/diff-preview-manual-review.svg",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "structuralChecks": {
+      "hasThreeVisibleModules": true,
+      "hasLockedArea": true,
+      "hasOneYuanCta": true,
+      "avoidsFullReportCopy": true
+    },
+    "pixelDiff": {
+      "status": "MANUAL_REVIEW_REQUIRED",
+      "ratio": null,
+      "reason": "This T09 runner produces deterministic structural visual evidence only; T14 owns full screenshot and pixelmatch harness."
+    }
+  }
+}

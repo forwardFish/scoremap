@@ -1,0 +1,58 @@
+﻿{
+  "taskId": "T00",
+  "surface": "documentation+harness",
+  "status": "PASS",
+  "criteria": [
+    {
+      "id": "T00-C01",
+      "claim": "latest, results, and documentation+harness evidence directories exist",
+      "evidence": [
+        "docs/auto-execute/latest",
+        "docs/auto-execute/results",
+        "docs/auto-execute/evidence/documentation+harness"
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "T00-C02",
+      "claim": "source-of-truth inventory covers PRD, UI screenshots, Stitch blueprints, reference project, and all scoremap control matrices",
+      "evidence": [
+        "docs/auto-execute/evidence/documentation+harness/source-inventory.json"
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "T00-C03",
+      "claim": "gap list records T00 scope limits and known downstream evidence requirements",
+      "evidence": [
+        "docs/auto-execute/evidence/documentation+harness/gap-list.json"
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "T00-C04",
+      "claim": "result JSON schema is defined and T00 result uses required fields",
+      "evidence": [
+        "docs/auto-execute/evidence/documentation+harness/result-json-schema.json",
+        "docs/auto-execute/results/T00.json"
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "T00-C05",
+      "claim": "report integrity script validates required files, directories, T00 JSON shape, evidence references, local-only assertion, and obvious secret patterns",
+      "evidence": [
+        "scripts/acceptance/check-report-integrity.ps1"
+      ],
+      "status": "PASS"
+    }
+  ],
+  "surfaceAssertions": {
+    "pageNavigation": "not_touched_by_T00",
+    "apiCalls": "not_touched_by_T00",
+    "dbMutationReadback": "not_touched_by_T00",
+    "visibleUiState": "not_touched_by_T00",
+    "visualEvidence": "not_touched_by_T00",
+    "ownerJourney": "not_touched_by_T00"
+  }
+}

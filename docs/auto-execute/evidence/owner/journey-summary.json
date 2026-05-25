@@ -1,0 +1,219 @@
+{
+  "taskId": "T15",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "command": "npm run e2e:owner",
+  "scenarioCount": 13,
+  "scenarios": [
+    {
+      "scenarioId": "O01",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O01.json"
+    },
+    {
+      "scenarioId": "O02",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O02.json"
+    },
+    {
+      "scenarioId": "O03",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O03.json"
+    },
+    {
+      "scenarioId": "O04",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O04.json"
+    },
+    {
+      "scenarioId": "O05",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O05.json"
+    },
+    {
+      "scenarioId": "O06",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O06.json"
+    },
+    {
+      "scenarioId": "O07",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O07.json"
+    },
+    {
+      "scenarioId": "O08",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O08.json"
+    },
+    {
+      "scenarioId": "O09",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O09.json"
+    },
+    {
+      "scenarioId": "O10",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O10.json"
+    },
+    {
+      "scenarioId": "O11",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O11.json"
+    },
+    {
+      "scenarioId": "O12",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O12.json"
+    },
+    {
+      "scenarioId": "O13",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O13.json"
+    }
+  ],
+  "apiCallCount": 30,
+  "pageEvidence": [
+    "docs/auto-execute/evidence/owner/O01.json",
+    "docs/auto-execute/evidence/owner/O02.json",
+    "docs/auto-execute/evidence/owner/O03.json",
+    "docs/auto-execute/evidence/owner/O04.json",
+    "docs/auto-execute/evidence/owner/O05.json",
+    "docs/auto-execute/evidence/owner/O06.json",
+    "docs/auto-execute/evidence/owner/O07.json",
+    "docs/auto-execute/evidence/owner/O08.json",
+    "docs/auto-execute/evidence/owner/O09.json",
+    "docs/auto-execute/evidence/owner/O10.json",
+    "docs/auto-execute/evidence/owner/O11.json",
+    "docs/auto-execute/evidence/owner/O12.json",
+    "docs/auto-execute/evidence/owner/O13.json"
+  ],
+  "apiEvidence": [
+    "docs/auto-execute/evidence/owner/O01.json",
+    "docs/auto-execute/evidence/owner/O02.json",
+    "docs/auto-execute/evidence/owner/O03.json",
+    "docs/auto-execute/evidence/owner/O04.json",
+    "docs/auto-execute/evidence/owner/O05.json",
+    "docs/auto-execute/evidence/owner/O06.json",
+    "docs/auto-execute/evidence/owner/O07.json",
+    "docs/auto-execute/evidence/owner/O08.json",
+    "docs/auto-execute/evidence/owner/O09.json",
+    "docs/auto-execute/evidence/owner/O10.json",
+    "docs/auto-execute/evidence/owner/O11.json",
+    "docs/auto-execute/evidence/owner/O12.json",
+    "docs/auto-execute/evidence/owner/O13.json"
+  ],
+  "dbEvidence": [
+    "docs/auto-execute/evidence/owner/O01.json",
+    "docs/auto-execute/evidence/owner/O02.json",
+    "docs/auto-execute/evidence/owner/O03.json",
+    "docs/auto-execute/evidence/owner/O04.json",
+    "docs/auto-execute/evidence/owner/O05.json",
+    "docs/auto-execute/evidence/owner/O06.json",
+    "docs/auto-execute/evidence/owner/O07.json",
+    "docs/auto-execute/evidence/owner/O08.json",
+    "docs/auto-execute/evidence/owner/O09.json",
+    "docs/auto-execute/evidence/owner/O10.json",
+    "docs/auto-execute/evidence/owner/O11.json",
+    "docs/auto-execute/evidence/owner/O12.json",
+    "docs/auto-execute/evidence/owner/O13.json"
+  ],
+  "visualEvidence": {
+    "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+    "source": "docs/auto-execute/evidence/visual-harness/summary.json",
+    "limitation": "T15 consumes deterministic T14 SVG/metrics visual artifacts; raster pixel-perfect review remains manual."
+  },
+  "ownerJourneyEvidence": [
+    {
+      "scenarioId": "O01",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O01.json"
+    },
+    {
+      "scenarioId": "O02",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O02.json"
+    },
+    {
+      "scenarioId": "O03",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O03.json"
+    },
+    {
+      "scenarioId": "O04",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O04.json"
+    },
+    {
+      "scenarioId": "O05",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O05.json"
+    },
+    {
+      "scenarioId": "O06",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O06.json"
+    },
+    {
+      "scenarioId": "O07",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O07.json"
+    },
+    {
+      "scenarioId": "O08",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O08.json"
+    },
+    {
+      "scenarioId": "O09",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O09.json"
+    },
+    {
+      "scenarioId": "O10",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O10.json"
+    },
+    {
+      "scenarioId": "O11",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O11.json"
+    },
+    {
+      "scenarioId": "O12",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O12.json"
+    },
+    {
+      "scenarioId": "O13",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/O13.json"
+    }
+  ],
+  "localOnlyEvidence": {
+    "status": "PASS",
+    "localOnly": {
+      "status": "PASS",
+      "localOnly": true,
+      "adapterMode": "local-mock",
+      "paymentAdapter": "local-wechat-pay-mock",
+      "cloudAdapter": "local-tencent-cloud-mock",
+      "databaseAdapter": "local-in-memory-db"
+    },
+    "forbiddenRemoteFindings": [],
+    "remoteCalls": []
+  },
+  "dbReadbackSummary": {
+    "orders": 4,
+    "uploads": 2,
+    "tasks": 4,
+    "decisions": 4,
+    "payments": 2,
+    "feedbacks": 1,
+    "exports": 0
+  },
+  "knownGaps": [
+    {
+      "status": "MANUAL_REVIEW_REQUIRED",
+      "reason": "T15 owner E2E uses local deterministic page-state and T14 SVG visual artifacts; no live miniapp runtime screenshot or raster pixel diff is available in this task boundary."
+    }
+  ]
+}

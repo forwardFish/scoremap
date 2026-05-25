@@ -1,0 +1,12 @@
+﻿{
+  "name": "scoremap-ui-visual-harness",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local-only visual comparison harness for ScoreMap UI references.",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

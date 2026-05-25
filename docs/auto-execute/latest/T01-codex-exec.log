@@ -1,0 +1,32 @@
+﻿T01 completed as one bounded task boundary.
+
+Implemented the local-only scaffold:
+- `package.json` / `package-lock.json`
+- `shared/**` local-only guard, in-memory DB, scaffold contracts
+- `server/**` local HTTP runtime with scaffold API + DB readback
+- `scoremap-miniapp/**` launch route and scaffold page metadata
+- `scripts/build-local-runtime.mjs`
+- T01 evidence/result/handoff files
+
+Verification run:
+```powershell
+npm install; npm test; npm run build --if-present
+```
+
+Final observed result:
+- `npm install`: PASS, 0 vulnerabilities
+- `npm test`: PASS, 6 passed / 0 failed
+- `npm run build --if-present`: PASS
+
+Evidence written:
+- `docs/auto-execute/results/T01.json`
+- `docs/auto-execute/latest/T01-HANDOFF.md`
+- `docs/auto-execute/evidence/scaffold/page-route-scaffold.json`
+- `docs/auto-execute/evidence/scaffold/api-call-scaffold.json`
+- `docs/auto-execute/evidence/scaffold/db-readback-scaffold.json`
+- `docs/auto-execute/evidence/scaffold/visual-placeholder-status.json`
+- `docs/auto-execute/evidence/scaffold/owner-journey-scaffold.json`
+- `docs/auto-execute/evidence/scaffold/local-only-secret-guard.json`
+- `docs/auto-execute/evidence/scaffold/build-summary.json`
+
+One repair was needed: Node’s default test isolation hit `EPERM` when spawning workers, so I changed the npm test command to use `--test-isolation=none` and reran the required T01 checks successfully. T02 is explicitly left for the next task boundary.

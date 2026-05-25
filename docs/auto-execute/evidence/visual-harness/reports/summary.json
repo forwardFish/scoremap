@@ -1,0 +1,14 @@
+{
+  "id": "UI-C12",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "reference": null,
+  "actual": "docs/auto-execute/evidence/visual-harness/reports/actual.svg",
+  "diff": "docs/auto-execute/evidence/visual-harness/reports/diff.svg",
+  "metrics": "docs/auto-execute/evidence/visual-harness/reports/metrics.json",
+  "knownGaps": [
+    {
+      "status": "MANUAL_REVIEW_REQUIRED",
+      "reason": "PRD C12 report-list reference; no standalone PNG exists in docs/UI."
+    }
+  ]
+}

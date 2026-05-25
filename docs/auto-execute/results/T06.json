@@ -1,0 +1,141 @@
+﻿{
+  "taskId": "T06",
+  "status": "PASS_WITH_LIMITATION",
+  "implementedFiles": [
+    "scoremap-miniapp/app.js",
+    "scoremap-miniapp/app.json",
+    "scoremap-miniapp/routes.js",
+    "scoremap-miniapp/services/api-client.js",
+    "scoremap-miniapp/services/local-fixture-store.js",
+    "scoremap-miniapp/utils/navigation.js",
+    "scoremap-miniapp/pages/index/index.js",
+    "scoremap-miniapp/pages/analysis/index.js",
+    "scoremap-miniapp/pages/failure/index.js",
+    "scoremap-miniapp/pages/preview/index.js",
+    "scoremap-miniapp/pages/basic-pay/index.js",
+    "scoremap-miniapp/pages/basic-result/index.js",
+    "scoremap-miniapp/pages/full-unlock/index.js",
+    "scoremap-miniapp/pages/full-report-entry/index.js",
+    "scoremap-miniapp/pages/full-report/index.js",
+    "scoremap-miniapp/pages/my/index.js",
+    "scoremap-miniapp/pages/reports/index.js",
+    "scoremap-miniapp/miniapp-shell.test.js",
+    "docs/auto-execute/evidence/frontend-shell/page-route-shell.json",
+    "docs/auto-execute/evidence/frontend-shell/api-contract-shell.json",
+    "docs/auto-execute/evidence/frontend-shell/route-guard-shell.json",
+    "docs/auto-execute/evidence/frontend-shell/owner-visual-local-shell.json",
+    "docs/auto-execute/results/T06.json",
+    "docs/auto-execute/latest/T06-HANDOFF.md"
+  ],
+  "tests": [
+    {
+      "command": "npm test -- miniapp-shell",
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "summary": "PowerShell blocked C:\\Program Files\\nodejs\\npm.ps1 before project code ran."
+    },
+    {
+      "command": "npm.cmd test -- miniapp-shell",
+      "status": "PASS_WITH_LIMITATION",
+      "summary": "T06 miniapp-shell tests passed, but the root npm script also runs older server suites; non-T06 T04/T05 tests failed with intermittent 500 responses."
+    },
+    {
+      "command": "node --test --test-isolation=none scoremap-miniapp\\miniapp-shell.test.js",
+      "status": "PASS",
+      "summary": "4 T06 tests passed, 0 failed."
+    },
+    {
+      "command": "npm.cmd run lint --if-present",
+      "status": "PASS",
+      "summary": "No lint script is present; npm exited 0 with --if-present."
+    },
+    {
+      "command": "npm.cmd run build",
+      "status": "PASS",
+      "summary": "Local runtime scaffold build passed."
+    }
+  ],
+  "pageEvidence": [
+    {
+      "path": "docs/auto-execute/evidence/frontend-shell/page-route-shell.json",
+      "status": "PASS",
+      "summary": "Declares app launch route, two bottom tabs, C01-C12 shell routes, and all clickable control route/API targets."
+    },
+    {
+      "path": "docs/auto-execute/evidence/frontend-shell/route-guard-shell.json",
+      "status": "PASS",
+      "summary": "Maps local order states to analysis, failure, preview, basic result, full report entry, and full report pages."
+    }
+  ],
+  "apiEvidence": [
+    {
+      "path": "docs/auto-execute/evidence/frontend-shell/api-contract-shell.json",
+      "status": "PASS",
+      "summary": "Records local miniapp client calls for order, upload, analysis progress, preview, payment create, basic decision, full generation/report, save, feedback, export, and my reports."
+    }
+  ],
+  "dbEvidence": [
+    {
+      "path": "docs/auto-execute/evidence/frontend-shell/api-contract-shell.json",
+      "status": "PASS",
+      "tables": [
+        "diagnosis_orders",
+        "upload_files",
+        "ai_analysis_tasks",
+        "diagnosis_decisions",
+        "payments",
+        "feedbacks",
+        "report_exports"
+      ],
+      "summary": "Local fixture store mutation/readback proves the shell contract updates and reads local-only records."
+    }
+  ],
+  "visualEvidence": [
+    {
+      "path": "docs/auto-execute/evidence/frontend-shell/owner-visual-local-shell.json",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "summary": "T06 records UI reference coverage and truthful screenshot/diff deferral; page-specific screenshots and pixel diffs remain assigned to T07-T14."
+    }
+  ],
+  "ownerJourneyEvidence": [
+    {
+      "path": "docs/auto-execute/evidence/frontend-shell/page-route-shell.json",
+      "status": "PASS_WITH_LIMITATION",
+      "summary": "Covers owner shell navigation metadata and route/API targets; exact rendered owner click traces remain assigned to T15."
+    },
+    {
+      "path": "docs/auto-execute/evidence/frontend-shell/owner-visual-local-shell.json",
+      "status": "PASS_WITH_LIMITATION",
+      "summary": "Records tab switch metadata, page jump assertions, API contract calls, and route guard readbacks."
+    }
+  ],
+  "localOnlyEvidence": [
+    {
+      "path": "docs/auto-execute/evidence/frontend-shell/owner-visual-local-shell.json",
+      "status": "PASS",
+      "summary": "LOCAL_ONLY=true, SCOREMAP_ADAPTER_MODE=local-mock, local WeChat payment adapter label only, forbidden remote findings=[], secret findings=[]."
+    },
+    {
+      "path": "docs/auto-execute/evidence/frontend-shell/api-contract-shell.json",
+      "status": "PASS",
+      "summary": "API client uses local-mock://scoremap semantics and in-memory local fixture store; no Tencent Cloud, WeChat Pay, production domain, or online database call is made."
+    }
+  ],
+  "knownGaps": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "summary": "T06 does not produce real miniapp screenshots, visual diffs, or pixel metrics. Those are page/visual tasks T07-T14."
+    },
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "summary": "T06 proves shell owner navigation metadata, not the full O01-O12 rendered click journey. T15 owns exact owner journey traces."
+    },
+    {
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "summary": "The literal npm command is blocked by host PowerShell execution policy; npm.cmd equivalent was used."
+    },
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "summary": "The npm.cmd root test command runs all historical repo tests and still shows non-T06 T04/T05 failures. The focused T06 miniapp-shell test passed."
+    }
+  ]
+}

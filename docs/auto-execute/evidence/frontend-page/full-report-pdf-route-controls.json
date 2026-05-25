@@ -1,0 +1,199 @@
+{
+  "status": "PASS",
+  "command": "npm test -- full-report-pdf",
+  "requirementIds": [
+    "R09"
+  ],
+  "ownerScenarioIds": [
+    "O04",
+    "O05"
+  ],
+  "uiReferences": [
+    "UI-C09"
+  ],
+  "route": "/pages/full-report-entry/index",
+  "renderedState": {
+    "route": "/pages/full-report-entry/index",
+    "orderId": "order-t11-entry",
+    "title": "Complete score improvement report",
+    "subtitle": "The 9.9 yuan local mock payment has generated the complete report.",
+    "uiReference": {
+      "png": "docs/UI/灏忕▼搴?瀹屾暣鎻愬垎鎶ュ憡.png",
+      "stitch": "docs/UI/灏忕▼搴?stitch_codex_development_blueprints/_2/screen.png"
+    },
+    "generatedStatus": "full_report_ready",
+    "statusCard": {
+      "text": "Complete report generated",
+      "saved": false
+    },
+    "contentList": [
+      {
+        "index": 1,
+        "id": "knowledge-diagnosis",
+        "title": "Knowledge diagnosis",
+        "summary": "Calculation rules and formula usage need staged practice."
+      },
+      {
+        "index": 2,
+        "id": "loss-point-breakdown",
+        "title": "Per-question loss point breakdown",
+        "summary": "Mark the missing condition, formula, solving process, and final verification."
+      },
+      {
+        "index": 3,
+        "id": "seven-day-plan",
+        "title": "7-day score improvement plan",
+        "summary": "Three correction reviews, two targeted exercise days, and one final mistake-book review."
+      },
+      {
+        "index": 4,
+        "id": "parent-guidance",
+        "title": "Parent guidance",
+        "summary": "Use process feedback and avoid guaranteed-score promises."
+      }
+    ],
+    "controls": [
+      {
+        "id": "load-full-report",
+        "text": "Refresh report status",
+        "api": "GET /api/diagnosis-orders/order-t11-entry/full-report"
+      },
+      {
+        "id": "view-full-report",
+        "text": "View paper report",
+        "targetRoute": "/pages/full-report/index"
+      },
+      {
+        "id": "save-report",
+        "text": "Save report locally",
+        "api": "POST /api/diagnosis-orders/order-t11-entry/save-report",
+        "targetRoute": "/pages/my/index"
+      },
+      {
+        "id": "back-home",
+        "text": "Back to home",
+        "targetRoute": "/pages/index/index"
+      }
+    ],
+    "toast": null
+  },
+  "pageJumpEvidence": [
+    {
+      "controlId": "load-full-report",
+      "result": {
+        "status": "FULL_REPORT_READY",
+        "apiStatus": 200,
+        "moduleCount": 4
+      }
+    },
+    {
+      "controlId": "view-full-report",
+      "result": {
+        "status": "NAVIGATE",
+        "targetRoute": "/pages/full-report/index",
+        "query": {
+          "orderId": "order-t11-entry"
+        }
+      }
+    },
+    {
+      "controlId": "save-report",
+      "result": {
+        "status": "SAVED",
+        "apiStatus": 200,
+        "targetRoute": "/pages/my/index",
+        "response": {
+          "saved": true
+        },
+        "dbReadback": {
+          "id": "order-t11-entry",
+          "ownerId": "local-user-scoremap-t06",
+          "status": "full_report_ready",
+          "accessLevel": "full",
+          "source": "T11-full-report-entry",
+          "savedReport": true
+        },
+        "toast": "Report saved locally."
+      }
+    },
+    {
+      "controlId": "back-home",
+      "result": {
+        "status": "NAVIGATE",
+        "targetRoute": "/pages/index/index"
+      }
+    }
+  ],
+  "apiCalls": [
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t11-entry/generate-full",
+      "payloadSummary": {
+        "source": "T11-fixture-seed"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t11-entry/full-report",
+      "payloadSummary": {
+        "source": "full-report-entry-load"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_report_ready",
+        "decision": {
+          "level": "full",
+          "reportTitle": "Complete score improvement report",
+          "orderId": "order-t11-entry",
+          "generatedStatus": "full_report_ready",
+          "summary": "Local complete score improvement report for a parent owner review.",
+          "modules": [
+            {
+              "id": "knowledge-diagnosis",
+              "title": "Knowledge diagnosis",
+              "content": "Calculation rules and formula usage need staged practice."
+            },
+            {
+              "id": "loss-point-breakdown",
+              "title": "Per-question loss point breakdown",
+              "content": "Mark the missing condition, formula, solving process, and final verification."
+            },
+            {
+              "id": "seven-day-plan",
+              "title": "7-day score improvement plan",
+              "content": "Three correction reviews, two targeted exercise days, and one final mistake-book review."
+            },
+            {
+              "id": "parent-guidance",
+              "title": "Parent guidance",
+              "content": "Use process feedback and avoid guaranteed-score promises."
+            }
+          ],
+          "tabs": [
+            "overview",
+            "loss points",
+            "7-day plan",
+            "parent guidance"
+          ],
+          "complianceNotice": "Local mock report only. No guaranteed-score promise is displayed."
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t11-entry/save-report",
+      "payloadSummary": {
+        "source": "full-report-entry-save"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "saved": true
+      }
+    }
+  ]
+}

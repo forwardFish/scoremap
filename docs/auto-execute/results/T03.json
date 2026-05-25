@@ -1,0 +1,99 @@
+﻿{
+  "taskId": "T03",
+  "status": "PASS_WITH_LIMITATION",
+  "implementedFiles": [
+    "server/src/services/diagnosis-orders-service.js",
+    "server/src/routes/diagnosis-orders.js",
+    "server/test/diagnosis-orders.test.js",
+    "server/test/run-tests.js"
+  ],
+  "tests": [
+    {
+      "command": "npm --prefix server test -- orders uploads preview",
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "evidence": "PowerShell blocked C:\\Program Files\\nodejs\\npm.ps1 before project code ran."
+    },
+    {
+      "command": "npm.cmd --prefix server test -- orders uploads preview",
+      "status": "PASS",
+      "summary": "4 tests passed, 0 failed"
+    },
+    {
+      "command": "npm.cmd --prefix server test -- adapters local-db payment",
+      "status": "PASS",
+      "summary": "5 tests passed, 0 failed"
+    }
+  ],
+  "pageEvidence": [
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "route": "/pages/index/index -> /pages/analysis/index -> /pages/preview/index",
+      "evidence": "docs/auto-execute/evidence/backend-api/orders-uploads-preview-success.json",
+      "limitation": "T03 owns backend APIs only; frontend page jumps and screenshots remain assigned to T07-T09/T15."
+    }
+  ],
+  "apiEvidence": [
+    "docs/auto-execute/evidence/backend-api/orders-uploads-preview-success.json",
+    "docs/auto-execute/evidence/backend-api/validation-auth-errors.json",
+    "docs/auto-execute/evidence/backend-api/failure-branches.json"
+  ],
+  "dbEvidence": [
+    {
+      "evidence": "docs/auto-execute/evidence/backend-api/orders-uploads-preview-success.json",
+      "tables": [
+        "users",
+        "diagnosis_orders",
+        "upload_files",
+        "ai_analysis_tasks",
+        "diagnosis_decisions"
+      ]
+    },
+    {
+      "evidence": "docs/auto-execute/evidence/backend-api/failure-branches.json",
+      "tables": [
+        "diagnosis_orders",
+        "ai_analysis_tasks"
+      ]
+    }
+  ],
+  "visualEvidence": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "evidence": "docs/auto-execute/evidence/backend-api/local-only-secret-guard.json",
+      "limitation": "T03 has no UI rendering surface; reference/actual/diff/metrics remain assigned to T14."
+    }
+  ],
+  "ownerJourneyEvidence": [
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "evidence": "docs/auto-execute/evidence/backend-api/local-only-secret-guard.json",
+      "coveredApiDbSteps": [
+        "O01 upload/create/start analysis API and DB mutation",
+        "O02 progress and preview-decision API/readback",
+        "O08 retryable failure branch"
+      ],
+      "limitation": "Exact owner click traces remain assigned to T15."
+    }
+  ],
+  "localOnlyEvidence": [
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/backend-api/local-only-secret-guard.json",
+      "summary": "LOCAL_ONLY=true, SCOREMAP_ADAPTER_MODE=local-mock, local Tencent Cloud mock remoteCalls=[], forbidden remote scan findings=[]"
+    }
+  ],
+  "knownGaps": [
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "gap": "PowerShell blocks npm.ps1 for the literal required npm command on this host; npm.cmd equivalent passed."
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "gap": "No T03 visual screenshots or pixel diffs because frontend pages are out of this task boundary."
+    },
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "gap": "No exact owner click trace because owner E2E is assigned to T15."
+    }
+  ]
+}

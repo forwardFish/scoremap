@@ -1,0 +1,149 @@
+{
+  "scenarioId": "O02",
+  "status": "PASS",
+  "command": "npm run e2e:owner",
+  "requirementIds": [
+    "R03",
+    "R05",
+    "R14"
+  ],
+  "clickPath": [
+    "refresh-progress",
+    "/pages/preview/index",
+    "later-view",
+    "/pages/reports/index"
+  ],
+  "routeEvidence": {
+    "progressRoute": "/pages/preview/index",
+    "laterRoute": "/pages/reports/index"
+  },
+  "apiEvidence": [
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t07-home-upload/analysis-progress",
+      "payloadSummary": {
+        "source": "manual-refresh",
+        "elapsedMs": 0
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "preview_done",
+        "progress": 100,
+        "currentStep": "preview_ready",
+        "steps": [
+          {
+            "id": "read-material",
+            "text": "uploaded material recognized",
+            "status": "done"
+          },
+          {
+            "id": "match-subject",
+            "text": "grade and subject matched",
+            "status": "done"
+          },
+          {
+            "id": "locate-loss-points",
+            "text": "locating score-loss points",
+            "status": "active"
+          },
+          {
+            "id": "generate-preview",
+            "text": "generating preview advice",
+            "status": "done"
+          }
+        ],
+        "errorCode": null
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/my/reports",
+      "payloadSummary": {
+        "source": "analysis-later-view",
+        "orderId": "order-t07-home-upload"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "items": [
+          {
+            "orderId": "order-t07-home-upload",
+            "title": "Score analysis report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "preview_done",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          }
+        ]
+      }
+    }
+  ],
+  "dbEvidence": {
+    "task": {
+      "id": "task-t07-preview",
+      "orderId": "order-t07-home-upload",
+      "ownerId": "local-user-scoremap-t06",
+      "type": "preview",
+      "status": "preview_done",
+      "progress": 100,
+      "currentStep": "preview_ready",
+      "errorCode": null,
+      "retryCount": 0
+    },
+    "previewDecision": {
+      "id": "decision-order-t07-home-upload-preview",
+      "orderId": "order-t07-home-upload",
+      "ownerId": "local-user-scoremap-t06",
+      "level": "preview",
+      "preview": {
+        "visibleModules": [
+          "overview",
+          "loss-points",
+          "advice"
+        ],
+        "lockedModules": [
+          "full-report"
+        ]
+      }
+    }
+  },
+  "visualEvidence": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/analysis/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/analysis/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/analysis/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/analysis/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/analysis/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/preview/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/preview/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/preview/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/preview/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/preview/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/reports/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/reports/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/reports/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/reports/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/reports/summary.json"
+    }
+  ],
+  "localOnly": {
+    "LOCAL_ONLY": "true",
+    "adapterMode": "local-mock",
+    "paymentAdapter": "local-wechat-pay-mock",
+    "cloudAdapter": "local-tencent-cloud-mock",
+    "databaseAdapter": "local-fixture-store",
+    "remoteCalls": []
+  }
+}

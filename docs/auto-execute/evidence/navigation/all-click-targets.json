@@ -1,0 +1,328 @@
+{
+  "status": "PASS",
+  "command": "npm test -- navigation",
+  "pageCount": 14,
+  "clickCount": 30,
+  "tabRoutes": [
+    "/pages/index/index",
+    "/pages/my/index"
+  ],
+  "appRoutes": [
+    "/pages/index/index",
+    "/pages/analysis/index",
+    "/pages/failure/index",
+    "/pages/preview/index",
+    "/pages/basic-pay/index",
+    "/pages/basic-result/index",
+    "/pages/full-unlock/index",
+    "/pages/full-report-entry/index",
+    "/pages/full-report/index",
+    "/pages/my/index",
+    "/pages/reports/index",
+    "/pages/orders/index",
+    "/pages/feedback/index",
+    "/pages/scaffold/index"
+  ],
+  "matrix": [
+    {
+      "page": "/pages/index/index",
+      "action": "upload",
+      "label": "上传资料",
+      "className": "home-upload",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/analysis/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/index/index",
+      "action": "sample",
+      "label": "查看样例",
+      "className": "home-sample",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/preview/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/index/index",
+      "action": "reports",
+      "label": "我的报告",
+      "className": "home-reports",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/reports/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/index/index",
+      "action": "my",
+      "label": "我的",
+      "className": "tab-my",
+      "expectedWxMethod": "switchTab",
+      "actualWxMethod": "switchTab",
+      "targetRoute": "/pages/my/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/analysis/index",
+      "action": "later",
+      "label": "稍后查看",
+      "className": "analysis-later",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/reports/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/analysis/index",
+      "action": "refresh",
+      "label": "刷新进度",
+      "className": "analysis-refresh",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/preview/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/failure/index",
+      "action": "retry",
+      "label": "重新开始分析",
+      "className": "failure-retry",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/analysis/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/failure/index",
+      "action": "reupload",
+      "label": "重新上传资料",
+      "className": "failure-reupload",
+      "expectedWxMethod": "switchTab",
+      "actualWxMethod": "switchTab",
+      "targetRoute": "/pages/index/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/failure/index",
+      "action": "home",
+      "label": "返回首页",
+      "className": "failure-home",
+      "expectedWxMethod": "switchTab",
+      "actualWxMethod": "switchTab",
+      "targetRoute": "/pages/index/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/preview/index",
+      "action": "pay",
+      "label": "立即支付 1 元",
+      "className": "bottom-cta",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/basic-pay/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/basic-pay/index",
+      "action": "pay",
+      "label": "立即支付 1 元",
+      "className": "bottom-cta",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/basic-result/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/basic-result/index",
+      "action": "unlock",
+      "label": "解锁完整分析",
+      "className": "bottom-cta",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/full-unlock/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/basic-result/index",
+      "action": "home",
+      "label": "首页",
+      "className": "tab-home",
+      "expectedWxMethod": "switchTab",
+      "actualWxMethod": "switchTab",
+      "targetRoute": "/pages/index/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/full-unlock/index",
+      "action": "pay",
+      "label": "支付 9.9 元",
+      "className": "bottom-cta",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/full-report-entry/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/full-report-entry/index",
+      "action": "view",
+      "label": "查看完整报告",
+      "className": "report-view",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/full-report/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/full-report-entry/index",
+      "action": "save",
+      "label": "保存报告",
+      "className": "report-save",
+      "expectedWxMethod": "switchTab",
+      "actualWxMethod": "switchTab",
+      "targetRoute": "/pages/my/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/full-report-entry/index",
+      "action": "home",
+      "label": "返回首页",
+      "className": "report-home",
+      "expectedWxMethod": "switchTab",
+      "actualWxMethod": "switchTab",
+      "targetRoute": "/pages/index/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/full-report/index",
+      "action": "save",
+      "label": "保存报告",
+      "className": "report-save-small",
+      "expectedWxMethod": "switchTab",
+      "actualWxMethod": "switchTab",
+      "targetRoute": "/pages/my/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/full-report/index",
+      "action": "back",
+      "label": "返回",
+      "className": "report-back-small",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/full-report-entry/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/my/index",
+      "action": "reports",
+      "label": "我的报告",
+      "className": "my-reports",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/reports/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/my/index",
+      "action": "orders",
+      "label": "订单记录",
+      "className": "my-orders",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/orders/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/my/index",
+      "action": "feedback",
+      "label": "帮助与反馈",
+      "className": "my-feedback",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/feedback/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/my/index",
+      "action": "new",
+      "label": "继续新建分析",
+      "className": "my-new",
+      "expectedWxMethod": "switchTab",
+      "actualWxMethod": "switchTab",
+      "targetRoute": "/pages/index/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/my/index",
+      "action": "home",
+      "label": "首页",
+      "className": "tab-home",
+      "expectedWxMethod": "switchTab",
+      "actualWxMethod": "switchTab",
+      "targetRoute": "/pages/index/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/reports/index",
+      "action": "open",
+      "label": "查看完整报告",
+      "className": "reports-card",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/full-report/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/reports/index",
+      "action": "home",
+      "label": "首页",
+      "className": "tab-home",
+      "expectedWxMethod": "switchTab",
+      "actualWxMethod": "switchTab",
+      "targetRoute": "/pages/index/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/reports/index",
+      "action": "my",
+      "label": "我的",
+      "className": "tab-my",
+      "expectedWxMethod": "switchTab",
+      "actualWxMethod": "switchTab",
+      "targetRoute": "/pages/my/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/orders/index",
+      "action": "my",
+      "label": "我的",
+      "className": "bottom-cta",
+      "expectedWxMethod": "switchTab",
+      "actualWxMethod": "switchTab",
+      "targetRoute": "/pages/my/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/feedback/index",
+      "action": "my",
+      "label": "提交并返回",
+      "className": "bottom-cta",
+      "expectedWxMethod": "switchTab",
+      "actualWxMethod": "switchTab",
+      "targetRoute": "/pages/my/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/scaffold/index",
+      "action": "home",
+      "label": "进入首页",
+      "className": "bottom-cta",
+      "expectedWxMethod": "switchTab",
+      "actualWxMethod": "switchTab",
+      "targetRoute": "/pages/index/index",
+      "status": "PASS"
+    }
+  ]
+}

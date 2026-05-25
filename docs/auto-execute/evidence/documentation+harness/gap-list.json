@@ -1,0 +1,22 @@
+﻿{
+  "taskId": "T00",
+  "surface": "documentation+harness",
+  "generatedAt": "2026-05-22T00:00:00+08:00",
+  "status": "PASS",
+  "gaps": [
+    {
+      "id": "T00-GAP-001",
+      "severity": "info",
+      "status": "not_in_t00_scope",
+      "description": "Product runtime source code is not part of T00. Page navigation, API calls, DB mutation/readback, visual comparisons, and owner journeys are intentionally left to T01-T18.",
+      "ownerTask": "T01-T18"
+    },
+    {
+      "id": "T00-GAP-002",
+      "severity": "info",
+      "status": "recorded",
+      "description": "Stitch HTML may contain external image URLs. Later implementation tasks must replace them with local assets or deterministic mocks per master plan.",
+      "ownerTask": "T06-T14"
+    }
+  ]
+}

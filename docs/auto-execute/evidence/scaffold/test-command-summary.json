@@ -1,0 +1,23 @@
+﻿{
+  "status": "PASS_WITH_LIMITATION",
+  "taskId": "T01",
+  "requiredCommand": "npm install; npm test; npm run build --if-present",
+  "requiredCommandObserved": {
+    "status": "BLOCKED_BY_ENVIRONMENT",
+    "shell": "PowerShell",
+    "reason": "PowerShell execution policy blocked C:\\Program Files\\nodejs\\npm.ps1 before project code ran."
+  },
+  "equivalentCommand": "npm.cmd install; npm.cmd test; npm.cmd run build --if-present",
+  "equivalentCommandObserved": {
+    "status": "PASS",
+    "install": "up to date, audited 1 package, 0 vulnerabilities",
+    "test": "11 passed, 0 failed",
+    "build": "T01 local runtime scaffold build PASS"
+  },
+  "localOnly": true,
+  "remoteCalls": [],
+  "notes": [
+    "The npm.cmd rerun uses the same local npm installation and package scripts while bypassing only the host PowerShell script execution policy.",
+    "The npm test command also discovers T02 tests currently present in the workspace; T01 changes and evidence remain scoped to scaffold files."
+  ]
+}

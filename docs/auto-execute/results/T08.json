@@ -1,0 +1,123 @@
+﻿{
+  "taskId": "T08",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "implementedFiles": [
+    "scoremap-miniapp/pages/analysis/index.js",
+    "scoremap-miniapp/pages/analysis/analysis-failure.test.js",
+    "scoremap-miniapp/pages/analysis/visual-analysis-failure.js",
+    "scoremap-miniapp/pages/failure/index.js",
+    "scoremap-miniapp/services/api-client.js",
+    "scoremap-miniapp/pages/index/visual-home.js",
+    "scripts/run-tests.mjs",
+    "docs/auto-execute/evidence/frontend-page/analysis-page-route-controls.json",
+    "docs/auto-execute/evidence/frontend-page/analysis-failure-api-db.json",
+    "docs/auto-execute/evidence/frontend-page/analysis-failure-owner-local.json",
+    "docs/auto-execute/evidence/frontend-page/visual/analysis/actual-analysis-structure.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/analysis/diff-analysis-manual-review.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/analysis/metrics-analysis.json",
+    "docs/auto-execute/evidence/frontend-page/visual/analysis/summary-analysis.json",
+    "docs/auto-execute/evidence/frontend-page/visual/failure/actual-failure-structure.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/failure/diff-failure-manual-review.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/failure/metrics-failure.json",
+    "docs/auto-execute/evidence/frontend-page/visual/failure/summary-failure.json"
+  ],
+  "tests": [
+    {
+      "command": "npm test -- analysis-failure",
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "evidence": "PowerShell blocked C:\\Program Files\\nodejs\\npm.ps1 before project code ran."
+    },
+    {
+      "command": "npm.cmd test -- analysis-failure",
+      "status": "PASS",
+      "evidence": "3 tests passed, 0 failed"
+    },
+    {
+      "command": "npm run visual:scoremap -- analysis failure",
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "evidence": "PowerShell blocked C:\\Program Files\\nodejs\\npm.ps1 before project code ran."
+    },
+    {
+      "command": "npm.cmd run visual:scoremap -- analysis failure",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "evidence": [
+        "docs/auto-execute/evidence/frontend-page/visual/analysis/summary-analysis.json",
+        "docs/auto-execute/evidence/frontend-page/visual/failure/summary-failure.json"
+      ]
+    },
+    {
+      "command": "npm.cmd test -- miniapp-shell",
+      "status": "PASS",
+      "evidence": "4 tests passed, 0 failed"
+    },
+    {
+      "command": "npm.cmd test -- home-upload",
+      "status": "PASS",
+      "evidence": "3 tests passed, 0 failed"
+    },
+    {
+      "command": "npm.cmd run build",
+      "status": "PASS",
+      "evidence": "T01 local runtime scaffold build PASS"
+    },
+    {
+      "command": "npm.cmd test -- server",
+      "status": "PASS",
+      "evidence": "19 tests passed, 0 failed"
+    },
+    {
+      "command": "npm.cmd test",
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "evidence": "Broader all-suite run reached unrelated server/local JSON DB EPERM rename flake under AppData temp. T08 selector and server selector both pass."
+    }
+  ],
+  "pageEvidence": [
+    "docs/auto-execute/evidence/frontend-page/analysis-page-route-controls.json",
+    "docs/auto-execute/evidence/frontend-page/analysis-failure-api-db.json"
+  ],
+  "apiEvidence": [
+    "docs/auto-execute/evidence/frontend-page/analysis-page-route-controls.json",
+    "docs/auto-execute/evidence/frontend-page/analysis-failure-api-db.json"
+  ],
+  "dbEvidence": [
+    "docs/auto-execute/evidence/frontend-page/analysis-failure-api-db.json"
+  ],
+  "visualEvidence": [
+    "docs/auto-execute/evidence/frontend-page/visual/analysis/actual-analysis-structure.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/analysis/diff-analysis-manual-review.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/analysis/metrics-analysis.json",
+    "docs/auto-execute/evidence/frontend-page/visual/analysis/summary-analysis.json",
+    "docs/auto-execute/evidence/frontend-page/visual/failure/actual-failure-structure.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/failure/diff-failure-manual-review.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/failure/metrics-failure.json",
+    "docs/auto-execute/evidence/frontend-page/visual/failure/summary-failure.json"
+  ],
+  "ownerJourneyEvidence": [
+    "docs/auto-execute/evidence/frontend-page/analysis-failure-owner-local.json"
+  ],
+  "localOnlyEvidence": [
+    "docs/auto-execute/evidence/frontend-page/analysis-failure-owner-local.json"
+  ],
+  "knownGaps": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "scope": "visual",
+      "detail": "T08 produced deterministic structural actual/diff/metrics evidence for analysis and failure pages, but did not run pixel-perfect screenshot comparison. T14 owns the full visual harness."
+    },
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "scope": "owner-journey",
+      "detail": "T08 records deterministic C03/C04 owner actions and API/DB readback. Full rendered O01-O12 owner E2E remains assigned to T15."
+    },
+    {
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "scope": "command-shell",
+      "detail": "PowerShell blocks npm.ps1 on this host. Equivalent npm.cmd commands were run and passed."
+    },
+    {
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "scope": "broader-regression",
+      "detail": "A non-required broad npm.cmd test run intermittently failed in T02 local JSON DB temp-file rename (EPERM) outside the T08 page boundary. The T08 selector, miniapp-shell, home-upload, build, and server selector all passed."
+    }
+  ]
+}

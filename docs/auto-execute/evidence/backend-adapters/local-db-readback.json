@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "command": "npm --prefix server test -- adapters local-db payment",
+  "adapter": "LocalJsonDbAdapter",
+  "tables": [
+    "ai_analysis_tasks",
+    "diagnosis_decisions",
+    "diagnosis_orders",
+    "feedbacks",
+    "payments",
+    "report_exports",
+    "upload_files",
+    "users"
+  ],
+  "mutationIds": {
+    "users": "local-user-t02",
+    "diagnosis_orders": "order-t02",
+    "upload_files": "upload-t02-db",
+    "ai_analysis_tasks": "task-t02-db",
+    "diagnosis_decisions": "decision-t02-db",
+    "payments": "payment-t02-db",
+    "report_exports": "export-t02-db",
+    "feedbacks": "feedback-t02-db"
+  },
+  "readbackMatched": true
+}

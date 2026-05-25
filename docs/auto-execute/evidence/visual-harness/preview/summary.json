@@ -1,0 +1,9 @@
+{
+  "id": "UI-C05",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "reference": "docs/UI/小程序/分析报告.png",
+  "actual": "docs/auto-execute/evidence/visual-harness/preview/actual.jpg",
+  "diff": "docs/auto-execute/evidence/visual-harness/preview/diff.svg",
+  "metrics": "docs/auto-execute/evidence/visual-harness/preview/metrics.json",
+  "knownGaps": []
+}

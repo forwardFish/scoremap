@@ -1,0 +1,340 @@
+{
+  "status": "PASS",
+  "command": "npm test -- basic-result-full-unlock",
+  "requirementIds": [
+    "R07",
+    "R08"
+  ],
+  "ownerScenarioIds": [
+    "O03",
+    "O04"
+  ],
+  "apiEvidence": {
+    "basicDecision": {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t10-full/basic-decision",
+      "payloadSummary": {
+        "source": "basic-result-page-load"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "decision": {
+          "level": "basic",
+          "summary": "Most score loss comes from calculation accuracy and incomplete geometry proof steps.",
+          "evidenceQuality": "medium",
+          "quality": {
+            "uploadQuality": "normal",
+            "confidence": 0.86,
+            "recognized": true
+          },
+          "mainLossPoints": [
+            "Calculation carry and sign errors appear in multi-step questions.",
+            "Geometry proof steps miss key conditions before the conclusion."
+          ],
+          "priorityWeaknesses": [
+            "Rational-number operations",
+            "Auxiliary-line proof planning"
+          ],
+          "initialAdvice": [
+            "Spend 15 minutes daily correcting similar calculation errors.",
+            "Write the proof condition, reason, and conclusion as three separate lines."
+          ],
+          "upgradeCta": "Unlock the complete score improvement report"
+        }
+      }
+    },
+    "paymentCreate": {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-t10-full",
+        "paymentType": "full",
+        "amountYuan": 9.9,
+        "source": "full-unlock-confirm"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "paid",
+        "paymentId": "payment-t06-full",
+        "amountYuan": 9.9,
+        "paymentParams": {
+          "adapter": "local-mock"
+        }
+      }
+    },
+    "paymentCallback": {
+      "method": "POST",
+      "path": "/api/payments/wechat/callback",
+      "payloadSummary": {
+        "paymentId": "payment-t06-full",
+        "status": "paid",
+        "mockTransactionId": "local-mock-full-order-t10-full"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "ok": true,
+        "status": "paid",
+        "paymentId": "payment-t06-full"
+      }
+    },
+    "generateFull": {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t10-full/generate-full",
+      "payloadSummary": {
+        "source": "full-unlock-paid"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    "fullReport": {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t10-full/full-report",
+      "payloadSummary": {
+        "source": "full-unlock-readback"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_report_ready",
+        "decision": {
+          "level": "full",
+          "reportTitle": "Complete score improvement report",
+          "orderId": "order-t10-full",
+          "generatedStatus": "full_report_ready",
+          "summary": "Local complete score improvement report for a parent owner review.",
+          "modules": [
+            {
+              "id": "knowledge-diagnosis",
+              "title": "Knowledge diagnosis",
+              "content": "Calculation rules and formula usage need staged practice."
+            },
+            {
+              "id": "loss-point-breakdown",
+              "title": "Per-question loss point breakdown",
+              "content": "Mark the missing condition, formula, solving process, and final verification."
+            },
+            {
+              "id": "seven-day-plan",
+              "title": "7-day score improvement plan",
+              "content": "Three correction reviews, two targeted exercise days, and one final mistake-book review."
+            },
+            {
+              "id": "parent-guidance",
+              "title": "Parent guidance",
+              "content": "Use process feedback and avoid guaranteed-score promises."
+            }
+          ],
+          "tabs": [
+            "overview",
+            "loss points",
+            "7-day plan",
+            "parent guidance"
+          ],
+          "complianceNotice": "Local mock report only. No guaranteed-score promise is displayed."
+        }
+      }
+    }
+  },
+  "pageJumpEvidence": [
+    {
+      "controlId": "back-basic-result",
+      "result": {
+        "status": "NAVIGATE",
+        "targetRoute": "/pages/basic-result/index",
+        "query": {
+          "orderId": "order-t10-full"
+        }
+      }
+    },
+    {
+      "controlId": "confirm-full-pay",
+      "result": {
+        "status": "PAID",
+        "targetRoute": "/pages/full-report-entry/index",
+        "paymentId": "payment-t06-full",
+        "paymentCreateStatus": 201,
+        "callbackStatus": 200,
+        "generateFullStatus": 200,
+        "fullReportStatus": 200,
+        "accessLevel": "full",
+        "paymentReadback": {
+          "id": "payment-t06-full",
+          "orderId": "order-t10-full",
+          "ownerId": "local-user-scoremap-t06",
+          "paymentType": "full",
+          "amountYuan": 9.9,
+          "status": "paid",
+          "adapter": "local-wechat-pay-mock",
+          "mockTransactionId": "local-mock-full-order-t10-full",
+          "callbackAdapter": "local-wechat-pay-mock"
+        },
+        "orderReadback": {
+          "id": "order-t10-full",
+          "ownerId": "local-user-scoremap-t06",
+          "status": "basic_ready",
+          "accessLevel": "full",
+          "source": "T10-basic-result"
+        },
+        "fullDecisionReadback": {
+          "id": "decision-order-t10-full-full",
+          "orderId": "order-t10-full",
+          "ownerId": "local-user-scoremap-t06",
+          "level": "full",
+          "full": {
+            "level": "full",
+            "reportTitle": "Complete score improvement report",
+            "orderId": "order-t10-full",
+            "generatedStatus": "full_report_ready",
+            "summary": "Local complete score improvement report for a parent owner review.",
+            "modules": [
+              {
+                "id": "knowledge-diagnosis",
+                "title": "Knowledge diagnosis",
+                "content": "Calculation rules and formula usage need staged practice."
+              },
+              {
+                "id": "loss-point-breakdown",
+                "title": "Per-question loss point breakdown",
+                "content": "Mark the missing condition, formula, solving process, and final verification."
+              },
+              {
+                "id": "seven-day-plan",
+                "title": "7-day score improvement plan",
+                "content": "Three correction reviews, two targeted exercise days, and one final mistake-book review."
+              },
+              {
+                "id": "parent-guidance",
+                "title": "Parent guidance",
+                "content": "Use process feedback and avoid guaranteed-score promises."
+              }
+            ],
+            "tabs": [
+              "overview",
+              "loss points",
+              "7-day plan",
+              "parent guidance"
+            ],
+            "complianceNotice": "Local mock report only. No guaranteed-score promise is displayed."
+          }
+        },
+        "toast": "9.9 yuan local full analysis unlocked."
+      }
+    }
+  ],
+  "dbReadback": {
+    "order": {
+      "id": "order-t10-full",
+      "ownerId": "local-user-scoremap-t06",
+      "status": "basic_ready",
+      "accessLevel": "full",
+      "source": "T10-basic-result"
+    },
+    "payment": {
+      "id": "payment-t06-full",
+      "orderId": "order-t10-full",
+      "ownerId": "local-user-scoremap-t06",
+      "paymentType": "full",
+      "amountYuan": 9.9,
+      "status": "paid",
+      "adapter": "local-wechat-pay-mock",
+      "mockTransactionId": "local-mock-full-order-t10-full",
+      "callbackAdapter": "local-wechat-pay-mock"
+    },
+    "basicDecision": {
+      "id": "decision-order-t10-full-basic",
+      "orderId": "order-t10-full",
+      "ownerId": "local-user-scoremap-t06",
+      "level": "basic",
+      "basic": {
+        "level": "basic",
+        "summary": "Most score loss comes from calculation accuracy and incomplete geometry proof steps.",
+        "evidenceQuality": "medium",
+        "quality": {
+          "uploadQuality": "normal",
+          "confidence": 0.86,
+          "recognized": true
+        },
+        "mainLossPoints": [
+          "Calculation carry and sign errors appear in multi-step questions.",
+          "Geometry proof steps miss key conditions before the conclusion."
+        ],
+        "priorityWeaknesses": [
+          "Rational-number operations",
+          "Auxiliary-line proof planning"
+        ],
+        "initialAdvice": [
+          "Spend 15 minutes daily correcting similar calculation errors.",
+          "Write the proof condition, reason, and conclusion as three separate lines."
+        ],
+        "upgradeCta": "Unlock the complete score improvement report"
+      }
+    },
+    "fullDecision": {
+      "id": "decision-order-t10-full-full",
+      "orderId": "order-t10-full",
+      "ownerId": "local-user-scoremap-t06",
+      "level": "full",
+      "full": {
+        "level": "full",
+        "reportTitle": "Complete score improvement report",
+        "orderId": "order-t10-full",
+        "generatedStatus": "full_report_ready",
+        "summary": "Local complete score improvement report for a parent owner review.",
+        "modules": [
+          {
+            "id": "knowledge-diagnosis",
+            "title": "Knowledge diagnosis",
+            "content": "Calculation rules and formula usage need staged practice."
+          },
+          {
+            "id": "loss-point-breakdown",
+            "title": "Per-question loss point breakdown",
+            "content": "Mark the missing condition, formula, solving process, and final verification."
+          },
+          {
+            "id": "seven-day-plan",
+            "title": "7-day score improvement plan",
+            "content": "Three correction reviews, two targeted exercise days, and one final mistake-book review."
+          },
+          {
+            "id": "parent-guidance",
+            "title": "Parent guidance",
+            "content": "Use process feedback and avoid guaranteed-score promises."
+          }
+        ],
+        "tabs": [
+          "overview",
+          "loss points",
+          "7-day plan",
+          "parent guidance"
+        ],
+        "complianceNotice": "Local mock report only. No guaranteed-score promise is displayed."
+      }
+    },
+    "allPayments": [
+      {
+        "id": "payment-t06-full",
+        "orderId": "order-t10-full",
+        "ownerId": "local-user-scoremap-t06",
+        "paymentType": "full",
+        "amountYuan": 9.9,
+        "status": "paid",
+        "adapter": "local-wechat-pay-mock",
+        "mockTransactionId": "local-mock-full-order-t10-full",
+        "callbackAdapter": "local-wechat-pay-mock"
+      }
+    ],
+    "allTasks": [
+      {
+        "id": "task-t06-full",
+        "orderId": "order-t10-full",
+        "ownerId": "local-user-scoremap-t06",
+        "type": "full",
+        "status": "full_done"
+      }
+    ]
+  }
+}

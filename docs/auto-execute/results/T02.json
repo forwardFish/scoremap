@@ -1,0 +1,130 @@
+﻿{
+  "taskId": "T02",
+  "status": "PASS_WITH_LIMITATION",
+  "implementedFiles": [
+    "server/package.json",
+    "server/src/db/local-json-db.js",
+    "server/src/adapters/index.js",
+    "server/src/adapters/local-tencent-cloud-mock.js",
+    "server/src/adapters/local-wechat-pay-mock.js",
+    "server/test/run-tests.js",
+    "server/test/adapters.test.js",
+    "docs/auto-execute/evidence/backend-adapters/local-db-readback.json",
+    "docs/auto-execute/evidence/backend-adapters/local-cloud-mock.json",
+    "docs/auto-execute/evidence/backend-adapters/local-payment-mock.json",
+    "docs/auto-execute/evidence/backend-adapters/local-only-secret-guard.json",
+    "docs/auto-execute/evidence/backend-adapters/scope-limitations.json",
+    "docs/auto-execute/evidence/backend-adapters/test-command-summary.json",
+    "docs/auto-execute/results/T02.json",
+    "docs/auto-execute/latest/T02-HANDOFF.md"
+  ],
+  "tests": [
+    {
+      "command": "npm --prefix server test -- adapters local-db payment",
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "observed": "PowerShell blocked npm.ps1 before project code ran.",
+      "equivalentCommand": "npm.cmd --prefix server test -- adapters local-db payment",
+      "equivalentStatus": "PASS",
+      "equivalentObserved": "5 tests passed, 0 failed",
+      "evidence": [
+        "docs/auto-execute/evidence/backend-adapters/test-command-summary.json"
+      ]
+    },
+    {
+      "command": "npm.cmd --prefix server test -- adapters local-db payment",
+      "status": "PASS",
+      "observed": "5 tests passed, 0 failed",
+      "evidence": [
+        "docs/auto-execute/evidence/backend-adapters/local-db-readback.json",
+        "docs/auto-execute/evidence/backend-adapters/local-cloud-mock.json",
+        "docs/auto-execute/evidence/backend-adapters/local-payment-mock.json",
+        "docs/auto-execute/evidence/backend-adapters/local-only-secret-guard.json",
+        "docs/auto-execute/evidence/backend-adapters/scope-limitations.json"
+      ]
+    }
+  ],
+  "pageEvidence": [
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "evidence": "docs/auto-execute/evidence/backend-adapters/scope-limitations.json",
+      "summary": "T02 has no page route ownership; page jumps and route controls remain assigned to T06-T12. The adapter evidence proves backend state used by those future routes."
+    }
+  ],
+  "apiEvidence": [
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/backend-adapters/local-payment-mock.json",
+      "summary": "Adapter-level calls model POST /api/payments/create and POST /api/payments/wechat/callback with local mock payment params and idempotent callback behavior."
+    },
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/backend-adapters/local-cloud-mock.json",
+      "summary": "Adapter-level local cloud upload/download records the upload_files side effect that later upload APIs will call."
+    }
+  ],
+  "dbEvidence": [
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/backend-adapters/local-db-readback.json",
+      "summary": "users, diagnosis_orders, upload_files, ai_analysis_tasks, diagnosis_decisions, payments, report_exports, and feedbacks were mutated and independently read back."
+    },
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/backend-adapters/local-payment-mock.json",
+      "summary": "Payment callback mutated payments and diagnosis_orders; readback shows accessLevel=basic and status=basic_paid."
+    }
+  ],
+  "visualEvidence": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "evidence": "docs/auto-execute/evidence/backend-adapters/scope-limitations.json",
+      "summary": "T02 is backend-adapters only; screenshot capture and diff metrics remain assigned to T14."
+    }
+  ],
+  "ownerJourneyEvidence": [
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "evidence": "docs/auto-execute/evidence/backend-adapters/scope-limitations.json",
+      "summary": "T02 proves local adapter mutations/readbacks used by owner scenarios; O01-O12 click traces remain assigned to T15."
+    }
+  ],
+  "localOnlyEvidence": [
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/backend-adapters/local-only-secret-guard.json",
+      "summary": "LOCAL_ONLY=true, SCOREMAP_ADAPTER_MODE=local-mock, no forbidden remote call findings, and no secret findings in T02 adapter files."
+    },
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/backend-adapters/local-cloud-mock.json",
+      "summary": "Tencent Cloud behavior is represented by local-tencent-cloud-mock with remoteCalls=[]."
+    },
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/backend-adapters/local-payment-mock.json",
+      "summary": "WeChat Pay behavior is represented by local-wechat-pay-mock with remoteCalls=[]."
+    }
+  ],
+  "knownGaps": [
+    {
+      "status": "DEFERRED",
+      "ownerTask": "T03",
+      "summary": "Order/upload/preview HTTP APIs are not in T02 scope."
+    },
+    {
+      "status": "DEFERRED",
+      "ownerTask": "T04",
+      "summary": "Payment HTTP routes and entitlement API flow are not in T02 scope."
+    },
+    {
+      "status": "DEFERRED",
+      "ownerTask": "T14",
+      "summary": "Visual screenshot/diff evidence is not in T02 scope."
+    },
+    {
+      "status": "DEFERRED",
+      "ownerTask": "T15",
+      "summary": "Full parent owner journey click traces are not in T02 scope."
+    }
+  ]
+}

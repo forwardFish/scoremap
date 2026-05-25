@@ -1,0 +1,17 @@
+﻿{
+  "status": "PASS",
+  "command": "npm test",
+  "method": "GET",
+  "path": "/api/scaffold/ping",
+  "responseStatus": 200,
+  "responseBody": {
+    "status": "ok",
+    "service": "scoremap-local-runtime",
+    "localOnly": true,
+    "adapterMode": "local-mock",
+    "paymentAdapter": "local-wechat-pay-mock",
+    "cloudAdapter": "local-tencent-cloud-mock",
+    "databaseAdapter": "local-in-memory-db"
+  },
+  "remoteCalls": []
+}

@@ -1,0 +1,301 @@
+{
+  "status": "PASS",
+  "command": "npm test -- full-report-pdf",
+  "requirementIds": [
+    "R09",
+    "R15"
+  ],
+  "ownerScenarioIds": [
+    "O05"
+  ],
+  "apiEvidence": {
+    "fullReport": {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t11-pdf/full-report",
+      "payloadSummary": {
+        "source": "full-report-entry-load"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_report_ready",
+        "decision": {
+          "level": "full",
+          "reportTitle": "Complete score improvement report",
+          "orderId": "order-t11-pdf",
+          "generatedStatus": "full_report_ready",
+          "summary": "Local complete score improvement report for a parent owner review.",
+          "modules": [
+            {
+              "id": "knowledge-diagnosis",
+              "title": "Knowledge diagnosis",
+              "content": "Calculation rules and formula usage need staged practice."
+            },
+            {
+              "id": "loss-point-breakdown",
+              "title": "Per-question loss point breakdown",
+              "content": "Mark the missing condition, formula, solving process, and final verification."
+            },
+            {
+              "id": "seven-day-plan",
+              "title": "7-day score improvement plan",
+              "content": "Three correction reviews, two targeted exercise days, and one final mistake-book review."
+            },
+            {
+              "id": "parent-guidance",
+              "title": "Parent guidance",
+              "content": "Use process feedback and avoid guaranteed-score promises."
+            }
+          ],
+          "tabs": [
+            "overview",
+            "loss points",
+            "7-day plan",
+            "parent guidance"
+          ],
+          "complianceNotice": "Local mock report only. No guaranteed-score promise is displayed."
+        }
+      }
+    },
+    "saveReport": {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t11-pdf/save-report",
+      "payloadSummary": {
+        "source": "full-report-page-save"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "saved": true
+      }
+    },
+    "exportPdf": {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t11-pdf/export-pdf",
+      "payloadSummary": {
+        "exportId": "report-export-order-t11-pdf",
+        "source": "full-report-page-download"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "ready",
+        "exportId": "report-export-order-t11-pdf",
+        "fileUrl": "local-report-export://order-t11-pdf/report-export-order-t11-pdf.pdf"
+      }
+    }
+  },
+  "pageJumpEvidence": [
+    {
+      "controlId": "switch-tab-7-day-plan",
+      "result": {
+        "status": "TAB_CHANGED",
+        "activeTab": "7-day plan"
+      }
+    },
+    {
+      "controlId": "save-report",
+      "result": {
+        "status": "SAVED",
+        "apiStatus": 200,
+        "targetRoute": "/pages/my/index",
+        "response": {
+          "saved": true
+        },
+        "dbReadback": {
+          "id": "order-t11-pdf",
+          "ownerId": "local-user-scoremap-t06",
+          "status": "full_report_ready",
+          "accessLevel": "full",
+          "source": "T11-full-report-entry",
+          "savedReport": true
+        },
+        "toast": "Paper report saved locally."
+      }
+    },
+    {
+      "controlId": "export-pdf",
+      "result": {
+        "status": "PDF_READY",
+        "apiStatus": 201,
+        "response": {
+          "status": "ready",
+          "exportId": "report-export-order-t11-pdf",
+          "fileUrl": "local-report-export://order-t11-pdf/report-export-order-t11-pdf.pdf"
+        },
+        "dbReadback": {
+          "id": "report-export-order-t11-pdf",
+          "orderId": "order-t11-pdf",
+          "ownerId": "local-user-scoremap-t06",
+          "status": "ready",
+          "format": "application/pdf",
+          "fileUrl": "local-report-export://order-t11-pdf/report-export-order-t11-pdf.pdf",
+          "filePath": "docs/auto-execute/evidence/frontend-page/pdf/order-t11-pdf-report-export-order-t11-pdf.pdf",
+          "byteLength": 1315
+        },
+        "filePath": "docs/auto-execute/evidence/frontend-page/pdf/order-t11-pdf-report-export-order-t11-pdf.pdf",
+        "toast": "Local PDF generated."
+      }
+    },
+    {
+      "controlId": "return-entry",
+      "result": {
+        "status": "NAVIGATE",
+        "targetRoute": "/pages/full-report-entry/index",
+        "query": {
+          "orderId": "order-t11-pdf"
+        }
+      }
+    }
+  ],
+  "dbReadback": {
+    "order": {
+      "id": "order-t11-pdf",
+      "ownerId": "local-user-scoremap-t06",
+      "status": "full_report_ready",
+      "accessLevel": "full",
+      "source": "T11-full-report-entry",
+      "savedReport": true
+    },
+    "fullDecision": {
+      "id": "decision-order-t11-pdf-full",
+      "orderId": "order-t11-pdf",
+      "ownerId": "local-user-scoremap-t06",
+      "level": "full",
+      "full": {
+        "level": "full",
+        "reportTitle": "Complete score improvement report",
+        "orderId": "order-t11-pdf",
+        "generatedStatus": "full_report_ready",
+        "summary": "Local complete score improvement report for a parent owner review.",
+        "modules": [
+          {
+            "id": "knowledge-diagnosis",
+            "title": "Knowledge diagnosis",
+            "content": "Calculation rules and formula usage need staged practice."
+          },
+          {
+            "id": "loss-point-breakdown",
+            "title": "Per-question loss point breakdown",
+            "content": "Mark the missing condition, formula, solving process, and final verification."
+          },
+          {
+            "id": "seven-day-plan",
+            "title": "7-day score improvement plan",
+            "content": "Three correction reviews, two targeted exercise days, and one final mistake-book review."
+          },
+          {
+            "id": "parent-guidance",
+            "title": "Parent guidance",
+            "content": "Use process feedback and avoid guaranteed-score promises."
+          }
+        ],
+        "tabs": [
+          "overview",
+          "loss points",
+          "7-day plan",
+          "parent guidance"
+        ],
+        "complianceNotice": "Local mock report only. No guaranteed-score promise is displayed."
+      }
+    },
+    "reportExport": {
+      "id": "report-export-order-t11-pdf",
+      "orderId": "order-t11-pdf",
+      "ownerId": "local-user-scoremap-t06",
+      "status": "ready",
+      "format": "application/pdf",
+      "fileUrl": "local-report-export://order-t11-pdf/report-export-order-t11-pdf.pdf",
+      "filePath": "docs/auto-execute/evidence/frontend-page/pdf/order-t11-pdf-report-export-order-t11-pdf.pdf",
+      "byteLength": 1315
+    },
+    "snapshot": {
+      "users": [
+        {
+          "id": "local-user-scoremap-t06",
+          "role": "parent_owner"
+        }
+      ],
+      "diagnosis_orders": [
+        {
+          "id": "order-t11-pdf",
+          "ownerId": "local-user-scoremap-t06",
+          "status": "full_report_ready",
+          "accessLevel": "full",
+          "source": "T11-full-report-entry",
+          "savedReport": true
+        }
+      ],
+      "upload_files": [],
+      "ai_analysis_tasks": [
+        {
+          "id": "task-t06-full",
+          "orderId": "order-t11-pdf",
+          "ownerId": "local-user-scoremap-t06",
+          "type": "full",
+          "status": "full_done"
+        }
+      ],
+      "diagnosis_decisions": [
+        {
+          "id": "decision-order-t11-pdf-full",
+          "orderId": "order-t11-pdf",
+          "ownerId": "local-user-scoremap-t06",
+          "level": "full",
+          "full": {
+            "level": "full",
+            "reportTitle": "Complete score improvement report",
+            "orderId": "order-t11-pdf",
+            "generatedStatus": "full_report_ready",
+            "summary": "Local complete score improvement report for a parent owner review.",
+            "modules": [
+              {
+                "id": "knowledge-diagnosis",
+                "title": "Knowledge diagnosis",
+                "content": "Calculation rules and formula usage need staged practice."
+              },
+              {
+                "id": "loss-point-breakdown",
+                "title": "Per-question loss point breakdown",
+                "content": "Mark the missing condition, formula, solving process, and final verification."
+              },
+              {
+                "id": "seven-day-plan",
+                "title": "7-day score improvement plan",
+                "content": "Three correction reviews, two targeted exercise days, and one final mistake-book review."
+              },
+              {
+                "id": "parent-guidance",
+                "title": "Parent guidance",
+                "content": "Use process feedback and avoid guaranteed-score promises."
+              }
+            ],
+            "tabs": [
+              "overview",
+              "loss points",
+              "7-day plan",
+              "parent guidance"
+            ],
+            "complianceNotice": "Local mock report only. No guaranteed-score promise is displayed."
+          }
+        }
+      ],
+      "payments": [],
+      "report_exports": [
+        {
+          "id": "report-export-order-t11-pdf",
+          "orderId": "order-t11-pdf",
+          "ownerId": "local-user-scoremap-t06",
+          "status": "ready",
+          "format": "application/pdf",
+          "fileUrl": "local-report-export://order-t11-pdf/report-export-order-t11-pdf.pdf",
+          "filePath": "docs/auto-execute/evidence/frontend-page/pdf/order-t11-pdf-report-export-order-t11-pdf.pdf",
+          "byteLength": 1315
+        }
+      ],
+      "feedbacks": []
+    }
+  },
+  "localPdf": {
+    "path": "docs/auto-execute/evidence/frontend-page/pdf/order-t11-pdf-report-export-order-t11-pdf.pdf",
+    "exists": true,
+    "header": "%PDF-1.4"
+  }
+}

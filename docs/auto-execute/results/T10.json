@@ -1,0 +1,107 @@
+﻿{
+  "taskId": "T10",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "implementedFiles": [
+    "scoremap-miniapp/pages/basic-result/index.js",
+    "scoremap-miniapp/pages/basic-result/basic-result-full-unlock.test.js",
+    "scoremap-miniapp/pages/basic-result/visual-basic-result-full-unlock.js",
+    "scoremap-miniapp/pages/full-unlock/index.js",
+    "scoremap-miniapp/pages/index/visual-home.js",
+    "scripts/run-tests.mjs",
+    "docs/auto-execute/evidence/frontend-page/basic-result-full-unlock-route-controls.json",
+    "docs/auto-execute/evidence/frontend-page/basic-result-full-unlock-api-db.json",
+    "docs/auto-execute/evidence/frontend-page/basic-result-full-unlock-owner-local.json",
+    "docs/auto-execute/evidence/frontend-page/visual/basic-result/actual-basic-result-structure.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/basic-result/diff-basic-result-manual-review.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/basic-result/metrics-basic-result.json",
+    "docs/auto-execute/evidence/frontend-page/visual/basic-result/summary-basic-result.json",
+    "docs/auto-execute/evidence/frontend-page/visual/full-unlock/actual-full-unlock-structure.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/full-unlock/diff-full-unlock-manual-review.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/full-unlock/metrics-full-unlock.json",
+    "docs/auto-execute/evidence/frontend-page/visual/full-unlock/summary-full-unlock.json"
+  ],
+  "tests": [
+    {
+      "command": "npm test -- basic-result-full-unlock",
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "evidence": "PowerShell blocked C:\\Program Files\\nodejs\\npm.ps1 before project code ran."
+    },
+    {
+      "command": "npm.cmd test -- basic-result-full-unlock",
+      "status": "PASS",
+      "evidence": "3 tests passed, 0 failed"
+    },
+    {
+      "command": "npm run visual:scoremap -- basic-result full-unlock",
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "evidence": "PowerShell blocked C:\\Program Files\\nodejs\\npm.ps1 before project code ran."
+    },
+    {
+      "command": "npm.cmd run visual:scoremap -- basic-result full-unlock",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "evidence": [
+        "docs/auto-execute/evidence/frontend-page/visual/basic-result/summary-basic-result.json",
+        "docs/auto-execute/evidence/frontend-page/visual/full-unlock/summary-full-unlock.json"
+      ]
+    },
+    {
+      "command": "npm.cmd test -- miniapp-shell",
+      "status": "PASS",
+      "evidence": "4 tests passed, 0 failed"
+    },
+    {
+      "command": "npm.cmd run build",
+      "status": "PASS",
+      "evidence": "T01 local runtime scaffold build PASS"
+    },
+    {
+      "command": "node -e \"parse T10 evidence json\"",
+      "status": "PASS",
+      "evidence": "All T10 evidence JSON files parsed successfully."
+    }
+  ],
+  "pageEvidence": [
+    "docs/auto-execute/evidence/frontend-page/basic-result-full-unlock-route-controls.json",
+    "docs/auto-execute/evidence/frontend-page/basic-result-full-unlock-api-db.json"
+  ],
+  "apiEvidence": [
+    "docs/auto-execute/evidence/frontend-page/basic-result-full-unlock-route-controls.json",
+    "docs/auto-execute/evidence/frontend-page/basic-result-full-unlock-api-db.json"
+  ],
+  "dbEvidence": [
+    "docs/auto-execute/evidence/frontend-page/basic-result-full-unlock-api-db.json"
+  ],
+  "visualEvidence": [
+    "docs/auto-execute/evidence/frontend-page/visual/basic-result/actual-basic-result-structure.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/basic-result/diff-basic-result-manual-review.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/basic-result/metrics-basic-result.json",
+    "docs/auto-execute/evidence/frontend-page/visual/basic-result/summary-basic-result.json",
+    "docs/auto-execute/evidence/frontend-page/visual/full-unlock/actual-full-unlock-structure.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/full-unlock/diff-full-unlock-manual-review.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/full-unlock/metrics-full-unlock.json",
+    "docs/auto-execute/evidence/frontend-page/visual/full-unlock/summary-full-unlock.json"
+  ],
+  "ownerJourneyEvidence": [
+    "docs/auto-execute/evidence/frontend-page/basic-result-full-unlock-owner-local.json"
+  ],
+  "localOnlyEvidence": [
+    "docs/auto-execute/evidence/frontend-page/basic-result-full-unlock-owner-local.json"
+  ],
+  "knownGaps": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "scope": "visual",
+      "detail": "T10 produced deterministic structural actual/diff/metrics evidence for basic-result and full-unlock pages, but did not run pixel-perfect screenshot comparison. T14 owns the full visual harness."
+    },
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "scope": "owner-journey",
+      "detail": "T10 records deterministic C07/C08 owner actions and API/DB readback. Full rendered O01-O12 owner E2E remains assigned to T15."
+    },
+    {
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "scope": "command-shell",
+      "detail": "PowerShell blocks npm.ps1 on this host. Equivalent npm.cmd commands were run and passed."
+    }
+  ]
+}

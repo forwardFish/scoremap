@@ -1,0 +1,48 @@
+{
+  "id": "UI-C10",
+  "screen": "full-report",
+  "route": "/pages/full-report/index",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "reference": "docs/UI/小程序/stitch_codex_development_blueprints/ai_pdf/screen.png",
+  "declaredReference": null,
+  "stitchReference": "docs/UI/小程序/stitch_codex_development_blueprints/ai_pdf/screen.png",
+  "miniappActualAsset": "scoremap-miniapp/assets/reference/full-report.jpg",
+  "actual": "docs/auto-execute/evidence/visual-harness/full-report/actual.jpg",
+  "diff": "docs/auto-execute/evidence/visual-harness/full-report/diff.svg",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "comparison": {
+    "method": "artifact-metadata-equivalence",
+    "reference": {
+      "exists": true,
+      "path": "docs/UI/小程序/stitch_codex_development_blueprints/ai_pdf/screen.png",
+      "bytes": 216195,
+      "sha256": "5f235f9792df297a55a7ed77953f58dad16239124fd468c40809da0ade10662c",
+      "extension": ".png"
+    },
+    "actual": {
+      "exists": true,
+      "path": "docs/auto-execute/evidence/visual-harness/full-report/actual.jpg",
+      "bytes": 91894,
+      "sha256": "30a3f013998cf1b67d50facf7a85399dc128bf5b646801f06fc5bca51d1dcdaf",
+      "extension": ".jpg"
+    },
+    "byteLengthDelta": 124301,
+    "sha256Equal": false,
+    "rasterPixelRatio": null
+  },
+  "pixelDiff": {
+    "status": "MANUAL_REVIEW_REQUIRED",
+    "ratio": null,
+    "threshold": null,
+    "canClaimPixelPerfect": false,
+    "reason": "No live WeChat simulator raster is available in this local harness for this derived or missing-reference page."
+  },
+  "localOnly": {
+    "usesLocalFixtures": true,
+    "remoteNetworkCalls": 0
+  },
+  "knownGaps": []
+}

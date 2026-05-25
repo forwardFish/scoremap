@@ -1,0 +1,9 @@
+{
+  "id": "UI-C04",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "reference": "docs/UI/小程序/处理失败.png",
+  "actual": "docs/auto-execute/evidence/visual-harness/failure/actual.jpg",
+  "diff": "docs/auto-execute/evidence/visual-harness/failure/diff.svg",
+  "metrics": "docs/auto-execute/evidence/visual-harness/failure/metrics.json",
+  "knownGaps": []
+}

@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "command": "npm --prefix server test -- report feedback export",
+  "requirementIds": [
+    "R09",
+    "R10",
+    "R12"
+  ],
+  "apiCalls": [
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/{orderId}/feedback",
+      "responseStatus": 201,
+      "response": {
+        "status": "created",
+        "feedbackId": "feedback-3e10b6c84ef8"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/{orderId}/export-pdf",
+      "responseStatus": 201,
+      "response": {
+        "exportId": "report-export-t05",
+        "status": "ready",
+        "fileUrl": "local-report-export://local-user-scoremap-t03/order-5c8a4f448edf/report-export-t05.txt"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/report-exports/{exportId}",
+      "responseStatus": 200,
+      "response": {
+        "status": "ready",
+        "exportId": "report-export-t05",
+        "orderId": "order-5c8a4f448edf",
+        "fileUrl": "local-report-export://local-user-scoremap-t03/order-5c8a4f448edf/report-export-t05.txt",
+        "byteLength": 530
+      }
+    }
+  ],
+  "dbReadback": {
+    "feedback": {
+      "id": "feedback-3e10b6c84ef8",
+      "orderId": "order-5c8a4f448edf",
+      "ownerId": "local-user-scoremap-t03",
+      "decisionLevel": "full",
+      "rating": 5,
+      "tags": [
+        "clear",
+        "useful"
+      ],
+      "text": "Local test feedback only.",
+      "createdAt": "2026-05-25T02:55:22.952Z",
+      "updatedAt": "2026-05-25T02:55:22.952Z"
+    },
+    "reportExport": {
+      "id": "report-export-t05",
+      "orderId": "order-5c8a4f448edf",
+      "ownerId": "local-user-scoremap-t03",
+      "status": "ready",
+      "format": "pdf-local-text",
+      "fileUrl": "local-report-export://local-user-scoremap-t03/order-5c8a4f448edf/report-export-t05.txt",
+      "filePath": "D:\\lyh\\agent\\agent-frame\\scoremap\\docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-5c8a4f448edf\\report-export-t05.txt",
+      "byteLength": 530,
+      "createdAt": "2026-05-25T02:55:22.956Z",
+      "updatedAt": "2026-05-25T02:55:22.956Z"
+    },
+    "operatorExportPath": "D:\\lyh\\agent\\agent-frame\\scoremap\\docs\\auto-execute\\evidence\\backend-api-report\\operator-export.json",
+    "exportedTables": {
+      "ai_analysis_tasks": 2,
+      "diagnosis_decisions": 3,
+      "diagnosis_orders": 1,
+      "feedbacks": 1,
+      "payments": 2,
+      "report_exports": 1,
+      "upload_files": 1,
+      "users": 1
+    }
+  },
+  "localOnly": {
+    "reportFileScheme": "local-report-export",
+    "reportFileExists": true
+  }
+}

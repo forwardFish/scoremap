@@ -1,0 +1,13 @@
+﻿{
+  "status": "PASS_WITH_LIMITATION",
+  "requiredCommand": "npm --prefix server test -- adapters local-db payment",
+  "requiredCommandObserved": "BLOCKED_BY_ENVIRONMENT: PowerShell blocked npm.ps1 before project code ran.",
+  "equivalentCommand": "npm.cmd --prefix server test -- adapters local-db payment",
+  "equivalentCommandObserved": "PASS: 5 tests passed, 0 failed.",
+  "reason": "The host PowerShell execution policy blocks npm.ps1. npm.cmd runs the same server package test script on Windows without changing project behavior.",
+  "testScript": "server/package.json scripts.test -> node test/run-tests.js",
+  "localOnlyEnv": {
+    "LOCAL_ONLY": "true",
+    "SCOREMAP_ADAPTER_MODE": "local-mock"
+  }
+}

@@ -1,0 +1,112 @@
+﻿{
+  "taskId": "T11",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "implementedFiles": [
+    "scoremap-miniapp/pages/full-report-entry/index.js",
+    "scoremap-miniapp/pages/full-report/index.js",
+    "scoremap-miniapp/pages/full-report/full-report-pdf.test.js",
+    "scoremap-miniapp/pages/full-report/visual-full-report-pdf.js",
+    "scoremap-miniapp/pages/index/visual-home.js",
+    "scoremap-miniapp/services/api-client.js",
+    "server/src/report/local-pdf.js",
+    "scripts/run-tests.mjs",
+    "docs/auto-execute/evidence/frontend-page/full-report-pdf-route-controls.json",
+    "docs/auto-execute/evidence/frontend-page/full-report-pdf-api-db.json",
+    "docs/auto-execute/evidence/frontend-page/full-report-pdf-owner-local.json",
+    "docs/auto-execute/evidence/frontend-page/visual/full-report-entry/actual-full-report-entry-structure.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/full-report-entry/diff-full-report-entry-manual-review.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/full-report-entry/metrics-full-report-entry.json",
+    "docs/auto-execute/evidence/frontend-page/visual/full-report-entry/summary-full-report-entry.json",
+    "docs/auto-execute/evidence/frontend-page/visual/full-report/actual-full-report-structure.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/full-report/diff-full-report-manual-review.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/full-report/metrics-full-report.json",
+    "docs/auto-execute/evidence/frontend-page/visual/full-report/summary-full-report.json",
+    "docs/auto-execute/evidence/frontend-page/pdf/order-t11-pdf-report-export-order-t11-pdf.pdf"
+  ],
+  "tests": [
+    {
+      "command": "npm test -- full-report-pdf",
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "evidence": "PowerShell blocked C:\\Program Files\\nodejs\\npm.ps1 before project code ran."
+    },
+    {
+      "command": "npm.cmd test -- full-report-pdf",
+      "status": "PASS",
+      "evidence": "3 tests passed, 0 failed"
+    },
+    {
+      "command": "npm run visual:scoremap -- full-report-entry full-report",
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "evidence": "PowerShell blocked C:\\Program Files\\nodejs\\npm.ps1 before project code ran."
+    },
+    {
+      "command": "npm.cmd run visual:scoremap -- full-report-entry full-report",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "evidence": [
+        "docs/auto-execute/evidence/frontend-page/visual/full-report-entry/summary-full-report-entry.json",
+        "docs/auto-execute/evidence/frontend-page/visual/full-report/summary-full-report.json"
+      ]
+    },
+    {
+      "command": "npm.cmd test -- miniapp-shell",
+      "status": "PASS",
+      "evidence": "4 tests passed, 0 failed"
+    },
+    {
+      "command": "npm.cmd run build",
+      "status": "PASS",
+      "evidence": "T01 local runtime scaffold build PASS"
+    },
+    {
+      "command": "node -e \"parse T11 evidence json and PDF readback\"",
+      "status": "PASS",
+      "evidence": "T11 evidence JSON parsed and local PDF header/readback passed."
+    }
+  ],
+  "pageEvidence": [
+    "docs/auto-execute/evidence/frontend-page/full-report-pdf-route-controls.json",
+    "docs/auto-execute/evidence/frontend-page/full-report-pdf-api-db.json"
+  ],
+  "apiEvidence": [
+    "docs/auto-execute/evidence/frontend-page/full-report-pdf-route-controls.json",
+    "docs/auto-execute/evidence/frontend-page/full-report-pdf-api-db.json"
+  ],
+  "dbEvidence": [
+    "docs/auto-execute/evidence/frontend-page/full-report-pdf-route-controls.json",
+    "docs/auto-execute/evidence/frontend-page/full-report-pdf-api-db.json"
+  ],
+  "visualEvidence": [
+    "docs/auto-execute/evidence/frontend-page/visual/full-report-entry/actual-full-report-entry-structure.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/full-report-entry/diff-full-report-entry-manual-review.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/full-report-entry/metrics-full-report-entry.json",
+    "docs/auto-execute/evidence/frontend-page/visual/full-report-entry/summary-full-report-entry.json",
+    "docs/auto-execute/evidence/frontend-page/visual/full-report/actual-full-report-structure.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/full-report/diff-full-report-manual-review.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/full-report/metrics-full-report.json",
+    "docs/auto-execute/evidence/frontend-page/visual/full-report/summary-full-report.json"
+  ],
+  "ownerJourneyEvidence": [
+    "docs/auto-execute/evidence/frontend-page/full-report-pdf-owner-local.json"
+  ],
+  "localOnlyEvidence": [
+    "docs/auto-execute/evidence/frontend-page/full-report-pdf-owner-local.json",
+    "docs/auto-execute/evidence/frontend-page/full-report-pdf-api-db.json"
+  ],
+  "knownGaps": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "scope": "visual",
+      "detail": "T11 produced deterministic structural actual/diff/metrics evidence for full-report-entry and full-report pages, but did not run pixel-perfect screenshot comparison. T14 owns the full visual harness."
+    },
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "scope": "owner-journey",
+      "detail": "T11 records deterministic C09/C10 owner actions, route jumps, API calls, DB readback, and local PDF generation. Full rendered O01-O12 owner E2E remains assigned to T15."
+    },
+    {
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "scope": "command-shell",
+      "detail": "PowerShell blocks npm.ps1 on this host. Equivalent npm.cmd commands were run and passed."
+    }
+  ]
+}

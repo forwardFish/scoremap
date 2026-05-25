@@ -1,0 +1,91 @@
+﻿{
+  "taskId": "T16",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "implementedFiles": [
+    "package.json",
+    "tests/api/api-db-readback-e2e.test.js",
+    "docs/auto-execute/evidence/api-db-e2e/api-trace.json",
+    "docs/auto-execute/evidence/api-db-e2e/db-snapshot.json",
+    "docs/auto-execute/evidence/api-db-e2e/assertions.json",
+    "docs/auto-execute/evidence/api-db-e2e/summary.json",
+    "docs/auto-execute/evidence/api-db-e2e/operator-export.json",
+    "docs/auto-execute/evidence/api-db/summary.json",
+    "docs/auto-execute/results/T16.json",
+    "docs/auto-execute/latest/T16-HANDOFF.md"
+  ],
+  "tests": [
+    {
+      "command": "npm run e2e:api-db",
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "evidence": "PowerShell blocked C:\\Program Files\\nodejs\\npm.ps1 before project code ran."
+    },
+    {
+      "command": "npm.cmd run e2e:api-db",
+      "status": "PASS",
+      "evidence": "Node test runner passed 1/1 tests. The run generated 34 API calls, covered 15 contract-matrix success paths, covered validation/owner/not-found/entitlement/low-quality/timeout/500 branches, and wrote API trace plus DB snapshot evidence."
+    },
+    {
+      "command": "rg forbidden endpoint and sensitive-token patterns across tests/api, T16 evidence, api-db summary, and package.json",
+      "status": "PASS",
+      "evidence": "No matches returned."
+    }
+  ],
+  "pageEvidence": [
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "evidence": "docs/auto-execute/evidence/api-db-e2e/assertions.json",
+      "source": "docs/auto-execute/evidence/owner/journey-summary.json",
+      "details": "T16 verifies API/DB readback behind route-backed owner controls and references the completed T15 O01-O12 page-click journey."
+    }
+  ],
+  "apiEvidence": [
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/api-db-e2e/api-trace.json",
+      "details": "Covers all 15 API/DB contract success paths plus 4xx, 5xx, and timeout branches."
+    }
+  ],
+  "dbEvidence": [
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/api-db-e2e/db-snapshot.json",
+      "details": "Independent readback covers users, diagnosis_orders, upload_files, ai_analysis_tasks, diagnosis_decisions, payments, report_exports, feedbacks, and operator export."
+    },
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/api-db-e2e/operator-export.json",
+      "details": "Local operator export covers upload, payment, report, feedback, failure, and recovery rows produced by the test."
+    }
+  ],
+  "visualEvidence": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "evidence": "docs/auto-execute/evidence/visual-harness/summary.json",
+      "details": "T16 reuses deterministic T14 SVG actual/diff/metrics visual artifacts. No new live miniapp runtime screenshot or raster pixel diff is claimed in this API/DB task boundary."
+    }
+  ],
+  "ownerJourneyEvidence": [
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/journey-summary.json",
+      "details": "T15 O01-O12 owner journey evidence is the page-click source paired with the T16 aggregate API/DB readbacks."
+    }
+  ],
+  "localOnlyEvidence": [
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/api-db-e2e/assertions.json",
+      "details": "LOCAL_ONLY=true, SCOREMAP_ADAPTER_MODE=local-mock, local WeChat Pay mock, local Tencent Cloud mock, local JSON DB, and zero remote calls recorded."
+    },
+    {
+      "status": "PASS",
+      "evidence": "Sensitive-token and forbidden remote endpoint rg scan returned no matches for the T16 test/evidence/package scope."
+    }
+  ],
+  "knownGaps": [
+    {
+      "status": "MANUAL_REVIEW_REQUIRED",
+      "reason": "T16 is an API/DB readback E2E task. It references existing T14 visual artifacts and T15 owner click evidence, but does not create new live miniapp screenshots or raster pixel diffs."
+    }
+  ]
+}

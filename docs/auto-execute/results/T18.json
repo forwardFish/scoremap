@@ -1,0 +1,84 @@
+﻿{
+    "taskId":  "T18",
+    "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+    "implementedFiles":  [
+                             "scripts/acceptance/run-final-gate.ps1",
+                             "docs/auto-execute/evidence/final-gate/summary.json",
+                             "docs/auto-execute/final/evidence-manifest.json",
+                             "docs/auto-execute/results/T18.json",
+                             "docs/auto-execute/latest/T18-HANDOFF.md"
+                         ],
+    "tests":  [
+                  {
+                      "command":  "powershell -ExecutionPolicy Bypass -File scripts/acceptance/run-final-gate.ps1",
+                      "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                      "evidence":  "docs/auto-execute/evidence/final-gate/summary.json",
+                      "processExitNote":  "The script exits non-zero for PASS_WITH_LIMITATION and PASS_NEEDS_MANUAL_UI_REVIEW per auto-execute status semantics; this environment reports that as a non-zero shell exit."
+                  }
+              ],
+    "pageEvidence":  [
+                         "docs/auto-execute/evidence/owner/journey-summary.json",
+                         "docs/auto-execute/evidence/owner/O01.json",
+                         "docs/auto-execute/evidence/owner/O02.json",
+                         "docs/auto-execute/evidence/owner/O03.json",
+                         "docs/auto-execute/evidence/owner/O04.json",
+                         "docs/auto-execute/evidence/owner/O05.json",
+                         "docs/auto-execute/evidence/owner/O06.json",
+                         "docs/auto-execute/evidence/owner/O07.json",
+                         "docs/auto-execute/evidence/owner/O08.json",
+                         "docs/auto-execute/evidence/owner/O09.json",
+                         "docs/auto-execute/evidence/owner/O10.json",
+                         "docs/auto-execute/evidence/owner/O11.json",
+                         "docs/auto-execute/evidence/owner/O12.json"
+                     ],
+    "apiEvidence":  [
+                        "docs/auto-execute/evidence/api-db-e2e/api-trace.json",
+                        "docs/auto-execute/evidence/api-db-e2e/assertions.json",
+                        "docs/auto-execute/evidence/api-db/summary.json"
+                    ],
+    "dbEvidence":  [
+                       "docs/auto-execute/evidence/api-db-e2e/db-snapshot.json",
+                       "docs/auto-execute/evidence/api-db-e2e/operator-export.json"
+                   ],
+    "visualEvidence":  [
+                           "docs/auto-execute/evidence/visual/summary.json",
+                           "docs/auto-execute/evidence/visual-harness/summary.json"
+                       ],
+    "ownerJourneyEvidence":  [
+                                 "docs/auto-execute/evidence/owner/journey-summary.json"
+                             ],
+    "localOnlyEvidence":  [
+                              "docs/auto-execute/evidence/safety/local-only.json",
+                              "docs/auto-execute/evidence/safety/secret-guard.json"
+                          ],
+    "knownGaps":  [
+                      "T01 is PASS_WITH_LIMITATION",
+                      "T02 is PASS_WITH_LIMITATION",
+                      "T03 is PASS_WITH_LIMITATION",
+                      "T04 is PASS_WITH_LIMITATION",
+                      "T05 is PASS_WITH_LIMITATION",
+                      "T06 is PASS_WITH_LIMITATION",
+                      "T07 is PASS_NEEDS_MANUAL_UI_REVIEW",
+                      "T08 is PASS_NEEDS_MANUAL_UI_REVIEW",
+                      "T09 is PASS_NEEDS_MANUAL_UI_REVIEW",
+                      "T10 is PASS_NEEDS_MANUAL_UI_REVIEW",
+                      "T11 is PASS_NEEDS_MANUAL_UI_REVIEW",
+                      "T12 is PASS_NEEDS_MANUAL_UI_REVIEW",
+                      "T14 is PASS_NEEDS_MANUAL_UI_REVIEW",
+                      "T15 is PASS_NEEDS_MANUAL_UI_REVIEW",
+                      "T16 is PASS_NEEDS_MANUAL_UI_REVIEW",
+                      "Visual screen UI-C01 requires manual UI review",
+                      "Visual screen UI-C03 requires manual UI review",
+                      "Visual screen UI-C04 requires manual UI review",
+                      "Visual screen UI-C05 requires manual UI review",
+                      "Visual screen UI-C06 requires manual UI review",
+                      "Visual screen UI-C07 requires manual UI review",
+                      "Visual screen UI-C08 requires manual UI review",
+                      "Visual screen UI-C09 requires manual UI review",
+                      "Visual screen UI-C10 requires manual UI review",
+                      "Visual screen UI-C11 requires manual UI review",
+                      "Visual screen UI-C12 requires manual UI review",
+                      "Visual screen UI-C12 has no standalone reference file",
+                      "API/DB summary status is PASS_NEEDS_MANUAL_UI_REVIEW"
+                  ]
+}

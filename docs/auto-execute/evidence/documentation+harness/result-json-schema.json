@@ -1,0 +1,64 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "scoremap auto-execute task result",
+  "type": "object",
+  "required": [
+    "taskId",
+    "status",
+    "implementedFiles",
+    "tests",
+    "pageEvidence",
+    "apiEvidence",
+    "dbEvidence",
+    "visualEvidence",
+    "ownerJourneyEvidence",
+    "localOnlyEvidence",
+    "knownGaps"
+  ],
+  "properties": {
+    "taskId": {
+      "type": "string",
+      "pattern": "^T[0-9]{2}$"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "REPAIR_REQUIRED",
+        "PASS_WITH_LIMITATION",
+        "PASS_NEEDS_MANUAL_UI_REVIEW",
+        "BLOCKED_BY_ENVIRONMENT",
+        "HARD_FAIL"
+      ]
+    },
+    "implementedFiles": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [ "command", "status" ],
+        "properties": {
+          "command": { "type": "string" },
+          "status": { "type": "string" },
+          "evidence": { "type": "string" }
+        }
+      }
+    },
+    "pageEvidence": { "type": "array" },
+    "apiEvidence": { "type": "array" },
+    "dbEvidence": { "type": "array" },
+    "visualEvidence": { "type": "array" },
+    "ownerJourneyEvidence": { "type": "array" },
+    "localOnlyEvidence": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "knownGaps": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

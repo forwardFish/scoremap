@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>解锁完整分析</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style data-purpose="custom-fonts">
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      background-color: #F8F9FE;
+    }
+  </style>
+<style data-purpose="custom-animations">
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    .floating-star {
+      animation: float 4s ease-in-out infinite;
+    }
+  </style>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              light: '#EBF0FF',
+              DEFAULT: '#7B61FF',
+              dark: '#5A3FFF',
+            },
+            secondary: {
+              light: '#E6F6EC',
+              DEFAULT: '#4CAF50',
+            }
+          },
+          boxShadow: {
+            'card': '0 4px 20px rgba(123, 97, 255, 0.05)',
+            'btn': '0 8px 20px rgba(123, 97, 255, 0.3)',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="min-h-screen relative overflow-x-hidden pb-32">
+<!-- Background Decorative Stars -->
+<div class="absolute top-20 left-10 text-[#FFC107] opacity-60 text-xl floating-star" style="animation-delay: 0s;">✦</div>
+<div class="absolute top-40 right-10 text-[#7B61FF] opacity-40 text-sm floating-star" style="animation-delay: 1s;">✦</div>
+<div class="absolute top-[350px] left-1/4 text-[#7B61FF] opacity-30 text-lg floating-star" style="animation-delay: 2s;">✦</div>
+<div class="absolute top-[340px] right-1/4 text-[#7B61FF] opacity-30 text-lg floating-star" style="animation-delay: 0.5s;">✦</div>
+<!-- BEGIN: Header -->
+<header class="fixed top-0 left-0 right-0 h-14 bg-[#F8F9FE]/90 backdrop-blur-md z-50 flex items-center justify-between px-4">
+<button aria-label="Go back" class="w-8 h-8 flex items-center justify-center text-gray-800">
+<i class="fa-solid fa-chevron-left text-xl"></i>
+</button>
+<h1 class="text-[17px] font-bold text-gray-800 absolute left-1/2 -translate-x-1/2">解锁完整分析</h1>
+<div class="w-8"></div>
+</header>
+<!-- END: Header -->
+<!-- BEGIN: Main Content -->
+<main class="pt-16 px-4">
+<!-- BEGIN: Top Summary Card -->
+<section class="bg-white rounded-3xl p-5 mb-6 shadow-card relative overflow-hidden mt-2">
+<!-- Tag -->
+<div class="inline-flex items-center bg-brand-light text-brand rounded-full px-3 py-1 mb-4 text-xs font-medium">
+<i class="fa-solid fa-clipboard-check mr-1.5"></i> 初步分析报告
+      </div>
+<h2 class="text-2xl font-bold text-gray-800 mb-2 relative z-10">初一数学月考分析</h2>
+<p class="text-[13px] text-gray-500 leading-relaxed w-2/3 mb-4 relative z-10">整体基础较好，计算粗心和几何证明是本次失分的主要原因。</p>
+<!-- Status Badge -->
+<div class="inline-flex items-center bg-secondary-light text-secondary rounded-full px-3 py-1 text-[13px] font-medium relative z-10">
+<i class="fa-solid fa-circle-check mr-1.5 text-[14px]"></i> 初步分析已生成
+      </div>
+<!-- Owl Illustration Placeholder -->
+<div class="absolute right-0 bottom-0 w-32 h-32 flex items-end justify-end pointer-events-none">
+<img alt="Mascot Illustration" class="w-full h-auto object-contain translate-y-4 translate-x-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmb7DSn9PcPZ_rw9Fd8yDsQjADRYVGOjSApsBJMaDFDZx6cwRyhYDjzDcJFrhLkO-GMo-Envn9KNrSI0fLWaadtkKZb1s8egz_EzNmpzkN0eNzKCgbDzpifsShDYeBg0iGrAthGyHiFSQuydSFJJv5ailNg_OKiSmCxIOea-6JR16i7gxllNf0RR4V3K8nVsfWYJx9isYlB3esF8BTUzKzgZgoaF6mhWbP-_crbf4UfJuVEI7FhlZJURvs0UZ4Q8OHAHxqcDz-NGl_"/>
+</div>
+</section>
+<!-- END: Top Summary Card -->
+<!-- BEGIN: Features Section -->
+<section class="mb-8">
+<div class="flex items-center justify-center gap-3 mb-4">
+<span class="text-[#D1C4FF] text-sm">✦</span>
+<h3 class="text-[15px] font-medium text-gray-800">解锁后可查看</h3>
+<span class="text-[#D1C4FF] text-sm">✦</span>
+</div>
+<!-- 2x2 Grid -->
+<div class="grid grid-cols-2 gap-3">
+<!-- Feature 1 -->
+<div class="bg-white rounded-2xl p-4 shadow-card flex flex-col items-center text-center relative pt-6">
+<div class="absolute top-3 right-3 bg-[#F0EEFF] text-brand w-6 h-6 rounded-full flex items-center justify-center shadow-sm">
+<i class="fa-solid fa-lock text-[10px]"></i>
+</div>
+<div class="w-12 h-12 bg-[#F0EEFF] rounded-full flex items-center justify-center mb-3">
+<img alt="详细丢分点" class="w-8 h-8 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN-VC67oUP0O2Vm6RrGLrfAUtyyc0qdgnHbGQJSTumjjRQtfyiUO4VnYa2wmuY2nk6Dzid9IgFTVNW1E-Vw5CAYOMfT4aepSSq-qj4OD-YRhB_rQ2WyJHnU-0qjB_PFOeNck-oaeMxsY5eUxQqtKz6kA6MqkOfiTd93pHF048AqFQuJQ1a-0w9dGL4U9zRuK_KXqR1nehQQepUzTrYrdnYWRLyUayT7j6v7ixWUHuAAGwHq5fM_xO841urXpcufygf50mtJWw2lnDS"/>
+</div>
+<h4 class="text-[15px] font-bold text-gray-800 mb-1">详细丢分点</h4>
+<p class="text-[11px] text-gray-500 leading-tight">查看每类失分原因与典型表现</p>
+<div class="mt-3 flex gap-1 justify-center w-full">
+<div class="h-1 bg-gray-100 rounded-full w-8"></div>
+<div class="h-1 bg-gray-100 rounded-full w-4"></div>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="bg-white rounded-2xl p-4 shadow-card flex flex-col items-center text-center relative pt-6">
+<div class="absolute top-3 right-3 bg-[#F0EEFF] text-brand w-6 h-6 rounded-full flex items-center justify-center shadow-sm">
+<i class="fa-solid fa-lock text-[10px]"></i>
+</div>
+<div class="w-12 h-12 bg-[#E6F6EC] rounded-full flex items-center justify-center mb-3">
+<img alt="优先补弱顺序" class="w-8 h-8 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJCWV9-lyLrvqPhA7XnylHeB9d9RP6qWzkLbCT_M2CZFB4rNitgoE_XFLhVVTS5EeiH7Ao_aqQdoSDzgUaov19OX8zEpy4nBug8axkE27vM_BsHiRVhmJIV6Ds4xF_LzYVQyvTijUl9WDD6bgQ5WGsJKQdWDR6-oQSd7gGN4xyDqvc-PCnyzPdi9V2C5DbSPJsY7XlAGfOWXmsQQVpcrrYez8qpZTU6wxppAwC-9mT5oZb33Cz8dSFIxy9hA2rey9OJO1WHYQiZXAt"/>
+</div>
+<h4 class="text-[15px] font-bold text-gray-800 mb-1">优先补弱顺序</h4>
+<p class="text-[11px] text-gray-500 leading-tight">明确先补什么，再补什么</p>
+<div class="mt-3 flex gap-1 justify-center w-full">
+<div class="h-1 bg-gray-100 rounded-full w-8"></div>
+<div class="h-1 bg-gray-100 rounded-full w-4"></div>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="bg-white rounded-2xl p-4 shadow-card flex flex-col items-center text-center relative pt-6">
+<div class="absolute top-3 right-3 bg-[#F0EEFF] text-brand w-6 h-6 rounded-full flex items-center justify-center shadow-sm">
+<i class="fa-solid fa-lock text-[10px]"></i>
+</div>
+<div class="w-12 h-12 bg-[#EBF4FF] rounded-full flex items-center justify-center mb-3">
+<img alt="7天行动建议" class="w-8 h-8 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBatlyT_lSMnhX1gqHqt98zwwlV97RsDegkQBUjq4jVHCjnvOslUPBeVcx-OY5XK5KmmcOiRPLWsITz9vI3nVKF97G7XwcdlTRbnt9j13pj0XDfo1BPzFVN9yg4JhM5x2rKlYSsR86z0n0VlWbrfsEAgVUp40pKgndPRS_7SLXhopJUKDubQ_BySZCyiRttiB09fdN3IrQmTvTnOV1xNaefgx5mD_V5vrDa1CL1LefrsSWcTxWzOPBeQUDBCGA71U9q74j1QtKRYJgN"/>
+</div>
+<h4 class="text-[15px] font-bold text-gray-800 mb-1">7天行动建议</h4>
+<p class="text-[11px] text-gray-500 leading-tight">获得每日练习与执行安排</p>
+<div class="mt-3 flex gap-1 justify-center w-full">
+<div class="h-1 bg-gray-100 rounded-full w-8"></div>
+<div class="h-1 bg-gray-100 rounded-full w-4"></div>
+</div>
+</div>
+<!-- Feature 4 -->
+<div class="bg-white rounded-2xl p-4 shadow-card flex flex-col items-center text-center relative pt-6">
+<div class="absolute top-3 right-3 bg-[#F0EEFF] text-brand w-6 h-6 rounded-full flex items-center justify-center shadow-sm">
+<i class="fa-solid fa-lock text-[10px]"></i>
+</div>
+<div class="w-12 h-12 bg-[#FFF3E0] rounded-full flex items-center justify-center mb-3">
+<img alt="完整学习建议" class="w-8 h-8 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABDxoQI4PmzcJJyS2qqupZpBJlPrWXd18AV6xHvGZsM0ovsAFr1NNEHsEUoEDJZl47fZTFXP4y6KybEfRtezIL3mPXheIvQ1u2Va4cTVSakVg6NNkoqzNyeXTqu68BaWR1s6WAWFGAYUP8pw1JS1zpeDPTBEdqGXbR63VE2Gk0nSereZ1r8R-Vl_VGikGq5to3pFg-GP5lM68NMCjD5fRuJnfM51NdIKVhkKfvlnOXF197kpv8ksl6Ejvsn3crK1D_DbeUPn9A4xLS"/>
+</div>
+<h4 class="text-[15px] font-bold text-gray-800 mb-1">完整学习建议</h4>
+<p class="text-[11px] text-gray-500 leading-tight">继续练习 / 找老师讲解 / 复测建议</p>
+<div class="mt-3 flex gap-1 justify-center w-full">
+<div class="h-1 bg-gray-100 rounded-full w-8"></div>
+<div class="h-1 bg-gray-100 rounded-full w-4"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Features Section -->
+</main>
+<!-- END: Main Content -->
+<!-- BEGIN: Bottom Payment Action -->
+<footer class="fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl p-5 pt-6 shadow-[0_-4px_20px_rgba(0,0,0,0.03)] z-40 pb-safe">
+<!-- Pricing -->
+<div class="flex items-baseline justify-center gap-2 mb-2">
+<span class="text-brand text-[40px] font-bold leading-none tracking-tight">9.9<span class="text-[20px] font-medium ml-1">元</span></span>
+<span class="text-gray-400 text-sm line-through decoration-gray-400 decoration-1 relative">原价 39.9元</span>
+</div>
+<!-- Assurance -->
+<div class="flex items-center justify-center text-[13px] text-gray-500 mb-5">
+<i class="fa-solid fa-shield-halved text-brand mr-1.5"></i>
+      已完成初判，可立即解锁完整提分报告
+    </div>
+<!-- Pay Button -->
+<button class="w-full bg-gradient-to-r from-[#8A71FF] to-[#6344FF] text-white rounded-full py-4 text-[17px] font-bold shadow-btn active:scale-[0.98] transition-transform">
+      立即支付 9.9元
+    </button>
+<!-- Cancel Link -->
+<div class="mt-4 text-center">
+<button class="text-[13px] text-gray-400 font-medium">暂不解锁</button>
+</div>
+</footer>
+<!-- END: Bottom Payment Action -->
+</body></html>

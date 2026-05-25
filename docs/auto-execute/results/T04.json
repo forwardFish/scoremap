@@ -1,0 +1,169 @@
+﻿{
+  "taskId": "T04",
+  "status": "PASS_WITH_LIMITATION",
+  "implementedFiles": [
+    "server/src/services/payments-service.js",
+    "server/src/routes/payments.js",
+    "server/test/payment-api.test.js",
+    "server/test/run-tests.js",
+    "docs/auto-execute/evidence/backend-api-payment/basic-payment.json",
+    "docs/auto-execute/evidence/backend-api-payment/full-payment.json",
+    "docs/auto-execute/evidence/backend-api-payment/failure-recovery-branches.json",
+    "docs/auto-execute/evidence/backend-api-payment/local-only-secret-guard.json",
+    "docs/auto-execute/results/T04.json",
+    "docs/auto-execute/latest/T04-HANDOFF.md"
+  ],
+  "tests": [
+    {
+      "command": "npm --prefix server test -- payment entitlement",
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "observed": "PowerShell blocked C:\\Program Files\\nodejs\\npm.ps1 before project code ran.",
+      "equivalentCommand": "npm.cmd --prefix server test -- payment entitlement",
+      "equivalentStatus": "PASS",
+      "equivalentObserved": "4 tests passed, 0 failed"
+    },
+    {
+      "command": "npm.cmd --prefix server test -- payment entitlement",
+      "status": "PASS",
+      "observed": "4 tests passed, 0 failed",
+      "evidence": [
+        "docs/auto-execute/evidence/backend-api-payment/basic-payment.json",
+        "docs/auto-execute/evidence/backend-api-payment/full-payment.json",
+        "docs/auto-execute/evidence/backend-api-payment/failure-recovery-branches.json",
+        "docs/auto-execute/evidence/backend-api-payment/local-only-secret-guard.json"
+      ]
+    },
+    {
+      "command": "npm.cmd --prefix server test -- adapters local-db payment",
+      "status": "PASS",
+      "observed": "5 tests passed, 0 failed",
+      "reason": "Regression for shared test selector and T02 adapter behavior."
+    },
+    {
+      "command": "npm.cmd --prefix server test -- orders uploads preview",
+      "status": "PASS",
+      "observed": "4 tests passed, 0 failed",
+      "reason": "Regression for shared test selector and T03 order/preview behavior."
+    }
+  ],
+  "pageEvidence": [
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "route": "/pages/preview/index -> /pages/basic-pay/index -> /pages/basic-result/index",
+      "evidence": "docs/auto-execute/evidence/backend-api-payment/basic-payment.json",
+      "summary": "Backend route expectation for O03 was recorded with POST /api/payments/create and POST /api/payments/wechat/callback; frontend page implementation and screenshots remain assigned to T09/T10/T15."
+    },
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "route": "/pages/basic-result/index -> /pages/full-unlock/index -> /pages/full-report-entry/index",
+      "evidence": "docs/auto-execute/evidence/backend-api-payment/full-payment.json",
+      "summary": "Backend route expectation for O04 was recorded with basic prerequisite denial and full paid unlock; frontend page implementation and screenshots remain assigned to T10/T11/T15."
+    }
+  ],
+  "apiEvidence": [
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/backend-api-payment/basic-payment.json",
+      "summary": "POST /api/payments/create creates a 1 CNY pending local payment, duplicate create is idempotent, and POST /api/payments/wechat/callback unlocks basic access."
+    },
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/backend-api-payment/full-payment.json",
+      "summary": "Full payment before basic is denied, then 9.9 CNY full payment creates pending local payment and paid callback unlocks full access."
+    },
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/backend-api-payment/failure-recovery-branches.json",
+      "summary": "Validation, non-owner denial, failed callback, cancelled callback, duplicate callback, and compensation repair branches were exercised."
+    }
+  ],
+  "dbEvidence": [
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/backend-api-payment/basic-payment.json",
+      "tables": [
+        "payments",
+        "diagnosis_orders"
+      ],
+      "summary": "Payment readback status=paid and order readback accessLevel=basic/status=basic_paid."
+    },
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/backend-api-payment/full-payment.json",
+      "tables": [
+        "payments",
+        "diagnosis_orders"
+      ],
+      "summary": "Full payment readback status=paid and order readback accessLevel=full/status=full_paid."
+    },
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/backend-api-payment/failure-recovery-branches.json",
+      "tables": [
+        "payments",
+        "diagnosis_orders"
+      ],
+      "summary": "Failed and cancelled payment readbacks do not unlock access; compensation repair readback restores basic access for an already-paid local payment."
+    }
+  ],
+  "visualEvidence": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "evidence": "docs/auto-execute/evidence/backend-api-payment/local-only-secret-guard.json",
+      "summary": "T04 has no frontend rendering surface. Reference/actual/diff/metrics remain assigned to visual and frontend tasks."
+    }
+  ],
+  "ownerJourneyEvidence": [
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "evidence": "docs/auto-execute/evidence/backend-api-payment/basic-payment.json",
+      "coveredApiDbSteps": [
+        "O03 POST /api/payments/create",
+        "O03 POST /api/payments/wechat/callback",
+        "O03 payment paid and order accessLevel=basic readback"
+      ],
+      "limitation": "Exact owner click trace and rendered screenshots remain assigned to T15."
+    },
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "evidence": "docs/auto-execute/evidence/backend-api-payment/full-payment.json",
+      "coveredApiDbSteps": [
+        "O04 POST /api/payments/create",
+        "O04 POST /api/payments/wechat/callback",
+        "O04 payment paid and order accessLevel=full readback"
+      ],
+      "limitation": "Full report generation and exact owner click trace remain assigned to T05/T15."
+    }
+  ],
+  "localOnlyEvidence": [
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/backend-api-payment/local-only-secret-guard.json",
+      "summary": "LOCAL_ONLY=true, SCOREMAP_ADAPTER_MODE=local-mock, local payment adapter, forbidden remote findings=[], and secret findings=[]."
+    },
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/backend-api-payment/basic-payment.json",
+      "summary": "Local WeChat Pay mock remoteCalls=[] during 1 CNY basic payment flow."
+    },
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/backend-api-payment/full-payment.json",
+      "summary": "Local WeChat Pay mock remoteCalls=[] during 9.9 CNY full payment flow."
+    }
+  ],
+  "knownGaps": [
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "gap": "The literal required npm command is blocked by PowerShell execution policy on this host; npm.cmd equivalent passed."
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "gap": "T04 does not own frontend pages, screenshot capture, or visual diffs; these remain assigned to T09/T10/T11/T14/T15."
+    },
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "gap": "T04 records owner journey API/DB proof for O03/O04, but exact owner click traces remain assigned to T15."
+    }
+  ]
+}

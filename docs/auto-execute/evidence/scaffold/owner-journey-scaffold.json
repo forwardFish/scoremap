@@ -1,0 +1,10 @@
+{
+  "status": "PASS_WITH_LIMITATION",
+  "command": "npm test",
+  "reason": "T01 proves the owner journey harness can resolve the launch route and control metadata; full O01-O12 clicks are assigned to T15.",
+  "covered": [
+    "launch route",
+    "control action metadata"
+  ],
+  "deferredTo": "T15"
+}

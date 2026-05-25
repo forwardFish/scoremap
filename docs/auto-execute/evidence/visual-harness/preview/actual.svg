@@ -1,0 +1,13 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+  <rect width="390" height="844" fill="#f8f9ff"/>
+  <text x="28" y="72" font-size="24" font-weight="700" fill="#111827">初判报告预览</text>
+
+  <text x="28" y="106" font-size="13" fill="#6b7280">整体基础较好，计算粗心和几何证明是本次失分的主要原因。</text>
+  <rect x="28" y="136" width="334" height="74" rx="16" fill="#eef7ff" stroke="#dbeafe"/>
+  <text x="48" y="178" font-size="18" font-weight="700" fill="#1f2937">初一数学月考分析</text>
+  <rect x="36" y="238" width="318" height="54" rx="10" fill="#ffffff" stroke="#e5e7eb"/><text x="52" y="260" font-size="14" font-weight="700" fill="#111827">主要丢分点</text><text x="52" y="280" font-size="11" fill="#6b7280">计算失误、几何证明步骤不完整。</text><rect x="36" y="308" width="318" height="54" rx="10" fill="#ffffff" stroke="#e5e7eb"/><text x="52" y="330" font-size="14" font-weight="700" fill="#111827">优先补弱点</text><text x="52" y="350" font-size="11" fill="#6b7280">优先提升有理数运算和辅助线意识。</text><rect x="36" y="378" width="318" height="54" rx="10" fill="#ffffff" stroke="#e5e7eb"/><text x="52" y="400" font-size="14" font-weight="700" fill="#111827">初步建议</text><text x="52" y="420" font-size="11" fill="#6b7280">先用 7 天做基础纠错和同类题复盘。</text>
+  <rect x="36" y="462" width="318" height="118" rx="14" fill="#f3f4f6" stroke="#d1d5db"/>
+  <text x="60" y="512" font-size="16" font-weight="700" fill="#4b5563">支付后查看完整初判内容</text>
+  <rect x="28" y="710" width="334" height="58" rx="24" fill="#7c3aed"/>
+  <text x="92" y="746" font-size="17" font-weight="700" fill="#ffffff">立即支付 1 元解锁完整初判</text>
+</svg>

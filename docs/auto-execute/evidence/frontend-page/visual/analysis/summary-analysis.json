@@ -1,0 +1,29 @@
+{
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "metrics": {
+    "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+    "command": "npm run visual:scoremap -- analysis failure",
+    "route": "/pages/analysis/index",
+    "reference": "docs/UI/小程序/AI分析.png",
+    "stitchReference": "docs/UI/小程序/stitch_codex_development_blueprints/ai_1/screen.png",
+    "actual": "docs/auto-execute/evidence/frontend-page/visual/analysis/actual-analysis-structure.svg",
+    "diff": "docs/auto-execute/evidence/frontend-page/visual/analysis/diff-analysis-manual-review.svg",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "structuralChecks": {
+      "hasTitle": true,
+      "hasProgressRing": true,
+      "hasFourSteps": true,
+      "hasLaterView": true,
+      "hasRefresh": true,
+      "bindsProgressToTaskState": true
+    },
+    "pixelDiff": {
+      "status": "MANUAL_REVIEW_REQUIRED",
+      "ratio": null,
+      "reason": "T08 emits structural visual artifacts. T14 owns screenshot capture and pixel diff."
+    }
+  }
+}

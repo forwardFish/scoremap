@@ -1,0 +1,123 @@
+﻿if (typeof Page === 'function') {
+  const { createReplicaPage } = require('../../utils/replica-runtime');
+  createReplicaPage({
+  "title": "处理失败",
+  "reference": "/assets/reference/failure.jpg",
+  "derived": false,
+  "hotspots": [
+    {
+      "action": "retry",
+      "label": "重新开始分析",
+      "className": "failure-retry"
+    },
+    {
+      "action": "reupload",
+      "label": "重新上传资料",
+      "className": "failure-reupload"
+    },
+    {
+      "action": "home",
+      "label": "返回首页",
+      "className": "failure-home"
+    }
+  ],
+  "actions": {
+    "retry": {
+      "url": "/pages/analysis/index"
+    },
+    "reupload": {
+      "url": "/pages/index/index"
+    },
+    "home": {
+      "url": "/pages/index/index"
+    }
+  },
+  "cards": []
+});
+} else {
+const { createMiniappApiClient } = require('../../services/api-client');
+
+const ANALYSIS_ROUTE = '/pages/analysis/index';
+const FAILURE_ROUTE = '/pages/failure/index';
+const HOME_ROUTE = '/pages/index/index';
+
+const FAILURE_REASONS = {
+  blurry_material: '资料不清晰，请重新上传更清楚的试卷或答题卡',
+  network_timeout: '本地分析超时，请稍后重试',
+  analysis_timeout: '分析等待时间过长，请稍后重试',
+  ai_failed: 'AI 生成失败，请重新开始分析',
+  payment_failed: '支付失败，请返回支付页重试'
+};
+
+function createFailurePageState(client = createMiniappApiClient(), options = {}) {
+  const orderId = options.orderId || 'order-t08-failure';
+  let errorCode = options.errorCode || 'ai_failed';
+  let toast = null;
+
+  const page = {
+    route: FAILURE_ROUTE,
+    orderId,
+    uiReference: {
+      png: 'docs/UI/小程序/处理失败.png',
+      stitch: 'docs/UI/小程序/stitch_codex_development_blueprints/_3/screen.png'
+    },
+    title: '处理失败',
+    description: '可能是资料不清晰或网络异常，请稍后重试。',
+    controls: [
+      { id: 'retry-analysis', text: '重新开始分析', run: () => page.retryAnalysis() },
+      { id: 'reupload', text: '重新上传资料', run: () => page.reupload() },
+      { id: 'back-home', text: '返回首页', run: () => page.backHome() }
+    ],
+    getState() {
+      return {
+        route: FAILURE_ROUTE,
+        orderId,
+        title: page.title,
+        description: page.description,
+        errorCode,
+        reason: FAILURE_REASONS[errorCode] || FAILURE_REASONS.ai_failed,
+        toast,
+        controls: page.controls.map((control) => ({ id: control.id, text: control.text })),
+        uiReference: page.uiReference
+      };
+    },
+    retryAnalysis() {
+      const response = client.request('POST', `/api/diagnosis-orders/${orderId}/start-preview-analysis`, {
+        taskId: `task-t08-retry-${orderId}`,
+        retry: true,
+        progress: 10,
+        currentStep: 'reading_material'
+      });
+      errorCode = null;
+      toast = '已重新开始本地分析';
+      return {
+        status: 'RETRY_STARTED',
+        targetRoute: ANALYSIS_ROUTE,
+        apiStatus: response.body.status,
+        taskId: response.body.taskId,
+        toast
+      };
+    },
+    reupload() {
+      toast = '请重新选择本地资料上传';
+      return {
+        status: 'REUPLOAD',
+        targetRoute: HOME_ROUTE,
+        resetUploadState: true,
+        toast
+      };
+    },
+    backHome() {
+      return {
+        status: 'SWITCH_TAB',
+        targetRoute: HOME_ROUTE
+      };
+    }
+  };
+
+  return page;
+}
+
+module.exports = { FAILURE_REASONS, createFailurePageState };
+
+}

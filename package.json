@@ -1,0 +1,16 @@
+﻿{
+  "name": "scoremap-local-runtime",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local-only scaffold for scoremap miniapp, API, and mock persistence.",
+  "scripts": {
+    "test": "node scripts/run-tests.mjs",
+    "e2e:owner": "node --test --test-isolation=none tests/e2e/owner-click-flow.test.js",
+    "e2e:api-db": "node --test --test-isolation=none --test-concurrency=1 tests/api/api-db-readback-e2e.test.js",
+    "visual:scoremap": "node tools/ui-visual/run-scoremap-visual.mjs",
+    "build": "node scripts/build-local-runtime.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

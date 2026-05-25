@@ -1,0 +1,118 @@
+﻿{
+  "taskId": "T09",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "implementedFiles": [
+    "scoremap-miniapp/pages/preview/index.js",
+    "scoremap-miniapp/pages/preview/preview-basic-pay.test.js",
+    "scoremap-miniapp/pages/preview/visual-preview-basic-pay.js",
+    "scoremap-miniapp/pages/basic-pay/index.js",
+    "scoremap-miniapp/services/api-client.js",
+    "scoremap-miniapp/pages/index/visual-home.js",
+    "scripts/run-tests.mjs",
+    "docs/auto-execute/evidence/frontend-page/preview-basic-pay-route-controls.json",
+    "docs/auto-execute/evidence/frontend-page/preview-basic-pay-api-db.json",
+    "docs/auto-execute/evidence/frontend-page/preview-basic-pay-owner-local.json",
+    "docs/auto-execute/evidence/frontend-page/visual/preview/actual-preview-structure.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/preview/diff-preview-manual-review.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/preview/metrics-preview.json",
+    "docs/auto-execute/evidence/frontend-page/visual/preview/summary-preview.json",
+    "docs/auto-execute/evidence/frontend-page/visual/basic-pay/actual-basic-pay-structure.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/basic-pay/diff-basic-pay-manual-review.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/basic-pay/metrics-basic-pay.json",
+    "docs/auto-execute/evidence/frontend-page/visual/basic-pay/summary-basic-pay.json"
+  ],
+  "tests": [
+    {
+      "command": "npm test -- preview-basic-pay",
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "evidence": "PowerShell blocked C:\\Program Files\\nodejs\\npm.ps1 before project code ran."
+    },
+    {
+      "command": "npm.cmd test -- preview-basic-pay",
+      "status": "PASS",
+      "evidence": "3 tests passed, 0 failed"
+    },
+    {
+      "command": "npm run visual:scoremap -- preview basic-pay",
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "evidence": "PowerShell blocked C:\\Program Files\\nodejs\\npm.ps1 before project code ran."
+    },
+    {
+      "command": "npm.cmd run visual:scoremap -- preview basic-pay",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "evidence": [
+        "docs/auto-execute/evidence/frontend-page/visual/preview/summary-preview.json",
+        "docs/auto-execute/evidence/frontend-page/visual/basic-pay/summary-basic-pay.json"
+      ]
+    },
+    {
+      "command": "npm.cmd test -- miniapp-shell",
+      "status": "PASS",
+      "evidence": "4 tests passed, 0 failed"
+    },
+    {
+      "command": "npm.cmd test -- home-upload",
+      "status": "PASS",
+      "evidence": "3 tests passed, 0 failed"
+    },
+    {
+      "command": "npm.cmd test -- analysis-failure",
+      "status": "PASS",
+      "evidence": "3 tests passed, 0 failed"
+    },
+    {
+      "command": "npm.cmd run build",
+      "status": "PASS",
+      "evidence": "T01 local runtime scaffold build PASS"
+    },
+    {
+      "command": "node -e \"parse T09 evidence json\"",
+      "status": "PASS",
+      "evidence": "All T09 evidence JSON files parsed successfully."
+    }
+  ],
+  "pageEvidence": [
+    "docs/auto-execute/evidence/frontend-page/preview-basic-pay-route-controls.json",
+    "docs/auto-execute/evidence/frontend-page/preview-basic-pay-api-db.json"
+  ],
+  "apiEvidence": [
+    "docs/auto-execute/evidence/frontend-page/preview-basic-pay-route-controls.json",
+    "docs/auto-execute/evidence/frontend-page/preview-basic-pay-api-db.json"
+  ],
+  "dbEvidence": [
+    "docs/auto-execute/evidence/frontend-page/preview-basic-pay-api-db.json"
+  ],
+  "visualEvidence": [
+    "docs/auto-execute/evidence/frontend-page/visual/preview/actual-preview-structure.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/preview/diff-preview-manual-review.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/preview/metrics-preview.json",
+    "docs/auto-execute/evidence/frontend-page/visual/preview/summary-preview.json",
+    "docs/auto-execute/evidence/frontend-page/visual/basic-pay/actual-basic-pay-structure.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/basic-pay/diff-basic-pay-manual-review.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/basic-pay/metrics-basic-pay.json",
+    "docs/auto-execute/evidence/frontend-page/visual/basic-pay/summary-basic-pay.json"
+  ],
+  "ownerJourneyEvidence": [
+    "docs/auto-execute/evidence/frontend-page/preview-basic-pay-owner-local.json"
+  ],
+  "localOnlyEvidence": [
+    "docs/auto-execute/evidence/frontend-page/preview-basic-pay-owner-local.json"
+  ],
+  "knownGaps": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "scope": "visual",
+      "detail": "T09 produced deterministic structural actual/diff/metrics evidence for preview and basic-pay pages, but did not run pixel-perfect screenshot comparison. T14 owns the full visual harness."
+    },
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "scope": "owner-journey",
+      "detail": "T09 records deterministic C05/C06 owner actions and API/DB readback. Full rendered O01-O12 owner E2E remains assigned to T15."
+    },
+    {
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "scope": "command-shell",
+      "detail": "PowerShell blocks npm.ps1 on this host. Equivalent npm.cmd commands were run and passed."
+    }
+  ]
+}

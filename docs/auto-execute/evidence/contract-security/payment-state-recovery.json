@@ -1,0 +1,168 @@
+{
+  "status": "PASS",
+  "command": "npm --prefix server test -- auth recovery errors",
+  "requirementIds": [
+    "R11"
+  ],
+  "pageJumpEvidence": {
+    "status": "PASS_WITH_LIMITATION",
+    "route": "/pages/basic-pay/index or /pages/full-unlock/index -> page closed -> /pages/full-report-entry/index",
+    "recoveryState": {
+      "status": "RECOVERABLE_PENDING",
+      "route": "/pages/full-report/index",
+      "targetRoute": "/pages/full-report-entry/index",
+      "toast": "报告生成中，可稍后刷新继续查看。",
+      "recoveryAction": "refresh-report-status"
+    },
+    "reason": "T13 proves deterministic route-state recovery data; T15 owns exact owner clicks and screenshots."
+  },
+  "apiCalls": [
+    {
+      "method": "POST",
+      "path": "/api/payments/wechat/callback",
+      "branch": "basic_paid_compensation_repair",
+      "responseStatus": 200,
+      "response": {
+        "ok": true,
+        "status": "paid",
+        "paymentId": "payment-t13-basic-recovery",
+        "orderId": "order-97a5c5f5d916",
+        "accessLevel": "basic",
+        "idempotent": true,
+        "repaired": true
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/wechat/callback",
+      "branch": "full_paid",
+      "responseStatus": 200,
+      "response": {
+        "ok": true,
+        "status": "paid",
+        "paymentId": "payment-t13-full-recovery",
+        "orderId": "order-97a5c5f5d916",
+        "accessLevel": "full",
+        "idempotent": false,
+        "repaired": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/{orderId}/generate-full",
+      "responseStatus": 200,
+      "response": {
+        "taskId": "task-full-96d081763ae0",
+        "status": "full_report_ready"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/{orderId}/full-report",
+      "responseStatus": 200,
+      "response": {
+        "status": "full_report_ready",
+        "accessLevel": "full"
+      }
+    }
+  ],
+  "dbReadback": {
+    "basicPayment": {
+      "id": "payment-t13-basic-recovery",
+      "orderId": "order-97a5c5f5d916",
+      "ownerId": "local-user-scoremap-t03",
+      "paymentType": "basic",
+      "channel": "local-wechat-pay-mock",
+      "amountCents": 100,
+      "status": "paid",
+      "mockTransactionId": "mock-tx-t13-basic-recovery",
+      "callbackCount": 1,
+      "createdAt": "2026-05-25T02:55:22.581Z",
+      "updatedAt": "2026-05-25T02:55:22.587Z",
+      "paidAt": "1970-01-01T00:00:00.000Z"
+    },
+    "fullPayment": {
+      "id": "payment-t13-full-recovery",
+      "orderId": "order-97a5c5f5d916",
+      "ownerId": "local-user-scoremap-t03",
+      "paymentType": "full",
+      "channel": "local-wechat-pay-mock",
+      "amountCents": 990,
+      "status": "paid",
+      "mockTransactionId": "mock-tx-t13-full-recovery",
+      "callbackCount": 1,
+      "createdAt": "2026-05-25T02:55:22.598Z",
+      "updatedAt": "2026-05-25T02:55:22.602Z",
+      "paidAt": "1970-01-01T00:00:00.000Z"
+    },
+    "order": {
+      "id": "order-97a5c5f5d916",
+      "ownerId": "local-user-scoremap-t03",
+      "source": "T13-recovery",
+      "grade": "grade-5",
+      "subject": "math",
+      "examType": "unit-test",
+      "materialType": "answer-sheet",
+      "status": "full_report_ready",
+      "accessLevel": "full",
+      "orderToken": "local-order-token-order-97a5c5f5d916",
+      "createdAt": "2026-05-25T02:55:22.556Z",
+      "updatedAt": "2026-05-25T02:55:22.610Z",
+      "uploadedCount": 1,
+      "previewTaskId": "task-285d928a1bfd",
+      "previewDecisionId": "decision-order-97a5c5f5d916-preview",
+      "fullTaskId": "task-full-96d081763ae0",
+      "fullDecisionId": "decision-order-97a5c5f5d916-full"
+    },
+    "fullDecision": {
+      "id": "decision-order-97a5c5f5d916-full",
+      "orderId": "order-97a5c5f5d916",
+      "ownerId": "local-user-scoremap-t03",
+      "level": "full",
+      "full": {
+        "reportTitle": "Complete score improvement report",
+        "orderId": "order-97a5c5f5d916",
+        "summary": "Local full report for grade-5 math.",
+        "modules": [
+          {
+            "id": "knowledge-diagnosis",
+            "title": "Knowledge diagnosis",
+            "content": "Calculation rules, formula usage, and answer checking need staged practice."
+          },
+          {
+            "id": "question-level-advice",
+            "title": "Per-question improvement advice",
+            "content": "Mark the missing condition, write the formula, solve, then verify the unit."
+          },
+          {
+            "id": "seven-day-plan",
+            "title": "7-day score improvement plan",
+            "content": "Three short reviews, two targeted exercises, and one full correction review."
+          },
+          {
+            "id": "parent-guidance",
+            "title": "Parent guidance",
+            "content": "Focus feedback on process completeness instead of a guaranteed score outcome."
+          }
+        ],
+        "basicSummary": "Local basic decision for grade-5 math.",
+        "complianceNotice": "Local mock report only; no guaranteed score wording."
+      },
+      "createdAt": "2026-05-25T02:55:22.608Z",
+      "updatedAt": "2026-05-25T02:55:22.608Z"
+    }
+  },
+  "localOnly": {
+    "paymentAdapter": {
+      "status": "PASS",
+      "adapter": "local-wechat-pay-mock",
+      "remoteCalls": [],
+      "supportedStatuses": [
+        "paid",
+        "failed",
+        "cancelled"
+      ]
+    },
+    "paymentRemoteCalls": []
+  }
+}

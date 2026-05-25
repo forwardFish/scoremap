@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>确认1元初判</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style data-purpose="custom-fonts">
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #F8F9FF;
+      color: #333;
+    }
+  </style>
+<style data-purpose="custom-utilities">
+    .text-gradient {
+      background: linear-gradient(90deg, #7C4DFF 0%, #B388FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .card-shadow {
+      box-shadow: 0 10px 30px -5px rgba(124, 77, 255, 0.08);
+    }
+    .blur-overlay {
+      background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 50%, #FFFFFF 100%);
+    }
+  </style>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#7C4DFF',
+            secondary: '#F0E6FF',
+            accent: '#B388FF',
+            success: '#10B981',
+            text: {
+              main: '#1F2937',
+              sub: '#6B7280',
+              light: '#9CA3AF'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="antialiased min-h-screen flex flex-col relative pb-32">
+<!-- BEGIN: Header -->
+<header class="pt-12 pb-4 px-5 flex items-center bg-transparent z-10 sticky top-0">
+<button aria-label="返回" class="p-2 -ml-2">
+<svg fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M15 18L9 12L15 6" stroke="#1F2937" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="flex items-center ml-2">
+<div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-2 overflow-hidden border border-blue-200">
+<!-- Robot avatar placeholder -->
+<span class="text-xl">🤖</span>
+</div>
+<h1 class="text-xl font-bold text-gray-900">确认1元初判</h1>
+</div>
+</header>
+<!-- END: Header -->
+<!-- BEGIN: Subtitle & Steps -->
+<section class="px-5 pb-6 text-center">
+<p class="text-sm text-gray-600 mb-8">仅需 <span class="text-primary font-semibold">1 元</span>，AI 帮你初步分析孩子学习情况</p>
+<!-- Steps Indicator -->
+<div class="flex items-center justify-between relative px-4 max-w-xs mx-auto">
+<!-- Line background -->
+<div class="absolute top-4 left-8 right-8 h-[2px] bg-gray-200 -z-10"></div>
+<!-- Line progress -->
+<div class="absolute top-4 left-8 right-[30%] h-[2px] bg-primary -z-10"></div>
+<!-- Step 1 -->
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-white border-2 border-gray-200 flex items-center justify-center text-gray-400 font-semibold mb-2">1</div>
+<span class="text-xs text-gray-500">上传资料</span>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-white border-2 border-gray-200 flex items-center justify-center text-gray-400 font-semibold mb-2">2</div>
+<span class="text-xs text-gray-500">AI 分析</span>
+</div>
+<!-- Step 3 (Active) -->
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-semibold shadow-md shadow-primary/30 mb-2">3</div>
+<span class="text-xs text-primary font-medium">确认支付</span>
+</div>
+</div>
+</section>
+<!-- END: Subtitle & Steps -->
+<main class="flex-1 px-5 flex flex-col gap-6">
+<!-- BEGIN: Analysis Summary Card -->
+<section class="bg-white rounded-3xl p-6 relative overflow-hidden card-shadow">
+<!-- Background decorative blobs -->
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-purple-50 rounded-full blur-2xl opacity-60 pointer-events-none"></div>
+<div class="absolute -bottom-10 -left-10 w-32 h-32 bg-blue-50 rounded-full blur-2xl opacity-60 pointer-events-none"></div>
+<div class="relative z-10 flex flex-col sm:flex-row gap-4">
+<div class="flex-1">
+<h2 class="text-2xl font-bold text-gray-900 mb-3 tracking-tight">初一数学月考分析</h2>
+<p class="text-sm text-gray-600 leading-relaxed mb-4">
+            整体基础较好，计算粗心和几何证明是本次失分的主要原因。
+          </p>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 bg-green-50 text-green-600 text-xs font-medium rounded-full border border-green-100">
+<svg fill="none" height="12" viewbox="0 0 24 24" width="12" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 6L9 17L4 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+            初步分析已生成
+          </div>
+</div>
+<!-- Owl Illustration Placeholder -->
+<div class="w-32 h-32 flex-shrink-0 self-end sm:self-center relative">
+<img alt="Owl Illustration" class="w-full h-full object-contain drop-shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlWDt_gUIcn0b-3cgxTtB6ERXGc4DNsKOYC6oPuLUYxMgyEr-9gyNzGntDKV5TeELsAw6UuZyBMZT-y0BLE4igJSiIpdwCLKLj3Mtrq7jHSonI02JEbGIH15hS4D7DASOGynKcZLe-4y-7_CroTrwjo9UojtWFPgdKeV59fesUHQOFmFZCsvBoCoPzhQfnZ7BgkzUVvwO8t6jINJel95XuyiVY8FPpBUm5mn8nz4SyKgBIn-TOb-F-mmFVOaScWB4wKB9oZVWwFLqR"/>
+<div class="absolute top-2 right-0 text-yellow-400 text-xl">✨</div>
+</div>
+</div>
+</section>
+<!-- END: Analysis Summary Card -->
+<!-- BEGIN: Report Preview List -->
+<section>
+<h3 class="text-lg font-bold text-gray-900 mb-4 px-1">报告内容预览</h3>
+<div class="bg-white rounded-3xl p-2 card-shadow relative">
+<!-- Item 1: Weak Points -->
+<div class="flex items-center p-3 border-b border-gray-50 last:border-0">
+<div class="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center mr-4 flex-shrink-0">
+<span class="text-2xl">🎯</span>
+</div>
+<div class="flex-1">
+<h4 class="text-base font-semibold text-gray-900 mb-0.5">主要丢分点</h4>
+<p class="text-sm text-gray-500">计算失误、几何证明</p>
+</div>
+<svg class="text-gray-300" fill="none" height="20" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 18L15 12L9 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<!-- Item 2: Priority Improvement -->
+<div class="flex items-center p-3 border-b border-gray-50 last:border-0">
+<div class="w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center mr-4 flex-shrink-0">
+<span class="text-2xl">⛰️</span>
+</div>
+<div class="flex-1">
+<h4 class="text-base font-semibold text-gray-900 mb-0.5">优先补弱点</h4>
+<p class="text-sm text-gray-500">优先提升几何证明能力</p>
+</div>
+<svg class="text-gray-300" fill="none" height="20" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 18L15 12L9 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<!-- Locked Area Overlay -->
+<div class="relative">
+<!-- Item 3: 7-Day Plan (Locked) -->
+<div class="flex items-center p-3 border-b border-gray-50 last:border-0 opacity-40">
+<div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mr-4 flex-shrink-0">
+<span class="text-2xl">📅</span>
+</div>
+<div class="flex-1">
+<h4 class="text-base font-semibold text-gray-900 mb-0.5">7天建议</h4>
+<p class="text-sm text-gray-500">点击解锁查看每日练习安排</p>
+</div>
+<svg class="text-gray-400" fill="none" height="20" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 11H5C3.89543 11 3 11.8954 3 13V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V13C21 11.8954 20.1046 11 19 11Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<!-- Item 4: Next Steps (Locked) -->
+<div class="flex items-center p-3 border-b border-gray-50 last:border-0 opacity-30 pb-16">
+<div class="w-12 h-12 rounded-xl bg-yellow-50 flex items-center justify-center mr-4 flex-shrink-0">
+<span class="text-2xl">💡</span>
+</div>
+<div class="flex-1">
+<h4 class="text-base font-semibold text-gray-900 mb-0.5">下一步建议</h4>
+<p class="text-sm text-gray-500">继续练习 / 找老师讲解 / 再次上传复测</p>
+</div>
+<svg class="text-gray-400" fill="none" height="20" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 11H5C3.89543 11 3 11.8954 3 13V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V13C21 11.8954 20.1046 11 19 11Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<!-- Blur Overlay & Unlock Button -->
+<div class="absolute inset-x-0 bottom-0 top-1/4 blur-overlay flex items-end justify-center pb-4 rounded-b-3xl">
+<div class="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2">
+<svg fill="none" height="16" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 11H5C3.89543 11 3 11.8954 3 13V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V13C21 11.8954 20.1046 11 19 11Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              支付后查看完整报告
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Report Preview List -->
+</main>
+<!-- BEGIN: Bottom Fixed Actions -->
+<footer class="fixed bottom-0 left-0 right-0 p-5 bg-white bg-opacity-95 backdrop-blur-md pb-8 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] z-50">
+<button class="w-full bg-gradient-to-r from-[#8E6DFE] to-[#714AFE] text-white font-bold text-lg py-4 rounded-full shadow-lg shadow-purple-500/30 mb-4 active:scale-95 transition-transform">
+      立即支付1元查看完整报告
+    </button>
+<div class="text-center">
+<a class="text-primary text-sm font-medium p-2" href="#">返回上一步</a>
+</div>
+</footer>
+<!-- END: Bottom Fixed Actions -->
+</body></html>

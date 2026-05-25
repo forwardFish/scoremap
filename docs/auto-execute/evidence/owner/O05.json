@@ -1,0 +1,248 @@
+{
+  "scenarioId": "O05",
+  "status": "PASS",
+  "command": "npm run e2e:owner",
+  "requirementIds": [
+    "R09",
+    "R10",
+    "R14"
+  ],
+  "clickPath": [
+    "view-full-report",
+    "/pages/full-report/index",
+    "save-report",
+    "/pages/my/index",
+    "open-reports",
+    "open-report-card"
+  ],
+  "routeEvidence": {
+    "reportEntryRoute": "/pages/full-report-entry/index",
+    "reportRoute": "/pages/full-report/index",
+    "reportsRoute": "/pages/reports/index",
+    "cardTargetRoute": "/pages/full-report/index"
+  },
+  "apiEvidence": [
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t07-home-upload/full-report",
+      "payloadSummary": {
+        "source": "full-report-entry-load"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_report_ready",
+        "decision": {
+          "level": "full",
+          "reportTitle": "Complete score improvement report",
+          "orderId": "order-t07-home-upload",
+          "generatedStatus": "full_report_ready",
+          "summary": "Local complete score improvement report for a parent owner review.",
+          "modules": [
+            {
+              "id": "knowledge-diagnosis",
+              "title": "Knowledge diagnosis",
+              "content": "Calculation rules and formula usage need staged practice."
+            },
+            {
+              "id": "loss-point-breakdown",
+              "title": "Per-question loss point breakdown",
+              "content": "Mark the missing condition, formula, solving process, and final verification."
+            },
+            {
+              "id": "seven-day-plan",
+              "title": "7-day score improvement plan",
+              "content": "Three correction reviews, two targeted exercise days, and one final mistake-book review."
+            },
+            {
+              "id": "parent-guidance",
+              "title": "Parent guidance",
+              "content": "Use process feedback and avoid guaranteed-score promises."
+            }
+          ],
+          "tabs": [
+            "overview",
+            "loss points",
+            "7-day plan",
+            "parent guidance"
+          ],
+          "complianceNotice": "Local mock report only. No guaranteed-score promise is displayed."
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t07-home-upload/full-report",
+      "payloadSummary": {
+        "source": "full-report-page-load"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_report_ready",
+        "decision": {
+          "level": "full",
+          "reportTitle": "Complete score improvement report",
+          "orderId": "order-t07-home-upload",
+          "generatedStatus": "full_report_ready",
+          "summary": "Local complete score improvement report for a parent owner review.",
+          "modules": [
+            {
+              "id": "knowledge-diagnosis",
+              "title": "Knowledge diagnosis",
+              "content": "Calculation rules and formula usage need staged practice."
+            },
+            {
+              "id": "loss-point-breakdown",
+              "title": "Per-question loss point breakdown",
+              "content": "Mark the missing condition, formula, solving process, and final verification."
+            },
+            {
+              "id": "seven-day-plan",
+              "title": "7-day score improvement plan",
+              "content": "Three correction reviews, two targeted exercise days, and one final mistake-book review."
+            },
+            {
+              "id": "parent-guidance",
+              "title": "Parent guidance",
+              "content": "Use process feedback and avoid guaranteed-score promises."
+            }
+          ],
+          "tabs": [
+            "overview",
+            "loss points",
+            "7-day plan",
+            "parent guidance"
+          ],
+          "complianceNotice": "Local mock report only. No guaranteed-score promise is displayed."
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t07-home-upload/save-report",
+      "payloadSummary": {
+        "source": "full-report-page-save"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "saved": true
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/my/reports",
+      "payloadSummary": {
+        "source": "my-page-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "items": [
+          {
+            "orderId": "order-t07-home-upload",
+            "title": "Complete score improvement report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "preview_done",
+            "accessLevel": "full",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": true,
+            "paymentStatus": "paid",
+            "paidAmountYuan": 10.9
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/my/reports",
+      "payloadSummary": {
+        "source": "reports-page-list",
+        "filter": "all"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "items": [
+          {
+            "orderId": "order-t07-home-upload",
+            "title": "Complete score improvement report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "preview_done",
+            "accessLevel": "full",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": true,
+            "paymentStatus": "paid",
+            "paidAmountYuan": 10.9
+          }
+        ]
+      }
+    }
+  ],
+  "dbEvidence": {
+    "order": {
+      "id": "order-t07-home-upload",
+      "ownerId": "local-user-scoremap-t06",
+      "status": "preview_done",
+      "accessLevel": "full",
+      "source": "home-upload",
+      "uploadedCount": 1,
+      "savedReport": true
+    },
+    "reports": [
+      {
+        "id": "order-t07-home-upload",
+        "ownerId": "local-user-scoremap-t06",
+        "status": "preview_done",
+        "accessLevel": "full",
+        "source": "home-upload",
+        "uploadedCount": 1,
+        "savedReport": true
+      }
+    ]
+  },
+  "visualEvidence": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/full-report-entry/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/full-report-entry/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/full-report-entry/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/full-report-entry/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/full-report-entry/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/full-report/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/full-report/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/full-report/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/full-report/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/full-report/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/my/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/my/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/my/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/my/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/my/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/reports/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/reports/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/reports/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/reports/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/reports/summary.json"
+    }
+  ],
+  "localOnly": {
+    "LOCAL_ONLY": "true",
+    "adapterMode": "local-mock",
+    "paymentAdapter": "local-wechat-pay-mock",
+    "cloudAdapter": "local-tencent-cloud-mock",
+    "databaseAdapter": "local-fixture-store",
+    "remoteCalls": []
+  }
+}

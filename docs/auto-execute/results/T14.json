@@ -1,0 +1,85 @@
+﻿{
+    "taskId":  "T14",
+    "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+    "implementedFiles":  [
+                             "package.json",
+                             "tools/ui-visual/package.json",
+                             "tools/ui-visual/run-scoremap-visual.mjs",
+                             "tools/ui-visual/visual-harness.mjs",
+                             "tools/ui-visual/visual-harness.test.mjs",
+                             "docs/auto-execute/evidence/visual-harness/summary.json",
+                             "docs/auto-execute/evidence/visual/summary.json"
+                         ],
+    "tests":  [
+                  {
+                      "command":  "npm --prefix tools/ui-visual test; npm run visual:scoremap -- all",
+                      "status":  "BLOCKED_BY_ENVIRONMENT",
+                      "evidence":  "PowerShell blocked C:\\Program Files\\nodejs\\npm.ps1 before project code ran."
+                  },
+                  {
+                      "command":  "npm.cmd --prefix tools/ui-visual test; npm.cmd run visual:scoremap -- all",
+                      "status":  "PASS",
+                      "evidence":  "tools/ui-visual test passed 1/1; visual:scoremap generated 11 screen comparisons under docs/auto-execute/evidence/visual-harness/."
+                  },
+                  {
+                      "command":  "local-only forbidden endpoint and credential-marker scan (pattern redacted in report; see task evidence)",
+                      "status":  "PASS",
+                      "evidence":  "No matches returned in the T14 harness files or generated T14 visual evidence."
+                  }
+              ],
+    "pageEvidence":  [
+                         {
+                             "status":  "PASS_WITH_LIMITATION",
+                             "evidence":  "docs/auto-execute/evidence/visual-harness/summary.json",
+                             "details":  "11 route-bound visual records were generated for UI-C01, UI-C03, UI-C04, UI-C05, UI-C06, UI-C07, UI-C08, UI-C09, UI-C10, UI-C11, and UI-C12."
+                         }
+                     ],
+    "apiEvidence":  [
+                        {
+                            "status":  "DEFERRED",
+                            "reason":  "T14 is a visual harness task and does not add or call product APIs. API call evidence remains owned by T03-T05, T13, T15, and T16."
+                        }
+                    ],
+    "dbEvidence":  [
+                       {
+                           "status":  "DEFERRED",
+                           "reason":  "T14 has no business mutation or DB readback surface. DB mutation/readback evidence remains owned by API and owner-flow tasks."
+                       }
+                   ],
+    "visualEvidence":  [
+                           {
+                               "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                               "summary":  "docs/auto-execute/evidence/visual-harness/summary.json",
+                               "finalGateSummary":  "docs/auto-execute/evidence/visual/summary.json",
+                               "perScreenEvidenceRoot":  "docs/auto-execute/evidence/visual-harness/",
+                               "details":  "Each screen has reference, actual, diff, metrics, and summary artifacts. Raster pixelmatch is unavailable, so no pixel-perfect PASS is claimed."
+                           }
+                       ],
+    "ownerJourneyEvidence":  [
+                                 {
+                                     "status":  "DEFERRED",
+                                     "reason":  "T14 verifies the visual comparison harness only. Full owner click journey evidence remains assigned to T15."
+                                 }
+                             ],
+    "localOnlyEvidence":  [
+                              {
+                                  "status":  "PASS",
+                                  "evidence":  "docs/auto-execute/evidence/visual-harness/summary.json",
+                                  "details":  "Harness uses local miniapp page-state SVG captures, local UI reference files, file-system metrics, and records zero remote calls."
+                              },
+                              {
+                                  "status":  "PASS",
+                                  "evidence":  "rg local-only/secret scan returned no matches for production payment/cloud/database endpoints or secret-like tokens in T14 files/evidence."
+                              }
+                          ],
+    "knownGaps":  [
+                      {
+                          "status":  "MANUAL_REVIEW_REQUIRED",
+                          "reason":  "No local PNG rasterizer/pixelmatch dependency is present, so the harness cannot claim pixel-perfect visual PASS."
+                      },
+                      {
+                          "status":  "MANUAL_REVIEW_REQUIRED",
+                          "reason":  "UI-C12 reports page has PRD C12 as its reference but no standalone PNG under docs/UI; the harness records this limitation in docs/auto-execute/evidence/visual-harness/reports/metrics.json."
+                      }
+                  ]
+}

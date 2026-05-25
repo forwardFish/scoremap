@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>完整提分报告</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style data-purpose="custom-styles">
+    /* Custom styles for specific gradient or shadow needs not easily met by standard Tailwind classes */
+    body {
+      background-color: #F6F7FC; /* Light bluish-gray background */
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    .hero-card-bg {
+      background: linear-gradient(135deg, #ffffff 0%, #fbfbfe 100%);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    }
+    .list-card-bg {
+      background-color: #ffffff;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.02);
+    }
+    .btn-primary {
+      background: linear-gradient(90deg, #816AFA 0%, #6E5DF6 100%);
+    }
+    .text-primary-brand {
+      color: #6E5DF6;
+    }
+    .border-primary-brand {
+      border-color: #6E5DF6;
+    }
+  </style>
+</head>
+<body class="antialiased text-gray-800 selection:bg-purple-200">
+<!-- Main Mobile Container -->
+<div class="max-w-md mx-auto min-h-screen flex flex-col relative pb-6" data-purpose="app-container">
+<!-- BEGIN: MainHeader -->
+<header class="flex items-center justify-center relative py-4 px-4 sticky top-0 bg-[#F6F7FC] z-10" data-purpose="top-navigation">
+<button aria-label="Go back" class="absolute left-4 p-2 -ml-2 text-gray-800">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<h1 class="text-lg font-bold text-gray-900 tracking-wide">完整提分报告</h1>
+</header>
+<!-- END: MainHeader -->
+<main class="flex-grow px-4 pb-24" data-purpose="main-content">
+<!-- BEGIN: Hero Section -->
+<!-- Top card containing overall analysis summary and mascot -->
+<section class="hero-card-bg rounded-[24px] p-5 mt-2 relative overflow-hidden flex flex-col sm:flex-row items-center sm:items-start" data-purpose="hero-summary-card">
+<div class="flex-1 pr-4 z-10 w-full">
+<h2 class="text-[22px] font-bold text-[#111827] mb-3">初一数学月考分析</h2>
+<p class="text-sm text-gray-600 leading-relaxed mb-5 max-w-[200px]">
+            整体基础较好，计算粗心和几何证明是本次失分的主要原因。
+          </p>
+<div class="inline-flex items-center bg-[#E8F8EE] px-3 py-1.5 rounded-full">
+<svg class="h-4 w-4 text-[#22C55E] mr-1.5" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
+</svg>
+<span class="text-xs font-medium text-[#22C55E]">完整分析已生成</span>
+</div>
+</div>
+<!-- Mascot Illustration Placeholder -->
+<div class="w-[140px] h-[140px] sm:absolute sm:right-2 sm:bottom-0 sm:w-[160px] sm:h-[160px] flex-shrink-0 mt-4 sm:mt-0 self-end">
+<img alt="分析吉祥物" class="w-full h-full object-contain object-bottom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrdd7_nwlNq4FxGeAhXoCWSQdt3wX6_AbQGRzqgJ_xUu5AGrU36szk36coJQslTgi8SlGHRSQdNxzVn6yK6AR8fomjGtBGkysPiNPKYcf5po3jle5aIzpq8TqSYgrJV9otQuweakH-_xaojl9Jvlub6ozyz9wKSIZiQvLCDw5EeGI4yXnqaiQokYGAaNKIiZxkDvowGNf-PkmHHMQrR6kut5dRjJxKo_LfNmgzONVH7kzPu1tWT71eQ5J9wtt6edRFUqiowADYm0EQ"/>
+</div>
+</section>
+<!-- END: Hero Section -->
+<!-- BEGIN: Report Content List -->
+<section class="mt-8" data-purpose="report-details-section">
+<h3 class="text-lg font-bold text-gray-900 mb-4 px-1">报告内容</h3>
+<div class="list-card-bg rounded-[24px] overflow-hidden" data-purpose="report-list-container">
+<ul class="flex flex-col">
+<!-- List Item 1: 主要丢分点 -->
+<li class="group flex items-center p-4 border-b border-gray-50/50 active:bg-gray-50 transition-colors cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center flex-shrink-0 mr-4">
+<img alt="主要丢分点图标" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9hfBzRt8C8wAtR63nHlJTfaRcfTqosEKs8jWD-vOpO7TOUmTUrbPm9WTQSEKRxAyFct_gJfuQ4RbflSqREJ_OY8GggkW0Wyp1WVlyu253BHd92nhelDgcrSG19dY9jelRwykejQc67oGlP1MBegi0hQOBLclBYp5_wpvGhfEbBZXyJvWseHm5Clqsk_3wJ5BShXHpt-Y8aTvliWx-juKWQOLeUwcoUoLdeA7NwXYB1I6Uf115b5Vw77Hf0D3A5T3x1zXn8UaYAUp0"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-base font-bold text-gray-900 mb-0.5">主要丢分点</h4>
+<p class="text-[13px] text-gray-500">计算失误、几何证明</p>
+</div>
+<div class="flex-shrink-0 ml-2">
+<svg class="h-5 w-5 text-gray-400 group-hover:text-gray-600 transition-colors" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</li>
+<!-- List Item 2: 优先补弱点 -->
+<li class="group flex items-center p-4 border-b border-gray-50/50 active:bg-gray-50 transition-colors cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center flex-shrink-0 mr-4">
+<img alt="优先补弱点图标" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYncfASsqwxu5eNzIel7p16-Layfq5EqgaDrQjmgCMkGKwYwVGt4QH4IvkgBUkptQ0fek9dnp-pH2yPTREi27pd3G9ziETMCCA5g-WiJobyq1OkAU9p1x7LMR6edimW1zEsCG3LhnvPwN2yDWE1Fr9LoYRUNJXLAO4BKjSvD9KF7TnR0IryVfe5ncRuCgTeq8oKOlbi28ctzRgi9TIEl0mbeYOKwFkMISzPgYb74ey8afIZdCcflVmKBSroAqclGQn_5l312MPFjiI"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-base font-bold text-gray-900 mb-0.5">优先补弱点</h4>
+<p class="text-[13px] text-gray-500">优先提升几何证明能力</p>
+</div>
+<div class="flex-shrink-0 ml-2">
+<svg class="h-5 w-5 text-gray-400 group-hover:text-gray-600 transition-colors" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</li>
+<!-- List Item 3: 7天建议 -->
+<li class="group flex items-center p-4 border-b border-gray-50/50 active:bg-gray-50 transition-colors cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 mr-4">
+<img alt="7天建议图标" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWUtPX4U1ROCOt0NBW-p54gRettylrO-RiN9cD-NVl8GcoItZrJgsbe4OBu8vlTABvndD5xNBgQHj9hdjB50SmJFE8ixmEq9_0f-qvB5E9VzW4vdxMIQzkEPLMN2Haa2m3PkUhVZpIFQ0MyBKyL16zup89U1JzcOPMO9J7s0ics-aHIF2ad5ajdGcn2kZkzjkjxx_FKKeZGP4fhWcYXhOzysKAf7i8qeMUoMaJW2YWlsXtl14pGjfaTGy2KoxfTC0A487I3Fc_kIrw"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-base font-bold text-gray-900 mb-0.5">7天建议</h4>
+<p class="text-[13px] text-gray-500">点击查看每日练习安排</p>
+</div>
+<div class="flex-shrink-0 ml-2">
+<svg class="h-5 w-5 text-gray-400 group-hover:text-gray-600 transition-colors" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</li>
+<!-- List Item 4: 下一步建议 -->
+<li class="group flex items-center p-4 active:bg-gray-50 transition-colors cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-yellow-50 flex items-center justify-center flex-shrink-0 mr-4">
+<img alt="下一步建议图标" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1iqRj0W2066g34p-zb6zBFjgXY5Q29IYaInXqCa0aCAP1n5RCnC-4JDXs6Vfzh7I2mSHLkYbppwyVuN6pa7qi4pD3TDguwT6GPYaP-WjW8IXPnHGWfG4tjUssd18QaBqIqeicqzhuoBzsQMhb6hmYeamsvFdbBhZO9_iNox6RtxC6PyJCqIZ4ZMqFEuCvfAn2zXjr_u5YegguOqMmVgE6RFk3qTJJA-GGBoYYGgLQ5j9lsY48je_QJMzLBs7UFOumfzrLwxRFJzgT"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-base font-bold text-gray-900 mb-0.5">下一步建议</h4>
+<p class="text-[13px] text-gray-500">继续练习 / 找老师讲解 / 再次上传复测</p>
+</div>
+<div class="flex-shrink-0 ml-2">
+<svg class="h-5 w-5 text-gray-400 group-hover:text-gray-600 transition-colors" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</li>
+</ul>
+</div>
+</section>
+<!-- END: Report Content List -->
+</main>
+<!-- BEGIN: Bottom Action Bar -->
+<!-- Fixed to bottom on short screens, flows naturally otherwise, but padding added to main to prevent overlap -->
+<footer class="mt-auto px-4 pb-safe-bottom" data-purpose="bottom-actions">
+<div class="flex flex-col gap-3">
+<!-- Top row of buttons -->
+<div class="flex gap-3 w-full">
+<!-- Primary Action -->
+<button class="flex-1 btn-primary text-white rounded-full py-3.5 flex items-center justify-center font-medium shadow-sm active:opacity-90 transition-opacity">
+<svg class="h-5 w-5 mr-2 opacity-90" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+            查看完整报告
+          </button>
+<!-- Secondary Action -->
+<button class="flex-1 bg-white border border-primary-brand text-primary-brand rounded-full py-3.5 flex items-center justify-center font-medium shadow-sm active:bg-gray-50 transition-colors">
+<svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+            保存报告
+          </button>
+</div>
+<!-- Bottom row button -->
+<button class="w-full bg-white border border-primary-brand text-primary-brand rounded-full py-3.5 flex items-center justify-center font-medium shadow-sm active:bg-gray-50 transition-colors">
+<svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+          回到首页
+        </button>
+</div>
+</footer>
+<!-- END: Bottom Action Bar -->
+</div>
+</body></html>

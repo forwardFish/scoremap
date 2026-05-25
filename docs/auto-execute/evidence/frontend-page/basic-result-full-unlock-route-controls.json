@@ -1,0 +1,157 @@
+{
+  "status": "PASS",
+  "command": "npm test -- basic-result-full-unlock",
+  "requirementIds": [
+    "R07",
+    "R08"
+  ],
+  "ownerScenarioIds": [
+    "O03",
+    "O04"
+  ],
+  "uiReferences": [
+    "UI-C07",
+    "UI-C08"
+  ],
+  "route": "/pages/basic-result/index",
+  "renderedState": {
+    "route": "/pages/basic-result/index",
+    "orderId": "order-t10-basic",
+    "title": "AI initial decision result",
+    "subtitle": "The 1 yuan local mock payment unlocked the complete basic decision.",
+    "uiReference": {
+      "png": "docs/UI/小程序/完整初判结果.png",
+      "alternatePng": "docs/UI/小程序/ChatGPT Image 2026年5月22日 23_02_21.png"
+    },
+    "summaryCard": {
+      "title": "Complete basic decision",
+      "summary": "Most score loss comes from calculation accuracy and incomplete geometry proof steps.",
+      "evidenceQuality": "medium",
+      "scoreLevel": "basic"
+    },
+    "basicDecisionFields": {
+      "summary": "Most score loss comes from calculation accuracy and incomplete geometry proof steps.",
+      "quality": {
+        "uploadQuality": "normal",
+        "confidence": 0.86,
+        "recognized": true
+      },
+      "mainLossPoints": [
+        "Calculation carry and sign errors appear in multi-step questions.",
+        "Geometry proof steps miss key conditions before the conclusion."
+      ],
+      "priorityWeaknesses": [
+        "Rational-number operations",
+        "Auxiliary-line proof planning"
+      ],
+      "initialAdvice": [
+        "Spend 15 minutes daily correcting similar calculation errors.",
+        "Write the proof condition, reason, and conclusion as three separate lines."
+      ]
+    },
+    "upgradeCard": {
+      "visible": true,
+      "priceText": "9.9 yuan",
+      "benefits": [
+        "Full knowledge-point diagnosis",
+        "Per-question score-loss explanation",
+        "Seven-day improvement plan",
+        "Parent guidance without guaranteed-score wording"
+      ],
+      "complianceText": "Local mock analysis only. No guaranteed-score promise is displayed."
+    },
+    "controls": [
+      {
+        "id": "load-basic-decision",
+        "text": "Refresh basic decision",
+        "api": "GET /api/diagnosis-orders/order-t10-basic/basic-decision",
+        "targetRoute": "/pages/basic-result/index"
+      },
+      {
+        "id": "unlock-full",
+        "text": "Unlock full analysis for 9.9 yuan",
+        "targetRoute": "/pages/full-unlock/index"
+      }
+    ],
+    "toast": null
+  },
+  "pageJumpEvidence": [
+    {
+      "controlId": "load-basic-decision",
+      "result": {
+        "status": "BASIC_READY",
+        "apiStatus": 200,
+        "decision": {
+          "level": "basic",
+          "summary": "Most score loss comes from calculation accuracy and incomplete geometry proof steps.",
+          "evidenceQuality": "medium",
+          "quality": {
+            "uploadQuality": "normal",
+            "confidence": 0.86,
+            "recognized": true
+          },
+          "mainLossPoints": [
+            "Calculation carry and sign errors appear in multi-step questions.",
+            "Geometry proof steps miss key conditions before the conclusion."
+          ],
+          "priorityWeaknesses": [
+            "Rational-number operations",
+            "Auxiliary-line proof planning"
+          ],
+          "initialAdvice": [
+            "Spend 15 minutes daily correcting similar calculation errors.",
+            "Write the proof condition, reason, and conclusion as three separate lines."
+          ],
+          "upgradeCta": "Unlock the complete score improvement report"
+        }
+      }
+    },
+    {
+      "controlId": "unlock-full",
+      "result": {
+        "status": "NAVIGATE",
+        "targetRoute": "/pages/full-unlock/index",
+        "query": {
+          "orderId": "order-t10-basic"
+        },
+        "toast": "Opening the local 9.9 full analysis unlock page."
+      }
+    }
+  ],
+  "apiCalls": [
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t10-basic/basic-decision",
+      "payloadSummary": {
+        "source": "basic-result-page-load"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "decision": {
+          "level": "basic",
+          "summary": "Most score loss comes from calculation accuracy and incomplete geometry proof steps.",
+          "evidenceQuality": "medium",
+          "quality": {
+            "uploadQuality": "normal",
+            "confidence": 0.86,
+            "recognized": true
+          },
+          "mainLossPoints": [
+            "Calculation carry and sign errors appear in multi-step questions.",
+            "Geometry proof steps miss key conditions before the conclusion."
+          ],
+          "priorityWeaknesses": [
+            "Rational-number operations",
+            "Auxiliary-line proof planning"
+          ],
+          "initialAdvice": [
+            "Spend 15 minutes daily correcting similar calculation errors.",
+            "Write the proof condition, reason, and conclusion as three separate lines."
+          ],
+          "upgradeCta": "Unlock the complete score improvement report"
+        }
+      }
+    }
+  ]
+}

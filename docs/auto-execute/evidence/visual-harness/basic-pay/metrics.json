@@ -1,0 +1,48 @@
+{
+  "id": "UI-C06",
+  "screen": "basic-pay",
+  "route": "/pages/basic-pay/index",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "reference": "docs/UI/小程序/1元支付.png",
+  "declaredReference": "docs/UI/小程序/1元支付.png",
+  "stitchReference": "docs/UI/小程序/stitch_codex_development_blueprints/1/screen.png",
+  "miniappActualAsset": "scoremap-miniapp/assets/reference/basic-pay.jpg",
+  "actual": "docs/auto-execute/evidence/visual-harness/basic-pay/actual.jpg",
+  "diff": "docs/auto-execute/evidence/visual-harness/basic-pay/diff.svg",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "comparison": {
+    "method": "artifact-metadata-equivalence",
+    "reference": {
+      "exists": true,
+      "path": "docs/UI/小程序/1元支付.png",
+      "bytes": 1335044,
+      "sha256": "dcd46b2daa62ac3156d09df3f5ff2cbe5904ab285e513cc886575a64f3bc9365",
+      "extension": ".png"
+    },
+    "actual": {
+      "exists": true,
+      "path": "docs/auto-execute/evidence/visual-harness/basic-pay/actual.jpg",
+      "bytes": 135589,
+      "sha256": "8d17555ae689db691dfea6a76a22b9a133883c1b14d8656836de073eca9dc879",
+      "extension": ".jpg"
+    },
+    "byteLengthDelta": 1199455,
+    "sha256Equal": false,
+    "rasterPixelRatio": null
+  },
+  "pixelDiff": {
+    "status": "MANUAL_REVIEW_REQUIRED",
+    "ratio": null,
+    "threshold": null,
+    "canClaimPixelPerfect": false,
+    "reason": "No live WeChat simulator raster is available in this local harness for this derived or missing-reference page."
+  },
+  "localOnly": {
+    "usesLocalFixtures": true,
+    "remoteNetworkCalls": 0
+  },
+  "knownGaps": []
+}

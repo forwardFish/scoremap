@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+  <rect width="390" height="844" fill="#f8f9ff"/>
+  <text x="28" y="72" font-size="24" font-weight="700" fill="#111827">Unlock complete analysis</text>
+
+  <text x="28" y="106" font-size="13" fill="#6b7280">Use the local payment mock to unlock the 9.9 yuan complete report.</text>
+  <rect x="28" y="132" width="334" height="98" rx="18" fill="#fff7ed" stroke="#fed7aa"/>
+  <text x="48" y="170" font-size="18" font-weight="700" fill="#111827">Current: basic -> full</text>
+  <text x="48" y="202" font-size="15" font-weight="700" fill="#ea580c">9.9 yuan</text>
+  <rect x="44" y="258" width="302" height="40" rx="10" fill="#ffffff" stroke="#e5e7eb"/><text x="62" y="284" font-size="13" fill="#111827">Knowledge-point diagnosis</text><rect x="44" y="310" width="302" height="40" rx="10" fill="#ffffff" stroke="#e5e7eb"/><text x="62" y="336" font-size="13" fill="#111827">Per-question loss-point explanation</text><rect x="44" y="362" width="302" height="40" rx="10" fill="#ffffff" stroke="#e5e7eb"/><text x="62" y="388" font-size="13" fill="#111827">Seven-day score improvement plan</text><rect x="44" y="414" width="302" height="40" rx="10" fill="#ffffff" stroke="#e5e7eb"/><text x="62" y="440" font-size="13" fill="#111827">Parent communication guidance</text>
+  <rect x="28" y="544" width="334" height="90" rx="16" fill="#f8fafc" stroke="#e5e7eb"/>
+  <text x="48" y="584" font-size="12" fill="#4b5563">Local mock payment only. The page does not promise a guaranteed score.</text>
+  <rect x="28" y="710" width="334" height="58" rx="24" fill="#ea580c"/>
+  <text x="70" y="746" font-size="17" font-weight="700" fill="#ffffff">Pay 9.9 yuan with local mock</text>
+</svg>

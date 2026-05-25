@@ -1,0 +1,118 @@
+{
+  "status": "PASS",
+  "command": "npm test -- home-upload",
+  "requirementIds": [
+    "R01",
+    "R02"
+  ],
+  "uiReference": {
+    "png": "docs/UI/小程序/首页.png",
+    "stitch": "docs/UI/小程序/stitch_codex_development_blueprints/ai_2/screen.png"
+  },
+  "route": "/pages/index/index",
+  "pageJumpEvidence": [
+    {
+      "controlId": "upload-material",
+      "result": {
+        "status": "AUTH_REQUIRED",
+        "modalId": "upload-authorization",
+        "visible": true,
+        "disabledReason": "upload requires privacy authorization before local file selection"
+      }
+    },
+    {
+      "controlId": "cancel-upload-authorization",
+      "result": {
+        "status": "CANCELLED",
+        "toast": "需要同意资料授权后才能上传分析",
+        "targetRoute": "/pages/index/index",
+        "disabledReason": "privacy authorization declined"
+      }
+    },
+    {
+      "controlId": "view-sample-report",
+      "result": {
+        "status": "NAVIGATE",
+        "targetRoute": "/pages/preview/index",
+        "query": {
+          "sample": "true"
+        }
+      }
+    },
+    {
+      "controlId": "open-my-reports",
+      "result": {
+        "status": "SWITCH_TAB_OR_NAVIGATE",
+        "targetRoute": "/pages/reports/index",
+        "reportsCount": 0
+      }
+    }
+  ],
+  "renderedState": {
+    "route": "/pages/index/index",
+    "title": "AI 提分决策",
+    "uploadCard": {
+      "title": "上传资料",
+      "description": "支持试卷、答题卡、错题照片，本地 mock 会生成预览分析任务。",
+      "acceptedTypes": [
+        "answer-sheet",
+        "exam-paper",
+        "wrong-question-photo"
+      ],
+      "privacyRequired": true
+    },
+    "authorizationModal": {
+      "id": "upload-authorization",
+      "visible": false,
+      "accepted": false,
+      "requiredCopy": [
+        "仅用于本次 AI 提分分析",
+        "资料会写入本地 mock upload_files",
+        "不会调用真实腾讯云、微信支付或线上数据库"
+      ]
+    },
+    "recentReports": [],
+    "toast": "需要同意资料授权后才能上传分析",
+    "lastOrderId": null,
+    "controls": [
+      {
+        "id": "upload-material",
+        "text": "上传资料"
+      },
+      {
+        "id": "confirm-upload-authorization",
+        "text": "同意授权并选择本地图片"
+      },
+      {
+        "id": "cancel-upload-authorization",
+        "text": "暂不同意"
+      },
+      {
+        "id": "view-sample-report",
+        "text": "查看样例"
+      },
+      {
+        "id": "view-recent-reports",
+        "text": "最近报告"
+      },
+      {
+        "id": "open-my-reports",
+        "text": "我的报告"
+      }
+    ],
+    "bottomTabs": [
+      {
+        "id": "home",
+        "text": "首页",
+        "route": "/pages/index/index",
+        "active": true
+      },
+      {
+        "id": "my",
+        "text": "我的",
+        "route": "/pages/my/index",
+        "active": false
+      }
+    ]
+  }
+}

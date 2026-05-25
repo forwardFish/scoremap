@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>完整报告</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style data-purpose="custom-styles">
+    body {
+      background-color: #F5F7FA;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .report-paper {
+      background-color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border-radius: 16px;
+      position: relative;
+    }
+
+    .report-paper::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: linear-gradient(transparent 95%, #F0F2F5 95%);
+      background-size: 100% 28px;
+      pointer-events: none;
+      border-radius: 16px;
+      opacity: 0.5;
+    }
+
+    .section-title-badge {
+      background-color: #EEF2FF;
+      color: #5C6BC0;
+      border-radius: 9999px;
+      padding: 4px 12px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .dotted-divider {
+      border-top: 1px dashed #E5E7EB;
+      margin: 20px 0;
+    }
+
+    .text-content {
+      color: #374151;
+      line-height: 1.6;
+      font-size: 0.875rem;
+    }
+
+    .tab-active {
+      background-color: #FFFFFF;
+      color: #5C6BC0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      border-radius: 20px;
+    }
+
+    .tab-inactive {
+      color: #6B7280;
+    }
+
+    /* Scrollbar hide for mobile */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col relative pb-24">
+<!-- BEGIN: Header -->
+<header class="sticky top-0 z-50 bg-[#F5F7FA] px-4 py-4 flex items-center justify-between" data-purpose="main-header">
+<button aria-label="Go back" class="w-8 h-8 flex items-center justify-center text-gray-800">
+<i class="fa-solid fa-chevron-left text-xl"></i>
+</button>
+<h1 class="text-lg font-semibold text-gray-900">完整报告</h1>
+<div class="w-8"></div> <!-- Spacer for centering -->
+</header>
+<!-- END: Header -->
+<!-- BEGIN: Tabs -->
+<div class="px-4 mb-4" data-purpose="tabs">
+<div class="bg-[#E5E7EB] bg-opacity-50 p-1 rounded-full flex">
+<button class="flex-1 py-2 text-center text-sm font-medium tab-inactive rounded-full transition-colors">报告预览</button>
+<button class="flex-1 py-2 text-center text-sm font-medium tab-active transition-colors">完整报告</button>
+</div>
+</div>
+<!-- END: Tabs -->
+<!-- BEGIN: Main Report Content -->
+<main class="flex-1 px-4" data-purpose="report-content">
+<div class="report-paper p-5 relative overflow-hidden">
+<!-- Report Header -->
+<div class="flex justify-between items-center mb-6">
+<span class="text-[#5C6BC0] font-semibold text-base">AI提分决策</span>
+<span class="text-[#5C6BC0] text-xs">初一数学 · 月考分析</span>
+</div>
+<div class="dotted-divider mt-0 mb-6"></div>
+<!-- Report Title & Info -->
+<h2 class="text-xl font-bold text-center text-gray-900 mb-6">初一数学提分分析报告</h2>
+<div class="flex justify-between text-sm text-gray-600 mb-8 px-2">
+<div class="flex items-center">
+<span>班级：</span>
+<div class="border-b border-gray-400 w-16 ml-1"></div>
+</div>
+<div class="flex items-center">
+<span>姓名：</span>
+<div class="border-b border-gray-400 w-16 ml-1"></div>
+</div>
+<div class="flex items-center">
+<span>日期：</span>
+<div class="border-b border-gray-400 w-16 ml-1"></div>
+</div>
+</div>
+<!-- Section 1: Core Judgement -->
+<div class="mb-6">
+<div class="section-title-badge">1. 核心判断</div>
+<p class="text-content">
+          本次月考成绩处于班级中偏上水平，基础知识掌握较为扎实，<br/>
+          但在应用题分析与综合计算方面失分较多。<br/>
+          整体来看，知识理解到解题能力的转化仍有提升空间，<br/>
+          通过针对性训练可在下次考试中提升10~15分。
+        </p>
+</div>
+<div class="dotted-divider"></div>
+<!-- Section 2: Main Loss Points -->
+<div class="mb-6">
+<div class="section-title-badge">2. 主要丢分点</div>
+<ul class="text-content list-disc pl-5 space-y-1">
+<li>一元一次方程的应用题：审题不清，列式错误或不完整。</li>
+<li>几何图形计算题：辅助线思路不足，步骤不规范。</li>
+<li>计算题：符号错误、运算粗心导致失分。</li>
+</ul>
+</div>
+<div class="dotted-divider"></div>
+<!-- Section 3: Priority Weaknesses -->
+<div class="mb-6">
+<div class="section-title-badge">3. 优先补弱点</div>
+<ul class="text-content list-disc pl-5 space-y-1">
+<li>强化实际问题建摸能力，熟练掌握常见应用题类型。</li>
+<li>加强几何图形性质与定理的理解与灵活运用。</li>
+<li>提升计算准确率，养成规范书写与验算习惯。</li>
+</ul>
+</div>
+<div class="dotted-divider"></div>
+<!-- Section 4: 7-Day Plan -->
+<div class="mb-6">
+<div class="section-title-badge">4. 7天建议</div>
+<div class="text-content space-y-1.5">
+<p><span class="text-[#5C6BC0] font-medium">第1天：</span> 复习一元一次方程知识点，完成基础题10道。</p>
+<p><span class="text-[#5C6BC0] font-medium">第2天：</span> 专项训练应用题（行程、工程、利润问题）。</p>
+<p><span class="text-[#5C6BC0] font-medium">第3天：</span> 几何基础巩固，练习三角形与角平分线相关题目。</p>
+<p><span class="text-[#5C6BC0] font-medium">第4天：</span> 综合计算训练，限时练习并订正错题。</p>
+<p><span class="text-[#5C6BC0] font-medium">第5天：</span> 综合应用题训练，培养题目分析与分步解答能力。</p>
+<p><span class="text-[#5C6BC0] font-medium">第6天：</span> 模拟测试一套，查漏补缺，整理错题本。</p>
+<p><span class="text-[#5C6BC0] font-medium">第7天：</span> 回顾重点知识，轻量练习，调整考试状态。</p>
+</div>
+</div>
+<div class="dotted-divider"></div>
+<!-- Section 5: Next Steps -->
+<div class="mb-6 relative">
+<div class="section-title-badge">5. 下一步建议</div>
+<ol class="text-content list-decimal pl-5 space-y-1 z-10 relative">
+<li>坚持每天30分钟专项训练，持续巩固薄弱环节。</li>
+<li>每周进行一次模拟测试，跟踪进步并及时调整学习计划。</li>
+</ol>
+<!-- Illustration Placeholder -->
+<div class="absolute right-0 bottom-0 opacity-80 pointer-events-none" style="width: 120px; height: 100px; transform: translate(10px, 20px);">
+<img alt="Progress Graphic" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWya6jPiYEYguaeCVTPmVmCLwT_Fylur55ycBcALr6yH0gszdO_5Jlz-G7U74qeWaA_WZgU8oXGuZXZ1t2oG3wMdysrWKtCieQsBYH6g3KEKgNl_K-B9OoNZlnYfVdj7vxfCLXikMXkY50ly4SVmPfeuufQZwIO0f-vwDWnHZE205_QD8z8w93I0Ub4c79c1QOLMyaRTk1N1GbHj015J-st95ErsXdjPE6MCQvuK6iFLU192daDEBXv9nDitunftBErFCKfAEJ_0a_"/>
+</div>
+</div>
+<!-- Footer Tip -->
+<div class="mt-8 bg-[#F5F7FA] rounded-xl p-3 flex items-center justify-center text-xs text-[#5C6BC0]">
+<i class="fa-regular fa-lightbulb mr-2"></i>
+<span>坚持科学方法，稳步提升，你的进步看得见！</span>
+</div>
+</div>
+</main>
+<!-- END: Main Report Content -->
+<!-- BEGIN: Bottom Actions -->
+<div class="fixed bottom-0 left-0 right-0 bg-[#F5F7FA] p-4 flex gap-4 pb-8" data-purpose="bottom-actions">
+<button class="flex-1 py-3.5 rounded-full border border-[#5C6BC0] text-[#5C6BC0] font-medium text-base bg-white">
+      返回
+    </button>
+<button class="flex-1 py-3.5 rounded-full bg-[#5C6BC0] text-white font-medium text-base shadow-lg shadow-indigo-200">
+      下载PDF
+    </button>
+</div>
+<!-- END: Bottom Actions -->
+</body></html>

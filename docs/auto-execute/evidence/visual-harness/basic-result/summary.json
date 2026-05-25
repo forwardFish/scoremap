@@ -1,0 +1,9 @@
+{
+  "id": "UI-C07",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "reference": "docs/UI/小程序/ChatGPT Image 2026年5月22日 23_02_21.png",
+  "actual": "docs/auto-execute/evidence/visual-harness/basic-result/actual.jpg",
+  "diff": "docs/auto-execute/evidence/visual-harness/basic-result/diff.svg",
+  "metrics": "docs/auto-execute/evidence/visual-harness/basic-result/metrics.json",
+  "knownGaps": []
+}

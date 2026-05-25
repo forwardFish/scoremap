@@ -1,0 +1,66 @@
+﻿{
+  "taskId": "T00",
+  "status": "PASS",
+  "implementedFiles": [
+    "scripts/acceptance/check-report-integrity.ps1",
+    "docs/auto-execute/evidence/documentation+harness/source-inventory.json",
+    "docs/auto-execute/evidence/documentation+harness/gap-list.json",
+    "docs/auto-execute/evidence/documentation+harness/acceptance-status.json",
+    "docs/auto-execute/evidence/documentation+harness/result-json-schema.json",
+    "docs/auto-execute/results/T00.json",
+    "docs/auto-execute/latest/T00-HANDOFF.md",
+    "docs/auto-execute/latest/T00-integrity.log",
+    "docs/auto-execute/latest/run-id.txt",
+    "docs/auto-execute/latest/machine-summary.json",
+    "docs/auto-execute/latest/gap-list.json",
+    "docs/auto-execute/latest/repair-plan.md",
+    "docs/auto-execute/latest/next-agent-action.md",
+    "docs/auto-execute/latest/verification-results.md",
+    "docs/auto-execute/latest/blockers.md"
+  ],
+  "tests": [
+    {
+      "command": "powershell -ExecutionPolicy Bypass -File scripts/acceptance/check-report-integrity.ps1",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/latest/T00-integrity.log"
+    }
+  ],
+  "pageEvidence": [
+    {
+      "status": "not_touched_by_T00",
+      "reason": "T00 creates documentation and harness evidence only; page navigation assertions begin in T06/T07 and owner E2E in T15."
+    }
+  ],
+  "apiEvidence": [
+    {
+      "status": "not_touched_by_T00",
+      "reason": "T00 does not implement or call product APIs; API evidence begins in T03/T04/T05/T16."
+    }
+  ],
+  "dbEvidence": [
+    {
+      "status": "not_touched_by_T00",
+      "reason": "T00 does not create product runtime data; local DB mutation/readback evidence begins in T02/T03/T16."
+    }
+  ],
+  "visualEvidence": [
+    {
+      "status": "not_touched_by_T00",
+      "reason": "T00 inventories visual references only; actual/reference/diff/metrics evidence begins in T14."
+    }
+  ],
+  "ownerJourneyEvidence": [
+    {
+      "status": "not_touched_by_T00",
+      "reason": "T00 inventories the owner scenario matrix only; click journey evidence begins in T15."
+    }
+  ],
+  "localOnlyEvidence": [
+    "docs/auto-execute/evidence/documentation+harness/source-inventory.json",
+    "scripts/acceptance/check-report-integrity.ps1",
+    "docs/auto-execute/latest/machine-summary.json"
+  ],
+  "knownGaps": [
+    "docs/auto-execute/evidence/documentation+harness/gap-list.json"
+  ]
+}

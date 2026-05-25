@@ -1,0 +1,109 @@
+﻿{
+  "taskId": "T05",
+  "status": "PASS_WITH_LIMITATION",
+  "implementedFiles": [
+    "server/src/services/reports-service.js",
+    "server/src/routes/reports.js",
+    "server/scripts/export-local-data.js",
+    "server/test/reports-api.test.js",
+    "server/test/run-tests.js"
+  ],
+  "tests": [
+    {
+      "command": "npm --prefix server test -- report feedback export",
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "summary": "PowerShell blocked C:\\Program Files\\nodejs\\npm.ps1 before project code ran."
+    },
+    {
+      "command": "npm.cmd --prefix server test -- report feedback export",
+      "status": "PASS",
+      "summary": "4 tests passed, 0 failed."
+    },
+    {
+      "command": "npm.cmd --prefix server test",
+      "status": "PASS",
+      "summary": "17 tests passed, 0 failed."
+    }
+  ],
+  "pageEvidence": [
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "path": "docs/auto-execute/evidence/backend-api-report/full-report-success.json",
+      "summary": "Records expected backend-backed route path /pages/full-unlock/index -> /pages/full-report-entry/index -> /pages/full-report/index -> /pages/reports/index. T11/T12/T15 own rendered page and exact click screenshots."
+    }
+  ],
+  "apiEvidence": [
+    "docs/auto-execute/evidence/backend-api-report/full-report-success.json",
+    "docs/auto-execute/evidence/backend-api-report/feedback-export-success.json",
+    "docs/auto-execute/evidence/backend-api-report/failure-branches.json"
+  ],
+  "dbEvidence": [
+    {
+      "path": "docs/auto-execute/evidence/backend-api-report/full-report-success.json",
+      "tables": [
+        "diagnosis_orders",
+        "ai_analysis_tasks",
+        "diagnosis_decisions"
+      ]
+    },
+    {
+      "path": "docs/auto-execute/evidence/backend-api-report/feedback-export-success.json",
+      "tables": [
+        "feedbacks",
+        "report_exports",
+        "operator export for all local tables"
+      ]
+    },
+    {
+      "path": "docs/auto-execute/evidence/backend-api-report/failure-branches.json",
+      "tables": [
+        "diagnosis_orders"
+      ]
+    }
+  ],
+  "visualEvidence": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "path": "docs/auto-execute/evidence/backend-api-report/local-only-secret-guard.json",
+      "summary": "T05 is backend-only; UI-C09, UI-C10, UI-C11, and UI-C12 screenshots/diffs remain assigned to T11/T12/T14."
+    }
+  ],
+  "ownerJourneyEvidence": [
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "path": "docs/auto-execute/evidence/backend-api-report/local-only-secret-guard.json",
+      "coveredSteps": [
+        "O04 API/DB full report generation",
+        "O05 API/DB save and revisit",
+        "O06 API/DB feedback"
+      ],
+      "summary": "Backend API/DB behavior is proven; exact owner click trace and screenshots remain assigned to T15."
+    }
+  ],
+  "localOnlyEvidence": [
+    {
+      "path": "docs/auto-execute/evidence/backend-api-report/local-only-secret-guard.json",
+      "status": "PASS",
+      "summary": "LOCAL_ONLY=true, SCOREMAP_ADAPTER_MODE=local-mock, forbidden remote findings=[], secret findings=[]."
+    },
+    {
+      "path": "docs/auto-execute/evidence/backend-api-report/feedback-export-success.json",
+      "status": "PASS",
+      "summary": "PDF export uses local-report-export:// URL and a local temp file; operator data export reads the local JSON DB only."
+    }
+  ],
+  "knownGaps": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "summary": "No frontend screenshots, visual diff images, or metrics were produced in T05 because this task is scoped to backend API/report/export behavior. Those are assigned to T11/T12/T14."
+    },
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "summary": "No exact owner click trace was produced in T05; T05 records API/DB behavior for O04/O05/O06 and T15 owns full owner journey clicks."
+    },
+    {
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "summary": "The literal required npm command is blocked by PowerShell npm.ps1 execution policy on this host; npm.cmd equivalent passed."
+    }
+  ]
+}

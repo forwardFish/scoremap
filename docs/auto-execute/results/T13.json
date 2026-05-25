@@ -1,0 +1,153 @@
+﻿{
+  "taskId": "T13",
+  "status": "PASS",
+  "implementedFiles": [
+    "server/src/middleware/auth.js",
+    "server/src/routes/diagnosis-orders.js",
+    "server/src/routes/payments.js",
+    "server/src/routes/reports.js",
+    "server/src/services/diagnosis-orders-service.js",
+    "server/src/services/payments-service.js",
+    "server/src/services/reports-service.js",
+    "scoremap-miniapp/services/auth-recovery-state.js",
+    "server/test/run-tests.js",
+    "server/test/auth-permission-recovery.test.js"
+  ],
+  "tests": [
+    {
+      "command": "npm --prefix server test -- auth recovery errors",
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "evidence": "PowerShell blocked C:\\Program Files\\nodejs\\npm.ps1 before project code ran."
+    },
+    {
+      "command": "npm.cmd --prefix server test -- auth recovery errors",
+      "status": "PASS",
+      "summary": "4 tests passed, 0 failed",
+      "evidence": "console output from required T13 equivalent command"
+    },
+    {
+      "command": "npm.cmd --prefix server test -- orders uploads preview",
+      "status": "PASS",
+      "summary": "4 tests passed, 0 failed",
+      "evidence": "targeted regression for shared diagnosis order auth parsing"
+    },
+    {
+      "command": "npm.cmd --prefix server test -- adapters local-db payment",
+      "status": "PASS",
+      "summary": "5 tests passed, 0 failed",
+      "evidence": "targeted regression for local adapters"
+    },
+    {
+      "command": "npm.cmd --prefix server test -- payment entitlement",
+      "status": "PASS_AFTER_RERUN",
+      "summary": "4 tests passed, 0 failed on rerun; one earlier run had a transient local temp DB/write callback failure",
+      "evidence": "targeted regression for shared payment entitlement behavior"
+    },
+    {
+      "command": "npm.cmd --prefix server test -- report feedback export",
+      "status": "FLAKY_NON_T13_REGRESSION_CHECK",
+      "summary": "Observed intermittent failure in pre-existing T05 report/payment flow during broad regression; T13 focused gate remained PASS.",
+      "evidence": "console output recorded in chat; not used as T13 acceptance proof"
+    },
+    {
+      "command": "npm.cmd --prefix server test",
+      "status": "FLAKY_NON_T13_REGRESSION_CHECK",
+      "summary": "Observed intermittent all-file failures around local temp DB/payment/report tests; affected selectors pass independently or are outside T13.",
+      "evidence": "console output recorded in chat; not used as T13 acceptance proof"
+    }
+  ],
+  "pageEvidence": [
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "path": "docs/auto-execute/evidence/contract-security/payment-state-recovery.json",
+      "covers": "payment-success page close recovery route state"
+    },
+    {
+      "status": "PASS",
+      "path": "docs/auto-execute/evidence/contract-security/local-only-secret-visual-owner.json",
+      "covers": "protected route redirect/disabled states for unauthenticated, unpaid basic, and unpaid full access"
+    }
+  ],
+  "apiEvidence": [
+    {
+      "status": "PASS",
+      "path": "docs/auto-execute/evidence/contract-security/authz-api-db.json",
+      "covers": "401 unauthenticated, anonymous order-token binding, 403 wrong owner, 403 unpaid entitlement, 404 missing order"
+    },
+    {
+      "status": "PASS",
+      "path": "docs/auto-execute/evidence/contract-security/payment-state-recovery.json",
+      "covers": "paid callback compensation repair, full paid callback, generate-full, full-report read"
+    },
+    {
+      "status": "PASS",
+      "path": "docs/auto-execute/evidence/contract-security/error-recovery-map.json",
+      "covers": "timeout, 404, and 500 recovery response mapping"
+    }
+  ],
+  "dbEvidence": [
+    {
+      "status": "PASS",
+      "path": "docs/auto-execute/evidence/contract-security/authz-api-db.json",
+      "covers": "order and preview decision readback after permission checks"
+    },
+    {
+      "status": "PASS",
+      "path": "docs/auto-execute/evidence/contract-security/payment-state-recovery.json",
+      "covers": "paid basic/full payments, repaired order accessLevel, and full decision readback"
+    },
+    {
+      "status": "PASS",
+      "path": "docs/auto-execute/evidence/contract-security/error-recovery-map.json",
+      "covers": "timeout order readback with ANALYSIS_TIMEOUT"
+    }
+  ],
+  "visualEvidence": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "path": "docs/auto-execute/evidence/contract-security/local-only-secret-visual-owner.json",
+      "reason": "T13 is contract/security logic only; T14 owns screenshot and pixel-diff visual verification."
+    }
+  ],
+  "ownerJourneyEvidence": [
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "path": "docs/auto-execute/evidence/contract-security/error-recovery-map.json",
+      "covers": "O10/O11 route/API recovery states; T15 owns exact click and screenshot journey."
+    },
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "path": "docs/auto-execute/evidence/contract-security/local-only-secret-visual-owner.json",
+      "covers": "unpaid protected route and auth recovery owner states"
+    }
+  ],
+  "localOnlyEvidence": [
+    {
+      "status": "PASS",
+      "path": "docs/auto-execute/evidence/contract-security/local-only-secret-visual-owner.json",
+      "covers": "LOCAL_ONLY=true, SCOREMAP_ADAPTER_MODE=local-mock, no forbidden remote/payment/cloud/online DB patterns in T13 files"
+    },
+    {
+      "status": "PASS",
+      "path": "docs/auto-execute/evidence/contract-security/payment-state-recovery.json",
+      "covers": "local-wechat-pay-mock adapter with no remote calls"
+    }
+  ],
+  "knownGaps": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "scope": "visual",
+      "details": "No screenshots or pixel diffs were produced for T13 because this task has no rendering surface; T14 owns visual one-to-one comparison."
+    },
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "scope": "owner journey",
+      "details": "T13 proves route-state and API/DB security behavior for O10/O11; T15 owns full parent owner click journey evidence."
+    },
+    {
+      "status": "FLAKY_NON_T13_REGRESSION_CHECK",
+      "scope": "broader server regression",
+      "details": "A broad all-file server run and one report selector run showed intermittent temp DB/payment/report failures outside the T13 focused gate. The required T13 gate passed after implementation."
+    }
+  ]
+}

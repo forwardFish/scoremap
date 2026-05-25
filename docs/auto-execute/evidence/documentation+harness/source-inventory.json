@@ -1,0 +1,131 @@
+﻿{
+  "taskId": "T00",
+  "generatedAt": "2026-05-22T00:00:00+08:00",
+  "surface": "documentation+harness",
+  "projectRoot": "D:\\lyh\\agent\\agent-frame\\scoremap",
+  "localOnlyPolicy": {
+    "LOCAL_ONLY": true,
+    "productionDataUsed": false,
+    "realPaymentTriggered": false,
+    "realCloudDataWritten": false,
+    "allowedAdapters": [
+      "local fixtures",
+      "local mock payment adapter",
+      "local mock Tencent Cloud adapter",
+      "local database or local fixture database"
+    ]
+  },
+  "sources": [
+    {
+      "id": "task",
+      "path": "docs/auto-execute/scoremap-tasks/T00-intake-harness-and-source-of-truth.md",
+      "role": "current task boundary",
+      "status": "present"
+    },
+    {
+      "id": "master-plan",
+      "path": "docs/auto-execute/scoremap-auto-execute-master-plan.md",
+      "role": "task order, local-only policy, final PASS rule",
+      "status": "present"
+    },
+    {
+      "id": "traceability",
+      "path": "docs/auto-execute/scoremap-requirement-traceability-matrix.md",
+      "role": "P0/P1 requirement to task and evidence mapping",
+      "status": "present"
+    },
+    {
+      "id": "ui-reference-map",
+      "path": "docs/auto-execute/scoremap-ui-reference-map.md",
+      "role": "UI reference, route, control, visual evidence mapping",
+      "status": "present"
+    },
+    {
+      "id": "api-db-contract",
+      "path": "docs/auto-execute/scoremap-api-db-contract-matrix.md",
+      "role": "API route and local DB mutation/readback contract",
+      "status": "present"
+    },
+    {
+      "id": "standard-test-plan",
+      "path": "docs/auto-execute/scoremap-standard-test-plan.md",
+      "role": "local test layers and false PASS prohibitions",
+      "status": "present"
+    },
+    {
+      "id": "owner-scenarios",
+      "path": "docs/auto-execute/scoremap-owner-scenario-matrix.md",
+      "role": "parent owner journey matrix O01-O12",
+      "status": "present"
+    },
+    {
+      "id": "final-gate",
+      "path": "docs/auto-execute/scoremap-final-acceptance-gate.md",
+      "role": "final PASS algorithm and non-pass statuses",
+      "status": "present"
+    },
+    {
+      "id": "prd",
+      "path": "docs/AI提分决策_PRD_MVP_v1.2_C端页面流程修订版.md",
+      "role": "latest product requirements and page flow source",
+      "status": "present",
+      "keySections": [
+        "0.3 three report entitlement layers",
+        "7 C01-C12 page requirements",
+        "10 state machine design",
+        "11 database design",
+        "12 API design",
+        "17 acceptance standards",
+        "18 development priority"
+      ]
+    },
+    {
+      "id": "ui-png-assets",
+      "path": "docs/UI/小程序",
+      "role": "reference screenshots for visual evidence tasks",
+      "status": "present",
+      "filesObserved": [
+        "首页.png",
+        "AI分析.png",
+        "处理失败.png",
+        "分析报告.png",
+        "1元支付.png",
+        "完整提分报告.png",
+        "我的.png",
+        "ChatGPT Image 2026年5月22日 23_02_21.png"
+      ]
+    },
+    {
+      "id": "stitch-blueprints",
+      "path": "docs/UI/小程序/stitch_codex_development_blueprints",
+      "role": "HTML and screen blueprint references",
+      "status": "present",
+      "blueprintsObserved": [
+        "1",
+        "ai_1",
+        "ai_2",
+        "ai_pdf",
+        "_1",
+        "_2",
+        "_3",
+        "_4",
+        "ai_insight_pro"
+      ]
+    },
+    {
+      "id": "reference-project",
+      "path": "D:\\lyh\\agent\\agent-frame\\printersheet",
+      "role": "reference implementation only, not a second requirements source",
+      "status": "present",
+      "observedTopLevel": [
+        ".git",
+        ".omx",
+        "ai-exam-miniapp",
+        "docs",
+        "tools",
+        "project.config.json",
+        "README.md"
+      ]
+    }
+  ]
+}

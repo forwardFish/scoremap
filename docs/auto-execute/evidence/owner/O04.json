@@ -1,0 +1,243 @@
+{
+  "scenarioId": "O04",
+  "status": "PASS",
+  "command": "npm run e2e:owner",
+  "requirementIds": [
+    "R07",
+    "R08",
+    "R09",
+    "R14",
+    "R15"
+  ],
+  "clickPath": [
+    "unlock-full",
+    "/pages/full-unlock/index",
+    "confirm-full-pay",
+    "/pages/full-report-entry/index"
+  ],
+  "routeEvidence": {
+    "basicResultRoute": "/pages/basic-result/index",
+    "fullUnlockRoute": "/pages/full-unlock/index",
+    "targetRoute": "/pages/full-report-entry/index"
+  },
+  "apiEvidence": [
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t07-home-upload/basic-decision",
+      "payloadSummary": {
+        "source": "basic-result-page-load"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "decision": {
+          "level": "basic",
+          "summary": "孩子本次主要失分来自计算准确性和几何证明表达。",
+          "evidenceQuality": "medium",
+          "mainLossPoints": [
+            "计算失误",
+            "几何证明步骤不完整"
+          ],
+          "priorityWeaknesses": [
+            "有理数运算",
+            "辅助线思路"
+          ],
+          "initialAdvice": [
+            "每天 15 分钟同类计算纠错",
+            "整理几何证明步骤模板"
+          ]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-t07-home-upload",
+        "paymentType": "full",
+        "amountYuan": 9.9,
+        "source": "full-unlock-confirm"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "paid",
+        "paymentId": "payment-t06-full",
+        "amountYuan": 9.9,
+        "paymentParams": {
+          "adapter": "local-mock"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/wechat/callback",
+      "payloadSummary": {
+        "paymentId": "payment-t06-full",
+        "status": "paid",
+        "mockTransactionId": "local-mock-full-order-t07-home-upload"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "ok": true,
+        "status": "paid",
+        "paymentId": "payment-t06-full"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t07-home-upload/generate-full",
+      "payloadSummary": {
+        "source": "full-unlock-paid"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t07-home-upload/full-report",
+      "payloadSummary": {
+        "source": "full-unlock-readback"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_report_ready",
+        "decision": {
+          "level": "full",
+          "reportTitle": "Complete score improvement report",
+          "orderId": "order-t07-home-upload",
+          "generatedStatus": "full_report_ready",
+          "summary": "Local complete score improvement report for a parent owner review.",
+          "modules": [
+            {
+              "id": "knowledge-diagnosis",
+              "title": "Knowledge diagnosis",
+              "content": "Calculation rules and formula usage need staged practice."
+            },
+            {
+              "id": "loss-point-breakdown",
+              "title": "Per-question loss point breakdown",
+              "content": "Mark the missing condition, formula, solving process, and final verification."
+            },
+            {
+              "id": "seven-day-plan",
+              "title": "7-day score improvement plan",
+              "content": "Three correction reviews, two targeted exercise days, and one final mistake-book review."
+            },
+            {
+              "id": "parent-guidance",
+              "title": "Parent guidance",
+              "content": "Use process feedback and avoid guaranteed-score promises."
+            }
+          ],
+          "tabs": [
+            "overview",
+            "loss points",
+            "7-day plan",
+            "parent guidance"
+          ],
+          "complianceNotice": "Local mock report only. No guaranteed-score promise is displayed."
+        }
+      }
+    }
+  ],
+  "dbEvidence": {
+    "order": {
+      "id": "order-t07-home-upload",
+      "ownerId": "local-user-scoremap-t06",
+      "status": "preview_done",
+      "accessLevel": "full",
+      "source": "home-upload",
+      "uploadedCount": 1
+    },
+    "fullPayment": {
+      "id": "payment-t06-full",
+      "orderId": "order-t07-home-upload",
+      "ownerId": "local-user-scoremap-t06",
+      "paymentType": "full",
+      "amountYuan": 9.9,
+      "status": "paid",
+      "adapter": "local-wechat-pay-mock",
+      "mockTransactionId": "local-mock-full-order-t07-home-upload",
+      "callbackAdapter": "local-wechat-pay-mock"
+    },
+    "fullDecision": {
+      "id": "decision-order-t07-home-upload-full",
+      "orderId": "order-t07-home-upload",
+      "ownerId": "local-user-scoremap-t06",
+      "level": "full",
+      "full": {
+        "level": "full",
+        "reportTitle": "Complete score improvement report",
+        "orderId": "order-t07-home-upload",
+        "generatedStatus": "full_report_ready",
+        "summary": "Local complete score improvement report for a parent owner review.",
+        "modules": [
+          {
+            "id": "knowledge-diagnosis",
+            "title": "Knowledge diagnosis",
+            "content": "Calculation rules and formula usage need staged practice."
+          },
+          {
+            "id": "loss-point-breakdown",
+            "title": "Per-question loss point breakdown",
+            "content": "Mark the missing condition, formula, solving process, and final verification."
+          },
+          {
+            "id": "seven-day-plan",
+            "title": "7-day score improvement plan",
+            "content": "Three correction reviews, two targeted exercise days, and one final mistake-book review."
+          },
+          {
+            "id": "parent-guidance",
+            "title": "Parent guidance",
+            "content": "Use process feedback and avoid guaranteed-score promises."
+          }
+        ],
+        "tabs": [
+          "overview",
+          "loss points",
+          "7-day plan",
+          "parent guidance"
+        ],
+        "complianceNotice": "Local mock report only. No guaranteed-score promise is displayed."
+      }
+    }
+  },
+  "visualEvidence": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/basic-result/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/basic-result/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/basic-result/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/basic-result/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/basic-result/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/full-unlock/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/full-unlock/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/full-unlock/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/full-unlock/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/full-unlock/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/full-report-entry/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/full-report-entry/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/full-report-entry/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/full-report-entry/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/full-report-entry/summary.json"
+    }
+  ],
+  "localOnly": {
+    "LOCAL_ONLY": "true",
+    "adapterMode": "local-mock",
+    "paymentAdapter": "local-wechat-pay-mock",
+    "cloudAdapter": "local-tencent-cloud-mock",
+    "databaseAdapter": "local-fixture-store",
+    "remoteCalls": []
+  }
+}

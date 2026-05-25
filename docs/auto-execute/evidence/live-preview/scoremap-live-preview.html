@@ -1,0 +1,150 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scoremap Miniapp Live Preview</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #202124;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .stage {
+      width: min(390px, 100vw);
+      height: min(844px, 100vh);
+      position: fixed;
+      left: 24px;
+      top: 24px;
+      overflow: hidden;
+      background: #f7f4ef;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, .45);
+    }
+    .shot {
+      width: 100%;
+      display: block;
+    }
+    .hotspot {
+      position: absolute;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      background: rgba(255, 255, 255, 0);
+      cursor: pointer;
+    }
+    .hotspot:focus {
+      outline: 2px solid rgba(78, 120, 255, .8);
+      outline-offset: 2px;
+    }
+    .home-upload { left: 8%; top: 31%; width: 84%; height: 18%; }
+    .home-sample { left: 5%; top: 62%; width: 44%; height: 8%; }
+    .home-reports { left: 51%; top: 62%; width: 44%; height: 8%; }
+    .tab-home { left: 0; bottom: 0; width: 50%; height: 90px; }
+    .tab-my { right: 0; bottom: 0; width: 50%; height: 90px; }
+    .analysis-later { left: 9%; top: 86%; width: 82%; height: 7%; }
+    .analysis-refresh { left: 30%; top: 94%; width: 40%; height: 5%; }
+    .failure-retry { left: 9%; top: 58%; width: 82%; height: 7%; }
+    .failure-reupload { left: 9%; top: 67%; width: 82%; height: 7%; }
+    .failure-home { left: 9%; top: 76%; width: 82%; height: 7%; }
+    .bottom-cta { left: 8%; bottom: 7%; width: 84%; height: 9%; border-radius: 28px; }
+    .report-view { left: 8%; top: 76%; width: 84%; height: 7%; }
+    .report-save { left: 8%; top: 84%; width: 41%; height: 7%; }
+    .report-home { right: 8%; top: 84%; width: 41%; height: 7%; }
+    .report-save-small { left: 58%; top: 90%; width: 18%; height: 6%; }
+    .report-back-small { left: 78%; top: 90%; width: 18%; height: 6%; }
+    .my-reports { left: 6%; top: 40%; width: 88%; height: 6%; }
+    .my-orders { left: 6%; top: 47%; width: 88%; height: 6%; }
+    .my-feedback { left: 6%; top: 61%; width: 88%; height: 6%; }
+    .my-new { left: 8%; top: 74%; width: 84%; height: 8%; }
+    .reports-card { left: 6%; top: 24%; width: 88%; height: 18%; }
+    .derived {
+      min-height: 100%;
+      padding: 48px 18px 96px;
+      background: linear-gradient(180deg, #f7f4ff 0%, #f8fafc 100%);
+    }
+    .derived h1 {
+      margin: 0 0 22px;
+      font-size: 24px;
+      line-height: 1.25;
+      color: #111827;
+    }
+    .card {
+      margin-bottom: 14px;
+      padding: 18px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .94);
+      box-shadow: 0 8px 24px rgba(79, 70, 229, .1);
+      color: #1f2937;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <main class="stage" id="stage"></main>
+  <script>
+    const assetRoot = "../../../../scoremap-miniapp/assets/reference/";
+    const pages = {
+      home: {
+        image: "home.jpg",
+        hotspots: [
+          ["home-upload", "analysis"],
+          ["home-sample", "preview"],
+          ["home-reports", "reports"],
+          ["tab-my", "my"]
+        ]
+      },
+      analysis: {
+        image: "analysis.jpg",
+        hotspots: [["analysis-later", "preview"], ["analysis-refresh", "analysis"]]
+      },
+      failure: {
+        image: "failure.jpg",
+        hotspots: [["failure-retry", "analysis"], ["failure-reupload", "home"], ["failure-home", "home"]]
+      },
+      preview: { image: "preview.jpg", hotspots: [["bottom-cta", "basicPay"]] },
+      basicPay: { image: "basic-pay.jpg", hotspots: [["bottom-cta", "basicResult"]] },
+      basicResult: { image: "basic-result.jpg", hotspots: [["bottom-cta", "fullUnlock"]] },
+      fullUnlock: { image: "full-unlock.jpg", hotspots: [["bottom-cta", "fullReportEntry"]] },
+      fullReportEntry: {
+        image: "full-report-entry.jpg",
+        hotspots: [["report-view", "fullReport"], ["report-save", "my"], ["report-home", "home"]]
+      },
+      fullReport: {
+        image: "full-report.jpg",
+        hotspots: [["report-save-small", "my"], ["report-back-small", "fullReportEntry"]]
+      },
+      my: {
+        image: "my.jpg",
+        hotspots: [["my-reports", "reports"], ["my-orders", "reports"], ["my-feedback", "fullReport"], ["my-new", "home"], ["tab-home", "home"]]
+      },
+      reports: {
+        derived: true,
+        title: "我的报告",
+        cards: ["五年级数学单元测验完整报告", "完整报告已解锁 / paid", "分析中的数学资料"],
+        hotspots: [["reports-card", "fullReport"], ["tab-home", "home"], ["tab-my", "my"]]
+      }
+    };
+
+    function render(name) {
+      const page = pages[name] || pages.home;
+      const stage = document.getElementById("stage");
+      stage.innerHTML = page.derived
+        ? `<section class="derived"><h1>${page.title}</h1>${page.cards.map((card) => `<div class="card">${card}</div>`).join("")}</section>`
+        : `<img class="shot" alt="${name}" src="${assetRoot}${page.image}">`;
+      for (const [className, target] of page.hotspots) {
+        const button = document.createElement("button");
+        button.className = `hotspot ${className}`;
+        button.setAttribute("aria-label", target);
+        button.addEventListener("click", () => render(target));
+        stage.appendChild(button);
+      }
+      window.location.hash = name;
+    }
+
+    render(location.hash.replace("#", "") || "home");
+  </script>
+</body>
+</html>

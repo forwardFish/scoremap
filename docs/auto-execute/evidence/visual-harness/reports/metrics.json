@@ -1,0 +1,47 @@
+{
+  "id": "UI-C12",
+  "screen": "reports",
+  "route": "/pages/reports/index",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "reference": null,
+  "declaredReference": null,
+  "stitchReference": null,
+  "miniappActualAsset": null,
+  "actual": "docs/auto-execute/evidence/visual-harness/reports/actual.svg",
+  "diff": "docs/auto-execute/evidence/visual-harness/reports/diff.svg",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "comparison": {
+    "method": "artifact-metadata-equivalence",
+    "reference": null,
+    "actual": {
+      "exists": true,
+      "path": "docs/auto-execute/evidence/visual-harness/reports/actual.svg",
+      "bytes": 1974,
+      "sha256": "72e20475519d7760301badac03cca9b1e9c52d354a3bcb71197a1e8322c6fdc5",
+      "extension": ".svg"
+    },
+    "byteLengthDelta": null,
+    "sha256Equal": false,
+    "rasterPixelRatio": null
+  },
+  "pixelDiff": {
+    "status": "MANUAL_REVIEW_REQUIRED",
+    "ratio": null,
+    "threshold": null,
+    "canClaimPixelPerfect": false,
+    "reason": "No live WeChat simulator raster is available in this local harness for this derived or missing-reference page."
+  },
+  "localOnly": {
+    "usesLocalFixtures": true,
+    "remoteNetworkCalls": 0
+  },
+  "knownGaps": [
+    {
+      "status": "MANUAL_REVIEW_REQUIRED",
+      "reason": "PRD C12 report-list reference; no standalone PNG exists in docs/UI."
+    }
+  ]
+}

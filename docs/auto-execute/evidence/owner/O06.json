@@ -1,0 +1,70 @@
+{
+  "scenarioId": "O06",
+  "status": "PASS",
+  "command": "npm run e2e:owner",
+  "requirementIds": [
+    "R10",
+    "R14"
+  ],
+  "clickPath": [
+    "open-feedback",
+    "/pages/feedback/index",
+    "submit-feedback"
+  ],
+  "routeEvidence": {
+    "feedbackRoute": "/pages/feedback/index",
+    "toast": "反馈已记录"
+  },
+  "apiEvidence": [
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t07-home-upload/feedback",
+      "payloadSummary": {
+        "feedbackId": "feedback-t15-owner",
+        "decisionLevel": "full",
+        "rating": "very_helpful",
+        "tags": "array(2)",
+        "text": "local T15 parent owner feedback",
+        "source": "T12-feedback-page"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "created",
+        "feedbackId": "feedback-t15-owner"
+      }
+    }
+  ],
+  "dbEvidence": {
+    "feedback": {
+      "id": "feedback-t15-owner",
+      "orderId": "order-t07-home-upload",
+      "ownerId": "local-user-scoremap-t06",
+      "decisionLevel": "full",
+      "rating": "very_helpful",
+      "tags": [
+        "判断清楚",
+        "知道下一步怎么做"
+      ],
+      "text": "local T15 parent owner feedback",
+      "source": "T12-feedback-page"
+    }
+  },
+  "visualEvidence": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/my/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/my/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/my/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/my/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/my/summary.json"
+    }
+  ],
+  "localOnly": {
+    "LOCAL_ONLY": "true",
+    "adapterMode": "local-mock",
+    "paymentAdapter": "local-wechat-pay-mock",
+    "cloudAdapter": "local-tencent-cloud-mock",
+    "databaseAdapter": "local-fixture-store",
+    "remoteCalls": []
+  }
+}

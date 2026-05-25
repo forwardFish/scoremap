@@ -1,0 +1,537 @@
+{
+  "status": "PASS",
+  "command": "npm test -- miniapp-shell",
+  "requirementIds": [
+    "R01",
+    "R10",
+    "R11"
+  ],
+  "launchRoute": "/pages/index/index",
+  "tabBar": [
+    {
+      "id": "home",
+      "text": "首页",
+      "pagePath": "/pages/index/index"
+    },
+    {
+      "id": "my",
+      "text": "我的",
+      "pagePath": "/pages/my/index"
+    }
+  ],
+  "routes": [
+    {
+      "id": "C01",
+      "path": "/pages/index/index",
+      "title": "Home upload shell",
+      "controls": [
+        {
+          "id": "upload-material",
+          "action": "create-order-and-upload",
+          "targetRoute": "/pages/analysis/index",
+          "api": null
+        },
+        {
+          "id": "view-sample-report",
+          "action": "navigateTo",
+          "targetRoute": "/pages/preview/index",
+          "api": null
+        },
+        {
+          "id": "view-recent-reports",
+          "action": "api",
+          "targetRoute": "/pages/reports/index",
+          "api": "GET /api/my/reports"
+        },
+        {
+          "id": "open-my-reports",
+          "action": "api",
+          "targetRoute": "/pages/reports/index",
+          "api": "GET /api/my/reports"
+        },
+        {
+          "id": "open-my-tab",
+          "action": "switchTab",
+          "targetRoute": "/pages/my/index",
+          "api": null
+        }
+      ]
+    },
+    {
+      "id": "C03",
+      "path": "/pages/analysis/index",
+      "title": "Analysis progress shell",
+      "controls": [
+        {
+          "id": "refresh-progress",
+          "action": "api",
+          "targetRoute": null,
+          "api": "GET /api/diagnosis-orders/{orderId}/analysis-progress"
+        },
+        {
+          "id": "later-view",
+          "action": "navigateTo",
+          "targetRoute": "/pages/reports/index",
+          "api": null
+        }
+      ]
+    },
+    {
+      "id": "C04",
+      "path": "/pages/failure/index",
+      "title": "Failure recovery shell",
+      "controls": [
+        {
+          "id": "retry-analysis",
+          "action": "api",
+          "targetRoute": "/pages/analysis/index",
+          "api": "POST /api/diagnosis-orders/{orderId}/start-preview-analysis"
+        },
+        {
+          "id": "reupload",
+          "action": "navigateTo",
+          "targetRoute": "/pages/index/index",
+          "api": null
+        },
+        {
+          "id": "back-home",
+          "action": "switchTab",
+          "targetRoute": "/pages/index/index",
+          "api": null
+        }
+      ]
+    },
+    {
+      "id": "C05",
+      "path": "/pages/preview/index",
+      "title": "Preview decision shell",
+      "controls": [
+        {
+          "id": "unlock-basic",
+          "action": "navigateTo",
+          "targetRoute": "/pages/basic-pay/index",
+          "api": null
+        }
+      ]
+    },
+    {
+      "id": "C06",
+      "path": "/pages/basic-pay/index",
+      "title": "Basic payment shell",
+      "controls": [
+        {
+          "id": "confirm-basic-pay",
+          "action": "api",
+          "targetRoute": "/pages/basic-result/index",
+          "api": "POST /api/payments/create"
+        }
+      ]
+    },
+    {
+      "id": "C07",
+      "path": "/pages/basic-result/index",
+      "title": "Basic result shell",
+      "controls": [
+        {
+          "id": "load-basic-decision",
+          "action": "api",
+          "targetRoute": null,
+          "api": "GET /api/diagnosis-orders/{orderId}/basic-decision"
+        },
+        {
+          "id": "unlock-full",
+          "action": "navigateTo",
+          "targetRoute": "/pages/full-unlock/index",
+          "api": null
+        }
+      ]
+    },
+    {
+      "id": "C08",
+      "path": "/pages/full-unlock/index",
+      "title": "Full unlock shell",
+      "controls": [
+        {
+          "id": "confirm-full-pay",
+          "action": "api",
+          "targetRoute": "/pages/full-report-entry/index",
+          "api": "POST /api/payments/create"
+        }
+      ]
+    },
+    {
+      "id": "C09",
+      "path": "/pages/full-report-entry/index",
+      "title": "Full report entry shell",
+      "controls": [
+        {
+          "id": "generate-full",
+          "action": "api",
+          "targetRoute": null,
+          "api": "POST /api/diagnosis-orders/{orderId}/generate-full"
+        },
+        {
+          "id": "view-full-report",
+          "action": "navigateTo",
+          "targetRoute": "/pages/full-report/index",
+          "api": null
+        }
+      ]
+    },
+    {
+      "id": "C10",
+      "path": "/pages/full-report/index",
+      "title": "Full report shell",
+      "controls": [
+        {
+          "id": "load-full-report",
+          "action": "api",
+          "targetRoute": null,
+          "api": "GET /api/diagnosis-orders/{orderId}/full-report"
+        },
+        {
+          "id": "save-report",
+          "action": "api",
+          "targetRoute": "/pages/my/index",
+          "api": "POST /api/diagnosis-orders/{orderId}/save-report"
+        },
+        {
+          "id": "export-pdf",
+          "action": "api",
+          "targetRoute": null,
+          "api": "POST /api/diagnosis-orders/{orderId}/export-pdf"
+        }
+      ]
+    },
+    {
+      "id": "C11",
+      "path": "/pages/my/index",
+      "title": "My shell",
+      "controls": [
+        {
+          "id": "open-reports",
+          "action": "navigateTo",
+          "targetRoute": "/pages/reports/index",
+          "api": null
+        },
+        {
+          "id": "open-orders",
+          "action": "navigateTo",
+          "targetRoute": "/pages/orders/index",
+          "api": null
+        },
+        {
+          "id": "open-purchases",
+          "action": "navigateTo",
+          "targetRoute": "/pages/orders/index",
+          "api": null
+        },
+        {
+          "id": "open-feedback",
+          "action": "navigateTo",
+          "targetRoute": "/pages/feedback/index",
+          "api": null
+        },
+        {
+          "id": "new-analysis",
+          "action": "switchTab",
+          "targetRoute": "/pages/index/index",
+          "api": null
+        },
+        {
+          "id": "submit-feedback",
+          "action": "api",
+          "targetRoute": null,
+          "api": "POST /api/diagnosis-orders/{orderId}/feedback"
+        }
+      ]
+    },
+    {
+      "id": "C12",
+      "path": "/pages/reports/index",
+      "title": "Reports shell",
+      "controls": [
+        {
+          "id": "load-my-reports",
+          "action": "api",
+          "targetRoute": null,
+          "api": "GET /api/my/reports"
+        },
+        {
+          "id": "open-report-card",
+          "action": "guardedRoute",
+          "targetRoute": null,
+          "api": null
+        }
+      ]
+    },
+    {
+      "id": "C11A",
+      "path": "/pages/orders/index",
+      "title": "Orders and purchases shell",
+      "controls": [
+        {
+          "id": "load-order-records",
+          "action": "api",
+          "targetRoute": null,
+          "api": "GET /api/my/reports"
+        }
+      ]
+    },
+    {
+      "id": "C11B",
+      "path": "/pages/feedback/index",
+      "title": "Feedback shell",
+      "controls": [
+        {
+          "id": "submit-feedback",
+          "action": "api",
+          "targetRoute": "/pages/my/index",
+          "api": "POST /api/diagnosis-orders/{orderId}/feedback"
+        }
+      ]
+    }
+  ],
+  "pageJumpAssertions": [
+    {
+      "from": "/pages/index/index",
+      "controlId": "upload-material",
+      "action": "create-order-and-upload",
+      "targetRoute": "/pages/analysis/index",
+      "api": null,
+      "assertion": "C03"
+    },
+    {
+      "from": "/pages/index/index",
+      "controlId": "view-sample-report",
+      "action": "navigateTo",
+      "targetRoute": "/pages/preview/index",
+      "api": null,
+      "assertion": "C05"
+    },
+    {
+      "from": "/pages/index/index",
+      "controlId": "view-recent-reports",
+      "action": "api",
+      "targetRoute": "/pages/reports/index",
+      "api": "GET /api/my/reports",
+      "assertion": "C12"
+    },
+    {
+      "from": "/pages/index/index",
+      "controlId": "open-my-reports",
+      "action": "api",
+      "targetRoute": "/pages/reports/index",
+      "api": "GET /api/my/reports",
+      "assertion": "C12"
+    },
+    {
+      "from": "/pages/index/index",
+      "controlId": "open-my-tab",
+      "action": "switchTab",
+      "targetRoute": "/pages/my/index",
+      "api": null,
+      "assertion": "C11"
+    },
+    {
+      "from": "/pages/analysis/index",
+      "controlId": "refresh-progress",
+      "action": "api",
+      "targetRoute": null,
+      "api": "GET /api/diagnosis-orders/{orderId}/analysis-progress",
+      "assertion": "api-or-guarded-action-recorded"
+    },
+    {
+      "from": "/pages/analysis/index",
+      "controlId": "later-view",
+      "action": "navigateTo",
+      "targetRoute": "/pages/reports/index",
+      "api": null,
+      "assertion": "C12"
+    },
+    {
+      "from": "/pages/failure/index",
+      "controlId": "retry-analysis",
+      "action": "api",
+      "targetRoute": "/pages/analysis/index",
+      "api": "POST /api/diagnosis-orders/{orderId}/start-preview-analysis",
+      "assertion": "C03"
+    },
+    {
+      "from": "/pages/failure/index",
+      "controlId": "reupload",
+      "action": "navigateTo",
+      "targetRoute": "/pages/index/index",
+      "api": null,
+      "assertion": "C01"
+    },
+    {
+      "from": "/pages/failure/index",
+      "controlId": "back-home",
+      "action": "switchTab",
+      "targetRoute": "/pages/index/index",
+      "api": null,
+      "assertion": "C01"
+    },
+    {
+      "from": "/pages/preview/index",
+      "controlId": "unlock-basic",
+      "action": "navigateTo",
+      "targetRoute": "/pages/basic-pay/index",
+      "api": null,
+      "assertion": "C06"
+    },
+    {
+      "from": "/pages/basic-pay/index",
+      "controlId": "confirm-basic-pay",
+      "action": "api",
+      "targetRoute": "/pages/basic-result/index",
+      "api": "POST /api/payments/create",
+      "assertion": "C07"
+    },
+    {
+      "from": "/pages/basic-result/index",
+      "controlId": "load-basic-decision",
+      "action": "api",
+      "targetRoute": null,
+      "api": "GET /api/diagnosis-orders/{orderId}/basic-decision",
+      "assertion": "api-or-guarded-action-recorded"
+    },
+    {
+      "from": "/pages/basic-result/index",
+      "controlId": "unlock-full",
+      "action": "navigateTo",
+      "targetRoute": "/pages/full-unlock/index",
+      "api": null,
+      "assertion": "C08"
+    },
+    {
+      "from": "/pages/full-unlock/index",
+      "controlId": "confirm-full-pay",
+      "action": "api",
+      "targetRoute": "/pages/full-report-entry/index",
+      "api": "POST /api/payments/create",
+      "assertion": "C09"
+    },
+    {
+      "from": "/pages/full-report-entry/index",
+      "controlId": "generate-full",
+      "action": "api",
+      "targetRoute": null,
+      "api": "POST /api/diagnosis-orders/{orderId}/generate-full",
+      "assertion": "api-or-guarded-action-recorded"
+    },
+    {
+      "from": "/pages/full-report-entry/index",
+      "controlId": "view-full-report",
+      "action": "navigateTo",
+      "targetRoute": "/pages/full-report/index",
+      "api": null,
+      "assertion": "C10"
+    },
+    {
+      "from": "/pages/full-report/index",
+      "controlId": "load-full-report",
+      "action": "api",
+      "targetRoute": null,
+      "api": "GET /api/diagnosis-orders/{orderId}/full-report",
+      "assertion": "api-or-guarded-action-recorded"
+    },
+    {
+      "from": "/pages/full-report/index",
+      "controlId": "save-report",
+      "action": "api",
+      "targetRoute": "/pages/my/index",
+      "api": "POST /api/diagnosis-orders/{orderId}/save-report",
+      "assertion": "C11"
+    },
+    {
+      "from": "/pages/full-report/index",
+      "controlId": "export-pdf",
+      "action": "api",
+      "targetRoute": null,
+      "api": "POST /api/diagnosis-orders/{orderId}/export-pdf",
+      "assertion": "api-or-guarded-action-recorded"
+    },
+    {
+      "from": "/pages/my/index",
+      "controlId": "open-reports",
+      "action": "navigateTo",
+      "targetRoute": "/pages/reports/index",
+      "api": null,
+      "assertion": "C12"
+    },
+    {
+      "from": "/pages/my/index",
+      "controlId": "open-orders",
+      "action": "navigateTo",
+      "targetRoute": "/pages/orders/index",
+      "api": null,
+      "assertion": "C11A"
+    },
+    {
+      "from": "/pages/my/index",
+      "controlId": "open-purchases",
+      "action": "navigateTo",
+      "targetRoute": "/pages/orders/index",
+      "api": null,
+      "assertion": "C11A"
+    },
+    {
+      "from": "/pages/my/index",
+      "controlId": "open-feedback",
+      "action": "navigateTo",
+      "targetRoute": "/pages/feedback/index",
+      "api": null,
+      "assertion": "C11B"
+    },
+    {
+      "from": "/pages/my/index",
+      "controlId": "new-analysis",
+      "action": "switchTab",
+      "targetRoute": "/pages/index/index",
+      "api": null,
+      "assertion": "C01"
+    },
+    {
+      "from": "/pages/my/index",
+      "controlId": "submit-feedback",
+      "action": "api",
+      "targetRoute": null,
+      "api": "POST /api/diagnosis-orders/{orderId}/feedback",
+      "assertion": "api-or-guarded-action-recorded"
+    },
+    {
+      "from": "/pages/reports/index",
+      "controlId": "load-my-reports",
+      "action": "api",
+      "targetRoute": null,
+      "api": "GET /api/my/reports",
+      "assertion": "api-or-guarded-action-recorded"
+    },
+    {
+      "from": "/pages/reports/index",
+      "controlId": "open-report-card",
+      "action": "guardedRoute",
+      "targetRoute": null,
+      "api": null,
+      "assertion": "api-or-guarded-action-recorded"
+    },
+    {
+      "from": "/pages/orders/index",
+      "controlId": "load-order-records",
+      "action": "api",
+      "targetRoute": null,
+      "api": "GET /api/my/reports",
+      "assertion": "api-or-guarded-action-recorded"
+    },
+    {
+      "from": "/pages/feedback/index",
+      "controlId": "submit-feedback",
+      "action": "api",
+      "targetRoute": "/pages/my/index",
+      "api": "POST /api/diagnosis-orders/{orderId}/feedback",
+      "assertion": "C11"
+    }
+  ]
+}

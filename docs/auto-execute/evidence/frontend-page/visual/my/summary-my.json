@@ -1,0 +1,32 @@
+{
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "metrics": {
+    "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+    "command": "npm run visual:scoremap -- my reports",
+    "route": "/pages/my/index",
+    "reference": "docs/UI/小程序/我的.png",
+    "stitchReference": "docs/UI/小程序/stitch_codex_development_blueprints/_1/screen.png",
+    "actual": "docs/auto-execute/evidence/frontend-page/visual/my/actual-my-structure.svg",
+    "diff": "docs/auto-execute/evidence/frontend-page/visual/my/diff-my-manual-review.svg",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "structuralChecks": {
+      "hasProfile": true,
+      "hasRightsPlaceholder": true,
+      "hasStats": true,
+      "hasReportsEntry": true,
+      "hasOrdersEntry": true,
+      "hasPurchasesEntry": true,
+      "hasFeedbackEntry": true,
+      "hasNewAnalysisButton": true,
+      "hasBottomTab": true
+    },
+    "pixelDiff": {
+      "status": "MANUAL_REVIEW_REQUIRED",
+      "ratio": null,
+      "reason": "This T12 runner produces deterministic structural visual evidence only; T14 owns full screenshot and pixelmatch harness."
+    }
+  }
+}

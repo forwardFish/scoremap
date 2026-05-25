@@ -1,0 +1,108 @@
+﻿{
+  "taskId": "T12",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "implementedFiles": [
+    "scoremap-miniapp/pages/my/index.js",
+    "scoremap-miniapp/pages/reports/index.js",
+    "scoremap-miniapp/pages/orders/index.js",
+    "scoremap-miniapp/pages/feedback/index.js",
+    "scoremap-miniapp/pages/my/my-reports-feedback.test.js",
+    "scoremap-miniapp/pages/my/visual-my-reports.js",
+    "scoremap-miniapp/services/api-client.js",
+    "scoremap-miniapp/routes.js",
+    "scoremap-miniapp/app.json",
+    "scoremap-miniapp/pages/index/visual-home.js",
+    "scripts/run-tests.mjs"
+  ],
+  "tests": [
+    {
+      "command": "npm test -- my-reports-feedback",
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "summary": "PowerShell blocked C:\\Program Files\\nodejs\\npm.ps1 before project code ran."
+    },
+    {
+      "command": "npm.cmd test -- my-reports-feedback",
+      "status": "PASS",
+      "summary": "3 tests passed, 0 failed.",
+      "evidence": [
+        "docs/auto-execute/evidence/frontend-page/my-reports-feedback-route-controls.json",
+        "docs/auto-execute/evidence/frontend-page/my-reports-feedback-api-db.json",
+        "docs/auto-execute/evidence/frontend-page/my-reports-feedback-owner-local.json"
+      ]
+    },
+    {
+      "command": "npm run visual:scoremap -- my reports",
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "summary": "PowerShell blocked C:\\Program Files\\nodejs\\npm.ps1 before project code ran."
+    },
+    {
+      "command": "npm.cmd run visual:scoremap -- my reports",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "summary": "Structural visual actual/diff/metrics evidence was generated for my and reports. Pixel-perfect screenshot comparison remains assigned to T14.",
+      "evidence": [
+        "docs/auto-execute/evidence/frontend-page/visual/my/summary-my.json",
+        "docs/auto-execute/evidence/frontend-page/visual/reports/summary-reports.json"
+      ]
+    },
+    {
+      "command": "npm.cmd test -- miniapp-shell",
+      "status": "PASS",
+      "summary": "4 tests passed, 0 failed."
+    },
+    {
+      "command": "npm.cmd run build",
+      "status": "PASS",
+      "summary": "T01 local runtime scaffold build PASS."
+    },
+    {
+      "command": "node -e \"parse T12 evidence JSON\"",
+      "status": "PASS",
+      "summary": "All T12 evidence JSON files parsed successfully."
+    }
+  ],
+  "pageEvidence": [
+    "docs/auto-execute/evidence/frontend-page/my-reports-feedback-route-controls.json",
+    "docs/auto-execute/evidence/frontend-page/my-reports-feedback-api-db.json"
+  ],
+  "apiEvidence": [
+    "docs/auto-execute/evidence/frontend-page/my-reports-feedback-route-controls.json",
+    "docs/auto-execute/evidence/frontend-page/my-reports-feedback-api-db.json",
+    "docs/auto-execute/evidence/frontend-page/my-reports-feedback-owner-local.json"
+  ],
+  "dbEvidence": [
+    "docs/auto-execute/evidence/frontend-page/my-reports-feedback-api-db.json",
+    "docs/auto-execute/evidence/frontend-page/my-reports-feedback-owner-local.json"
+  ],
+  "visualEvidence": [
+    "docs/auto-execute/evidence/frontend-page/visual/my/actual-my-structure.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/my/diff-my-manual-review.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/my/metrics-my.json",
+    "docs/auto-execute/evidence/frontend-page/visual/my/summary-my.json",
+    "docs/auto-execute/evidence/frontend-page/visual/reports/actual-reports-structure.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/reports/diff-reports-manual-review.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/reports/metrics-reports.json",
+    "docs/auto-execute/evidence/frontend-page/visual/reports/summary-reports.json"
+  ],
+  "ownerJourneyEvidence": [
+    "docs/auto-execute/evidence/frontend-page/my-reports-feedback-route-controls.json",
+    "docs/auto-execute/evidence/frontend-page/my-reports-feedback-api-db.json",
+    "docs/auto-execute/evidence/frontend-page/my-reports-feedback-owner-local.json"
+  ],
+  "localOnlyEvidence": [
+    "docs/auto-execute/evidence/frontend-page/my-reports-feedback-owner-local.json"
+  ],
+  "knownGaps": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "detail": "T12 produced deterministic structural actual/diff/metrics visual evidence for my and reports pages, but did not run pixel-perfect screenshot comparison. T14 owns the full visual harness."
+    },
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "detail": "T12 records deterministic C11/C12 owner actions for O05/O06/O07. Full O01-O12 rendered owner E2E remains assigned to T15."
+    },
+    {
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "detail": "The exact npm PowerShell commands are blocked by local execution policy; npm.cmd equivalents ran and passed."
+    }
+  ]
+}

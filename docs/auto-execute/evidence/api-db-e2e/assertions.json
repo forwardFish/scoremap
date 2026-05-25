@@ -1,0 +1,85 @@
+{
+  "taskId": "T16",
+  "status": "PASS",
+  "requirementIds": [
+    "R02",
+    "R06",
+    "R08",
+    "R09",
+    "R10",
+    "R11",
+    "R12",
+    "R15"
+  ],
+  "pageEvidence": [
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "source": "docs/auto-execute/evidence/owner/journey-summary.json",
+      "routes": [
+        "/pages/index/index",
+        "/pages/analysis/index",
+        "/pages/preview/index",
+        "/pages/basic-pay/index",
+        "/pages/basic-result/index",
+        "/pages/full-unlock/index",
+        "/pages/full-report-entry/index",
+        "/pages/full-report/index",
+        "/pages/my/index",
+        "/pages/reports/index"
+      ],
+      "note": "T16 verifies API/DB readback for route-backed controls; exact page clicks are inherited from the completed T15 owner evidence."
+    }
+  ],
+  "apiEvidence": [
+    "docs/auto-execute/evidence/api-db-e2e/api-trace.json"
+  ],
+  "dbEvidence": [
+    "docs/auto-execute/evidence/api-db-e2e/db-snapshot.json"
+  ],
+  "visualEvidence": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "source": "docs/auto-execute/evidence/visual-harness/summary.json",
+      "note": "T16 is API/DB focused and reuses deterministic T14 SVG actual/diff/metrics artifacts; no new raster pixel comparison is claimed."
+    }
+  ],
+  "ownerJourneyEvidence": [
+    {
+      "status": "PASS",
+      "source": "docs/auto-execute/evidence/owner/journey-summary.json",
+      "scenarioRange": "O01-O12",
+      "note": "T15 owner journey evidence is the page-click source that T16 API/DB assertions read back against."
+    }
+  ],
+  "localOnlyEvidence": [
+    {
+      "status": "PASS",
+      "environment": {
+        "status": "PASS",
+        "localOnly": true,
+        "adapterMode": "local-mock",
+        "paymentAdapter": "local-wechat-pay-mock",
+        "cloudAdapter": "local-tencent-cloud-mock",
+        "databaseAdapter": "local-in-memory-db"
+      },
+      "paymentAdapter": {
+        "status": "PASS",
+        "adapter": "local-wechat-pay-mock",
+        "remoteCalls": [],
+        "supportedStatuses": [
+          "paid",
+          "failed",
+          "cancelled"
+        ]
+      },
+      "cloudAdapter": {
+        "status": "PASS",
+        "adapter": "local-tencent-cloud-mock",
+        "rootDir": "D:\\lyh\\agent\\agent-frame\\scoremap\\docs\\auto-execute\\evidence\\api-db-e2e\\local-cloud",
+        "remoteCalls": []
+      },
+      "forbiddenRemoteFindings": [],
+      "remoteCalls": []
+    }
+  ]
+}

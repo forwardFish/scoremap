@@ -1,0 +1,122 @@
+﻿{
+  "taskId": "T01",
+  "status": "PASS_WITH_LIMITATION",
+  "implementedFiles": [
+    "package.json",
+    "package-lock.json",
+    "shared/local-only.js",
+    "shared/in-memory-db.js",
+    "shared/scaffold-contract.js",
+    "shared/scaffold.test.js",
+    "server/local-runtime.js",
+    "server/local-runtime.test.js",
+    "server/.env.example",
+    "scoremap-miniapp/app.json",
+    "scoremap-miniapp/app.js",
+    "scoremap-miniapp/routes.js",
+    "scoremap-miniapp/pages/scaffold/index.js",
+    "scoremap-miniapp/scaffold.test.js",
+    "scripts/build-local-runtime.mjs",
+    "docs/auto-execute/evidence/scaffold/page-route-scaffold.json",
+    "docs/auto-execute/evidence/scaffold/api-call-scaffold.json",
+    "docs/auto-execute/evidence/scaffold/db-readback-scaffold.json",
+    "docs/auto-execute/evidence/scaffold/visual-placeholder-status.json",
+    "docs/auto-execute/evidence/scaffold/owner-journey-scaffold.json",
+    "docs/auto-execute/evidence/scaffold/build-summary.json",
+    "docs/auto-execute/evidence/scaffold/local-only-secret-guard.json",
+    "docs/auto-execute/evidence/scaffold/test-command-summary.json",
+    "docs/auto-execute/results/T01.json",
+    "docs/auto-execute/latest/T01-HANDOFF.md"
+  ],
+  "tests": [
+    {
+      "command": "npm install; npm test; npm run build --if-present",
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "evidence": "docs/auto-execute/evidence/scaffold/test-command-summary.json",
+      "observed": "PowerShell blocked npm.ps1 by execution policy before project code ran."
+    },
+    {
+      "command": "npm.cmd install; npm.cmd test; npm.cmd run build --if-present",
+      "status": "PASS",
+      "evidence": [
+        "docs/auto-execute/evidence/scaffold/test-command-summary.json",
+        "docs/auto-execute/evidence/scaffold/page-route-scaffold.json",
+        "docs/auto-execute/evidence/scaffold/api-call-scaffold.json",
+        "docs/auto-execute/evidence/scaffold/db-readback-scaffold.json",
+        "docs/auto-execute/evidence/scaffold/visual-placeholder-status.json",
+        "docs/auto-execute/evidence/scaffold/owner-journey-scaffold.json",
+        "docs/auto-execute/evidence/scaffold/build-summary.json",
+        "docs/auto-execute/evidence/scaffold/local-only-secret-guard.json"
+      ],
+      "observed": "npm install up to date with 0 vulnerabilities; npm test 11 passed, 0 failed; build printed T01 local runtime scaffold build PASS."
+    }
+  ],
+  "pageEvidence": [
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/scaffold/page-route-scaffold.json",
+      "summary": "Miniapp launch route resolves to /pages/scaffold/index and declares scaffold controls for local API and local DB readback."
+    }
+  ],
+  "apiEvidence": [
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/scaffold/api-call-scaffold.json",
+      "summary": "GET /api/scaffold/ping returns local-only adapter status from the local HTTP runtime."
+    }
+  ],
+  "dbEvidence": [
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/scaffold/db-readback-scaffold.json",
+      "summary": "POST /api/scaffold/db-readback mutates diagnosis_orders in local in-memory DB and independently reads back the same id."
+    }
+  ],
+  "visualEvidence": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "evidence": "docs/auto-execute/evidence/scaffold/visual-placeholder-status.json",
+      "summary": "T01 records the visual verification boundary; screenshot capture and pixel comparison remain assigned to T14."
+    }
+  ],
+  "ownerJourneyEvidence": [
+    {
+      "status": "PASS_WITH_LIMITATION",
+      "evidence": "docs/auto-execute/evidence/scaffold/owner-journey-scaffold.json",
+      "summary": "T01 proves launch-route and control metadata only; full O01-O12 owner clicks remain assigned to T15."
+    }
+  ],
+  "localOnlyEvidence": [
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/scaffold/local-only-secret-guard.json",
+      "summary": "LOCAL_ONLY=true, local-mock adapters, no forbidden remote call patterns, and no secrets found in scaffold files."
+    },
+    {
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/scaffold/build-summary.json",
+      "summary": "Build validates scaffold imports and local-only runtime state."
+    }
+  ],
+  "knownGaps": [
+    {
+      "status": "BLOCKED_BY_ENVIRONMENT",
+      "summary": "PowerShell execution policy blocks the literal npm.ps1 command form in this environment; npm.cmd equivalent passed the same package scripts."
+    },
+    {
+      "status": "DEFERRED",
+      "ownerTask": "T02",
+      "summary": "Durable local adapter implementations for DB/cloud/payment are not in T01 scope."
+    },
+    {
+      "status": "DEFERRED",
+      "ownerTask": "T14",
+      "summary": "Reference/actual/diff/metrics visual comparison is not in T01 scope."
+    },
+    {
+      "status": "DEFERRED",
+      "ownerTask": "T15",
+      "summary": "Full parent owner journey O01-O12 click traces are not in T01 scope."
+    }
+  ]
+}

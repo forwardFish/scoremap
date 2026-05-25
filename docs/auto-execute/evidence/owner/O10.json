@@ -1,0 +1,67 @@
+{
+  "scenarioId": "O10",
+  "status": "PASS",
+  "command": "npm run e2e:owner",
+  "requirementIds": [
+    "R11",
+    "R14"
+  ],
+  "clickPath": [
+    "direct-basic-route",
+    "guard-to-pay-confirm"
+  ],
+  "routeEvidence": {
+    "status": "GUARDED",
+    "targetRoute": "/pages/basic-pay/index",
+    "disabledReason": "BASIC_PAYMENT_REQUIRED"
+  },
+  "apiEvidence": [
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t15-preview-only/basic-decision",
+      "payloadSummary": {
+        "source": "direct-basic-route"
+      },
+      "responseStatus": 403,
+      "responseBody": {
+        "status": "error",
+        "code": "BASIC_PAYMENT_REQUIRED"
+      }
+    }
+  ],
+  "dbEvidence": {
+    "order": {
+      "id": "order-t15-preview-only",
+      "ownerId": "local-user-scoremap-t06",
+      "status": "preview_done",
+      "accessLevel": "preview"
+    },
+    "leakedDecisions": []
+  },
+  "visualEvidence": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/basic-pay/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/basic-pay/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/basic-pay/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/basic-pay/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/basic-pay/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/full-unlock/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/full-unlock/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/full-unlock/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/full-unlock/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/full-unlock/summary.json"
+    }
+  ],
+  "localOnly": {
+    "LOCAL_ONLY": "true",
+    "adapterMode": "local-mock",
+    "paymentAdapter": "local-wechat-pay-mock",
+    "cloudAdapter": "local-tencent-cloud-mock",
+    "databaseAdapter": "local-fixture-store",
+    "remoteCalls": []
+  }
+}

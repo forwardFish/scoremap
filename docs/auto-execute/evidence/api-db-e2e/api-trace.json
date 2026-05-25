@@ -1,0 +1,605 @@
+{
+  "taskId": "T16",
+  "status": "PASS",
+  "command": "npm run e2e:api-db",
+  "apiCallCount": 34,
+  "successCoverage": [
+    {
+      "path": "POST /api/diagnosis-orders",
+      "status": "PASS"
+    },
+    {
+      "path": "POST /api/diagnosis-orders/{orderId}/uploads",
+      "status": "PASS"
+    },
+    {
+      "path": "POST /api/diagnosis-orders/{orderId}/start-preview-analysis",
+      "status": "PASS"
+    },
+    {
+      "path": "GET /api/diagnosis-orders/{orderId}/analysis-progress",
+      "status": "PASS"
+    },
+    {
+      "path": "GET /api/diagnosis-orders/{orderId}/preview-decision",
+      "status": "PASS"
+    },
+    {
+      "path": "POST /api/payments/create",
+      "status": "PASS"
+    },
+    {
+      "path": "POST /api/payments/wechat/callback",
+      "status": "PASS"
+    },
+    {
+      "path": "GET /api/diagnosis-orders/{orderId}/basic-decision",
+      "status": "PASS"
+    },
+    {
+      "path": "POST /api/diagnosis-orders/{orderId}/generate-full",
+      "status": "PASS"
+    },
+    {
+      "path": "GET /api/diagnosis-orders/{orderId}/full-report",
+      "status": "PASS"
+    },
+    {
+      "path": "POST /api/diagnosis-orders/{orderId}/save-report",
+      "status": "PASS"
+    },
+    {
+      "path": "GET /api/my/reports",
+      "status": "PASS"
+    },
+    {
+      "path": "POST /api/diagnosis-orders/{orderId}/feedback",
+      "status": "PASS"
+    },
+    {
+      "path": "POST /api/diagnosis-orders/{orderId}/export-pdf",
+      "status": "PASS"
+    },
+    {
+      "path": "GET /api/report-exports/{exportId}",
+      "status": "PASS"
+    }
+  ],
+  "errorCoverage": [
+    {
+      "branch": "4xx_validation",
+      "responseStatus": 400
+    },
+    {
+      "branch": "4xx_owner_forbidden",
+      "responseStatus": 403
+    },
+    {
+      "branch": "4xx_not_found",
+      "responseStatus": 404
+    },
+    {
+      "branch": "4xx_entitlement",
+      "responseStatus": 403
+    },
+    {
+      "branch": "4xx_low_quality",
+      "responseStatus": 422
+    },
+    {
+      "branch": "timeout",
+      "responseStatus": 202,
+      "code": "ANALYSIS_TIMEOUT"
+    },
+    {
+      "branch": "5xx_bad_json",
+      "responseStatus": 500,
+      "code": "TEST_SERVER_ERROR"
+    }
+  ],
+  "calls": [
+    {
+      "branch": "success",
+      "method": "POST",
+      "path": "/api/diagnosis-orders",
+      "concretePath": "/api/diagnosis-orders",
+      "payloadSummary": {
+        "source": "T16-main",
+        "grade": "grade-5",
+        "subject": "math",
+        "examType": "unit-test",
+        "materialType": "answer-sheet"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "created",
+        "orderId": "order-bd735e64c606"
+      }
+    },
+    {
+      "branch": "success",
+      "method": "POST",
+      "path": "/api/diagnosis-orders/{orderId}/uploads",
+      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/uploads",
+      "payloadSummary": {
+        "authorizationAccepted": true,
+        "files": "array(1)"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "uploaded",
+        "orderId": "order-bd735e64c606"
+      }
+    },
+    {
+      "branch": "success",
+      "method": "POST",
+      "path": "/api/diagnosis-orders/{orderId}/start-preview-analysis",
+      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/start-preview-analysis",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "preview_done",
+        "taskId": "task-7fa876ef654f"
+      }
+    },
+    {
+      "branch": "success",
+      "method": "GET",
+      "path": "/api/diagnosis-orders/{orderId}/analysis-progress",
+      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/analysis-progress",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "preview_done",
+        "orderId": "order-bd735e64c606",
+        "taskId": "task-7fa876ef654f",
+        "errorCode": null
+      }
+    },
+    {
+      "branch": "success",
+      "method": "GET",
+      "path": "/api/diagnosis-orders/{orderId}/preview-decision",
+      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/preview-decision",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "preview_done",
+        "accessLevel": "preview",
+        "decision": "object(4)"
+      }
+    },
+    {
+      "branch": "success",
+      "method": "POST",
+      "path": "/api/payments/create",
+      "concretePath": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-bd735e64c606",
+        "paymentType": "basic",
+        "paymentId": "payment-t16-basic-main"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "pending",
+        "orderId": "order-bd735e64c606",
+        "paymentId": "payment-t16-basic-main",
+        "idempotent": false
+      }
+    },
+    {
+      "branch": "success",
+      "method": "POST",
+      "path": "/api/payments/wechat/callback",
+      "concretePath": "/api/payments/wechat/callback",
+      "payloadSummary": {
+        "paymentId": "payment-t16-basic-main",
+        "status": "paid",
+        "mockTransactionId": "mock-tx-t16-basic-main",
+        "mockSignature": "local-mock-signature"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "paid",
+        "orderId": "order-bd735e64c606",
+        "paymentId": "payment-t16-basic-main",
+        "accessLevel": "basic",
+        "ok": true,
+        "idempotent": false
+      }
+    },
+    {
+      "branch": "success",
+      "method": "GET",
+      "path": "/api/diagnosis-orders/{orderId}/basic-decision",
+      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/basic-decision",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "basic_ready",
+        "accessLevel": "basic",
+        "decision": "object(8)"
+      }
+    },
+    {
+      "branch": "success",
+      "method": "POST",
+      "path": "/api/payments/create",
+      "concretePath": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-bd735e64c606",
+        "paymentType": "full",
+        "paymentId": "payment-t16-full-main"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "pending",
+        "orderId": "order-bd735e64c606",
+        "paymentId": "payment-t16-full-main",
+        "idempotent": false
+      }
+    },
+    {
+      "branch": "success",
+      "method": "POST",
+      "path": "/api/payments/wechat/callback",
+      "concretePath": "/api/payments/wechat/callback",
+      "payloadSummary": {
+        "paymentId": "payment-t16-full-main",
+        "status": "paid",
+        "mockTransactionId": "mock-tx-t16-full-main",
+        "mockSignature": "local-mock-signature"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "paid",
+        "orderId": "order-bd735e64c606",
+        "paymentId": "payment-t16-full-main",
+        "accessLevel": "full",
+        "ok": true,
+        "idempotent": false
+      }
+    },
+    {
+      "branch": "success",
+      "method": "POST",
+      "path": "/api/diagnosis-orders/{orderId}/generate-full",
+      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/generate-full",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_report_ready",
+        "taskId": "task-full-352fc57e9d1c"
+      }
+    },
+    {
+      "branch": "success",
+      "method": "GET",
+      "path": "/api/diagnosis-orders/{orderId}/full-report",
+      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/full-report",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_report_ready",
+        "accessLevel": "full",
+        "decision": "object(6)"
+      }
+    },
+    {
+      "branch": "success",
+      "method": "POST",
+      "path": "/api/diagnosis-orders/{orderId}/save-report",
+      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/save-report",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "orderId": "order-bd735e64c606",
+        "saved": true
+      }
+    },
+    {
+      "branch": "success",
+      "method": "GET",
+      "path": "/api/my/reports",
+      "concretePath": "/api/my/reports",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "items": "array(1)"
+      }
+    },
+    {
+      "branch": "success",
+      "method": "POST",
+      "path": "/api/diagnosis-orders/{orderId}/feedback",
+      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/feedback",
+      "payloadSummary": {
+        "feedbackId": "feedback-t16-main",
+        "decisionLevel": "full",
+        "rating": 5,
+        "tags": "array(1)",
+        "text": "Local T16 API DB readback feedback."
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "created",
+        "feedbackId": "feedback-t16-main"
+      }
+    },
+    {
+      "branch": "success",
+      "method": "POST",
+      "path": "/api/diagnosis-orders/{orderId}/export-pdf",
+      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/export-pdf",
+      "payloadSummary": {
+        "exportId": "report-export-t16-main"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "ready",
+        "exportId": "report-export-t16-main"
+      }
+    },
+    {
+      "branch": "success",
+      "method": "GET",
+      "path": "/api/report-exports/{exportId}",
+      "concretePath": "/api/report-exports/report-export-t16-main",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ready",
+        "orderId": "order-bd735e64c606",
+        "exportId": "report-export-t16-main"
+      }
+    },
+    {
+      "branch": "4xx_validation",
+      "method": "POST",
+      "path": "/api/diagnosis-orders",
+      "concretePath": "/api/diagnosis-orders",
+      "payloadSummary": {
+        "source": "missing-fields"
+      },
+      "responseStatus": 400,
+      "responseBody": {
+        "status": "error",
+        "code": "VALIDATION_ERROR"
+      }
+    },
+    {
+      "branch": "4xx_owner_forbidden",
+      "method": "GET",
+      "path": "/api/diagnosis-orders/{orderId}/preview-decision",
+      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/preview-decision",
+      "payloadSummary": {},
+      "responseStatus": 403,
+      "responseBody": {
+        "status": "error",
+        "code": "ORDER_FORBIDDEN"
+      }
+    },
+    {
+      "branch": "4xx_not_found",
+      "method": "GET",
+      "path": "/api/not-found-route",
+      "concretePath": "/api/not-found-route",
+      "payloadSummary": {},
+      "responseStatus": 404,
+      "responseBody": {
+        "status": "error",
+        "code": "NOT_FOUND"
+      }
+    },
+    {
+      "branch": "success",
+      "method": "POST",
+      "path": "/api/diagnosis-orders",
+      "concretePath": "/api/diagnosis-orders",
+      "payloadSummary": {
+        "source": "T16-full-denied",
+        "grade": "grade-5",
+        "subject": "math",
+        "examType": "unit-test",
+        "materialType": "answer-sheet"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "created",
+        "orderId": "order-c8d6a47fb8ad"
+      }
+    },
+    {
+      "branch": "success",
+      "method": "POST",
+      "path": "/api/diagnosis-orders/{orderId}/uploads",
+      "concretePath": "/api/diagnosis-orders/order-c8d6a47fb8ad/uploads",
+      "payloadSummary": {
+        "authorizationAccepted": true,
+        "files": "array(1)"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "uploaded",
+        "orderId": "order-c8d6a47fb8ad"
+      }
+    },
+    {
+      "branch": "success",
+      "method": "POST",
+      "path": "/api/diagnosis-orders/{orderId}/start-preview-analysis",
+      "concretePath": "/api/diagnosis-orders/order-c8d6a47fb8ad/start-preview-analysis",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "preview_done",
+        "taskId": "task-9949b10191bd"
+      }
+    },
+    {
+      "branch": "success",
+      "method": "GET",
+      "path": "/api/diagnosis-orders/{orderId}/analysis-progress",
+      "concretePath": "/api/diagnosis-orders/order-c8d6a47fb8ad/analysis-progress",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "preview_done",
+        "orderId": "order-c8d6a47fb8ad",
+        "taskId": "task-9949b10191bd",
+        "errorCode": null
+      }
+    },
+    {
+      "branch": "success",
+      "method": "GET",
+      "path": "/api/diagnosis-orders/{orderId}/preview-decision",
+      "concretePath": "/api/diagnosis-orders/order-c8d6a47fb8ad/preview-decision",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "preview_done",
+        "accessLevel": "preview",
+        "decision": "object(4)"
+      }
+    },
+    {
+      "branch": "4xx_entitlement",
+      "method": "POST",
+      "path": "/api/payments/create",
+      "concretePath": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-c8d6a47fb8ad",
+        "paymentType": "full"
+      },
+      "responseStatus": 403,
+      "responseBody": {
+        "status": "error",
+        "code": "BASIC_ENTITLEMENT_REQUIRED"
+      }
+    },
+    {
+      "branch": "4xx_low_quality",
+      "method": "POST",
+      "path": "/api/diagnosis-orders/{orderId}/start-preview-analysis",
+      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/start-preview-analysis",
+      "payloadSummary": {
+        "simulate": "failure",
+        "retry": true,
+        "taskId": "task-t16-failure-branch"
+      },
+      "responseStatus": 422,
+      "responseBody": {
+        "status": "failed",
+        "taskId": "task-t16-failure-branch",
+        "errorCode": "LOW_QUALITY_IMAGE"
+      }
+    },
+    {
+      "branch": "success",
+      "method": "POST",
+      "path": "/api/diagnosis-orders",
+      "concretePath": "/api/diagnosis-orders",
+      "payloadSummary": {
+        "source": "T16-timeout",
+        "grade": "grade-5",
+        "subject": "math",
+        "examType": "unit-test",
+        "materialType": "answer-sheet"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "created",
+        "orderId": "order-bf6e77273a11"
+      }
+    },
+    {
+      "branch": "success",
+      "method": "POST",
+      "path": "/api/diagnosis-orders/{orderId}/uploads",
+      "concretePath": "/api/diagnosis-orders/order-bf6e77273a11/uploads",
+      "payloadSummary": {
+        "authorizationAccepted": true,
+        "files": "array(1)"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "uploaded",
+        "orderId": "order-bf6e77273a11"
+      }
+    },
+    {
+      "branch": "success",
+      "method": "POST",
+      "path": "/api/diagnosis-orders/{orderId}/start-preview-analysis",
+      "concretePath": "/api/diagnosis-orders/order-bf6e77273a11/start-preview-analysis",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "preview_done",
+        "taskId": "task-10d8b0d3461e"
+      }
+    },
+    {
+      "branch": "success",
+      "method": "GET",
+      "path": "/api/diagnosis-orders/{orderId}/analysis-progress",
+      "concretePath": "/api/diagnosis-orders/order-bf6e77273a11/analysis-progress",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "preview_done",
+        "orderId": "order-bf6e77273a11",
+        "taskId": "task-10d8b0d3461e",
+        "errorCode": null
+      }
+    },
+    {
+      "branch": "success",
+      "method": "GET",
+      "path": "/api/diagnosis-orders/{orderId}/preview-decision",
+      "concretePath": "/api/diagnosis-orders/order-bf6e77273a11/preview-decision",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "preview_done",
+        "accessLevel": "preview",
+        "decision": "object(4)"
+      }
+    },
+    {
+      "branch": "timeout",
+      "method": "POST",
+      "path": "/api/diagnosis-orders/{orderId}/start-preview-analysis",
+      "concretePath": "/api/diagnosis-orders/order-bf6e77273a11/start-preview-analysis",
+      "payloadSummary": {
+        "simulate": "timeout",
+        "retry": true,
+        "taskId": "task-t16-timeout"
+      },
+      "responseStatus": 202,
+      "responseBody": {
+        "status": "timeout",
+        "taskId": "task-t16-timeout",
+        "errorCode": "ANALYSIS_TIMEOUT"
+      }
+    },
+    {
+      "branch": "5xx_bad_json",
+      "method": "POST",
+      "path": "POST /api/diagnosis-orders",
+      "concretePath": "/api/diagnosis-orders",
+      "payloadSummary": {
+        "malformedJson": true
+      },
+      "responseStatus": 500,
+      "responseBody": {
+        "status": "error",
+        "code": "TEST_SERVER_ERROR",
+        "message": "Expected property name or '}' in JSON at position 1 (line 1 column 2)"
+      }
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "status": "PASS",
+  "command": "npm --prefix server test -- payment entitlement",
+  "requirementIds": [
+    "R08"
+  ],
+  "pageJumpEvidence": {
+    "status": "PASS_WITH_LIMITATION",
+    "route": "/pages/basic-result/index -> /pages/full-unlock/index -> /pages/full-report-entry/index",
+    "clickPath": "O04: tap 9.9 CNY unlock -> confirm local mock payment -> paid callback",
+    "reason": "T04 proves API and DB entitlement behavior; full report generation and UI route rendering are assigned to T05/T10/T11/T15."
+  },
+  "apiCalls": [
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "branch": "full_before_basic_denied",
+      "responseStatus": 403,
+      "response": {
+        "status": "error",
+        "code": "BASIC_ENTITLEMENT_REQUIRED"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "branch": "basic_prerequisite",
+      "responseStatus": 201,
+      "response": {
+        "status": "pending",
+        "paymentId": "payment-basic-ad1a2f751cf4",
+        "orderId": "order-0bb5a6cb6eeb",
+        "paymentType": "basic",
+        "amountCents": 100,
+        "amountYuan": 1,
+        "idempotent": false,
+        "paymentParams": {
+          "provider": "local-wechat-pay-mock",
+          "paymentId": "payment-basic-ad1a2f751cf4",
+          "orderId": "order-0bb5a6cb6eeb",
+          "amountCents": 100,
+          "nonceStr": "local-nonce-payment-basic-ad1a2f751cf4",
+          "package": "prepay_id=local_payment-basic-ad1a2f751cf4",
+          "signType": "LOCAL_MOCK",
+          "paySign": "local-signature-payment-basic-ad1a2f751cf4"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/wechat/callback",
+      "branch": "basic_paid",
+      "responseStatus": 200,
+      "response": {
+        "ok": true,
+        "status": "paid",
+        "paymentId": "payment-basic-ad1a2f751cf4",
+        "orderId": "order-0bb5a6cb6eeb",
+        "accessLevel": "basic",
+        "idempotent": false,
+        "repaired": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "branch": "full",
+      "responseStatus": 201,
+      "response": {
+        "status": "pending",
+        "paymentId": "payment-full-32b4d5fd83a6",
+        "orderId": "order-0bb5a6cb6eeb",
+        "paymentType": "full",
+        "amountCents": 990,
+        "amountYuan": 9.9,
+        "idempotent": false,
+        "paymentParams": {
+          "provider": "local-wechat-pay-mock",
+          "paymentId": "payment-full-32b4d5fd83a6",
+          "orderId": "order-0bb5a6cb6eeb",
+          "amountCents": 990,
+          "nonceStr": "local-nonce-payment-full-32b4d5fd83a6",
+          "package": "prepay_id=local_payment-full-32b4d5fd83a6",
+          "signType": "LOCAL_MOCK",
+          "paySign": "local-signature-payment-full-32b4d5fd83a6"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/wechat/callback",
+      "branch": "full_paid",
+      "responseStatus": 200,
+      "response": {
+        "ok": true,
+        "status": "paid",
+        "paymentId": "payment-full-32b4d5fd83a6",
+        "orderId": "order-0bb5a6cb6eeb",
+        "accessLevel": "full",
+        "idempotent": false,
+        "repaired": false
+      }
+    }
+  ],
+  "dbReadback": {
+    "fullPayment": {
+      "id": "payment-full-32b4d5fd83a6",
+      "orderId": "order-0bb5a6cb6eeb",
+      "ownerId": "local-user-scoremap-t03",
+      "paymentType": "full",
+      "channel": "local-wechat-pay-mock",
+      "amountCents": 990,
+      "status": "paid",
+      "mockTransactionId": "mock-tx-t04-full",
+      "callbackCount": 1,
+      "createdAt": "2026-05-25T02:55:22.799Z",
+      "updatedAt": "2026-05-25T02:55:22.802Z",
+      "paidAt": "1970-01-01T00:00:00.000Z"
+    },
+    "order": {
+      "id": "order-0bb5a6cb6eeb",
+      "ownerId": "local-user-scoremap-t03",
+      "source": "T04-full",
+      "grade": "grade-5",
+      "subject": "math",
+      "examType": "unit-test",
+      "materialType": "answer-sheet",
+      "status": "full_paid",
+      "accessLevel": "full",
+      "orderToken": "local-order-token-order-0bb5a6cb6eeb",
+      "createdAt": "2026-05-25T02:55:22.774Z",
+      "updatedAt": "2026-05-25T02:55:22.803Z",
+      "uploadedCount": 1,
+      "previewTaskId": "task-97a4171ba604",
+      "previewDecisionId": "decision-order-0bb5a6cb6eeb-preview"
+    }
+  },
+  "localOnly": {
+    "paymentAdapter": {
+      "status": "PASS",
+      "adapter": "local-wechat-pay-mock",
+      "remoteCalls": [],
+      "supportedStatuses": [
+        "paid",
+        "failed",
+        "cancelled"
+      ]
+    },
+    "remoteCalls": []
+  }
+}
