@@ -6,8 +6,8 @@
     "R02"
   ],
   "uiReference": {
-    "png": "docs/UI/小程序/首页.png",
-    "stitch": "docs/UI/小程序/stitch_codex_development_blueprints/ai_2/screen.png"
+    "png": "ui-reference-catalog/小程序/首页.png",
+    "stitch": "ui-reference-catalog/小程序/stitch_codex_development_blueprints/ai_2/screen-reference"
   },
   "route": "/pages/index/index",
   "pageJumpEvidence": [
@@ -50,7 +50,7 @@
   ],
   "renderedState": {
     "route": "/pages/index/index",
-    "title": "AI 提分决策",
+    "title": "AI提分教练",
     "uploadCard": {
       "title": "上传资料",
       "description": "支持试卷、答题卡、错题照片，本地 mock 会生成预览分析任务。",

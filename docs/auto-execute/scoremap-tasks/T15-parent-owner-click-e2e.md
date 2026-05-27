@@ -1,4 +1,4 @@
-﻿# Task T15 - 家长全流程点击验收
+# Task T15 - 家长全流程点击验收
 
 ## Codex Exec
 ~~~powershell
@@ -10,7 +10,7 @@ Set-Location -LiteralPath 'D:\lyh\agent\agent-frame\scoremap'; codex exec "Use t
 
 ## 必须读取的输入
 项目根目录：D:\lyh\agent\agent-frame\scoremap
-需求文档：D:\lyh\agent\agent-frame\scoremap\docs\AI提分决策_PRD_MVP_v1.2_C端页面流程修订版.md
+需求文档：D:\lyh\agent\agent-frame\scoremap\docs\AI提分教练_PRD_MVP_v1.2_C端页面流程修订版.md
 UI 目录：D:\lyh\agent\agent-frame\scoremap\docs\UI\小程序
 Stitch UI 代码目录：D:\lyh\agent\agent-frame\scoremap\docs\UI\小程序\stitch_codex_development_blueprints
 参考项目：D:\lyh\agent\agent-frame\printersheet

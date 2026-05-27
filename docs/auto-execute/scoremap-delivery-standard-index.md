@@ -1,4 +1,4 @@
-﻿# scoremap delivery standard index
+# scoremap delivery standard index
 
 ## Scope
 - Project root: D:\lyh\agent\agent-frame\scoremap
@@ -11,7 +11,7 @@
 |---|---|---|---|---|
 | 1 | User prompt | current Codex request | Generate task pack, local-only mocks, full page/API/DB/UI/owner evidence before PASS | CONFIRMED |
 | 2 | AGENTS.md | D:\lyh\agent\agent-frame\scoremap\AGENTS.md | autonomous execution, evidence-first completion, Lore commit protocol | CONFIRMED |
-| 3 | PRD | D:\lyh\agent\agent-frame\scoremap\docs\AI提分决策_PRD_MVP_v1.2_C端页面流程修订版.md | MVP v1.2 C-end page flow and API/data requirements | CONFIRMED |
+| 3 | PRD | D:\lyh\agent\agent-frame\scoremap\docs\AI提分教练_PRD_MVP_v1.2_C端页面流程修订版.md | MVP v1.2 C-end page flow and API/data requirements | CONFIRMED |
 | 4 | UI references | D:\lyh\agent\agent-frame\scoremap\docs\UI\小程序 | PNG screens and Stitch blueprints for one-to-one visual targets | CONFIRMED |
 | 5 | Reference project | D:\lyh\agent\agent-frame\printersheet | local mini-program/server adapter patterns only; not a second requirements source | CONFIRMED |
 | 6 | Existing product code | D:\lyh\agent\agent-frame\scoremap | currently documentation-first repo; product scaffold belongs to T01 | BLOCKED_BY_MISSING_SOURCE until T01 |

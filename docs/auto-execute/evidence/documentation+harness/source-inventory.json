@@ -1,4 +1,4 @@
-﻿{
+{
   "taskId": "T00",
   "generatedAt": "2026-05-22T00:00:00+08:00",
   "surface": "documentation+harness",
@@ -66,7 +66,7 @@
     },
     {
       "id": "prd",
-      "path": "docs/AI提分决策_PRD_MVP_v1.2_C端页面流程修订版.md",
+      "path": "docs/AI提分教练_PRD_MVP_v1.2_C端页面流程修订版.md",
       "role": "latest product requirements and page flow source",
       "status": "present",
       "keySections": [

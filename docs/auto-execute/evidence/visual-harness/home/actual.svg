@@ -1,6 +1,6 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
   <rect width="390" height="844" fill="#f7f4ef"/>
-  <text x="28" y="70" font-size="26" font-weight="700" fill="#1f2937">AI 提分决策</text>
+  <text x="28" y="70" font-size="26" font-weight="700" fill="#1f2937">AI提分教练</text>
   <text x="28" y="100" font-size="13" fill="#5f6b7a">上传试卷，先看免费初判</text>
   <rect x="28" y="132" width="334" height="214" rx="18" fill="#ffffff" stroke="#e4e0d8"/>
   <text x="52" y="178" font-size="22" font-weight="700" fill="#111827">上传资料</text>

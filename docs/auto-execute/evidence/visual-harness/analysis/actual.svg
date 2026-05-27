@@ -1,6 +1,6 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
   <rect width="390" height="844" fill="#f5f7ff"/>
-  <text x="120" y="58" font-size="18" font-weight="700" fill="#1e293b">AI 提分决策</text>
+  <text x="120" y="58" font-size="18" font-weight="700" fill="#1e293b">AI提分教练</text>
   <rect x="24" y="92" width="342" height="606" rx="24" fill="#ffffff" stroke="#e9d5ff"/>
   <text x="87" y="150" font-size="26" font-weight="700" fill="#1e293b">AI 正在分析中</text>
   <circle cx="195" cy="260" r="78" fill="none" stroke="#ede9fe" stroke-width="14"/>

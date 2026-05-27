@@ -1,4 +1,4 @@
-﻿param(
+param(
   [string]$ProjectRoot = "D:\lyh\agent\agent-frame\scoremap"
 )
 
@@ -12,7 +12,7 @@ $latestDir = Join-Path $autoDir "latest"
 
 New-Item -ItemType Directory -Force -Path $autoDir, $taskDir, $resultDir, $latestDir | Out-Null
 
-$prd = "D:\lyh\agent\agent-frame\scoremap\docs\AI提分决策_PRD_MVP_v1.2_C端页面流程修订版.md"
+$prd = "D:\lyh\agent\agent-frame\scoremap\docs\AI提分教练_PRD_MVP_v1.2_C端页面流程修订版.md"
 $ui = "D:\lyh\agent\agent-frame\scoremap\docs\UI\小程序"
 $stitch = "D:\lyh\agent\agent-frame\scoremap\docs\UI\小程序\stitch_codex_development_blueprints"
 $ref = "D:\lyh\agent\agent-frame\printersheet"

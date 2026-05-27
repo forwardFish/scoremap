@@ -1,9 +1,80 @@
-﻿<view class="replica-page {{derived ? 'derived-page' : ''}}">
-  <view class="derived-shell fallback-shell">
-    <view class="status-spacer"></view>
-    <view class="derived-title">{{title}}</view>
-    <view class="derived-card" wx:for="{{cards}}" wx:key="*this">{{item}}</view>
+<view class="analysis-page">
+  <view class="analysis-shell">
+    <view class="analysis-header">
+      <button class="back-button" data-action="later" bindtap="onTap" aria-label="返回"></button>
+      <view class="analysis-brand">
+        <view class="bot-mark">
+          <view class="bot-face">
+            <view class="bot-eye left"></view>
+            <view class="bot-eye right"></view>
+          </view>
+        </view>
+        <text class="brand-title">AI提分教练</text>
+      </view>
+      <view class="header-spacer"></view>
+    </view>
+
+    <view class="analysis-card">
+      <view class="card-stars">
+        <text class="star star-one">★</text>
+        <text class="star star-two">★</text>
+        <text class="star star-three">★</text>
+        <text class="star star-four">★</text>
+      </view>
+
+      <view class="analysis-title-row">
+        <text class="analysis-title-accent">AI</text>
+        <text class="analysis-title-text">正在分析中</text>
+      </view>
+
+      <view class="progress-wrap">
+        <view class="progress-track"></view>
+        <view class="progress-arc arc-main"></view>
+        <view class="progress-arc arc-tail"></view>
+        <view class="progress-value">
+          <text class="progress-number">{{progress || 68}}</text>
+          <text class="progress-unit">%</text>
+        </view>
+        <view class="mascot-bubble">
+          <view class="cap"></view>
+          <view class="glasses">
+            <view></view>
+            <view></view>
+          </view>
+        </view>
+      </view>
+
+      <view class="step-list">
+        <view class="step-row done">
+          <view class="step-dot">✓</view>
+          <text>已识别上传资料</text>
+        </view>
+        <view class="step-row done">
+          <view class="step-dot">✓</view>
+          <text>已匹配年级与学科</text>
+        </view>
+        <view class="step-row active">
+          <view class="step-dot pulse-dot"></view>
+          <text>正在定位主要丢分点</text>
+        </view>
+        <view class="step-row pending">
+          <view class="step-dot hourglass"></view>
+          <text>正在生成初步建议</text>
+        </view>
+      </view>
+
+      <view class="estimate-line">
+        <view class="clock-icon"></view>
+        <text>{{estimateText || '通常需要10-30秒'}}</text>
+      </view>
+    </view>
+
+    <view class="analysis-actions">
+      <button class="later-button" data-action="later" bindtap="onTap">稍后查看</button>
+      <button class="refresh-button" data-action="refresh" bindtap="onTap">
+        <text class="refresh-icon">↻</text>
+        <text>刷新进度</text>
+      </button>
+    </view>
   </view>
-  <image wx:if="{{!derived && !imageLoadFailed && reference}}" class="reference-image" src="{{reference}}" mode="widthFix" show-menu-by-longpress="false" binderror="onImageError" />
-  <button wx:for="{{hotspots}}" wx:key="action" class="hotspot {{item.className}}" data-action="{{item.action}}" bindtap="onTap" aria-label="{{item.label}}"></button>
 </view>

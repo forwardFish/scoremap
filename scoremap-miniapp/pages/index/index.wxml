@@ -1,9 +1,90 @@
-﻿<view class="replica-page {{derived ? 'derived-page' : ''}}">
-  <view class="derived-shell fallback-shell">
-    <view class="status-spacer"></view>
-    <view class="derived-title">{{title}}</view>
-    <view class="derived-card" wx:for="{{cards}}" wx:key="*this">{{item}}</view>
+<view class="home-page">
+  <view class="home-content">
+    <view class="status-space"></view>
+
+    <view class="top-bar">
+      <view class="brand-avatar"></view>
+      <text class="page-title">AI提分教练</text>
+      <button class="message-button" data-action="reports" bindtap="onTap" aria-label="消息"></button>
+    </view>
+
+    <view class="hero-card">
+      <view class="hero-copy">
+        <text class="hero-title">上传孩子资料，</text>
+        <view class="hero-title-line">
+          <text class="hero-accent">AI</text>
+          <text> 帮你看不清先补什么</text>
+        </view>
+        <text class="hero-subtitle">支持试卷 / 错题 / 成绩单，先做 <text class="price">1 元</text> 初判</text>
+      </view>
+
+      <view class="owl-poster" aria-hidden="true">
+        <view class="poster-owl">
+          <view class="poster-brow left"></view>
+          <view class="poster-brow right"></view>
+          <view class="poster-face">
+            <view class="poster-eye left"></view>
+            <view class="poster-eye right"></view>
+            <view class="poster-beak"></view>
+          </view>
+          <view class="poster-chest"></view>
+        </view>
+      </view>
+
+      <view class="upload-panel">
+        <view class="folder-art">
+          <view class="folder-back"></view>
+          <view class="folder-front"></view>
+        </view>
+        <text class="upload-hint">支持图片 / PDF</text>
+        <button class="primary-button" data-action="upload" bindtap="onTap">
+          <text class="upload-icon">☁</text>
+          <text>上传资料</text>
+        </button>
+      </view>
+    </view>
+
+    <view class="quick-grid">
+      <button class="quick-card sample-card" data-action="sample" bindtap="onTap">
+        <view class="quick-icon sample-icon"></view>
+        <text>查看样例</text>
+        <text class="chevron">›</text>
+      </button>
+      <button class="quick-card report-card" data-action="reports" bindtap="onTap">
+        <view class="quick-icon report-icon"></view>
+        <text>我的报告</text>
+        <text class="chevron">›</text>
+      </button>
+    </view>
+
+    <view class="recent-card">
+      <view class="section-head">
+        <text>最近报告</text>
+        <button class="more-button" data-action="reports" bindtap="onTap">查看更多 <text>›</text></button>
+      </view>
+      <view class="report-row">
+        <view class="report-thumb math-thumb"></view>
+        <text class="report-title">初一数学月考</text>
+        <text class="status done">✓ AI 初判已完成</text>
+        <text class="row-arrow">›</text>
+      </view>
+      <view class="report-row">
+        <view class="report-thumb wrong-thumb"></view>
+        <text class="report-title">错题专项分析</text>
+        <text class="status pending">◷ 待查看结果</text>
+        <text class="row-arrow">›</text>
+      </view>
+    </view>
   </view>
-  <image wx:if="{{!derived && !imageLoadFailed && reference}}" class="reference-image" src="{{reference}}" mode="widthFix" show-menu-by-longpress="false" binderror="onImageError" />
-  <button wx:for="{{hotspots}}" wx:key="action" class="hotspot {{item.className}}" data-action="{{item.action}}" bindtap="onTap" aria-label="{{item.label}}"></button>
+
+  <view class="bottom-tabs">
+    <button class="tab-item active" data-action="home" bindtap="onTap">
+      <view class="tab-icon home-icon"></view>
+      <text>首页</text>
+    </button>
+    <button class="tab-item" data-action="my" bindtap="onTap">
+      <view class="tab-icon my-icon"></view>
+      <text>我的</text>
+    </button>
+  </view>
 </view>

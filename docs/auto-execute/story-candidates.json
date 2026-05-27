@@ -1,0 +1,684 @@
+{
+    "note":  "Auto-extracted stories are candidates only. Normalize into story-target.json and attach test-point evidence before final PASS.",
+    "sourceDocuments":  [
+
+                        ],
+    "generatedAt":  "2026-05-25T19:10:39",
+    "ignoredReferences":  [
+                              "docs\\AUTO_EXECUTE_DELIVERY_REPORT.md",
+                              "docs\\auto-execute\\00-environment-snapshot.md",
+                              "docs\\auto-execute\\03-story-map.md",
+                              "docs\\auto-execute\\04-contract-map.md",
+                              "docs\\auto-execute\\04-story-test-matrix.md",
+                              "docs\\auto-execute\\05-known-gaps-and-assumptions.md",
+                              "docs\\auto-execute\\06-scope-classification.md",
+                              "docs\\auto-execute\\08-repair-log.md",
+                              "docs\\auto-execute\\09-code-review.md",
+                              "docs\\auto-execute\\12-fullstack-delivery-plan.md",
+                              "docs\\auto-execute\\13-frontend-backend-contract-map.md",
+                              "docs\\auto-execute\\18-acceptance-comparison-loop.md",
+                              "docs\\auto-execute\\blockers.md",
+                              "docs\\auto-execute\\comparison\\round-001.md",
+                              "docs\\auto-execute\\comparison\\round-002.md",
+                              "docs\\auto-execute\\convergence-rounds\\round-002.md",
+                              "docs\\auto-execute\\convergence-rounds\\round-003.md",
+                              "docs\\auto-execute\\evidence\\api-db-e2e\\local-report-exports\\local-user-scoremap-t03\\order-0a1489a149b6\\report-export-t16-main.txt",
+                              "docs\\auto-execute\\evidence\\api-db-e2e\\local-report-exports\\local-user-scoremap-t03\\order-35ad23762926\\report-export-t16-main.txt",
+                              "docs\\auto-execute\\evidence\\api-db-e2e\\local-report-exports\\local-user-scoremap-t03\\order-4fc311cd9586\\report-export-t16-main.txt",
+                              "docs\\auto-execute\\evidence\\api-db-e2e\\local-report-exports\\local-user-scoremap-t03\\order-59ad9f51dbb3\\report-export-t16-main.txt",
+                              "docs\\auto-execute\\evidence\\api-db-e2e\\local-report-exports\\local-user-scoremap-t03\\order-61c9788b0df5\\report-export-t16-main.txt",
+                              "docs\\auto-execute\\evidence\\api-db-e2e\\local-report-exports\\local-user-scoremap-t03\\order-8489191460a2\\report-export-t16-main.txt",
+                              "docs\\auto-execute\\evidence\\api-db-e2e\\local-report-exports\\local-user-scoremap-t03\\order-a3f8def8c22c\\report-export-t16-main.txt",
+                              "docs\\auto-execute\\evidence\\api-db-e2e\\local-report-exports\\local-user-scoremap-t03\\order-ac56d095d041\\report-export-t16-main.txt",
+                              "docs\\auto-execute\\evidence\\api-db-e2e\\local-report-exports\\local-user-scoremap-t03\\order-bd735e64c606\\report-export-t16-main.txt",
+                              "docs\\auto-execute\\evidence\\api-db-e2e\\local-report-exports\\local-user-scoremap-t03\\order-c2d4fe583187\\report-export-t16-main.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-0282ae95c781\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-0c60809f4b7f\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-0c8d9c1930af\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-0d6e6e6050a1\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-0dabbf91959f\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-0eec3abcf70a\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-10682696c9a8\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-1527b4a0633e\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-1aaf200cdf3d\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-1c84702dbc2b\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-2348f78aa512\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-2a235f0afc9e\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-331ce49e7032\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-348bbd67735e\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-3b6a5c61f253\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-3d86891a9f08\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-3fc3a2c0d156\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-45186e1b4292\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-46609decb2f8\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-49e9197fb2cb\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-4afe7850c163\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-4f7e12f1a16c\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-518de3e7e2c1\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-53fbb4f8151a\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-5506127d8b8c\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-555f108d6ebd\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-5c8a4f448edf\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-7248098d02e9\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-822d2457f882\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-864341b5ccfc\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-92a7482c1e8f\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-9a3bf9990fae\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-9ec6a2884bb0\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-a728df142625\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-ab22b3d2516d\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-ad1f2936c79a\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-b0d81c9c041b\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-d30c36993082\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-db532ea0b531\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-ddee98fb5a37\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-e738d54be839\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-e78fad67bbb9\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-efdbaee4c469\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-f031d9151ab6\\report-export-t05.txt",
+                              "docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-fe5889cc8ce8\\report-export-t05.txt",
+                              "docs\\auto-execute\\FULL_FLOW_ACCEPTANCE.md",
+                              "docs\\auto-execute\\gap-closure-log.md",
+                              "docs\\auto-execute\\gap-list.md",
+                              "docs\\auto-execute\\harness-repair-plan.md",
+                              "docs\\auto-execute\\harness-self-eval-report.md",
+                              "docs\\auto-execute\\index.md",
+                              "docs\\auto-execute\\latest\\blockers.md",
+                              "docs\\auto-execute\\latest\\HANDOFF.md",
+                              "docs\\auto-execute\\latest\\next-agent-action.md",
+                              "docs\\auto-execute\\latest\\repair-plan.md",
+                              "docs\\auto-execute\\latest\\run-id.txt",
+                              "docs\\auto-execute\\latest\\T00-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T01-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T02-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T03-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T04-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T05-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T06-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T07-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T08-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T09-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T10-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T11-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T12-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T13-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T14-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T15-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T16-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T17-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T18-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T19-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T20-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T21-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T22-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T23-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T24-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T25-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T26-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T27-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T28-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T29-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T30-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T31-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T32-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\T33-HANDOFF.md",
+                              "docs\\auto-execute\\latest\\verification-results.md",
+                              "docs\\auto-execute\\next-agent-action.md",
+                              "docs\\auto-execute\\repair-plan.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-acceptance-standard.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-api-db-contract-matrix.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-codex-exec-prompts-split.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-delivery-standard-index.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-development-standard.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-final-acceptance-gate.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-master-plan.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-owner-scenario-matrix.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-requirement-traceability-matrix.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-software-test-standard.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-standard-test-plan.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-task-pack-quality-audit.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T19-v13-inventory-llm-map.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T20-local-ai-adapter-prompt-trace.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T21-question-interaction-db-schema.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T22-full-report-question-cards.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T23-ai-tutor-api-quota-auth.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T24-design-tokens-routes.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T25-full-report-v13-ui.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T26-wrong-question-detail-ui.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T27-ai-tutor-interaction-ui.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T28-similar-exercise-feedback-ui.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T29-my-reports-quota-history.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T30-visual-one-to-one-v13.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T31-normal-person-all-page-clicks.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T32-api-db-llm-trace-e2e.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T33-v13-final-acceptance-gate.md",
+                              "docs\\auto-execute\\scoremap-ai-tutor-v13-ui-reference-map.md",
+                              "docs\\auto-execute\\scoremap-api-db-contract-matrix.md",
+                              "docs\\auto-execute\\scoremap-auto-execute-master-plan.md",
+                              "docs\\auto-execute\\scoremap-codex-exec-prompts-split.md",
+                              "docs\\auto-execute\\scoremap-delivery-standard-index.md",
+                              "docs\\auto-execute\\scoremap-development-standard.md",
+                              "docs\\auto-execute\\scoremap-final-acceptance-gate.md",
+                              "docs\\auto-execute\\scoremap-owner-scenario-matrix.md",
+                              "docs\\auto-execute\\scoremap-requirement-traceability-matrix.md",
+                              "docs\\auto-execute\\scoremap-software-test-standard.md",
+                              "docs\\auto-execute\\scoremap-standard-test-plan.md",
+                              "docs\\auto-execute\\scoremap-task-pack-quality-audit.md",
+                              "docs\\auto-execute\\scoremap-tasks\\T00-intake-harness-and-source-of-truth.md",
+                              "docs\\auto-execute\\scoremap-tasks\\T01-local-runtime-scaffold.md",
+                              "docs\\auto-execute\\scoremap-tasks\\T02-local-db-cloud-payment-adapters.md",
+                              "docs\\auto-execute\\scoremap-tasks\\T03-orders-uploads-preview-api.md",
+                              "docs\\auto-execute\\scoremap-tasks\\T04-payment-api-and-entitlements.md",
+                              "docs\\auto-execute\\scoremap-tasks\\T05-full-report-feedback-export-api.md",
+                              "docs\\auto-execute\\scoremap-tasks\\T06-miniapp-shell-navigation-and-contract.md",
+                              "docs\\auto-execute\\scoremap-tasks\\T07-c01-home-upload-auth.md",
+                              "docs\\auto-execute\\scoremap-tasks\\T08-c03-analysis-and-c04-failure.md",
+                              "docs\\auto-execute\\scoremap-tasks\\T09-c05-preview-and-c06-basic-pay-confirm.md",
+                              "docs\\auto-execute\\scoremap-tasks\\T10-c07-basic-result-and-c08-full-unlock.md",
+                              "docs\\auto-execute\\scoremap-tasks\\T11-c09-c10-full-report-and-pdf.md",
+                              "docs\\auto-execute\\scoremap-tasks\\T12-c11-c12-my-reports-orders-feedback.md",
+                              "docs\\auto-execute\\scoremap-tasks\\T13-auth-permission-state-recovery.md",
+                              "docs\\auto-execute\\scoremap-tasks\\T14-visual-one-to-one-comparison-harness.md",
+                              "docs\\auto-execute\\scoremap-tasks\\T15-parent-owner-click-e2e.md",
+                              "docs\\auto-execute\\scoremap-tasks\\T16-api-db-readback-e2e.md",
+                              "docs\\auto-execute\\scoremap-tasks\\T17-local-only-guards-secret-scan.md",
+                              "docs\\auto-execute\\scoremap-tasks\\T18-final-acceptance-gate.md",
+                              "docs\\auto-execute\\scoremap-ui-reference-map.md",
+                              "docs\\auto-execute\\summaries\\api-smoke.md",
+                              "docs\\auto-execute\\summaries\\architecture-guard.md",
+                              "docs\\auto-execute\\summaries\\error-summary.md",
+                              "docs\\auto-execute\\summaries\\git-status.md",
+                              "docs\\auto-execute\\summaries\\report-integrity.md",
+                              "docs\\auto-execute\\summaries\\requirement-coverage.md",
+                              "docs\\auto-execute\\summaries\\secret-guard.md",
+                              "docs\\auto-execute\\verification-results.md",
+                              "docs\\auto-execute\\visual-diff-report.md",
+                              "docs\\backup\\AI提分教练_PRD_MVP_v1.1_C端验证版.md",
+                              "docs\\backup\\AI提分教练_PRD_MVP_v1.2_C端页面流程修订版.md"
+                          ],
+    "schemaVersion":  "2.0",
+    "candidates":  [
+                       {
+                           "storyId":  "STORY-REQ-001",
+                           "id":  "STORY-REQ-001",
+                           "title":  "Complete reports expose wrong-question cards and the AI tutor entry from each el",
+                           "description":  "Complete reports expose wrong-question cards and the AI tutor entry from each eligible wrong-question card.",
+                           "source":  "docs\\auto-execute\\requirement-target.json",
+                           "sourceLine":  0,
+                           "sourceRequirements":  [
+                                                      "V13-R01"
+                                                  ],
+                           "actor":  "user",
+                           "goal":  "Complete reports expose wrong-question cards and the AI tutor entry from each eligible wrong-question card.",
+                           "priority":  "P0",
+                           "surfaces":  [
+                                            "GET /api/diagnosis-orders/{orderId}/questions",
+                                            "scoremap-miniapp/pages/full-report",
+                                            "scoremap-miniapp/pages/wrong-question"
+                                        ],
+                           "apis":  [
+
+                                    ],
+                           "acceptanceCriteria":  [
+                                                      "Complete reports expose wrong-question cards and the AI tutor entry from each eligible wrong-question card.",
+                                                      "Each eligible wrong-question card exposes the AI tutor entry.",
+                                                      "Full-report users can see wrong-question cards in the complete report.",
+                                                      "The entry routes to the wrong-question/tutor experience with visual evidence."
+                                                  ],
+                           "status":  "CANDIDATE",
+                           "normalized":  false,
+                           "evidence":  [
+
+                                        ]
+                       },
+                       {
+                           "storyId":  "STORY-REQ-002",
+                           "id":  "STORY-REQ-002",
+                           "title":  "Formal tutor use requires full-report entitlement; basic/free users cannot forma",
+                           "description":  "Formal tutor use requires full-report entitlement; basic/free users cannot formally ask.",
+                           "source":  "docs\\auto-execute\\requirement-target.json",
+                           "sourceLine":  0,
+                           "sourceRequirements":  [
+                                                      "V13-R02"
+                                                  ],
+                           "actor":  "user",
+                           "goal":  "Formal tutor use requires full-report entitlement; basic/free users cannot formally ask.",
+                           "priority":  "P0",
+                           "surfaces":  [
+                                            "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+                                            "scoremap-miniapp/pages/wrong-question"
+                                        ],
+                           "apis":  [
+
+                                    ],
+                           "acceptanceCriteria":  [
+                                                      "API rejects unentitled formal tutor access.",
+                                                      "Entitlement behavior is covered by negative branch evidence.",
+                                                      "Formal tutor use requires full-report entitlement; basic/free users cannot formally ask.",
+                                                      "UI shows the locked/basic state without starting formal interaction."
+                                                  ],
+                           "status":  "CANDIDATE",
+                           "normalized":  false,
+                           "evidence":  [
+
+                                        ]
+                       },
+                       {
+                           "storyId":  "STORY-REQ-003",
+                           "id":  "STORY-REQ-003",
+                           "title":  "Each report allows at most 10 tutor interactions and each question allows at mos",
+                           "description":  "Each report allows at most 10 tutor interactions and each question allows at most 3 interactions.",
+                           "source":  "docs\\auto-execute\\requirement-target.json",
+                           "sourceLine":  0,
+                           "sourceRequirements":  [
+                                                      "V13-R03"
+                                                  ],
+                           "actor":  "user",
+                           "goal":  "Each report allows at most 10 tutor interactions and each question allows at most 3 interactions.",
+                           "priority":  "P0",
+                           "surfaces":  [
+                                            "scoremap-miniapp/pages/ai-tutor",
+                                            "server/src/routes/question-interactions.js",
+                                            "server/src/services/question-interactions-service.js"
+                                        ],
+                           "apis":  [
+
+                                    ],
+                           "acceptanceCriteria":  [
+                                                      "Each report allows at most 10 tutor interactions and each question allows at most 3 interactions.",
+                                                      "Question-level quota is enforced by API and persisted data.",
+                                                      "Quota-exceeded responses are covered by UI or API evidence.",
+                                                      "Report-level quota is enforced by API and persisted data."
+                                                  ],
+                           "status":  "CANDIDATE",
+                           "normalized":  false,
+                           "evidence":  [
+
+                                        ]
+                       },
+                       {
+                           "storyId":  "STORY-REQ-004",
+                           "id":  "STORY-REQ-004",
+                           "title":  "The first tutor version uses fixed action buttons only and exposes no open-ended",
+                           "description":  "The first tutor version uses fixed action buttons only and exposes no open-ended chat surface.",
+                           "source":  "docs\\auto-execute\\requirement-target.json",
+                           "sourceLine":  0,
+                           "sourceRequirements":  [
+                                                      "V13-R04"
+                                                  ],
+                           "actor":  "user",
+                           "goal":  "The first tutor version uses fixed action buttons only and exposes no open-ended chat surface.",
+                           "priority":  "P0",
+                           "surfaces":  [
+                                            "scoremap-miniapp/pages/ai-tutor",
+                                            "scoremap-miniapp/pages/wrong-question"
+                                        ],
+                           "apis":  [
+
+                                    ],
+                           "acceptanceCriteria":  [
+                                                      "Control mapping evidence ties fixed buttons to API actions.",
+                                                      "No freeform chat input is present in the first version.",
+                                                      "The first tutor version uses fixed action buttons only and exposes no open-ended chat surface.",
+                                                      "Tutor UI exposes fixed follow-up controls."
+                                                  ],
+                           "status":  "CANDIDATE",
+                           "normalized":  false,
+                           "evidence":  [
+
+                                        ]
+                       },
+                       {
+                           "storyId":  "STORY-REQ-005",
+                           "id":  "STORY-REQ-005",
+                           "title":  "AI responses stay around the current wrong question and record a summary.",
+                           "description":  "AI responses stay around the current wrong question and record a summary.",
+                           "source":  "docs\\auto-execute\\requirement-target.json",
+                           "sourceLine":  0,
+                           "sourceRequirements":  [
+                                                      "V13-R05"
+                                                  ],
+                           "actor":  "user",
+                           "goal":  "AI responses stay around the current wrong question and record a summary.",
+                           "priority":  "P0",
+                           "surfaces":  [
+                                            "server/src/ai",
+                                            "server/src/services/question-interactions-service.js"
+                                        ],
+                           "apis":  [
+
+                                    ],
+                           "acceptanceCriteria":  [
+                                                      "AI responses stay around the current wrong question and record a summary.",
+                                                      "Local LLM trace contains prompt id, request, response, failure, timeout, and metadata coverage.",
+                                                      "Prompt payload includes current wrong-question context.",
+                                                      "Tutor response and summary are persisted to interaction records."
+                                                  ],
+                           "status":  "CANDIDATE",
+                           "normalized":  false,
+                           "evidence":  [
+
+                                        ]
+                       },
+                       {
+                           "storyId":  "STORY-REQ-006",
+                           "id":  "STORY-REQ-006",
+                           "title":  "A similar exercise can be generated and submitted for AI feedback.",
+                           "description":  "A similar exercise can be generated and submitted for AI feedback.",
+                           "source":  "docs\\auto-execute\\requirement-target.json",
+                           "sourceLine":  0,
+                           "sourceRequirements":  [
+                                                      "V13-R06"
+                                                  ],
+                           "actor":  "user",
+                           "goal":  "A similar exercise can be generated and submitted for AI feedback.",
+                           "priority":  "P0",
+                           "surfaces":  [
+                                            "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/exercise-answer",
+                                            "scoremap-miniapp/pages/ai-exercise",
+                                            "scoremap-miniapp/pages/ai-exercise-feedback"
+                                        ],
+                           "apis":  [
+
+                                    ],
+                           "acceptanceCriteria":  [
+                                                      "A similar exercise can be generated and submitted for AI feedback.",
+                                                      "Feedback is returned and tied to the same question context.",
+                                                      "Student can generate a similar exercise from the wrong-question context.",
+                                                      "Student can submit an answer for that exercise."
+                                                  ],
+                           "status":  "CANDIDATE",
+                           "normalized":  false,
+                           "evidence":  [
+
+                                        ]
+                       },
+                       {
+                           "storyId":  "STORY-REQ-007",
+                           "id":  "STORY-REQ-007",
+                           "title":  "APIs exist for question list, follow-up interaction, exercise answer, and intera",
+                           "description":  "APIs exist for question list, follow-up interaction, exercise answer, and interaction records.",
+                           "source":  "docs\\auto-execute\\requirement-target.json",
+                           "sourceLine":  0,
+                           "sourceRequirements":  [
+                                                      "V13-R07"
+                                                  ],
+                           "actor":  "user",
+                           "goal":  "APIs exist for question list, follow-up interaction, exercise answer, and interaction records.",
+                           "priority":  "P0",
+                           "surfaces":  [
+                                            "server/src/routes/diagnosis-orders.js",
+                                            "server/src/routes/question-interactions.js"
+                                        ],
+                           "apis":  [
+
+                                    ],
+                           "acceptanceCriteria":  [
+                                                      "APIs exist for question list, follow-up interaction, exercise answer, and interaction records.",
+                                                      "Exercise answer API and record-read APIs are implemented and covered.",
+                                                      "Follow-up interaction API is implemented and covered.",
+                                                      "Question list API is implemented and covered."
+                                                  ],
+                           "status":  "CANDIDATE",
+                           "normalized":  false,
+                           "evidence":  [
+
+                                        ]
+                       },
+                       {
+                           "storyId":  "STORY-REQ-008",
+                           "id":  "STORY-REQ-008",
+                           "title":  "Storage exists for diagnosis questions and question interactions.",
+                           "description":  "Storage exists for diagnosis questions and question interactions.",
+                           "source":  "docs\\auto-execute\\requirement-target.json",
+                           "sourceLine":  0,
+                           "sourceRequirements":  [
+                                                      "V13-R08"
+                                                  ],
+                           "actor":  "user",
+                           "goal":  "Storage exists for diagnosis questions and question interactions.",
+                           "priority":  "P0",
+                           "surfaces":  [
+                                            "server/src/db/local-json-db.js",
+                                            "server/src/services/question-interactions-service.js",
+                                            "shared/in-memory-db.js"
+                                        ],
+                           "apis":  [
+
+                                    ],
+                           "acceptanceCriteria":  [
+                                                      "DB readback evidence proves the schema behavior.",
+                                                      "diagnosis_questions data is stored or materialized in the local DB model.",
+                                                      "question_interactions records are persisted and readable.",
+                                                      "Storage exists for diagnosis questions and question interactions."
+                                                  ],
+                           "status":  "CANDIDATE",
+                           "normalized":  false,
+                           "evidence":  [
+
+                                        ]
+                       },
+                       {
+                           "storyId":  "STORY-REQ-009",
+                           "id":  "STORY-REQ-009",
+                           "title":  "The complete report has a formal visual presentation and includes wrong-question",
+                           "description":  "The complete report has a formal visual presentation and includes wrong-question cards.",
+                           "source":  "docs\\auto-execute\\requirement-target.json",
+                           "sourceLine":  0,
+                           "sourceRequirements":  [
+                                                      "V13-R09"
+                                                  ],
+                           "actor":  "user",
+                           "goal":  "The complete report has a formal visual presentation and includes wrong-question cards.",
+                           "priority":  "P0",
+                           "surfaces":  [
+                                            "scoremap-miniapp/pages/full-report"
+                                        ],
+                           "apis":  [
+
+                                    ],
+                           "acceptanceCriteria":  [
+                                                      "Full-report layout includes formal report structure.",
+                                                      "The complete report has a formal visual presentation and includes wrong-question cards.",
+                                                      "Visual harness evidence exists; raster pixel-perfect review remains manual.",
+                                                      "Wrong-question cards are visible in the report."
+                                                  ],
+                           "status":  "CANDIDATE",
+                           "normalized":  false,
+                           "evidence":  [
+
+                                        ]
+                       },
+                       {
+                           "storyId":  "STORY-REQ-010",
+                           "id":  "STORY-REQ-010",
+                           "title":  "The wrong-question detail page matches the supplied reference.",
+                           "description":  "The wrong-question detail page matches the supplied reference.",
+                           "source":  "docs\\auto-execute\\requirement-target.json",
+                           "sourceLine":  0,
+                           "sourceRequirements":  [
+                                                      "V13-R10"
+                                                  ],
+                           "actor":  "user",
+                           "goal":  "The wrong-question detail page matches the supplied reference.",
+                           "priority":  "P0",
+                           "surfaces":  [
+                                            "scoremap-miniapp/pages/wrong-question"
+                                        ],
+                           "apis":  [
+
+                                    ],
+                           "acceptanceCriteria":  [
+                                                      "Pixel-perfect claim remains manual unless raster diff is accepted.",
+                                                      "The page has visual reference, actual, diff, metrics, and summary evidence.",
+                                                      "The wrong-question detail page matches the supplied reference.",
+                                                      "Wrong-question detail route is registered and functional."
+                                                  ],
+                           "status":  "CANDIDATE",
+                           "normalized":  false,
+                           "evidence":  [
+
+                                        ]
+                       },
+                       {
+                           "storyId":  "STORY-REQ-011",
+                           "id":  "STORY-REQ-011",
+                           "title":  "The AI tutor interaction page and expanded area match the supplied reference.",
+                           "description":  "The AI tutor interaction page and expanded area match the supplied reference.",
+                           "source":  "docs\\auto-execute\\requirement-target.json",
+                           "sourceLine":  0,
+                           "sourceRequirements":  [
+                                                      "V13-R11"
+                                                  ],
+                           "actor":  "user",
+                           "goal":  "The AI tutor interaction page and expanded area match the supplied reference.",
+                           "priority":  "P0",
+                           "surfaces":  [
+                                            "scoremap-miniapp/pages/ai-tutor"
+                                        ],
+                           "apis":  [
+
+                                    ],
+                           "acceptanceCriteria":  [
+                                                      "AI tutor route is registered and functional.",
+                                                      "Fixed-button interaction area matches the intended structure.",
+                                                      "The AI tutor interaction page and expanded area match the supplied reference.",
+                                                      "Visual harness evidence exists with manual UI review limitation."
+                                                  ],
+                           "status":  "CANDIDATE",
+                           "normalized":  false,
+                           "evidence":  [
+
+                                        ]
+                       },
+                       {
+                           "storyId":  "STORY-REQ-012",
+                           "id":  "STORY-REQ-012",
+                           "title":  "Similar exercise and answer feedback pages match the supplied references.",
+                           "description":  "Similar exercise and answer feedback pages match the supplied references.",
+                           "source":  "docs\\auto-execute\\requirement-target.json",
+                           "sourceLine":  0,
+                           "sourceRequirements":  [
+                                                      "V13-R12"
+                                                  ],
+                           "actor":  "user",
+                           "goal":  "Similar exercise and answer feedback pages match the supplied references.",
+                           "priority":  "P0",
+                           "surfaces":  [
+                                            "scoremap-miniapp/pages/ai-exercise",
+                                            "scoremap-miniapp/pages/ai-exercise-feedback"
+                                        ],
+                           "apis":  [
+
+                                    ],
+                           "acceptanceCriteria":  [
+                                                      "Answer feedback page is implemented and reachable.",
+                                                      "Similar exercise and answer feedback pages match the supplied references.",
+                                                      "Similar exercise page is implemented and reachable.",
+                                                      "Visual harness evidence exists for both states with manual UI review limitation."
+                                                  ],
+                           "status":  "CANDIDATE",
+                           "normalized":  false,
+                           "evidence":  [
+
+                                        ]
+                       },
+                       {
+                           "storyId":  "STORY-REQ-013",
+                           "id":  "STORY-REQ-013",
+                           "title":  "All large-model call sites are inventoried and routed through testable local ada",
+                           "description":  "All large-model call sites are inventoried and routed through testable local adapters.",
+                           "source":  "docs\\auto-execute\\requirement-target.json",
+                           "sourceLine":  0,
+                           "sourceRequirements":  [
+                                                      "V13-R13"
+                                                  ],
+                           "actor":  "user",
+                           "goal":  "All large-model call sites are inventoried and routed through testable local adapters.",
+                           "priority":  "P1",
+                           "surfaces":  [
+                                            "docs/auto-execute/evidence/llm",
+                                            "server/src/ai"
+                                        ],
+                           "apis":  [
+
+                                    ],
+                           "acceptanceCriteria":  [
+                                                      "All large-model call sites are inventoried and routed through testable local adapters.",
+                                                      "Large-model call inventory exists.",
+                                                      "LLM adapter and prompt registry are covered by tests.",
+                                                      "Trace evidence proves local mockable calls for the V13 flow."
+                                                  ],
+                           "status":  "CANDIDATE",
+                           "normalized":  false,
+                           "evidence":  [
+
+                                        ]
+                       },
+                       {
+                           "storyId":  "STORY-REQ-014",
+                           "id":  "STORY-REQ-014",
+                           "title":  "A normal person can click through all pages and visible P0 controls.",
+                           "description":  "A normal person can click through all pages and visible P0 controls.",
+                           "source":  "docs\\auto-execute\\requirement-target.json",
+                           "sourceLine":  0,
+                           "sourceRequirements":  [
+                                                      "V13-R14"
+                                                  ],
+                           "actor":  "user",
+                           "goal":  "A normal person can click through all pages and visible P0 controls.",
+                           "priority":  "P1",
+                           "surfaces":  [
+                                            "scoremap-miniapp/routes.js",
+                                            "tests/e2e/owner-click-flow.test.js"
+                                        ],
+                           "apis":  [
+
+                                    ],
+                           "acceptanceCriteria":  [
+                                                      "A normal person can click through all pages and visible P0 controls.",
+                                                      "Manual UI review limitation remains for raster-perfect visual judgement.",
+                                                      "Owner journey covers legacy and new V13 pages.",
+                                                      "Visible P0 controls are represented in click evidence."
+                                                  ],
+                           "status":  "CANDIDATE",
+                           "normalized":  false,
+                           "evidence":  [
+
+                                        ]
+                       },
+                       {
+                           "storyId":  "STORY-REQ-015",
+                           "id":  "STORY-REQ-015",
+                           "title":  "Final acceptance covers function, business, technical, AI quality, and UI eviden",
+                           "description":  "Final acceptance covers function, business, technical, AI quality, and UI evidence.",
+                           "source":  "docs\\auto-execute\\requirement-target.json",
+                           "sourceLine":  0,
+                           "sourceRequirements":  [
+                                                      "V13-R15"
+                                                  ],
+                           "actor":  "user",
+                           "goal":  "Final acceptance covers function, business, technical, AI quality, and UI evidence.",
+                           "priority":  "P1",
+                           "surfaces":  [
+                                            "docs/AUTO_EXECUTE_DELIVERY_REPORT.md",
+                                            "scripts/acceptance/run-final-gate.ps1"
+                                        ],
+                           "apis":  [
+
+                                    ],
+                           "acceptanceCriteria":  [
+                                                      "Final acceptance covers function, business, technical, AI quality, and UI evidence.",
+                                                      "Final gate evaluates implementation, evidence, local-only safety, secret guard, and UI review status.",
+                                                      "Final gate result exists for the V13 scope.",
+                                                      "Non-pure PASS is explained by the remaining manual UI review limitation."
+                                                  ],
+                           "status":  "CANDIDATE",
+                           "normalized":  false,
+                           "evidence":  [
+
+                                        ]
+                       }
+                   ],
+    "status":  "CANDIDATE"
+}

@@ -1,4 +1,4 @@
-﻿# T00 HANDOFF
+# T00 HANDOFF
 
 ## Status
 PASS for the T00 documentation+harness boundary.
@@ -27,7 +27,7 @@ This task did not implement product pages, product APIs, local DB adapters, visu
 - `docs/auto-execute/scoremap-standard-test-plan.md`
 - `docs/auto-execute/scoremap-owner-scenario-matrix.md`
 - `docs/auto-execute/scoremap-final-acceptance-gate.md`
-- `docs/AI提分决策_PRD_MVP_v1.2_C端页面流程修订版.md`
+- `docs/AI提分教练_PRD_MVP_v1.2_C端页面流程修订版.md`
 - `docs/UI/小程序`
 - `docs/UI/小程序/stitch_codex_development_blueprints`
 - `D:\lyh\agent\agent-frame\printersheet`

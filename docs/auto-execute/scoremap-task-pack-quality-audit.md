@@ -1,9 +1,9 @@
-﻿# scoremap task pack quality audit
+# scoremap task pack quality audit
 
 ## Audit scope
 - Project root: `D:\lyh\agent\agent-frame\scoremap`
 - Skill used: `xwstarmap-auto-execute`
-- PRD: `D:\lyh\agent\agent-frame\scoremap\docs\AI提分决策_PRD_MVP_v1.2_C端页面流程修订版.md`
+- PRD: `D:\lyh\agent\agent-frame\scoremap\docs\AI提分教练_PRD_MVP_v1.2_C端页面流程修订版.md`
 - UI directory: `D:\lyh\agent\agent-frame\scoremap\docs\UI\小程序`
 - Stitch UI directory: `D:\lyh\agent\agent-frame\scoremap\docs\UI\小程序\stitch_codex_development_blueprints`
 - Reference project: `D:\lyh\agent\agent-frame\printersheet`
@@ -103,7 +103,7 @@ Each scenario includes persona intent, preconditions, click path, expected route
 ## UTF-8/source-path audit
 | Check | Status | Notes |
 |---|---|---|
-| Chinese source paths readable in generated pack | PASS | Current generated task docs preserve `AI提分决策` and `小程序` paths. |
+| Chinese source paths readable in generated pack | PASS | Current generated task docs preserve `AI提分教练` and `小程序` paths. |
 | Business copy readable | PASS | Current generated docs are UTF-8 readable. |
 | Historical T00 handoff mojibake | LIMITATION | `docs/auto-execute/latest/T00-HANDOFF.md` contains mojibake in some source-read lines, but the current generated task pack docs are readable. Repair should be handled by a future harness cleanup task if needed. |
 

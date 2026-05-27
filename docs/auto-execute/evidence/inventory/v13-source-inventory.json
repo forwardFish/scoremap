@@ -1,0 +1,552 @@
+{
+  "schemaVersion": "1.0",
+  "taskId": "T19",
+  "generatedAt": "2026-05-25T15:20:00+08:00",
+  "status": "REPAIR_REQUIRED",
+  "statusReason": "Inventory completed, but v1.3 implementation is not present yet and the source PRD contains encoding corruption in the checked-in Markdown.",
+  "sourceDocuments": [
+    {
+      "id": "PRD-V13",
+      "path": "docs/AI提分教练_PRD_MVP_v1.3_C端AI错题追问修订版.md",
+      "exists": true,
+      "role": "latest PRD",
+      "encodingCorruptionDetected": true,
+      "note": "The source file contains visible mojibake/replacement-style fragments; this inventory avoids copying corrupted user-facing text."
+    },
+    {
+      "id": "ACCEPTANCE-V13",
+      "path": "docs/auto-execute/scoremap-ai-tutor-v13-acceptance-standard.md",
+      "exists": true,
+      "role": "task acceptance standard",
+      "encodingCorruptionDetected": true
+    },
+    {
+      "id": "TRACE-V13",
+      "path": "docs/auto-execute/scoremap-ai-tutor-v13-requirement-traceability-matrix.md",
+      "exists": true,
+      "role": "requirement id source",
+      "encodingCorruptionDetected": true
+    },
+    {
+      "id": "UI-MAP-V13",
+      "path": "docs/auto-execute/scoremap-ai-tutor-v13-ui-reference-map.md",
+      "exists": true,
+      "role": "UI target source",
+      "encodingCorruptionDetected": true
+    },
+    {
+      "id": "API-DB-V13",
+      "path": "docs/auto-execute/scoremap-ai-tutor-v13-api-db-contract-matrix.md",
+      "exists": true,
+      "role": "API and DB target source",
+      "encodingCorruptionDetected": false
+    },
+    {
+      "id": "TEST-PLAN-V13",
+      "path": "docs/auto-execute/scoremap-ai-tutor-v13-standard-test-plan.md",
+      "exists": true,
+      "role": "verification command source",
+      "encodingCorruptionDetected": false
+    },
+    {
+      "id": "OWNER-SCENARIOS-V13",
+      "path": "docs/auto-execute/scoremap-ai-tutor-v13-owner-scenario-matrix.md",
+      "exists": true,
+      "role": "click scenario source",
+      "encodingCorruptionDetected": true
+    },
+    {
+      "id": "FINAL-GATE-V13",
+      "path": "docs/auto-execute/scoremap-ai-tutor-v13-final-acceptance-gate.md",
+      "exists": true,
+      "role": "final acceptance source",
+      "encodingCorruptionDetected": false
+    }
+  ],
+  "uiReferences": [
+    {
+      "id": "V13-UI-AI-TUTOR",
+      "ref": "ai",
+      "referencePath": "docs/UI/小程序/stitch_codex_ui_design_kit/ai/screen.png",
+      "codePath": "docs/UI/小程序/stitch_codex_ui_design_kit/ai/code.html",
+      "exists": true,
+      "width": 780,
+      "height": 2476,
+      "bytes": 330928,
+      "targetPageStateProposal": "/pages/ai-tutor/index?questionId=...",
+      "visibleControls": [
+        "back",
+        "history",
+        "remaining quota",
+        "fixed follow-up buttons",
+        "question accordion",
+        "interaction records",
+        "bottom navigation"
+      ],
+      "plannedTaskIds": [
+        "T24",
+        "T27",
+        "T30",
+        "T31"
+      ],
+      "currentStatus": "MISSING_IMPLEMENTATION"
+    },
+    {
+      "id": "V13-UI-QUESTION-DETAIL",
+      "ref": "_1",
+      "referencePath": "docs/UI/小程序/stitch_codex_ui_design_kit/_1/screen.png",
+      "codePath": "docs/UI/小程序/stitch_codex_ui_design_kit/_1/code.html",
+      "exists": true,
+      "width": 369,
+      "height": 1600,
+      "bytes": 284465,
+      "targetPageStateProposal": "/pages/wrong-question/index?questionId=...",
+      "visibleControls": [
+        "back",
+        "more",
+        "original question",
+        "student answer",
+        "correct answer",
+        "knowledge point",
+        "diagnosis",
+        "AI teacher CTA",
+        "history row",
+        "bottom navigation"
+      ],
+      "plannedTaskIds": [
+        "T24",
+        "T26",
+        "T30",
+        "T31"
+      ],
+      "currentStatus": "MISSING_IMPLEMENTATION"
+    },
+    {
+      "id": "V13-UI-FEEDBACK",
+      "ref": "_2",
+      "referencePath": "docs/UI/小程序/stitch_codex_ui_design_kit/_2/screen.png",
+      "codePath": "docs/UI/小程序/stitch_codex_ui_design_kit/_2/code.html",
+      "exists": true,
+      "width": 780,
+      "height": 2882,
+      "bytes": 327609,
+      "targetPageStateProposal": "/pages/ai-exercise-feedback/index?interactionId=...",
+      "visibleControls": [
+        "back",
+        "more",
+        "answer result",
+        "analysis",
+        "retry or similar question",
+        "return report",
+        "interaction record",
+        "bottom navigation"
+      ],
+      "plannedTaskIds": [
+        "T24",
+        "T28",
+        "T30",
+        "T31"
+      ],
+      "currentStatus": "MISSING_IMPLEMENTATION"
+    },
+    {
+      "id": "V13-UI-FULL-REPORT",
+      "ref": "_3",
+      "referencePath": "docs/UI/小程序/stitch_codex_ui_design_kit/_3/screen.png",
+      "codePath": "docs/UI/小程序/stitch_codex_ui_design_kit/_3/code.html",
+      "exists": true,
+      "width": 780,
+      "height": 2468,
+      "bytes": 602880,
+      "targetPageStateProposal": "/pages/full-report/index?state=aiTutorReady",
+      "visibleControls": [
+        "back",
+        "more",
+        "report content rows",
+        "wrong-question cards",
+        "share report",
+        "export PDF"
+      ],
+      "plannedTaskIds": [
+        "T22",
+        "T25",
+        "T30",
+        "T31"
+      ],
+      "currentStatus": "PARTIAL_EXISTING_PAGE_MISSING_V13_WRONG_QUESTION_CARDS"
+    },
+    {
+      "id": "V13-UI-EXERCISE",
+      "ref": "_4",
+      "referencePath": "docs/UI/小程序/stitch_codex_ui_design_kit/_4/screen.png",
+      "codePath": "docs/UI/小程序/stitch_codex_ui_design_kit/_4/code.html",
+      "exists": true,
+      "width": 672,
+      "height": 1600,
+      "bytes": 133542,
+      "targetPageStateProposal": "/pages/ai-exercise/index?interactionId=...",
+      "visibleControls": [
+        "back",
+        "refresh or more",
+        "exercise prompt",
+        "four option buttons",
+        "submit",
+        "wrong-question context card",
+        "bottom navigation"
+      ],
+      "plannedTaskIds": [
+        "T24",
+        "T28",
+        "T30",
+        "T31"
+      ],
+      "currentStatus": "MISSING_IMPLEMENTATION"
+    }
+  ],
+  "currentMiniappRoutes": {
+    "sourceFiles": [
+      "scoremap-miniapp/app.json",
+      "scoremap-miniapp/routes.js"
+    ],
+    "pagePaths": [
+      "pages/index/index",
+      "pages/analysis/index",
+      "pages/failure/index",
+      "pages/preview/index",
+      "pages/basic-pay/index",
+      "pages/basic-result/index",
+      "pages/full-unlock/index",
+      "pages/full-report-entry/index",
+      "pages/full-report/index",
+      "pages/my/index",
+      "pages/reports/index",
+      "pages/orders/index",
+      "pages/feedback/index",
+      "pages/scaffold/index"
+    ],
+    "missingV13Routes": [
+      "/pages/wrong-question/index",
+      "/pages/ai-tutor/index",
+      "/pages/ai-exercise/index",
+      "/pages/ai-exercise-feedback/index"
+    ],
+    "existingV13HostRoutes": [
+      "/pages/full-report/index",
+      "/pages/reports/index",
+      "/pages/my/index"
+    ],
+    "currentStatus": "ROUTE_GAPS_FOUND"
+  },
+  "currentApiDbSurfaces": {
+    "existingApiRoutes": [
+      "POST /api/diagnosis-orders",
+      "POST /api/diagnosis-orders/{orderId}/uploads",
+      "POST /api/diagnosis-orders/{orderId}/start-preview-analysis",
+      "GET /api/diagnosis-orders/{orderId}/analysis-progress",
+      "GET /api/diagnosis-orders/{orderId}/preview-decision",
+      "GET /api/diagnosis-orders/{orderId}/basic-decision",
+      "POST /api/diagnosis-orders/{orderId}/generate-full",
+      "GET /api/diagnosis-orders/{orderId}/full-report",
+      "POST /api/diagnosis-orders/{orderId}/save-report",
+      "POST /api/diagnosis-orders/{orderId}/feedback",
+      "POST /api/diagnosis-orders/{orderId}/export-pdf",
+      "GET /api/my/reports",
+      "GET /api/report-exports/{exportId}",
+      "POST /api/payments/create",
+      "POST /api/payments/wechat/callback"
+    ],
+    "missingV13ApiRoutes": [
+      "GET /api/diagnosis-orders/{orderId}/questions",
+      "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/exercise-answer",
+      "GET /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions"
+    ],
+    "existingTables": [
+      "users",
+      "diagnosis_orders",
+      "upload_files",
+      "ai_analysis_tasks",
+      "diagnosis_decisions",
+      "payments",
+      "report_exports",
+      "feedbacks"
+    ],
+    "missingV13Tables": [
+      "diagnosis_questions",
+      "question_interactions",
+      "ai_model_traces"
+    ],
+    "currentStatus": "API_DB_GAPS_FOUND"
+  },
+  "llmCallInventory": [
+    {
+      "id": "LLM-PREVIEW-01",
+      "operation": "Preview analysis after upload",
+      "currentCallSiteCandidates": [
+        "server/src/services/diagnosis-orders-service.js:startPreviewAnalysis",
+        "scoremap-miniapp/services/api-client.js:start-preview-analysis local fixture path"
+      ],
+      "requiredAdapterTask": "T20",
+      "requiredE2eTask": "T32",
+      "currentStatus": "MODEL_SHAPED_LOCAL_LOGIC_NOT_ROUTED_THROUGH_TRACE_ADAPTER"
+    },
+    {
+      "id": "LLM-BASIC-02",
+      "operation": "Generate complete initial/basic decision",
+      "currentCallSiteCandidates": [
+        "server/src/services/reports-service.js:createBasicDecision",
+        "server/src/services/reports-service.js:getBasicDecision"
+      ],
+      "requiredAdapterTask": "T20",
+      "requiredE2eTask": "T32",
+      "currentStatus": "MODEL_SHAPED_LOCAL_LOGIC_NOT_ROUTED_THROUGH_TRACE_ADAPTER"
+    },
+    {
+      "id": "LLM-FULL-03",
+      "operation": "Generate full report",
+      "currentCallSiteCandidates": [
+        "server/src/services/reports-service.js:createFullReport",
+        "server/src/services/reports-service.js:generateFullReport"
+      ],
+      "requiredAdapterTask": "T20",
+      "requiredE2eTask": "T32",
+      "currentStatus": "MODEL_SHAPED_LOCAL_LOGIC_NOT_ROUTED_THROUGH_TRACE_ADAPTER"
+    },
+    {
+      "id": "LLM-QUESTION-04",
+      "operation": "Extract wrong-question cards from full report/material context",
+      "currentCallSiteCandidates": [],
+      "requiredAdapterTask": "T20",
+      "requiredImplementationTasks": [
+        "T21",
+        "T22"
+      ],
+      "requiredE2eTask": "T32",
+      "currentStatus": "MISSING_IMPLEMENTATION"
+    },
+    {
+      "id": "LLM-TUTOR-05",
+      "operation": "Fixed follow-up explanation for a current wrong question",
+      "currentCallSiteCandidates": [],
+      "requiredAdapterTask": "T20",
+      "requiredImplementationTask": "T23",
+      "requiredE2eTask": "T32",
+      "currentStatus": "MISSING_IMPLEMENTATION"
+    },
+    {
+      "id": "LLM-EXERCISE-06",
+      "operation": "Generate a similar exercise from current wrong-question context",
+      "currentCallSiteCandidates": [],
+      "requiredAdapterTask": "T20",
+      "requiredImplementationTask": "T23",
+      "requiredE2eTask": "T32",
+      "currentStatus": "MISSING_IMPLEMENTATION"
+    },
+    {
+      "id": "LLM-CHECK-07",
+      "operation": "Check submitted exercise answer and produce feedback",
+      "currentCallSiteCandidates": [],
+      "requiredAdapterTask": "T20",
+      "requiredImplementationTask": "T23",
+      "requiredE2eTask": "T32",
+      "currentStatus": "MISSING_IMPLEMENTATION"
+    }
+  ],
+  "requirementPlan": [
+    {
+      "requirementId": "V13-R01",
+      "priority": "P0",
+      "plannedTaskIds": [
+        "T22",
+        "T25",
+        "T26",
+        "T31"
+      ],
+      "verificationCommand": "npm test -- full-report-ai-entry wrong-question-detail",
+      "evidenceTarget": "docs/auto-execute/evidence/owner/O14-ai-tutor-entry.json",
+      "currentStatus": "MISSING_IMPLEMENTATION"
+    },
+    {
+      "requirementId": "V13-R02",
+      "priority": "P0",
+      "plannedTaskIds": [
+        "T23",
+        "T31",
+        "T32"
+      ],
+      "verificationCommand": "npm --prefix server test -- ai-tutor quota auth failures",
+      "evidenceTarget": "docs/auto-execute/evidence/api-db-llm/v13-entitlement-branches.json",
+      "currentStatus": "MISSING_IMPLEMENTATION"
+    },
+    {
+      "requirementId": "V13-R03",
+      "priority": "P0",
+      "plannedTaskIds": [
+        "T21",
+        "T23",
+        "T32"
+      ],
+      "verificationCommand": "npm run e2e:api-db -- ai-tutor-v13",
+      "evidenceTarget": "docs/auto-execute/evidence/api-db-llm/v13-quota-readback.json",
+      "currentStatus": "MISSING_SCHEMA_AND_API"
+    },
+    {
+      "requirementId": "V13-R04",
+      "priority": "P0",
+      "plannedTaskIds": [
+        "T23",
+        "T27",
+        "T31"
+      ],
+      "verificationCommand": "npm test -- ai-tutor-interaction",
+      "evidenceTarget": "docs/auto-execute/evidence/owner/v13-fixed-buttons-clicks.json",
+      "currentStatus": "MISSING_IMPLEMENTATION"
+    },
+    {
+      "requirementId": "V13-R05",
+      "priority": "P0",
+      "plannedTaskIds": [
+        "T20",
+        "T23",
+        "T32"
+      ],
+      "verificationCommand": "npm run e2e:api-db -- ai-tutor-v13",
+      "evidenceTarget": "docs/auto-execute/evidence/api-db-llm/v13-tutor-trace-context.json",
+      "currentStatus": "MISSING_TRACE_ADAPTER_AND_API"
+    },
+    {
+      "requirementId": "V13-R06",
+      "priority": "P0",
+      "plannedTaskIds": [
+        "T23",
+        "T28",
+        "T32"
+      ],
+      "verificationCommand": "npm test -- ai-exercise-feedback",
+      "evidenceTarget": "docs/auto-execute/evidence/api-db-llm/v13-exercise-answer-feedback.json",
+      "currentStatus": "MISSING_IMPLEMENTATION"
+    },
+    {
+      "requirementId": "V13-R07",
+      "priority": "P0",
+      "plannedTaskIds": [
+        "T21",
+        "T23",
+        "T32"
+      ],
+      "verificationCommand": "npm run e2e:api-db -- ai-tutor-v13",
+      "evidenceTarget": "docs/auto-execute/evidence/api-db-llm/v13-api-contracts.json",
+      "currentStatus": "MISSING_API_ROUTES"
+    },
+    {
+      "requirementId": "V13-R08",
+      "priority": "P0",
+      "plannedTaskIds": [
+        "T21",
+        "T22",
+        "T32"
+      ],
+      "verificationCommand": "npm --prefix server test -- question-interactions db-readback",
+      "evidenceTarget": "docs/auto-execute/evidence/api-db-llm/v13-question-interaction-db-readback.json",
+      "currentStatus": "MISSING_TABLES"
+    },
+    {
+      "requirementId": "V13-R09",
+      "priority": "P0.5",
+      "plannedTaskIds": [
+        "T22",
+        "T25",
+        "T30"
+      ],
+      "verificationCommand": "npm run visual:scoremap -- ai-tutor-v13 all",
+      "evidenceTarget": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/summary.json",
+      "currentStatus": "PARTIAL_EXISTING_PAGE_MISSING_V13_VISUAL"
+    },
+    {
+      "requirementId": "V13-R10",
+      "priority": "P0.5",
+      "plannedTaskIds": [
+        "T24",
+        "T26",
+        "T30"
+      ],
+      "verificationCommand": "npm run visual:scoremap -- ai-tutor-v13 all",
+      "evidenceTarget": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/wrong-question-detail/summary.json",
+      "currentStatus": "MISSING_ROUTE_AND_UI"
+    },
+    {
+      "requirementId": "V13-R11",
+      "priority": "P0.5",
+      "plannedTaskIds": [
+        "T24",
+        "T27",
+        "T30"
+      ],
+      "verificationCommand": "npm run visual:scoremap -- ai-tutor-v13 all",
+      "evidenceTarget": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/summary.json",
+      "currentStatus": "MISSING_ROUTE_AND_UI"
+    },
+    {
+      "requirementId": "V13-R12",
+      "priority": "P0.5",
+      "plannedTaskIds": [
+        "T24",
+        "T28",
+        "T30"
+      ],
+      "verificationCommand": "npm run visual:scoremap -- ai-tutor-v13 all",
+      "evidenceTarget": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/similar-exercise/summary.json",
+      "currentStatus": "MISSING_ROUTE_AND_UI"
+    },
+    {
+      "requirementId": "V13-R13",
+      "priority": "P0",
+      "plannedTaskIds": [
+        "T19",
+        "T20",
+        "T32",
+        "T33"
+      ],
+      "verificationCommand": "npm run e2e:api-db -- ai-tutor-v13",
+      "evidenceTarget": "docs/auto-execute/evidence/inventory/v13-source-inventory.json",
+      "currentStatus": "T19_INVENTORIED_T20_T32_PENDING"
+    },
+    {
+      "requirementId": "V13-R14",
+      "priority": "P0",
+      "plannedTaskIds": [
+        "T31",
+        "T33"
+      ],
+      "verificationCommand": "npm run e2e:owner -- ai-tutor-v13",
+      "evidenceTarget": "docs/auto-execute/evidence/owner/all-pages-ai-tutor-v13.json",
+      "currentStatus": "PENDING_LATER_TASK"
+    },
+    {
+      "requirementId": "V13-R15",
+      "priority": "P0",
+      "plannedTaskIds": [
+        "T33"
+      ],
+      "verificationCommand": "powershell -ExecutionPolicy Bypass -File scripts/acceptance/run-final-gate.ps1 -Scope ai-tutor-v13",
+      "evidenceTarget": "docs/auto-execute/results/T33.json",
+      "currentStatus": "PENDING_LATER_TASK"
+    }
+  ],
+  "implementationGaps": [
+    "V13 PRD and several v1.3 planning docs contain encoding corruption that must be corrected before final user-visible copy can pass.",
+    "No v1.3 wrong-question, tutor, exercise, or feedback pages are registered in scoremap-miniapp/app.json.",
+    "No diagnosis_questions, question_interactions, or ai_model_traces tables exist in the local JSON DB adapter.",
+    "No v1.3 question/interactions API routes exist under server/src/routes.",
+    "Existing model-shaped local report generation is not routed through a local mockable trace adapter.",
+    "The five v1.3 UI references exist, but actual screenshots/diffs/metrics are not produced yet.",
+    "T20-T33 evidence is not present yet, so T19 cannot and does not claim product PASS."
+  ],
+  "acceptanceCoverage": {
+    "requirementsMapped": true,
+    "allFiveUiReferencesMapped": true,
+    "allMandatoryLlmIdsPresent": true,
+    "missingImplementationGapsRecorded": true,
+    "purePassAllowed": false
+  }
+}
