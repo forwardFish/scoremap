@@ -4,8 +4,8 @@
     "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
     "command": "npm run visual:scoremap -- full-report-entry full-report",
     "route": "/pages/full-report/index",
-    "reference": "docs/UI/灏忕▼搴?瀹屾暣鎶ュ憡.png",
-    "stitchReference": "docs/UI/灏忕▼搴?stitch_codex_development_blueprints/ai_pdf/screen.png",
+    "reference": "ui-reference-catalog/灏忕▼搴?瀹屾暣鎶ュ憡.png",
+    "stitchReference": "ui-reference-catalog/灏忕▼搴?stitch_codex_development_blueprints/ai_pdf/screen-reference",
     "actual": "docs/auto-execute/evidence/frontend-page/visual/full-report/actual-full-report-structure.svg",
     "diff": "docs/auto-execute/evidence/frontend-page/visual/full-report/diff-full-report-manual-review.svg",
     "viewport": {

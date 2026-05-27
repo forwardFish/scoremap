@@ -28,21 +28,21 @@
       "responseStatus": 201,
       "response": {
         "status": "pending",
-        "paymentId": "payment-basic-ad1a2f751cf4",
-        "orderId": "order-0bb5a6cb6eeb",
+        "paymentId": "payment-basic-3d63e60d24f5",
+        "orderId": "order-1bbfe633d797",
         "paymentType": "basic",
         "amountCents": 100,
         "amountYuan": 1,
         "idempotent": false,
         "paymentParams": {
           "provider": "local-wechat-pay-mock",
-          "paymentId": "payment-basic-ad1a2f751cf4",
-          "orderId": "order-0bb5a6cb6eeb",
+          "paymentId": "payment-basic-3d63e60d24f5",
+          "orderId": "order-1bbfe633d797",
           "amountCents": 100,
-          "nonceStr": "local-nonce-payment-basic-ad1a2f751cf4",
-          "package": "prepay_id=local_payment-basic-ad1a2f751cf4",
+          "nonceStr": "local-nonce-payment-basic-3d63e60d24f5",
+          "package": "prepay_id=local_payment-basic-3d63e60d24f5",
           "signType": "LOCAL_MOCK",
-          "paySign": "local-signature-payment-basic-ad1a2f751cf4"
+          "paySign": "local-signature-payment-basic-3d63e60d24f5"
         }
       }
     },
@@ -54,8 +54,8 @@
       "response": {
         "ok": true,
         "status": "paid",
-        "paymentId": "payment-basic-ad1a2f751cf4",
-        "orderId": "order-0bb5a6cb6eeb",
+        "paymentId": "payment-basic-3d63e60d24f5",
+        "orderId": "order-1bbfe633d797",
         "accessLevel": "basic",
         "idempotent": false,
         "repaired": false
@@ -68,21 +68,21 @@
       "responseStatus": 201,
       "response": {
         "status": "pending",
-        "paymentId": "payment-full-32b4d5fd83a6",
-        "orderId": "order-0bb5a6cb6eeb",
+        "paymentId": "payment-full-ad7c3c7bd240",
+        "orderId": "order-1bbfe633d797",
         "paymentType": "full",
         "amountCents": 990,
         "amountYuan": 9.9,
         "idempotent": false,
         "paymentParams": {
           "provider": "local-wechat-pay-mock",
-          "paymentId": "payment-full-32b4d5fd83a6",
-          "orderId": "order-0bb5a6cb6eeb",
+          "paymentId": "payment-full-ad7c3c7bd240",
+          "orderId": "order-1bbfe633d797",
           "amountCents": 990,
-          "nonceStr": "local-nonce-payment-full-32b4d5fd83a6",
-          "package": "prepay_id=local_payment-full-32b4d5fd83a6",
+          "nonceStr": "local-nonce-payment-full-ad7c3c7bd240",
+          "package": "prepay_id=local_payment-full-ad7c3c7bd240",
           "signType": "LOCAL_MOCK",
-          "paySign": "local-signature-payment-full-32b4d5fd83a6"
+          "paySign": "local-signature-payment-full-ad7c3c7bd240"
         }
       }
     },
@@ -94,8 +94,8 @@
       "response": {
         "ok": true,
         "status": "paid",
-        "paymentId": "payment-full-32b4d5fd83a6",
-        "orderId": "order-0bb5a6cb6eeb",
+        "paymentId": "payment-full-ad7c3c7bd240",
+        "orderId": "order-1bbfe633d797",
         "accessLevel": "full",
         "idempotent": false,
         "repaired": false
@@ -104,8 +104,8 @@
   ],
   "dbReadback": {
     "fullPayment": {
-      "id": "payment-full-32b4d5fd83a6",
-      "orderId": "order-0bb5a6cb6eeb",
+      "id": "payment-full-ad7c3c7bd240",
+      "orderId": "order-1bbfe633d797",
       "ownerId": "local-user-scoremap-t03",
       "paymentType": "full",
       "channel": "local-wechat-pay-mock",
@@ -113,12 +113,12 @@
       "status": "paid",
       "mockTransactionId": "mock-tx-t04-full",
       "callbackCount": 1,
-      "createdAt": "2026-05-25T02:55:22.799Z",
-      "updatedAt": "2026-05-25T02:55:22.802Z",
+      "createdAt": "2026-05-27T11:31:02.502Z",
+      "updatedAt": "2026-05-27T11:31:02.504Z",
       "paidAt": "1970-01-01T00:00:00.000Z"
     },
     "order": {
-      "id": "order-0bb5a6cb6eeb",
+      "id": "order-1bbfe633d797",
       "ownerId": "local-user-scoremap-t03",
       "source": "T04-full",
       "grade": "grade-5",
@@ -127,12 +127,12 @@
       "materialType": "answer-sheet",
       "status": "full_paid",
       "accessLevel": "full",
-      "orderToken": "local-order-token-order-0bb5a6cb6eeb",
-      "createdAt": "2026-05-25T02:55:22.774Z",
-      "updatedAt": "2026-05-25T02:55:22.803Z",
+      "orderToken": "local-order-token-order-1bbfe633d797",
+      "createdAt": "2026-05-27T11:31:02.479Z",
+      "updatedAt": "2026-05-27T11:31:02.504Z",
       "uploadedCount": 1,
-      "previewTaskId": "task-97a4171ba604",
-      "previewDecisionId": "decision-order-0bb5a6cb6eeb-preview"
+      "previewTaskId": "task-9def6eb07bd4",
+      "previewDecisionId": "decision-order-1bbfe633d797-preview"
     }
   },
   "localOnly": {

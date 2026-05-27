@@ -1,0 +1,88 @@
+﻿{
+    "blockers":  [
+                     {
+                         "id":  "GAP-STORY-CURATION-STORY-REQ-001",
+                         "severity":  "PRODUCT_DECISION_REQUIRED",
+                         "description":  "Ambiguous story candidate requires product decision: Complete reports expose wrong-question cards and the AI tutor entry from each eligible wrong-question card.",
+                         "repairTarget":  "Clarify whether this candidate is a valid story, supporting requirement, or out of scope.",
+                         "source":  "docs\\auto-execute\\requirement-target.json"
+                     },
+                     {
+                         "id":  "GAP-STORY-CURATION-STORY-REQ-004",
+                         "severity":  "PRODUCT_DECISION_REQUIRED",
+                         "description":  "Ambiguous story candidate requires product decision: The first tutor version uses fixed action buttons only and exposes no open-ended chat surface.",
+                         "repairTarget":  "Clarify whether this candidate is a valid story, supporting requirement, or out of scope.",
+                         "source":  "docs\\auto-execute\\requirement-target.json"
+                     },
+                     {
+                         "id":  "GAP-STORY-CURATION-STORY-REQ-005",
+                         "severity":  "PRODUCT_DECISION_REQUIRED",
+                         "description":  "Ambiguous story candidate requires product decision: AI responses stay around the current wrong question and record a summary.",
+                         "repairTarget":  "Clarify whether this candidate is a valid story, supporting requirement, or out of scope.",
+                         "source":  "docs\\auto-execute\\requirement-target.json"
+                     },
+                     {
+                         "id":  "GAP-STORY-CURATION-STORY-REQ-007",
+                         "severity":  "PRODUCT_DECISION_REQUIRED",
+                         "description":  "Ambiguous story candidate requires product decision: APIs exist for question list, follow-up interaction, exercise answer, and interaction records.",
+                         "repairTarget":  "Clarify whether this candidate is a valid story, supporting requirement, or out of scope.",
+                         "source":  "docs\\auto-execute\\requirement-target.json"
+                     },
+                     {
+                         "id":  "GAP-STORY-CURATION-STORY-REQ-008",
+                         "severity":  "PRODUCT_DECISION_REQUIRED",
+                         "description":  "Ambiguous story candidate requires product decision: Storage exists for diagnosis questions and question interactions.",
+                         "repairTarget":  "Clarify whether this candidate is a valid story, supporting requirement, or out of scope.",
+                         "source":  "docs\\auto-execute\\requirement-target.json"
+                     },
+                     {
+                         "id":  "GAP-STORY-CURATION-STORY-REQ-010",
+                         "severity":  "PRODUCT_DECISION_REQUIRED",
+                         "description":  "Ambiguous story candidate requires product decision: The wrong-question detail page matches the supplied reference.",
+                         "repairTarget":  "Clarify whether this candidate is a valid story, supporting requirement, or out of scope.",
+                         "source":  "docs\\auto-execute\\requirement-target.json"
+                     },
+                     {
+                         "id":  "GAP-STORY-CURATION-STORY-REQ-011",
+                         "severity":  "PRODUCT_DECISION_REQUIRED",
+                         "description":  "Ambiguous story candidate requires product decision: The AI tutor interaction page and expanded area match the supplied reference.",
+                         "repairTarget":  "Clarify whether this candidate is a valid story, supporting requirement, or out of scope.",
+                         "source":  "docs\\auto-execute\\requirement-target.json"
+                     },
+                     {
+                         "id":  "GAP-STORY-CURATION-STORY-REQ-012",
+                         "severity":  "PRODUCT_DECISION_REQUIRED",
+                         "description":  "Ambiguous story candidate requires product decision: Similar exercise and answer feedback pages match the supplied references.",
+                         "repairTarget":  "Clarify whether this candidate is a valid story, supporting requirement, or out of scope.",
+                         "source":  "docs\\auto-execute\\requirement-target.json"
+                     },
+                     {
+                         "id":  "GAP-STORY-CURATION-STORY-REQ-013",
+                         "severity":  "PRODUCT_DECISION_REQUIRED",
+                         "description":  "Ambiguous story candidate requires product decision: All large-model call sites are inventoried and routed through testable local adapters.",
+                         "repairTarget":  "Clarify whether this candidate is a valid story, supporting requirement, or out of scope.",
+                         "source":  "docs\\auto-execute\\requirement-target.json"
+                     },
+                     {
+                         "id":  "GAP-STORY-CURATION-STORY-REQ-014",
+                         "severity":  "PRODUCT_DECISION_REQUIRED",
+                         "description":  "Ambiguous story candidate requires product decision: A normal person can click through all pages and visible P0 controls.",
+                         "repairTarget":  "Clarify whether this candidate is a valid story, supporting requirement, or out of scope.",
+                         "source":  "docs\\auto-execute\\requirement-target.json"
+                     }
+                 ],
+    "commands":  [
+
+                 ],
+    "lane":  "story-curation",
+    "status":  "PRODUCT_DECISION_REQUIRED",
+    "evidence":  [
+                     "docs\\auto-execute\\story-candidates-curated.json",
+                     "docs\\auto-execute\\05-known-gaps-and-assumptions.md"
+                 ],
+    "schemaVersion":  "2.0",
+    "nextActions":  [
+                        "Normalize only VALID_STORY items; clarify AMBIGUOUS items before pure PASS."
+                    ],
+    "updatedAt":  "2026-05-25T19:10:41"
+}

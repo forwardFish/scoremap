@@ -1,9 +1,11 @@
 {
   "id": "UI-C11",
   "screen": "my",
+  "referenceKey": null,
   "route": "/pages/my/index",
   "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
-  "reference": "docs/UI/小程序/我的.png",
+  "reference": "docs/auto-execute/evidence/visual-harness/my/reference.png",
+  "sourceReference": "docs/UI/小程序/我的.png",
   "declaredReference": "docs/UI/小程序/我的.png",
   "stitchReference": "docs/UI/小程序/stitch_codex_development_blueprints/_1/screen.png",
   "miniappActualAsset": "scoremap-miniapp/assets/reference/my.jpg",

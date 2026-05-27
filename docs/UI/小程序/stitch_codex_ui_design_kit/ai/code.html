@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Be-Vietnam-Pro:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#c9c4d6",
+                    "on-primary-fixed-variant": "#442bb5",
+                    "secondary-fixed-dim": "#ffb77a",
+                    "on-tertiary-fixed-variant": "#005228",
+                    "surface": "#fdf8ff",
+                    "surface-container": "#f1ecf8",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#6b3900",
+                    "on-primary-container": "#fffbff",
+                    "on-tertiary-container": "#f6fff4",
+                    "primary-fixed-dim": "#c8bfff",
+                    "on-secondary-fixed-variant": "#6d3a00",
+                    "secondary-container": "#fc9d41",
+                    "secondary-fixed": "#ffdcc2",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#c8bfff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "background": "#fdf8ff",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#e5e0ec",
+                    "surface-variant": "#e5e0ec",
+                    "inverse-surface": "#312f38",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#61de8a",
+                    "on-surface": "#1c1b23",
+                    "on-surface-variant": "#474554",
+                    "on-secondary-fixed": "#2e1500",
+                    "on-primary-fixed": "#190064",
+                    "inverse-on-surface": "#f4effb",
+                    "primary-container": "#7360e5",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#008645",
+                    "surface-container-high": "#ebe6f2",
+                    "primary": "#5a45cb",
+                    "outline": "#787585",
+                    "tertiary-fixed": "#7efba4",
+                    "surface-container-low": "#f7f1fd",
+                    "secondary": "#8f4e00",
+                    "surface-bright": "#fdf8ff",
+                    "on-tertiary-fixed": "#00210c",
+                    "surface-tint": "#5c47cd",
+                    "primary-fixed": "#e5deff",
+                    "surface-dim": "#ddd8e4",
+                    "on-background": "#1c1b23",
+                    "error": "#ba1a1a",
+                    "tertiary": "#006a35"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "container-margin": "16px",
+                    "md": "16px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "gutter": "12px",
+                    "xs": "8px",
+                    "sm": "12px"
+            },
+            "fontFamily": {
+                    "title-sm": ["Plus Jakarta Sans"],
+                    "display-lg": ["Be Vietnam Pro"],
+                    "body-sm": ["Plus Jakarta Sans"],
+                    "label-caps": ["Plus Jakarta Sans"],
+                    "body-base": ["Plus Jakarta Sans"],
+                    "headline-md": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "title-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "display-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-base": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .bento-card {
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .bento-card:active {
+            transform: scale(0.96);
+        }
+        .glass-effect {
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.85);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface min-h-screen font-body-base text-on-surface pb-24">
+<!-- Top Navigation Bar -->
+<header class="bg-surface sticky top-0 z-50 shadow-sm flex justify-between items-center w-full px-container-margin h-14">
+<button class="hover:bg-primary-container/10 rounded-full p-2 active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<div class="flex flex-col items-center">
+<h1 class="text-headline-md font-headline-md font-bold text-primary">鏁欒偛鎻愬垎鎶ュ憡</h1>
+<p class="text-body-sm text-primary/70">浣犺繕鍙互杩介棶 2 娆?/p>
+</div>
+<button class="hover:bg-primary-container/10 rounded-full p-2 active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-primary">history</span>
+</button>
+</header>
+<main class="max-w-md mx-auto p-container-margin space-y-lg">
+<!-- AI Teacher Interaction Section -->
+<section class="bg-surface-container-lowest rounded-3xl p-lg shadow-[0_15px_40px_-15px_rgba(90,69,203,0.1)] relative overflow-hidden border border-primary-fixed/30">
+<!-- Mascot & Speech -->
+<div class="flex items-start gap-4 mb-xl">
+<div class="w-16 h-16 flex-shrink-0 bg-primary-fixed rounded-2xl flex items-center justify-center shadow-inner overflow-hidden">
+<img alt="Mascot Owl" class="w-full h-full object-cover" data-alt="A friendly, stylized purple owl mascot wearing a tiny graduation cap, designed in a soft 3D rendered aesthetic with large expressive eyes. The mascot is positioned as a supportive educational guide, exuding academic confidence and approachability within a bright, modern light-mode interface. The lighting is soft and ambient, emphasizing its gentle tactile texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTHGqF-qEQAJNq4OKDw4feFvBTLByc7nYoJBh1CRDE_o9V1RicwSpbumbgj-xwXCmCvxiIF8HyR58HfGvy4k-rWuKwRql4-ynf2HQ9oTtpPcw7-GlYygRhXEhWc6Qd7C7yJDVc1zrGvtw8Aus110iPsKRPCdmABuQrSe_fkqnVZ4JTB6JyUm1ih0sALKAIRhY6XRyBE4aln-czWdUAHzKraiPG280D_giv-ltIlz5oOHuLmnBokbLnJ6CRde8E-e4Mga6sBstWFvgA"/>
+</div>
+<div class="relative bg-primary-container/5 p-md rounded-2xl rounded-tl-none border border-primary-container/10">
+<p class="text-body-base text-on-surface font-medium leading-relaxed">
+                        鎴戞潵甯綘鍐嶆⒊鐞嗚繖閬撻銆備綘鍙兘娌℃湁寮勬槑鐧解€滅敳姣斾箼澶氳鈥濇槸浠€涔堟剰鎬濄€備綘浼氭洿鎯冲厛鍚摢涓€閮ㄥ垎锛?                    </p>
+<!-- Tail -->
+<div class="absolute -left-2 top-0 w-0 h-0 border-t-[10px] border-t-transparent border-r-[10px] border-r-primary-container/5 border-b-[10px] border-b-transparent"></div>
+</div>
+</div>
+<!-- Interaction Chips Grid -->
+<div class="grid grid-cols-3 gap-xs">
+<button class="bento-card flex flex-col items-center justify-center p-sm bg-surface-container-low border border-outline-variant/30 rounded-2xl hover:bg-primary-container/10 group">
+<span class="material-symbols-outlined text-primary text-3xl mb-1 group-hover:scale-110 transition-transform">help_center</span>
+<span class="text-label-caps text-center">鎴戜笉鎳傝繖涓€姝?/span>
+</button>
+<button class="bento-card flex flex-col items-center justify-center p-sm bg-surface-container-low border border-outline-variant/30 rounded-2xl hover:bg-primary-container/10 group">
+<span class="material-symbols-outlined text-secondary text-3xl mb-1 group-hover:scale-110 transition-transform">lightbulb</span>
+<span class="text-label-caps text-center">涓轰粈涔堣繖鏍风畻</span>
+</button>
+<button class="bento-card flex flex-col items-center justify-center p-sm bg-surface-container-low border border-outline-variant/30 rounded-2xl hover:bg-primary-container/10 group">
+<span class="material-symbols-outlined text-tertiary text-3xl mb-1 group-hover:scale-110 transition-transform">model_training</span>
+<span class="text-label-caps text-center">鎹竴绉嶆柟寮忚</span>
+</button>
+<button class="bento-card col-span-2 flex flex-row items-center gap-3 p-sm bg-surface-container-low border border-outline-variant/30 rounded-2xl hover:bg-primary-container/10 group px-lg">
+<span class="material-symbols-outlined text-primary-container text-2xl group-hover:rotate-12 transition-transform">description</span>
+<span class="text-label-caps">鍑轰竴閬撳悓绫婚</span>
+</button>
+<button class="bento-card flex flex-col items-center justify-center p-sm bg-tertiary-container text-on-tertiary-container rounded-2xl shadow-lg shadow-tertiary-container/20">
+<span class="material-symbols-outlined text-2xl mb-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-label-caps">鎴戝凡缁忔噦浜?/span>
+</button>
+</div>
+</section>
+<!-- Question Info Card (Expandable) -->
+<section class="bg-white rounded-3xl overflow-hidden shadow-sm border border-outline-variant/20">
+<div class="p-md flex items-center justify-between border-b border-outline-variant/10 cursor-pointer" onclick="toggleAccordion('question-content')">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-primary-fixed rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">assignment</span>
+</div>
+<h3 class="font-title-sm text-on-surface">閿欓淇℃伅</h3>
+</div>
+<span class="material-symbols-outlined text-outline transition-transform duration-300" id="accordion-icon">expand_less</span>
+</div>
+<div class="p-lg space-y-md transition-all duration-300" id="question-content">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 bg-secondary-container/10 text-secondary font-label-caps rounded text-[10px]">搴旂敤棰?/span>
+<span class="text-body-sm font-semibold">浜屽厓涓€娆℃柟绋嬪簲鐢ㄩ</span>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-2xl border-l-4 border-primary shadow-inner">
+<div class="space-y-sm text-on-surface-variant font-medium leading-relaxed italic">
+<p>鐢层€佷箼涓や汉鍚屾椂浠嶢鍦板嚭鍙戯紝鐢叉瘡灏忔椂琛?60km锛屼箼姣忓皬鏃惰 50km锛? 灏忔椂鍚庣敳姣斾箼澶氳澶氬皯鍗冪背锛?/p>
+<div class="mt-lg pt-md border-t border-dashed border-outline-variant/30 text-primary-container">
+<p>x = (60 - 50) 脳 2</p>
+<p>x = 10 脳 2</p>
+<p>x = 20 (鍗冪背)</p>
+<p class="font-bold">绛旓細鐢叉瘮涔欏琛?20 鍗冪背銆?/p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interaction History Summary -->
+<button class="w-full flex items-center justify-between p-lg bg-white rounded-3xl shadow-sm border border-outline-variant/10 group active:scale-[0.98] transition-all">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-surface-container-high rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">forum</span>
+</div>
+<span class="font-title-sm">鏈浜掑姩璁板綍 (2)</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+<p class="text-center text-body-sm text-outline pt-md">鍐呭鐢?AI 鐢熸垚锛屼粎渚涘弬鑰?/p>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-2 pb-safe bg-surface/90 backdrop-blur-md z-50 border-t border-outline-variant/30">
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined mb-1">share</span>
+<span class="text-label-caps">鍒嗕韩鎶ュ憡</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-6 py-1.5 scale-102 shadow-lg shadow-primary-container/30">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="text-label-caps">AI 鎻愬垎</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined mb-1">picture_as_pdf</span>
+<span class="text-label-caps">瀵煎嚭 PDF</span>
+</button>
+</nav>
+<script>
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById('accordion-icon');
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Simple entrance animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section, button.w-full');
+            sections.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(10px)';
+                setTimeout(() => {
+                    el.style.transition = 'all 0.4s ease-out';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body></html>

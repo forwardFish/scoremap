@@ -1,0 +1,249 @@
+{
+  "scenarioId": "V13-O18",
+  "status": "PASS",
+  "command": "npm run e2e:owner -- ai-tutor-v13",
+  "requirementIds": [
+    "V13-R06",
+    "V13-R12",
+    "V13-R14"
+  ],
+  "clickPath": [
+    "/pages/ai-tutor/index",
+    "generate-similar-exercise",
+    "/pages/ai-exercise/index",
+    "select-option-b",
+    "submit-answer",
+    "/pages/ai-exercise-feedback/index"
+  ],
+  "routeEvidence": {
+    "exerciseRoute": "/pages/ai-exercise/index",
+    "feedbackRoute": "/pages/ai-exercise-feedback/index",
+    "historyRoute": "/pages/ai-tutor/index"
+  },
+  "apiEvidence": [
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t31-v13-exercise/questions/order-t31-v13-exercise-q1/exercise-answer",
+      "payloadSummary": {
+        "interactionId": "interaction-order-t31-v13-exercise-q1-similar_exercise-1",
+        "submittedAnswer": "36 千米",
+        "source": "T28-ai-exercise-ui"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "answered",
+        "interactionId": "interaction-order-t31-v13-exercise-q1-similar_exercise-1",
+        "correctness": true,
+        "feedback": {
+          "correct": true,
+          "headline": "回答正确",
+          "explanation": "你先算出每小时多走 12 千米，再乘以 3 小时，数量关系抓对了。",
+          "summary": "同类题迁移已掌握。"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t31-v13-exercise/generate-full",
+      "payloadSummary": {
+        "source": "T28-feedback-fixture"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-exercise/questions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-exercise",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t31-v13-exercise-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t31-v13-exercise-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-exercise/questions/order-t31-v13-exercise-q1/interactions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-exercise",
+        "questionId": "order-t31-v13-exercise-q1",
+        "items": [
+          {
+            "id": "interaction-order-t31-v13-exercise-q1-similar_exercise-1",
+            "orderId": "order-t31-v13-exercise",
+            "questionId": "order-t31-v13-exercise-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "similar_exercise",
+            "promptId": "LLM-EXERCISE-06",
+            "status": "success",
+            "summary": "同类题迁移已掌握。",
+            "response": "已生成一道同类题，继续保持当前错题的数量关系。",
+            "exercise": {
+              "id": "exercise-order-t31-v13-exercise-q1",
+              "stem": "甲每小时行 72km，乙每小时行 60km，3 小时后甲比乙多行多少千米？",
+              "options": [
+                "24 千米",
+                "36 千米",
+                "132 千米",
+                "216 千米"
+              ],
+              "correctOption": "36 千米"
+            },
+            "traceId": "trace-interaction-order-t31-v13-exercise-q1-similar_exercise-1",
+            "createdAt": "2026-05-25T01:00:00.000Z",
+            "submittedAnswer": "36 千米",
+            "correctness": true,
+            "answerFeedback": {
+              "correct": true,
+              "headline": "回答正确",
+              "explanation": "你先算出每小时多走 12 千米，再乘以 3 小时，数量关系抓对了。",
+              "summary": "同类题迁移已掌握。"
+            },
+            "answerPromptId": "LLM-CHECK-07",
+            "answerTraceId": "trace-interaction-order-t31-v13-exercise-q1-similar_exercise-1-answer"
+          }
+        ]
+      }
+    }
+  ],
+  "dbEvidence": {
+    "interaction": {
+      "id": "interaction-order-t31-v13-exercise-q1-similar_exercise-1",
+      "orderId": "order-t31-v13-exercise",
+      "questionId": "order-t31-v13-exercise-q1",
+      "ownerId": "local-user-scoremap-t06",
+      "actionType": "similar_exercise",
+      "promptId": "LLM-EXERCISE-06",
+      "status": "success",
+      "summary": "同类题迁移已掌握。",
+      "response": "已生成一道同类题，继续保持当前错题的数量关系。",
+      "exercise": {
+        "id": "exercise-order-t31-v13-exercise-q1",
+        "stem": "甲每小时行 72km，乙每小时行 60km，3 小时后甲比乙多行多少千米？",
+        "options": [
+          "24 千米",
+          "36 千米",
+          "132 千米",
+          "216 千米"
+        ],
+        "correctOption": "36 千米"
+      },
+      "traceId": "trace-interaction-order-t31-v13-exercise-q1-similar_exercise-1",
+      "createdAt": "2026-05-25T01:00:00.000Z",
+      "submittedAnswer": "36 千米",
+      "correctness": true,
+      "answerFeedback": {
+        "correct": true,
+        "headline": "回答正确",
+        "explanation": "你先算出每小时多走 12 千米，再乘以 3 小时，数量关系抓对了。",
+        "summary": "同类题迁移已掌握。"
+      },
+      "answerPromptId": "LLM-CHECK-07",
+      "answerTraceId": "trace-interaction-order-t31-v13-exercise-q1-similar_exercise-1-answer"
+    },
+    "exerciseTrace": {
+      "id": "trace-interaction-order-t31-v13-exercise-q1-similar_exercise-1",
+      "traceId": "trace-interaction-order-t31-v13-exercise-q1-similar_exercise-1",
+      "promptId": "LLM-EXERCISE-06",
+      "adapter": "local-miniapp-mock",
+      "status": "success",
+      "localOnly": true,
+      "requestSummary": {
+        "orderId": "order-t31-v13-exercise",
+        "questionId": "order-t31-v13-exercise-q1",
+        "actionType": "similar_exercise"
+      },
+      "responseSummary": {
+        "exerciseId": "exercise-order-t31-v13-exercise-q1"
+      }
+    },
+    "answerTrace": {
+      "id": "trace-interaction-order-t31-v13-exercise-q1-similar_exercise-1-answer",
+      "traceId": "trace-interaction-order-t31-v13-exercise-q1-similar_exercise-1-answer",
+      "promptId": "LLM-CHECK-07",
+      "adapter": "local-miniapp-mock",
+      "status": "success",
+      "localOnly": true,
+      "requestSummary": {
+        "orderId": "order-t31-v13-exercise",
+        "questionId": "order-t31-v13-exercise-q1",
+        "interactionId": "interaction-order-t31-v13-exercise-q1-similar_exercise-1",
+        "submittedAnswer": "36 千米"
+      },
+      "responseSummary": {
+        "correct": true,
+        "summary": "同类题迁移已掌握。"
+      }
+    }
+  },
+  "visualEvidence": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/ai-exercise/index",
+      "reference": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/similar-exercise/reference.png",
+      "actual": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/similar-exercise/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/similar-exercise/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/similar-exercise/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/similar-exercise/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/ai-exercise-feedback/index",
+      "reference": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/answer-feedback/reference.png",
+      "actual": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/answer-feedback/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/answer-feedback/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/answer-feedback/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/answer-feedback/summary.json"
+    }
+  ],
+  "visibleUiState": {
+    "selectedOption": "36 千米",
+    "feedbackHeadline": "回答正确",
+    "retryControlVisible": true
+  },
+  "localOnly": {
+    "LOCAL_ONLY": "true",
+    "adapterMode": "local-mock",
+    "remoteCalls": []
+  },
+  "llmTraceIds": [
+    "trace-interaction-order-t31-v13-exercise-q1-similar_exercise-1",
+    "trace-interaction-order-t31-v13-exercise-q1-similar_exercise-1-answer"
+  ]
+}

@@ -1,0 +1,1575 @@
+﻿{
+    "nextActions":  [
+                        "Use this comparison round as the next repair input, update implementation/evidence, then run another comparison round."
+                    ],
+    "round":  2,
+    "gaps":  [
+                 {
+                     "detail":  "Missing required evidence file",
+                     "path":  "docs\\auto-execute\\02-requirement-traceability-matrix.md",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "requirements"
+                 },
+                 {
+                     "detail":  "Missing required evidence file",
+                     "path":  "docs\\auto-execute\\04-visual-acceptance-checklist.md",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "Missing required evidence file",
+                     "path":  "docs\\auto-execute\\03-surface-map.md",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "surface"
+                 },
+                 {
+                     "detail":  "Missing required evidence file",
+                     "path":  "docs\\auto-execute\\14-frontend-implementation-plan.md",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "frontendPlan"
+                 },
+                 {
+                     "detail":  "Missing required evidence file",
+                     "path":  "docs\\auto-execute\\15-backend-implementation-plan.md",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "backendPlan"
+                 },
+                 {
+                     "detail":  "Missing required evidence file",
+                     "path":  "docs\\auto-execute\\16-integrated-verification-plan.md",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "integratedPlan"
+                 },
+                 {
+                     "detail":  "Missing required evidence file",
+                     "path":  "docs\\auto-execute\\17-final-acceptance-checklist.md",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "finalChecklist"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R01 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "Requirement V13-R01 is PASS_WITH_LIMITATION without a limitation reason.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R02 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R03 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R04 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R05 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R06 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R07 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R08 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R09 status is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R09 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R10 status is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R10 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R11 status is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R11 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R12 status is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R12 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R13 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R14 status is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R14 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R15 status is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R15 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-001 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-001 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-002 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-002 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-003 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-003 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-004 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-004 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-005 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-005 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-006 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-006 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "P0/P1 story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-001 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-001 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-002 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-002 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-003 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-003 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-004 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-004 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-005 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-005 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-006 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-006 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-007 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-007 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "P0/P1 story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-001 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-001 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-002 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-002 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-003 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-003 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-004 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-004 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-005 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-005 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-006 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-006 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-007 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-007 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "P0/P1 story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-009-001 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-009-001 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-009-002 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-009-002 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-009-003 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-009-003 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-009-004 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-009-004 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-009-005 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-009-005 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "UI target UI-C01 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C01 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C03 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C03 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C04 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C04 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C05 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C05 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C06 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C06 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C07 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C07 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C08 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C08 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C09 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C09 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C10 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C10 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C11 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C11 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-FULL-REPORT is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-FULL-REPORT visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-QUESTION-DETAIL is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-QUESTION-DETAIL visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-AI-TUTOR is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-AI-TUTOR visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-EXERCISE is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-EXERCISE visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-FEEDBACK is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-FEEDBACK visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C12 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R01 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "Requirement V13-R01 is PASS_WITH_LIMITATION without a limitation reason.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R02 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R03 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R04 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R05 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R06 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R07 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R08 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R09 status is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R09 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R10 status is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R10 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R11 status is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R11 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R12 status is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R12 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R13 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R14 status is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R14 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R15 status is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 requirement V13-R15 has no test or evidenceRequired mapping.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "P0/P1 story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-001 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-001 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-002 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-002 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-003 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-003 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-004 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-004 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-005 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-005 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-006 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-002-006 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "P0/P1 story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-001 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-001 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-002 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-002 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-003 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-003 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-004 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-004 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-005 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-005 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-006 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-006 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-007 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-003-007 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "P0/P1 story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-001 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-001 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-002 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-002 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-003 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-003 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-004 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-004 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-005 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-005 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-006 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-006 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-007 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-GENERAL-006-007 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "P0/P1 story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-009-001 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-009-001 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-009-002 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-009-002 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-009-003 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-009-003 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-009-004 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-009-004 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-009-005 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "Test point TP-STORY-REPORT-009-005 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story"
+                 },
+                 {
+                     "detail":  "UI target UI-C01 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C01 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C03 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C03 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C04 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C04 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C05 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C05 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C06 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C06 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C07 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C07 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C08 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C08 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C09 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C09 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C10 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C10 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C11 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C11 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-FULL-REPORT is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-FULL-REPORT visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-QUESTION-DETAIL is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-QUESTION-DETAIL visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-AI-TUTOR is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-AI-TUTOR visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-EXERCISE is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-EXERCISE visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-FEEDBACK is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-FEEDBACK visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C12 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "Requirement V13-R09 is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "Requirement V13-R10 is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "Requirement V13-R11 is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "Requirement V13-R12 is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "Requirement V13-R14 is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "Requirement V13-R15 is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "UI target UI-C01 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C01 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C03 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C03 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C04 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C04 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C05 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C05 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C06 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C06 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C07 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C07 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C08 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C08 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C09 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C09 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C10 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C10 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C11 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C11 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-FULL-REPORT is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-FULL-REPORT visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-QUESTION-DETAIL is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-QUESTION-DETAIL visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-AI-TUTOR is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-AI-TUTOR visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-EXERCISE is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-EXERCISE visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-FEEDBACK is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target V13-UI-FEEDBACK visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "UI target UI-C12 is , not PASS.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "ui"
+                 }
+             ],
+    "compared":  [
+                     "docs\\auto-execute\\02-requirement-traceability-matrix.md",
+                     "docs\\auto-execute\\03-story-map.md",
+                     "docs\\auto-execute\\04-story-test-matrix.md",
+                     "docs\\auto-execute\\04-visual-acceptance-checklist.md",
+                     "docs\\auto-execute\\03-surface-map.md",
+                     "docs\\auto-execute\\04-contract-map.md",
+                     "docs\\auto-execute\\14-frontend-implementation-plan.md",
+                     "docs\\auto-execute\\15-backend-implementation-plan.md",
+                     "docs\\auto-execute\\16-integrated-verification-plan.md",
+                     "docs\\auto-execute\\17-final-acceptance-checklist.md"
+                 ],
+    "generatedAt":  "2026-05-25T19:03:30",
+    "limitations":  [
+
+                    ],
+    "status":  "HARD_FAIL",
+    "schemaVersion":  "2.0",
+    "lane":  "acceptance-compare"
+}

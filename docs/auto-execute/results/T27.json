@@ -1,0 +1,62 @@
+{
+  "taskId": "T27",
+  "status": "PASS_WITH_LIMITATION",
+  "verificationResult": "PASS_WITH_LIMITATION",
+  "workerRound": 9,
+  "completedAt": "2026-05-25T16:40:56+08:00",
+  "taskDocument": "docs/auto-execute/scoremap-ai-tutor-v13-tasks/T27-ai-tutor-interaction-ui.md",
+  "requirements": [
+    "V13-R03",
+    "V13-R04",
+    "V13-R05",
+    "V13-R11"
+  ],
+  "commands": [
+    {
+      "command": "npm test -- ai-tutor-interaction",
+      "status": "PASS",
+      "evidence": [
+        "docs/auto-execute/evidence/frontend-page/T27-ai-tutor-interaction.json",
+        "docs/auto-execute/evidence/frontend-page/T27-fixed-button-api-map.json",
+        "docs/auto-execute/evidence/frontend-page/T27-quota-provider-failures.json",
+        "docs/auto-execute/evidence/frontend-page/T27-v13-ai-tutor-visual-structure.json"
+      ]
+    },
+    {
+      "command": "npm run visual:scoremap -- v13-ai-tutor",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "evidence": [
+        "docs/auto-execute/evidence/frontend-page/visual/v13-ai-tutor/summary-v13-ai-tutor.json",
+        "docs/auto-execute/evidence/visual-harness/v13-ai-tutor/summary.json"
+      ]
+    }
+  ],
+  "evidence": [
+    "docs/auto-execute/evidence/frontend-page/T27-ai-tutor-interaction.json",
+    "docs/auto-execute/evidence/frontend-page/T27-fixed-button-api-map.json",
+    "docs/auto-execute/evidence/frontend-page/T27-quota-provider-failures.json",
+    "docs/auto-execute/evidence/frontend-page/T27-v13-ai-tutor-visual-structure.json",
+    "docs/auto-execute/evidence/frontend-page/visual/v13-ai-tutor/actual-v13-ai-tutor-structure.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/v13-ai-tutor/diff-v13-ai-tutor-manual-review.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/v13-ai-tutor/metrics-v13-ai-tutor.json",
+    "docs/auto-execute/evidence/frontend-page/visual/v13-ai-tutor/summary-v13-ai-tutor.json",
+    "docs/auto-execute/evidence/visual-harness/v13-ai-tutor/summary.json"
+  ],
+  "modifiedFiles": [
+    "scoremap-miniapp/pages/ai-tutor/index.js",
+    "scoremap-miniapp/pages/ai-tutor/index.wxml",
+    "scoremap-miniapp/pages/ai-tutor/index.wxss",
+    "scoremap-miniapp/pages/ai-tutor/ai-tutor-interaction.test.js",
+    "scoremap-miniapp/pages/ai-tutor/visual-ai-tutor.js",
+    "scoremap-miniapp/services/api-client.js",
+    "scripts/run-tests.mjs",
+    "tools/ui-visual/visual-harness.mjs",
+    "docs/auto-execute/results/T27.json",
+    "docs/auto-execute/latest/T27-HANDOFF.md",
+    "docs/auto-execute/latest/HANDOFF.md",
+    "TODO.md"
+  ],
+  "limitation": "T27 produces deterministic structural visual evidence for the ai reference and does not claim pixel-perfect raster PASS. T30 remains responsible for full one-to-one raster screenshot diff and metrics across all v1.3 references.",
+  "localOnly": true,
+  "productionServicesAccessed": false
+}

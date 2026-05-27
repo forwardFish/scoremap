@@ -1,0 +1,101 @@
+{
+  "scenarioId": "V13-O20",
+  "status": "PASS",
+  "command": "npm run e2e:owner -- ai-tutor-v13",
+  "requirementIds": [
+    "V13-R03",
+    "V13-R14"
+  ],
+  "clickPath": [
+    "/pages/ai-tutor/index",
+    "ask-step-explanation-quota-exhausted"
+  ],
+  "routeEvidence": {
+    "route": "/pages/ai-tutor/index",
+    "targetRoute": "/pages/ai-tutor/index"
+  },
+  "apiEvidence": [
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t31-v13-quota/questions/order-t31-v13-quota-q1/interactions",
+      "payloadSummary": {
+        "actionType": "explain_step",
+        "source": "T27-ai-tutor-ui",
+        "forceProviderFailure": false,
+        "forceQuotaExceeded": true
+      },
+      "responseStatus": 429,
+      "responseBody": {
+        "status": "error",
+        "code": "QUESTION_QUOTA_EXCEEDED"
+      }
+    }
+  ],
+  "dbEvidence": {
+    "questionBefore": {
+      "id": "order-t31-v13-quota-q1",
+      "orderId": "order-t31-v13-quota",
+      "ownerId": "local-user-scoremap-t06",
+      "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+      "knowledgePoint": "方程应用题",
+      "severity": "high",
+      "masteryStatus": "未掌握",
+      "remainingQuota": 3
+    },
+    "quotaResponse": {
+      "status": "error",
+      "code": "QUESTION_QUOTA_EXCEEDED"
+    },
+    "successRowsAfterRejection": [
+      {
+        "id": "order-t31-v13-quota-q1-history-1",
+        "orderId": "order-t31-v13-quota",
+        "questionId": "order-t31-v13-quota-q1",
+        "ownerId": "local-user-scoremap-t06",
+        "actionType": "explain_step",
+        "promptId": "LLM-TUTOR-05",
+        "status": "success",
+        "summary": "先看速度差，再乘以时间。",
+        "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+        "traceId": "trace-order-t31-v13-quota-q1-history-1",
+        "createdAt": "2026-05-25T08:00:01.000Z"
+      },
+      {
+        "id": "order-t31-v13-quota-q1-history-2",
+        "orderId": "order-t31-v13-quota",
+        "questionId": "order-t31-v13-quota-q1",
+        "ownerId": "local-user-scoremap-t06",
+        "actionType": "why_method",
+        "promptId": "LLM-TUTOR-05",
+        "status": "success",
+        "summary": "解释为什么用速度差。",
+        "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+        "traceId": "trace-order-t31-v13-quota-q1-history-2",
+        "createdAt": "2026-05-25T08:00:02.000Z"
+      }
+    ]
+  },
+  "visualEvidence": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/ai-tutor/index",
+      "reference": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/reference.png",
+      "actual": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/summary.json"
+    }
+  ],
+  "visibleUiState": {
+    "statusBanner": {
+      "status": "QUOTA_EXCEEDED",
+      "code": "QUESTION_QUOTA_EXCEEDED",
+      "text": "本题或本报告 AI 追问次数已用完，先复盘已有讲解。"
+    }
+  },
+  "localOnly": {
+    "LOCAL_ONLY": "true",
+    "adapterMode": "local-mock",
+    "remoteCalls": []
+  }
+}

@@ -1,9 +1,87 @@
-﻿<view class="replica-page {{derived ? 'derived-page' : ''}}">
-  <view class="derived-shell fallback-shell">
-    <view class="status-spacer"></view>
-    <view class="derived-title">{{title}}</view>
-    <view class="derived-card" wx:for="{{cards}}" wx:key="*this">{{item}}</view>
+<view class="preview-screen">
+  <view class="preview-shell">
+    <view class="preview-header">
+      <view class="preview-brand">
+        <view class="preview-mascot">
+          <view class="preview-mascot-face">
+            <view class="preview-eye left"></view>
+            <view class="preview-eye right"></view>
+          </view>
+        </view>
+        <text class="preview-title">初判报告预览</text>
+      </view>
+      <text class="preview-status">AI 已生成</text>
+    </view>
+
+    <view class="preview-hero">
+      <view class="preview-hero-copy">
+        <text class="preview-kicker">初一数学月考分析</text>
+        <text class="preview-headline">先看 3 个关键判断</text>
+        <text class="preview-summary">整体基础较好，计算粗心和几何证明步骤不完整是本次失分的主要原因。</text>
+      </view>
+      <view class="preview-hero-figure">
+        <view class="preview-cap"></view>
+        <view class="preview-glasses">
+          <view></view>
+          <view></view>
+        </view>
+      </view>
+    </view>
+
+    <view class="preview-section-title">报告内容预览</view>
+    <view class="preview-list">
+      <view class="preview-module">
+        <view class="module-icon red">1</view>
+        <view class="module-copy">
+          <text class="module-title">主要丢分点</text>
+          <text class="module-desc">计算失误、几何证明步骤不完整</text>
+        </view>
+        <text class="module-arrow">›</text>
+      </view>
+      <view class="preview-module">
+        <view class="module-icon green">2</view>
+        <view class="module-copy">
+          <text class="module-title">优先补弱点</text>
+          <text class="module-desc">先提升有理数运算和辅助线意识</text>
+        </view>
+        <text class="module-arrow">›</text>
+      </view>
+      <view class="preview-module">
+        <view class="module-icon purple">3</view>
+        <view class="module-copy">
+          <text class="module-title">初步建议</text>
+          <text class="module-desc">7 天基础纠错和同类题复盘</text>
+        </view>
+        <text class="module-arrow">›</text>
+      </view>
+
+      <view class="preview-locked">
+        <view class="locked-row">
+          <view class="module-icon blue lock-dot"></view>
+          <view class="module-copy">
+            <text class="module-title">详细错因判断</text>
+            <text class="module-desc">支付后查看完整初判内容</text>
+          </view>
+        </view>
+        <view class="locked-row dim">
+          <view class="module-icon amber lock-dot"></view>
+          <view class="module-copy">
+            <text class="module-title">7 天行动建议</text>
+            <text class="module-desc">每日练习安排已锁定</text>
+          </view>
+        </view>
+        <view class="locked-mask">
+          <view class="lock-badge">
+            <view class="lock-shape"></view>
+            <text>更多内容需 1 元解锁</text>
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
-  <image wx:if="{{!derived && !imageLoadFailed && reference}}" class="reference-image" src="{{reference}}" mode="widthFix" show-menu-by-longpress="false" binderror="onImageError" />
-  <button wx:for="{{hotspots}}" wx:key="action" class="hotspot {{item.className}}" data-action="{{item.action}}" bindtap="onTap" aria-label="{{item.label}}"></button>
+
+  <view class="preview-footer">
+    <button class="preview-pay" data-action="pay" bindtap="onTap">立即支付 1 元查看完整初判</button>
+    <text class="preview-footnote">不会解锁 9.9 元完整报告</text>
+  </view>
 </view>

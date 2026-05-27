@@ -1,0 +1,100 @@
+{
+  "taskId": "T40",
+  "status": "PASS_WITH_LIMITATION",
+  "scope": "v1.3 one-to-one AI tutor, similar exercise, and answer feedback pages",
+  "implementedSurfaces": [
+    {
+      "route": "/pages/ai-tutor/index",
+      "reference": "docs/UI/小程序/stitch_codex_ui_design_kit/ai/screen.png",
+      "files": [
+        "scoremap-miniapp/pages/ai-tutor/index.js",
+        "scoremap-miniapp/pages/ai-tutor/index.wxml",
+        "scoremap-miniapp/pages/ai-tutor/index.wxss"
+      ]
+    },
+    {
+      "route": "/pages/ai-exercise/index",
+      "reference": "docs/UI/小程序/stitch_codex_ui_design_kit/_4/screen.png",
+      "files": [
+        "scoremap-miniapp/pages/ai-exercise/index.js",
+        "scoremap-miniapp/pages/ai-exercise/index.wxml",
+        "scoremap-miniapp/pages/ai-exercise/index.wxss"
+      ]
+    },
+    {
+      "route": "/pages/ai-exercise-feedback/index",
+      "reference": "docs/UI/小程序/stitch_codex_ui_design_kit/_2/screen.png",
+      "files": [
+        "scoremap-miniapp/pages/ai-exercise-feedback/index.js",
+        "scoremap-miniapp/pages/ai-exercise-feedback/index.wxml",
+        "scoremap-miniapp/pages/ai-exercise-feedback/index.wxss"
+      ]
+    }
+  ],
+  "behaviorPreserved": [
+    "quota display",
+    "quota exhausted state",
+    "provider failure state",
+    "five fixed tutor actions",
+    "similar exercise generation",
+    "answer option selection",
+    "answer submission",
+    "feedback readback",
+    "retry similar exercise",
+    "return report route",
+    "history route"
+  ],
+  "commands": [
+    {
+      "command": "npm test -- ai-tutor-interaction ai-exercise-feedback",
+      "status": "FAIL",
+      "reason": "The repo test runner requires every provided selector to match the same test group; no group has both selectors."
+    },
+    {
+      "command": "npm test -- ai-tutor-interaction",
+      "status": "PASS",
+      "evidence": [
+        "docs/auto-execute/evidence/frontend-page/T27-ai-tutor-interaction.json",
+        "docs/auto-execute/evidence/frontend-page/T27-fixed-button-api-map.json",
+        "docs/auto-execute/evidence/frontend-page/T27-quota-provider-failures.json",
+        "docs/auto-execute/evidence/frontend-page/T27-v13-ai-tutor-visual-structure.json"
+      ]
+    },
+    {
+      "command": "npm test -- ai-exercise-feedback",
+      "status": "PASS",
+      "evidence": [
+        "docs/auto-execute/evidence/frontend-page/T28-similar-exercise.json",
+        "docs/auto-execute/evidence/frontend-page/T28-answer-feedback.json",
+        "docs/auto-execute/evidence/frontend-page/T28-negative-branches.json",
+        "docs/auto-execute/evidence/frontend-page/T28-v13-exercise-feedback-visual-structure.json"
+      ]
+    },
+    {
+      "command": "npm run e2e:owner -- v13-ai-tutor-exercise-feedback",
+      "status": "PASS",
+      "evidence": [
+        "docs/auto-execute/evidence/owner/all-pages-ai-tutor-v13.json"
+      ]
+    },
+    {
+      "command": "npm run visual:scoremap -- v13-ai-tutor v13-similar-exercise v13-answer-feedback",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "evidence": [
+        "docs/auto-execute/evidence/visual-harness/summary.json",
+        "docs/auto-execute/evidence/visual-harness/v13-ai-tutor/summary.json",
+        "docs/auto-execute/evidence/visual-harness/v13-similar-exercise/summary.json",
+        "docs/auto-execute/evidence/visual-harness/v13-answer-feedback/summary.json"
+      ]
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS",
+      "notes": "Only line-ending conversion warnings were reported; no whitespace errors."
+    }
+  ],
+  "limitations": [
+    "No pixel-perfect PASS is claimed because the visual harness classifies these deterministic SVG comparisons as PASS_NEEDS_MANUAL_UI_REVIEW.",
+    "The requested combined npm test selector is incompatible with the current test runner; the same two test groups passed when run separately."
+  ]
+}

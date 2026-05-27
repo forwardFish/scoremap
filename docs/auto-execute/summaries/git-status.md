@@ -1,0 +1,520 @@
+﻿# Git Status
+
+Generated: 05/25/2026 19:08:21
+
+
+## Branch
+```text
+main
+```
+
+## Status
+```text
+ M .codex/skills/ai-slop-cleaner/SKILL.md
+ M .codex/skills/analyze/SKILL.md
+ M .codex/skills/ask/SKILL.md
+ M .codex/skills/autopilot/SKILL.md
+ M .codex/skills/autoresearch-goal/SKILL.md
+ M .codex/skills/autoresearch/SKILL.md
+ M .codex/skills/cancel/SKILL.md
+ M .codex/skills/code-review/SKILL.md
+ M .codex/skills/configure-notifications/SKILL.md
+ M .codex/skills/deep-interview/SKILL.md
+ M .codex/skills/design/SKILL.md
+ M .codex/skills/doctor/SKILL.md
+ M .codex/skills/hud/SKILL.md
+ M .codex/skills/omx-setup/SKILL.md
+ M .codex/skills/performance-goal/SKILL.md
+ M .codex/skills/pipeline/SKILL.md
+ M .codex/skills/plan/SKILL.md
+ M .codex/skills/ralph/SKILL.md
+ M .codex/skills/ralplan/SKILL.md
+ M .codex/skills/skill/SKILL.md
+ M .codex/skills/team/SKILL.md
+ M .codex/skills/ultragoal/SKILL.md
+ M .codex/skills/ultraqa/SKILL.md
+ M .codex/skills/ultrawork/SKILL.md
+ M .codex/skills/visual-ralph/SKILL.md
+ M .codex/skills/wiki/SKILL.md
+ M .codex/skills/worker/SKILL.md
+ M .gitignore
+ M app.js
+ M app.json
+ D "docs/AI\346\217\220\345\210\206\345\206\263\347\255\226_PRD_MVP_v1.2_C\347\253\257\351\241\265\351\235\242\346\265\201\347\250\213\344\277\256\350\256\242\347\211\210.md"
+ M "docs/UI/\345\260\217\347\250\213\345\272\217/\345\256\214\346\225\264\346\217\220\345\210\206\346\212\245\345\221\212.png"
+ M docs/auto-execute/evidence/api-db-e2e/api-trace.json
+ M docs/auto-execute/evidence/api-db-e2e/db-snapshot.json
+ M docs/auto-execute/evidence/api-db-e2e/local-db-snapshot-source.json
+ M docs/auto-execute/evidence/api-db-e2e/operator-export.json
+ M docs/auto-execute/evidence/api-db-e2e/summary.json
+ M docs/auto-execute/evidence/api-db/summary.json
+ M docs/auto-execute/evidence/backend-adapters/local-cloud-mock.json
+ M docs/auto-execute/evidence/backend-adapters/local-db-readback.json
+ M docs/auto-execute/evidence/backend-api-payment/basic-payment.json
+ M docs/auto-execute/evidence/backend-api-payment/failure-recovery-branches.json
+ M docs/auto-execute/evidence/backend-api-payment/full-payment.json
+ M docs/auto-execute/evidence/backend-api-report/failure-branches.json
+ M docs/auto-execute/evidence/backend-api-report/feedback-export-success.json
+ M docs/auto-execute/evidence/backend-api-report/full-report-success.json
+ M docs/auto-execute/evidence/backend-api-report/operator-export.json
+ M docs/auto-execute/evidence/backend-api/failure-branches.json
+ M docs/auto-execute/evidence/backend-api/orders-uploads-preview-success.json
+ M docs/auto-execute/evidence/backend-api/validation-auth-errors.json
+ M docs/auto-execute/evidence/contract-security/authz-api-db.json
+ M docs/auto-execute/evidence/contract-security/error-recovery-map.json
+ M docs/auto-execute/evidence/contract-security/payment-state-recovery.json
+ M docs/auto-execute/evidence/frontend-page/basic-result-full-unlock-api-db.json
+ M docs/auto-execute/evidence/frontend-page/full-report-pdf-api-db.json
+ M docs/auto-execute/evidence/frontend-page/full-report-pdf-route-controls.json
+ M docs/auto-execute/evidence/frontend-page/my-reports-feedback-api-db.json
+ M docs/auto-execute/evidence/frontend-page/my-reports-feedback-route-controls.json
+ M docs/auto-execute/evidence/frontend-page/pdf/order-t06-shell-export-t06-shell.pdf
+ M docs/auto-execute/evidence/frontend-page/pdf/order-t11-pdf-report-export-order-t11-pdf.pdf
+ M docs/auto-execute/evidence/frontend-page/visual/basic-pay/actual-basic-pay-structure.svg
+ M docs/auto-execute/evidence/frontend-page/visual/basic-result/actual-basic-result-structure.svg
+ M docs/auto-execute/evidence/frontend-page/visual/full-report-entry/actual-full-report-entry-structure.svg
+ M docs/auto-execute/evidence/frontend-page/visual/full-report/actual-full-report-structure.svg
+ M docs/auto-execute/evidence/frontend-page/visual/full-unlock/actual-full-unlock-structure.svg
+ M docs/auto-execute/evidence/frontend-page/visual/my/actual-my-structure.svg
+ M docs/auto-execute/evidence/frontend-page/visual/preview/actual-preview-structure.svg
+ M docs/auto-execute/evidence/frontend-page/visual/reports/actual-reports-structure.svg
+ M docs/auto-execute/evidence/frontend-shell/api-contract-shell.json
+ M docs/auto-execute/evidence/frontend-shell/page-route-shell.json
+ M docs/auto-execute/evidence/navigation/all-click-targets.json
+ M docs/auto-execute/evidence/owner/O04.json
+ M docs/auto-execute/evidence/owner/O05.json
+ M docs/auto-execute/evidence/owner/O11.json
+ M docs/auto-execute/evidence/owner/O13.json
+ M docs/auto-execute/evidence/owner/journey-summary.json
+ M docs/auto-execute/evidence/safety/local-only.json
+ M docs/auto-execute/evidence/safety/secret-guard.json
+ M docs/auto-execute/evidence/visual-harness/analysis/metrics.json
+ M docs/auto-execute/evidence/visual-harness/analysis/summary.json
+ M docs/auto-execute/evidence/visual-harness/basic-pay/metrics.json
+ M docs/auto-execute/evidence/visual-harness/basic-pay/summary.json
+ M docs/auto-execute/evidence/visual-harness/basic-result/metrics.json
+ M docs/auto-execute/evidence/visual-harness/basic-result/summary.json
+ M docs/auto-execute/evidence/visual-harness/failure/metrics.json
+ M docs/auto-execute/evidence/visual-harness/failure/summary.json
+ M docs/auto-execute/evidence/visual-harness/full-report-entry/diff.svg
+ M docs/auto-execute/evidence/visual-harness/full-report-entry/metrics.json
+ M docs/auto-execute/evidence/visual-harness/full-report-entry/summary.json
+ M docs/auto-execute/evidence/visual-harness/full-report/metrics.json
+ M docs/auto-execute/evidence/visual-harness/full-report/summary.json
+ M docs/auto-execute/evidence/visual-harness/full-unlock/metrics.json
+ M docs/auto-execute/evidence/visual-harness/full-unlock/summary.json
+ M docs/auto-execute/evidence/visual-harness/home/metrics.json
+ M docs/auto-execute/evidence/visual-harness/home/summary.json
+ M docs/auto-execute/evidence/visual-harness/my/metrics.json
+ M docs/auto-execute/evidence/visual-harness/my/summary.json
+ M docs/auto-execute/evidence/visual-harness/preview/metrics.json
+ M docs/auto-execute/evidence/visual-harness/preview/summary.json
+ M docs/auto-execute/evidence/visual-harness/reports/actual.svg
+ M docs/auto-execute/evidence/visual-harness/reports/diff.svg
+ M docs/auto-execute/evidence/visual-harness/reports/metrics.json
+ M docs/auto-execute/evidence/visual-harness/reports/summary.json
+ M docs/auto-execute/evidence/visual-harness/summary.json
+ M docs/auto-execute/evidence/visual/summary.json
+ M docs/auto-execute/latest/blockers.md
+ M docs/auto-execute/latest/gap-list.json
+ M docs/auto-execute/latest/machine-summary.json
+ M docs/auto-execute/latest/next-agent-action.md
+ M docs/auto-execute/latest/repair-plan.md
+ M docs/auto-execute/latest/verification-results.md
+ M project.config.json
+ M project.private.config.json
+ M scoremap-miniapp/app.js
+ M scoremap-miniapp/app.json
+ M scoremap-miniapp/miniapp-shell.test.js
+ M scoremap-miniapp/navigation-click-audit.test.js
+ M scoremap-miniapp/pages/analysis/analysis-failure.test.js
+ M scoremap-miniapp/pages/analysis/index.js
+ M scoremap-miniapp/pages/analysis/index.json
+ M scoremap-miniapp/pages/analysis/index.wxml
+ M scoremap-miniapp/pages/analysis/index.wxss
+ M scoremap-miniapp/pages/analysis/visual-analysis-failure.js
+ M scoremap-miniapp/pages/basic-pay/index.js
+ M scoremap-miniapp/pages/basic-pay/index.json
+ M scoremap-miniapp/pages/basic-pay/index.wxml
+ M scoremap-miniapp/pages/basic-pay/index.wxss
+ M scoremap-miniapp/pages/basic-result/basic-result-full-unlock.test.js
+ M scoremap-miniapp/pages/basic-result/index.js
+ M scoremap-miniapp/pages/basic-result/index.json
+ M scoremap-miniapp/pages/basic-result/index.wxml
+ M scoremap-miniapp/pages/basic-result/index.wxss
+ M scoremap-miniapp/pages/basic-result/visual-basic-result-full-unlock.js
+ M scoremap-miniapp/pages/failure/index.js
+ M scoremap-miniapp/pages/failure/index.json
+ M scoremap-miniapp/pages/failure/index.wxml
+ M scoremap-miniapp/pages/failure/index.wxss
+ M scoremap-miniapp/pages/feedback/index.js
+ M scoremap-miniapp/pages/feedback/index.json
+ M scoremap-miniapp/pages/feedback/index.wxml
+ M scoremap-miniapp/pages/feedback/index.wxss
+ M scoremap-miniapp/pages/full-report-entry/index.js
+ M scoremap-miniapp/pages/full-report-entry/index.json
+ M scoremap-miniapp/pages/full-report-entry/index.wxml
+ M scoremap-miniapp/pages/full-report-entry/index.wxss
+ M scoremap-miniapp/pages/full-report/full-report-pdf.test.js
+ M scoremap-miniapp/pages/full-report/index.js
+ M scoremap-miniapp/pages/full-report/index.json
+ M scoremap-miniapp/pages/full-report/index.wxml
+ M scoremap-miniapp/pages/full-report/index.wxss
+ M scoremap-miniapp/pages/full-report/visual-full-report-pdf.js
+ M scoremap-miniapp/pages/full-unlock/index.js
+ M scoremap-miniapp/pages/full-unlock/index.json
+ M scoremap-miniapp/pages/full-unlock/index.wxml
+ M scoremap-miniapp/pages/full-unlock/index.wxss
+ M scoremap-miniapp/pages/index/home-upload.test.js
+ M scoremap-miniapp/pages/index/index.js
+ M scoremap-miniapp/pages/index/index.json
+ M scoremap-miniapp/pages/index/index.wxml
+ M scoremap-miniapp/pages/index/index.wxss
+ M scoremap-miniapp/pages/index/visual-home.js
+ M scoremap-miniapp/pages/my/index.js
+ M scoremap-miniapp/pages/my/index.json
+ M scoremap-miniapp/pages/my/index.wxml
+ M scoremap-miniapp/pages/my/index.wxss
+ M scoremap-miniapp/pages/my/my-reports-feedback.test.js
+ M scoremap-miniapp/pages/my/visual-my-reports.js
+ M scoremap-miniapp/pages/orders/index.js
+ M scoremap-miniapp/pages/orders/index.json
+ M scoremap-miniapp/pages/orders/index.wxml
+ M scoremap-miniapp/pages/orders/index.wxss
+ M scoremap-miniapp/pages/preview/index.js
+ M scoremap-miniapp/pages/preview/index.json
+ M scoremap-miniapp/pages/preview/index.wxml
+ M scoremap-miniapp/pages/preview/index.wxss
+ M scoremap-miniapp/pages/preview/preview-basic-pay.test.js
+ M scoremap-miniapp/pages/preview/visual-preview-basic-pay.js
+ M scoremap-miniapp/pages/reports/index.js
+ M scoremap-miniapp/pages/reports/index.json
+ M scoremap-miniapp/pages/reports/index.wxml
+ M scoremap-miniapp/pages/reports/index.wxss
+ M scoremap-miniapp/pages/scaffold/index.js
+ M scoremap-miniapp/pages/scaffold/index.json
+ M scoremap-miniapp/pages/scaffold/index.wxml
+ M scoremap-miniapp/pages/scaffold/index.wxss
+ M scoremap-miniapp/project.config.json
+ M scoremap-miniapp/project.private.config.json
+ M scoremap-miniapp/routes.js
+ M scoremap-miniapp/scaffold.test.js
+ M scoremap-miniapp/services/api-client.js
+ M scoremap-miniapp/services/auth-recovery-state.js
+ M scoremap-miniapp/services/local-fixture-store.js
+ M scoremap-miniapp/utils/navigation.js
+ M scoremap-miniapp/utils/replica-runtime.js
+ M scripts/acceptance/check-report-integrity.ps1
+ M scripts/acceptance/run-final-gate.ps1
+ M scripts/acceptance/run-local-only-guard.ps1
+ M scripts/run-tests.mjs
+ M server/scripts/export-local-data.js
+ M server/src/db/local-json-db.js
+ M server/src/report/local-pdf.js
+ M server/src/routes/diagnosis-orders.js
+ M server/src/routes/reports.js
+ M server/src/services/diagnosis-orders-service.js
+ M server/src/services/reports-service.js
+ M server/test/adapters.test.js
+ M server/test/auth-permission-recovery.test.js
+ M server/test/diagnosis-orders.test.js
+ M server/test/payment-api.test.js
+ M server/test/reports-api.test.js
+ M server/test/run-tests.js
+ M shared/in-memory-db.js
+ M tests/api/api-db-readback-e2e.test.js
+ M tests/e2e/owner-click-flow.test.js
+ M tools/ui-visual/run-scoremap-visual.mjs
+ M tools/ui-visual/visual-harness.mjs
+ M tools/ui-visual/visual-harness.test.mjs
+?? .codex-runs/
+?? TODO.md
+?? "docs/AI\346\217\220\345\210\206\345\206\263\347\255\226_PRD_MVP_v1.3_C\347\253\257AI\351\224\231\351\242\230\350\277\275\351\227\256\344\277\256\350\256\242\347\211\210.md"
+?? docs/AUTO_EXECUTE_DELIVERY_REPORT.md
+?? "docs/UI/\345\260\217\347\250\213\345\272\217/ChatGPT Image 2026\345\271\2645\346\234\21025\346\227\245 13_20_27 (2).png"
+?? "docs/UI/\345\260\217\347\250\213\345\272\217/ChatGPT Image 2026\345\271\2645\346\234\21025\346\227\245 13_20_27 (3).png"
+?? "docs/UI/\345\260\217\347\250\213\345\272\217/ChatGPT Image 2026\345\271\2645\346\234\21025\346\227\245 13_20_27 (4).png"
+?? "docs/UI/\345\260\217\347\250\213\345\272\217/ChatGPT Image 2026\345\271\2645\346\234\21025\346\227\245 13_20_27 (5).png"
+?? "docs/UI/\345\260\217\347\250\213\345\272\217/backup/\345\256\214\346\225\264\346\217\220\345\210\206\346\212\245\345\221\212.png"
+?? "docs/UI/\345\260\217\347\250\213\345\272\217/stitch_codex_ui_design_kit/"
+?? docs/auto-execute/00-environment-snapshot.md
+?? docs/auto-execute/03-story-map.md
+?? docs/auto-execute/04-contract-map.md
+?? docs/auto-execute/04-story-test-matrix.md
+?? docs/auto-execute/05-known-gaps-and-assumptions.md
+?? docs/auto-execute/06-scope-classification.md
+?? docs/auto-execute/08-repair-log.md
+?? docs/auto-execute/09-code-review.md
+?? docs/auto-execute/12-fullstack-delivery-plan.md
+?? docs/auto-execute/13-frontend-backend-contract-map.md
+?? docs/auto-execute/18-acceptance-comparison-loop.md
+?? docs/auto-execute/FULL_FLOW_ACCEPTANCE.md
+?? docs/auto-execute/blockers.md
+?? docs/auto-execute/comparison/
+?? docs/auto-execute/contract-map.json
+?? docs/auto-execute/convergence-rounds/
+?? docs/auto-execute/convergence-state.json
+?? docs/auto-execute/epic-map.json
+?? docs/auto-execute/evidence-manifest.json
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-00439201c252/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-02d1e8da0510/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-05932ca0efcd/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-0864ad3bff59/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-0989159f504b/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-0d073900efa6/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-1b2d068d2455/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-1e05347dcef8/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-29aa8f828271/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-2d9713cde94b/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-33dbf413cf7a/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-4303a93aeb64/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-436fca385763/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-455fd704ff98/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-4fc311cd9586/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-59ad9f51dbb3/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-614939da80ba/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-61c9788b0df5/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-6f30f7fa2b3b/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-76d637ab4ab1/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-7fb6252f54aa/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-810d60b3a5aa/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-82847bafa15f/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-82f21730e439/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-8489191460a2/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-87b665eda59e/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-9232c9e57b9c/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-aafebcf4a9b2/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-cf959e1fc685/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-d6355fa7faa1/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-e9c79e3e8b3d/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-ec87d5a5f3c9/
+?? docs/auto-execute/evidence/api-db-e2e/local-cloud/local-user-scoremap-t03/order-f70125da497b/
+?? docs/auto-execute/evidence/api-db-e2e/local-report-exports/local-user-scoremap-t03/order-4fc311cd9586/
+?? docs/auto-execute/evidence/api-db-e2e/local-report-exports/local-user-scoremap-t03/order-59ad9f51dbb3/
+?? docs/auto-execute/evidence/api-db-e2e/local-report-exports/local-user-scoremap-t03/order-61c9788b0df5/
+?? docs/auto-execute/evidence/api-db-e2e/local-report-exports/local-user-scoremap-t03/order-8489191460a2/
+?? docs/auto-execute/evidence/api-db-llm/
+?? docs/auto-execute/evidence/api-db/T32-api-branches.json
+?? docs/auto-execute/evidence/api-db/T32-db-readback.json
+?? docs/auto-execute/evidence/api-db/T32-trace-manifest.json
+?? docs/auto-execute/evidence/backend-api-report/local-report-exports/local-user-scoremap-t03/order-0c60809f4b7f/
+?? docs/auto-execute/evidence/backend-api-report/local-report-exports/local-user-scoremap-t03/order-0c8d9c1930af/
+?? docs/auto-execute/evidence/backend-api-report/local-report-exports/local-user-scoremap-t03/order-0d6e6e6050a1/
+?? docs/auto-execute/evidence/backend-api-report/local-report-exports/local-user-scoremap-t03/order-331ce49e7032/
+?? docs/auto-execute/evidence/backend-api-report/local-report-exports/local-user-scoremap-t03/order-3d86891a9f08/
+?? docs/auto-execute/evidence/backend-api-report/local-report-exports/local-user-scoremap-t03/order-3fc3a2c0d156/
+?? docs/auto-execute/evidence/backend-api-report/local-report-exports/local-user-scoremap-t03/order-49e9197fb2cb/
+?? docs/auto-execute/evidence/backend-api-report/local-report-exports/local-user-scoremap-t03/order-4afe7850c163/
+?? docs/auto-execute/evidence/backend-api-report/local-report-exports/local-user-scoremap-t03/order-822d2457f882/
+?? docs/auto-execute/evidence/backend-api-report/local-report-exports/local-user-scoremap-t03/order-92a7482c1e8f/
+?? docs/auto-execute/evidence/backend-api-report/local-report-exports/local-user-scoremap-t03/order-9ec6a2884bb0/
+?? docs/auto-execute/evidence/backend-api-report/local-report-exports/local-user-scoremap-t03/order-ad1f2936c79a/
+?? docs/auto-execute/evidence/backend-api-report/local-report-exports/local-user-scoremap-t03/order-b0d81c9c041b/
+?? docs/auto-execute/evidence/backend-api-report/local-report-exports/local-user-scoremap-t03/order-d30c36993082/
+?? docs/auto-execute/evidence/backend-api-report/local-report-exports/local-user-scoremap-t03/order-e738d54be839/
+?? docs/auto-execute/evidence/backend-api-report/local-report-exports/local-user-scoremap-t03/order-efdbaee4c469/
+?? docs/auto-execute/evidence/backend-api-report/local-report-exports/local-user-scoremap-t03/order-fe5889cc8ce8/
+?? docs/auto-execute/evidence/final-gate/T33-summary.json
+?? docs/auto-execute/evidence/frontend-page/T25-full-report-ai-entry.json
+?? docs/auto-execute/evidence/frontend-page/T25-share-save-export.json
+?? docs/auto-execute/evidence/frontend-page/T25-v13-full-report-visual-structure.json
+?? docs/auto-execute/evidence/frontend-page/T26-locked-basic-state.json
+?? docs/auto-execute/evidence/frontend-page/T26-v13-wrong-question-visual-structure.json
+?? docs/auto-execute/evidence/frontend-page/T26-wrong-question-detail.json
+?? docs/auto-execute/evidence/frontend-page/T27-ai-tutor-interaction.json
+?? docs/auto-execute/evidence/frontend-page/T27-fixed-button-api-map.json
+?? docs/auto-execute/evidence/frontend-page/T27-quota-provider-failures.json
+?? docs/auto-execute/evidence/frontend-page/T27-v13-ai-tutor-visual-structure.json
+?? docs/auto-execute/evidence/frontend-page/T28-answer-feedback.json
+?? docs/auto-execute/evidence/frontend-page/T28-negative-branches.json
+?? docs/auto-execute/evidence/frontend-page/T28-similar-exercise.json
+?? docs/auto-execute/evidence/frontend-page/T28-v13-exercise-feedback-visual-structure.json
+?? docs/auto-execute/evidence/frontend-page/T29-basic-free-no-formal-entitlement.json
+?? docs/auto-execute/evidence/frontend-page/T29-my-reports-quota-history.json
+?? docs/auto-execute/evidence/frontend-page/pdf/order-t25-controls-report-export-order-t25-controls.pdf
+?? docs/auto-execute/evidence/frontend-page/pdf/order-t26-detail-wrong-question-export-order-t26-detail.pdf
+?? docs/auto-execute/evidence/frontend-page/visual/v13-ai-tutor/
+?? docs/auto-execute/evidence/frontend-page/visual/v13-answer-feedback/
+?? docs/auto-execute/evidence/frontend-page/visual/v13-full-report/
+?? docs/auto-execute/evidence/frontend-page/visual/v13-similar-exercise/
+?? docs/auto-execute/evidence/frontend-page/visual/v13-wrong-question-detail/
+?? docs/auto-execute/evidence/frontend-shell/v13-ai-tutor-route-contract.json
+?? docs/auto-execute/evidence/inventory/
+?? docs/auto-execute/evidence/llm/
+?? docs/auto-execute/evidence/navigation/_probe.json
+?? docs/auto-execute/evidence/owner/V13-O14.json
+?? docs/auto-execute/evidence/owner/V13-O15.json
+?? docs/auto-execute/evidence/owner/V13-O16.json
+?? docs/auto-execute/evidence/owner/V13-O17.json
+?? docs/auto-execute/evidence/owner/V13-O18.json
+?? docs/auto-execute/evidence/owner/V13-O19.json
+?? docs/auto-execute/evidence/owner/V13-O20.json
+?? docs/auto-execute/evidence/owner/V13-O21.json
+?? docs/auto-execute/evidence/owner/V13-O22.json
+?? docs/auto-execute/evidence/owner/V13-O23.json
+?? docs/auto-execute/evidence/owner/all-pages-ai-tutor-v13.json
+?? docs/auto-execute/evidence/visual-harness/ai-tutor-v13/
+?? docs/auto-execute/evidence/visual-harness/analysis/reference.png
+?? docs/auto-execute/evidence/visual-harness/basic-pay/reference.png
+?? docs/auto-execute/evidence/visual-harness/basic-result/reference.png
+?? docs/auto-execute/evidence/visual-harness/failure/reference.png
+?? docs/auto-execute/evidence/visual-harness/full-report-entry/reference.png
+?? docs/auto-execute/evidence/visual-harness/full-report/reference.png
+?? docs/auto-execute/evidence/visual-harness/full-unlock/reference.png
+?? docs/auto-execute/evidence/visual-harness/home/reference.png
+?? docs/auto-execute/evidence/visual-harness/my/reference.png
+?? docs/auto-execute/evidence/visual-harness/preview/reference.png
+?? docs/auto-execute/evidence/visual-harness/v13-ai-tutor/
+?? docs/auto-execute/evidence/visual-harness/v13-answer-feedback/
+?? docs/auto-execute/evidence/visual-harness/v13-full-report/
+?? docs/auto-execute/evidence/visual-harness/v13-similar-exercise/
+?? docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/
+?? docs/auto-execute/gap-closure-log.md
+?? docs/auto-execute/gap-list.json
+?? docs/auto-execute/gap-list.md
+?? docs/auto-execute/harness-gap-list.json
+?? docs/auto-execute/harness-repair-plan.md
+?? docs/auto-execute/harness-scorecard.json
+?? docs/auto-execute/harness-self-eval-report.md
+?? docs/auto-execute/index.md
+?? docs/auto-execute/latest/HANDOFF.md
+?? docs/auto-execute/latest/T19-HANDOFF.md
+?? docs/auto-execute/latest/T20-HANDOFF.md
+?? docs/auto-execute/latest/T21-HANDOFF.md
+?? docs/auto-execute/latest/T22-HANDOFF.md
+?? docs/auto-execute/latest/T23-HANDOFF.md
+?? docs/auto-execute/latest/T24-HANDOFF.md
+?? docs/auto-execute/latest/T25-HANDOFF.md
+?? docs/auto-execute/latest/T26-HANDOFF.md
+?? docs/auto-execute/latest/T27-HANDOFF.md
+?? docs/auto-execute/latest/T28-HANDOFF.md
+?? docs/auto-execute/latest/T29-HANDOFF.md
+?? docs/auto-execute/latest/T30-HANDOFF.md
+?? docs/auto-execute/latest/T31-HANDOFF.md
+?? docs/auto-execute/latest/T32-HANDOFF.md
+?? docs/auto-execute/latest/T33-HANDOFF.md
+?? docs/auto-execute/latest/T33-integrity.log
+?? docs/auto-execute/latest/relay-tasks.json
+?? docs/auto-execute/logs/
+?? docs/auto-execute/machine-summary.json
+?? docs/auto-execute/next-agent-action.md
+?? docs/auto-execute/repair-attempts.json
+?? docs/auto-execute/repair-plan.md
+?? docs/auto-execute/requirement-candidates.json
+?? docs/auto-execute/requirement-section-map.json
+?? docs/auto-execute/requirement-target.json
+?? docs/auto-execute/results/T19.json
+?? docs/auto-execute/results/T20.json
+?? docs/auto-execute/results/T21.json
+?? docs/auto-execute/results/T22.json
+?? docs/auto-execute/results/T23.json
+?? docs/auto-execute/results/T24.json
+?? docs/auto-execute/results/T25.json
+?? docs/auto-execute/results/T26.json
+?? docs/auto-execute/results/T27.json
+?? docs/auto-execute/results/T28.json
+?? docs/auto-execute/results/T29.json
+?? docs/auto-execute/results/T30.json
+?? docs/auto-execute/results/T31.json
+?? docs/auto-execute/results/T32.json
+?? docs/auto-execute/results/T33.json
+?? docs/auto-execute/results/acceptance-compare.json
+?? docs/auto-execute/results/adapter-detect.json
+?? docs/auto-execute/results/api-smoke.generated.json
+?? docs/auto-execute/results/api-smoke.json
+?? docs/auto-execute/results/architecture-guard.json
+?? docs/auto-execute/results/backend-test.json
+?? docs/auto-execute/results/backend.json
+?? docs/auto-execute/results/code-review.json
+?? docs/auto-execute/results/compare-requirements.json
+?? docs/auto-execute/results/compare-ui.json
+?? docs/auto-execute/results/contract-discovery.json
+?? docs/auto-execute/results/contract-map.json
+?? docs/auto-execute/results/contract-verifier.json
+?? docs/auto-execute/results/contract.json
+?? docs/auto-execute/results/db-e2e.json
+?? docs/auto-execute/results/e2e-flow.json
+?? docs/auto-execute/results/environment.json
+?? docs/auto-execute/results/frontend-test.json
+?? docs/auto-execute/results/frontend.json
+?? docs/auto-execute/results/gap-repair.json
+?? docs/auto-execute/results/generated-story-tests.json
+?? docs/auto-execute/results/git-status.json
+?? docs/auto-execute/results/integration.json
+?? docs/auto-execute/results/repair.json
+?? docs/auto-execute/results/report-integrity.json
+?? docs/auto-execute/results/requirement-coverage.json
+?? docs/auto-execute/results/requirement-extract.json
+?? docs/auto-execute/results/requirement-normalization-worker-round-5.json
+?? docs/auto-execute/results/requirement-section-map.json
+?? docs/auto-execute/results/requirement-verifier.json
+?? docs/auto-execute/results/requirements-candidates.json
+?? docs/auto-execute/results/requirements.json
+?? docs/auto-execute/results/route-smoke.generated.json
+?? docs/auto-execute/results/run-all.json
+?? docs/auto-execute/results/scope-classification.json
+?? docs/auto-execute/results/secret-guard.json
+?? docs/auto-execute/results/story-curation.json
+?? docs/auto-execute/results/story-extract.json
+?? docs/auto-execute/results/story-final-report.json
+?? docs/auto-execute/results/story-normalize.json
+?? docs/auto-execute/results/story-quality-gate.json
+?? docs/auto-execute/results/story-quality-worker-round-3.json
+?? docs/auto-execute/results/story-test-generate.json
+?? docs/auto-execute/results/story-test-materialize.json
+?? docs/auto-execute/results/story-verifier.json
+?? docs/auto-execute/results/todo-export.json
+?? docs/auto-execute/results/ui-capture.json
+?? docs/auto-execute/results/ui-pixel-diff.json
+?? docs/auto-execute/results/ui-verifier.json
+?? docs/auto-execute/results/verifier-dependencies.json
+?? docs/auto-execute/scoremap-ai-tutor-v13-acceptance-standard.md
+?? docs/auto-execute/scoremap-ai-tutor-v13-api-db-contract-matrix.md
+?? docs/auto-execute/scoremap-ai-tutor-v13-codex-exec-prompts-split.md
+?? docs/auto-execute/scoremap-ai-tutor-v13-delivery-standard-index.md
+?? docs/auto-execute/scoremap-ai-tutor-v13-development-standard.md
+?? docs/auto-execute/scoremap-ai-tutor-v13-final-acceptance-gate.md
+?? docs/auto-execute/scoremap-ai-tutor-v13-master-plan.md
+?? docs/auto-execute/scoremap-ai-tutor-v13-owner-scenario-matrix.md
+?? docs/auto-execute/scoremap-ai-tutor-v13-requirement-traceability-matrix.md
+?? docs/auto-execute/scoremap-ai-tutor-v13-software-test-standard.md
+?? docs/auto-execute/scoremap-ai-tutor-v13-standard-test-plan.md
+?? docs/auto-execute/scoremap-ai-tutor-v13-task-pack-quality-audit.md
+?? docs/auto-execute/scoremap-ai-tutor-v13-tasks/
+?? docs/auto-execute/scoremap-ai-tutor-v13-ui-reference-map.md
+?? docs/auto-execute/sprint-plan.json
+?? docs/auto-execute/state.json
+?? docs/auto-execute/story-acceptance-summary.json
+?? docs/auto-execute/story-candidates-curated.json
+?? docs/auto-execute/story-candidates.json
+?? docs/auto-execute/story-gap-list.json
+?? docs/auto-execute/story-materialized-tests.json
+?? docs/auto-execute/story-quality-gate.json
+?? docs/auto-execute/story-status.json
+?? docs/auto-execute/story-target.json
+?? docs/auto-execute/story-test-matrix.json
+?? docs/auto-execute/summaries/
+?? docs/auto-execute/test-matrix.json
+?? docs/auto-execute/ui-candidates.json
+?? docs/auto-execute/ui-target.json
+?? docs/auto-execute/verification-results.md
+?? docs/auto-execute/visual-diff-report.json
+?? docs/auto-execute/visual-diff-report.md
+?? "docs/backup/AI\346\217\220\345\210\206\345\206\263\347\255\226_PRD_MVP_v1.2_C\347\253\257\351\241\265\351\235\242\346\265\201\347\250\213\344\277\256\350\256\242\347\211\210.md"
+?? scoremap-miniapp/pages/ai-exercise-feedback/
+?? scoremap-miniapp/pages/ai-exercise/
+?? scoremap-miniapp/pages/ai-tutor/
+?? scoremap-miniapp/pages/full-report/full-report-ai-entry.test.js
+?? scoremap-miniapp/pages/my/my-reports-ai-tutor.test.js
+?? scoremap-miniapp/pages/wrong-question/
+?? scoremap-miniapp/utils/ai-tutor-v13-design.js
+?? scripts/acceptance/generate-v13-inventory.mjs
+?? scripts/acceptance/generated/
+?? server/src/ai/
+?? server/src/routes/question-interactions.js
+?? server/src/services/question-interactions-service.js
+?? server/test/ai-adapter.test.js
+?? server/test/ai-tutor-api.test.js
+?? server/test/question-interactions.test.js
+?? shared/evidence-paths.js
+```

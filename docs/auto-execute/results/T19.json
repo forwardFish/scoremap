@@ -1,0 +1,62 @@
+{
+  "taskId": "T19",
+  "status": "PASS_WITH_LIMITATION",
+  "generatedAt": "2026-05-25T15:30:00+08:00",
+  "summary": "Created the v1.3 source/UI/route/API/DB/LLM inventory. The inventory is complete for T19 but records implementation and encoding gaps, so it intentionally does not claim pure PASS.",
+  "outputs": [
+    "docs/auto-execute/evidence/inventory/v13-source-inventory.json",
+    "docs/auto-execute/evidence/inventory/T19-verification.json",
+    "docs/auto-execute/results/T19.json",
+    "docs/auto-execute/latest/T19-HANDOFF.md"
+  ],
+  "acceptance": {
+    "sourceInventoryExists": true,
+    "fiveUiReferencesIncluded": true,
+    "llmIdsIncluded": [
+      "LLM-PREVIEW-01",
+      "LLM-BASIC-02",
+      "LLM-FULL-03",
+      "LLM-QUESTION-04",
+      "LLM-TUTOR-05",
+      "LLM-EXERCISE-06",
+      "LLM-CHECK-07"
+    ],
+    "requirementsMapped": true,
+    "missingImplementationGapsRecorded": true,
+    "purePassClaimed": false
+  },
+  "gaps": [
+    {
+      "id": "T19-GAP-ENCODING",
+      "status": "REPAIR_REQUIRED",
+      "description": "The v1.3 PRD/planning sources contain mojibake. Later workers must avoid propagating corrupted user-facing copy and repair visible Chinese text before final acceptance."
+    },
+    {
+      "id": "T19-GAP-ROUTES",
+      "status": "REPAIR_REQUIRED",
+      "description": "The v1.3 wrong-question/tutor/exercise/feedback routes are not registered yet."
+    },
+    {
+      "id": "T19-GAP-API-DB-TRACE",
+      "status": "REPAIR_REQUIRED",
+      "description": "The v1.3 APIs, DB tables, and model trace adapter are not implemented yet."
+    }
+  ],
+  "verificationCommands": [
+    {
+      "command": "npm test",
+      "status": "PASS",
+      "exitCode": 0,
+      "evidencePath": "docs/auto-execute/evidence/inventory/T19-verification.json"
+    },
+    {
+      "command": "powershell -ExecutionPolicy Bypass -File scripts/acceptance/check-report-integrity.ps1",
+      "status": "FAIL_PREEXISTING",
+      "exitCode": 1,
+      "evidencePath": "docs/auto-execute/evidence/inventory/T19-verification.json",
+      "failure": "Missing PRD v1.2 file under docs/."
+    }
+  ],
+  "verificationResult": "PASS_WITH_LIMITATION",
+  "evidencePath": "docs/auto-execute/evidence/inventory/T19-verification.json"
+}

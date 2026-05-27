@@ -1,9 +1,11 @@
 {
   "id": "UI-C12",
   "screen": "reports",
+  "referenceKey": null,
   "route": "/pages/reports/index",
   "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
   "reference": null,
+  "sourceReference": null,
   "declaredReference": null,
   "stitchReference": null,
   "miniappActualAsset": null,
@@ -19,8 +21,8 @@
     "actual": {
       "exists": true,
       "path": "docs/auto-execute/evidence/visual-harness/reports/actual.svg",
-      "bytes": 1974,
-      "sha256": "72e20475519d7760301badac03cca9b1e9c52d354a3bcb71197a1e8322c6fdc5",
+      "bytes": 2428,
+      "sha256": "6eaf543ed812389a08a7a6ddec25896ecaf48d0958de884869ed9532c44716d6",
       "extension": ".svg"
     },
     "byteLengthDelta": null,

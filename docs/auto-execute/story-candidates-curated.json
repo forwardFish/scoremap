@@ -1,0 +1,651 @@
+﻿{
+    "summary":  {
+                    "VALID_STORY":  4,
+                    "SUPPORTING_REQUIREMENT":  1,
+                    "ARCHITECTURE_NOTE":  0,
+                    "OUT_OF_SCOPE":  0,
+                    "DUPLICATE":  0,
+                    "ambiguous":  10,
+                    "validStories":  4,
+                    "supportingRequirements":  1,
+                    "architectureNotes":  0,
+                    "outOfScope":  0,
+                    "duplicates":  0
+                },
+    "status":  "PRODUCT_DECISION_REQUIRED",
+    "schemaVersion":  "2.0",
+    "items":  [
+                  {
+                      "candidateId":  "STORY-REQ-001",
+                      "rawText":  "Complete reports expose wrong-question cards and the AI tutor entry from each eligible wrong-question card.",
+                      "classification":  "AMBIGUOUS",
+                      "reason":  "Candidate does not clearly expose actor, goal, and verifiable outcome.",
+                      "suggestedStoryId":  null,
+                      "priority":  "P0",
+                      "source":  "docs\\auto-execute\\requirement-target.json",
+                      "sourceLine":  0,
+                      "candidate":  {
+                                        "storyId":  "STORY-REQ-001",
+                                        "id":  "STORY-REQ-001",
+                                        "title":  "Complete reports expose wrong-question cards and the AI tutor entry from each el",
+                                        "description":  "Complete reports expose wrong-question cards and the AI tutor entry from each eligible wrong-question card.",
+                                        "source":  "docs\\auto-execute\\requirement-target.json",
+                                        "sourceLine":  0,
+                                        "sourceRequirements":  [
+                                                                   "V13-R01"
+                                                               ],
+                                        "actor":  "user",
+                                        "goal":  "Complete reports expose wrong-question cards and the AI tutor entry from each eligible wrong-question card.",
+                                        "priority":  "P0",
+                                        "surfaces":  [
+                                                         "GET /api/diagnosis-orders/{orderId}/questions",
+                                                         "scoremap-miniapp/pages/full-report",
+                                                         "scoremap-miniapp/pages/wrong-question"
+                                                     ],
+                                        "apis":  [
+
+                                                 ],
+                                        "acceptanceCriteria":  [
+                                                                   "Complete reports expose wrong-question cards and the AI tutor entry from each eligible wrong-question card.",
+                                                                   "Each eligible wrong-question card exposes the AI tutor entry.",
+                                                                   "Full-report users can see wrong-question cards in the complete report.",
+                                                                   "The entry routes to the wrong-question/tutor experience with visual evidence."
+                                                               ],
+                                        "status":  "CANDIDATE",
+                                        "normalized":  false,
+                                        "evidence":  [
+
+                                                     ]
+                                    }
+                  },
+                  {
+                      "candidateId":  "STORY-REQ-002",
+                      "rawText":  "Formal tutor use requires full-report entitlement; basic/free users cannot formally ask.",
+                      "classification":  "VALID_STORY",
+                      "reason":  "Contains product behavior with a verifiable target or user-facing outcome.",
+                      "suggestedStoryId":  "STORY-REPORT-002",
+                      "priority":  "P0",
+                      "source":  "docs\\auto-execute\\requirement-target.json",
+                      "sourceLine":  0,
+                      "candidate":  {
+                                        "storyId":  "STORY-REQ-002",
+                                        "id":  "STORY-REQ-002",
+                                        "title":  "Formal tutor use requires full-report entitlement; basic/free users cannot forma",
+                                        "description":  "Formal tutor use requires full-report entitlement; basic/free users cannot formally ask.",
+                                        "source":  "docs\\auto-execute\\requirement-target.json",
+                                        "sourceLine":  0,
+                                        "sourceRequirements":  [
+                                                                   "V13-R02"
+                                                               ],
+                                        "actor":  "user",
+                                        "goal":  "Formal tutor use requires full-report entitlement; basic/free users cannot formally ask.",
+                                        "priority":  "P0",
+                                        "surfaces":  [
+                                                         "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+                                                         "scoremap-miniapp/pages/wrong-question"
+                                                     ],
+                                        "apis":  [
+
+                                                 ],
+                                        "acceptanceCriteria":  [
+                                                                   "API rejects unentitled formal tutor access.",
+                                                                   "Entitlement behavior is covered by negative branch evidence.",
+                                                                   "Formal tutor use requires full-report entitlement; basic/free users cannot formally ask.",
+                                                                   "UI shows the locked/basic state without starting formal interaction."
+                                                               ],
+                                        "status":  "CANDIDATE",
+                                        "normalized":  false,
+                                        "evidence":  [
+
+                                                     ]
+                                    }
+                  },
+                  {
+                      "candidateId":  "STORY-REQ-003",
+                      "rawText":  "Each report allows at most 10 tutor interactions and each question allows at most 3 interactions.",
+                      "classification":  "VALID_STORY",
+                      "reason":  "Contains product behavior with a verifiable target or user-facing outcome.",
+                      "suggestedStoryId":  "STORY-REPORT-003",
+                      "priority":  "P0",
+                      "source":  "docs\\auto-execute\\requirement-target.json",
+                      "sourceLine":  0,
+                      "candidate":  {
+                                        "storyId":  "STORY-REQ-003",
+                                        "id":  "STORY-REQ-003",
+                                        "title":  "Each report allows at most 10 tutor interactions and each question allows at mos",
+                                        "description":  "Each report allows at most 10 tutor interactions and each question allows at most 3 interactions.",
+                                        "source":  "docs\\auto-execute\\requirement-target.json",
+                                        "sourceLine":  0,
+                                        "sourceRequirements":  [
+                                                                   "V13-R03"
+                                                               ],
+                                        "actor":  "user",
+                                        "goal":  "Each report allows at most 10 tutor interactions and each question allows at most 3 interactions.",
+                                        "priority":  "P0",
+                                        "surfaces":  [
+                                                         "scoremap-miniapp/pages/ai-tutor",
+                                                         "server/src/routes/question-interactions.js",
+                                                         "server/src/services/question-interactions-service.js"
+                                                     ],
+                                        "apis":  [
+
+                                                 ],
+                                        "acceptanceCriteria":  [
+                                                                   "Each report allows at most 10 tutor interactions and each question allows at most 3 interactions.",
+                                                                   "Question-level quota is enforced by API and persisted data.",
+                                                                   "Quota-exceeded responses are covered by UI or API evidence.",
+                                                                   "Report-level quota is enforced by API and persisted data."
+                                                               ],
+                                        "status":  "CANDIDATE",
+                                        "normalized":  false,
+                                        "evidence":  [
+
+                                                     ]
+                                    }
+                  },
+                  {
+                      "candidateId":  "STORY-REQ-004",
+                      "rawText":  "The first tutor version uses fixed action buttons only and exposes no open-ended chat surface.",
+                      "classification":  "AMBIGUOUS",
+                      "reason":  "Candidate does not clearly expose actor, goal, and verifiable outcome.",
+                      "suggestedStoryId":  null,
+                      "priority":  "P0",
+                      "source":  "docs\\auto-execute\\requirement-target.json",
+                      "sourceLine":  0,
+                      "candidate":  {
+                                        "storyId":  "STORY-REQ-004",
+                                        "id":  "STORY-REQ-004",
+                                        "title":  "The first tutor version uses fixed action buttons only and exposes no open-ended",
+                                        "description":  "The first tutor version uses fixed action buttons only and exposes no open-ended chat surface.",
+                                        "source":  "docs\\auto-execute\\requirement-target.json",
+                                        "sourceLine":  0,
+                                        "sourceRequirements":  [
+                                                                   "V13-R04"
+                                                               ],
+                                        "actor":  "user",
+                                        "goal":  "The first tutor version uses fixed action buttons only and exposes no open-ended chat surface.",
+                                        "priority":  "P0",
+                                        "surfaces":  [
+                                                         "scoremap-miniapp/pages/ai-tutor",
+                                                         "scoremap-miniapp/pages/wrong-question"
+                                                     ],
+                                        "apis":  [
+
+                                                 ],
+                                        "acceptanceCriteria":  [
+                                                                   "Control mapping evidence ties fixed buttons to API actions.",
+                                                                   "No freeform chat input is present in the first version.",
+                                                                   "The first tutor version uses fixed action buttons only and exposes no open-ended chat surface.",
+                                                                   "Tutor UI exposes fixed follow-up controls."
+                                                               ],
+                                        "status":  "CANDIDATE",
+                                        "normalized":  false,
+                                        "evidence":  [
+
+                                                     ]
+                                    }
+                  },
+                  {
+                      "candidateId":  "STORY-REQ-005",
+                      "rawText":  "AI responses stay around the current wrong question and record a summary.",
+                      "classification":  "AMBIGUOUS",
+                      "reason":  "Candidate does not clearly expose actor, goal, and verifiable outcome.",
+                      "suggestedStoryId":  null,
+                      "priority":  "P0",
+                      "source":  "docs\\auto-execute\\requirement-target.json",
+                      "sourceLine":  0,
+                      "candidate":  {
+                                        "storyId":  "STORY-REQ-005",
+                                        "id":  "STORY-REQ-005",
+                                        "title":  "AI responses stay around the current wrong question and record a summary.",
+                                        "description":  "AI responses stay around the current wrong question and record a summary.",
+                                        "source":  "docs\\auto-execute\\requirement-target.json",
+                                        "sourceLine":  0,
+                                        "sourceRequirements":  [
+                                                                   "V13-R05"
+                                                               ],
+                                        "actor":  "user",
+                                        "goal":  "AI responses stay around the current wrong question and record a summary.",
+                                        "priority":  "P0",
+                                        "surfaces":  [
+                                                         "server/src/ai",
+                                                         "server/src/services/question-interactions-service.js"
+                                                     ],
+                                        "apis":  [
+
+                                                 ],
+                                        "acceptanceCriteria":  [
+                                                                   "AI responses stay around the current wrong question and record a summary.",
+                                                                   "Local LLM trace contains prompt id, request, response, failure, timeout, and metadata coverage.",
+                                                                   "Prompt payload includes current wrong-question context.",
+                                                                   "Tutor response and summary are persisted to interaction records."
+                                                               ],
+                                        "status":  "CANDIDATE",
+                                        "normalized":  false,
+                                        "evidence":  [
+
+                                                     ]
+                                    }
+                  },
+                  {
+                      "candidateId":  "STORY-REQ-006",
+                      "rawText":  "A similar exercise can be generated and submitted for AI feedback.",
+                      "classification":  "VALID_STORY",
+                      "reason":  "Contains product behavior with a verifiable target or user-facing outcome.",
+                      "suggestedStoryId":  "STORY-GENERAL-006",
+                      "priority":  "P0",
+                      "source":  "docs\\auto-execute\\requirement-target.json",
+                      "sourceLine":  0,
+                      "candidate":  {
+                                        "storyId":  "STORY-REQ-006",
+                                        "id":  "STORY-REQ-006",
+                                        "title":  "A similar exercise can be generated and submitted for AI feedback.",
+                                        "description":  "A similar exercise can be generated and submitted for AI feedback.",
+                                        "source":  "docs\\auto-execute\\requirement-target.json",
+                                        "sourceLine":  0,
+                                        "sourceRequirements":  [
+                                                                   "V13-R06"
+                                                               ],
+                                        "actor":  "user",
+                                        "goal":  "A similar exercise can be generated and submitted for AI feedback.",
+                                        "priority":  "P0",
+                                        "surfaces":  [
+                                                         "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/exercise-answer",
+                                                         "scoremap-miniapp/pages/ai-exercise",
+                                                         "scoremap-miniapp/pages/ai-exercise-feedback"
+                                                     ],
+                                        "apis":  [
+
+                                                 ],
+                                        "acceptanceCriteria":  [
+                                                                   "A similar exercise can be generated and submitted for AI feedback.",
+                                                                   "Feedback is returned and tied to the same question context.",
+                                                                   "Student can generate a similar exercise from the wrong-question context.",
+                                                                   "Student can submit an answer for that exercise."
+                                                               ],
+                                        "status":  "CANDIDATE",
+                                        "normalized":  false,
+                                        "evidence":  [
+
+                                                     ]
+                                    }
+                  },
+                  {
+                      "candidateId":  "STORY-REQ-007",
+                      "rawText":  "APIs exist for question list, follow-up interaction, exercise answer, and interaction records.",
+                      "classification":  "AMBIGUOUS",
+                      "reason":  "Candidate does not clearly expose actor, goal, and verifiable outcome.",
+                      "suggestedStoryId":  null,
+                      "priority":  "P0",
+                      "source":  "docs\\auto-execute\\requirement-target.json",
+                      "sourceLine":  0,
+                      "candidate":  {
+                                        "storyId":  "STORY-REQ-007",
+                                        "id":  "STORY-REQ-007",
+                                        "title":  "APIs exist for question list, follow-up interaction, exercise answer, and intera",
+                                        "description":  "APIs exist for question list, follow-up interaction, exercise answer, and interaction records.",
+                                        "source":  "docs\\auto-execute\\requirement-target.json",
+                                        "sourceLine":  0,
+                                        "sourceRequirements":  [
+                                                                   "V13-R07"
+                                                               ],
+                                        "actor":  "user",
+                                        "goal":  "APIs exist for question list, follow-up interaction, exercise answer, and interaction records.",
+                                        "priority":  "P0",
+                                        "surfaces":  [
+                                                         "server/src/routes/diagnosis-orders.js",
+                                                         "server/src/routes/question-interactions.js"
+                                                     ],
+                                        "apis":  [
+
+                                                 ],
+                                        "acceptanceCriteria":  [
+                                                                   "APIs exist for question list, follow-up interaction, exercise answer, and interaction records.",
+                                                                   "Exercise answer API and record-read APIs are implemented and covered.",
+                                                                   "Follow-up interaction API is implemented and covered.",
+                                                                   "Question list API is implemented and covered."
+                                                               ],
+                                        "status":  "CANDIDATE",
+                                        "normalized":  false,
+                                        "evidence":  [
+
+                                                     ]
+                                    }
+                  },
+                  {
+                      "candidateId":  "STORY-REQ-008",
+                      "rawText":  "Storage exists for diagnosis questions and question interactions.",
+                      "classification":  "AMBIGUOUS",
+                      "reason":  "Candidate does not clearly expose actor, goal, and verifiable outcome.",
+                      "suggestedStoryId":  null,
+                      "priority":  "P0",
+                      "source":  "docs\\auto-execute\\requirement-target.json",
+                      "sourceLine":  0,
+                      "candidate":  {
+                                        "storyId":  "STORY-REQ-008",
+                                        "id":  "STORY-REQ-008",
+                                        "title":  "Storage exists for diagnosis questions and question interactions.",
+                                        "description":  "Storage exists for diagnosis questions and question interactions.",
+                                        "source":  "docs\\auto-execute\\requirement-target.json",
+                                        "sourceLine":  0,
+                                        "sourceRequirements":  [
+                                                                   "V13-R08"
+                                                               ],
+                                        "actor":  "user",
+                                        "goal":  "Storage exists for diagnosis questions and question interactions.",
+                                        "priority":  "P0",
+                                        "surfaces":  [
+                                                         "server/src/db/local-json-db.js",
+                                                         "server/src/services/question-interactions-service.js",
+                                                         "shared/in-memory-db.js"
+                                                     ],
+                                        "apis":  [
+
+                                                 ],
+                                        "acceptanceCriteria":  [
+                                                                   "DB readback evidence proves the schema behavior.",
+                                                                   "diagnosis_questions data is stored or materialized in the local DB model.",
+                                                                   "question_interactions records are persisted and readable.",
+                                                                   "Storage exists for diagnosis questions and question interactions."
+                                                               ],
+                                        "status":  "CANDIDATE",
+                                        "normalized":  false,
+                                        "evidence":  [
+
+                                                     ]
+                                    }
+                  },
+                  {
+                      "candidateId":  "STORY-REQ-009",
+                      "rawText":  "The complete report has a formal visual presentation and includes wrong-question cards.",
+                      "classification":  "VALID_STORY",
+                      "reason":  "Contains product behavior with a verifiable target or user-facing outcome.",
+                      "suggestedStoryId":  "STORY-REPORT-009",
+                      "priority":  "P0",
+                      "source":  "docs\\auto-execute\\requirement-target.json",
+                      "sourceLine":  0,
+                      "candidate":  {
+                                        "storyId":  "STORY-REQ-009",
+                                        "id":  "STORY-REQ-009",
+                                        "title":  "The complete report has a formal visual presentation and includes wrong-question",
+                                        "description":  "The complete report has a formal visual presentation and includes wrong-question cards.",
+                                        "source":  "docs\\auto-execute\\requirement-target.json",
+                                        "sourceLine":  0,
+                                        "sourceRequirements":  [
+                                                                   "V13-R09"
+                                                               ],
+                                        "actor":  "user",
+                                        "goal":  "The complete report has a formal visual presentation and includes wrong-question cards.",
+                                        "priority":  "P0",
+                                        "surfaces":  [
+                                                         "scoremap-miniapp/pages/full-report"
+                                                     ],
+                                        "apis":  [
+
+                                                 ],
+                                        "acceptanceCriteria":  [
+                                                                   "Full-report layout includes formal report structure.",
+                                                                   "The complete report has a formal visual presentation and includes wrong-question cards.",
+                                                                   "Visual harness evidence exists; raster pixel-perfect review remains manual.",
+                                                                   "Wrong-question cards are visible in the report."
+                                                               ],
+                                        "status":  "CANDIDATE",
+                                        "normalized":  false,
+                                        "evidence":  [
+
+                                                     ]
+                                    }
+                  },
+                  {
+                      "candidateId":  "STORY-REQ-010",
+                      "rawText":  "The wrong-question detail page matches the supplied reference.",
+                      "classification":  "AMBIGUOUS",
+                      "reason":  "Candidate does not clearly expose actor, goal, and verifiable outcome.",
+                      "suggestedStoryId":  null,
+                      "priority":  "P0",
+                      "source":  "docs\\auto-execute\\requirement-target.json",
+                      "sourceLine":  0,
+                      "candidate":  {
+                                        "storyId":  "STORY-REQ-010",
+                                        "id":  "STORY-REQ-010",
+                                        "title":  "The wrong-question detail page matches the supplied reference.",
+                                        "description":  "The wrong-question detail page matches the supplied reference.",
+                                        "source":  "docs\\auto-execute\\requirement-target.json",
+                                        "sourceLine":  0,
+                                        "sourceRequirements":  [
+                                                                   "V13-R10"
+                                                               ],
+                                        "actor":  "user",
+                                        "goal":  "The wrong-question detail page matches the supplied reference.",
+                                        "priority":  "P0",
+                                        "surfaces":  [
+                                                         "scoremap-miniapp/pages/wrong-question"
+                                                     ],
+                                        "apis":  [
+
+                                                 ],
+                                        "acceptanceCriteria":  [
+                                                                   "Pixel-perfect claim remains manual unless raster diff is accepted.",
+                                                                   "The page has visual reference, actual, diff, metrics, and summary evidence.",
+                                                                   "The wrong-question detail page matches the supplied reference.",
+                                                                   "Wrong-question detail route is registered and functional."
+                                                               ],
+                                        "status":  "CANDIDATE",
+                                        "normalized":  false,
+                                        "evidence":  [
+
+                                                     ]
+                                    }
+                  },
+                  {
+                      "candidateId":  "STORY-REQ-011",
+                      "rawText":  "The AI tutor interaction page and expanded area match the supplied reference.",
+                      "classification":  "AMBIGUOUS",
+                      "reason":  "Candidate does not clearly expose actor, goal, and verifiable outcome.",
+                      "suggestedStoryId":  null,
+                      "priority":  "P0",
+                      "source":  "docs\\auto-execute\\requirement-target.json",
+                      "sourceLine":  0,
+                      "candidate":  {
+                                        "storyId":  "STORY-REQ-011",
+                                        "id":  "STORY-REQ-011",
+                                        "title":  "The AI tutor interaction page and expanded area match the supplied reference.",
+                                        "description":  "The AI tutor interaction page and expanded area match the supplied reference.",
+                                        "source":  "docs\\auto-execute\\requirement-target.json",
+                                        "sourceLine":  0,
+                                        "sourceRequirements":  [
+                                                                   "V13-R11"
+                                                               ],
+                                        "actor":  "user",
+                                        "goal":  "The AI tutor interaction page and expanded area match the supplied reference.",
+                                        "priority":  "P0",
+                                        "surfaces":  [
+                                                         "scoremap-miniapp/pages/ai-tutor"
+                                                     ],
+                                        "apis":  [
+
+                                                 ],
+                                        "acceptanceCriteria":  [
+                                                                   "AI tutor route is registered and functional.",
+                                                                   "Fixed-button interaction area matches the intended structure.",
+                                                                   "The AI tutor interaction page and expanded area match the supplied reference.",
+                                                                   "Visual harness evidence exists with manual UI review limitation."
+                                                               ],
+                                        "status":  "CANDIDATE",
+                                        "normalized":  false,
+                                        "evidence":  [
+
+                                                     ]
+                                    }
+                  },
+                  {
+                      "candidateId":  "STORY-REQ-012",
+                      "rawText":  "Similar exercise and answer feedback pages match the supplied references.",
+                      "classification":  "AMBIGUOUS",
+                      "reason":  "Candidate does not clearly expose actor, goal, and verifiable outcome.",
+                      "suggestedStoryId":  null,
+                      "priority":  "P0",
+                      "source":  "docs\\auto-execute\\requirement-target.json",
+                      "sourceLine":  0,
+                      "candidate":  {
+                                        "storyId":  "STORY-REQ-012",
+                                        "id":  "STORY-REQ-012",
+                                        "title":  "Similar exercise and answer feedback pages match the supplied references.",
+                                        "description":  "Similar exercise and answer feedback pages match the supplied references.",
+                                        "source":  "docs\\auto-execute\\requirement-target.json",
+                                        "sourceLine":  0,
+                                        "sourceRequirements":  [
+                                                                   "V13-R12"
+                                                               ],
+                                        "actor":  "user",
+                                        "goal":  "Similar exercise and answer feedback pages match the supplied references.",
+                                        "priority":  "P0",
+                                        "surfaces":  [
+                                                         "scoremap-miniapp/pages/ai-exercise",
+                                                         "scoremap-miniapp/pages/ai-exercise-feedback"
+                                                     ],
+                                        "apis":  [
+
+                                                 ],
+                                        "acceptanceCriteria":  [
+                                                                   "Answer feedback page is implemented and reachable.",
+                                                                   "Similar exercise and answer feedback pages match the supplied references.",
+                                                                   "Similar exercise page is implemented and reachable.",
+                                                                   "Visual harness evidence exists for both states with manual UI review limitation."
+                                                               ],
+                                        "status":  "CANDIDATE",
+                                        "normalized":  false,
+                                        "evidence":  [
+
+                                                     ]
+                                    }
+                  },
+                  {
+                      "candidateId":  "STORY-REQ-013",
+                      "rawText":  "All large-model call sites are inventoried and routed through testable local adapters.",
+                      "classification":  "AMBIGUOUS",
+                      "reason":  "Candidate does not clearly expose actor, goal, and verifiable outcome.",
+                      "suggestedStoryId":  null,
+                      "priority":  "P1",
+                      "source":  "docs\\auto-execute\\requirement-target.json",
+                      "sourceLine":  0,
+                      "candidate":  {
+                                        "storyId":  "STORY-REQ-013",
+                                        "id":  "STORY-REQ-013",
+                                        "title":  "All large-model call sites are inventoried and routed through testable local ada",
+                                        "description":  "All large-model call sites are inventoried and routed through testable local adapters.",
+                                        "source":  "docs\\auto-execute\\requirement-target.json",
+                                        "sourceLine":  0,
+                                        "sourceRequirements":  [
+                                                                   "V13-R13"
+                                                               ],
+                                        "actor":  "user",
+                                        "goal":  "All large-model call sites are inventoried and routed through testable local adapters.",
+                                        "priority":  "P1",
+                                        "surfaces":  [
+                                                         "docs/auto-execute/evidence/llm",
+                                                         "server/src/ai"
+                                                     ],
+                                        "apis":  [
+
+                                                 ],
+                                        "acceptanceCriteria":  [
+                                                                   "All large-model call sites are inventoried and routed through testable local adapters.",
+                                                                   "Large-model call inventory exists.",
+                                                                   "LLM adapter and prompt registry are covered by tests.",
+                                                                   "Trace evidence proves local mockable calls for the V13 flow."
+                                                               ],
+                                        "status":  "CANDIDATE",
+                                        "normalized":  false,
+                                        "evidence":  [
+
+                                                     ]
+                                    }
+                  },
+                  {
+                      "candidateId":  "STORY-REQ-014",
+                      "rawText":  "A normal person can click through all pages and visible P0 controls.",
+                      "classification":  "AMBIGUOUS",
+                      "reason":  "Candidate does not clearly expose actor, goal, and verifiable outcome.",
+                      "suggestedStoryId":  null,
+                      "priority":  "P1",
+                      "source":  "docs\\auto-execute\\requirement-target.json",
+                      "sourceLine":  0,
+                      "candidate":  {
+                                        "storyId":  "STORY-REQ-014",
+                                        "id":  "STORY-REQ-014",
+                                        "title":  "A normal person can click through all pages and visible P0 controls.",
+                                        "description":  "A normal person can click through all pages and visible P0 controls.",
+                                        "source":  "docs\\auto-execute\\requirement-target.json",
+                                        "sourceLine":  0,
+                                        "sourceRequirements":  [
+                                                                   "V13-R14"
+                                                               ],
+                                        "actor":  "user",
+                                        "goal":  "A normal person can click through all pages and visible P0 controls.",
+                                        "priority":  "P1",
+                                        "surfaces":  [
+                                                         "scoremap-miniapp/routes.js",
+                                                         "tests/e2e/owner-click-flow.test.js"
+                                                     ],
+                                        "apis":  [
+
+                                                 ],
+                                        "acceptanceCriteria":  [
+                                                                   "A normal person can click through all pages and visible P0 controls.",
+                                                                   "Manual UI review limitation remains for raster-perfect visual judgement.",
+                                                                   "Owner journey covers legacy and new V13 pages.",
+                                                                   "Visible P0 controls are represented in click evidence."
+                                                               ],
+                                        "status":  "CANDIDATE",
+                                        "normalized":  false,
+                                        "evidence":  [
+
+                                                     ]
+                                    }
+                  },
+                  {
+                      "candidateId":  "STORY-REQ-015",
+                      "rawText":  "Final acceptance covers function, business, technical, AI quality, and UI evidence.",
+                      "classification":  "SUPPORTING_REQUIREMENT",
+                      "reason":  "Candidate is a supporting verification or operational requirement.",
+                      "suggestedStoryId":  null,
+                      "priority":  "P1",
+                      "source":  "docs\\auto-execute\\requirement-target.json",
+                      "sourceLine":  0,
+                      "candidate":  {
+                                        "storyId":  "STORY-REQ-015",
+                                        "id":  "STORY-REQ-015",
+                                        "title":  "Final acceptance covers function, business, technical, AI quality, and UI eviden",
+                                        "description":  "Final acceptance covers function, business, technical, AI quality, and UI evidence.",
+                                        "source":  "docs\\auto-execute\\requirement-target.json",
+                                        "sourceLine":  0,
+                                        "sourceRequirements":  [
+                                                                   "V13-R15"
+                                                               ],
+                                        "actor":  "user",
+                                        "goal":  "Final acceptance covers function, business, technical, AI quality, and UI evidence.",
+                                        "priority":  "P1",
+                                        "surfaces":  [
+                                                         "docs/AUTO_EXECUTE_DELIVERY_REPORT.md",
+                                                         "scripts/acceptance/run-final-gate.ps1"
+                                                     ],
+                                        "apis":  [
+
+                                                 ],
+                                        "acceptanceCriteria":  [
+                                                                   "Final acceptance covers function, business, technical, AI quality, and UI evidence.",
+                                                                   "Final gate evaluates implementation, evidence, local-only safety, secret guard, and UI review status.",
+                                                                   "Final gate result exists for the V13 scope.",
+                                                                   "Non-pure PASS is explained by the remaining manual UI review limitation."
+                                                               ],
+                                        "status":  "CANDIDATE",
+                                        "normalized":  false,
+                                        "evidence":  [
+
+                                                     ]
+                                    }
+                  }
+              ],
+    "curatedAt":  "2026-05-25T19:10:41"
+}

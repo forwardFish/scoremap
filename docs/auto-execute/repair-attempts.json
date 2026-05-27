@@ -1,0 +1,710 @@
+﻿{
+    "GAP-STORY-TARGET-STORY-QUALITY-1":  {
+                                             "attempts":  2,
+                                             "lastError":  "story-target.json has no normalized stories.",
+                                             "status":  "RETRYING",
+                                             "updatedAt":  "2026-05-25T18:12:03"
+                                         },
+    "GAP-REQ-001":  {
+                        "attempts":  1,
+                        "lastError":  "No normalized requirements are listed in requirement-target.json",
+                        "status":  "RETRYING",
+                        "updatedAt":  "2026-05-25T18:12:03"
+                    },
+    "GAP-UI-000":  {
+                       "attempts":  3,
+                       "lastError":  "ui-target.json is missing or invalid",
+                       "status":  "RETRYING",
+                       "updatedAt":  "2026-05-25T18:12:03"
+                   },
+    "GAP-V13-R01-TEST-MAP":  {
+                                 "attempts":  2,
+                                 "lastError":  "P0/P1 requirement V13-R01 has no test or evidenceRequired mapping.",
+                                 "status":  "RETRYING",
+                                 "updatedAt":  "2026-05-25T19:03:35"
+                             },
+    "GAP-V13-R01-LIMITATION-REASON":  {
+                                          "attempts":  2,
+                                          "lastError":  "Requirement V13-R01 is PASS_WITH_LIMITATION without a limitation reason.",
+                                          "status":  "RETRYING",
+                                          "updatedAt":  "2026-05-25T19:03:35"
+                                      },
+    "GAP-V13-R02-TEST-MAP":  {
+                                 "attempts":  2,
+                                 "lastError":  "P0/P1 requirement V13-R02 has no test or evidenceRequired mapping.",
+                                 "status":  "RETRYING",
+                                 "updatedAt":  "2026-05-25T19:03:35"
+                             },
+    "GAP-V13-R03-TEST-MAP":  {
+                                 "attempts":  2,
+                                 "lastError":  "P0/P1 requirement V13-R03 has no test or evidenceRequired mapping.",
+                                 "status":  "RETRYING",
+                                 "updatedAt":  "2026-05-25T19:03:35"
+                             },
+    "GAP-V13-R04-TEST-MAP":  {
+                                 "attempts":  2,
+                                 "lastError":  "P0/P1 requirement V13-R04 has no test or evidenceRequired mapping.",
+                                 "status":  "RETRYING",
+                                 "updatedAt":  "2026-05-25T19:03:35"
+                             },
+    "GAP-V13-R05-TEST-MAP":  {
+                                 "attempts":  2,
+                                 "lastError":  "P0/P1 requirement V13-R05 has no test or evidenceRequired mapping.",
+                                 "status":  "RETRYING",
+                                 "updatedAt":  "2026-05-25T19:03:35"
+                             },
+    "GAP-V13-R06-TEST-MAP":  {
+                                 "attempts":  2,
+                                 "lastError":  "P0/P1 requirement V13-R06 has no test or evidenceRequired mapping.",
+                                 "status":  "RETRYING",
+                                 "updatedAt":  "2026-05-25T19:03:35"
+                             },
+    "GAP-V13-R07-TEST-MAP":  {
+                                 "attempts":  2,
+                                 "lastError":  "P0/P1 requirement V13-R07 has no test or evidenceRequired mapping.",
+                                 "status":  "RETRYING",
+                                 "updatedAt":  "2026-05-25T19:03:35"
+                             },
+    "GAP-V13-R08-TEST-MAP":  {
+                                 "attempts":  2,
+                                 "lastError":  "P0/P1 requirement V13-R08 has no test or evidenceRequired mapping.",
+                                 "status":  "RETRYING",
+                                 "updatedAt":  "2026-05-25T19:03:35"
+                             },
+    "GAP-V13-R09-STATUS":  {
+                               "attempts":  2,
+                               "lastError":  "P0/P1 requirement V13-R09 status is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION.",
+                               "status":  "RETRYING",
+                               "updatedAt":  "2026-05-25T19:03:35"
+                           },
+    "GAP-V13-R09-TEST-MAP":  {
+                                 "attempts":  2,
+                                 "lastError":  "P0/P1 requirement V13-R09 has no test or evidenceRequired mapping.",
+                                 "status":  "RETRYING",
+                                 "updatedAt":  "2026-05-25T19:03:35"
+                             },
+    "GAP-V13-R10-STATUS":  {
+                               "attempts":  2,
+                               "lastError":  "P0/P1 requirement V13-R10 status is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION.",
+                               "status":  "RETRYING",
+                               "updatedAt":  "2026-05-25T19:03:35"
+                           },
+    "GAP-V13-R10-TEST-MAP":  {
+                                 "attempts":  2,
+                                 "lastError":  "P0/P1 requirement V13-R10 has no test or evidenceRequired mapping.",
+                                 "status":  "RETRYING",
+                                 "updatedAt":  "2026-05-25T19:03:35"
+                             },
+    "GAP-V13-R11-STATUS":  {
+                               "attempts":  2,
+                               "lastError":  "P0/P1 requirement V13-R11 status is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION.",
+                               "status":  "RETRYING",
+                               "updatedAt":  "2026-05-25T19:03:35"
+                           },
+    "GAP-V13-R11-TEST-MAP":  {
+                                 "attempts":  2,
+                                 "lastError":  "P0/P1 requirement V13-R11 has no test or evidenceRequired mapping.",
+                                 "status":  "RETRYING",
+                                 "updatedAt":  "2026-05-25T19:03:35"
+                             },
+    "GAP-V13-R12-STATUS":  {
+                               "attempts":  2,
+                               "lastError":  "P0/P1 requirement V13-R12 status is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION.",
+                               "status":  "RETRYING",
+                               "updatedAt":  "2026-05-25T19:03:35"
+                           },
+    "GAP-V13-R12-TEST-MAP":  {
+                                 "attempts":  2,
+                                 "lastError":  "P0/P1 requirement V13-R12 has no test or evidenceRequired mapping.",
+                                 "status":  "RETRYING",
+                                 "updatedAt":  "2026-05-25T19:03:35"
+                             },
+    "GAP-V13-R13-TEST-MAP":  {
+                                 "attempts":  2,
+                                 "lastError":  "P0/P1 requirement V13-R13 has no test or evidenceRequired mapping.",
+                                 "status":  "RETRYING",
+                                 "updatedAt":  "2026-05-25T19:03:35"
+                             },
+    "GAP-V13-R14-STATUS":  {
+                               "attempts":  2,
+                               "lastError":  "P0/P1 requirement V13-R14 status is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION.",
+                               "status":  "RETRYING",
+                               "updatedAt":  "2026-05-25T19:03:35"
+                           },
+    "GAP-V13-R14-TEST-MAP":  {
+                                 "attempts":  2,
+                                 "lastError":  "P0/P1 requirement V13-R14 has no test or evidenceRequired mapping.",
+                                 "status":  "RETRYING",
+                                 "updatedAt":  "2026-05-25T19:03:35"
+                             },
+    "GAP-V13-R15-STATUS":  {
+                               "attempts":  2,
+                               "lastError":  "P0/P1 requirement V13-R15 status is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION.",
+                               "status":  "RETRYING",
+                               "updatedAt":  "2026-05-25T19:03:35"
+                           },
+    "GAP-V13-R15-TEST-MAP":  {
+                                 "attempts":  2,
+                                 "lastError":  "P0/P1 requirement V13-R15 has no test or evidenceRequired mapping.",
+                                 "status":  "RETRYING",
+                                 "updatedAt":  "2026-05-25T19:03:35"
+                             },
+    "GAP-V13-R09":  {
+                        "attempts":  1,
+                        "lastError":  "Requirement V13-R09 is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS.",
+                        "status":  "RETRYING",
+                        "updatedAt":  "2026-05-25T19:03:36"
+                    },
+    "GAP-V13-R10":  {
+                        "attempts":  1,
+                        "lastError":  "Requirement V13-R10 is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS.",
+                        "status":  "RETRYING",
+                        "updatedAt":  "2026-05-25T19:03:36"
+                    },
+    "GAP-V13-R11":  {
+                        "attempts":  1,
+                        "lastError":  "Requirement V13-R11 is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS.",
+                        "status":  "RETRYING",
+                        "updatedAt":  "2026-05-25T19:03:36"
+                    },
+    "GAP-V13-R12":  {
+                        "attempts":  1,
+                        "lastError":  "Requirement V13-R12 is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS.",
+                        "status":  "RETRYING",
+                        "updatedAt":  "2026-05-25T19:03:36"
+                    },
+    "GAP-V13-R14":  {
+                        "attempts":  1,
+                        "lastError":  "Requirement V13-R14 is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS.",
+                        "status":  "RETRYING",
+                        "updatedAt":  "2026-05-25T19:03:36"
+                    },
+    "GAP-V13-R15":  {
+                        "attempts":  1,
+                        "lastError":  "Requirement V13-R15 is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS.",
+                        "status":  "RETRYING",
+                        "updatedAt":  "2026-05-25T19:03:36"
+                    },
+    "GAP-UI-C01":  {
+                       "attempts":  3,
+                       "lastError":  "UI target UI-C01 is , not PASS.",
+                       "status":  "RETRYING",
+                       "updatedAt":  "2026-05-25T19:03:36"
+                   },
+    "GAP-UI-C01-VISUAL-STATUS":  {
+                                     "attempts":  3,
+                                     "lastError":  "UI target UI-C01 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                                     "status":  "RETRYING",
+                                     "updatedAt":  "2026-05-25T19:03:36"
+                                 },
+    "GAP-UI-C03":  {
+                       "attempts":  3,
+                       "lastError":  "UI target UI-C03 is , not PASS.",
+                       "status":  "RETRYING",
+                       "updatedAt":  "2026-05-25T19:03:36"
+                   },
+    "GAP-UI-C03-VISUAL-STATUS":  {
+                                     "attempts":  3,
+                                     "lastError":  "UI target UI-C03 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                                     "status":  "RETRYING",
+                                     "updatedAt":  "2026-05-25T19:03:36"
+                                 },
+    "GAP-UI-C04":  {
+                       "attempts":  3,
+                       "lastError":  "UI target UI-C04 is , not PASS.",
+                       "status":  "RETRYING",
+                       "updatedAt":  "2026-05-25T19:03:36"
+                   },
+    "GAP-UI-C04-VISUAL-STATUS":  {
+                                     "attempts":  3,
+                                     "lastError":  "UI target UI-C04 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                                     "status":  "RETRYING",
+                                     "updatedAt":  "2026-05-25T19:03:36"
+                                 },
+    "GAP-UI-C05":  {
+                       "attempts":  3,
+                       "lastError":  "UI target UI-C05 is , not PASS.",
+                       "status":  "RETRYING",
+                       "updatedAt":  "2026-05-25T19:03:36"
+                   },
+    "GAP-UI-C05-VISUAL-STATUS":  {
+                                     "attempts":  3,
+                                     "lastError":  "UI target UI-C05 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                                     "status":  "RETRYING",
+                                     "updatedAt":  "2026-05-25T19:03:36"
+                                 },
+    "GAP-UI-C06":  {
+                       "attempts":  3,
+                       "lastError":  "UI target UI-C06 is , not PASS.",
+                       "status":  "RETRYING",
+                       "updatedAt":  "2026-05-25T19:03:36"
+                   },
+    "GAP-UI-C06-VISUAL-STATUS":  {
+                                     "attempts":  3,
+                                     "lastError":  "UI target UI-C06 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                                     "status":  "RETRYING",
+                                     "updatedAt":  "2026-05-25T19:03:36"
+                                 },
+    "GAP-UI-C07":  {
+                       "attempts":  3,
+                       "lastError":  "UI target UI-C07 is , not PASS.",
+                       "status":  "RETRYING",
+                       "updatedAt":  "2026-05-25T19:03:36"
+                   },
+    "GAP-UI-C07-VISUAL-STATUS":  {
+                                     "attempts":  3,
+                                     "lastError":  "UI target UI-C07 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                                     "status":  "RETRYING",
+                                     "updatedAt":  "2026-05-25T19:03:36"
+                                 },
+    "GAP-UI-C08":  {
+                       "attempts":  3,
+                       "lastError":  "UI target UI-C08 is , not PASS.",
+                       "status":  "RETRYING",
+                       "updatedAt":  "2026-05-25T19:03:36"
+                   },
+    "GAP-UI-C08-VISUAL-STATUS":  {
+                                     "attempts":  3,
+                                     "lastError":  "UI target UI-C08 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                                     "status":  "RETRYING",
+                                     "updatedAt":  "2026-05-25T19:03:36"
+                                 },
+    "GAP-UI-C09":  {
+                       "attempts":  3,
+                       "lastError":  "UI target UI-C09 is , not PASS.",
+                       "status":  "RETRYING",
+                       "updatedAt":  "2026-05-25T19:03:36"
+                   },
+    "GAP-UI-C09-VISUAL-STATUS":  {
+                                     "attempts":  3,
+                                     "lastError":  "UI target UI-C09 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                                     "status":  "RETRYING",
+                                     "updatedAt":  "2026-05-25T19:03:36"
+                                 },
+    "GAP-UI-C10":  {
+                       "attempts":  3,
+                       "lastError":  "UI target UI-C10 is , not PASS.",
+                       "status":  "RETRYING",
+                       "updatedAt":  "2026-05-25T19:03:36"
+                   },
+    "GAP-UI-C10-VISUAL-STATUS":  {
+                                     "attempts":  3,
+                                     "lastError":  "UI target UI-C10 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                                     "status":  "RETRYING",
+                                     "updatedAt":  "2026-05-25T19:03:36"
+                                 },
+    "GAP-UI-C11":  {
+                       "attempts":  3,
+                       "lastError":  "UI target UI-C11 is , not PASS.",
+                       "status":  "RETRYING",
+                       "updatedAt":  "2026-05-25T19:03:37"
+                   },
+    "GAP-UI-C11-VISUAL-STATUS":  {
+                                     "attempts":  3,
+                                     "lastError":  "UI target UI-C11 visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                                     "status":  "RETRYING",
+                                     "updatedAt":  "2026-05-25T19:03:37"
+                                 },
+    "GAP-V13-UI-FULL-REPORT":  {
+                                   "attempts":  3,
+                                   "lastError":  "UI target V13-UI-FULL-REPORT is , not PASS.",
+                                   "status":  "RETRYING",
+                                   "updatedAt":  "2026-05-25T19:03:37"
+                               },
+    "GAP-V13-UI-FULL-REPORT-VISUAL-STATUS":  {
+                                                 "attempts":  3,
+                                                 "lastError":  "UI target V13-UI-FULL-REPORT visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                                                 "status":  "RETRYING",
+                                                 "updatedAt":  "2026-05-25T19:03:37"
+                                             },
+    "GAP-V13-UI-QUESTION-DETAIL":  {
+                                       "attempts":  3,
+                                       "lastError":  "UI target V13-UI-QUESTION-DETAIL is , not PASS.",
+                                       "status":  "RETRYING",
+                                       "updatedAt":  "2026-05-25T19:03:37"
+                                   },
+    "GAP-V13-UI-QUESTION-DETAIL-VISUAL-STATUS":  {
+                                                     "attempts":  3,
+                                                     "lastError":  "UI target V13-UI-QUESTION-DETAIL visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                                                     "status":  "RETRYING",
+                                                     "updatedAt":  "2026-05-25T19:03:37"
+                                                 },
+    "GAP-V13-UI-AI-TUTOR":  {
+                                "attempts":  3,
+                                "lastError":  "UI target V13-UI-AI-TUTOR is , not PASS.",
+                                "status":  "RETRYING",
+                                "updatedAt":  "2026-05-25T19:03:37"
+                            },
+    "GAP-V13-UI-AI-TUTOR-VISUAL-STATUS":  {
+                                              "attempts":  3,
+                                              "lastError":  "UI target V13-UI-AI-TUTOR visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                                              "status":  "RETRYING",
+                                              "updatedAt":  "2026-05-25T19:03:37"
+                                          },
+    "GAP-V13-UI-EXERCISE":  {
+                                "attempts":  3,
+                                "lastError":  "UI target V13-UI-EXERCISE is , not PASS.",
+                                "status":  "RETRYING",
+                                "updatedAt":  "2026-05-25T19:03:37"
+                            },
+    "GAP-V13-UI-EXERCISE-VISUAL-STATUS":  {
+                                              "attempts":  3,
+                                              "lastError":  "UI target V13-UI-EXERCISE visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                                              "status":  "RETRYING",
+                                              "updatedAt":  "2026-05-25T19:03:37"
+                                          },
+    "GAP-V13-UI-FEEDBACK":  {
+                                "attempts":  3,
+                                "lastError":  "UI target V13-UI-FEEDBACK is , not PASS.",
+                                "status":  "RETRYING",
+                                "updatedAt":  "2026-05-25T19:03:37"
+                            },
+    "GAP-V13-UI-FEEDBACK-VISUAL-STATUS":  {
+                                              "attempts":  3,
+                                              "lastError":  "UI target V13-UI-FEEDBACK visualStatus is PASS_NEEDS_MANUAL_UI_REVIEW, not PASS/PASS_WITH_LIMITATION/MANUAL_REVIEW_REQUIRED.",
+                                              "status":  "RETRYING",
+                                              "updatedAt":  "2026-05-25T19:03:37"
+                                          },
+    "GAP-UI-C12":  {
+                       "attempts":  3,
+                       "lastError":  "UI target UI-C12 is , not PASS.",
+                       "status":  "RETRYING",
+                       "updatedAt":  "2026-05-25T19:03:37"
+                   },
+    "generated-story:route-smoke":  {
+                                        "attempts":  4,
+                                        "lastError":  "Exit code 1",
+                                        "status":  "RETRYING",
+                                        "updatedAt":  "2026-05-25T19:10:48"
+                                    },
+    "generated-story:api-smoke":  {
+                                      "attempts":  4,
+                                      "lastError":  "Exit code 1",
+                                      "status":  "RETRYING",
+                                      "updatedAt":  "2026-05-25T19:10:48"
+                                  },
+    "GAP-STORY-REPORT-002-STATUS":  {
+                                        "attempts":  4,
+                                        "lastError":  "P0/P1 story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                        "status":  "RETRYING",
+                                        "updatedAt":  "2026-05-25T19:11:16"
+                                    },
+    "GAP-TP-STORY-REPORT-002-001-STATUS":  {
+                                               "attempts":  4,
+                                               "lastError":  "Test point TP-STORY-REPORT-002-001 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                               "status":  "RETRYING",
+                                               "updatedAt":  "2026-05-25T19:11:16"
+                                           },
+    "GAP-TP-STORY-REPORT-002-001-EVIDENCE":  {
+                                                 "attempts":  4,
+                                                 "lastError":  "Test point TP-STORY-REPORT-002-001 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                                                 "status":  "RETRYING",
+                                                 "updatedAt":  "2026-05-25T19:11:16"
+                                             },
+    "GAP-TP-STORY-REPORT-002-002-STATUS":  {
+                                               "attempts":  4,
+                                               "lastError":  "Test point TP-STORY-REPORT-002-002 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                               "status":  "RETRYING",
+                                               "updatedAt":  "2026-05-25T19:11:16"
+                                           },
+    "GAP-TP-STORY-REPORT-002-002-EVIDENCE":  {
+                                                 "attempts":  4,
+                                                 "lastError":  "Test point TP-STORY-REPORT-002-002 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                                                 "status":  "RETRYING",
+                                                 "updatedAt":  "2026-05-25T19:11:16"
+                                             },
+    "GAP-TP-STORY-REPORT-002-003-STATUS":  {
+                                               "attempts":  4,
+                                               "lastError":  "Test point TP-STORY-REPORT-002-003 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                               "status":  "RETRYING",
+                                               "updatedAt":  "2026-05-25T19:11:16"
+                                           },
+    "GAP-TP-STORY-REPORT-002-003-EVIDENCE":  {
+                                                 "attempts":  4,
+                                                 "lastError":  "Test point TP-STORY-REPORT-002-003 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                                                 "status":  "RETRYING",
+                                                 "updatedAt":  "2026-05-25T19:11:16"
+                                             },
+    "GAP-TP-STORY-REPORT-002-004-STATUS":  {
+                                               "attempts":  4,
+                                               "lastError":  "Test point TP-STORY-REPORT-002-004 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                               "status":  "RETRYING",
+                                               "updatedAt":  "2026-05-25T19:11:16"
+                                           },
+    "GAP-TP-STORY-REPORT-002-004-EVIDENCE":  {
+                                                 "attempts":  4,
+                                                 "lastError":  "Test point TP-STORY-REPORT-002-004 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                                                 "status":  "RETRYING",
+                                                 "updatedAt":  "2026-05-25T19:11:16"
+                                             },
+    "GAP-TP-STORY-REPORT-002-005-STATUS":  {
+                                               "attempts":  4,
+                                               "lastError":  "Test point TP-STORY-REPORT-002-005 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                               "status":  "RETRYING",
+                                               "updatedAt":  "2026-05-25T19:11:16"
+                                           },
+    "GAP-TP-STORY-REPORT-002-005-EVIDENCE":  {
+                                                 "attempts":  4,
+                                                 "lastError":  "Test point TP-STORY-REPORT-002-005 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                                                 "status":  "RETRYING",
+                                                 "updatedAt":  "2026-05-25T19:11:16"
+                                             },
+    "GAP-TP-STORY-REPORT-002-006-STATUS":  {
+                                               "attempts":  4,
+                                               "lastError":  "Test point TP-STORY-REPORT-002-006 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                               "status":  "RETRYING",
+                                               "updatedAt":  "2026-05-25T19:11:16"
+                                           },
+    "GAP-TP-STORY-REPORT-002-006-EVIDENCE":  {
+                                                 "attempts":  4,
+                                                 "lastError":  "Test point TP-STORY-REPORT-002-006 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                                                 "status":  "RETRYING",
+                                                 "updatedAt":  "2026-05-25T19:11:16"
+                                             },
+    "GAP-STORY-REPORT-003-STATUS":  {
+                                        "attempts":  4,
+                                        "lastError":  "P0/P1 story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                        "status":  "RETRYING",
+                                        "updatedAt":  "2026-05-25T19:11:16"
+                                    },
+    "GAP-TP-STORY-REPORT-003-001-STATUS":  {
+                                               "attempts":  4,
+                                               "lastError":  "Test point TP-STORY-REPORT-003-001 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                               "status":  "RETRYING",
+                                               "updatedAt":  "2026-05-25T19:11:16"
+                                           },
+    "GAP-TP-STORY-REPORT-003-001-EVIDENCE":  {
+                                                 "attempts":  4,
+                                                 "lastError":  "Test point TP-STORY-REPORT-003-001 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                                                 "status":  "RETRYING",
+                                                 "updatedAt":  "2026-05-25T19:11:16"
+                                             },
+    "GAP-TP-STORY-REPORT-003-002-STATUS":  {
+                                               "attempts":  4,
+                                               "lastError":  "Test point TP-STORY-REPORT-003-002 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                               "status":  "RETRYING",
+                                               "updatedAt":  "2026-05-25T19:11:16"
+                                           },
+    "GAP-TP-STORY-REPORT-003-002-EVIDENCE":  {
+                                                 "attempts":  4,
+                                                 "lastError":  "Test point TP-STORY-REPORT-003-002 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                                                 "status":  "RETRYING",
+                                                 "updatedAt":  "2026-05-25T19:11:16"
+                                             },
+    "GAP-TP-STORY-REPORT-003-003-STATUS":  {
+                                               "attempts":  4,
+                                               "lastError":  "Test point TP-STORY-REPORT-003-003 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                               "status":  "RETRYING",
+                                               "updatedAt":  "2026-05-25T19:11:16"
+                                           },
+    "GAP-TP-STORY-REPORT-003-003-EVIDENCE":  {
+                                                 "attempts":  4,
+                                                 "lastError":  "Test point TP-STORY-REPORT-003-003 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                                                 "status":  "RETRYING",
+                                                 "updatedAt":  "2026-05-25T19:11:16"
+                                             },
+    "GAP-TP-STORY-REPORT-003-004-STATUS":  {
+                                               "attempts":  4,
+                                               "lastError":  "Test point TP-STORY-REPORT-003-004 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                               "status":  "RETRYING",
+                                               "updatedAt":  "2026-05-25T19:11:16"
+                                           },
+    "GAP-TP-STORY-REPORT-003-004-EVIDENCE":  {
+                                                 "attempts":  4,
+                                                 "lastError":  "Test point TP-STORY-REPORT-003-004 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                                                 "status":  "RETRYING",
+                                                 "updatedAt":  "2026-05-25T19:11:16"
+                                             },
+    "GAP-TP-STORY-REPORT-003-005-STATUS":  {
+                                               "attempts":  4,
+                                               "lastError":  "Test point TP-STORY-REPORT-003-005 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                               "status":  "RETRYING",
+                                               "updatedAt":  "2026-05-25T19:11:16"
+                                           },
+    "GAP-TP-STORY-REPORT-003-005-EVIDENCE":  {
+                                                 "attempts":  4,
+                                                 "lastError":  "Test point TP-STORY-REPORT-003-005 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                                                 "status":  "RETRYING",
+                                                 "updatedAt":  "2026-05-25T19:11:16"
+                                             },
+    "GAP-TP-STORY-REPORT-003-006-STATUS":  {
+                                               "attempts":  4,
+                                               "lastError":  "Test point TP-STORY-REPORT-003-006 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                               "status":  "RETRYING",
+                                               "updatedAt":  "2026-05-25T19:11:16"
+                                           },
+    "GAP-TP-STORY-REPORT-003-006-EVIDENCE":  {
+                                                 "attempts":  4,
+                                                 "lastError":  "Test point TP-STORY-REPORT-003-006 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                                                 "status":  "RETRYING",
+                                                 "updatedAt":  "2026-05-25T19:11:16"
+                                             },
+    "GAP-TP-STORY-REPORT-003-007-STATUS":  {
+                                               "attempts":  4,
+                                               "lastError":  "Test point TP-STORY-REPORT-003-007 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                               "status":  "RETRYING",
+                                               "updatedAt":  "2026-05-25T19:11:16"
+                                           },
+    "GAP-TP-STORY-REPORT-003-007-EVIDENCE":  {
+                                                 "attempts":  4,
+                                                 "lastError":  "Test point TP-STORY-REPORT-003-007 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                                                 "status":  "RETRYING",
+                                                 "updatedAt":  "2026-05-25T19:11:16"
+                                             },
+    "GAP-STORY-GENERAL-006-STATUS":  {
+                                         "attempts":  4,
+                                         "lastError":  "P0/P1 story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                         "status":  "RETRYING",
+                                         "updatedAt":  "2026-05-25T19:11:16"
+                                     },
+    "GAP-TP-STORY-GENERAL-006-001-STATUS":  {
+                                                "attempts":  4,
+                                                "lastError":  "Test point TP-STORY-GENERAL-006-001 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                                "status":  "RETRYING",
+                                                "updatedAt":  "2026-05-25T19:11:16"
+                                            },
+    "GAP-TP-STORY-GENERAL-006-001-EVIDENCE":  {
+                                                  "attempts":  4,
+                                                  "lastError":  "Test point TP-STORY-GENERAL-006-001 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                                                  "status":  "RETRYING",
+                                                  "updatedAt":  "2026-05-25T19:11:16"
+                                              },
+    "GAP-TP-STORY-GENERAL-006-002-STATUS":  {
+                                                "attempts":  4,
+                                                "lastError":  "Test point TP-STORY-GENERAL-006-002 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                                "status":  "RETRYING",
+                                                "updatedAt":  "2026-05-25T19:11:16"
+                                            },
+    "GAP-TP-STORY-GENERAL-006-002-EVIDENCE":  {
+                                                  "attempts":  4,
+                                                  "lastError":  "Test point TP-STORY-GENERAL-006-002 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                                                  "status":  "RETRYING",
+                                                  "updatedAt":  "2026-05-25T19:11:16"
+                                              },
+    "GAP-TP-STORY-GENERAL-006-003-STATUS":  {
+                                                "attempts":  4,
+                                                "lastError":  "Test point TP-STORY-GENERAL-006-003 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                                "status":  "RETRYING",
+                                                "updatedAt":  "2026-05-25T19:11:16"
+                                            },
+    "GAP-TP-STORY-GENERAL-006-003-EVIDENCE":  {
+                                                  "attempts":  4,
+                                                  "lastError":  "Test point TP-STORY-GENERAL-006-003 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                                                  "status":  "RETRYING",
+                                                  "updatedAt":  "2026-05-25T19:11:17"
+                                              },
+    "GAP-TP-STORY-GENERAL-006-004-STATUS":  {
+                                                "attempts":  4,
+                                                "lastError":  "Test point TP-STORY-GENERAL-006-004 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                                "status":  "RETRYING",
+                                                "updatedAt":  "2026-05-25T19:11:17"
+                                            },
+    "GAP-TP-STORY-GENERAL-006-004-EVIDENCE":  {
+                                                  "attempts":  4,
+                                                  "lastError":  "Test point TP-STORY-GENERAL-006-004 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                                                  "status":  "RETRYING",
+                                                  "updatedAt":  "2026-05-25T19:11:17"
+                                              },
+    "GAP-TP-STORY-GENERAL-006-005-STATUS":  {
+                                                "attempts":  4,
+                                                "lastError":  "Test point TP-STORY-GENERAL-006-005 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                                "status":  "RETRYING",
+                                                "updatedAt":  "2026-05-25T19:11:17"
+                                            },
+    "GAP-TP-STORY-GENERAL-006-005-EVIDENCE":  {
+                                                  "attempts":  4,
+                                                  "lastError":  "Test point TP-STORY-GENERAL-006-005 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                                                  "status":  "RETRYING",
+                                                  "updatedAt":  "2026-05-25T19:11:17"
+                                              },
+    "GAP-TP-STORY-GENERAL-006-006-STATUS":  {
+                                                "attempts":  4,
+                                                "lastError":  "Test point TP-STORY-GENERAL-006-006 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                                "status":  "RETRYING",
+                                                "updatedAt":  "2026-05-25T19:11:17"
+                                            },
+    "GAP-TP-STORY-GENERAL-006-006-EVIDENCE":  {
+                                                  "attempts":  4,
+                                                  "lastError":  "Test point TP-STORY-GENERAL-006-006 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                                                  "status":  "RETRYING",
+                                                  "updatedAt":  "2026-05-25T19:11:17"
+                                              },
+    "GAP-TP-STORY-GENERAL-006-007-STATUS":  {
+                                                "attempts":  4,
+                                                "lastError":  "Test point TP-STORY-GENERAL-006-007 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                                "status":  "RETRYING",
+                                                "updatedAt":  "2026-05-25T19:11:17"
+                                            },
+    "GAP-TP-STORY-GENERAL-006-007-EVIDENCE":  {
+                                                  "attempts":  4,
+                                                  "lastError":  "Test point TP-STORY-GENERAL-006-007 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                                                  "status":  "RETRYING",
+                                                  "updatedAt":  "2026-05-25T19:11:17"
+                                              },
+    "GAP-STORY-REPORT-009-STATUS":  {
+                                        "attempts":  4,
+                                        "lastError":  "P0/P1 story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                        "status":  "RETRYING",
+                                        "updatedAt":  "2026-05-25T19:11:17"
+                                    },
+    "GAP-TP-STORY-REPORT-009-001-STATUS":  {
+                                               "attempts":  4,
+                                               "lastError":  "Test point TP-STORY-REPORT-009-001 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                               "status":  "RETRYING",
+                                               "updatedAt":  "2026-05-25T19:11:17"
+                                           },
+    "GAP-TP-STORY-REPORT-009-001-EVIDENCE":  {
+                                                 "attempts":  4,
+                                                 "lastError":  "Test point TP-STORY-REPORT-009-001 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                                                 "status":  "RETRYING",
+                                                 "updatedAt":  "2026-05-25T19:11:17"
+                                             },
+    "GAP-TP-STORY-REPORT-009-002-STATUS":  {
+                                               "attempts":  4,
+                                               "lastError":  "Test point TP-STORY-REPORT-009-002 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                               "status":  "RETRYING",
+                                               "updatedAt":  "2026-05-25T19:11:17"
+                                           },
+    "GAP-TP-STORY-REPORT-009-002-EVIDENCE":  {
+                                                 "attempts":  4,
+                                                 "lastError":  "Test point TP-STORY-REPORT-009-002 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                                                 "status":  "RETRYING",
+                                                 "updatedAt":  "2026-05-25T19:11:17"
+                                             },
+    "GAP-TP-STORY-REPORT-009-003-STATUS":  {
+                                               "attempts":  4,
+                                               "lastError":  "Test point TP-STORY-REPORT-009-003 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                               "status":  "RETRYING",
+                                               "updatedAt":  "2026-05-25T19:11:17"
+                                           },
+    "GAP-TP-STORY-REPORT-009-003-EVIDENCE":  {
+                                                 "attempts":  4,
+                                                 "lastError":  "Test point TP-STORY-REPORT-009-003 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                                                 "status":  "RETRYING",
+                                                 "updatedAt":  "2026-05-25T19:11:17"
+                                             },
+    "GAP-TP-STORY-REPORT-009-004-STATUS":  {
+                                               "attempts":  4,
+                                               "lastError":  "Test point TP-STORY-REPORT-009-004 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                               "status":  "RETRYING",
+                                               "updatedAt":  "2026-05-25T19:11:17"
+                                           },
+    "GAP-TP-STORY-REPORT-009-004-EVIDENCE":  {
+                                                 "attempts":  4,
+                                                 "lastError":  "Test point TP-STORY-REPORT-009-004 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                                                 "status":  "RETRYING",
+                                                 "updatedAt":  "2026-05-25T19:11:17"
+                                             },
+    "GAP-TP-STORY-REPORT-009-005-STATUS":  {
+                                               "attempts":  4,
+                                               "lastError":  "Test point TP-STORY-REPORT-009-005 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                                               "status":  "RETRYING",
+                                               "updatedAt":  "2026-05-25T19:11:17"
+                                           },
+    "GAP-TP-STORY-REPORT-009-005-EVIDENCE":  {
+                                                 "attempts":  4,
+                                                 "lastError":  "Test point TP-STORY-REPORT-009-005 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                                                 "status":  "RETRYING",
+                                                 "updatedAt":  "2026-05-25T19:11:17"
+                                             }
+}

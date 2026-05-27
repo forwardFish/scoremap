@@ -1,0 +1,502 @@
+{
+  "status": "PASS",
+  "command": "npm test -- ai-exercise-feedback",
+  "requirementIds": [
+    "V13-R06",
+    "V13-R12"
+  ],
+  "submitted": {
+    "status": "ANSWER_SUBMITTED",
+    "targetRoute": "/pages/ai-exercise-feedback/index",
+    "api": "POST /api/diagnosis-orders/order-t28-answer/questions/order-t28-answer-q1/exercise-answer",
+    "response": {
+      "status": "answered",
+      "interactionId": "interaction-order-t28-answer-q1-similar_exercise-1",
+      "correctness": true,
+      "feedback": {
+        "correct": true,
+        "headline": "回答正确",
+        "explanation": "你先算出每小时多走 12 千米，再乘以 3 小时，数量关系抓对了。",
+        "summary": "同类题迁移已掌握。"
+      }
+    },
+    "trace": {
+      "id": "trace-interaction-order-t28-answer-q1-similar_exercise-1-answer",
+      "traceId": "trace-interaction-order-t28-answer-q1-similar_exercise-1-answer",
+      "promptId": "LLM-CHECK-07",
+      "adapter": "local-miniapp-mock",
+      "status": "success",
+      "localOnly": true,
+      "requestSummary": {
+        "orderId": "order-t28-answer",
+        "questionId": "order-t28-answer-q1",
+        "interactionId": "interaction-order-t28-answer-q1-similar_exercise-1",
+        "submittedAnswer": "36 千米"
+      },
+      "responseSummary": {
+        "correct": true,
+        "summary": "同类题迁移已掌握。"
+      }
+    }
+  },
+  "readback": {
+    "interaction": {
+      "id": "interaction-order-t28-answer-q1-similar_exercise-1",
+      "orderId": "order-t28-answer",
+      "questionId": "order-t28-answer-q1",
+      "ownerId": "local-user-scoremap-t06",
+      "actionType": "similar_exercise",
+      "promptId": "LLM-EXERCISE-06",
+      "status": "success",
+      "summary": "同类题迁移已掌握。",
+      "response": "已生成一道同类题，继续保持当前错题的数量关系。",
+      "exercise": {
+        "id": "exercise-order-t28-answer-q1",
+        "stem": "甲每小时行 72km，乙每小时行 60km，3 小时后甲比乙多行多少千米？",
+        "options": [
+          "24 千米",
+          "36 千米",
+          "132 千米",
+          "216 千米"
+        ],
+        "correctOption": "36 千米"
+      },
+      "traceId": "trace-interaction-order-t28-answer-q1-similar_exercise-1",
+      "createdAt": "2026-05-25T01:00:00.000Z",
+      "submittedAnswer": "36 千米",
+      "correctness": true,
+      "answerFeedback": {
+        "correct": true,
+        "headline": "回答正确",
+        "explanation": "你先算出每小时多走 12 千米，再乘以 3 小时，数量关系抓对了。",
+        "summary": "同类题迁移已掌握。"
+      },
+      "answerPromptId": "LLM-CHECK-07",
+      "answerTraceId": "trace-interaction-order-t28-answer-q1-similar_exercise-1-answer"
+    },
+    "answerTrace": {
+      "id": "trace-interaction-order-t28-answer-q1-similar_exercise-1-answer",
+      "traceId": "trace-interaction-order-t28-answer-q1-similar_exercise-1-answer",
+      "promptId": "LLM-CHECK-07",
+      "adapter": "local-miniapp-mock",
+      "status": "success",
+      "localOnly": true,
+      "requestSummary": {
+        "orderId": "order-t28-answer",
+        "questionId": "order-t28-answer-q1",
+        "interactionId": "interaction-order-t28-answer-q1-similar_exercise-1",
+        "submittedAnswer": "36 千米"
+      },
+      "responseSummary": {
+        "correct": true,
+        "summary": "同类题迁移已掌握。"
+      }
+    },
+    "feedbackState": {
+      "route": "/pages/ai-exercise-feedback/index",
+      "orderId": "order-t28-answer",
+      "questionId": "order-t28-answer-q1",
+      "interactionId": "interaction-order-t28-answer-q1-similar_exercise-1",
+      "uiReference": {
+        "id": "V13-UI-FEEDBACK",
+        "source": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/_2/screen-reference"
+      },
+      "title": "答题反馈",
+      "result": {
+        "correct": true,
+        "headline": "回答正确",
+        "submittedAnswer": "36 千米",
+        "correctAnswer": "36 千米"
+      },
+      "explanation": "你先算出每小时多走 12 千米，再乘以 3 小时，数量关系抓对了。",
+      "summary": "同类题迁移已掌握。",
+      "questionContext": {
+        "title": "原错题",
+        "knowledgePoint": "方程应用题",
+        "diagnosis": "没有先判断速度差。"
+      },
+      "historyRow": {
+        "id": "interaction-history-row",
+        "text": "本题追问记录",
+        "latest": "同类题迁移已掌握。",
+        "targetRoute": "/pages/ai-tutor/index"
+      },
+      "controls": [
+        {
+          "id": "back-to-exercise",
+          "text": "返回练习",
+          "targetRoute": "/pages/ai-exercise/index"
+        },
+        {
+          "id": "retry-similar-exercise",
+          "text": "再练一题",
+          "api": "POST /api/diagnosis-orders/order-t28-answer/questions/order-t28-answer-q1/interactions",
+          "targetRoute": "/pages/ai-exercise/index",
+          "fixedAction": "similar_exercise"
+        },
+        {
+          "id": "return-full-report",
+          "text": "返回报告",
+          "targetRoute": "/pages/full-report/index"
+        },
+        {
+          "id": "open-interaction-record",
+          "text": "本题追问记录",
+          "api": "GET /api/diagnosis-orders/order-t28-answer/questions/order-t28-answer-q1/interactions",
+          "targetRoute": "/pages/ai-tutor/index"
+        }
+      ]
+    },
+    "history": {
+      "status": "RECORD_OPENED",
+      "targetRoute": "/pages/ai-tutor/index",
+      "api": "GET /api/diagnosis-orders/order-t28-answer/questions/order-t28-answer-q1/interactions",
+      "records": [
+        {
+          "id": "interaction-order-t28-answer-q1-similar_exercise-1",
+          "orderId": "order-t28-answer",
+          "questionId": "order-t28-answer-q1",
+          "ownerId": "local-user-scoremap-t06",
+          "actionType": "similar_exercise",
+          "promptId": "LLM-EXERCISE-06",
+          "status": "success",
+          "summary": "同类题迁移已掌握。",
+          "response": "已生成一道同类题，继续保持当前错题的数量关系。",
+          "exercise": {
+            "id": "exercise-order-t28-answer-q1",
+            "stem": "甲每小时行 72km，乙每小时行 60km，3 小时后甲比乙多行多少千米？",
+            "options": [
+              "24 千米",
+              "36 千米",
+              "132 千米",
+              "216 千米"
+            ],
+            "correctOption": "36 千米"
+          },
+          "traceId": "trace-interaction-order-t28-answer-q1-similar_exercise-1",
+          "createdAt": "2026-05-25T01:00:00.000Z",
+          "submittedAnswer": "36 千米",
+          "correctness": true,
+          "answerFeedback": {
+            "correct": true,
+            "headline": "回答正确",
+            "explanation": "你先算出每小时多走 12 千米，再乘以 3 小时，数量关系抓对了。",
+            "summary": "同类题迁移已掌握。"
+          },
+          "answerPromptId": "LLM-CHECK-07",
+          "answerTraceId": "trace-interaction-order-t28-answer-q1-similar_exercise-1-answer"
+        }
+      ]
+    }
+  },
+  "controls": {
+    "retry": {
+      "status": "RETRY_EXERCISE_CREATED",
+      "targetRoute": "/pages/ai-exercise/index",
+      "api": "POST /api/diagnosis-orders/order-t28-answer/questions/order-t28-answer-q1/interactions",
+      "interaction": {
+        "id": "interaction-order-t28-answer-q1-similar_exercise-2",
+        "orderId": "order-t28-answer",
+        "questionId": "order-t28-answer-q1",
+        "ownerId": "local-user-scoremap-t06",
+        "actionType": "similar_exercise",
+        "promptId": "LLM-EXERCISE-06",
+        "status": "success",
+        "summary": "生成同类练习题。",
+        "response": "已生成一道同类题，继续保持当前错题的数量关系。",
+        "exercise": {
+          "id": "exercise-order-t28-answer-q1",
+          "stem": "甲每小时行 72km，乙每小时行 60km，3 小时后甲比乙多行多少千米？",
+          "options": [
+            "24 千米",
+            "36 千米",
+            "132 千米",
+            "216 千米"
+          ],
+          "correctOption": "36 千米"
+        },
+        "traceId": "trace-interaction-order-t28-answer-q1-similar_exercise-2",
+        "createdAt": "2026-05-25T01:00:01.000Z"
+      }
+    },
+    "report": {
+      "status": "NAVIGATE",
+      "targetRoute": "/pages/full-report/index",
+      "query": {
+        "orderId": "order-t28-answer"
+      }
+    }
+  },
+  "apiCalls": [
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-t28-answer",
+        "paymentType": "full",
+        "source": "T28-ai-exercise-fixture"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "paid",
+        "paymentId": "payment-t06-full",
+        "amountYuan": 9.9,
+        "paymentParams": {
+          "adapter": "local-mock"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t28-answer/generate-full",
+      "payloadSummary": {
+        "source": "T28-ai-exercise-fixture"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t28-answer/questions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t28-answer",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t28-answer-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t28-answer-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t28-answer/questions/order-t28-answer-q1/interactions",
+      "payloadSummary": {
+        "actionType": "similar_exercise",
+        "source": "T28-ai-exercise-ui"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "ok",
+        "interaction": {
+          "id": "interaction-order-t28-answer-q1-similar_exercise-1",
+          "orderId": "order-t28-answer",
+          "questionId": "order-t28-answer-q1",
+          "ownerId": "local-user-scoremap-t06",
+          "actionType": "similar_exercise",
+          "promptId": "LLM-EXERCISE-06",
+          "status": "success",
+          "summary": "生成同类练习题。",
+          "response": "已生成一道同类题，继续保持当前错题的数量关系。",
+          "exercise": {
+            "id": "exercise-order-t28-answer-q1",
+            "stem": "甲每小时行 72km，乙每小时行 60km，3 小时后甲比乙多行多少千米？",
+            "options": [
+              "24 千米",
+              "36 千米",
+              "132 千米",
+              "216 千米"
+            ],
+            "correctOption": "36 千米"
+          },
+          "traceId": "trace-interaction-order-t28-answer-q1-similar_exercise-1",
+          "createdAt": "2026-05-25T01:00:00.000Z"
+        },
+        "quota": {
+          "questionRemaining": 2,
+          "questionTotal": 3
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t28-answer/questions/order-t28-answer-q1/exercise-answer",
+      "payloadSummary": {
+        "interactionId": "interaction-order-t28-answer-q1-similar_exercise-1",
+        "submittedAnswer": "36 千米",
+        "source": "T28-ai-exercise-ui"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "answered",
+        "interactionId": "interaction-order-t28-answer-q1-similar_exercise-1",
+        "correctness": true,
+        "feedback": {
+          "correct": true,
+          "headline": "回答正确",
+          "explanation": "你先算出每小时多走 12 千米，再乘以 3 小时，数量关系抓对了。",
+          "summary": "同类题迁移已掌握。"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t28-answer/generate-full",
+      "payloadSummary": {
+        "source": "T28-feedback-fixture"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t28-answer/questions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t28-answer",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t28-answer-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t28-answer-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t28-answer/questions/order-t28-answer-q1/interactions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t28-answer",
+        "questionId": "order-t28-answer-q1",
+        "items": [
+          {
+            "id": "interaction-order-t28-answer-q1-similar_exercise-1",
+            "orderId": "order-t28-answer",
+            "questionId": "order-t28-answer-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "similar_exercise",
+            "promptId": "LLM-EXERCISE-06",
+            "status": "success",
+            "summary": "同类题迁移已掌握。",
+            "response": "已生成一道同类题，继续保持当前错题的数量关系。",
+            "exercise": {
+              "id": "exercise-order-t28-answer-q1",
+              "stem": "甲每小时行 72km，乙每小时行 60km，3 小时后甲比乙多行多少千米？",
+              "options": [
+                "24 千米",
+                "36 千米",
+                "132 千米",
+                "216 千米"
+              ],
+              "correctOption": "36 千米"
+            },
+            "traceId": "trace-interaction-order-t28-answer-q1-similar_exercise-1",
+            "createdAt": "2026-05-25T01:00:00.000Z",
+            "submittedAnswer": "36 千米",
+            "correctness": true,
+            "answerFeedback": {
+              "correct": true,
+              "headline": "回答正确",
+              "explanation": "你先算出每小时多走 12 千米，再乘以 3 小时，数量关系抓对了。",
+              "summary": "同类题迁移已掌握。"
+            },
+            "answerPromptId": "LLM-CHECK-07",
+            "answerTraceId": "trace-interaction-order-t28-answer-q1-similar_exercise-1-answer"
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t28-answer/questions/order-t28-answer-q1/interactions",
+      "payloadSummary": {
+        "actionType": "similar_exercise",
+        "source": "T28-feedback-retry"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "ok",
+        "interaction": {
+          "id": "interaction-order-t28-answer-q1-similar_exercise-2",
+          "orderId": "order-t28-answer",
+          "questionId": "order-t28-answer-q1",
+          "ownerId": "local-user-scoremap-t06",
+          "actionType": "similar_exercise",
+          "promptId": "LLM-EXERCISE-06",
+          "status": "success",
+          "summary": "生成同类练习题。",
+          "response": "已生成一道同类题，继续保持当前错题的数量关系。",
+          "exercise": {
+            "id": "exercise-order-t28-answer-q1",
+            "stem": "甲每小时行 72km，乙每小时行 60km，3 小时后甲比乙多行多少千米？",
+            "options": [
+              "24 千米",
+              "36 千米",
+              "132 千米",
+              "216 千米"
+            ],
+            "correctOption": "36 千米"
+          },
+          "traceId": "trace-interaction-order-t28-answer-q1-similar_exercise-2",
+          "createdAt": "2026-05-25T01:00:01.000Z"
+        },
+        "quota": {
+          "questionRemaining": 2,
+          "questionTotal": 3
+        }
+      }
+    }
+  ]
+}

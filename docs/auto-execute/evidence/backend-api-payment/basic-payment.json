@@ -17,21 +17,21 @@
       "responseStatus": 201,
       "response": {
         "status": "pending",
-        "paymentId": "payment-basic-8ba74431c70f",
-        "orderId": "order-d68dfa2f7df3",
+        "paymentId": "payment-basic-9ef1fb7918cd",
+        "orderId": "order-64fe64c91851",
         "paymentType": "basic",
         "amountCents": 100,
         "amountYuan": 1,
         "idempotent": false,
         "paymentParams": {
           "provider": "local-wechat-pay-mock",
-          "paymentId": "payment-basic-8ba74431c70f",
-          "orderId": "order-d68dfa2f7df3",
+          "paymentId": "payment-basic-9ef1fb7918cd",
+          "orderId": "order-64fe64c91851",
           "amountCents": 100,
-          "nonceStr": "local-nonce-payment-basic-8ba74431c70f",
-          "package": "prepay_id=local_payment-basic-8ba74431c70f",
+          "nonceStr": "local-nonce-payment-basic-9ef1fb7918cd",
+          "package": "prepay_id=local_payment-basic-9ef1fb7918cd",
           "signType": "LOCAL_MOCK",
-          "paySign": "local-signature-payment-basic-8ba74431c70f"
+          "paySign": "local-signature-payment-basic-9ef1fb7918cd"
         }
       }
     },
@@ -48,8 +48,8 @@
       "response": {
         "ok": true,
         "status": "paid",
-        "paymentId": "payment-basic-8ba74431c70f",
-        "orderId": "order-d68dfa2f7df3",
+        "paymentId": "payment-basic-9ef1fb7918cd",
+        "orderId": "order-64fe64c91851",
         "accessLevel": "basic",
         "idempotent": false,
         "repaired": false
@@ -64,8 +64,8 @@
   ],
   "dbReadback": {
     "payment": {
-      "id": "payment-basic-8ba74431c70f",
-      "orderId": "order-d68dfa2f7df3",
+      "id": "payment-basic-9ef1fb7918cd",
+      "orderId": "order-64fe64c91851",
       "ownerId": "local-user-scoremap-t03",
       "paymentType": "basic",
       "channel": "local-wechat-pay-mock",
@@ -73,12 +73,12 @@
       "status": "paid",
       "mockTransactionId": "mock-tx-t04-basic",
       "callbackCount": 1,
-      "createdAt": "2026-05-25T02:55:22.758Z",
-      "updatedAt": "2026-05-25T02:55:22.762Z",
+      "createdAt": "2026-05-27T11:31:02.464Z",
+      "updatedAt": "2026-05-27T11:31:02.468Z",
       "paidAt": "1970-01-01T00:00:00.000Z"
     },
     "order": {
-      "id": "order-d68dfa2f7df3",
+      "id": "order-64fe64c91851",
       "ownerId": "local-user-scoremap-t03",
       "source": "T04-basic",
       "grade": "grade-5",
@@ -87,12 +87,12 @@
       "materialType": "answer-sheet",
       "status": "basic_paid",
       "accessLevel": "basic",
-      "orderToken": "local-order-token-order-d68dfa2f7df3",
-      "createdAt": "2026-05-25T02:55:22.741Z",
-      "updatedAt": "2026-05-25T02:55:22.763Z",
+      "orderToken": "local-order-token-order-64fe64c91851",
+      "createdAt": "2026-05-27T11:31:02.446Z",
+      "updatedAt": "2026-05-27T11:31:02.469Z",
       "uploadedCount": 1,
-      "previewTaskId": "task-5b84fd0d928d",
-      "previewDecisionId": "decision-order-d68dfa2f7df3-preview"
+      "previewTaskId": "task-e35d13563e1b",
+      "previewDecisionId": "decision-order-64fe64c91851-preview"
     }
   },
   "localOnly": {

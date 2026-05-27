@@ -1,9 +1,96 @@
-﻿<view class="replica-page {{derived ? 'derived-page' : ''}}">
-  <view class="derived-shell fallback-shell">
-    <view class="status-spacer"></view>
-    <view class="derived-title">{{title}}</view>
-    <view class="derived-card" wx:for="{{cards}}" wx:key="*this">{{item}}</view>
+<view class="basic-pay-screen">
+  <view class="basic-pay-shell">
+    <view class="basic-pay-header">
+      <button class="basic-pay-back" data-action="back" bindtap="onTap" aria-label="返回"></button>
+      <view class="basic-pay-brand">
+        <view class="brand-bot">
+          <view class="brand-bot-face">
+            <view class="brand-eye left"></view>
+            <view class="brand-eye right"></view>
+          </view>
+        </view>
+        <text class="basic-pay-title">确认 1 元初判</text>
+      </view>
+      <view class="basic-pay-spacer"></view>
+    </view>
+
+    <view class="pay-intro">
+      <text>仅需 <text class="pay-accent">1 元</text>，AI 帮你初步分析孩子学习情况</text>
+    </view>
+
+    <view class="pay-steps">
+      <view class="pay-step done">
+        <view class="step-number">1</view>
+        <text>上传资料</text>
+      </view>
+      <view class="step-line done"></view>
+      <view class="pay-step done">
+        <view class="step-number">2</view>
+        <text>AI 分析</text>
+      </view>
+      <view class="step-line active"></view>
+      <view class="pay-step active">
+        <view class="step-number">3</view>
+        <text>确认支付</text>
+      </view>
+    </view>
+
+    <view class="pay-summary-card">
+      <view class="summary-copy">
+        <text class="summary-title">初一数学月考分析</text>
+        <text class="summary-desc">整体基础较好，计算粗心和几何证明是本次失分的主要原因。</text>
+        <view class="summary-badge">
+          <view class="check-dot"></view>
+          <text>初步分析已生成</text>
+        </view>
+      </view>
+      <view class="summary-figure">
+        <view class="figure-cap"></view>
+        <view class="figure-glasses">
+          <view></view>
+          <view></view>
+        </view>
+      </view>
+    </view>
+
+    <view class="pay-preview-card">
+      <text class="pay-card-title">报告内容预览</text>
+      <view class="pay-preview-row">
+        <view class="pay-row-icon red">1</view>
+        <view>
+          <text class="pay-row-title">主要丢分点</text>
+          <text class="pay-row-desc">计算失误、几何证明</text>
+        </view>
+      </view>
+      <view class="pay-preview-row">
+        <view class="pay-row-icon green">2</view>
+        <view>
+          <text class="pay-row-title">优先补弱点</text>
+          <text class="pay-row-desc">优先提升几何证明能力</text>
+        </view>
+      </view>
+      <view class="pay-preview-row locked">
+        <view class="pay-row-icon blue lock-dot"></view>
+        <view>
+          <text class="pay-row-title">7 天建议</text>
+          <text class="pay-row-desc">点击解锁查看每日练习安排</text>
+        </view>
+      </view>
+      <view class="pay-preview-row locked last">
+        <view class="pay-row-icon amber lock-dot"></view>
+        <view>
+          <text class="pay-row-title">下一步建议</text>
+          <text class="pay-row-desc">继续练习 / 找老师讲解 / 再次上传复测</text>
+        </view>
+      </view>
+    </view>
   </view>
-  <image wx:if="{{!derived && !imageLoadFailed && reference}}" class="reference-image" src="{{reference}}" mode="widthFix" show-menu-by-longpress="false" binderror="onImageError" />
-  <button wx:for="{{hotspots}}" wx:key="action" class="hotspot {{item.className}}" data-action="{{item.action}}" bindtap="onTap" aria-label="{{item.label}}"></button>
+
+  <view class="basic-pay-footer">
+    <view class="price-row">
+      <text class="price-value">1</text>
+      <text class="price-unit">元</text>
+    </view>
+    <button class="basic-pay-submit" data-action="pay" bindtap="onTap">立即支付 1 元查看完整初判</button>
+  </view>
 </view>

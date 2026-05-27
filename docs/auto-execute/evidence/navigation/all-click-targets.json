@@ -1,8 +1,15 @@
 {
   "status": "PASS",
   "command": "npm test -- navigation",
-  "pageCount": 14,
-  "clickCount": 30,
+  "pageCount": 18,
+  "loadedPageCount": 18,
+  "pagesWithoutHotspots": [
+    "/pages/full-report/index",
+    "/pages/wrong-question/index",
+    "/pages/ai-exercise/index",
+    "/pages/ai-exercise-feedback/index"
+  ],
+  "clickCount": 37,
   "tabRoutes": [
     "/pages/index/index",
     "/pages/my/index"
@@ -17,11 +24,107 @@
     "/pages/full-unlock/index",
     "/pages/full-report-entry/index",
     "/pages/full-report/index",
+    "/pages/wrong-question/index",
+    "/pages/ai-tutor/index",
+    "/pages/ai-exercise/index",
+    "/pages/ai-exercise-feedback/index",
     "/pages/my/index",
     "/pages/reports/index",
     "/pages/orders/index",
     "/pages/feedback/index",
     "/pages/scaffold/index"
+  ],
+  "pageCoverage": [
+    {
+      "page": "/pages/index/index",
+      "hotspotCount": 4,
+      "status": "LOADED"
+    },
+    {
+      "page": "/pages/analysis/index",
+      "hotspotCount": 2,
+      "status": "LOADED"
+    },
+    {
+      "page": "/pages/failure/index",
+      "hotspotCount": 3,
+      "status": "LOADED"
+    },
+    {
+      "page": "/pages/preview/index",
+      "hotspotCount": 1,
+      "status": "LOADED"
+    },
+    {
+      "page": "/pages/basic-pay/index",
+      "hotspotCount": 1,
+      "status": "LOADED"
+    },
+    {
+      "page": "/pages/basic-result/index",
+      "hotspotCount": 2,
+      "status": "LOADED"
+    },
+    {
+      "page": "/pages/full-unlock/index",
+      "hotspotCount": 1,
+      "status": "LOADED"
+    },
+    {
+      "page": "/pages/full-report-entry/index",
+      "hotspotCount": 3,
+      "status": "LOADED"
+    },
+    {
+      "page": "/pages/full-report/index",
+      "hotspotCount": 0,
+      "status": "LOADED"
+    },
+    {
+      "page": "/pages/wrong-question/index",
+      "hotspotCount": 0,
+      "status": "LOADED"
+    },
+    {
+      "page": "/pages/ai-tutor/index",
+      "hotspotCount": 8,
+      "status": "LOADED"
+    },
+    {
+      "page": "/pages/ai-exercise/index",
+      "hotspotCount": 0,
+      "status": "LOADED"
+    },
+    {
+      "page": "/pages/ai-exercise-feedback/index",
+      "hotspotCount": 0,
+      "status": "LOADED"
+    },
+    {
+      "page": "/pages/my/index",
+      "hotspotCount": 5,
+      "status": "LOADED"
+    },
+    {
+      "page": "/pages/reports/index",
+      "hotspotCount": 4,
+      "status": "LOADED"
+    },
+    {
+      "page": "/pages/orders/index",
+      "hotspotCount": 1,
+      "status": "LOADED"
+    },
+    {
+      "page": "/pages/feedback/index",
+      "hotspotCount": 1,
+      "status": "LOADED"
+    },
+    {
+      "page": "/pages/scaffold/index",
+      "hotspotCount": 1,
+      "status": "LOADED"
+    }
   ],
   "matrix": [
     {
@@ -195,23 +298,83 @@
       "status": "PASS"
     },
     {
-      "page": "/pages/full-report/index",
-      "action": "save",
-      "label": "保存报告",
-      "className": "report-save-small",
-      "expectedWxMethod": "switchTab",
-      "actualWxMethod": "switchTab",
-      "targetRoute": "/pages/my/index",
+      "page": "/pages/ai-tutor/index",
+      "action": "back",
+      "label": "返回错题详情",
+      "className": "v13-top-back",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/wrong-question/index",
       "status": "PASS"
     },
     {
-      "page": "/pages/full-report/index",
-      "action": "back",
-      "label": "返回",
-      "className": "report-back-small",
+      "page": "/pages/ai-tutor/index",
+      "action": "history",
+      "label": "追问记录",
+      "className": "v13-history",
       "expectedWxMethod": "navigateTo",
       "actualWxMethod": "navigateTo",
-      "targetRoute": "/pages/full-report-entry/index",
+      "targetRoute": "/pages/ai-tutor/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/ai-tutor/index",
+      "action": "step",
+      "label": "我不懂这一步",
+      "className": "v13-action-step",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/ai-tutor/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/ai-tutor/index",
+      "action": "why",
+      "label": "为什么这样算",
+      "className": "v13-action-why",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/ai-tutor/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/ai-tutor/index",
+      "action": "another",
+      "label": "换一种方式讲",
+      "className": "v13-action-another",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/ai-tutor/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/ai-tutor/index",
+      "action": "exercise",
+      "label": "出一道同类题",
+      "className": "v13-action-exercise",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/ai-exercise/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/ai-tutor/index",
+      "action": "understood",
+      "label": "我已经懂了",
+      "className": "v13-action-understood",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/full-report/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/ai-tutor/index",
+      "action": "question",
+      "label": "展开原题",
+      "className": "v13-question-card",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/wrong-question/index",
       "status": "PASS"
     },
     {
@@ -266,12 +429,22 @@
     },
     {
       "page": "/pages/reports/index",
-      "action": "open",
+      "action": "full",
       "label": "查看完整报告",
-      "className": "reports-card",
+      "className": "reports-card-full",
       "expectedWxMethod": "navigateTo",
       "actualWxMethod": "navigateTo",
       "targetRoute": "/pages/full-report/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/reports/index",
+      "action": "analyzing",
+      "label": "查看分析进度",
+      "className": "reports-card-analyzing",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/analysis/index",
       "status": "PASS"
     },
     {

@@ -73,8 +73,8 @@
   "visualEvidence": {
     "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
     "references": [
-      "docs/UI/小程序/我的.png",
-      "docs/UI/小程序/stitch_codex_development_blueprints/_1/screen.png",
+      "ui-reference-catalog/小程序/我的.png",
+      "ui-reference-catalog/小程序/stitch_codex_development_blueprints/_1/screen-reference",
       "PRD C12 我的报告列表页"
     ],
     "expectedVisualCommand": "npm run visual:scoremap -- my reports",

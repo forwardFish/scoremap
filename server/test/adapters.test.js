@@ -80,6 +80,28 @@ test('local JSON DB persists required scoremap tables and supports independent r
     ownerId: seeded.user.id,
     rating: 5
   });
+  const question = db.insert('diagnosis_questions', {
+    id: 'question-t02-db',
+    orderId: seeded.order.id,
+    ownerId: seeded.user.id,
+    questionInteractionQuotaTotal: 3,
+    questionInteractionQuotaUsed: 0,
+    questionInteractionQuotaRemaining: 3
+  });
+  const interaction = db.insert('question_interactions', {
+    id: 'interaction-t02-db',
+    orderId: seeded.order.id,
+    questionId: question.id,
+    ownerId: seeded.user.id,
+    status: 'success'
+  });
+  const trace = db.insert('ai_model_traces', {
+    id: 'trace-t02-db',
+    traceId: 'trace-t02-db',
+    promptId: 'LLM-QUESTION-04',
+    status: 'SUCCESS',
+    localOnly: true
+  });
 
   const readbacks = {
     users: db.assertReadback('users', seeded.user.id, { displayName: 'T02 Local Parent' }),
@@ -87,6 +109,9 @@ test('local JSON DB persists required scoremap tables and supports independent r
     upload_files: db.assertReadback('upload_files', upload.id, { authorizationAccepted: true }),
     ai_analysis_tasks: db.assertReadback('ai_analysis_tasks', task.id, { status: 'preview_done' }),
     diagnosis_decisions: db.assertReadback('diagnosis_decisions', decision.id, { level: 'preview' }),
+    diagnosis_questions: db.assertReadback('diagnosis_questions', question.id, { questionInteractionQuotaTotal: 3 }),
+    question_interactions: db.assertReadback('question_interactions', interaction.id, { status: 'success' }),
+    ai_model_traces: db.assertReadback('ai_model_traces', trace.id, { promptId: 'LLM-QUESTION-04' }),
     payments: db.assertReadback('payments', payment.id, { status: 'pending' }),
     report_exports: db.assertReadback('report_exports', exportRecord.id, { status: 'created' }),
     feedbacks: db.assertReadback('feedbacks', feedback.id, { rating: 5 })

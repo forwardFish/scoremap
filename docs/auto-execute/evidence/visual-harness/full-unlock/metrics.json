@@ -1,9 +1,11 @@
 {
   "id": "UI-C08",
   "screen": "full-unlock",
+  "referenceKey": null,
   "route": "/pages/full-unlock/index",
   "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
-  "reference": "docs/UI/小程序/stitch_codex_development_blueprints/_4/screen.png",
+  "reference": "docs/auto-execute/evidence/visual-harness/full-unlock/reference.png",
+  "sourceReference": "docs/UI/小程序/stitch_codex_development_blueprints/_4/screen.png",
   "declaredReference": null,
   "stitchReference": "docs/UI/小程序/stitch_codex_development_blueprints/_4/screen.png",
   "miniappActualAsset": "scoremap-miniapp/assets/reference/full-unlock.jpg",

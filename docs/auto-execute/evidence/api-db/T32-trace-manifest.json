@@ -1,0 +1,488 @@
+{
+  "taskId": "T32",
+  "status": "PASS",
+  "command": "npm run e2e:api-db -- ai-tutor-v13",
+  "requirementIds": [
+    "V13-R02",
+    "V13-R03",
+    "V13-R05",
+    "V13-R06",
+    "V13-R07",
+    "V13-R08",
+    "V13-R13"
+  ],
+  "contracts": [
+    {
+      "id": "V13-DB-Q",
+      "status": "PASS",
+      "table": "diagnosis_questions",
+      "readbackIds": [
+        "question-order-33770923c7c1-1",
+        "question-order-33770923c7c1-2"
+      ],
+      "llmPromptId": "LLM-QUESTION-04"
+    },
+    {
+      "id": "V13-DB-I",
+      "status": "PASS",
+      "table": "question_interactions",
+      "readbackIds": [
+        "interaction-t32-tutor",
+        "interaction-t32-exercise",
+        "interaction-t32-timeout",
+        "interaction-t32-provider-failure"
+      ],
+      "llmPromptIds": [
+        "LLM-TUTOR-05",
+        "LLM-EXERCISE-06",
+        "LLM-CHECK-07"
+      ]
+    },
+    {
+      "id": "V13-DB-T",
+      "status": "PASS",
+      "table": "ai_model_traces",
+      "promptIds": [
+        "LLM-PREVIEW-01",
+        "LLM-BASIC-02",
+        "LLM-FULL-03",
+        "LLM-QUESTION-04",
+        "LLM-TUTOR-05",
+        "LLM-EXERCISE-06",
+        "LLM-CHECK-07"
+      ]
+    },
+    {
+      "id": "V13-API-01",
+      "status": "PASS",
+      "route": "GET /api/diagnosis-orders/{orderId}/questions",
+      "successStatus": 200,
+      "negativeBranches": [
+        "unauthenticated",
+        "unauthorized",
+        "entitlement",
+        "not_found",
+        "not_ready"
+      ]
+    },
+    {
+      "id": "V13-API-02",
+      "status": "PASS",
+      "route": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "successStatus": 201,
+      "negativeBranches": [
+        "validation",
+        "not_found",
+        "quota_exceeded",
+        "timeout",
+        "provider_failure"
+      ]
+    },
+    {
+      "id": "V13-API-03",
+      "status": "PASS",
+      "route": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/exercise-answer",
+      "successStatus": 200,
+      "negativeBranches": [
+        "validation",
+        "not_found",
+        "provider_failure",
+        "duplicate"
+      ]
+    },
+    {
+      "id": "V13-API-04",
+      "status": "PASS",
+      "route": "GET /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "successStatus": 200,
+      "negativeBranches": [
+        "unauthenticated",
+        "unauthorized",
+        "not_found"
+      ]
+    },
+    {
+      "id": "V13-API-05",
+      "status": "PASS",
+      "route": "POST /api/diagnosis-orders/{orderId}/generate-full",
+      "successStatus": 200,
+      "negativeBranches": [
+        "entitlement",
+        "provider_failure",
+        "no_basic_decision"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "path": "GET /api/diagnosis-orders/{orderId}/questions",
+      "status": "PASS"
+    },
+    {
+      "path": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "status": "PASS"
+    },
+    {
+      "path": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/exercise-answer",
+      "status": "PASS"
+    },
+    {
+      "path": "GET /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "status": "PASS"
+    },
+    {
+      "path": "POST /api/diagnosis-orders/{orderId}/generate-full",
+      "status": "PASS"
+    }
+  ],
+  "apiToDbToLlmToUi": [
+    {
+      "apiCall": "POST /api/diagnosis-orders/{orderId}/start-preview-analysis",
+      "dbReadback": "diagnosis_decisions/decision-order-33770923c7c1-preview",
+      "llmTrace": "trace-llm-preview-01-0001",
+      "uiConsumer": "/pages/preview/index"
+    },
+    {
+      "apiCall": "GET /api/diagnosis-orders/{orderId}/basic-decision",
+      "dbReadback": "diagnosis_decisions/decision-order-33770923c7c1-basic",
+      "llmTrace": "trace-llm-basic-02-0002",
+      "uiConsumer": "/pages/basic-result/index"
+    },
+    {
+      "apiCall": "POST /api/diagnosis-orders/{orderId}/generate-full",
+      "dbReadback": "diagnosis_decisions/decision-order-33770923c7c1-full",
+      "llmTrace": "trace-llm-full-03-0003",
+      "uiConsumer": "/pages/full-report/index"
+    },
+    {
+      "apiCall": "GET /api/diagnosis-orders/{orderId}/questions",
+      "dbReadback": "diagnosis_questions/question-order-33770923c7c1-1",
+      "llmTrace": "trace-llm-question-04-0004",
+      "uiConsumer": "/pages/wrong-question/index"
+    },
+    {
+      "apiCall": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "dbReadback": "question_interactions/interaction-t32-tutor",
+      "llmTrace": "trace-llm-tutor-05-0005",
+      "uiConsumer": "/pages/ai-tutor/index"
+    },
+    {
+      "apiCall": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "dbReadback": "question_interactions/interaction-t32-exercise",
+      "llmTrace": "trace-llm-exercise-06-0006",
+      "uiConsumer": "/pages/ai-exercise/index"
+    },
+    {
+      "apiCall": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/exercise-answer",
+      "dbReadback": "question_interactions/interaction-t32-exercise",
+      "llmTrace": "trace-llm-check-07-0008",
+      "uiConsumer": "/pages/ai-exercise-feedback/index"
+    }
+  ],
+  "branchEvidence": {
+    "success": {
+      "generate": 200,
+      "fullReport": 200,
+      "questions": 200,
+      "tutor": 201,
+      "exercise": 201,
+      "answer": 200,
+      "history": 200
+    },
+    "validation": {
+      "invalidAction": 400,
+      "invalidAnswer": 400
+    },
+    "auth": {
+      "unauthenticated": 401,
+      "unauthorized": 403
+    },
+    "ownership": {
+      "unauthorizedCrossOwner": 403
+    },
+    "notFound": {
+      "missingOrder": 404,
+      "missingQuestion": 404,
+      "missingExercise": 404
+    },
+    "entitlement": {
+      "unpaidQuestions": 403
+    },
+    "quotaExceeded": {
+      "reportQuotaExceeded": 429,
+      "questionQuotaExceeded": 429
+    },
+    "timeout": {
+      "interactionTimeout": 504
+    },
+    "providerFailure": {
+      "interactionProviderFailure": 502,
+      "answerProviderFailure": 502
+    },
+    "duplicate": {
+      "duplicateAnswer": 409
+    },
+    "notReady": {
+      "noQuestions": 409
+    }
+  },
+  "dbReadback": {
+    "order": {
+      "id": "order-33770923c7c1",
+      "ownerId": "local-user-scoremap-t03",
+      "source": "T16-t32-main",
+      "grade": "grade-5",
+      "subject": "math",
+      "examType": "unit-test",
+      "materialType": "answer-sheet",
+      "status": "full_report_ready",
+      "accessLevel": "full",
+      "orderToken": "local-order-token-order-33770923c7c1",
+      "createdAt": "2026-05-27T11:31:32.068Z",
+      "updatedAt": "2026-05-27T11:31:32.180Z",
+      "uploadedCount": 1,
+      "previewTaskId": "task-5931ca394f6a",
+      "previewDecisionId": "decision-order-33770923c7c1-preview",
+      "questionInteractionQuotaTotal": 10,
+      "questionInteractionQuotaUsed": 4,
+      "questionInteractionQuotaRemaining": 6,
+      "fullTaskId": "task-full-t32-main",
+      "fullDecisionId": "decision-order-33770923c7c1-full"
+    },
+    "question": {
+      "id": "question-order-33770923c7c1-1",
+      "orderId": "order-33770923c7c1",
+      "ownerId": "local-user-scoremap-t03",
+      "index": 1,
+      "title": "Missed condition in a multi-step calculation",
+      "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
+      "studentAnswer": "24",
+      "correctAnswer": "27",
+      "knowledgePoint": "Fraction multiplication",
+      "diagnosis": "The answer used an incomplete fraction relationship and skipped the condition check.",
+      "explanationSummary": "Turn three quarters into 36 x 3 / 4, then verify the result is reasonable.",
+      "masteryStatus": "needs_practice",
+      "questionInteractionQuotaTotal": 3,
+      "questionInteractionQuotaUsed": 3,
+      "questionInteractionQuotaRemaining": 0,
+      "promptId": "LLM-QUESTION-04",
+      "traceId": "trace-llm-question-04-0004",
+      "source": "llm-extraction",
+      "createdAt": "2026-05-27T11:31:32.103Z",
+      "updatedAt": "2026-05-27T11:31:32.173Z"
+    },
+    "tutorInteraction": {
+      "id": "interaction-t32-tutor",
+      "orderId": "order-33770923c7c1",
+      "questionId": "question-order-33770923c7c1-1",
+      "ownerId": "local-user-scoremap-t03",
+      "actionType": "explain_step",
+      "promptId": "LLM-TUTOR-05",
+      "traceId": "trace-llm-tutor-05-0005",
+      "response": {
+        "mode": "fixed-follow-up",
+        "action": "explain_step",
+        "summary": "Focus on the current wrong question: identify the missed condition, then verify the final answer."
+      },
+      "exercise": null,
+      "submittedAnswer": null,
+      "correctness": null,
+      "summary": "Focus on the current wrong question: identify the missed condition, then verify the final answer.",
+      "status": "success",
+      "errorCode": null,
+      "createdAt": "2026-05-27T11:31:32.119Z",
+      "updatedAt": "2026-05-27T11:31:32.119Z"
+    },
+    "exerciseInteraction": {
+      "id": "interaction-t32-exercise",
+      "orderId": "order-33770923c7c1",
+      "questionId": "question-order-33770923c7c1-1",
+      "ownerId": "local-user-scoremap-t03",
+      "actionType": "similar_question",
+      "promptId": "LLM-EXERCISE-06",
+      "traceId": "trace-llm-exercise-06-0006",
+      "response": null,
+      "exercise": {
+        "stem": "Use the same method to solve a similar one-step variant.",
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "correctOption": "B"
+      },
+      "submittedAnswer": "B",
+      "correctness": true,
+      "summary": "Answer matches the local reference.",
+      "status": "success",
+      "errorCode": null,
+      "createdAt": "2026-05-27T11:31:32.128Z",
+      "updatedAt": "2026-05-27T11:31:32.142Z",
+      "answerPromptId": "LLM-CHECK-07",
+      "answerTraceId": "trace-llm-check-07-0008",
+      "answerFeedback": {
+        "correct": true,
+        "summary": "Answer matches the local reference."
+      }
+    },
+    "timeoutInteraction": {
+      "id": "interaction-t32-timeout",
+      "orderId": "order-33770923c7c1",
+      "questionId": "question-order-33770923c7c1-1",
+      "ownerId": "local-user-scoremap-t03",
+      "actionType": "explain_differently",
+      "promptId": "LLM-TUTOR-05",
+      "traceId": "trace-llm-tutor-05-0009",
+      "response": null,
+      "exercise": null,
+      "submittedAnswer": null,
+      "correctness": null,
+      "summary": null,
+      "status": "failed",
+      "errorCode": "LOCAL_AI_TIMEOUT",
+      "createdAt": "2026-05-27T11:31:32.162Z",
+      "updatedAt": "2026-05-27T11:31:32.162Z"
+    },
+    "providerFailureInteraction": {
+      "id": "interaction-t32-provider-failure",
+      "orderId": "order-33770923c7c1",
+      "questionId": "question-order-33770923c7c1-1",
+      "ownerId": "local-user-scoremap-t03",
+      "actionType": "simpler_example",
+      "promptId": "LLM-TUTOR-05",
+      "traceId": "trace-llm-tutor-05-0010",
+      "response": null,
+      "exercise": null,
+      "submittedAnswer": null,
+      "correctness": null,
+      "summary": null,
+      "status": "failed",
+      "errorCode": "LOCAL_AI_PROVIDER_FAILURE",
+      "createdAt": "2026-05-27T11:31:32.166Z",
+      "updatedAt": "2026-05-27T11:31:32.166Z"
+    },
+    "quotaOrder": {
+      "id": "order-bb30ab9a2a58",
+      "ownerId": "local-user-scoremap-t03",
+      "source": "T16-t32-quota",
+      "grade": "grade-5",
+      "subject": "math",
+      "examType": "unit-test",
+      "materialType": "answer-sheet",
+      "status": "full_report_ready",
+      "accessLevel": "full",
+      "orderToken": "local-order-token-order-bb30ab9a2a58",
+      "createdAt": "2026-05-27T11:31:32.248Z",
+      "updatedAt": "2026-05-27T11:31:32.389Z",
+      "uploadedCount": 1,
+      "previewTaskId": "task-c62f97a46b1d",
+      "previewDecisionId": "decision-order-bb30ab9a2a58-preview",
+      "questionInteractionQuotaTotal": 10,
+      "questionInteractionQuotaUsed": 10,
+      "questionInteractionQuotaRemaining": 0,
+      "fullTaskId": "task-full-t32-quota",
+      "fullDecisionId": "decision-order-bb30ab9a2a58-full"
+    },
+    "traces": [
+      {
+        "promptId": "LLM-PREVIEW-01",
+        "count": 4,
+        "traceIds": [
+          "trace-llm-preview-01-0001",
+          "trace-llm-preview-01-0013",
+          "trace-llm-preview-01-0014",
+          "trace-llm-preview-01-0015"
+        ]
+      },
+      {
+        "promptId": "LLM-BASIC-02",
+        "count": 2,
+        "traceIds": [
+          "trace-llm-basic-02-0002",
+          "trace-llm-basic-02-0016"
+        ]
+      },
+      {
+        "promptId": "LLM-FULL-03",
+        "count": 2,
+        "traceIds": [
+          "trace-llm-full-03-0003",
+          "trace-llm-full-03-0017"
+        ]
+      },
+      {
+        "promptId": "LLM-QUESTION-04",
+        "count": 2,
+        "traceIds": [
+          "trace-llm-question-04-0004",
+          "trace-llm-question-04-0018"
+        ]
+      },
+      {
+        "promptId": "LLM-TUTOR-05",
+        "count": 14,
+        "traceIds": [
+          "trace-llm-tutor-05-0005",
+          "trace-llm-tutor-05-0009",
+          "trace-llm-tutor-05-0010",
+          "trace-llm-tutor-05-0011",
+          "trace-llm-tutor-05-0019",
+          "trace-llm-tutor-05-0020",
+          "trace-llm-tutor-05-0021",
+          "trace-llm-tutor-05-0022",
+          "trace-llm-tutor-05-0023",
+          "trace-llm-tutor-05-0024",
+          "trace-llm-tutor-05-0025",
+          "trace-llm-tutor-05-0026",
+          "trace-llm-tutor-05-0027",
+          "trace-llm-tutor-05-0028"
+        ]
+      },
+      {
+        "promptId": "LLM-EXERCISE-06",
+        "count": 2,
+        "traceIds": [
+          "trace-llm-exercise-06-0006",
+          "trace-llm-exercise-06-0012"
+        ]
+      },
+      {
+        "promptId": "LLM-CHECK-07",
+        "count": 2,
+        "traceIds": [
+          "trace-llm-check-07-0007",
+          "trace-llm-check-07-0008"
+        ]
+      }
+    ]
+  },
+  "localOnly": {
+    "environment": {
+      "status": "PASS",
+      "localOnly": true,
+      "adapterMode": "local-mock",
+      "paymentAdapter": "local-wechat-pay-mock",
+      "cloudAdapter": "local-tencent-cloud-mock",
+      "databaseAdapter": "local-in-memory-db"
+    },
+    "paymentAdapter": {
+      "status": "PASS",
+      "adapter": "local-wechat-pay-mock",
+      "remoteCalls": [],
+      "supportedStatuses": [
+        "paid",
+        "failed",
+        "cancelled"
+      ]
+    },
+    "cloudAdapter": {
+      "status": "PASS",
+      "adapter": "local-tencent-cloud-mock",
+      "rootDir": "D:\\lyh\\agent\\agent-frame\\scoremap\\docs\\auto-execute\\evidence\\api-db-e2e\\local-cloud",
+      "remoteCalls": []
+    },
+    "aiAdapter": "local-deterministic-ai-mock",
+    "remoteCalls": []
+  }
+}

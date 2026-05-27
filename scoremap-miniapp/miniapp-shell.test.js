@@ -1,20 +1,20 @@
-﻿const assert = require('node:assert/strict');
+const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const { test } = require('node:test');
 const { createMiniappShell } = require('./app');
 const appJson = require('./app.json');
+const { AI_TUTOR_V13_DESIGN_TOKENS, AI_TUTOR_V13_REFERENCES, MINIAPP_ROUTES } = require('./routes');
 const { createMiniappApiClient } = require('./services/api-client');
 const { buildNavigationAssertions, resolveOrderRoute } = require('./utils/navigation');
 const { DEFAULT_FORBIDDEN_PATTERNS, assertLocalOnlyEnvironment, scanTextForForbiddenRemoteCalls } = require('../shared/local-only');
+const { writeJsonEvidence } = require('../shared/evidence-paths');
 
 const projectRoot = path.resolve(__dirname, '..');
-const evidenceDir = path.join(projectRoot, 'docs', 'auto-execute', 'evidence', 'frontend-shell');
 const command = 'npm test -- miniapp-shell';
 
 function writeEvidence(name, payload) {
-  fs.mkdirSync(evidenceDir, { recursive: true });
-  fs.writeFileSync(path.join(evidenceDir, name), `${JSON.stringify(payload, null, 2)}\n`);
+  writeJsonEvidence(projectRoot, path.join('frontend-shell', name), payload);
 }
 
 test('miniapp-shell route table, tab bar, and page jumps match the T06 contract', () => {
@@ -186,5 +186,69 @@ test('miniapp-shell records visual, owner, and local-only guard evidence truthfu
       deferredTo: 'T15',
       reason: 'T06 validates the owner navigation shell; exact P0 click trace with rendered screenshots remains assigned to T15.'
     }
+  });
+});
+
+test('v1.3 AI tutor route contracts and design tokens are consumable by later UI tasks', () => {
+  const configuredPages = new Set(appJson.pages.map((page) => `/${page}`));
+  const referenceIds = new Set(AI_TUTOR_V13_REFERENCES.map((item) => item.id));
+  const requiredRoutes = [
+    '/pages/full-report/index',
+    '/pages/wrong-question/index',
+    '/pages/ai-tutor/index',
+    '/pages/ai-exercise/index',
+    '/pages/ai-exercise-feedback/index'
+  ];
+  const requiredReferences = [
+    'V13-UI-FULL-REPORT',
+    'V13-UI-QUESTION-DETAIL',
+    'V13-UI-AI-TUTOR',
+    'V13-UI-EXERCISE',
+    'V13-UI-FEEDBACK'
+  ];
+  const routeContracts = MINIAPP_ROUTES.filter((route) => requiredRoutes.includes(route.path));
+  const controls = routeContracts.flatMap((route) => route.controls.map((control) => ({ route: route.path, ...control })));
+
+  for (const page of requiredRoutes) {
+    assert.ok(configuredPages.has(page), `${page} must be registered in app.json`);
+    assert.ok(routeContracts.some((route) => route.path === page), `${page} must have a MINIAPP_ROUTES contract`);
+  }
+  for (const referenceId of requiredReferences) {
+    assert.ok(referenceIds.has(referenceId), `${referenceId} must be mapped to a local route/state`);
+    assert.ok(routeContracts.some((route) => route.referenceId === referenceId), `${referenceId} must be attached to route contract`);
+  }
+  for (const control of controls) {
+    assert.ok(control.id, `${control.route} control must have id`);
+    assert.ok(control.action, `${control.route}:${control.id} must have action`);
+    assert.ok(control.targetRoute || control.api || control.behavior || control.fixedAction, `${control.route}:${control.id} must declare route/API/behavior`);
+    if (control.targetRoute) {
+      assert.ok(configuredPages.has(control.targetRoute), `${control.route}:${control.id} target must exist in app.json`);
+    }
+  }
+  assert.ok(controls.some((control) => control.id === 'open-ai-tutor'));
+  assert.ok(controls.some((control) => control.id === 'generate-similar-exercise' && control.targetRoute === '/pages/ai-exercise/index'));
+  assert.ok(controls.some((control) => control.id === 'submit-answer' && control.api.includes('/exercise-answer')));
+  assert.equal(AI_TUTOR_V13_DESIGN_TOKENS.colors.background, '#fdf8ff');
+  assert.equal(AI_TUTOR_V13_DESIGN_TOKENS.colors.primary, '#5a45cb');
+  assert.deepEqual(AI_TUTOR_V13_DESIGN_TOKENS.spacingPx.cardPadding, [16, 24]);
+  assert.equal(AI_TUTOR_V13_DESIGN_TOKENS.spacingPx.bottomNavHeight, 72);
+  assert.equal(AI_TUTOR_V13_DESIGN_TOKENS.radiusPx.largeCard, 24);
+  assert.equal(AI_TUTOR_V13_DESIGN_TOKENS.mascot.localOnly, true);
+
+  writeEvidence('v13-ai-tutor-route-contract.json', {
+    status: 'PASS',
+    command: 'npm test -- miniapp-shell routes ai-tutor',
+    requirementIds: ['V13-R01', 'V13-R04', 'V13-R10', 'V13-R11', 'V13-R12', 'V13-R14'],
+    references: AI_TUTOR_V13_REFERENCES,
+    tokens: AI_TUTOR_V13_DESIGN_TOKENS,
+    routeContracts: routeContracts.map(({ id, path, title, states, referenceId, controls }) => ({
+      id,
+      path,
+      title,
+      states,
+      referenceId,
+      controls
+    })),
+    controlCount: controls.length
   });
 });

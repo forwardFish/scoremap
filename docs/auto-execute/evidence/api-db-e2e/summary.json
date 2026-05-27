@@ -15,6 +15,9 @@
     "upload_files": 3,
     "ai_analysis_tasks": 6,
     "diagnosis_decisions": 5,
+    "diagnosis_questions": 2,
+    "question_interactions": 0,
+    "ai_model_traces": 6,
     "payments": 2,
     "report_exports": 1,
     "feedbacks": 1

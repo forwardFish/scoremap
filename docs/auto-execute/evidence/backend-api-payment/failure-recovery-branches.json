@@ -32,7 +32,7 @@
         "ok": true,
         "status": "failed",
         "paymentId": "payment-t04-failed",
-        "orderId": "order-9d82cee3f7e1",
+        "orderId": "order-2338d03281f5",
         "accessLevel": "preview",
         "idempotent": false,
         "repaired": false
@@ -47,7 +47,7 @@
         "ok": true,
         "status": "cancelled",
         "paymentId": "payment-t04-cancelled",
-        "orderId": "order-9d82cee3f7e1",
+        "orderId": "order-2338d03281f5",
         "accessLevel": "preview",
         "idempotent": false,
         "repaired": false
@@ -62,7 +62,7 @@
         "ok": true,
         "status": "paid",
         "paymentId": "payment-t04-repair",
-        "orderId": "order-9d82cee3f7e1",
+        "orderId": "order-2338d03281f5",
         "accessLevel": "basic",
         "idempotent": true,
         "repaired": true
@@ -72,7 +72,7 @@
   "dbReadback": {
     "failedPayment": {
       "id": "payment-t04-failed",
-      "orderId": "order-9d82cee3f7e1",
+      "orderId": "order-2338d03281f5",
       "ownerId": "local-user-scoremap-t03",
       "paymentType": "basic",
       "channel": "local-wechat-pay-mock",
@@ -80,13 +80,13 @@
       "status": "failed",
       "mockTransactionId": null,
       "callbackCount": 1,
-      "createdAt": "2026-05-25T02:55:22.830Z",
-      "updatedAt": "2026-05-25T02:55:22.835Z",
+      "createdAt": "2026-05-27T11:31:02.530Z",
+      "updatedAt": "2026-05-27T11:31:02.532Z",
       "paidAt": null
     },
     "cancelledPayment": {
       "id": "payment-t04-cancelled",
-      "orderId": "order-9d82cee3f7e1",
+      "orderId": "order-2338d03281f5",
       "ownerId": "local-user-scoremap-t03",
       "paymentType": "basic",
       "channel": "local-wechat-pay-mock",
@@ -94,12 +94,12 @@
       "status": "cancelled",
       "mockTransactionId": null,
       "callbackCount": 1,
-      "createdAt": "2026-05-25T02:55:22.839Z",
-      "updatedAt": "2026-05-25T02:55:22.842Z",
+      "createdAt": "2026-05-27T11:31:02.534Z",
+      "updatedAt": "2026-05-27T11:31:02.536Z",
       "paidAt": null
     },
     "repairedOrder": {
-      "id": "order-9d82cee3f7e1",
+      "id": "order-2338d03281f5",
       "ownerId": "local-user-scoremap-t03",
       "source": "T04-errors",
       "grade": "grade-5",
@@ -108,12 +108,12 @@
       "materialType": "answer-sheet",
       "status": "basic_paid",
       "accessLevel": "basic",
-      "orderToken": "local-order-token-order-9d82cee3f7e1",
-      "createdAt": "2026-05-25T02:55:22.814Z",
-      "updatedAt": "2026-05-25T02:55:22.854Z",
+      "orderToken": "local-order-token-order-2338d03281f5",
+      "createdAt": "2026-05-27T11:31:02.515Z",
+      "updatedAt": "2026-05-27T11:31:02.548Z",
       "uploadedCount": 1,
-      "previewTaskId": "task-02a4541fb3a0",
-      "previewDecisionId": "decision-order-9d82cee3f7e1-preview"
+      "previewTaskId": "task-5354e4a07022",
+      "previewDecisionId": "decision-order-2338d03281f5-preview"
     }
   },
   "localOnly": {

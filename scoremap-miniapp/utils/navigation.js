@@ -1,4 +1,4 @@
-﻿const { MINIAPP_ROUTES } = require('../routes');
+const { MINIAPP_ROUTES } = require('../routes');
 
 const ROUTES_BY_PATH = new Map(MINIAPP_ROUTES.map((route) => [route.path, route]));
 

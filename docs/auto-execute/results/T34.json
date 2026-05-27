@@ -1,0 +1,399 @@
+﻿{
+  "taskId": "T34",
+  "status": "PASS_WITH_LIMITATION",
+  "generatedAt": "2026-05-26T21:55:00+08:00",
+  "scope": "read-only UI one-to-one intake inventory",
+  "targetCount": 15,
+  "supportPageCount": 4,
+  "sourceFilesInspected": [
+    "app.json",
+    "scoremap-miniapp/app.json",
+    "scoremap-miniapp/routes.js",
+    "docs/auto-execute/ui-target.json",
+    "docs/auto-execute/scoremap-ui-reference-map.md",
+    "docs/auto-execute/scoremap-ai-tutor-v13-ui-reference-map.md",
+    "docs/auto-execute/scoremap-ui-one-to-one-repair-master.md",
+    "tools/ui-visual/visual-harness.mjs",
+    "docs/UI/灏忕▼搴?**/code.html",
+    "docs/UI/灏忕▼搴?**/screen.png",
+    "scoremap-miniapp/pages/**/index.wxml",
+    "scoremap-miniapp/pages/**/index.wxss",
+    "scoremap-miniapp/pages/**/index.js"
+  ],
+  "routeInventory": {
+    "rootAppJson": {
+      "path": "app.json",
+      "pageCount": 14,
+      "missingV13Pages": [
+        "scoremap-miniapp/pages/wrong-question/index",
+        "scoremap-miniapp/pages/ai-tutor/index",
+        "scoremap-miniapp/pages/ai-exercise/index",
+        "scoremap-miniapp/pages/ai-exercise-feedback/index"
+      ],
+      "note": "Root app.json uses scoremap-miniapp-prefixed page paths and does not list the v1.3 pages."
+    },
+    "miniappAppJson": {
+      "path": "scoremap-miniapp/app.json",
+      "pageCount": 18,
+      "includesAllRequiredVisualRoutes": true,
+      "includesSupportPages": true
+    },
+    "routesJs": {
+      "path": "scoremap-miniapp/routes.js",
+      "includesOldFlowRoutes": true,
+      "includesV13Routes": true,
+      "supportPagesListed": [
+        "/pages/reports/index",
+        "/pages/orders/index",
+        "/pages/feedback/index"
+      ],
+      "scaffoldSource": "SCAFFOLD_ROUTES from shared/scaffold-contract"
+    }
+  },
+  "targetMap": [
+    {
+      "id": "UI-C01",
+      "group": "old-flow",
+      "screen": "home",
+      "route": "/pages/index/index",
+      "routeState": "default",
+      "referenceCodeHtmlPath": "docs/UI/灏忕▼搴?stitch_codex_development_blueprints/ai_2/code.html",
+      "referenceScreenshotPath": "docs/UI/灏忕▼搴?stitch_codex_development_blueprints/ai_2/screen.png",
+      "namedPngPath": "docs/UI/灏忕▼搴?棣栭〉.png",
+      "currentWxmlPath": "scoremap-miniapp/pages/index/index.wxml",
+      "currentWxssPath": "scoremap-miniapp/pages/index/index.wxss",
+      "currentJsPath": "scoremap-miniapp/pages/index/index.js",
+      "currentVisualHarnessTarget": "home; docs/auto-execute/evidence/visual-harness/home/*",
+      "currentStatus": "page-specific WXML exists, but JS still calls createReplicaPage"
+    },
+    {
+      "id": "UI-C03",
+      "group": "old-flow",
+      "screen": "analysis",
+      "route": "/pages/analysis/index",
+      "routeState": "default/progress",
+      "referenceCodeHtmlPath": "docs/UI/灏忕▼搴?stitch_codex_development_blueprints/ai_1/code.html",
+      "referenceScreenshotPath": "docs/UI/灏忕▼搴?stitch_codex_development_blueprints/ai_1/screen.png",
+      "namedPngPath": "docs/UI/灏忕▼搴?AI鍒嗘瀽.png",
+      "currentWxmlPath": "scoremap-miniapp/pages/analysis/index.wxml",
+      "currentWxssPath": "scoremap-miniapp/pages/analysis/index.wxss",
+      "currentJsPath": "scoremap-miniapp/pages/analysis/index.js",
+      "currentVisualHarnessTarget": "analysis; docs/auto-execute/evidence/visual-harness/analysis/*",
+      "currentStatus": "generic derived-card/derived-action shell"
+    },
+    {
+      "id": "UI-C04",
+      "group": "old-flow",
+      "screen": "failure",
+      "route": "/pages/failure/index",
+      "routeState": "failure",
+      "referenceCodeHtmlPath": "docs/UI/灏忕▼搴?stitch_codex_development_blueprints/_3/code.html",
+      "referenceScreenshotPath": "docs/UI/灏忕▼搴?stitch_codex_development_blueprints/_3/screen.png",
+      "namedPngPath": "docs/UI/灏忕▼搴?澶勭悊澶辫触.png",
+      "currentWxmlPath": "scoremap-miniapp/pages/failure/index.wxml",
+      "currentWxssPath": "scoremap-miniapp/pages/failure/index.wxss",
+      "currentJsPath": "scoremap-miniapp/pages/failure/index.js",
+      "currentVisualHarnessTarget": "failure; docs/auto-execute/evidence/visual-harness/failure/*",
+      "currentStatus": "generic derived-card/derived-action shell"
+    },
+    {
+      "id": "UI-C05",
+      "group": "old-flow",
+      "screen": "preview",
+      "route": "/pages/preview/index",
+      "routeState": "preview/basic unlock decision",
+      "referenceCodeHtmlPath": null,
+      "referenceScreenshotPath": null,
+      "namedPngPath": "docs/UI/灏忕▼搴?鍒嗘瀽鎶ュ憡.png",
+      "currentWxmlPath": "scoremap-miniapp/pages/preview/index.wxml",
+      "currentWxssPath": "scoremap-miniapp/pages/preview/index.wxss",
+      "currentJsPath": "scoremap-miniapp/pages/preview/index.js",
+      "currentVisualHarnessTarget": "preview; docs/auto-execute/evidence/visual-harness/preview/*",
+      "currentStatus": "generic derived-card/derived-action shell",
+      "limitation": "No exact code.html surface discovered for this named PNG."
+    },
+    {
+      "id": "UI-C06",
+      "group": "old-flow",
+      "screen": "basic-pay",
+      "route": "/pages/basic-pay/index",
+      "routeState": "basic payment",
+      "referenceCodeHtmlPath": "docs/UI/灏忕▼搴?stitch_codex_development_blueprints/1/code.html",
+      "referenceScreenshotPath": "docs/UI/灏忕▼搴?stitch_codex_development_blueprints/1/screen.png",
+      "namedPngPath": "docs/UI/灏忕▼搴?1鍏冩敮浠?png",
+      "currentWxmlPath": "scoremap-miniapp/pages/basic-pay/index.wxml",
+      "currentWxssPath": "scoremap-miniapp/pages/basic-pay/index.wxss",
+      "currentJsPath": "scoremap-miniapp/pages/basic-pay/index.js",
+      "currentVisualHarnessTarget": "basic-pay; docs/auto-execute/evidence/visual-harness/basic-pay/*",
+      "currentStatus": "generic derived-card/derived-action shell"
+    },
+    {
+      "id": "UI-C07",
+      "group": "old-flow",
+      "screen": "basic-result",
+      "route": "/pages/basic-result/index",
+      "routeState": "basic result",
+      "referenceCodeHtmlPath": null,
+      "referenceScreenshotPath": null,
+      "namedPngPath": "docs/UI/灏忕▼搴?ChatGPT Image 2026骞?鏈?2鏃?23_02_21.png",
+      "currentWxmlPath": "scoremap-miniapp/pages/basic-result/index.wxml",
+      "currentWxssPath": "scoremap-miniapp/pages/basic-result/index.wxss",
+      "currentJsPath": "scoremap-miniapp/pages/basic-result/index.js",
+      "currentVisualHarnessTarget": "basic-result; docs/auto-execute/evidence/visual-harness/basic-result/*",
+      "currentStatus": "generic derived-card/derived-action shell",
+      "limitation": "No exact code.html surface discovered; old map names an absent 瀹屾暣鍒濆垽缁撴灉.png or fallback ChatGPT PNG."
+    },
+    {
+      "id": "UI-C08",
+      "group": "old-flow",
+      "screen": "full-unlock",
+      "route": "/pages/full-unlock/index",
+      "routeState": "full unlock payment",
+      "referenceCodeHtmlPath": "docs/UI/灏忕▼搴?stitch_codex_development_blueprints/_4/code.html",
+      "referenceScreenshotPath": "docs/UI/灏忕▼搴?stitch_codex_development_blueprints/_4/screen.png",
+      "namedPngPath": null,
+      "currentWxmlPath": "scoremap-miniapp/pages/full-unlock/index.wxml",
+      "currentWxssPath": "scoremap-miniapp/pages/full-unlock/index.wxss",
+      "currentJsPath": "scoremap-miniapp/pages/full-unlock/index.js",
+      "currentVisualHarnessTarget": "full-unlock; docs/auto-execute/evidence/visual-harness/full-unlock/*",
+      "currentStatus": "generic derived-card/derived-action shell"
+    },
+    {
+      "id": "UI-C09",
+      "group": "old-flow",
+      "screen": "full-report-entry",
+      "route": "/pages/full-report-entry/index",
+      "routeState": "full report entry/generated",
+      "referenceCodeHtmlPath": "docs/UI/灏忕▼搴?stitch_codex_development_blueprints/_2/code.html",
+      "referenceScreenshotPath": "docs/UI/灏忕▼搴?stitch_codex_development_blueprints/_2/screen.png",
+      "namedPngPath": "docs/UI/灏忕▼搴?瀹屾暣鎻愬垎鎶ュ憡.png",
+      "currentWxmlPath": "scoremap-miniapp/pages/full-report-entry/index.wxml",
+      "currentWxssPath": "scoremap-miniapp/pages/full-report-entry/index.wxss",
+      "currentJsPath": "scoremap-miniapp/pages/full-report-entry/index.js",
+      "currentVisualHarnessTarget": "full-report-entry; docs/auto-execute/evidence/visual-harness/full-report-entry/*",
+      "currentStatus": "generic derived-card/derived-action shell"
+    },
+    {
+      "id": "UI-C10-OLD",
+      "group": "old-flow",
+      "screen": "full-report old",
+      "route": "/pages/full-report/index",
+      "routeState": "old report state",
+      "referenceCodeHtmlPath": "docs/UI/灏忕▼搴?stitch_codex_development_blueprints/ai_pdf/code.html",
+      "referenceScreenshotPath": "docs/UI/灏忕▼搴?stitch_codex_development_blueprints/ai_pdf/screen.png",
+      "namedPngPath": null,
+      "currentWxmlPath": "scoremap-miniapp/pages/full-report/index.wxml",
+      "currentWxssPath": "scoremap-miniapp/pages/full-report/index.wxss",
+      "currentJsPath": "scoremap-miniapp/pages/full-report/index.js",
+      "currentVisualHarnessTarget": "full-report; docs/auto-execute/evidence/visual-harness/full-report/*",
+      "currentStatus": "route currently renders v1.3 report-style WXML; old state is not clearly separated in WXML"
+    },
+    {
+      "id": "UI-C11",
+      "group": "old-flow",
+      "screen": "my",
+      "route": "/pages/my/index",
+      "routeState": "my tab",
+      "referenceCodeHtmlPath": "docs/UI/灏忕▼搴?stitch_codex_development_blueprints/_1/code.html",
+      "referenceScreenshotPath": "docs/UI/灏忕▼搴?stitch_codex_development_blueprints/_1/screen.png",
+      "namedPngPath": "docs/UI/灏忕▼搴?鎴戠殑.png",
+      "currentWxmlPath": "scoremap-miniapp/pages/my/index.wxml",
+      "currentWxssPath": "scoremap-miniapp/pages/my/index.wxss",
+      "currentJsPath": "scoremap-miniapp/pages/my/index.js",
+      "currentVisualHarnessTarget": "my; docs/auto-execute/evidence/visual-harness/my/*",
+      "currentStatus": "generic derived-card/derived-action shell"
+    },
+    {
+      "id": "V13-UI-FULL-REPORT",
+      "group": "v1.3",
+      "screen": "full-report v1.3",
+      "route": "/pages/full-report/index",
+      "routeState": "aiTutorReady/v1.3 state",
+      "referenceCodeHtmlPath": "docs/UI/灏忕▼搴?stitch_codex_ui_design_kit/_3/code.html",
+      "referenceScreenshotPath": "docs/UI/灏忕▼搴?stitch_codex_ui_design_kit/_3/screen.png",
+      "namedPngPath": null,
+      "currentWxmlPath": "scoremap-miniapp/pages/full-report/index.wxml",
+      "currentWxssPath": "scoremap-miniapp/pages/full-report/index.wxss",
+      "currentJsPath": "scoremap-miniapp/pages/full-report/index.js",
+      "currentVisualHarnessTarget": "v13-full-report; docs/auto-execute/evidence/visual-harness/v13-full-report/* and ai-tutor-v13/full-report/*",
+      "currentStatus": "page-specific v1.3 WXML exists"
+    },
+    {
+      "id": "V13-UI-QUESTION-DETAIL",
+      "group": "v1.3",
+      "screen": "wrong-question",
+      "route": "/pages/wrong-question/index",
+      "routeState": "detail/lockedBasic/historyReady",
+      "referenceCodeHtmlPath": "docs/UI/灏忕▼搴?stitch_codex_ui_design_kit/_1/code.html",
+      "referenceScreenshotPath": "docs/UI/灏忕▼搴?stitch_codex_ui_design_kit/_1/screen.png",
+      "namedPngPath": null,
+      "currentWxmlPath": "scoremap-miniapp/pages/wrong-question/index.wxml",
+      "currentWxssPath": "scoremap-miniapp/pages/wrong-question/index.wxss",
+      "currentJsPath": "scoremap-miniapp/pages/wrong-question/index.js",
+      "currentVisualHarnessTarget": "v13-wrong-question-detail; docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/* and ai-tutor-v13/wrong-question-detail/*",
+      "currentStatus": "page-specific v1.3 WXML exists"
+    },
+    {
+      "id": "V13-UI-AI-TUTOR",
+      "group": "v1.3",
+      "screen": "ai-tutor",
+      "route": "/pages/ai-tutor/index",
+      "routeState": "interaction/quotaAvailable/quotaExhausted/providerFailure",
+      "referenceCodeHtmlPath": "docs/UI/灏忕▼搴?stitch_codex_ui_design_kit/ai/code.html",
+      "referenceScreenshotPath": "docs/UI/灏忕▼搴?stitch_codex_ui_design_kit/ai/screen.png",
+      "namedPngPath": null,
+      "currentWxmlPath": "scoremap-miniapp/pages/ai-tutor/index.wxml",
+      "currentWxssPath": "scoremap-miniapp/pages/ai-tutor/index.wxss",
+      "currentJsPath": "scoremap-miniapp/pages/ai-tutor/index.js",
+      "currentVisualHarnessTarget": "v13-ai-tutor; docs/auto-execute/evidence/visual-harness/v13-ai-tutor/* and ai-tutor-v13/ai-tutor/*",
+      "currentStatus": "page-specific v1.3 WXML exists; JS also calls createReplicaPage before later handlers"
+    },
+    {
+      "id": "V13-UI-EXERCISE",
+      "group": "v1.3",
+      "screen": "ai-exercise",
+      "route": "/pages/ai-exercise/index",
+      "routeState": "pendingAnswer/optionSelected/missingOption",
+      "referenceCodeHtmlPath": "docs/UI/灏忕▼搴?stitch_codex_ui_design_kit/_4/code.html",
+      "referenceScreenshotPath": "docs/UI/灏忕▼搴?stitch_codex_ui_design_kit/_4/screen.png",
+      "namedPngPath": null,
+      "currentWxmlPath": "scoremap-miniapp/pages/ai-exercise/index.wxml",
+      "currentWxssPath": "scoremap-miniapp/pages/ai-exercise/index.wxss",
+      "currentJsPath": "scoremap-miniapp/pages/ai-exercise/index.js",
+      "currentVisualHarnessTarget": "v13-similar-exercise; docs/auto-execute/evidence/visual-harness/v13-similar-exercise/* and ai-tutor-v13/similar-exercise/*",
+      "currentStatus": "page-specific v1.3 WXML exists"
+    },
+    {
+      "id": "V13-UI-FEEDBACK",
+      "group": "v1.3",
+      "screen": "ai-exercise-feedback",
+      "route": "/pages/ai-exercise-feedback/index",
+      "routeState": "answered/correct/incorrect",
+      "referenceCodeHtmlPath": "docs/UI/灏忕▼搴?stitch_codex_ui_design_kit/_2/code.html",
+      "referenceScreenshotPath": "docs/UI/灏忕▼搴?stitch_codex_ui_design_kit/_2/screen.png",
+      "namedPngPath": null,
+      "currentWxmlPath": "scoremap-miniapp/pages/ai-exercise-feedback/index.wxml",
+      "currentWxssPath": "scoremap-miniapp/pages/ai-exercise-feedback/index.wxss",
+      "currentJsPath": "scoremap-miniapp/pages/ai-exercise-feedback/index.js",
+      "currentVisualHarnessTarget": "v13-answer-feedback; docs/auto-execute/evidence/visual-harness/v13-answer-feedback/* and ai-tutor-v13/answer-feedback/*",
+      "currentStatus": "page-specific v1.3 WXML exists"
+    }
+  ],
+  "supportPages": [
+    {
+      "screen": "reports",
+      "route": "/pages/reports/index",
+      "pixelReference": false,
+      "currentWxmlPath": "scoremap-miniapp/pages/reports/index.wxml",
+      "currentWxssPath": "scoremap-miniapp/pages/reports/index.wxss",
+      "currentJsPath": "scoremap-miniapp/pages/reports/index.js",
+      "currentStatus": "generic derived-card/derived-action shell",
+      "visualHarnessTarget": "reports only; support evidence, no standalone reference PNG"
+    },
+    {
+      "screen": "orders",
+      "route": "/pages/orders/index",
+      "pixelReference": false,
+      "currentWxmlPath": "scoremap-miniapp/pages/orders/index.wxml",
+      "currentWxssPath": "scoremap-miniapp/pages/orders/index.wxss",
+      "currentJsPath": "scoremap-miniapp/pages/orders/index.js",
+      "currentStatus": "generic derived-card/derived-action shell",
+      "visualHarnessTarget": null
+    },
+    {
+      "screen": "feedback",
+      "route": "/pages/feedback/index",
+      "pixelReference": false,
+      "currentWxmlPath": "scoremap-miniapp/pages/feedback/index.wxml",
+      "currentWxssPath": "scoremap-miniapp/pages/feedback/index.wxss",
+      "currentJsPath": "scoremap-miniapp/pages/feedback/index.js",
+      "currentStatus": "generic derived-card/derived-action shell",
+      "visualHarnessTarget": null
+    },
+    {
+      "screen": "scaffold",
+      "route": "/pages/scaffold/index",
+      "pixelReference": false,
+      "currentWxmlPath": "scoremap-miniapp/pages/scaffold/index.wxml",
+      "currentWxssPath": "scoremap-miniapp/pages/scaffold/index.wxss",
+      "currentJsPath": "scoremap-miniapp/pages/scaffold/index.js",
+      "currentStatus": "generic derived-card/derived-action shell",
+      "visualHarnessTarget": null
+    }
+  ],
+  "genericFieldUse": {
+    "runtime": [
+      "scoremap-miniapp/utils/replica-runtime.js uses referenceAsset and codeSurface"
+    ],
+    "derivedCardActionPages": [
+      "/pages/analysis/index",
+      "/pages/failure/index",
+      "/pages/preview/index",
+      "/pages/basic-pay/index",
+      "/pages/basic-result/index",
+      "/pages/full-unlock/index",
+      "/pages/full-report-entry/index",
+      "/pages/my/index",
+      "/pages/reports/index",
+      "/pages/orders/index",
+      "/pages/feedback/index",
+      "/pages/scaffold/index"
+    ],
+    "createReplicaPagePages": [
+      "/pages/index/index",
+      "/pages/analysis/index",
+      "/pages/failure/index",
+      "/pages/preview/index",
+      "/pages/basic-pay/index",
+      "/pages/basic-result/index",
+      "/pages/full-unlock/index",
+      "/pages/full-report-entry/index",
+      "/pages/my/index",
+      "/pages/reports/index",
+      "/pages/orders/index",
+      "/pages/feedback/index",
+      "/pages/scaffold/index",
+      "/pages/ai-tutor/index"
+    ]
+  },
+  "assetAndNetworkFindings": {
+    "fullScreenScreenshotMounting": {
+      "status": "NOT_FOUND_IN_WXML_BY_RG",
+      "evidence": "navigation-click-audit.test.js asserts no <image ... reference-image>; T34 rg found generic referenceAsset metadata but not screenshot-only WXML mounting."
+    },
+    "remoteUrls": {
+      "scoremapMiniapp": "No http:// or https:// production URL usage found in app WXML/WXSS by requested rg; visual JS contains SVG xmlns strings only.",
+      "docsAutoExecute": "Historical docs/evidence include local http://127.0.0.1 URLs, external documentation URLs, and real-LLM evidence baseUrl https://api.deepseek.com."
+    },
+    "remoteFonts": {
+      "scoremapMiniapp": "No @font-face or CDN font URL found by rg.",
+      "docsAutoExecute": "docs/auto-execute/evidence/live-preview/scoremap-live-preview.html uses system font-family only."
+    },
+    "cdnLinks": "No scoremap-miniapp CDN links found by rg; historical docs mention external URLs.",
+    "genericPlaceholderCardSurfaces": "Present via derived-card/derived-action WXML/WXSS and createReplicaPage runtime."
+  },
+  "risks": [
+    "The current app still contains generic replica shell surfaces, so later repair tasks must replace them with page-specific WXML/WXSS.",
+    "Preview and basic-result have named PNG references but no discovered exact code.html source, requiring manual mapping before one-to-one code repair.",
+    "Root app.json and scoremap-miniapp/app.json disagree on v1.3 page coverage; use scoremap-miniapp/app.json as the miniapp route source and record the root mismatch.",
+    "The shared full-report route has old and v1.3 states; current WXML appears v1.3-focused, so old report parity needs explicit state restoration.",
+    "Historical docs/evidence contain remote URLs; product repair tasks must keep runtime local/mock-only and avoid copying those URLs into miniapp UI code."
+  ],
+  "nextTaskNotes": [
+    "T35 should remove createReplicaPage/referenceAsset/codeSurface/derived-card/derived-action shells from product pages before per-screen repair.",
+    "T36-T40 should use this targetMap and keep full-report old versus v1.3 states separate.",
+    "T41 should repair reports/orders/feedback/scaffold as support pages without claiming independent pixel-reference parity.",
+    "T42/T43 should rerun the generic-shell and remote-asset scans and only claim pixel parity if actual raster diff evidence exists."
+  ],
+  "verification": {
+    "readOnlyOnly": true,
+    "commandsRun": [
+      "rg --files docs/UI/resolved-miniapp-reference-root",
+      "rg --files docs/UI/?????",
+      "rg -n \"derived-card|derived-action|referenceAsset|codeSurface|http://|https://|<image|background-image\" scoremap-miniapp docs/auto-execute"
+    ],
+    "literalDocsUiQuestionGlobStatus": "FAILED_INVALID_PATH_ON_WINDOWS",
+    "resolvedDocsUiDirectoryStatus": "PASS",
+    "evidencePath": "docs/auto-execute/evidence/ui-one-to-one/T34/read-only-checks.md"
+  }
+}

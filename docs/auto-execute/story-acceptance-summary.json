@@ -1,0 +1,391 @@
+﻿{
+    "stories":  [
+                    {
+                        "storyId":  "STORY-REPORT-002",
+                        "priority":  "P0",
+                        "title":  "Formal tutor use requires full-report entitlement; basic/free users cannot formally ask.",
+                        "status":  "HARD_FAIL",
+                        "testPointsPassed":  0,
+                        "testPointsTotal":  6,
+                        "evidence":  [
+                                         "docs/auto-execute/results/api-smoke.generated.json",
+                                         "docs/auto-execute/results/route-smoke.generated.json"
+                                     ],
+                        "gaps":  [
+                                     "GAP-STORY-REPORT-002-STATUS",
+                                     "GAP-TP-STORY-REPORT-002-001-STATUS",
+                                     "GAP-TP-STORY-REPORT-002-001-EVIDENCE",
+                                     "GAP-TP-STORY-REPORT-002-002-STATUS",
+                                     "GAP-TP-STORY-REPORT-002-002-EVIDENCE",
+                                     "GAP-TP-STORY-REPORT-002-003-STATUS",
+                                     "GAP-TP-STORY-REPORT-002-003-EVIDENCE",
+                                     "GAP-TP-STORY-REPORT-002-004-STATUS",
+                                     "GAP-TP-STORY-REPORT-002-004-EVIDENCE",
+                                     "GAP-TP-STORY-REPORT-002-005-STATUS",
+                                     "GAP-TP-STORY-REPORT-002-005-EVIDENCE",
+                                     "GAP-TP-STORY-REPORT-002-006-STATUS",
+                                     "GAP-TP-STORY-REPORT-002-006-EVIDENCE"
+                                 ],
+                        "materializedTestPoints":  [
+                                                       {
+                                                           "testPointId":  "TP-STORY-REPORT-002-001",
+                                                           "type":  "api",
+                                                           "target":  "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+                                                           "materializationStatus":  "GENERATED",
+                                                           "generatedTest":  "scripts\\acceptance\\generated\\api-smoke.generated.mjs",
+                                                           "command":  "node scripts/acceptance/generated/api-smoke.generated.mjs --project-root .",
+                                                           "evidenceOutput":  "docs/auto-execute/results/api-smoke.generated.json",
+                                                           "reason":  ""
+                                                       },
+                                                       {
+                                                           "testPointId":  "TP-STORY-REPORT-002-002",
+                                                           "type":  "route",
+                                                           "target":  "scoremap-miniapp/pages/wrong-question",
+                                                           "materializationStatus":  "GENERATED",
+                                                           "generatedTest":  "scripts\\acceptance\\generated\\route-smoke.generated.mjs",
+                                                           "command":  "node scripts/acceptance/generated/route-smoke.generated.mjs --project-root .",
+                                                           "evidenceOutput":  "docs/auto-execute/results/route-smoke.generated.json",
+                                                           "reason":  ""
+                                                       },
+                                                       {
+                                                           "testPointId":  "TP-STORY-REPORT-002-003",
+                                                           "type":  "content",
+                                                           "target":  "API rejects unentitled formal tutor access.",
+                                                           "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                                           "generatedTest":  "",
+                                                           "command":  "",
+                                                           "evidenceOutput":  "",
+                                                           "reason":  "Content test point has no route/API target to bind automatically."
+                                                       },
+                                                       {
+                                                           "testPointId":  "TP-STORY-REPORT-002-004",
+                                                           "type":  "content",
+                                                           "target":  "Entitlement behavior is covered by negative branch evidence.",
+                                                           "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                                           "generatedTest":  "",
+                                                           "command":  "",
+                                                           "evidenceOutput":  "",
+                                                           "reason":  "Content test point has no route/API target to bind automatically."
+                                                       },
+                                                       {
+                                                           "testPointId":  "TP-STORY-REPORT-002-005",
+                                                           "type":  "content",
+                                                           "target":  "Formal tutor use requires full-report entitlement; basic/free users cannot formally ask.",
+                                                           "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                                           "generatedTest":  "",
+                                                           "command":  "",
+                                                           "evidenceOutput":  "",
+                                                           "reason":  "Content test point has no route/API target to bind automatically."
+                                                       },
+                                                       {
+                                                           "testPointId":  "TP-STORY-REPORT-002-006",
+                                                           "type":  "content",
+                                                           "target":  "UI shows the locked/basic state without starting formal interaction.",
+                                                           "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                                           "generatedTest":  "",
+                                                           "command":  "",
+                                                           "evidenceOutput":  "",
+                                                           "reason":  "Content test point has no route/API target to bind automatically."
+                                                       }
+                                                   ]
+                    },
+                    {
+                        "storyId":  "STORY-REPORT-003",
+                        "priority":  "P0",
+                        "title":  "Each report allows at most 10 tutor interactions and each question allows at most 3 interactions.",
+                        "status":  "HARD_FAIL",
+                        "testPointsPassed":  0,
+                        "testPointsTotal":  7,
+                        "evidence":  [
+                                         "docs/auto-execute/results/route-smoke.generated.json"
+                                     ],
+                        "gaps":  [
+                                     "GAP-STORY-REPORT-003-STATUS",
+                                     "GAP-TP-STORY-REPORT-003-001-STATUS",
+                                     "GAP-TP-STORY-REPORT-003-001-EVIDENCE",
+                                     "GAP-TP-STORY-REPORT-003-002-STATUS",
+                                     "GAP-TP-STORY-REPORT-003-002-EVIDENCE",
+                                     "GAP-TP-STORY-REPORT-003-003-STATUS",
+                                     "GAP-TP-STORY-REPORT-003-003-EVIDENCE",
+                                     "GAP-TP-STORY-REPORT-003-004-STATUS",
+                                     "GAP-TP-STORY-REPORT-003-004-EVIDENCE",
+                                     "GAP-TP-STORY-REPORT-003-005-STATUS",
+                                     "GAP-TP-STORY-REPORT-003-005-EVIDENCE",
+                                     "GAP-TP-STORY-REPORT-003-006-STATUS",
+                                     "GAP-TP-STORY-REPORT-003-006-EVIDENCE",
+                                     "GAP-TP-STORY-REPORT-003-007-STATUS",
+                                     "GAP-TP-STORY-REPORT-003-007-EVIDENCE"
+                                 ],
+                        "materializedTestPoints":  [
+                                                       {
+                                                           "testPointId":  "TP-STORY-REPORT-003-001",
+                                                           "type":  "route",
+                                                           "target":  "scoremap-miniapp/pages/ai-tutor",
+                                                           "materializationStatus":  "GENERATED",
+                                                           "generatedTest":  "scripts\\acceptance\\generated\\route-smoke.generated.mjs",
+                                                           "command":  "node scripts/acceptance/generated/route-smoke.generated.mjs --project-root .",
+                                                           "evidenceOutput":  "docs/auto-execute/results/route-smoke.generated.json",
+                                                           "reason":  ""
+                                                       },
+                                                       {
+                                                           "testPointId":  "TP-STORY-REPORT-003-002",
+                                                           "type":  "route",
+                                                           "target":  "server/src/routes/question-interactions.js",
+                                                           "materializationStatus":  "GENERATED",
+                                                           "generatedTest":  "scripts\\acceptance\\generated\\route-smoke.generated.mjs",
+                                                           "command":  "node scripts/acceptance/generated/route-smoke.generated.mjs --project-root .",
+                                                           "evidenceOutput":  "docs/auto-execute/results/route-smoke.generated.json",
+                                                           "reason":  ""
+                                                       },
+                                                       {
+                                                           "testPointId":  "TP-STORY-REPORT-003-003",
+                                                           "type":  "route",
+                                                           "target":  "server/src/services/question-interactions-service.js",
+                                                           "materializationStatus":  "GENERATED",
+                                                           "generatedTest":  "scripts\\acceptance\\generated\\route-smoke.generated.mjs",
+                                                           "command":  "node scripts/acceptance/generated/route-smoke.generated.mjs --project-root .",
+                                                           "evidenceOutput":  "docs/auto-execute/results/route-smoke.generated.json",
+                                                           "reason":  ""
+                                                       },
+                                                       {
+                                                           "testPointId":  "TP-STORY-REPORT-003-004",
+                                                           "type":  "content",
+                                                           "target":  "Each report allows at most 10 tutor interactions and each question allows at most 3 interactions.",
+                                                           "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                                           "generatedTest":  "",
+                                                           "command":  "",
+                                                           "evidenceOutput":  "",
+                                                           "reason":  "Content test point has no route/API target to bind automatically."
+                                                       },
+                                                       {
+                                                           "testPointId":  "TP-STORY-REPORT-003-005",
+                                                           "type":  "content",
+                                                           "target":  "Question-level quota is enforced by API and persisted data.",
+                                                           "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                                           "generatedTest":  "",
+                                                           "command":  "",
+                                                           "evidenceOutput":  "",
+                                                           "reason":  "Content test point has no route/API target to bind automatically."
+                                                       },
+                                                       {
+                                                           "testPointId":  "TP-STORY-REPORT-003-006",
+                                                           "type":  "content",
+                                                           "target":  "Quota-exceeded responses are covered by UI or API evidence.",
+                                                           "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                                           "generatedTest":  "",
+                                                           "command":  "",
+                                                           "evidenceOutput":  "",
+                                                           "reason":  "Content test point has no route/API target to bind automatically."
+                                                       },
+                                                       {
+                                                           "testPointId":  "TP-STORY-REPORT-003-007",
+                                                           "type":  "content",
+                                                           "target":  "Report-level quota is enforced by API and persisted data.",
+                                                           "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                                           "generatedTest":  "",
+                                                           "command":  "",
+                                                           "evidenceOutput":  "",
+                                                           "reason":  "Content test point has no route/API target to bind automatically."
+                                                       }
+                                                   ]
+                    },
+                    {
+                        "storyId":  "STORY-GENERAL-006",
+                        "priority":  "P0",
+                        "title":  "A similar exercise can be generated and submitted for AI feedback.",
+                        "status":  "HARD_FAIL",
+                        "testPointsPassed":  0,
+                        "testPointsTotal":  7,
+                        "evidence":  [
+                                         "docs/auto-execute/results/api-smoke.generated.json",
+                                         "docs/auto-execute/results/route-smoke.generated.json"
+                                     ],
+                        "gaps":  [
+                                     "GAP-STORY-GENERAL-006-STATUS",
+                                     "GAP-TP-STORY-GENERAL-006-001-STATUS",
+                                     "GAP-TP-STORY-GENERAL-006-001-EVIDENCE",
+                                     "GAP-TP-STORY-GENERAL-006-002-STATUS",
+                                     "GAP-TP-STORY-GENERAL-006-002-EVIDENCE",
+                                     "GAP-TP-STORY-GENERAL-006-003-STATUS",
+                                     "GAP-TP-STORY-GENERAL-006-003-EVIDENCE",
+                                     "GAP-TP-STORY-GENERAL-006-004-STATUS",
+                                     "GAP-TP-STORY-GENERAL-006-004-EVIDENCE",
+                                     "GAP-TP-STORY-GENERAL-006-005-STATUS",
+                                     "GAP-TP-STORY-GENERAL-006-005-EVIDENCE",
+                                     "GAP-TP-STORY-GENERAL-006-006-STATUS",
+                                     "GAP-TP-STORY-GENERAL-006-006-EVIDENCE",
+                                     "GAP-TP-STORY-GENERAL-006-007-STATUS",
+                                     "GAP-TP-STORY-GENERAL-006-007-EVIDENCE"
+                                 ],
+                        "materializedTestPoints":  [
+                                                       {
+                                                           "testPointId":  "TP-STORY-GENERAL-006-001",
+                                                           "type":  "api",
+                                                           "target":  "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/exercise-answer",
+                                                           "materializationStatus":  "GENERATED",
+                                                           "generatedTest":  "scripts\\acceptance\\generated\\api-smoke.generated.mjs",
+                                                           "command":  "node scripts/acceptance/generated/api-smoke.generated.mjs --project-root .",
+                                                           "evidenceOutput":  "docs/auto-execute/results/api-smoke.generated.json",
+                                                           "reason":  ""
+                                                       },
+                                                       {
+                                                           "testPointId":  "TP-STORY-GENERAL-006-002",
+                                                           "type":  "route",
+                                                           "target":  "scoremap-miniapp/pages/ai-exercise",
+                                                           "materializationStatus":  "GENERATED",
+                                                           "generatedTest":  "scripts\\acceptance\\generated\\route-smoke.generated.mjs",
+                                                           "command":  "node scripts/acceptance/generated/route-smoke.generated.mjs --project-root .",
+                                                           "evidenceOutput":  "docs/auto-execute/results/route-smoke.generated.json",
+                                                           "reason":  ""
+                                                       },
+                                                       {
+                                                           "testPointId":  "TP-STORY-GENERAL-006-003",
+                                                           "type":  "route",
+                                                           "target":  "scoremap-miniapp/pages/ai-exercise-feedback",
+                                                           "materializationStatus":  "GENERATED",
+                                                           "generatedTest":  "scripts\\acceptance\\generated\\route-smoke.generated.mjs",
+                                                           "command":  "node scripts/acceptance/generated/route-smoke.generated.mjs --project-root .",
+                                                           "evidenceOutput":  "docs/auto-execute/results/route-smoke.generated.json",
+                                                           "reason":  ""
+                                                       },
+                                                       {
+                                                           "testPointId":  "TP-STORY-GENERAL-006-004",
+                                                           "type":  "content",
+                                                           "target":  "A similar exercise can be generated and submitted for AI feedback.",
+                                                           "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                                           "generatedTest":  "",
+                                                           "command":  "",
+                                                           "evidenceOutput":  "",
+                                                           "reason":  "Content test point has no route/API target to bind automatically."
+                                                       },
+                                                       {
+                                                           "testPointId":  "TP-STORY-GENERAL-006-005",
+                                                           "type":  "content",
+                                                           "target":  "Feedback is returned and tied to the same question context.",
+                                                           "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                                           "generatedTest":  "",
+                                                           "command":  "",
+                                                           "evidenceOutput":  "",
+                                                           "reason":  "Content test point has no route/API target to bind automatically."
+                                                       },
+                                                       {
+                                                           "testPointId":  "TP-STORY-GENERAL-006-006",
+                                                           "type":  "content",
+                                                           "target":  "Student can generate a similar exercise from the wrong-question context.",
+                                                           "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                                           "generatedTest":  "",
+                                                           "command":  "",
+                                                           "evidenceOutput":  "",
+                                                           "reason":  "Content test point has no route/API target to bind automatically."
+                                                       },
+                                                       {
+                                                           "testPointId":  "TP-STORY-GENERAL-006-007",
+                                                           "type":  "content",
+                                                           "target":  "Student can submit an answer for that exercise.",
+                                                           "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                                           "generatedTest":  "",
+                                                           "command":  "",
+                                                           "evidenceOutput":  "",
+                                                           "reason":  "Content test point has no route/API target to bind automatically."
+                                                       }
+                                                   ]
+                    },
+                    {
+                        "storyId":  "STORY-REPORT-009",
+                        "priority":  "P0",
+                        "title":  "The complete report has a formal visual presentation and includes wrong-question cards.",
+                        "status":  "HARD_FAIL",
+                        "testPointsPassed":  0,
+                        "testPointsTotal":  5,
+                        "evidence":  [
+                                         "docs/auto-execute/results/route-smoke.generated.json",
+                                         "docs/auto-execute/results/ui-verifier.json"
+                                     ],
+                        "gaps":  [
+                                     "GAP-STORY-REPORT-009-STATUS",
+                                     "GAP-TP-STORY-REPORT-009-001-STATUS",
+                                     "GAP-TP-STORY-REPORT-009-001-EVIDENCE",
+                                     "GAP-TP-STORY-REPORT-009-002-STATUS",
+                                     "GAP-TP-STORY-REPORT-009-002-EVIDENCE",
+                                     "GAP-TP-STORY-REPORT-009-003-STATUS",
+                                     "GAP-TP-STORY-REPORT-009-003-EVIDENCE",
+                                     "GAP-TP-STORY-REPORT-009-004-STATUS",
+                                     "GAP-TP-STORY-REPORT-009-004-EVIDENCE",
+                                     "GAP-TP-STORY-REPORT-009-005-STATUS",
+                                     "GAP-TP-STORY-REPORT-009-005-EVIDENCE"
+                                 ],
+                        "materializedTestPoints":  [
+                                                       {
+                                                           "testPointId":  "TP-STORY-REPORT-009-001",
+                                                           "type":  "route",
+                                                           "target":  "scoremap-miniapp/pages/full-report",
+                                                           "materializationStatus":  "GENERATED",
+                                                           "generatedTest":  "scripts\\acceptance\\generated\\route-smoke.generated.mjs",
+                                                           "command":  "node scripts/acceptance/generated/route-smoke.generated.mjs --project-root .",
+                                                           "evidenceOutput":  "docs/auto-execute/results/route-smoke.generated.json",
+                                                           "reason":  ""
+                                                       },
+                                                       {
+                                                           "testPointId":  "TP-STORY-REPORT-009-002",
+                                                           "type":  "content",
+                                                           "target":  "Full-report layout includes formal report structure.",
+                                                           "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                                           "generatedTest":  "",
+                                                           "command":  "",
+                                                           "evidenceOutput":  "",
+                                                           "reason":  "Content test point has no route/API target to bind automatically."
+                                                       },
+                                                       {
+                                                           "testPointId":  "TP-STORY-REPORT-009-003",
+                                                           "type":  "visual",
+                                                           "target":  "The complete report has a formal visual presentation and includes wrong-question cards.",
+                                                           "materializationStatus":  "BOUND_TO_UI_VERIFIER",
+                                                           "generatedTest":  "scripts/acceptance/run-ui-capture.ps1 + scripts/acceptance/run-ui-compare.ps1",
+                                                           "command":  "powershell -ExecutionPolicy Bypass -File scripts/acceptance/run-ui-capture.ps1; powershell -ExecutionPolicy Bypass -File scripts/acceptance/run-ui-compare.ps1",
+                                                           "evidenceOutput":  "docs/auto-execute/results/ui-verifier.json",
+                                                           "reason":  ""
+                                                       },
+                                                       {
+                                                           "testPointId":  "TP-STORY-REPORT-009-004",
+                                                           "type":  "visual",
+                                                           "target":  "Visual harness evidence exists; raster pixel-perfect review remains manual.",
+                                                           "materializationStatus":  "BOUND_TO_UI_VERIFIER",
+                                                           "generatedTest":  "scripts/acceptance/run-ui-capture.ps1 + scripts/acceptance/run-ui-compare.ps1",
+                                                           "command":  "powershell -ExecutionPolicy Bypass -File scripts/acceptance/run-ui-capture.ps1; powershell -ExecutionPolicy Bypass -File scripts/acceptance/run-ui-compare.ps1",
+                                                           "evidenceOutput":  "docs/auto-execute/results/ui-verifier.json",
+                                                           "reason":  ""
+                                                       },
+                                                       {
+                                                           "testPointId":  "TP-STORY-REPORT-009-005",
+                                                           "type":  "content",
+                                                           "target":  "Wrong-question cards are visible in the report.",
+                                                           "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                                           "generatedTest":  "",
+                                                           "command":  "",
+                                                           "evidenceOutput":  "",
+                                                           "reason":  "Content test point has no route/API target to bind automatically."
+                                                       }
+                                                   ]
+                    }
+                ],
+    "sources":  {
+                    "storyMaterializedTests":  "docs\\auto-execute\\story-materialized-tests.json",
+                    "storyTarget":  "docs\\auto-execute\\story-target.json",
+                    "storyQualityGate":  "docs\\auto-execute\\story-quality-gate.json",
+                    "storyStatus":  "docs\\auto-execute\\story-status.json"
+                },
+    "generatedAt":  "2026-05-25T19:11:13",
+    "summary":  {
+                    "hardFailStories":  4,
+                    "totalStories":  4,
+                    "passStories":  0,
+                    "p1Stories":  0,
+                    "p0Stories":  4,
+                    "p0p1PassRate":  0,
+                    "manualReviewRequiredStories":  0,
+                    "deferredStories":  0,
+                    "passWithLimitationStories":  0
+                },
+    "schemaVersion":  "2.0",
+    "status":  "HARD_FAIL"
+}

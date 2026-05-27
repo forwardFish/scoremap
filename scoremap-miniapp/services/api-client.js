@@ -1,4 +1,4 @@
-﻿const nodePath = require('node:path');
+const nodePath = require('node:path');
 const { writeLocalPdf } = require('../../server/src/report/local-pdf');
 const { createLocalFixtureStore } = require('./local-fixture-store');
 
@@ -31,6 +31,20 @@ function createMiniappApiClient(options = {}) {
           source: payload.source || 'T06-miniapp-shell'
         });
         return record(method, path, payload, 201, { status: 'created', orderId, orderToken: `local-order-token-${orderId}` });
+      }
+
+      const questionPath = path.match(/^\/api\/diagnosis-orders\/([^/]+)\/questions\/([^/]+)\/([^/]+)$/);
+      if (questionPath) {
+        return handleQuestionAction({
+          method,
+          path,
+          payload,
+          orderId: questionPath[1],
+          questionId: questionPath[2],
+          action: questionPath[3],
+          store,
+          record
+        });
       }
 
       const orderPath = path.match(/^\/api\/diagnosis-orders\/([^/]+)\/([^/]+)$/);
@@ -105,6 +119,136 @@ function createMiniappApiClient(options = {}) {
       return record(method, path, payload, 404, { status: 'error', code: 'NOT_FOUND' });
     }
   };
+}
+
+function handleQuestionAction({ method, path, payload, orderId, questionId, action, store, record }) {
+  const question = store.read('diagnosis_questions', questionId);
+  if (!question || question.orderId !== orderId) {
+    return record(method, path, payload, 404, { status: 'error', code: 'QUESTION_NOT_FOUND' });
+  }
+
+  if (method === 'GET' && action === 'interactions') {
+    seedTutorHistory(store, orderId, questionId);
+    const items = store
+      .list('question_interactions')
+      .filter((row) => row.orderId === orderId && row.questionId === questionId)
+      .sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt)));
+    return record(method, path, payload, 200, {
+      status: 'ok',
+      orderId,
+      questionId,
+      items
+    });
+  }
+
+  if (method === 'POST' && action === 'interactions') {
+    const actionType = payload.actionType;
+    const allowedActions = new Set(['explain_step', 'why_method', 'another_explanation', 'similar_exercise', 'mark_understood']);
+    if (!allowedActions.has(actionType)) {
+      return record(method, path, payload, 400, { status: 'error', code: 'INVALID_ACTION_TYPE' });
+    }
+    if (payload.forceQuotaExceeded || Number(question.remainingQuota) <= 0) {
+      return record(method, path, payload, 429, { status: 'error', code: 'QUESTION_QUOTA_EXCEEDED' });
+    }
+    if (payload.forceProviderFailure) {
+      return record(method, path, payload, 503, { status: 'error', code: 'LOCAL_AI_PROVIDER_FAILURE' });
+    }
+
+    const interactionId = payload.interactionId || `interaction-${questionId}-${actionType}-${store.list('question_interactions').length + 1}`;
+    const interaction = store.upsert('question_interactions', {
+      id: interactionId,
+      orderId,
+      questionId,
+      ownerId: LOCAL_OWNER_ID,
+      actionType,
+      promptId: actionType === 'similar_exercise' ? 'LLM-EXERCISE-06' : 'LLM-TUTOR-05',
+      status: 'success',
+      summary: buildTutorSummary(actionType),
+      response: buildTutorResponse(actionType),
+      exercise: actionType === 'similar_exercise' ? buildSimilarExercise(questionId) : null,
+      traceId: `trace-${interactionId}`,
+      createdAt: payload.createdAt || new Date(2026, 4, 25, 9, 0, store.list('question_interactions').length).toISOString()
+    });
+    store.upsert('ai_model_traces', {
+      id: `trace-${interactionId}`,
+      traceId: `trace-${interactionId}`,
+      promptId: actionType === 'similar_exercise' ? 'LLM-EXERCISE-06' : 'LLM-TUTOR-05',
+      adapter: 'local-miniapp-mock',
+      status: 'success',
+      localOnly: true,
+      requestSummary: { orderId, questionId, actionType },
+      responseSummary: actionType === 'similar_exercise' ? { exerciseId: interaction.exercise.id } : { summary: interaction.summary }
+    });
+    store.upsert('diagnosis_questions', {
+      ...question,
+      remainingQuota: Math.max(0, Number(question.remainingQuota || 0) - 1)
+    });
+    return record(method, path, payload, 201, {
+      status: 'ok',
+      interaction,
+      quota: {
+        questionRemaining: Math.max(0, Number(question.remainingQuota || 0) - 1),
+        questionTotal: 3
+      }
+    });
+  }
+
+  if (method === 'POST' && action === 'exercise-answer') {
+    const interaction = store.read('question_interactions', payload.interactionId);
+    if (!interaction || interaction.orderId !== orderId || interaction.questionId !== questionId || !interaction.exercise) {
+      return record(method, path, payload, 404, { status: 'error', code: 'EXERCISE_NOT_FOUND' });
+    }
+    if (!payload.submittedAnswer) {
+      return record(method, path, payload, 400, { status: 'error', code: 'ANSWER_REQUIRED' });
+    }
+    if (interaction.submittedAnswer) {
+      return record(method, path, payload, 409, { status: 'error', code: 'EXERCISE_ALREADY_ANSWERED' });
+    }
+    const options = interaction.exercise.options || [];
+    if (options.length > 0 && !options.includes(payload.submittedAnswer)) {
+      return record(method, path, payload, 400, { status: 'error', code: 'INVALID_EXERCISE_OPTION' });
+    }
+    if (payload.forceProviderFailure) {
+      return record(method, path, payload, 503, { status: 'error', code: 'LOCAL_AI_PROVIDER_FAILURE' });
+    }
+    const correct = payload.submittedAnswer === interaction.exercise.correctOption;
+    const traceId = `trace-${interaction.id}-answer`;
+    const feedback = {
+      correct,
+      headline: correct ? '回答正确' : '还差一步',
+      explanation: correct
+        ? '你先算出每小时多走 12 千米，再乘以 3 小时，数量关系抓对了。'
+        : '这类题先比较每小时相差多少，再乘以相同的时间，不要把两个人的速度相加。',
+      summary: correct ? '同类题迁移已掌握。' : '需要再练一次速度差乘时间。'
+    };
+    const updated = store.upsert('question_interactions', {
+      ...interaction,
+      submittedAnswer: payload.submittedAnswer,
+      correctness: correct,
+      answerFeedback: feedback,
+      answerPromptId: 'LLM-CHECK-07',
+      answerTraceId: traceId,
+      summary: feedback.summary
+    });
+    store.upsert('ai_model_traces', {
+      id: traceId,
+      traceId,
+      promptId: 'LLM-CHECK-07',
+      adapter: 'local-miniapp-mock',
+      status: 'success',
+      localOnly: true,
+      requestSummary: { orderId, questionId, interactionId: interaction.id, submittedAnswer: payload.submittedAnswer },
+      responseSummary: { correct, summary: feedback.summary }
+    });
+    return record(method, path, payload, 200, {
+      status: 'answered',
+      interactionId: interaction.id,
+      correctness: updated.correctness,
+      feedback
+    });
+  }
+
+  return record(method, path, payload, 404, { status: 'error', code: 'NOT_FOUND' });
 }
 
 function handleOrderAction({ method, path, payload, orderId, action, store, record }) {
@@ -208,6 +352,30 @@ function handleOrderAction({ method, path, payload, orderId, action, store, reco
     return record(method, path, payload, 200, { status: 'full_report_ready', decision: decision.full || decision });
   }
 
+  if (method === 'GET' && action === 'questions') {
+    const decision = store.read('diagnosis_decisions', `decision-${orderId}-full`);
+    const reportData = decision && decision.full ? decision.full : createFullReportFixture(orderId);
+    const cards = reportData.wrongQuestionCards || createWrongQuestionCards(orderId);
+    for (const card of cards) {
+      store.upsert('diagnosis_questions', {
+        id: card.questionId,
+        orderId,
+        ownerId: LOCAL_OWNER_ID,
+        stem: card.stem,
+        knowledgePoint: card.knowledgePoint,
+        severity: card.severity,
+        masteryStatus: card.masteryStatus,
+        remainingQuota: card.remainingQuestionQuota
+      });
+    }
+    return record(method, path, payload, 200, {
+      status: 'ok',
+      orderId,
+      reportQuota: reportData.reportQuota,
+      wrongQuestionCards: cards
+    });
+  }
+
   if (method === 'POST' && action === 'save-report') {
     store.upsert('diagnosis_orders', { ...order, savedReport: true });
     return record(method, path, payload, 200, { saved: true });
@@ -277,19 +445,53 @@ function getPaymentStatus(payments, orderId) {
 function createFullReportFixture(orderId) {
   return {
     level: 'full',
-    reportTitle: 'Complete score improvement report',
+    reportTitle: '初一数学月考提分报告',
     orderId,
     generatedStatus: 'full_report_ready',
-    summary: 'Local complete score improvement report for a parent owner review.',
+    summary: '整体基础较好，计算粗心和几何证明步骤不完整是本次失分的主要原因。',
     modules: [
-      { id: 'knowledge-diagnosis', title: 'Knowledge diagnosis', content: 'Calculation rules and formula usage need staged practice.' },
-      { id: 'loss-point-breakdown', title: 'Per-question loss point breakdown', content: 'Mark the missing condition, formula, solving process, and final verification.' },
-      { id: 'seven-day-plan', title: '7-day score improvement plan', content: 'Three correction reviews, two targeted exercise days, and one final mistake-book review.' },
-      { id: 'parent-guidance', title: 'Parent guidance', content: 'Use process feedback and avoid guaranteed-score promises.' }
+      { id: 'knowledge-diagnosis', title: '主要丢分点', content: '计算失误、几何证明步骤缺失、应用题等量关系不清。' },
+      { id: 'loss-point-breakdown', title: '优先补弱顺序', content: '先补几何证明表达，再巩固方程应用题和计算检查。' },
+      { id: 'seven-day-plan', title: '7 天建议', content: '每天 20 分钟错题复盘，隔天完成同类题迁移练习。' },
+      { id: 'parent-guidance', title: '家长陪伴建议', content: '关注孩子是否能讲清思路，不用分数承诺替代过程反馈。' }
     ],
     tabs: ['overview', 'loss points', '7-day plan', 'parent guidance'],
-    complianceNotice: 'Local mock report only. No guaranteed-score promise is displayed.'
+    reportQuota: {
+      used: 2,
+      total: 10,
+      remaining: 8,
+      text: '本报告 AI 错题追问剩余 8/10 次'
+    },
+    wrongQuestionCards: createWrongQuestionCards(orderId),
+    complianceNotice: '内容仅供学习参考，请结合课堂学习与老师建议使用。'
   };
+}
+
+function createWrongQuestionCards(orderId) {
+  return [
+    {
+      questionId: `${orderId}-q1`,
+      index: 1,
+      title: '错题 1 二元一次方程应用题',
+      stem: '甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？',
+      knowledgePoint: '方程应用题',
+      severity: 'high',
+      masteryStatus: '未掌握',
+      remainingQuestionQuota: 3,
+      aiEntryText: '让 AI 老师讲给孩子听'
+    },
+    {
+      questionId: `${orderId}-q2`,
+      index: 2,
+      title: '错题 2 几何证明题',
+      stem: '已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。',
+      knowledgePoint: '几何证明',
+      severity: 'medium',
+      masteryStatus: '中等',
+      remainingQuestionQuota: 2,
+      aiEntryText: '让 AI 老师讲给孩子听'
+    }
+  ];
 }
 
 function pathJoin(...parts) {
@@ -331,6 +533,68 @@ function buildAnalysisSteps(task) {
     { id: 'locate-loss-points', text: 'locating score-loss points', status: progress >= 70 && !failed ? 'active' : progress >= 35 && !failed ? 'active' : 'pending' },
     { id: 'generate-preview', text: 'generating preview advice', status: progress >= 100 && !failed ? 'done' : failed ? 'failed' : 'pending' }
   ];
+}
+
+function seedTutorHistory(store, orderId, questionId) {
+  const existing = store.list('question_interactions').filter((row) => row.orderId === orderId && row.questionId === questionId);
+  if (existing.length > 0) return;
+  store.upsert('question_interactions', {
+    id: `${questionId}-history-1`,
+    orderId,
+    questionId,
+    ownerId: LOCAL_OWNER_ID,
+    actionType: 'explain_step',
+    promptId: 'LLM-TUTOR-05',
+    status: 'success',
+    summary: '先看速度差，再乘以时间。',
+    response: '这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。',
+    traceId: `trace-${questionId}-history-1`,
+    createdAt: '2026-05-25T08:00:01.000Z'
+  });
+  store.upsert('question_interactions', {
+    id: `${questionId}-history-2`,
+    orderId,
+    questionId,
+    ownerId: LOCAL_OWNER_ID,
+    actionType: 'why_method',
+    promptId: 'LLM-TUTOR-05',
+    status: 'success',
+    summary: '解释为什么用速度差。',
+    response: '两人同时出发、时间相同，比较多走的路程就看每小时多走多少。',
+    traceId: `trace-${questionId}-history-2`,
+    createdAt: '2026-05-25T08:00:02.000Z'
+  });
+}
+
+function buildTutorSummary(actionType) {
+  const summaries = {
+    explain_step: '拆解关键步骤：速度差乘以时间。',
+    why_method: '解释方法依据：同时间比较路程差。',
+    another_explanation: '换一种讲法：先算每小时领先多少。',
+    similar_exercise: '生成同类练习题。',
+    mark_understood: '学生标记已经理解。'
+  };
+  return summaries[actionType] || 'AI 老师围绕当前错题完成讲解。';
+}
+
+function buildTutorResponse(actionType) {
+  const responses = {
+    explain_step: '60 - 50 表示甲每小时比乙多走 10 千米，再乘 2 小时就是 20 千米。',
+    why_method: '因为题目问“多行多少”，不是两人一共行多少，所以要先做减法。',
+    another_explanation: '可以把它想成每过 1 小时甲领先 10 千米，过 2 小时就领先 2 个 10 千米。',
+    similar_exercise: '已生成一道同类题，继续保持当前错题的数量关系。',
+    mark_understood: '已记录理解状态，后续可以在报告里查看这道题的互动记录。'
+  };
+  return responses[actionType] || responses.explain_step;
+}
+
+function buildSimilarExercise(questionId) {
+  return {
+    id: `exercise-${questionId}`,
+    stem: '甲每小时行 72km，乙每小时行 60km，3 小时后甲比乙多行多少千米？',
+    options: ['24 千米', '36 千米', '132 千米', '216 千米'],
+    correctOption: '36 \u5343\u7c73'
+  };
 }
 
 module.exports = { LOCAL_OWNER_ID, createMiniappApiClient };

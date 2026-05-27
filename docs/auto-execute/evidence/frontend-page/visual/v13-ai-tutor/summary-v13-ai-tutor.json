@@ -1,0 +1,33 @@
+{
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "metrics": {
+    "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+    "command": "npm run visual:scoremap -- v13-ai-tutor",
+    "route": "/pages/ai-tutor/index",
+    "reference": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/ai/screen-reference",
+    "stitchReference": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/ai/code.html",
+    "actual": "docs/auto-execute/evidence/frontend-page/visual/v13-ai-tutor/actual-v13-ai-tutor-structure.svg",
+    "diff": "docs/auto-execute/evidence/frontend-page/visual/v13-ai-tutor/diff-v13-ai-tutor-manual-review.svg",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "structuralChecks": {
+      "hasV13Reference": true,
+      "hasRemainingCount": true,
+      "hasFiveFixedButtons": true,
+      "hasFixedActionTypes": true,
+      "hasQuestionAccordion": true,
+      "hasHistoryRow": true,
+      "hasQuotaFailureState": true,
+      "hasProviderFailureState": true,
+      "hasNoOpenEndedChat": true,
+      "hasBottomNav": true
+    },
+    "pixelDiff": {
+      "status": "MANUAL_REVIEW_REQUIRED",
+      "ratio": null,
+      "reason": "This T27 runner produces deterministic structural visual evidence only; T30 owns full raster screenshot and pixel comparison."
+    }
+  }
+}

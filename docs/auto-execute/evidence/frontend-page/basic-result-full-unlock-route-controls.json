@@ -20,8 +20,8 @@
     "title": "AI initial decision result",
     "subtitle": "The 1 yuan local mock payment unlocked the complete basic decision.",
     "uiReference": {
-      "png": "docs/UI/小程序/完整初判结果.png",
-      "alternatePng": "docs/UI/小程序/ChatGPT Image 2026年5月22日 23_02_21.png"
+      "png": "ui-reference-catalog/小程序/完整初判结果.png",
+      "alternatePng": "ui-reference-catalog/小程序/ChatGPT Image 2026年5月22日 23_02_21.png"
     },
     "summaryCard": {
       "title": "Complete basic decision",

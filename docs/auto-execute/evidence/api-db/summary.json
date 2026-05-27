@@ -1,38 +1,12 @@
 {
-  "taskId": "T16",
-  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
-  "command": "npm run e2e:api-db",
+  "taskId": "T32",
+  "status": "PASS",
+  "command": "npm run e2e:api-db -- ai-tutor-v13",
+  "canonicalEvidence": "docs/auto-execute/evidence/api-db/T32-trace-manifest.json",
   "evidence": {
-    "apiTrace": "docs/auto-execute/evidence/api-db-e2e/api-trace.json",
-    "dbSnapshot": "docs/auto-execute/evidence/api-db-e2e/db-snapshot.json",
-    "assertions": "docs/auto-execute/evidence/api-db-e2e/assertions.json"
-  },
-  "apiCallCount": 34,
-  "successPathCount": 15,
-  "dbTables": {
-    "users": 1,
-    "diagnosis_orders": 3,
-    "upload_files": 3,
-    "ai_analysis_tasks": 6,
-    "diagnosis_decisions": 5,
-    "payments": 2,
-    "report_exports": 1,
-    "feedbacks": 1
-  },
-  "localOnly": {
-    "LOCAL_ONLY": "true",
-    "SCOREMAP_ADAPTER_MODE": "local-mock",
-    "paymentAdapter": "local-wechat-pay-mock",
-    "cloudAdapter": "local-tencent-cloud-mock",
-    "databaseAdapter": "local-json-db",
-    "remoteCalls": []
-  },
-  "visualStatus": "PASS_NEEDS_MANUAL_UI_REVIEW",
-  "knownGaps": [
-    {
-      "status": "MANUAL_REVIEW_REQUIRED",
-      "reason": "T16 verifies API and local DB readback. It references existing T14 deterministic visual artifacts and T15 owner click evidence, but does not create new live miniapp screenshots or raster pixel diffs."
-    }
-  ],
-  "canonicalEvidence": "docs/auto-execute/evidence/api-db-e2e/summary.json"
+    "traceManifest": "docs/auto-execute/evidence/api-db/T32-trace-manifest.json",
+    "llmManifest": "docs/auto-execute/evidence/llm/T32-llm-trace-manifest.json",
+    "apiBranches": "docs/auto-execute/evidence/api-db/T32-api-branches.json",
+    "dbReadback": "docs/auto-execute/evidence/api-db/T32-db-readback.json"
+  }
 }

@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>鏁欒偛鎻愬垎鎶ュ憡 - 绛旈鍙嶉</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Be+Vietnam+Pro:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Use the exact tailwind-config provided -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#c9c4d6",
+                    "on-primary-fixed-variant": "#442bb5",
+                    "secondary-fixed-dim": "#ffb77a",
+                    "on-tertiary-fixed-variant": "#005228",
+                    "surface": "#fdf8ff",
+                    "surface-container": "#f1ecf8",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#6b3900",
+                    "on-primary-container": "#fffbff",
+                    "on-tertiary-container": "#f6fff4",
+                    "primary-fixed-dim": "#c8bfff",
+                    "on-secondary-fixed-variant": "#6d3a00",
+                    "secondary-container": "#fc9d41",
+                    "secondary-fixed": "#ffdcc2",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#c8bfff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "background": "#fdf8ff",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#e5e0ec",
+                    "surface-variant": "#e5e0ec",
+                    "inverse-surface": "#312f38",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#61de8a",
+                    "on-surface": "#1c1b23",
+                    "on-surface-variant": "#474554",
+                    "on-secondary-fixed": "#2e1500",
+                    "on-primary-fixed": "#190064",
+                    "inverse-on-surface": "#f4effb",
+                    "primary-container": "#7360e5",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#008645",
+                    "surface-container-high": "#ebe6f2",
+                    "primary": "#5a45cb",
+                    "outline": "#787585",
+                    "tertiary-fixed": "#7efba4",
+                    "surface-container-low": "#f7f1fd",
+                    "secondary": "#8f4e00",
+                    "surface-bright": "#fdf8ff",
+                    "on-tertiary-fixed": "#00210c",
+                    "surface-tint": "#5c47cd",
+                    "primary-fixed": "#e5deff",
+                    "surface-dim": "#ddd8e4",
+                    "on-background": "#1c1b23",
+                    "error": "#ba1a1a",
+                    "tertiary": "#006a35"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "container-margin": "16px",
+                    "md": "16px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "gutter": "12px",
+                    "xs": "8px",
+                    "sm": "12px"
+            },
+            "fontFamily": {
+                    "title-sm": ["Plus Jakarta Sans"],
+                    "display-lg": ["Be Vietnam Pro"],
+                    "body-sm": ["Plus Jakarta Sans"],
+                    "label-caps": ["Plus Jakarta Sans"],
+                    "body-base": ["Plus Jakarta Sans"],
+                    "headline-md": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "title-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "display-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-base": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .celebration-float {
+        animation: float 3s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
+      .custom-card-shadow {
+        box-shadow: 0 15px 35px -5px rgba(90, 69, 203, 0.08), 0 5px 15px rgba(0, 0, 0, 0.04);
+      }
+      .progress-accent {
+        width: 4px;
+        border-radius: 2px;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-base text-on-surface min-h-screen pb-24">
+<!-- TopAppBar Section -->
+<header class="docked full-width top-0 sticky z-50 bg-surface shadow-sm flex justify-between items-center w-full px-container-margin h-14">
+<button class="hover:bg-primary-container/10 rounded-full p-2 active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="text-headline-md font-headline-md font-bold text-primary">鏁欒偛鎻愬垎鎶ュ憡</h1>
+<button class="hover:bg-primary-container/10 rounded-full p-2 active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-primary" data-icon="more_vert">more_vert</span>
+</button>
+</header>
+<main class="px-container-margin py-lg space-y-lg">
+<!-- Feedback Hero Section -->
+<div class="bg-surface-container-lowest rounded-xl p-xl custom-card-shadow text-center relative overflow-hidden">
+<!-- Decorative Elements -->
+<div class="absolute -top-4 -left-4 w-24 h-24 bg-primary/5 rounded-full blur-2xl"></div>
+<div class="absolute -bottom-4 -right-4 w-32 h-32 bg-tertiary/5 rounded-full blur-2xl"></div>
+<div class="flex flex-col items-center justify-center gap-sm">
+<div class="relative">
+<span class="material-symbols-outlined text-[64px] text-tertiary-container" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div class="absolute -top-2 -right-4 celebration-float">
+<span class="text-3xl">馃帀</span>
+</div>
+<div class="absolute -left-6 top-1/2 opacity-20 rotate-12">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+</div>
+</div>
+<h2 class="font-display-lg text-display-lg text-tertiary-container">鍥炵瓟姝ｇ‘锛?/h2>
+</div>
+<!-- Mascot Quote Area (As suggested by Style Guidance) -->
+<div class="mt-xl flex items-start gap-md text-left">
+<div class="flex-shrink-0 w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center border-2 border-primary-container/20">
+<img alt="Educational Mascot" class="w-8 h-8" data-alt="A friendly and intelligent-looking owl mascot icon, designed with smooth vector lines and soft gradients. The owl has large expressive eyes and is colored in professional shades of blue and purple to match an educational app aesthetic. The background is a clean, minimal circle with a subtle inner glow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChdaxi9bpsdL0IA5cGo7lZYtTwkEP61LEWg58MoEpin7iSkqkx_DkoqNe7t-Pg-vIEwdkIkBQTbIlQ0O7WYKQUOZB7vEsaumo500bBUFSpKE29_HKYfdifxzUKIC8fFmsNyQwxybUbfKHnZ4-2Fvjb9E3w3dLTajSK_2u7oo5Sm4DBvpw1f7XMj0dfiVgkWOgR9_odJiJx7WRYwFWhfcYSJq75iYTP2d_CdbfLEsgGjLRklWOakKWrQiNigLN5aV1XOYZxuc7iYb3E"/>
+</div>
+<div class="bg-primary-fixed rounded-xl p-md relative after:content-[''] after:absolute after:top-4 after:-left-2 after:border-t-8 after:border-t-transparent after:border-r-8 after:border-r-primary-fixed after:border-b-8 after:border-b-transparent">
+<p class="font-body-base text-on-primary-fixed-variant leading-relaxed">
+                        澶浜嗭紒鐪嬫潵浣犲凡缁忔帉鎻′簡杩欎釜鐭ヨ瘑鐐圭殑绮鹃珦銆傜户缁繚鎸佽繖绉嶉€昏緫鎬濊€冪殑鑳藉姏锛屼綘浼氬湪鎺ヤ笅鏉ョ殑鎸戞垬涓〃鐜板緱鏇村嚭鑹层€?                    </p>
+</div>
+</div>
+</div>
+<!-- Detailed Analysis Section -->
+<section class="bg-surface-container-lowest rounded-xl p-lg custom-card-shadow">
+<div class="flex items-center gap-xs mb-md">
+<div class="progress-accent h-6 bg-primary"></div>
+<h3 class="font-title-sm text-title-sm text-on-surface">瑙ｆ瀽</h3>
+</div>
+<div class="space-y-lg">
+<div class="bg-surface-container-low rounded-lg p-md border-l-4 border-primary">
+<p class="font-body-base text-on-surface-variant mb-base">鐢叉瘮涔欐瘡灏忔椂蹇細</p>
+<p class="font-headline-md text-headline-md text-primary tracking-wide">70 - 55 = 15 (鍗冪背)</p>
+</div>
+<div class="bg-surface-container-low rounded-lg p-md border-l-4 border-primary">
+<p class="font-body-base text-on-surface-variant mb-base">3 灏忔椂鍚庯紝鐢叉瘮涔欏琛岋細</p>
+<p class="font-headline-md text-headline-md text-primary tracking-wide">15 脳 3 = 45 (鍗冪背)</p>
+</div>
+<div class="pt-sm border-t border-outline-variant/30">
+<p class="font-body-base font-bold text-on-surface">
+                        绛旀鏄細<span class="text-primary-container px-2 py-0.5 rounded-md bg-primary-container/10 ml-1">B. 45 鍗冪背</span>
+</p>
+</div>
+</div>
+</section>
+<!-- Tip Blocks -->
+<div class="grid grid-cols-1 gap-md">
+<!-- Encouragement Block -->
+<div class="flex gap-md bg-surface-container-high rounded-xl p-md items-start">
+<div class="bg-tertiary-container/10 p-2 rounded-full flex-shrink-0">
+<span class="material-symbols-outlined text-tertiary-container" data-icon="thumb_up">thumb_up</span>
+</div>
+<p class="font-body-base text-on-surface-variant">
+                    鍋氬緱寰堝ソ锛佽鏄庝綘宸茬粡鐞嗚В浜?<strong class="text-tertiary-container">鈥滈€熷害宸?脳 鏃堕棿 = 璺▼宸€?/strong> 杩欎釜鏂规硶銆?                </p>
+</div>
+<!-- Logic Tip Block -->
+<div class="flex gap-md bg-surface-container-high rounded-xl p-md items-start">
+<div class="bg-secondary-container/10 p-2 rounded-full flex-shrink-0">
+<span class="material-symbols-outlined text-secondary" data-icon="lightbulb">lightbulb</span>
+</div>
+<p class="font-body-base text-on-surface-variant">
+<span class="text-secondary font-bold">灏忔彁绀猴細</span> 琛岀▼闂鐨勫叧閿槸鍏堟壘鍑洪€熷害宸紝鍐嶄箻涓婃椂闂淬€?                </p>
+</div>
+</div>
+<!-- Action Buttons Cluster -->
+<div class="grid grid-cols-2 gap-md pt-md">
+<button class="flex items-center justify-center gap-xs h-14 border-2 border-primary-container text-primary-container font-title-sm rounded-xl hover:bg-primary-container/5 active:scale-95 transition-all duration-150">
+<span class="material-symbols-outlined" data-icon="refresh">refresh</span>
+                鍐嶆潵涓€閬?            </button>
+<button class="flex items-center justify-center gap-xs h-14 bg-primary text-on-primary font-title-sm rounded-xl shadow-lg shadow-primary/20 hover:brightness-110 active:scale-95 transition-all duration-150">
+<span class="material-symbols-outlined" data-icon="assignment_turned_in">assignment_turned_in</span>
+                鍥炲埌鎶ュ憡
+            </button>
+</div>
+<!-- Follow-up Entry -->
+<div class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/30 flex items-center justify-between group active:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-md">
+<div class="bg-primary-container/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary-container" data-icon="chat">chat</span>
+</div>
+<div>
+<h4 class="font-title-sm text-title-sm">鏈杩介棶璁板綍</h4>
+<p class="font-body-sm text-on-surface-variant">鍏辨湁 4 鏉℃繁搴﹁В鏋愬璇?/p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+</main>
+<!-- BottomNavBar Section (Suppress FAB for this sub-page) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-2 pb-safe bg-surface/90 backdrop-blur-md border-t border-outline-variant shadow-[0_-4px_10px_rgba(0,0,0,0.04)] z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="share">share</span>
+<span class="text-label-caps font-label-caps">鍒嗕韩鎶ュ憡</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="psychology">psychology</span>
+<span class="text-label-caps font-label-caps">AI 鎻愬垎</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="picture_as_pdf">picture_as_pdf</span>
+<span class="text-label-caps font-label-caps">瀵煎嚭 PDF</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-95');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-95');
+            });
+            button.addEventListener('mouseleave', () => {
+                button.classList.remove('scale-95');
+            });
+        });
+
+        // Entrance animation
+        window.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('main > div, main > section');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = `all 0.5s ease-out ${index * 0.1}s`;
+
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100);
+            });
+        });
+    </script>
+</body></html>

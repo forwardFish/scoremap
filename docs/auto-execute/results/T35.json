@@ -1,0 +1,54 @@
+{
+  "task": "T35",
+  "status": "PASS",
+  "completedAt": "2026-05-26T22:18:24.6187917+08:00",
+  "summary": "Removed the generic replica shell markers and replaced the affected miniapp WXML/WXSS surfaces with page-specific, inspectable sections while preserving the existing runtime hotspot action contract.",
+  "changedFiles": [
+    "scoremap-miniapp/utils/replica-runtime.js",
+    "scoremap-miniapp/navigation-click-audit.test.js",
+    "scoremap-miniapp/pages/analysis/index.wxml",
+    "scoremap-miniapp/pages/analysis/index.wxss",
+    "scoremap-miniapp/pages/failure/index.wxml",
+    "scoremap-miniapp/pages/failure/index.wxss",
+    "scoremap-miniapp/pages/preview/index.wxml",
+    "scoremap-miniapp/pages/preview/index.wxss",
+    "scoremap-miniapp/pages/basic-pay/index.wxml",
+    "scoremap-miniapp/pages/basic-pay/index.wxss",
+    "scoremap-miniapp/pages/basic-result/index.wxml",
+    "scoremap-miniapp/pages/basic-result/index.wxss",
+    "scoremap-miniapp/pages/full-unlock/index.wxml",
+    "scoremap-miniapp/pages/full-unlock/index.wxss",
+    "scoremap-miniapp/pages/full-report-entry/index.wxml",
+    "scoremap-miniapp/pages/full-report-entry/index.wxss",
+    "scoremap-miniapp/pages/my/index.wxml",
+    "scoremap-miniapp/pages/my/index.wxss",
+    "scoremap-miniapp/pages/reports/index.wxml",
+    "scoremap-miniapp/pages/reports/index.wxss",
+    "scoremap-miniapp/pages/orders/index.wxml",
+    "scoremap-miniapp/pages/orders/index.wxss",
+    "scoremap-miniapp/pages/feedback/index.wxml",
+    "scoremap-miniapp/pages/feedback/index.wxss",
+    "scoremap-miniapp/pages/scaffold/index.wxml",
+    "scoremap-miniapp/pages/scaffold/index.wxss"
+  ],
+  "verification": [
+    {
+      "command": "npm test -- miniapp-shell routes",
+      "status": "PASS_WITH_NOTE",
+      "evidence": "PowerShell blocked npm.ps1 by execution policy, then npm.cmd test -- miniapp-shell routes passed 7/7 tests."
+    },
+    {
+      "command": "rg -n \"derived-card|derived-action|referenceAsset|codeSurface\" scoremap-miniapp",
+      "status": "PASS",
+      "evidence": "No matches; rg exited 1 as expected for an empty result set."
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS",
+      "evidence": "Exited 0. Git emitted line-ending warnings only, with no whitespace errors."
+    }
+  ],
+  "limitations": [
+    "The direct PowerShell npm command was blocked by local execution policy for npm.ps1; npm.cmd was used for equivalent test execution."
+  ]
+}

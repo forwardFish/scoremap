@@ -5,10 +5,19 @@ import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 
 const require = createRequire(import.meta.url);
+const { copyEvidenceFile, resolveEvidenceReadPath, writeEvidenceFile } = require('../../shared/evidence-paths');
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
-const frontendVisualRoot = path.join(projectRoot, 'docs', 'auto-execute', 'evidence', 'frontend-page', 'visual');
 const harnessRoot = path.join(projectRoot, 'docs', 'auto-execute', 'evidence', 'visual-harness');
 const finalVisualRoot = path.join(projectRoot, 'docs', 'auto-execute', 'evidence', 'visual');
+const t30EvidenceRoot = path.join('visual-harness', 'ai-tutor-v13');
+
+const v13SuiteScreens = new Set([
+  'v13-ai-tutor',
+  'v13-wrong-question-detail',
+  'v13-answer-feedback',
+  'v13-full-report',
+  'v13-similar-exercise'
+]);
 
 const screenMap = [
   {
@@ -93,6 +102,56 @@ const screenMap = [
     stitchReference: 'docs/UI/小程序/stitch_codex_development_blueprints/ai_pdf/screen.png'
   },
   {
+    id: 'V13-UI-FULL-REPORT',
+    name: 'v13-full-report',
+    v13ReferenceKey: '_3',
+    v13EvidenceName: 'full-report',
+    route: '/pages/full-report/index?state=aiTutorReady',
+    commandArgs: ['v13-full-report'],
+    reference: 'docs/UI/小程序/stitch_codex_ui_design_kit/_3/screen.png',
+    stitchReference: 'docs/UI/小程序/stitch_codex_ui_design_kit/_3/screen.png'
+  },
+  {
+    id: 'V13-UI-QUESTION-DETAIL',
+    name: 'v13-wrong-question-detail',
+    v13ReferenceKey: '_1',
+    v13EvidenceName: 'wrong-question-detail',
+    route: '/pages/wrong-question/index?questionId={questionId}',
+    commandArgs: ['v13-wrong-question-detail'],
+    reference: 'docs/UI/小程序/stitch_codex_ui_design_kit/_1/screen.png',
+    stitchReference: 'docs/UI/小程序/stitch_codex_ui_design_kit/_1/screen.png'
+  },
+  {
+    id: 'V13-UI-AI-TUTOR',
+    name: 'v13-ai-tutor',
+    v13ReferenceKey: 'ai',
+    v13EvidenceName: 'ai-tutor',
+    route: '/pages/ai-tutor/index?questionId={questionId}',
+    commandArgs: ['v13-ai-tutor'],
+    reference: 'docs/UI/小程序/stitch_codex_ui_design_kit/ai/screen.png',
+    stitchReference: 'docs/UI/小程序/stitch_codex_ui_design_kit/ai/screen.png'
+  },
+  {
+    id: 'V13-UI-EXERCISE',
+    name: 'v13-similar-exercise',
+    v13ReferenceKey: '_4',
+    v13EvidenceName: 'similar-exercise',
+    route: '/pages/ai-exercise/index?interactionId={interactionId}',
+    commandArgs: ['v13-similar-exercise', 'ai-exercise-feedback'],
+    reference: 'docs/UI/小程序/stitch_codex_ui_design_kit/_4/screen.png',
+    stitchReference: 'docs/UI/小程序/stitch_codex_ui_design_kit/_4/screen.png'
+  },
+  {
+    id: 'V13-UI-FEEDBACK',
+    name: 'v13-answer-feedback',
+    v13ReferenceKey: '_2',
+    v13EvidenceName: 'answer-feedback',
+    route: '/pages/ai-exercise-feedback/index?interactionId={interactionId}',
+    commandArgs: ['v13-answer-feedback', 'ai-exercise-feedback'],
+    reference: 'docs/UI/小程序/stitch_codex_ui_design_kit/_2/screen.png',
+    stitchReference: 'docs/UI/小程序/stitch_codex_ui_design_kit/_2/screen.png'
+  },
+  {
     id: 'UI-C11',
     name: 'my',
     route: '/pages/my/index',
@@ -139,6 +198,31 @@ const visualRunners = [
     run: () => require('../../scoremap-miniapp/pages/full-report/visual-full-report-pdf.js').runFullReportPdfVisualEvidence(['full-report-entry', 'full-report'])
   },
   {
+    key: 'v13-full-report',
+    args: ['v13-full-report'],
+    run: () => require('../../scoremap-miniapp/pages/full-report/visual-full-report-pdf.js').runV13FullReportVisualEvidence(['v13-full-report'])
+  },
+  {
+    key: 'v13-wrong-question-detail',
+    args: ['v13-wrong-question-detail'],
+    run: () => require('../../scoremap-miniapp/pages/wrong-question/visual-wrong-question.js').runWrongQuestionVisualEvidence(['v13-wrong-question-detail'])
+  },
+  {
+    key: 'v13-ai-tutor',
+    args: ['v13-ai-tutor'],
+    run: () => require('../../scoremap-miniapp/pages/ai-tutor/visual-ai-tutor.js').runAiTutorVisualEvidence(['v13-ai-tutor'])
+  },
+  {
+    key: 'v13-similar-exercise',
+    args: ['v13-similar-exercise', 'ai-exercise-feedback'],
+    run: () => require('../../scoremap-miniapp/pages/ai-exercise/visual-ai-exercise-feedback.js').runAiExerciseFeedbackVisualEvidence(['v13-similar-exercise'])
+  },
+  {
+    key: 'v13-answer-feedback',
+    args: ['v13-answer-feedback', 'ai-exercise-feedback'],
+    run: () => require('../../scoremap-miniapp/pages/ai-exercise/visual-ai-exercise-feedback.js').runAiExerciseFeedbackVisualEvidence(['v13-answer-feedback'])
+  },
+  {
     key: 'my-reports',
     args: ['my', 'reports'],
     run: () => require('../../scoremap-miniapp/pages/my/visual-my-reports.js').runMyReportsVisualEvidence(['my', 'reports'])
@@ -146,18 +230,16 @@ const visualRunners = [
 ];
 
 export function runScoremapVisualHarness(args = []) {
-  const requested = normalizeRequestedScreens(args);
+  const isT30Suite = args.includes('ai-tutor-v13');
+  const requested = normalizeRequestedScreens(args, { isT30Suite });
   runStructuralVisualEvidence(requested);
 
-  fs.mkdirSync(harnessRoot, { recursive: true });
-  fs.mkdirSync(finalVisualRoot, { recursive: true });
-
-  const screens = requested.map((screen) => buildScreenEvidence(screen));
+  const screens = requested.map((screen) => buildScreenEvidence(screen, { isT30Suite }));
   const status = screens.some((screen) => screen.status === 'REPAIR_REQUIRED')
     ? 'REPAIR_REQUIRED'
     : 'PASS_NEEDS_MANUAL_UI_REVIEW';
   const summary = {
-    taskId: 'T14',
+    taskId: isT30Suite ? 'T30' : 'T14',
     status,
     command: `npm run visual:scoremap -- ${args.length ? args.join(' ') : 'all'}`,
     generatedAt: new Date().toISOString(),
@@ -177,17 +259,45 @@ export function runScoremapVisualHarness(args = []) {
 
   writeJson(path.join(harnessRoot, 'summary.json'), summary);
   writeJson(path.join(finalVisualRoot, 'summary.json'), summary);
+  if (isT30Suite) {
+    writeT30Artifacts(summary);
+  }
   return summary;
 }
 
-function normalizeRequestedScreens(args) {
-  if (args.length === 0 || args.includes('all')) return screenMap;
-  const requested = new Set(args);
+function normalizeRequestedScreens(args, { isT30Suite = false } = {}) {
+  const requested = new Set(args.filter((arg) => arg !== 'ai-tutor-v13'));
+  if (isT30Suite && (requested.size === 0 || requested.has('all'))) {
+    return getV13SuiteScreens();
+  }
+  if (isT30Suite) {
+    const screens = screenMap.filter((screen) => {
+      if (!v13SuiteScreens.has(screen.name)) return false;
+      return requested.has(screen.name)
+        || requested.has(screen.v13ReferenceKey)
+        || requested.has(screen.v13EvidenceName)
+        || screen.commandArgs.some((arg) => requested.has(arg));
+    });
+    if (screens.length === 0) {
+      throw new Error(`No v1.3 visual screens matched args: ${args.join(' ')}`);
+    }
+    return sortV13Screens(screens);
+  }
+  if (args.length === 0 || requested.has('all')) return screenMap;
   const screens = screenMap.filter((screen) => requested.has(screen.name) || screen.commandArgs.some((arg) => requested.has(arg)));
   if (screens.length === 0) {
     throw new Error(`No visual screens matched args: ${args.join(' ')}`);
   }
   return screens;
+}
+
+function getV13SuiteScreens() {
+  return sortV13Screens(screenMap.filter((screen) => v13SuiteScreens.has(screen.name)));
+}
+
+function sortV13Screens(screens) {
+  const order = ['ai', '_1', '_2', '_3', '_4'];
+  return [...screens].sort((left, right) => order.indexOf(left.v13ReferenceKey) - order.indexOf(right.v13ReferenceKey));
 }
 
 function runStructuralVisualEvidence(screens) {
@@ -199,18 +309,18 @@ function runStructuralVisualEvidence(screens) {
   }
 }
 
-function buildScreenEvidence(screen) {
-  const screenDir = path.join(harnessRoot, screen.name);
-  fs.mkdirSync(screenDir, { recursive: true });
-
+function buildScreenEvidence(screen, { isT30Suite = false } = {}) {
   const actualRasterSource = screen.actualAsset ? path.join(projectRoot, screen.actualAsset) : null;
-  const actualSource = path.join(frontendVisualRoot, screen.name, `actual-${screen.name}-structure.svg`);
-  const structuralDiffSource = path.join(frontendVisualRoot, screen.name, `diff-${screen.name}-manual-review.svg`);
+  const actualSource = resolveEvidenceReadPath(projectRoot, path.join('frontend-page', 'visual', screen.name, `actual-${screen.name}-structure.svg`));
+  const structuralDiffSource = resolveEvidenceReadPath(projectRoot, path.join('frontend-page', 'visual', screen.name, `diff-${screen.name}-manual-review.svg`));
   const actualExtension = actualRasterSource && fs.existsSync(actualRasterSource) ? path.extname(actualRasterSource) : '.svg';
-  const actualPath = path.join(screenDir, `actual${actualExtension}`);
-  const diffPath = path.join(screenDir, 'diff.svg');
-  const metricsPath = path.join(screenDir, 'metrics.json');
-  const summaryPath = path.join(screenDir, 'summary.json');
+  const outputName = isT30Suite ? screen.v13EvidenceName : screen.name;
+  const outputRoot = isT30Suite ? path.join(t30EvidenceRoot, outputName) : path.join('visual-harness', outputName);
+  const actualRelativePath = path.join(outputRoot, `actual${actualExtension}`);
+  const diffRelativePath = path.join(outputRoot, 'diff.svg');
+  const referenceRelativePath = path.join(outputRoot, 'reference.png');
+  const metricsFilePath = path.join(harnessRoot, isT30Suite ? 'ai-tutor-v13' : '', outputName, 'metrics.json');
+  const summaryFilePath = path.join(harnessRoot, isT30Suite ? 'ai-tutor-v13' : '', outputName, 'summary.json');
 
   const referencePath = firstExistingRelative([screen.reference, screen.stitchReference]);
   const knownGaps = [];
@@ -220,27 +330,33 @@ function buildScreenEvidence(screen) {
       reason: screen.referenceNote || 'No PNG/Stitch reference file is mapped for this screen.'
     });
   }
+  const referenceArtifactPath = referencePath
+    ? copyEvidenceFile(projectRoot, referenceRelativePath, path.join(projectRoot, referencePath))
+    : null;
+  let actualPath = null;
   if (actualRasterSource && fs.existsSync(actualRasterSource)) {
-    fs.copyFileSync(actualRasterSource, actualPath);
+    actualPath = copyEvidenceFile(projectRoot, actualRelativePath, actualRasterSource);
   } else if (!fs.existsSync(actualSource)) {
     knownGaps.push({
       status: 'REPAIR_REQUIRED',
       reason: `Missing generated actual artifact: ${toRelative(actualSource)}`
     });
   } else {
-    fs.copyFileSync(actualSource, actualPath);
+    actualPath = copyEvidenceFile(projectRoot, actualRelativePath, actualSource);
   }
 
-  const comparison = compareArtifacts(referencePath, fs.existsSync(actualPath) ? toRelative(actualPath) : null);
+  const comparison = compareArtifacts(referencePath, actualPath && fs.existsSync(actualPath) ? toRelative(actualPath) : null);
   const status = getScreenStatus({ comparison, knownGaps, referencePath, actualPath });
-  fs.writeFileSync(diffPath, renderDiffSvg(screen, comparison, knownGaps, status));
+  const diffPath = writeEvidenceFile(projectRoot, diffRelativePath, renderDiffSvg(screen, comparison, knownGaps, status));
 
   const metrics = {
     id: screen.id,
     screen: screen.name,
+    referenceKey: screen.v13ReferenceKey || null,
     route: screen.route,
     status,
-    reference: referencePath,
+    reference: referenceArtifactPath ? toRelative(referenceArtifactPath) : referencePath,
+    sourceReference: referencePath,
     declaredReference: screen.reference,
     stitchReference: screen.stitchReference,
     miniappActualAsset: screen.actualAsset || null,
@@ -264,11 +380,13 @@ function buildScreenEvidence(screen) {
     knownGaps
   };
 
-  writeJson(metricsPath, metrics);
-  writeJson(summaryPath, {
+  const metricsPath = writeJson(metricsFilePath, metrics);
+  const summaryPath = writeJson(summaryFilePath, {
     id: screen.id,
     status: metrics.status,
+    referenceKey: screen.v13ReferenceKey || null,
     reference: metrics.reference,
+    sourceReference: metrics.sourceReference,
     actual: metrics.actual,
     diff: metrics.diff,
     metrics: toRelative(metricsPath),
@@ -277,6 +395,7 @@ function buildScreenEvidence(screen) {
   return {
     id: screen.id,
     screen: screen.name,
+    referenceKey: screen.v13ReferenceKey || null,
     route: screen.route,
     status: metrics.status,
     reference: metrics.reference,
@@ -286,6 +405,91 @@ function buildScreenEvidence(screen) {
     summary: toRelative(summaryPath),
     knownGaps
   };
+}
+
+function writeT30Artifacts(summary) {
+  const requiredKeys = ['ai', '_1', '_2', '_3', '_4'];
+  const materialDeviations = summary.screens.flatMap((screen) => {
+    const deviations = [];
+    if (screen.status !== 'PASS') {
+      deviations.push({
+        referenceKey: screen.referenceKey,
+        screen: screen.screen,
+        status: screen.status,
+        repairTask: 'T30-manual-raster-review-or-pixel-capture-upgrade',
+        reason: 'Reference/actual/diff/metrics/summary exist, but this local harness uses deterministic structural SVG capture rather than live miniapp raster pixelmatch.'
+      });
+    }
+    for (const gap of screen.knownGaps) {
+      deviations.push({
+        referenceKey: screen.referenceKey,
+        screen: screen.screen,
+        status: gap.status,
+        repairTask: gap.status === 'REPAIR_REQUIRED' ? 'T30-repair-missing-artifact' : 'T30-manual-ui-review',
+        reason: gap.reason
+      });
+    }
+    return deviations;
+  });
+  const artifactCompleteness = Object.fromEntries(summary.screens.map((screen) => [
+    screen.referenceKey,
+    {
+      reference: Boolean(screen.reference),
+      actual: Boolean(screen.actual),
+      diff: Boolean(screen.diff),
+      metrics: Boolean(screen.metrics),
+      summary: Boolean(screen.summary)
+    }
+  ]));
+  const missingRequired = requiredKeys.filter((key) => !artifactCompleteness[key]
+    || Object.values(artifactCompleteness[key]).some((present) => !present));
+  const result = {
+    taskId: 'T30',
+    status: missingRequired.length || summary.status === 'REPAIR_REQUIRED'
+      ? 'REPAIR_REQUIRED'
+      : 'PASS_NEEDS_MANUAL_UI_REVIEW',
+    command: summary.command,
+    generatedAt: summary.generatedAt,
+    requiredReferences: requiredKeys,
+    artifactCompleteness,
+    screens: summary.screens,
+    materialDeviations,
+    noPurePassReason: 'T30 produced complete local reference/actual/diff/metrics/summary evidence for the five v1.3 references, but no live miniapp raster pixelmatch is available in this harness.',
+    evidenceRoot: 'docs/auto-execute/evidence/visual-harness/ai-tutor-v13',
+    localOnly: summary.localOnly
+  };
+  writeJson(path.join(projectRoot, 'docs', 'auto-execute', 'results', 'T30.json'), result);
+  writeText(path.join(projectRoot, 'docs', 'auto-execute', 'latest', 'T30-HANDOFF.md'), renderT30Handoff(result));
+}
+
+function renderT30Handoff(result) {
+  const screenLines = result.screens.map((screen) => `- ${screen.referenceKey}: ${screen.screen} -> ${screen.status}; summary ${screen.summary}`).join('\n');
+  const deviationLines = result.materialDeviations.length
+    ? result.materialDeviations.map((item) => `- ${item.referenceKey}/${item.screen}: ${item.status}; ${item.reason}; repair ${item.repairTask}`).join('\n')
+    : '- None';
+  return `# T30 Handoff
+
+GeneratedAt: ${result.generatedAt}
+Status: ${result.status}
+
+## Command
+
+\`${result.command}\`
+
+## Evidence
+
+Root: \`${result.evidenceRoot}\`
+
+${screenLines}
+
+## Material Deviations / Repair Routing
+
+${deviationLines}
+
+## Pure PASS
+
+Not claimed. ${result.noPurePassReason}
+`;
 }
 
 function getScreenStatus({ comparison, knownGaps, referencePath, actualPath }) {
@@ -345,8 +549,20 @@ function renderDiffSvg(screen, comparison, knownGaps, status) {
 }
 
 function writeJson(filePath, value) {
+  const evidenceRoot = path.join(projectRoot, 'docs', 'auto-execute', 'evidence');
+  const relative = path.relative(evidenceRoot, filePath);
+  if (!relative.startsWith('..')) {
+    return writeEvidenceFile(projectRoot, relative, `${JSON.stringify(value, null, 2)}\n`);
+  }
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`);
+  return filePath;
+}
+
+function writeText(filePath, value) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, value);
+  return filePath;
 }
 
 function toRelative(filePath) {

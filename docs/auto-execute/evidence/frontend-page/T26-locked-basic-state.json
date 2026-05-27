@@ -1,0 +1,162 @@
+{
+  "status": "PASS",
+  "command": "npm test -- wrong-question-detail",
+  "requirementIds": [
+    "V13-R02"
+  ],
+  "renderedState": {
+    "route": "/pages/wrong-question/index",
+    "orderId": "order-t26-basic",
+    "title": "教育提分报告",
+    "uiReference": {
+      "id": "V13-UI-QUESTION-DETAIL",
+      "stitch": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/_1/screen-reference",
+      "code": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/_1/code.html"
+    },
+    "locked": true,
+    "entitlement": {
+      "accessLevel": "basic",
+      "fullUnlocked": false
+    },
+    "reportQuota": {
+      "used": 2,
+      "total": 10,
+      "remaining": 8,
+      "text": "本报告 AI 错题追问剩余 8/10 次"
+    },
+    "questionQuota": {
+      "remaining": 3,
+      "total": 3,
+      "text": "本题 AI 追问剩余 3/3 次"
+    },
+    "tags": [
+      {
+        "text": "错题 1",
+        "tone": "primary"
+      },
+      {
+        "text": "方程应用题",
+        "tone": "surface"
+      },
+      {
+        "text": "未掌握",
+        "tone": "error"
+      }
+    ],
+    "question": {
+      "questionId": "order-t26-basic-q1",
+      "index": 1,
+      "title": "错题 1 二元一次方程应用题",
+      "originalQuestion": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+      "studentAnswer": "学生列式为 60 + 50 = 110，混淆了速度和路程差。",
+      "correctAnswer": "20 千米",
+      "knowledgePoint": "方程应用题",
+      "diagnosis": "没有把“甲比乙多行”理解为两人的路程差，漏掉了“速度差 × 时间”的关系。",
+      "explanationSummary": "本题关键是先求速度差：60 - 50 = 10km/h，再乘以 2 小时，得到 20 千米。",
+      "masteryStatus": "未掌握",
+      "remainingQuestionQuota": 3,
+      "interactionCount": 1,
+      "latestHistory": "AI 已讲解：先比较速度差，再乘以时间。"
+    },
+    "historyRow": {
+      "id": "open-history-row",
+      "text": "本题互动记录",
+      "count": 1,
+      "latest": "AI 已讲解：先比较速度差，再乘以时间。",
+      "targetRoute": "/pages/wrong-question/index"
+    },
+    "aiTutorCta": {
+      "id": "open-ai-tutor",
+      "text": "解锁完整报告后使用 AI 老师",
+      "enabled": false,
+      "targetRoute": "/pages/wrong-question/index"
+    },
+    "controls": [
+      {
+        "id": "back-to-full-report",
+        "text": "返回",
+        "targetRoute": "/pages/full-report/index"
+      },
+      {
+        "id": "more-menu",
+        "text": "更多",
+        "behavior": "local-more-menu-placeholder"
+      },
+      {
+        "id": "load-question-detail",
+        "text": "加载错题",
+        "api": "GET /api/diagnosis-orders/order-t26-basic/questions"
+      },
+      {
+        "id": "open-ai-tutor",
+        "text": "解锁完整报告后使用 AI 老师",
+        "enabled": false,
+        "targetRoute": "/pages/wrong-question/index"
+      },
+      {
+        "id": "open-history-row",
+        "text": "本题互动记录",
+        "enabled": false,
+        "targetRoute": "/pages/wrong-question/index"
+      },
+      {
+        "id": "bottom-share-report",
+        "text": "分享报告",
+        "behavior": "local-share-placeholder"
+      },
+      {
+        "id": "bottom-ai-tutor",
+        "text": "AI 提分",
+        "enabled": false,
+        "targetRoute": "/pages/wrong-question/index"
+      },
+      {
+        "id": "bottom-export-pdf",
+        "text": "导出 PDF",
+        "api": "POST /api/diagnosis-orders/order-t26-basic/export-pdf"
+      },
+      {
+        "id": "return-full-report",
+        "text": "返回完整报告",
+        "targetRoute": "/pages/full-report/index"
+      }
+    ],
+    "dataBindings": {
+      "questionApi": "GET /api/diagnosis-orders/order-t26-basic/questions",
+      "questionDbTable": "diagnosis_questions",
+      "sourceQuestionId": "order-t26-basic-q1",
+      "loadedFromApi": true,
+      "dbReadback": {
+        "id": "order-t26-basic-q1",
+        "orderId": "order-t26-basic",
+        "ownerId": "local-user-scoremap-t06",
+        "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+        "knowledgePoint": "方程应用题",
+        "severity": "high",
+        "masteryStatus": "未掌握",
+        "remainingQuota": 3
+      }
+    },
+    "toast": null
+  },
+  "lockedAttempts": [
+    {
+      "controlId": "open-ai-tutor",
+      "result": {
+        "status": "LOCKED",
+        "targetRoute": "/pages/wrong-question/index",
+        "reason": "FULL_REPORT_ENTITLEMENT_REQUIRED",
+        "toast": "解锁完整报告后才能正式使用 AI 老师讲解"
+      }
+    },
+    {
+      "controlId": "open-history-row",
+      "result": {
+        "status": "LOCKED",
+        "targetRoute": "/pages/wrong-question/index",
+        "reason": "FULL_REPORT_ENTITLEMENT_REQUIRED",
+        "toast": "基础报告仅展示样例讲解，不能查看正式追问记录"
+      }
+    }
+  ]
+}

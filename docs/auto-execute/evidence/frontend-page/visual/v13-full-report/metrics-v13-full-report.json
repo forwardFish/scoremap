@@ -1,0 +1,28 @@
+{
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "command": "npm run visual:scoremap -- full-report-entry full-report",
+  "route": "/pages/full-report/index",
+  "reference": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/_3/screen-reference",
+  "stitchReference": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/_3/code.html",
+  "actual": "docs/auto-execute/evidence/frontend-page/visual/v13-full-report/actual-v13-full-report-structure.svg",
+  "diff": "docs/auto-execute/evidence/frontend-page/visual/v13-full-report/diff-v13-full-report-manual-review.svg",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "structuralChecks": {
+    "hasV13Reference": true,
+    "hasChineseTitle": true,
+    "hasReportRows": true,
+    "hasWrongQuestionCards": true,
+    "hasAiTutorEntry": true,
+    "hasShareButton": true,
+    "hasSaveButton": true,
+    "hasPdfButton": true
+  },
+  "pixelDiff": {
+    "status": "MANUAL_REVIEW_REQUIRED",
+    "ratio": null,
+    "reason": "This T11 runner produces deterministic structural visual evidence only; T14 owns full screenshot and pixelmatch harness."
+  }
+}

@@ -1,10 +1,11 @@
 {
-  "status": "PASS_WITH_LIMITATION",
+  "status": "PASS",
   "command": "npm test",
-  "reason": "T01 proves the owner journey harness can resolve the launch route and control metadata; full O01-O12 clicks are assigned to T15.",
+  "reason": "The scaffold page exposes launch route, local API contract, local DB readback contract, and the home route action.",
   "covered": [
     "launch route",
-    "control action metadata"
+    "control action metadata",
+    "route-contract visibility"
   ],
-  "deferredTo": "T15"
+  "deferredTo": null
 }

@@ -1,5 +1,6 @@
 ﻿const fs = require('node:fs');
 const path = require('node:path');
+const { writeEvidenceFile } = require('../../shared/evidence-paths');
 const { LocalJsonDbAdapter, TABLES } = require('../src/db/local-json-db');
 
 function exportLocalData({ dbPath, outputPath }) {
@@ -13,8 +14,19 @@ function exportLocalData({ dbPath, outputPath }) {
     localOnly: true,
     tables: Object.fromEntries(TABLES.map((table) => [table, snapshot[table] || []]))
   };
-  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-  fs.writeFileSync(outputPath, `${JSON.stringify(exportPayload, null, 2)}\n`, 'utf8');
+  const normalizedPath = String(outputPath).replace(/\\/g, '/');
+  const marker = '/docs/auto-execute/evidence/';
+  const markerIndex = normalizedPath.indexOf(marker);
+  if (markerIndex >= 0) {
+    writeEvidenceFile(
+      path.resolve(__dirname, '..', '..'),
+      normalizedPath.slice(markerIndex + marker.length).replace(/\//g, path.sep),
+      `${JSON.stringify(exportPayload, null, 2)}\n`
+    );
+  } else {
+    fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+    fs.writeFileSync(outputPath, `${JSON.stringify(exportPayload, null, 2)}\n`, 'utf8');
+  }
   return exportPayload;
 }
 

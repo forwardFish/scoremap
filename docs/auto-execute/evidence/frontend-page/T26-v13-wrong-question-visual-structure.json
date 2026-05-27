@@ -1,0 +1,13 @@
+{
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "command": "npm test -- wrong-question-detail",
+  "requirementIds": [
+    "V13-R10"
+  ],
+  "reference": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/_1/screen-reference",
+  "actual": "docs/auto-execute/evidence/frontend-page/visual/v13-wrong-question-detail/actual-v13-wrong-question-detail-structure.svg",
+  "diff": "docs/auto-execute/evidence/frontend-page/visual/v13-wrong-question-detail/diff-v13-wrong-question-detail-manual-review.svg",
+  "metrics": "docs/auto-execute/evidence/frontend-page/visual/v13-wrong-question-detail/metrics-v13-wrong-question-detail.json",
+  "summary": "docs/auto-execute/evidence/frontend-page/visual/v13-wrong-question-detail/summary-v13-wrong-question-detail.json",
+  "limitation": "T26 creates deterministic structural visual evidence for _1. T30 remains responsible for raster screenshot diff and pixel comparison."
+}

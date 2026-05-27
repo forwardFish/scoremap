@@ -1,0 +1,111 @@
+{
+  "status": "PASS",
+  "command": "npm test -- home-upload",
+  "requirementIds": [
+    "R01",
+    "R02"
+  ],
+  "ownerScenarioIds": [
+    "O01"
+  ],
+  "pageRoute": "/pages/index/index",
+  "clickPath": [
+    "upload-material",
+    "upload-authorization modal",
+    "confirm-upload-authorization",
+    "single upload-picker",
+    "select-upload-file",
+    "/pages/analysis/index"
+  ],
+  "picker": {
+    "status": "FILE_PICKER_OPENED",
+    "pickerId": "upload-picker",
+    "acceptedTypes": [
+      "image/png",
+      "image/jpeg",
+      "application/pdf"
+    ]
+  },
+  "selectedFile": {
+    "id": "upload-t07-selected-file",
+    "originalName": "student-answer.pdf",
+    "mimeType": "application/pdf",
+    "size": 2048,
+    "content": "local pdf bytes"
+  },
+  "apiCalls": [
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders",
+      "payloadSummary": {
+        "orderId": "order-t07-home-upload",
+        "source": "home-upload",
+        "grade": "grade-5",
+        "subject": "math",
+        "examType": "unit-test",
+        "materialType": "answer-sheet"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "created",
+        "orderId": "order-t07-home-upload",
+        "orderToken": "local-order-token-order-t07-home-upload"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t07-home-upload/uploads",
+      "payloadSummary": {
+        "uploadId": "upload-t07-home-upload",
+        "authorizationAccepted": true,
+        "files": "array(1)"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "uploaded",
+        "orderId": "order-t07-home-upload",
+        "uploadedCount": 1
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t07-home-upload/start-preview-analysis",
+      "payloadSummary": {
+        "taskId": "task-t07-preview"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "preview_done",
+        "taskId": "task-t07-preview"
+      }
+    }
+  ],
+  "dbReadback": {
+    "order": {
+      "id": "order-t07-home-upload",
+      "ownerId": "local-user-scoremap-t06",
+      "status": "preview_done",
+      "accessLevel": "preview",
+      "source": "home-upload",
+      "uploadedCount": 1
+    },
+    "upload": {
+      "id": "upload-t07-home-upload",
+      "orderId": "order-t07-home-upload",
+      "ownerId": "local-user-scoremap-t06",
+      "authorizationAccepted": true,
+      "localOnly": true
+    },
+    "analysisTask": {
+      "id": "task-t07-preview",
+      "orderId": "order-t07-home-upload",
+      "ownerId": "local-user-scoremap-t06",
+      "type": "preview",
+      "status": "preview_done",
+      "progress": 100,
+      "currentStep": "preview_ready",
+      "errorCode": null,
+      "retryCount": 0
+    }
+  }
+}

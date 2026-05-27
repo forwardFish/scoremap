@@ -9,8 +9,8 @@
     "O07"
   ],
   "uiReference": {
-    "png": "docs/UI/小程序/AI分析.png",
-    "stitch": "docs/UI/小程序/stitch_codex_development_blueprints/ai_1/screen.png"
+    "png": "ui-reference-catalog/小程序/AI分析.png",
+    "stitch": "ui-reference-catalog/小程序/stitch_codex_development_blueprints/ai_1/screen-reference"
   },
   "route": "/pages/analysis/index",
   "renderedState": {
@@ -57,8 +57,8 @@
       }
     ],
     "uiReference": {
-      "png": "docs/UI/小程序/AI分析.png",
-      "stitch": "docs/UI/小程序/stitch_codex_development_blueprints/ai_1/screen.png"
+      "png": "ui-reference-catalog/小程序/AI分析.png",
+      "stitch": "ui-reference-catalog/小程序/stitch_codex_development_blueprints/ai_1/screen-reference"
     }
   },
   "pageJumpEvidence": [

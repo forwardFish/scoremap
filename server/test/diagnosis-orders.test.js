@@ -5,16 +5,15 @@ const os = require('node:os');
 const path = require('node:path');
 const { test } = require('node:test');
 const { DEFAULT_FORBIDDEN_PATTERNS, assertLocalOnlyEnvironment, scanTextForForbiddenRemoteCalls } = require('../../shared/local-only');
+const { writeJsonEvidence } = require('../../shared/evidence-paths');
 const { createLocalAdapters } = require('../src/adapters');
 const { createDiagnosisOrdersRouter } = require('../src/routes/diagnosis-orders');
 
 const projectRoot = path.resolve(__dirname, '..', '..');
-const evidenceDir = path.join(projectRoot, 'docs', 'auto-execute', 'evidence', 'backend-api');
 const command = 'npm --prefix server test -- orders uploads preview';
 
 function writeEvidence(name, payload) {
-  fs.mkdirSync(evidenceDir, { recursive: true });
-  fs.writeFileSync(path.join(evidenceDir, name), `${JSON.stringify(payload, null, 2)}\n`);
+  writeJsonEvidence(projectRoot, path.join('backend-api', name), payload);
 }
 
 function makeAdapters() {

@@ -1,0 +1,62 @@
+{
+  "taskId": "T24",
+  "status": "PASS",
+  "workerRound": 6,
+  "completedAt": "2026-05-25T16:06:28.1648938+08:00",
+  "summary": "Registered v1.3 AI tutor routes/states, shared design tokens, deterministic local mascot strategy, route/control contracts, and page scaffolds for the five mandatory UI references.",
+  "requirements": [
+    "V13-R01",
+    "V13-R04",
+    "V13-R10",
+    "V13-R11",
+    "V13-R12",
+    "V13-R14"
+  ],
+  "commands": [
+    {
+      "command": "npm test -- miniapp-shell routes ai-tutor",
+      "status": "PASS",
+      "evidence": [
+        "docs/auto-execute/evidence/frontend-shell/v13-ai-tutor-route-contract.json",
+        "docs/auto-execute/evidence/navigation/all-click-targets.json"
+      ]
+    }
+  ],
+  "evidence": [
+    "docs/auto-execute/evidence/frontend-shell/v13-ai-tutor-route-contract.json",
+    "docs/auto-execute/evidence/navigation/all-click-targets.json"
+  ],
+  "modifiedFiles": [
+    "scripts/run-tests.mjs",
+    "scoremap-miniapp/app.json",
+    "scoremap-miniapp/routes.js",
+    "scoremap-miniapp/miniapp-shell.test.js",
+    "scoremap-miniapp/utils/ai-tutor-v13-design.js",
+    "scoremap-miniapp/pages/full-report/index.js",
+    "scoremap-miniapp/pages/full-report/index.wxss",
+    "scoremap-miniapp/pages/wrong-question/index.js",
+    "scoremap-miniapp/pages/wrong-question/index.json",
+    "scoremap-miniapp/pages/wrong-question/index.wxml",
+    "scoremap-miniapp/pages/wrong-question/index.wxss",
+    "scoremap-miniapp/pages/ai-tutor/index.js",
+    "scoremap-miniapp/pages/ai-tutor/index.json",
+    "scoremap-miniapp/pages/ai-tutor/index.wxml",
+    "scoremap-miniapp/pages/ai-tutor/index.wxss",
+    "scoremap-miniapp/pages/ai-exercise/index.js",
+    "scoremap-miniapp/pages/ai-exercise/index.json",
+    "scoremap-miniapp/pages/ai-exercise/index.wxml",
+    "scoremap-miniapp/pages/ai-exercise/index.wxss",
+    "scoremap-miniapp/pages/ai-exercise-feedback/index.js",
+    "scoremap-miniapp/pages/ai-exercise-feedback/index.json",
+    "scoremap-miniapp/pages/ai-exercise-feedback/index.wxml",
+    "scoremap-miniapp/pages/ai-exercise-feedback/index.wxss",
+    "docs/auto-execute/results/T24.json",
+    "docs/auto-execute/latest/T24-HANDOFF.md",
+    "docs/auto-execute/latest/HANDOFF.md",
+    "TODO.md"
+  ],
+  "limitations": [
+    "T24 is frontend foundation only; one-to-one visual implementation and pixel evidence remain assigned to T25-T30.",
+    "scripts/run-tests.mjs was minimally extended so the task-required selector runs the existing miniapp shell and route click audit tests."
+  ]
+}

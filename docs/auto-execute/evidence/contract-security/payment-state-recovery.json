@@ -26,7 +26,7 @@
         "ok": true,
         "status": "paid",
         "paymentId": "payment-t13-basic-recovery",
-        "orderId": "order-97a5c5f5d916",
+        "orderId": "order-f63faaf9b025",
         "accessLevel": "basic",
         "idempotent": true,
         "repaired": true
@@ -41,7 +41,7 @@
         "ok": true,
         "status": "paid",
         "paymentId": "payment-t13-full-recovery",
-        "orderId": "order-97a5c5f5d916",
+        "orderId": "order-f63faaf9b025",
         "accessLevel": "full",
         "idempotent": false,
         "repaired": false
@@ -52,8 +52,67 @@
       "path": "/api/diagnosis-orders/{orderId}/generate-full",
       "responseStatus": 200,
       "response": {
-        "taskId": "task-full-96d081763ae0",
-        "status": "full_report_ready"
+        "taskId": "task-full-4bfe26382b63",
+        "status": "full_report_ready",
+        "wrongQuestionCards": [
+          {
+            "id": "question-order-f63faaf9b025-1",
+            "index": 1,
+            "title": "Missed condition in a multi-step calculation",
+            "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
+            "studentAnswer": "24",
+            "correctAnswer": "27",
+            "knowledgePoint": "Fraction multiplication",
+            "diagnosis": "The answer used an incomplete fraction relationship and skipped the condition check.",
+            "explanationSummary": "Turn three quarters into 36 x 3 / 4, then verify the result is reasonable.",
+            "masteryStatus": "needs_practice",
+            "quota": {
+              "total": 3,
+              "used": 0,
+              "remaining": 3
+            },
+            "aiTeacherCta": "Let the AI teacher explain this to the child"
+          },
+          {
+            "id": "question-order-f63faaf9b025-2",
+            "index": 2,
+            "title": "Unit conversion omitted in the final answer",
+            "originalQuestion": "A rope is 2.4 meters long and is cut into 6 equal pieces. How many centimeters is each piece?",
+            "studentAnswer": "0.4 cm",
+            "correctAnswer": "40 cm",
+            "knowledgePoint": "Unit conversion",
+            "diagnosis": "The calculation found 0.4 meters but did not convert meters to centimeters.",
+            "explanationSummary": "First divide meters, then convert 0.4 m to 40 cm before writing the answer.",
+            "masteryStatus": "needs_practice",
+            "quota": {
+              "total": 3,
+              "used": 0,
+              "remaining": 3
+            },
+            "aiTeacherCta": "Let the AI teacher explain this to the child"
+          }
+        ],
+        "quota": {
+          "report": {
+            "total": 10,
+            "used": 0,
+            "remaining": 10
+          },
+          "questions": [
+            {
+              "questionId": "question-order-f63faaf9b025-1",
+              "total": 3,
+              "used": 0,
+              "remaining": 3
+            },
+            {
+              "questionId": "question-order-f63faaf9b025-2",
+              "total": 3,
+              "used": 0,
+              "remaining": 3
+            }
+          ]
+        }
       }
     },
     {
@@ -69,7 +128,7 @@
   "dbReadback": {
     "basicPayment": {
       "id": "payment-t13-basic-recovery",
-      "orderId": "order-97a5c5f5d916",
+      "orderId": "order-f63faaf9b025",
       "ownerId": "local-user-scoremap-t03",
       "paymentType": "basic",
       "channel": "local-wechat-pay-mock",
@@ -77,13 +136,13 @@
       "status": "paid",
       "mockTransactionId": "mock-tx-t13-basic-recovery",
       "callbackCount": 1,
-      "createdAt": "2026-05-25T02:55:22.581Z",
-      "updatedAt": "2026-05-25T02:55:22.587Z",
+      "createdAt": "2026-05-27T11:31:02.263Z",
+      "updatedAt": "2026-05-27T11:31:02.266Z",
       "paidAt": "1970-01-01T00:00:00.000Z"
     },
     "fullPayment": {
       "id": "payment-t13-full-recovery",
-      "orderId": "order-97a5c5f5d916",
+      "orderId": "order-f63faaf9b025",
       "ownerId": "local-user-scoremap-t03",
       "paymentType": "full",
       "channel": "local-wechat-pay-mock",
@@ -91,12 +150,12 @@
       "status": "paid",
       "mockTransactionId": "mock-tx-t13-full-recovery",
       "callbackCount": 1,
-      "createdAt": "2026-05-25T02:55:22.598Z",
-      "updatedAt": "2026-05-25T02:55:22.602Z",
+      "createdAt": "2026-05-27T11:31:02.277Z",
+      "updatedAt": "2026-05-27T11:31:02.283Z",
       "paidAt": "1970-01-01T00:00:00.000Z"
     },
     "order": {
-      "id": "order-97a5c5f5d916",
+      "id": "order-f63faaf9b025",
       "ownerId": "local-user-scoremap-t03",
       "source": "T13-recovery",
       "grade": "grade-5",
@@ -105,23 +164,26 @@
       "materialType": "answer-sheet",
       "status": "full_report_ready",
       "accessLevel": "full",
-      "orderToken": "local-order-token-order-97a5c5f5d916",
-      "createdAt": "2026-05-25T02:55:22.556Z",
-      "updatedAt": "2026-05-25T02:55:22.610Z",
+      "orderToken": "local-order-token-order-f63faaf9b025",
+      "createdAt": "2026-05-27T11:31:02.245Z",
+      "updatedAt": "2026-05-27T11:31:02.303Z",
       "uploadedCount": 1,
-      "previewTaskId": "task-285d928a1bfd",
-      "previewDecisionId": "decision-order-97a5c5f5d916-preview",
-      "fullTaskId": "task-full-96d081763ae0",
-      "fullDecisionId": "decision-order-97a5c5f5d916-full"
+      "previewTaskId": "task-549b16b7ac89",
+      "previewDecisionId": "decision-order-f63faaf9b025-preview",
+      "questionInteractionQuotaTotal": 10,
+      "questionInteractionQuotaUsed": 0,
+      "questionInteractionQuotaRemaining": 10,
+      "fullTaskId": "task-full-4bfe26382b63",
+      "fullDecisionId": "decision-order-f63faaf9b025-full"
     },
     "fullDecision": {
-      "id": "decision-order-97a5c5f5d916-full",
-      "orderId": "order-97a5c5f5d916",
+      "id": "decision-order-f63faaf9b025-full",
+      "orderId": "order-f63faaf9b025",
       "ownerId": "local-user-scoremap-t03",
       "level": "full",
       "full": {
         "reportTitle": "Complete score improvement report",
-        "orderId": "order-97a5c5f5d916",
+        "orderId": "order-f63faaf9b025",
         "summary": "Local full report for grade-5 math.",
         "modules": [
           {
@@ -146,10 +208,57 @@
           }
         ],
         "basicSummary": "Local basic decision for grade-5 math.",
-        "complianceNotice": "Local mock report only; no guaranteed score wording."
+        "complianceNotice": "Local mock report only; no guaranteed score wording.",
+        "wrongQuestionCards": [
+          {
+            "id": "question-order-f63faaf9b025-1",
+            "index": 1,
+            "title": "Missed condition in a multi-step calculation",
+            "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
+            "studentAnswer": "24",
+            "correctAnswer": "27",
+            "knowledgePoint": "Fraction multiplication",
+            "diagnosis": "The answer used an incomplete fraction relationship and skipped the condition check.",
+            "explanationSummary": "Turn three quarters into 36 x 3 / 4, then verify the result is reasonable.",
+            "masteryStatus": "needs_practice",
+            "quota": {
+              "total": 3,
+              "used": 0,
+              "remaining": 3
+            },
+            "aiTeacherCta": "Let the AI teacher explain this to the child"
+          },
+          {
+            "id": "question-order-f63faaf9b025-2",
+            "index": 2,
+            "title": "Unit conversion omitted in the final answer",
+            "originalQuestion": "A rope is 2.4 meters long and is cut into 6 equal pieces. How many centimeters is each piece?",
+            "studentAnswer": "0.4 cm",
+            "correctAnswer": "40 cm",
+            "knowledgePoint": "Unit conversion",
+            "diagnosis": "The calculation found 0.4 meters but did not convert meters to centimeters.",
+            "explanationSummary": "First divide meters, then convert 0.4 m to 40 cm before writing the answer.",
+            "masteryStatus": "needs_practice",
+            "quota": {
+              "total": 3,
+              "used": 0,
+              "remaining": 3
+            },
+            "aiTeacherCta": "Let the AI teacher explain this to the child"
+          }
+        ],
+        "questionInteractionQuota": {
+          "total": 10,
+          "used": 0,
+          "remaining": 10
+        }
       },
-      "createdAt": "2026-05-25T02:55:22.608Z",
-      "updatedAt": "2026-05-25T02:55:22.608Z"
+      "promptId": "LLM-FULL-03",
+      "traceId": "trace-llm-full-03-0002",
+      "modelAdapter": "local-deterministic-ai-mock",
+      "localOnly": true,
+      "createdAt": "2026-05-27T11:31:02.302Z",
+      "updatedAt": "2026-05-27T11:31:02.302Z"
     }
   },
   "localOnly": {

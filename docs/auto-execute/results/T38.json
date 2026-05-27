@@ -1,0 +1,78 @@
+{
+  "taskId": "T38",
+  "title": "old flow full unlock entry my",
+  "status": "PASS_WITH_LIMITATION",
+  "completedAt": "2026-05-27T02:28:32+08:00",
+  "summary": "Rebuilt full-unlock, full-report-entry, and my as old-flow WXML/WXSS code replicas while preserving local full payment, report entry actions, support links, and tab behavior.",
+  "changedFiles": [
+    "scoremap-miniapp/pages/full-unlock/index.js",
+    "scoremap-miniapp/pages/full-unlock/index.wxml",
+    "scoremap-miniapp/pages/full-unlock/index.wxss",
+    "scoremap-miniapp/pages/full-report-entry/index.wxml",
+    "scoremap-miniapp/pages/full-report-entry/index.wxss",
+    "scoremap-miniapp/pages/my/index.js",
+    "scoremap-miniapp/pages/my/index.wxml",
+    "scoremap-miniapp/pages/my/index.wxss",
+    "docs/auto-execute/evidence/ui-one-to-one/T38/summary.json",
+    "docs/auto-execute/results/T38.json",
+    "docs/auto-execute/latest/T38-HANDOFF.md"
+  ],
+  "evidence": [
+    "docs/auto-execute/evidence/ui-one-to-one/T38/summary.json",
+    "docs/auto-execute/evidence/frontend-page/full-report-pdf-route-controls.json",
+    "docs/auto-execute/evidence/frontend-page/full-report-pdf-api-db.json",
+    "docs/auto-execute/evidence/frontend-page/my-reports-feedback-route-controls.json",
+    "docs/auto-execute/evidence/frontend-page/my-reports-feedback-api-db.json",
+    "docs/auto-execute/evidence/frontend-page/basic-result-full-unlock-api-db.json",
+    "docs/auto-execute/evidence/visual-harness/summary.json",
+    "docs/auto-execute/evidence/visual/summary.json"
+  ],
+  "verification": [
+    {
+      "command": "npm test -- full-report-pdf my-reports-feedback basic-result-full-unlock",
+      "status": "FAIL_KNOWN_RUNNER_LIMITATION",
+      "reason": "The current scripts/run-tests.mjs selector logic filters groups by requiring every requested tag on one group; no single test group contains all three tags."
+    },
+    {
+      "command": "npm.cmd test -- full-report-pdf",
+      "status": "PASS",
+      "evidence": "3/3 tests passed."
+    },
+    {
+      "command": "npm.cmd test -- my-reports-feedback",
+      "status": "PASS",
+      "evidence": "3/3 tests passed."
+    },
+    {
+      "command": "npm.cmd test -- basic-result-full-unlock",
+      "status": "PASS",
+      "evidence": "3/3 tests passed."
+    },
+    {
+      "command": "npm.cmd run e2e:owner -- old-flow-full-unlock-entry-my",
+      "status": "PASS",
+      "evidence": "2/2 tests passed."
+    },
+    {
+      "command": "npm.cmd run visual:scoremap -- full-unlock full-report-entry my",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "evidence": "6 screen comparisons written by the local visual harness."
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS_WITH_WARNINGS",
+      "evidence": "Exited 0 with line-ending warnings only."
+    }
+  ],
+  "acceptance": {
+    "referenceDrivenWxmlWxssPages": "PASS",
+    "fullUnlockWorking": "PASS",
+    "fullReportEntryWorking": "PASS",
+    "supportLinksWorking": "PASS",
+    "tabBehaviorWorking": "PASS"
+  },
+  "limitations": [
+    "Exact combined npm test command is blocked by existing selector semantics; individual required groups pass.",
+    "Visual status remains PASS_NEEDS_MANUAL_UI_REVIEW because the harness is structural and artifact-based, not pixel-perfect."
+  ]
+}

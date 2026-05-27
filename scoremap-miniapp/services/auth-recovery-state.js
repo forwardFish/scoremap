@@ -1,4 +1,4 @@
-﻿function resolveProtectedRouteState({ route, order, payment, reportStatus, authState = 'local-owner' } = {}) {
+function resolveProtectedRouteState({ route, order, payment, reportStatus, authState = 'local-owner' } = {}) {
   if (authState === 'anonymous' && !(order && order.orderToken)) {
     return {
       status: 'UNAUTHENTICATED',

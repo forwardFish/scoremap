@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+  <rect width="390" height="844" fill="#ffffff"/>
+  <text x="28" y="72" font-size="20" font-weight="700" fill="#111827">T14 visual comparison</text>
+  <text x="28" y="112" font-size="14" fill="#374151">V13-UI-EXERCISE v13-similar-exercise</text>
+  <text x="28" y="148" font-size="13" fill="#4b5563">Status: PASS_NEEDS_MANUAL_UI_REVIEW</text>
+  <text x="28" y="184" font-size="12" fill="#4b5563">Reference bytes: 133542</text>
+  <text x="28" y="208" font-size="12" fill="#4b5563">Actual bytes: 2358</text>
+  <text x="28" y="232" font-size="12" fill="#4b5563">SHA-256 equal: no</text>
+  <rect x="28" y="276" width="334" height="142" rx="10" fill="#f8fafc" stroke="#d1d5db"/>
+  <text x="48" y="318" font-size="12" fill="#374151">Manual review remains required for this screen.</text>
+  <text x="48" y="346" font-size="12" fill="#374151">Evidence binds reference, actual, diff, metrics, summary.</text>
+</svg>

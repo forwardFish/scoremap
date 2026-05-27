@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "1.0",
+  "taskId": "T20",
+  "status": "PASS",
+  "generatedAt": "2026-05-25T15:22:32+08:00",
+  "summary": "Implemented a deterministic local AI adapter, mandatory prompt registry, trace store, timeout/provider-failure simulation, secret-safe payload summaries, and service routing for preview/basic/full AI-shaped generation.",
+  "modifiedFiles": [
+    "server/src/ai/index.js",
+    "server/src/ai/local-ai-adapter.js",
+    "server/src/ai/prompt-registry.js",
+    "server/src/ai/trace-store.js",
+    "server/src/services/diagnosis-orders-service.js",
+    "server/src/services/reports-service.js",
+    "server/test/ai-adapter.test.js",
+    "server/test/run-tests.js",
+    "docs/auto-execute/evidence/api-db-llm/T20-deterministic-traces.json",
+    "docs/auto-execute/evidence/api-db-llm/T20-failure-simulation.json",
+    "docs/auto-execute/evidence/api-db-llm/T20-local-only-secret-guard.json",
+    "docs/auto-execute/evidence/api-db-llm/T20-prompt-registry.json",
+    "docs/auto-execute/evidence/api-db-llm/T20-service-routing.json",
+    "docs/auto-execute/latest/T20-HANDOFF.md",
+    "docs/auto-execute/results/T20.json",
+    "docs/auto-execute/latest/HANDOFF.md",
+    "TODO.md"
+  ],
+  "commands": [
+    {
+      "command": "npm --prefix server test -- ai-adapter prompt-registry",
+      "status": "PASS",
+      "evidence": [
+        "docs/auto-execute/evidence/api-db-llm/T20-prompt-registry.json",
+        "docs/auto-execute/evidence/api-db-llm/T20-deterministic-traces.json",
+        "docs/auto-execute/evidence/api-db-llm/T20-failure-simulation.json",
+        "docs/auto-execute/evidence/api-db-llm/T20-service-routing.json",
+        "docs/auto-execute/evidence/api-db-llm/T20-local-only-secret-guard.json"
+      ]
+    },
+    {
+      "command": "npm --prefix server test -- adapters",
+      "status": "PASS",
+      "evidence": [
+        "docs/auto-execute/evidence/backend-adapters/local-only-secret-guard.json"
+      ]
+    },
+    {
+      "command": "npm --prefix server test",
+      "status": "PASS",
+      "evidence": []
+    }
+  ],
+  "acceptance": {
+    "mandatoryPromptIdsCovered": [
+      "LLM-PREVIEW-01",
+      "LLM-BASIC-02",
+      "LLM-FULL-03",
+      "LLM-QUESTION-04",
+      "LLM-TUTOR-05",
+      "LLM-EXERCISE-06",
+      "LLM-CHECK-07"
+    ],
+    "deterministicLocalResponses": true,
+    "traceRowsIncludePromptAdapterSummariesStatusErrorLatencyCostAndLocalOnly": true,
+    "failureSimulationCovered": [
+      "LOCAL_AI_TIMEOUT",
+      "LOCAL_AI_PROVIDER_FAILURE"
+    ],
+    "secretSafeLogging": true,
+    "defaultExternalModelCalls": false,
+    "serviceRoutingCovered": [
+      "DiagnosisOrdersService.startPreviewAnalysis -> LLM-PREVIEW-01",
+      "ReportsService.getBasicDecision -> LLM-BASIC-02",
+      "ReportsService.generateFullReport -> LLM-FULL-03"
+    ]
+  },
+  "evidencePath": "docs/auto-execute/evidence/api-db-llm/T20-deterministic-traces.json",
+  "resultPath": "docs/auto-execute/results/T20.json",
+  "limitations": [
+    "T20 owns the adapter layer only. Persistence of ai_model_traces in the local JSON DB remains assigned to T21/T32 where the v1.3 DB schema and API readback are introduced.",
+    "Question interaction APIs and UI call sites remain assigned to T21-T33."
+  ]
+}

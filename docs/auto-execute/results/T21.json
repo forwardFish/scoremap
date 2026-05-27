@@ -1,0 +1,45 @@
+{
+  "taskId": "T21",
+  "status": "PASS",
+  "workerRound": 3,
+  "completedAt": "2026-05-25T15:31:06+08:00",
+  "scope": "wrong-question and interaction DB schema",
+  "modifiedFiles": [
+    "shared/in-memory-db.js",
+    "server/src/db/local-json-db.js",
+    "server/src/ai/trace-store.js",
+    "server/src/services/question-interactions-service.js",
+    "server/test/question-interactions.test.js",
+    "server/test/run-tests.js",
+    "docs/auto-execute/evidence/api-db-llm/T21-db-readback.json",
+    "docs/auto-execute/evidence/api-db-llm/T21-negative-branches-quota.json",
+    "docs/auto-execute/results/T21.json",
+    "docs/auto-execute/latest/T21-HANDOFF.md",
+    "docs/auto-execute/latest/HANDOFF.md",
+    "TODO.md"
+  ],
+  "commands": [
+    {
+      "command": "npm --prefix server test -- question-interactions db-readback",
+      "status": "PASS",
+      "evidence": [
+        "docs/auto-execute/evidence/api-db-llm/T21-db-readback.json",
+        "docs/auto-execute/evidence/api-db-llm/T21-negative-branches-quota.json"
+      ]
+    }
+  ],
+  "acceptance": {
+    "diagnosisQuestionsReadback": "PASS",
+    "questionInteractionsReadback": "PASS",
+    "reportQuotaReadback": "PASS",
+    "questionQuotaReadback": "PASS",
+    "exerciseAnswerPayloadReadback": "PASS",
+    "aiModelTraceReadback": "PASS",
+    "failedBranchesDoNotCountSuccessfulUsage": "PASS",
+    "onlineDbUsed": false
+  },
+  "evidencePath": "docs/auto-execute/evidence/api-db-llm/T21-db-readback.json",
+  "additionalEvidence": [
+    "docs/auto-execute/evidence/api-db-llm/T21-negative-branches-quota.json"
+  ]
+}

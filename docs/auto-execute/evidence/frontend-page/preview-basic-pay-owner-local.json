@@ -27,9 +27,9 @@
   "visualEvidence": {
     "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
     "references": [
-      "docs/UI/小程序/分析报告.png",
-      "docs/UI/小程序/1元支付.png",
-      "docs/UI/小程序/stitch_codex_development_blueprints/1/screen.png"
+      "ui-reference-catalog/小程序/分析报告.png",
+      "ui-reference-catalog/小程序/1元支付.png",
+      "ui-reference-catalog/小程序/stitch_codex_development_blueprints/1/screen-reference"
     ],
     "expectedVisualCommand": "npm run visual:scoremap -- preview basic-pay",
     "limitation": "T09 visual runner produces deterministic structural artifacts and metrics. Pixel-perfect screenshot capture remains assigned to T14."

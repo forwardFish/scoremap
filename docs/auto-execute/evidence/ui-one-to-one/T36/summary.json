@@ -1,0 +1,89 @@
+{
+  "taskId": "T36",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "scope": [
+    "home",
+    "analysis",
+    "failure"
+  ],
+  "implementation": {
+    "home": {
+      "route": "/pages/index/index",
+      "changedFiles": [
+        "scoremap-miniapp/pages/index/index.wxml",
+        "scoremap-miniapp/pages/index/index.wxss"
+      ],
+      "reference": "docs/UI/小程序/stitch_codex_development_blueprints/ai_2/screen.png",
+      "notes": "Rebuilt as WXML/WXSS code: header, single hero/upload card, upload button, quick actions, recent report list, and custom bottom tabs."
+    },
+    "analysis": {
+      "route": "/pages/analysis/index",
+      "changedFiles": [
+        "scoremap-miniapp/pages/analysis/index.wxml",
+        "scoremap-miniapp/pages/analysis/index.wxss"
+      ],
+      "reference": "docs/UI/小程序/stitch_codex_development_blueprints/ai_1/screen.png",
+      "notes": "Rebuilt as WXML/WXSS code: centered brand header, large white progress card, drawn progress ring, four status rows, later-view button, and refresh action."
+    },
+    "failure": {
+      "route": "/pages/failure/index",
+      "changedFiles": [
+        "scoremap-miniapp/pages/failure/index.wxml",
+        "scoremap-miniapp/pages/failure/index.wxss"
+      ],
+      "reference": "docs/UI/小程序/stitch_codex_development_blueprints/_3/screen.png",
+      "notes": "Rebuilt as WXML/WXSS code: header, white failure card, drawn document/mascot/error illustration, retry, reupload, and back-home controls."
+    }
+  },
+  "behaviorPreserved": [
+    "Upload / choose-file / create-order flow remains in existing page JS and passed home-upload tests.",
+    "Analysis progress refresh and later-view navigation remain in existing page JS and passed analysis-failure tests.",
+    "Failure retry, reupload, and back-home actions remain in existing page JS and passed analysis-failure plus owner E2E tests."
+  ],
+  "verification": [
+    {
+      "command": "npm test -- home-upload analysis-failure",
+      "status": "UNAVAILABLE",
+      "evidence": "PowerShell blocked npm.ps1; npm.cmd was used instead. The project test runner also treats multiple selectors as an AND filter, so no group matched both selectors."
+    },
+    {
+      "command": "npm.cmd test -- home-upload",
+      "status": "PASS",
+      "evidence": "4 tests passed."
+    },
+    {
+      "command": "npm.cmd test -- analysis-failure",
+      "status": "PASS",
+      "evidence": "3 tests passed."
+    },
+    {
+      "command": "npm.cmd run e2e:owner -- old-flow-home-analysis-failure",
+      "status": "PASS",
+      "evidence": "2 owner E2E tests passed; the script accepted the scenario argument while running the owner suite."
+    },
+    {
+      "command": "npm.cmd run visual:scoremap -- home analysis failure",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "evidence": "T14 visual harness wrote 3 screen comparisons; pixelmatch/live simulator raster comparison is unavailable in this local harness."
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS",
+      "evidence": "No whitespace errors reported; Git emitted line-ending normalization warnings only."
+    }
+  ],
+  "visualEvidence": {
+    "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+    "harnessSummary": "docs/auto-execute/evidence/visual-harness/summary.json",
+    "screens": [
+      "docs/auto-execute/evidence/visual-harness/home/summary.json",
+      "docs/auto-execute/evidence/visual-harness/analysis/summary.json",
+      "docs/auto-execute/evidence/visual-harness/failure/summary.json"
+    ],
+    "limitation": "The local harness provides deterministic structural artifacts and reference copies; it does not claim pixel-perfect PASS without live WeChat simulator raster capture."
+  },
+  "remoteAssets": {
+    "status": "PASS",
+    "notes": "No remote images, fonts, or CDN dependencies were added; illustrations are drawn in WXML/WXSS."
+  }
+}

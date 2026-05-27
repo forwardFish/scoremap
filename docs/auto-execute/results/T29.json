@@ -1,0 +1,52 @@
+{
+  "taskId": "T29",
+  "status": "PASS",
+  "verificationResult": "PASS",
+  "generatedAt": "2026-05-25T17:10:49+08:00",
+  "scope": "My reports recovery, quota display, and interaction history",
+  "requirementIds": ["V13-R02", "V13-R03"],
+  "ownerScenarioIds": ["V13-O21", "V13-O22"],
+  "modifiedFiles": [
+    "scoremap-miniapp/pages/my/index.js",
+    "scoremap-miniapp/pages/reports/index.js",
+    "scoremap-miniapp/pages/my/my-reports-ai-tutor.test.js",
+    "scoremap-miniapp/pages/my/my-reports-feedback.test.js",
+    "scripts/run-tests.mjs",
+    "docs/auto-execute/evidence/frontend-page/T29-my-reports-quota-history.json",
+    "docs/auto-execute/evidence/frontend-page/T29-basic-free-no-formal-entitlement.json",
+    "docs/auto-execute/results/T29.json",
+    "docs/auto-execute/latest/T29-HANDOFF.md",
+    "docs/auto-execute/latest/HANDOFF.md",
+    "TODO.md"
+  ],
+  "commands": [
+    {
+      "command": "npm test -- my-reports-ai-tutor",
+      "status": "PASS",
+      "evidence": [
+        "docs/auto-execute/evidence/frontend-page/T29-my-reports-quota-history.json",
+        "docs/auto-execute/evidence/frontend-page/T29-basic-free-no-formal-entitlement.json"
+      ]
+    },
+    {
+      "command": "npm test -- my-reports-feedback",
+      "status": "PASS",
+      "evidence": [
+        "docs/auto-execute/evidence/frontend-page/my-reports-feedback-route-controls.json",
+        "docs/auto-execute/evidence/frontend-page/my-reports-feedback-api-db.json",
+        "docs/auto-execute/evidence/frontend-page/my-reports-feedback-owner-local.json"
+      ]
+    }
+  ],
+  "acceptance": {
+    "myReportsListExposesFullReportStatus": "PASS",
+    "myReportsListExposesRemainingTutorQuota": "PASS",
+    "fullReportCardResumesCompleteReport": "PASS",
+    "fullReportCardResumesWrongQuestion": "PASS",
+    "interactionHistoryCanReopenFromReportsFlow": "PASS",
+    "basicAndFreeOrdersDoNotExposeFormalTutorEntitlement": "PASS"
+  },
+  "evidencePath": "docs/auto-execute/evidence/frontend-page/T29-my-reports-quota-history.json",
+  "negativeEvidencePath": "docs/auto-execute/evidence/frontend-page/T29-basic-free-no-formal-entitlement.json",
+  "localOnly": true
+}

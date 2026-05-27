@@ -1,33 +1,23 @@
-﻿page { min-height: 100%; background: #f7f4ef; }
-.replica-page { position: relative; width: 750rpx; min-height: 1332rpx; overflow-x: hidden; background: #f7f4ef; }
-.reference-image { position: absolute; left: 0; top: 0; z-index: 2; display: block; width: 750rpx; }
-.hotspot { position: absolute; z-index: 10; margin: 0; padding: 0; border: 0; border-radius: 0; background: rgba(255,255,255,0); opacity: 0.01; }
-.hotspot::after { border: 0; }
-.home-upload { left: 8%; top: 31%; width: 84%; height: 18%; }
-.home-sample { left: 5%; top: 62%; width: 44%; height: 8%; }
-.home-reports { left: 51%; top: 62%; width: 44%; height: 8%; }
-.tab-home { left: 0; bottom: 0; width: 50%; height: 90px; }
-.tab-my { right: 0; bottom: 0; width: 50%; height: 90px; }
-.analysis-later { left: 9%; top: 86%; width: 82%; height: 7%; }
-.analysis-refresh { left: 30%; top: 94%; width: 40%; height: 5%; }
-.failure-retry { left: 9%; top: 58%; width: 82%; height: 7%; }
-.failure-reupload { left: 9%; top: 67%; width: 82%; height: 7%; }
-.failure-home { left: 9%; top: 76%; width: 82%; height: 7%; }
-.bottom-cta { left: 8%; bottom: 7%; width: 84%; height: 9%; border-radius: 56rpx; }
-.report-view { left: 8%; top: 76%; width: 84%; height: 7%; }
-.report-save { left: 8%; top: 84%; width: 41%; height: 7%; }
-.report-home { right: 8%; top: 84%; width: 41%; height: 7%; }
-.report-save-small { left: 58%; top: 90%; width: 18%; height: 6%; }
-.report-back-small { left: 78%; top: 90%; width: 18%; height: 6%; }
-.my-reports { left: 6%; top: 40%; width: 88%; height: 6%; }
-.my-orders { left: 6%; top: 47%; width: 88%; height: 6%; }
-.my-feedback { left: 6%; top: 61%; width: 88%; height: 6%; }
-.my-new { left: 8%; top: 74%; width: 84%; height: 8%; }
-.reports-card { left: 6%; top: 24%; width: 88%; height: 18%; }
-.derived-page { background: linear-gradient(180deg, #f7f4ff 0%, #f8fafc 100%); }
-.derived-shell { min-height: 1332rpx; padding: 0 32rpx 160rpx; box-sizing: border-box; }
-.status-spacer { height: 96rpx; }
-.derived-title { font-size: 46rpx; line-height: 1.25; font-weight: 700; color: #111827; margin: 24rpx 0 36rpx; }
-.derived-card { margin-bottom: 24rpx; padding: 34rpx 32rpx; border-radius: 28rpx; background: rgba(255,255,255,0.92); box-shadow: 0 16rpx 48rpx rgba(79,70,229,0.10); color: #1f2937; font-size: 30rpx; }
+page { min-height: 100%; background: #f8f8ff; }
+button { margin: 0; padding: 0; border: 0; background: transparent; font: inherit; color: inherit; text-align: left; }
+button::after { border: 0; }
 
-.fallback-shell { position: relative; z-index: 1; }
+.feedback-screen {
+  min-height: 100vh;
+  padding: 64rpx 30rpx 164rpx;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, #e6e6fa 0%, #f8f8ff 25%, #f8f8ff 100%);
+  color: #111827;
+}
+.feedback-header { margin-bottom: 28rpx; }
+.feedback-title { display: block; font-size: 42rpx; line-height: 1.15; font-weight: 900; }
+.feedback-subtitle { display: block; margin-top: 14rpx; font-size: 24rpx; line-height: 1.5; color: #6b7280; }
+.feedback-card { margin-bottom: 22rpx; padding: 28rpx; border-radius: 32rpx; background: #fff; box-shadow: 0 18rpx 46rpx rgba(31, 41, 55, 0.05); box-sizing: border-box; }
+.section-label { display: block; margin-bottom: 20rpx; font-size: 26rpx; font-weight: 900; color: #111827; }
+.rating-row, .tag-row { display: flex; flex-wrap: wrap; gap: 14rpx; }
+.rating-chip, .tag { min-height: 48rpx; padding: 0 20rpx; border-radius: 999rpx; background: #f3f4f6; color: #6b7280; display: flex; align-items: center; font-size: 23rpx; font-weight: 800; }
+.rating-chip.active { background: #111827; color: #fff; }
+.tag.active { background: #ecfdf5; color: #047857; }
+.feedback-textarea { min-height: 166rpx; padding: 24rpx; border-radius: 24rpx; background: #f8fafc; border: 2rpx solid #eef2f7; box-sizing: border-box; color: #374151; font-size: 26rpx; line-height: 1.55; }
+.feedback-note { display: block; margin-top: 18rpx; font-size: 22rpx; line-height: 1.45; color: #9ca3af; }
+.feedback-submit { position: fixed; left: 30rpx; right: 30rpx; bottom: 46rpx; height: 92rpx; border-radius: 30rpx; background: #111827; color: #fff; font-size: 30rpx; font-weight: 900; display: flex; align-items: center; justify-content: center; text-align: center; box-shadow: 0 18rpx 34rpx rgba(17, 24, 39, 0.18); }

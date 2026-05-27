@@ -1,0 +1,105 @@
+﻿{
+    "nextActions":  [
+                        "Use this comparison round as the next repair input, update implementation/evidence, then run another comparison round."
+                    ],
+    "round":  1,
+    "gaps":  [
+                 {
+                     "detail":  "Missing required evidence file",
+                     "path":  "docs\\auto-execute\\02-requirement-traceability-matrix.md",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "requirements"
+                 },
+                 {
+                     "detail":  "Missing required evidence file",
+                     "path":  "docs\\auto-execute\\04-visual-acceptance-checklist.md",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "Missing required evidence file",
+                     "path":  "docs\\auto-execute\\03-surface-map.md",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "surface"
+                 },
+                 {
+                     "detail":  "Missing required evidence file",
+                     "path":  "docs\\auto-execute\\14-frontend-implementation-plan.md",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "frontendPlan"
+                 },
+                 {
+                     "detail":  "Missing required evidence file",
+                     "path":  "docs\\auto-execute\\15-backend-implementation-plan.md",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "backendPlan"
+                 },
+                 {
+                     "detail":  "Missing required evidence file",
+                     "path":  "docs\\auto-execute\\16-integrated-verification-plan.md",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "integratedPlan"
+                 },
+                 {
+                     "detail":  "Missing required evidence file",
+                     "path":  "docs\\auto-execute\\17-final-acceptance-checklist.md",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "finalChecklist"
+                 },
+                 {
+                     "detail":  "story-target.json has no normalized stories.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story-quality"
+                 },
+                 {
+                     "detail":  "ui-target.json is missing or invalid",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "story-target.json has no normalized stories.",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "story-quality"
+                 },
+                 {
+                     "detail":  "ui-target.json is missing or invalid",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "ui"
+                 },
+                 {
+                     "detail":  "No normalized requirements are listed in requirement-target.json",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "IN_SCOPE_GAP",
+                     "kind":  "requirement"
+                 },
+                 {
+                     "detail":  "ui-target.json is missing or invalid",
+                     "path":  "docs\\auto-execute\\gap-list.json",
+                     "severity":  "HARD_FAIL",
+                     "kind":  "ui"
+                 }
+             ],
+    "compared":  [
+                     "docs\\auto-execute\\02-requirement-traceability-matrix.md",
+                     "docs\\auto-execute\\03-story-map.md",
+                     "docs\\auto-execute\\04-story-test-matrix.md",
+                     "docs\\auto-execute\\04-visual-acceptance-checklist.md",
+                     "docs\\auto-execute\\03-surface-map.md",
+                     "docs\\auto-execute\\04-contract-map.md",
+                     "docs\\auto-execute\\14-frontend-implementation-plan.md",
+                     "docs\\auto-execute\\15-backend-implementation-plan.md",
+                     "docs\\auto-execute\\16-integrated-verification-plan.md",
+                     "docs\\auto-execute\\17-final-acceptance-checklist.md"
+                 ],
+    "generatedAt":  "2026-05-25T18:11:59",
+    "limitations":  [
+
+                    ],
+    "status":  "HARD_FAIL",
+    "schemaVersion":  "2.0",
+    "lane":  "acceptance-compare"
+}

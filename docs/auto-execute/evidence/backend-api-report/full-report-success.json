@@ -50,8 +50,67 @@
       "path": "/api/diagnosis-orders/{orderId}/generate-full",
       "responseStatus": 200,
       "response": {
-        "taskId": "task-full-d8fc3b17d594",
-        "status": "full_report_ready"
+        "taskId": "task-full-15ca58c681b7",
+        "status": "full_report_ready",
+        "wrongQuestionCards": [
+          {
+            "id": "question-order-3d8ba3e62f5c-1",
+            "index": 1,
+            "title": "Missed condition in a multi-step calculation",
+            "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
+            "studentAnswer": "24",
+            "correctAnswer": "27",
+            "knowledgePoint": "Fraction multiplication",
+            "diagnosis": "The answer used an incomplete fraction relationship and skipped the condition check.",
+            "explanationSummary": "Turn three quarters into 36 x 3 / 4, then verify the result is reasonable.",
+            "masteryStatus": "needs_practice",
+            "quota": {
+              "total": 3,
+              "used": 0,
+              "remaining": 3
+            },
+            "aiTeacherCta": "Let the AI teacher explain this to the child"
+          },
+          {
+            "id": "question-order-3d8ba3e62f5c-2",
+            "index": 2,
+            "title": "Unit conversion omitted in the final answer",
+            "originalQuestion": "A rope is 2.4 meters long and is cut into 6 equal pieces. How many centimeters is each piece?",
+            "studentAnswer": "0.4 cm",
+            "correctAnswer": "40 cm",
+            "knowledgePoint": "Unit conversion",
+            "diagnosis": "The calculation found 0.4 meters but did not convert meters to centimeters.",
+            "explanationSummary": "First divide meters, then convert 0.4 m to 40 cm before writing the answer.",
+            "masteryStatus": "needs_practice",
+            "quota": {
+              "total": 3,
+              "used": 0,
+              "remaining": 3
+            },
+            "aiTeacherCta": "Let the AI teacher explain this to the child"
+          }
+        ],
+        "quota": {
+          "report": {
+            "total": 10,
+            "used": 0,
+            "remaining": 10
+          },
+          "questions": [
+            {
+              "questionId": "question-order-3d8ba3e62f5c-1",
+              "total": 3,
+              "used": 0,
+              "remaining": 3
+            },
+            {
+              "questionId": "question-order-3d8ba3e62f5c-2",
+              "total": 3,
+              "used": 0,
+              "remaining": 3
+            }
+          ]
+        }
       }
     },
     {
@@ -63,7 +122,7 @@
         "accessLevel": "full",
         "decision": {
           "reportTitle": "Complete score improvement report",
-          "orderId": "order-3273eb671dd5",
+          "orderId": "order-3d8ba3e62f5c",
           "summary": "Local full report for grade-5 math.",
           "modules": [
             {
@@ -88,7 +147,109 @@
             }
           ],
           "basicSummary": "Local basic decision for grade-5 math.",
-          "complianceNotice": "Local mock report only; no guaranteed score wording."
+          "complianceNotice": "Local mock report only; no guaranteed score wording.",
+          "wrongQuestionCards": [
+            {
+              "id": "question-order-3d8ba3e62f5c-1",
+              "index": 1,
+              "title": "Missed condition in a multi-step calculation",
+              "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
+              "studentAnswer": "24",
+              "correctAnswer": "27",
+              "knowledgePoint": "Fraction multiplication",
+              "diagnosis": "The answer used an incomplete fraction relationship and skipped the condition check.",
+              "explanationSummary": "Turn three quarters into 36 x 3 / 4, then verify the result is reasonable.",
+              "masteryStatus": "needs_practice",
+              "quota": {
+                "total": 3,
+                "used": 0,
+                "remaining": 3
+              },
+              "aiTeacherCta": "Let the AI teacher explain this to the child"
+            },
+            {
+              "id": "question-order-3d8ba3e62f5c-2",
+              "index": 2,
+              "title": "Unit conversion omitted in the final answer",
+              "originalQuestion": "A rope is 2.4 meters long and is cut into 6 equal pieces. How many centimeters is each piece?",
+              "studentAnswer": "0.4 cm",
+              "correctAnswer": "40 cm",
+              "knowledgePoint": "Unit conversion",
+              "diagnosis": "The calculation found 0.4 meters but did not convert meters to centimeters.",
+              "explanationSummary": "First divide meters, then convert 0.4 m to 40 cm before writing the answer.",
+              "masteryStatus": "needs_practice",
+              "quota": {
+                "total": 3,
+                "used": 0,
+                "remaining": 3
+              },
+              "aiTeacherCta": "Let the AI teacher explain this to the child"
+            }
+          ],
+          "questionInteractionQuota": {
+            "total": 10,
+            "used": 0,
+            "remaining": 10
+          }
+        },
+        "wrongQuestionCards": [
+          {
+            "id": "question-order-3d8ba3e62f5c-1",
+            "index": 1,
+            "title": "Missed condition in a multi-step calculation",
+            "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
+            "studentAnswer": "24",
+            "correctAnswer": "27",
+            "knowledgePoint": "Fraction multiplication",
+            "diagnosis": "The answer used an incomplete fraction relationship and skipped the condition check.",
+            "explanationSummary": "Turn three quarters into 36 x 3 / 4, then verify the result is reasonable.",
+            "masteryStatus": "needs_practice",
+            "quota": {
+              "total": 3,
+              "used": 0,
+              "remaining": 3
+            },
+            "aiTeacherCta": "Let the AI teacher explain this to the child"
+          },
+          {
+            "id": "question-order-3d8ba3e62f5c-2",
+            "index": 2,
+            "title": "Unit conversion omitted in the final answer",
+            "originalQuestion": "A rope is 2.4 meters long and is cut into 6 equal pieces. How many centimeters is each piece?",
+            "studentAnswer": "0.4 cm",
+            "correctAnswer": "40 cm",
+            "knowledgePoint": "Unit conversion",
+            "diagnosis": "The calculation found 0.4 meters but did not convert meters to centimeters.",
+            "explanationSummary": "First divide meters, then convert 0.4 m to 40 cm before writing the answer.",
+            "masteryStatus": "needs_practice",
+            "quota": {
+              "total": 3,
+              "used": 0,
+              "remaining": 3
+            },
+            "aiTeacherCta": "Let the AI teacher explain this to the child"
+          }
+        ],
+        "quota": {
+          "report": {
+            "total": 10,
+            "used": 0,
+            "remaining": 10
+          },
+          "questions": [
+            {
+              "questionId": "question-order-3d8ba3e62f5c-1",
+              "total": 3,
+              "used": 0,
+              "remaining": 3
+            },
+            {
+              "questionId": "question-order-3d8ba3e62f5c-2",
+              "total": 3,
+              "used": 0,
+              "remaining": 3
+            }
+          ]
         }
       }
     },
@@ -98,7 +259,7 @@
       "responseStatus": 200,
       "response": {
         "saved": true,
-        "orderId": "order-3273eb671dd5",
+        "orderId": "order-3d8ba3e62f5c",
         "savedAt": "1970-01-01T00:00:00.000Z"
       }
     },
@@ -110,7 +271,7 @@
         "status": "ok",
         "items": [
           {
-            "orderId": "order-3273eb671dd5",
+            "orderId": "order-3d8ba3e62f5c",
             "status": "full_report_ready",
             "accessLevel": "full",
             "saved": true,
@@ -129,7 +290,7 @@
   ],
   "dbReadback": {
     "order": {
-      "id": "order-3273eb671dd5",
+      "id": "order-3d8ba3e62f5c",
       "ownerId": "local-user-scoremap-t03",
       "source": "T05-report",
       "grade": "grade-5",
@@ -138,20 +299,23 @@
       "materialType": "answer-sheet",
       "status": "full_report_ready",
       "accessLevel": "full",
-      "orderToken": "local-order-token-order-3273eb671dd5",
-      "createdAt": "2026-05-25T02:55:22.864Z",
-      "updatedAt": "2026-05-25T02:55:22.904Z",
+      "orderToken": "local-order-token-order-3d8ba3e62f5c",
+      "createdAt": "2026-05-27T11:31:02.676Z",
+      "updatedAt": "2026-05-27T11:31:02.756Z",
       "uploadedCount": 1,
-      "previewTaskId": "task-0bf9fe1c4af3",
-      "previewDecisionId": "decision-order-3273eb671dd5-preview",
-      "fullTaskId": "task-full-d8fc3b17d594",
-      "fullDecisionId": "decision-order-3273eb671dd5-full",
+      "previewTaskId": "task-caebc61f5c6d",
+      "previewDecisionId": "decision-order-3d8ba3e62f5c-preview",
+      "questionInteractionQuotaTotal": 10,
+      "questionInteractionQuotaUsed": 0,
+      "questionInteractionQuotaRemaining": 10,
+      "fullTaskId": "task-full-15ca58c681b7",
+      "fullDecisionId": "decision-order-3d8ba3e62f5c-full",
       "savedReport": true,
       "savedAt": "1970-01-01T00:00:00.000Z"
     },
     "basicDecision": {
-      "id": "decision-order-3273eb671dd5-basic",
-      "orderId": "order-3273eb671dd5",
+      "id": "decision-order-3d8ba3e62f5c-basic",
+      "orderId": "order-3d8ba3e62f5c",
       "ownerId": "local-user-scoremap-t03",
       "level": "basic",
       "basic": {
@@ -178,12 +342,16 @@
         ],
         "upgradeCta": "Unlock the complete score improvement report"
       },
-      "createdAt": "2026-05-25T02:55:22.893Z",
-      "updatedAt": "2026-05-25T02:55:22.894Z"
+      "promptId": "LLM-BASIC-02",
+      "traceId": "trace-llm-basic-02-0001",
+      "modelAdapter": "local-deterministic-ai-mock",
+      "localOnly": true,
+      "createdAt": "2026-05-27T11:31:02.727Z",
+      "updatedAt": "2026-05-27T11:31:02.727Z"
     },
     "fullTask": {
-      "id": "task-full-d8fc3b17d594",
-      "orderId": "order-3273eb671dd5",
+      "id": "task-full-15ca58c681b7",
+      "orderId": "order-3d8ba3e62f5c",
       "ownerId": "local-user-scoremap-t03",
       "type": "full",
       "status": "full_report_ready",
@@ -191,17 +359,17 @@
       "currentStep": "full_report_ready",
       "retryCount": 0,
       "errorCode": null,
-      "createdAt": "2026-05-25T02:55:22.897Z",
-      "updatedAt": "2026-05-25T02:55:22.897Z"
+      "createdAt": "2026-05-27T11:31:02.733Z",
+      "updatedAt": "2026-05-27T11:31:02.733Z"
     },
     "fullDecision": {
-      "id": "decision-order-3273eb671dd5-full",
-      "orderId": "order-3273eb671dd5",
+      "id": "decision-order-3d8ba3e62f5c-full",
+      "orderId": "order-3d8ba3e62f5c",
       "ownerId": "local-user-scoremap-t03",
       "level": "full",
       "full": {
         "reportTitle": "Complete score improvement report",
-        "orderId": "order-3273eb671dd5",
+        "orderId": "order-3d8ba3e62f5c",
         "summary": "Local full report for grade-5 math.",
         "modules": [
           {
@@ -226,10 +394,57 @@
           }
         ],
         "basicSummary": "Local basic decision for grade-5 math.",
-        "complianceNotice": "Local mock report only; no guaranteed score wording."
+        "complianceNotice": "Local mock report only; no guaranteed score wording.",
+        "wrongQuestionCards": [
+          {
+            "id": "question-order-3d8ba3e62f5c-1",
+            "index": 1,
+            "title": "Missed condition in a multi-step calculation",
+            "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
+            "studentAnswer": "24",
+            "correctAnswer": "27",
+            "knowledgePoint": "Fraction multiplication",
+            "diagnosis": "The answer used an incomplete fraction relationship and skipped the condition check.",
+            "explanationSummary": "Turn three quarters into 36 x 3 / 4, then verify the result is reasonable.",
+            "masteryStatus": "needs_practice",
+            "quota": {
+              "total": 3,
+              "used": 0,
+              "remaining": 3
+            },
+            "aiTeacherCta": "Let the AI teacher explain this to the child"
+          },
+          {
+            "id": "question-order-3d8ba3e62f5c-2",
+            "index": 2,
+            "title": "Unit conversion omitted in the final answer",
+            "originalQuestion": "A rope is 2.4 meters long and is cut into 6 equal pieces. How many centimeters is each piece?",
+            "studentAnswer": "0.4 cm",
+            "correctAnswer": "40 cm",
+            "knowledgePoint": "Unit conversion",
+            "diagnosis": "The calculation found 0.4 meters but did not convert meters to centimeters.",
+            "explanationSummary": "First divide meters, then convert 0.4 m to 40 cm before writing the answer.",
+            "masteryStatus": "needs_practice",
+            "quota": {
+              "total": 3,
+              "used": 0,
+              "remaining": 3
+            },
+            "aiTeacherCta": "Let the AI teacher explain this to the child"
+          }
+        ],
+        "questionInteractionQuota": {
+          "total": 10,
+          "used": 0,
+          "remaining": 10
+        }
       },
-      "createdAt": "2026-05-25T02:55:22.898Z",
-      "updatedAt": "2026-05-25T02:55:22.898Z"
+      "promptId": "LLM-FULL-03",
+      "traceId": "trace-llm-full-03-0002",
+      "modelAdapter": "local-deterministic-ai-mock",
+      "localOnly": true,
+      "createdAt": "2026-05-27T11:31:02.749Z",
+      "updatedAt": "2026-05-27T11:31:02.749Z"
     }
   }
 }

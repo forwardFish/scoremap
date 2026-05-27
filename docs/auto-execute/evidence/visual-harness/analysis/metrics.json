@@ -1,9 +1,11 @@
 {
   "id": "UI-C03",
   "screen": "analysis",
+  "referenceKey": null,
   "route": "/pages/analysis/index",
   "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
-  "reference": "docs/UI/小程序/AI分析.png",
+  "reference": "docs/auto-execute/evidence/visual-harness/analysis/reference.png",
+  "sourceReference": "docs/UI/小程序/AI分析.png",
   "declaredReference": "docs/UI/小程序/AI分析.png",
   "stitchReference": "docs/UI/小程序/stitch_codex_development_blueprints/ai_1/screen.png",
   "miniappActualAsset": "scoremap-miniapp/assets/reference/analysis.jpg",

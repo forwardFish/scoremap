@@ -12,8 +12,46 @@ function getFallbackEvidencePath(projectRoot, relativePath) {
   return path.join(projectRoot, FALLBACK_ROOT, relativePath);
 }
 
+function resolveWritableEvidencePath(projectRoot, relativePath) {
+  const primaryPath = getPrimaryEvidencePath(projectRoot, relativePath);
+  if (supportsAtomicWrite(primaryPath)) {
+    return primaryPath;
+  }
+  return getFallbackEvidencePath(projectRoot, relativePath);
+}
+
+function resolveWritableEvidenceDir(projectRoot, relativeDir) {
+  const probeRelativePath = path.join(relativeDir || '', `.write-probe-${process.pid}-${Date.now()}.tmp`);
+  return path.dirname(resolveWritableEvidencePath(projectRoot, probeRelativePath));
+}
+
 function isAccessError(error) {
-  return error && (error.code === 'EPERM' || error.code === 'EACCES');
+  return error && (error.code === 'EPERM' || error.code === 'EACCES' || error.code === 'UNKNOWN');
+}
+
+function supportsAtomicWrite(targetPath) {
+  const directory = path.dirname(targetPath);
+  const probeStem = path.join(directory, `.write-probe-${process.pid}-${Date.now()}-${Math.random().toString(16).slice(2)}`);
+  const probeTmpPath = `${probeStem}.tmp`;
+  const probeFinalPath = `${probeStem}.final`;
+  try {
+    fs.mkdirSync(directory, { recursive: true });
+    fs.writeFileSync(probeTmpPath, 'probe');
+    fs.renameSync(probeTmpPath, probeFinalPath);
+    fs.rmSync(probeFinalPath, { force: true });
+    return true;
+  } catch (error) {
+    if (!isAccessError(error) && error.code !== 'EBUSY') {
+      throw error;
+    }
+    try {
+      fs.rmSync(probeTmpPath, { force: true });
+    } catch {}
+    try {
+      fs.rmSync(probeFinalPath, { force: true });
+    } catch {}
+    return false;
+  }
 }
 
 function writeEvidenceFile(projectRoot, relativePath, content) {
@@ -51,6 +89,9 @@ function resolveEvidenceReadPath(projectRoot, relativePath) {
 }
 
 module.exports = {
+  resolveWritableEvidenceDir,
+  resolveWritableEvidencePath,
+  getFallbackEvidencePath,
   getPrimaryEvidencePath,
   copyEvidenceFile,
   resolveEvidenceReadPath,

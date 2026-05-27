@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "command": "npm test -- navigation",
+  "pageCount": 12,
+  "assertions": [
+    {
+      "page": "/pages/analysis/index",
+      "referenceMounted": false,
+      "actionCount": 2
+    },
+    {
+      "page": "/pages/failure/index",
+      "referenceMounted": false,
+      "actionCount": 3
+    },
+    {
+      "page": "/pages/preview/index",
+      "referenceMounted": false,
+      "actionCount": 1
+    },
+    {
+      "page": "/pages/basic-pay/index",
+      "referenceMounted": false,
+      "actionCount": 1
+    },
+    {
+      "page": "/pages/basic-result/index",
+      "referenceMounted": false,
+      "actionCount": 2
+    },
+    {
+      "page": "/pages/full-unlock/index",
+      "referenceMounted": false,
+      "actionCount": 1
+    },
+    {
+      "page": "/pages/full-report-entry/index",
+      "referenceMounted": false,
+      "actionCount": 3
+    },
+    {
+      "page": "/pages/my/index",
+      "referenceMounted": false,
+      "actionCount": 5
+    },
+    {
+      "page": "/pages/reports/index",
+      "referenceMounted": false,
+      "actionCount": 4
+    },
+    {
+      "page": "/pages/orders/index",
+      "referenceMounted": false,
+      "actionCount": 1
+    },
+    {
+      "page": "/pages/feedback/index",
+      "referenceMounted": false,
+      "actionCount": 1
+    },
+    {
+      "page": "/pages/scaffold/index",
+      "referenceMounted": false,
+      "actionCount": 1
+    }
+  ]
+}

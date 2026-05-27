@@ -13,7 +13,7 @@
       "responseStatus": 201,
       "response": {
         "status": "created",
-        "feedbackId": "feedback-3e10b6c84ef8"
+        "feedbackId": "feedback-c2c91791c21c"
       }
     },
     {
@@ -23,7 +23,7 @@
       "response": {
         "exportId": "report-export-t05",
         "status": "ready",
-        "fileUrl": "local-report-export://local-user-scoremap-t03/order-5c8a4f448edf/report-export-t05.txt"
+        "fileUrl": "local-report-export://local-user-scoremap-t03/order-4a5816dffebe/report-export-t05.txt"
       }
     },
     {
@@ -33,16 +33,16 @@
       "response": {
         "status": "ready",
         "exportId": "report-export-t05",
-        "orderId": "order-5c8a4f448edf",
-        "fileUrl": "local-report-export://local-user-scoremap-t03/order-5c8a4f448edf/report-export-t05.txt",
-        "byteLength": 530
+        "orderId": "order-4a5816dffebe",
+        "fileUrl": "local-report-export://local-user-scoremap-t03/order-4a5816dffebe/report-export-t05.txt",
+        "byteLength": 662
       }
     }
   ],
   "dbReadback": {
     "feedback": {
-      "id": "feedback-3e10b6c84ef8",
-      "orderId": "order-5c8a4f448edf",
+      "id": "feedback-c2c91791c21c",
+      "orderId": "order-4a5816dffebe",
       "ownerId": "local-user-scoremap-t03",
       "decisionLevel": "full",
       "rating": 5,
@@ -51,28 +51,31 @@
         "useful"
       ],
       "text": "Local test feedback only.",
-      "createdAt": "2026-05-25T02:55:22.952Z",
-      "updatedAt": "2026-05-25T02:55:22.952Z"
+      "createdAt": "2026-05-27T11:31:03.059Z",
+      "updatedAt": "2026-05-27T11:31:03.059Z"
     },
     "reportExport": {
       "id": "report-export-t05",
-      "orderId": "order-5c8a4f448edf",
+      "orderId": "order-4a5816dffebe",
       "ownerId": "local-user-scoremap-t03",
       "status": "ready",
       "format": "pdf-local-text",
-      "fileUrl": "local-report-export://local-user-scoremap-t03/order-5c8a4f448edf/report-export-t05.txt",
-      "filePath": "D:\\lyh\\agent\\agent-frame\\scoremap\\docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-5c8a4f448edf\\report-export-t05.txt",
-      "byteLength": 530,
-      "createdAt": "2026-05-25T02:55:22.956Z",
-      "updatedAt": "2026-05-25T02:55:22.956Z"
+      "fileUrl": "local-report-export://local-user-scoremap-t03/order-4a5816dffebe/report-export-t05.txt",
+      "filePath": "D:\\lyh\\agent\\agent-frame\\scoremap\\docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-4a5816dffebe\\report-export-t05.txt",
+      "byteLength": 662,
+      "createdAt": "2026-05-27T11:31:03.064Z",
+      "updatedAt": "2026-05-27T11:31:03.064Z"
     },
     "operatorExportPath": "D:\\lyh\\agent\\agent-frame\\scoremap\\docs\\auto-execute\\evidence\\backend-api-report\\operator-export.json",
     "exportedTables": {
       "ai_analysis_tasks": 2,
+      "ai_model_traces": 3,
       "diagnosis_decisions": 3,
       "diagnosis_orders": 1,
+      "diagnosis_questions": 2,
       "feedbacks": 1,
       "payments": 2,
+      "question_interactions": 0,
       "report_exports": 1,
       "upload_files": 1,
       "users": 1

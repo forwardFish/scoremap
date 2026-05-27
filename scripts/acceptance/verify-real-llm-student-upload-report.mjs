@@ -4,12 +4,14 @@ import { fileURLToPath } from 'node:url';
 const require = createRequire(import.meta.url);
 const fs = require('node:fs');
 const path = require('node:path');
+const { getPrimaryEvidencePath, getFallbackEvidencePath, writeJsonEvidence } = require('../../shared/evidence-paths');
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const projectRoot = path.resolve(__dirname, '..', '..');
 const reportPath = path.join(projectRoot, 'docs', 'REAL_LLM_STUDENT_UPLOAD_ACCEPTANCE_REPORT.md');
-const machinePath = path.join(projectRoot, 'docs', 'auto-execute', 'evidence', 'real-llm-student-upload', 'student-upload-real-llm-summary.json');
-const checkPath = path.join(projectRoot, 'docs', 'auto-execute', 'evidence', 'real-llm-student-upload', 'report-self-check.json');
+const machineRelativePath = path.join('real-llm-student-upload', 'student-upload-real-llm-summary.json');
+const checkRelativePath = path.join('real-llm-student-upload', 'report-self-check.json');
+const machinePath = resolveLatestEvidencePath(projectRoot, machineRelativePath);
 
 function main() {
   const failures = [];
@@ -90,7 +92,7 @@ function main() {
     checkedEvidence: evidencePaths,
     failures
   };
-  fs.writeFileSync(checkPath, `${JSON.stringify(result, null, 2)}\n`, 'utf8');
+  const checkPath = writeJsonEvidence(projectRoot, checkRelativePath, result);
 
   const selfCheckLine = status === 'PASS'
     ? `- Report self-check: PASS (报告准确性已校验; ${relative(checkPath)})`
@@ -114,8 +116,7 @@ function finish(failures) {
     checkedEvidence: [],
     failures
   };
-  fs.mkdirSync(path.dirname(checkPath), { recursive: true });
-  fs.writeFileSync(checkPath, `${JSON.stringify(result, null, 2)}\n`, 'utf8');
+  const checkPath = writeJsonEvidence(projectRoot, checkRelativePath, result);
   console.log('REAL_LLM_REPORT_SELF_CHECK: FAIL');
   console.log(`Evidence: ${relative(checkPath)}`);
   process.exit(1);
@@ -135,6 +136,17 @@ function findRow(db, tableName, id) {
 
 function hasSecretLikeText(text) {
   return /sk-[A-Za-z0-9]{12,}|AKID[A-Za-z0-9]{8,}|-----BEGIN [A-Z ]*PRIVATE KEY-----/i.test(String(text || ''));
+}
+
+function resolveLatestEvidencePath(projectRoot, relativePath) {
+  const primaryPath = getPrimaryEvidencePath(projectRoot, relativePath);
+  const fallbackPath = getFallbackEvidencePath(projectRoot, relativePath);
+  const candidates = [primaryPath, fallbackPath].filter((candidate) => fs.existsSync(candidate));
+  if (candidates.length === 0) {
+    return fallbackPath;
+  }
+  candidates.sort((left, right) => fs.statSync(right).mtimeMs - fs.statSync(left).mtimeMs);
+  return candidates[0];
 }
 
 main();

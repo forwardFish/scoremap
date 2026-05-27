@@ -1,9 +1,67 @@
-﻿<view class="replica-page {{derived ? 'derived-page' : ''}}">
-  <view class="derived-shell fallback-shell">
-    <view class="status-spacer"></view>
-    <view class="derived-title">{{title}}</view>
-    <view class="derived-card" wx:for="{{cards}}" wx:key="*this">{{item}}</view>
+<view class="v13-report-page">
+  <view class="v13-topbar">
+    <button class="icon-button" aria-label="返回报告入口" bindtap="onReturnEntry">‹</button>
+    <text class="topbar-title">完整提分报告</text>
+    <button class="icon-button" aria-label="更多">⋯</button>
   </view>
-  <image wx:if="{{!derived && !imageLoadFailed && reference}}" class="reference-image" src="{{reference}}" mode="widthFix" show-menu-by-longpress="false" binderror="onImageError" />
-  <button wx:for="{{hotspots}}" wx:key="action" class="hotspot {{item.className}}" data-action="{{item.action}}" bindtap="onTap" aria-label="{{item.label}}"></button>
+
+  <scroll-view scroll-y class="report-scroll">
+    <view class="hero-card">
+      <view class="hero-copy">
+        <text class="hero-title">{{hero.title}}</text>
+        <text class="hero-summary">{{hero.summary}}</text>
+        <view class="hero-pills">
+          <text class="status-pill">✓ {{hero.statusText}}</text>
+          <text class="quota-pill">{{hero.quotaText}}</text>
+        </view>
+      </view>
+      <view class="local-mascot">
+        <text class="mascot-cap">AI</text>
+        <text class="mascot-face">owl</text>
+      </view>
+    </view>
+
+    <view class="section-title">
+      <view class="title-marker"></view>
+      <text>报告内容</text>
+    </view>
+
+    <view class="report-row" wx:for="{{reportRows}}" wx:key="id">
+      <view class="row-icon tone-{{item.tone}}">{{item.glyph}}</view>
+      <view class="row-copy">
+        <text class="row-title">{{item.title}}</text>
+        <text class="row-summary">{{item.content}}</text>
+      </view>
+      <text class="row-chevron">›</text>
+    </view>
+
+    <view class="section-title wrong-title">
+      <view class="title-marker secondary"></view>
+      <text>错题提分</text>
+    </view>
+
+    <view class="wrong-card severity-{{item.severity}}" wx:for="{{wrongQuestionCards}}" wx:key="questionId" data-question-id="{{item.questionId}}" bindtap="onOpenWrongQuestion">
+      <view class="wrong-main">
+        <view class="wrong-icon">{{item.glyph}}</view>
+        <view class="wrong-copy">
+          <view class="wrong-head">
+            <text class="wrong-name">{{item.title}}</text>
+            <text class="mastery">{{item.masteryStatus}}</text>
+          </view>
+          <text class="wrong-stem">{{item.stem}}</text>
+        </view>
+      </view>
+      <text class="wrong-chevron">›</text>
+    </view>
+
+    <view class="disclaimer">
+      <text class="disclaimer-icon">✓</text>
+      <text>内容仅供学习参考，请结合课堂学习与老师建议使用</text>
+    </view>
+  </scroll-view>
+
+  <view class="bottom-actions">
+    <button class="share-button" bindtap="onShareReport">分享报告</button>
+    <button class="pdf-button" bindtap="onExportPdf">导出 PDF</button>
+  </view>
 </view>

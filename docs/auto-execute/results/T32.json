@@ -1,0 +1,12 @@
+{
+  "taskId": "T32",
+  "status": "PASS",
+  "command": "npm run e2e:api-db -- ai-tutor-v13",
+  "evidence": [
+    "docs/auto-execute/evidence/api-db/T32-trace-manifest.json",
+    "docs/auto-execute/evidence/llm/T32-llm-trace-manifest.json",
+    "docs/auto-execute/evidence/api-db/T32-api-branches.json",
+    "docs/auto-execute/evidence/api-db/T32-db-readback.json"
+  ],
+  "result": "All v1.3 API routes, DB readbacks, mandatory LLM prompt ids, local-only adapters, quota/auth/error branches, and UI consumer trace links are covered."
+}

@@ -1,0 +1,170 @@
+﻿{
+    "blockers":  [
+                     "route-smoke: Generated test executed and failed like a code/test assertion failure.",
+                     "api-smoke: Generated test executed and failed like a code/test assertion failure."
+                 ],
+    "commands":  [
+                     {
+                         "status":  "HARD_FAIL",
+                         "command":  "node scripts/acceptance/generated/route-smoke.generated.mjs --project-root .",
+                         "log":  "docs\\auto-execute\\logs\\generated-route-smoke.log"
+                     },
+                     {
+                         "status":  "HARD_FAIL",
+                         "command":  "node scripts/acceptance/generated/api-smoke.generated.mjs --project-root .",
+                         "log":  "docs\\auto-execute\\logs\\generated-api-smoke.log"
+                     }
+                 ],
+    "lane":  "generated-story-tests",
+    "status":  "HARD_FAIL",
+    "evidence":  [
+                     "docs\\auto-execute\\results\\generated-story-tests.json",
+                     "docs/auto-execute/logs/generated-route-smoke.log",
+                     "docs/auto-execute/logs/generated-api-smoke.log",
+                     "docs/auto-execute/logs/generated-e2e-flow.log"
+                 ],
+    "schemaVersion":  "2.0",
+    "nextActions":  [
+                        "Generated story tests must execute before generated P0/P1 test points can count as evidence."
+                    ],
+    "updatedAt":  "2026-05-25T19:10:48",
+    "results":  [
+                    {
+                        "name":  "route-smoke",
+                        "status":  "HARD_FAIL",
+                        "failureClass":  "code-or-test",
+                        "reason":  "Generated test executed and failed like a code/test assertion failure.",
+                        "command":  "node scripts/acceptance/generated/route-smoke.generated.mjs --project-root .",
+                        "log":  "docs\\auto-execute\\logs\\generated-route-smoke.log",
+                        "points":  [
+                                       {
+                                           "testPointId":  "TP-STORY-REPORT-002-002",
+                                           "type":  "route",
+                                           "target":  "scoremap-miniapp/pages/wrong-question",
+                                           "materializationStatus":  "GENERATED",
+                                           "generatedTest":  "scripts\\acceptance\\generated\\route-smoke.generated.mjs",
+                                           "command":  "node scripts/acceptance/generated/route-smoke.generated.mjs --project-root .",
+                                           "evidenceOutput":  "docs/auto-execute/results/route-smoke.generated.json",
+                                           "reason":  "",
+                                           "storyId":  "STORY-REPORT-002"
+                                       },
+                                       {
+                                           "testPointId":  "TP-STORY-REPORT-003-001",
+                                           "type":  "route",
+                                           "target":  "scoremap-miniapp/pages/ai-tutor",
+                                           "materializationStatus":  "GENERATED",
+                                           "generatedTest":  "scripts\\acceptance\\generated\\route-smoke.generated.mjs",
+                                           "command":  "node scripts/acceptance/generated/route-smoke.generated.mjs --project-root .",
+                                           "evidenceOutput":  "docs/auto-execute/results/route-smoke.generated.json",
+                                           "reason":  "",
+                                           "storyId":  "STORY-REPORT-003"
+                                       },
+                                       {
+                                           "testPointId":  "TP-STORY-REPORT-003-002",
+                                           "type":  "route",
+                                           "target":  "server/src/routes/question-interactions.js",
+                                           "materializationStatus":  "GENERATED",
+                                           "generatedTest":  "scripts\\acceptance\\generated\\route-smoke.generated.mjs",
+                                           "command":  "node scripts/acceptance/generated/route-smoke.generated.mjs --project-root .",
+                                           "evidenceOutput":  "docs/auto-execute/results/route-smoke.generated.json",
+                                           "reason":  "",
+                                           "storyId":  "STORY-REPORT-003"
+                                       },
+                                       {
+                                           "testPointId":  "TP-STORY-REPORT-003-003",
+                                           "type":  "route",
+                                           "target":  "server/src/services/question-interactions-service.js",
+                                           "materializationStatus":  "GENERATED",
+                                           "generatedTest":  "scripts\\acceptance\\generated\\route-smoke.generated.mjs",
+                                           "command":  "node scripts/acceptance/generated/route-smoke.generated.mjs --project-root .",
+                                           "evidenceOutput":  "docs/auto-execute/results/route-smoke.generated.json",
+                                           "reason":  "",
+                                           "storyId":  "STORY-REPORT-003"
+                                       },
+                                       {
+                                           "testPointId":  "TP-STORY-GENERAL-006-002",
+                                           "type":  "route",
+                                           "target":  "scoremap-miniapp/pages/ai-exercise",
+                                           "materializationStatus":  "GENERATED",
+                                           "generatedTest":  "scripts\\acceptance\\generated\\route-smoke.generated.mjs",
+                                           "command":  "node scripts/acceptance/generated/route-smoke.generated.mjs --project-root .",
+                                           "evidenceOutput":  "docs/auto-execute/results/route-smoke.generated.json",
+                                           "reason":  "",
+                                           "storyId":  "STORY-GENERAL-006"
+                                       },
+                                       {
+                                           "testPointId":  "TP-STORY-GENERAL-006-003",
+                                           "type":  "route",
+                                           "target":  "scoremap-miniapp/pages/ai-exercise-feedback",
+                                           "materializationStatus":  "GENERATED",
+                                           "generatedTest":  "scripts\\acceptance\\generated\\route-smoke.generated.mjs",
+                                           "command":  "node scripts/acceptance/generated/route-smoke.generated.mjs --project-root .",
+                                           "evidenceOutput":  "docs/auto-execute/results/route-smoke.generated.json",
+                                           "reason":  "",
+                                           "storyId":  "STORY-GENERAL-006"
+                                       },
+                                       {
+                                           "testPointId":  "TP-STORY-REPORT-009-001",
+                                           "type":  "route",
+                                           "target":  "scoremap-miniapp/pages/full-report",
+                                           "materializationStatus":  "GENERATED",
+                                           "generatedTest":  "scripts\\acceptance\\generated\\route-smoke.generated.mjs",
+                                           "command":  "node scripts/acceptance/generated/route-smoke.generated.mjs --project-root .",
+                                           "evidenceOutput":  "docs/auto-execute/results/route-smoke.generated.json",
+                                           "reason":  "",
+                                           "storyId":  "STORY-REPORT-009"
+                                       }
+                                   ]
+                    },
+                    {
+                        "name":  "api-smoke",
+                        "status":  "HARD_FAIL",
+                        "failureClass":  "code-or-test",
+                        "reason":  "Generated test executed and failed like a code/test assertion failure.",
+                        "command":  "node scripts/acceptance/generated/api-smoke.generated.mjs --project-root .",
+                        "log":  "docs\\auto-execute\\logs\\generated-api-smoke.log",
+                        "points":  [
+                                       {
+                                           "testPointId":  "TP-STORY-REPORT-002-001",
+                                           "type":  "api",
+                                           "target":  "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+                                           "materializationStatus":  "GENERATED",
+                                           "generatedTest":  "scripts\\acceptance\\generated\\api-smoke.generated.mjs",
+                                           "command":  "node scripts/acceptance/generated/api-smoke.generated.mjs --project-root .",
+                                           "evidenceOutput":  "docs/auto-execute/results/api-smoke.generated.json",
+                                           "reason":  "",
+                                           "storyId":  "STORY-REPORT-002"
+                                       },
+                                       {
+                                           "testPointId":  "TP-STORY-GENERAL-006-001",
+                                           "type":  "api",
+                                           "target":  "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/exercise-answer",
+                                           "materializationStatus":  "GENERATED",
+                                           "generatedTest":  "scripts\\acceptance\\generated\\api-smoke.generated.mjs",
+                                           "command":  "node scripts/acceptance/generated/api-smoke.generated.mjs --project-root .",
+                                           "evidenceOutput":  "docs/auto-execute/results/api-smoke.generated.json",
+                                           "reason":  "",
+                                           "storyId":  "STORY-GENERAL-006"
+                                       }
+                                   ]
+                    },
+                    {
+                        "name":  "e2e-flow",
+                        "status":  "DEFERRED",
+                        "reason":  "No generated e2e/state/flow test points are present.",
+                        "command":  "",
+                        "log":  "",
+                        "points":  [
+
+                                   ]
+                    }
+                ],
+    "e2eEnvironment":  {
+                           "playwrightPackageAvailable":  false,
+                           "npxAvailable":  true,
+                           "browserAvailable":  false,
+                           "baseUrlConfigured":  false,
+                           "serverReachable":  false
+                       },
+    "e2eClassification":  "NOT_APPLICABLE"
+}

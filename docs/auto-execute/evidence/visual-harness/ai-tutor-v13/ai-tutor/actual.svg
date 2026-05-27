@@ -1,0 +1,36 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+  <rect width="390" height="844" fill="#fdf8ff"/>
+  <text x="118" y="42" font-size="20" font-weight="700" fill="#5a45cb">鏁欒偛鎻愬垎鎶ュ憡</text>
+
+  <text x="116" y="64" font-size="13" fill="#5a45cb">浣犺繕鍙互杩介棶 3 娆?/text>
+  <rect x="18" y="92" width="354" height="326" rx="24" fill="#ffffff" stroke="#e5deff"/>
+  <rect x="42" y="120" width="64" height="64" rx="20" fill="#e5deff"/>
+  <text x="61" y="160" font-size="22" font-weight="800" fill="#442bb5">AI</text>
+  <rect x="120" y="120" width="222" height="104" rx="18" fill="#f7f1fd"/>
+  <text x="136" y="150" font-size="12" fill="#1c1b23">鎴戞潵甯綘鍐嶆⒊鐞嗚繖閬撻銆備綘鍙互鍏堥€夋嫨涓€涓浐瀹氶棶棰橈紝鎴戜細鍙洿缁曞綋鍓嶉敊棰樿瑙ｃ€?/text>
+  <rect x="30" y="252" width="104" height="70" rx="16" fill="#f7f1fd" stroke="#c9c4d6"/>
+  <text x="42" y="290" font-size="11" font-weight="700" fill="#1c1b23">鎴戜笉鎳傝繖涓€姝?/text><rect x="144" y="252" width="104" height="70" rx="16" fill="#f7f1fd" stroke="#c9c4d6"/>
+  <text x="156" y="290" font-size="11" font-weight="700" fill="#1c1b23">涓轰粈涔堣繖鏍风畻</text><rect x="258" y="252" width="104" height="70" rx="16" fill="#f7f1fd" stroke="#c9c4d6"/>
+  <text x="270" y="290" font-size="11" font-weight="700" fill="#1c1b23">鎹竴绉嶆柟寮忚</text><rect x="30" y="334" width="218" height="58" rx="16" fill="#f7f1fd" stroke="#c9c4d6"/>
+  <text x="42" y="372" font-size="11" font-weight="700" fill="#1c1b23">鍑轰竴閬撳悓绫婚</text><rect x="258" y="334" width="104" height="58" rx="16" fill="#008645" stroke="#c9c4d6"/>
+  <text x="270" y="372" font-size="11" font-weight="700" fill="#f6fff4">鎴戝凡缁忔噦浜?/text>
+  <rect x="18" y="442" width="354" height="214" rx="22" fill="#ffffff" stroke="#c9c4d6"/>
+  <text x="42" y="482" font-size="16" font-weight="700" fill="#1c1b23">閿欓淇℃伅</text>
+  <text x="320" y="482" font-size="16" fill="#787585">鈱?/text>
+  <rect x="42" y="506" width="54" height="24" rx="7" fill="#fff0df"/>
+  <text x="52" y="522" font-size="10" font-weight="700" fill="#8f4e00">搴旂敤棰?/text>
+  <text x="108" y="522" font-size="13" font-weight="700" fill="#1c1b23">鏂圭▼搴旂敤棰?/text>
+  <rect x="42" y="546" width="306" height="86" rx="16" fill="#f7f1fd"/>
+  <text x="58" y="574" font-size="12" fill="#474554">鐢层€佷箼涓や汉鍚屾椂浠?A 鍦板嚭鍙戯紝鐢叉瘡灏忔椂琛?60km锛屼箼姣忓皬鏃惰 50km锛? 灏忔椂鍚庣敳姣斾箼澶氳澶氬皯鍗冪背锛?/text>
+  <text x="58" y="604" font-size="12" font-weight="700" fill="#5a45cb">x = (60 - 50) x 2 / x = 10 x 2 / x = 20 鍗冪背</text>
+  <rect x="18" y="680" width="354" height="64" rx="20" fill="#ffffff" stroke="#e5deff"/>
+  <text x="42" y="718" font-size="15" font-weight="700" fill="#1c1b23">鏈浜掑姩璁板綍 (2)</text>
+  <text x="328" y="718" font-size="18" fill="#787585">鈥?/text>
+  <text x="102" y="772" font-size="12" fill="#787585">鍐呭鐢?AI 鐢熸垚锛屼粎渚涘涔犲弬鑰?/text>
+  <rect x="18" y="804" width="108" height="34" rx="14" fill="#ffffff" stroke="#c9c4d6"/>
+  <text x="50" y="826" font-size="11" font-weight="700" fill="#474554">鍒嗕韩鎶ュ憡</text>
+  <rect x="141" y="804" width="108" height="34" rx="14" fill="#7360e5"/>
+  <text x="176" y="826" font-size="11" font-weight="700" fill="#ffffff">AI 鎻愬垎</text>
+  <rect x="264" y="804" width="108" height="34" rx="14" fill="#ffffff" stroke="#c9c4d6"/>
+  <text x="296" y="826" font-size="11" font-weight="700" fill="#474554">瀵煎嚭 PDF</text>
+</svg>

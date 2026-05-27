@@ -1,0 +1,101 @@
+{
+  "status": "PASS",
+  "command": "npm test -- full-report-ai-entry",
+  "requirementIds": [
+    "V13-R09"
+  ],
+  "visibleControls": [
+    {
+      "id": "load-full-report",
+      "text": "刷新完整报告",
+      "api": "GET /api/diagnosis-orders/order-t25-controls/full-report"
+    },
+    {
+      "id": "load-wrong-questions",
+      "text": "加载错题卡片",
+      "api": "GET /api/diagnosis-orders/order-t25-controls/questions"
+    },
+    {
+      "id": "open-wrong-question-card",
+      "text": "查看错题详情",
+      "targetRoute": "/pages/wrong-question/index"
+    },
+    {
+      "id": "open-ai-tutor-from-card",
+      "text": "让 AI 老师讲给孩子听",
+      "targetRoute": "/pages/ai-tutor/index"
+    },
+    {
+      "id": "share-report",
+      "text": "分享报告",
+      "behavior": "local-share-placeholder",
+      "visible": true
+    },
+    {
+      "id": "save-report",
+      "text": "保存报告",
+      "api": "POST /api/diagnosis-orders/order-t25-controls/save-report",
+      "targetRoute": "/pages/my/index",
+      "visible": true
+    },
+    {
+      "id": "export-pdf",
+      "text": "导出 PDF",
+      "api": "POST /api/diagnosis-orders/order-t25-controls/export-pdf",
+      "visible": true
+    },
+    {
+      "id": "return-entry",
+      "text": "返回报告入口",
+      "targetRoute": "/pages/full-report-entry/index"
+    }
+  ],
+  "behaviorEvidence": {
+    "share": {
+      "status": "SHARE_READY",
+      "behavior": "local-share-placeholder",
+      "targetRoute": "/pages/full-report/index",
+      "toast": "报告分享卡片已生成，可发送给家长共同查看"
+    },
+    "save": {
+      "status": "SAVED",
+      "apiStatus": 200,
+      "targetRoute": "/pages/my/index",
+      "response": {
+        "saved": true
+      },
+      "dbReadback": {
+        "id": "order-t25-controls",
+        "accessLevel": "full",
+        "savedReport": true
+      },
+      "toast": "报告已保存到我的报告"
+    },
+    "pdf": {
+      "status": "PDF_READY",
+      "apiStatus": 201,
+      "response": {
+        "status": "ready",
+        "exportId": "report-export-order-t25-controls",
+        "fileUrl": "local-report-export://order-t25-controls/report-export-order-t25-controls.pdf"
+      },
+      "dbReadback": {
+        "id": "report-export-order-t25-controls",
+        "orderId": "order-t25-controls",
+        "ownerId": "local-user-scoremap-t06",
+        "status": "ready",
+        "format": "application/pdf",
+        "fileUrl": "local-report-export://order-t25-controls/report-export-order-t25-controls.pdf",
+        "filePath": "docs/auto-execute/evidence/frontend-page/pdf/order-t25-controls-report-export-order-t25-controls.pdf",
+        "byteLength": 961
+      },
+      "filePath": "docs/auto-execute/evidence/frontend-page/pdf/order-t25-controls-report-export-order-t25-controls.pdf",
+      "toast": "PDF 已导出到本地证据目录"
+    }
+  },
+  "localPdf": {
+    "path": "docs/auto-execute/evidence/frontend-page/pdf/order-t25-controls-report-export-order-t25-controls.pdf",
+    "exists": true,
+    "header": "%PDF-1.4"
+  }
+}

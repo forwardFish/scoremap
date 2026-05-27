@@ -1,9 +1,11 @@
 {
   "id": "UI-C04",
   "screen": "failure",
+  "referenceKey": null,
   "route": "/pages/failure/index",
   "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
-  "reference": "docs/UI/小程序/处理失败.png",
+  "reference": "docs/auto-execute/evidence/visual-harness/failure/reference.png",
+  "sourceReference": "docs/UI/小程序/处理失败.png",
   "declaredReference": "docs/UI/小程序/处理失败.png",
   "stitchReference": "docs/UI/小程序/stitch_codex_development_blueprints/_3/screen.png",
   "miniappActualAsset": "scoremap-miniapp/assets/reference/failure.jpg",

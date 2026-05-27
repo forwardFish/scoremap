@@ -1,0 +1,135 @@
+{
+  "status": "PASS",
+  "command": "npm --prefix server test -- ai-adapter prompt-registry",
+  "traces": [
+    {
+      "id": "trace-llm-tutor-05-0001",
+      "traceId": "trace-llm-tutor-05-0001",
+      "promptId": "LLM-TUTOR-05",
+      "modelAdapter": "local-deterministic-ai-mock",
+      "requestSummary": {
+        "type": "object",
+        "keys": [
+          "input",
+          "promptId",
+          "simulate"
+        ],
+        "fields": {
+          "promptId": {
+            "type": "string",
+            "length": 12,
+            "sha256": "8419c8ea1759a928",
+            "redacted": false
+          },
+          "input": {
+            "type": "object",
+            "keys": [
+              "questionId"
+            ],
+            "fields": {
+              "questionId": {
+                "type": "string",
+                "length": 16,
+                "sha256": "324d1e306e745e97",
+                "redacted": false
+              }
+            }
+          },
+          "simulate": {
+            "type": "string",
+            "length": 7,
+            "sha256": "f77d1bb58da886e3",
+            "redacted": false
+          }
+        }
+      },
+      "responseSummary": {
+        "type": "object",
+        "keys": [
+          "errorCode"
+        ],
+        "fields": {
+          "errorCode": {
+            "type": "string",
+            "length": 16,
+            "sha256": "f51029193514237d",
+            "redacted": false
+          }
+        }
+      },
+      "status": "TIMEOUT",
+      "errorCode": "LOCAL_AI_TIMEOUT",
+      "latencyMs": 0,
+      "costEstimateCents": 0,
+      "model": null,
+      "providerId": null,
+      "localOnly": true,
+      "createdAt": "1970-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "trace-llm-exercise-06-0002",
+      "traceId": "trace-llm-exercise-06-0002",
+      "promptId": "LLM-EXERCISE-06",
+      "modelAdapter": "local-deterministic-ai-mock",
+      "requestSummary": {
+        "type": "object",
+        "keys": [
+          "input",
+          "promptId",
+          "simulate"
+        ],
+        "fields": {
+          "promptId": {
+            "type": "string",
+            "length": 15,
+            "sha256": "e886e53640bbdfa6",
+            "redacted": false
+          },
+          "input": {
+            "type": "object",
+            "keys": [
+              "questionId"
+            ],
+            "fields": {
+              "questionId": {
+                "type": "string",
+                "length": 16,
+                "sha256": "1f186fa29bbcdc5e",
+                "redacted": false
+              }
+            }
+          },
+          "simulate": {
+            "type": "string",
+            "length": 16,
+            "sha256": "00436e640c6be36c",
+            "redacted": false
+          }
+        }
+      },
+      "responseSummary": {
+        "type": "object",
+        "keys": [
+          "errorCode"
+        ],
+        "fields": {
+          "errorCode": {
+            "type": "string",
+            "length": 25,
+            "sha256": "18ae0ea05b202ca0",
+            "redacted": false
+          }
+        }
+      },
+      "status": "PROVIDER_FAILURE",
+      "errorCode": "LOCAL_AI_PROVIDER_FAILURE",
+      "latencyMs": 0,
+      "costEstimateCents": 0,
+      "model": null,
+      "providerId": null,
+      "localOnly": true,
+      "createdAt": "1970-01-01T00:00:00.000Z"
+    }
+  ],
+  "remoteCalls": []
+}

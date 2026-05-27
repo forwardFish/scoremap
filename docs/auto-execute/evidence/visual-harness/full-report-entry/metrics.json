@@ -1,9 +1,11 @@
 {
   "id": "UI-C09",
   "screen": "full-report-entry",
+  "referenceKey": null,
   "route": "/pages/full-report-entry/index",
   "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
-  "reference": "docs/UI/小程序/完整提分报告.png",
+  "reference": "docs/auto-execute/evidence/visual-harness/full-report-entry/reference.png",
+  "sourceReference": "docs/UI/小程序/完整提分报告.png",
   "declaredReference": "docs/UI/小程序/完整提分报告.png",
   "stitchReference": "docs/UI/小程序/stitch_codex_development_blueprints/_2/screen.png",
   "miniappActualAsset": "scoremap-miniapp/assets/reference/full-report-entry.jpg",
@@ -18,8 +20,8 @@
     "reference": {
       "exists": true,
       "path": "docs/UI/小程序/完整提分报告.png",
-      "bytes": 1353663,
-      "sha256": "89487273498a9ab25cf26bb80906c42108b73c2bfc45b2e5250fcf1d98d0ffca",
+      "bytes": 1377720,
+      "sha256": "eb32e3727b8944b634f4799fd7fc1cb3ddc2c23972d26ef318b64e3320172acb",
       "extension": ".png"
     },
     "actual": {
@@ -29,7 +31,7 @@
       "sha256": "95e0b41b60f946fb02cb0ed775661f8acd10daede087094daea368e5a4860e1e",
       "extension": ".jpg"
     },
-    "byteLengthDelta": 1219326,
+    "byteLengthDelta": 1243383,
     "sha256Equal": false,
     "rasterPixelRatio": null
   },

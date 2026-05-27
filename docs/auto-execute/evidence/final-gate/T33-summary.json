@@ -1,0 +1,521 @@
+﻿{
+    "taskId":  "T33",
+    "scope":  "ai-tutor-v13",
+    "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+    "generatedAt":  "2026-05-27T11:32:52.4963665Z",
+    "categoryVerdicts":  [
+                             {
+                                 "id":  "requirement-traceability",
+                                 "name":  "Requirement Traceability Acceptance",
+                                 "status":  "PASS",
+                                 "evidence":  [
+                                                  "docs/auto-execute/scoremap-ai-tutor-v13-requirement-traceability-matrix.md",
+                                                  "docs/auto-execute/results/T32.json"
+                                              ],
+                                 "notes":  [
+                                               "V13-R01 through V13-R15 are backed by T19-T32 task evidence."
+                                           ]
+                             },
+                             {
+                                 "id":  "functional",
+                                 "name":  "Functional Acceptance",
+                                 "status":  "PASS",
+                                 "evidence":  [
+                                                  "docs/auto-execute/evidence/api-db-llm/T22-full-report-question-cards.json",
+                                                  "docs/auto-execute/evidence/frontend-page/T27-ai-tutor-interaction.json",
+                                                  "docs/auto-execute/evidence/frontend-page/T28-answer-feedback.json",
+                                                  "docs/auto-execute/evidence/frontend-page/T29-my-reports-quota-history.json"
+                                              ],
+                                 "notes":  [
+                                               "Cards, formal entitlement, fixed follow-ups, exercise/feedback, history, and quota behavior are covered."
+                                           ]
+                             },
+                             {
+                                 "id":  "ui-one-to-one",
+                                 "name":  "UI One-To-One Acceptance",
+                                 "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                                 "evidence":  [
+                                                  "docs/auto-execute/results/T30.json",
+                                                  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13"
+                                              ],
+                                 "notes":  [
+                                               "All five targets have artifacts; live miniapp raster pixelmatch is not available."
+                                           ]
+                             },
+                             {
+                                 "id":  "normal-person-clicks",
+                                 "name":  "Normal-Person Click Acceptance",
+                                 "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                                 "evidence":  [
+                                                  "docs/auto-execute/evidence/owner/all-pages-ai-tutor-v13.json",
+                                                  "docs/auto-execute/evidence/navigation/all-click-targets.json"
+                                              ],
+                                 "notes":  [
+                                               "V13-O14 through V13-O23 plus legacy O01-O13 are covered."
+                                           ]
+                             },
+                             {
+                                 "id":  "api-contract",
+                                 "name":  "API Contract Acceptance",
+                                 "status":  "PASS",
+                                 "evidence":  [
+                                                  "docs/auto-execute/evidence/api-db/T32-api-branches.json",
+                                                  "docs/auto-execute/evidence/api-db/T32-trace-manifest.json"
+                                              ],
+                                 "notes":  [
+                                               "Success and negative API branches are covered."
+                                           ]
+                             },
+                             {
+                                 "id":  "data",
+                                 "name":  "Data Acceptance",
+                                 "status":  "PASS",
+                                 "evidence":  [
+                                                  "docs/auto-execute/evidence/api-db/T32-db-readback.json",
+                                                  "docs/auto-execute/evidence/api-db-llm/T21-db-readback.json"
+                                              ],
+                                 "notes":  [
+                                               "Question, interaction, quota, answer, and trace records have readback evidence."
+                                           ]
+                             },
+                             {
+                                 "id":  "llm-model-calls",
+                                 "name":  "LLM/Model-Call Acceptance",
+                                 "status":  "PASS",
+                                 "evidence":  [
+                                                  "docs/auto-execute/evidence/llm/T32-llm-trace-manifest.json",
+                                                  "docs/auto-execute/evidence/inventory/T19-verification.json"
+                                              ],
+                                 "notes":  [
+                                               "Mandatory prompt ids LLM-PREVIEW-01 through LLM-CHECK-07 are traced locally."
+                                           ]
+                             },
+                             {
+                                 "id":  "safety-localization",
+                                 "name":  "Safety And Localization Acceptance",
+                                 "status":  "PASS",
+                                 "evidence":  [
+                                                  "docs/auto-execute/evidence/safety/local-only.json",
+                                                  "docs/auto-execute/evidence/safety/secret-guard.json"
+                                              ],
+                                 "notes":  [
+                                               "Local-only and secret guards must pass."
+                                           ]
+                             },
+                             {
+                                 "id":  "exception-boundary",
+                                 "name":  "Exception And Boundary Acceptance",
+                                 "status":  "PASS",
+                                 "evidence":  [
+                                                  "docs/auto-execute/evidence/api-db/T32-api-branches.json",
+                                                  "docs/auto-execute/evidence/api-db-llm/T23-negative-branches-quota-auth.json",
+                                                  "docs/auto-execute/evidence/frontend-page/T28-negative-branches.json"
+                                              ],
+                                 "notes":  [
+                                               "Missing context, AI failure/timeout, quota, entitlement, cross-owner, duplicate, and answer-before-exercise are covered."
+                                           ]
+                             },
+                             {
+                                 "id":  "non-functional",
+                                 "name":  "Non-Functional Acceptance",
+                                 "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                                 "evidence":  [
+                                                  "docs/auto-execute/results/T30.json",
+                                                  "docs/auto-execute/latest/HANDOFF.md"
+                                              ],
+                                 "notes":  [
+                                               "Local repeatability is proven; raster-grade visual proof remains manual review."
+                                           ]
+                             },
+                             {
+                                 "id":  "evidence-integrity",
+                                 "name":  "Evidence Integrity Acceptance",
+                                 "status":  "PASS",
+                                 "evidence":  [
+                                                  "docs/auto-execute/results/T19.json",
+                                                  "docs/auto-execute/results/T32.json",
+                                                  "docs/auto-execute/latest/T19-HANDOFF.md",
+                                                  "docs/auto-execute/latest/T32-HANDOFF.md",
+                                                  "docs/auto-execute/latest/T33-integrity.log"
+                                              ],
+                                 "notes":  [
+                                               "T19-T32 results, task handoffs, and T33 report integrity were checked."
+                                           ]
+                             },
+                             {
+                                 "id":  "mojibake-scan",
+                                 "name":  "Mojibake Scan",
+                                 "status":  "PASS",
+                                 "evidence":  [
+                                                  "docs/auto-execute/scoremap-ai-tutor-v13-master-plan.md",
+                                                  "docs/auto-execute/scoremap-ai-tutor-v13-acceptance-standard.md",
+                                                  "docs/auto-execute/scoremap-ai-tutor-v13-requirement-traceability-matrix.md",
+                                                  "docs/auto-execute/scoremap-ai-tutor-v13-ui-reference-map.md",
+                                                  "docs/auto-execute/scoremap-ai-tutor-v13-owner-scenario-matrix.md"
+                                              ],
+                                 "notes":  [
+                                               "Replacement/Latin-1 marker findings: 0"
+                                           ]
+                             }
+                         ],
+    "taskResults":  [
+                        {
+                            "taskId":  "T19",
+                            "result":  "docs/auto-execute/results/T19.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T19-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS_WITH_LIMITATION"
+                        },
+                        {
+                            "taskId":  "T20",
+                            "result":  "docs/auto-execute/results/T20.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T20-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS"
+                        },
+                        {
+                            "taskId":  "T21",
+                            "result":  "docs/auto-execute/results/T21.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T21-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS"
+                        },
+                        {
+                            "taskId":  "T22",
+                            "result":  "docs/auto-execute/results/T22.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T22-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS"
+                        },
+                        {
+                            "taskId":  "T23",
+                            "result":  "docs/auto-execute/results/T23.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T23-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS"
+                        },
+                        {
+                            "taskId":  "T24",
+                            "result":  "docs/auto-execute/results/T24.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T24-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS"
+                        },
+                        {
+                            "taskId":  "T25",
+                            "result":  "docs/auto-execute/results/T25.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T25-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS_WITH_LIMITATION"
+                        },
+                        {
+                            "taskId":  "T26",
+                            "result":  "docs/auto-execute/results/T26.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T26-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS_WITH_LIMITATION"
+                        },
+                        {
+                            "taskId":  "T27",
+                            "result":  "docs/auto-execute/results/T27.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T27-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS_WITH_LIMITATION"
+                        },
+                        {
+                            "taskId":  "T28",
+                            "result":  "docs/auto-execute/results/T28.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T28-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS_WITH_LIMITATION"
+                        },
+                        {
+                            "taskId":  "T29",
+                            "result":  "docs/auto-execute/results/T29.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T29-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS"
+                        },
+                        {
+                            "taskId":  "T30",
+                            "result":  "docs/auto-execute/results/T30.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T30-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS_NEEDS_MANUAL_UI_REVIEW"
+                        },
+                        {
+                            "taskId":  "T31",
+                            "result":  "docs/auto-execute/results/T31.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T31-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS_NEEDS_MANUAL_UI_REVIEW"
+                        },
+                        {
+                            "taskId":  "T32",
+                            "result":  "docs/auto-execute/results/T32.json",
+                            "resultExists":  true,
+                            "handoff":  "docs/auto-execute/latest/T32-HANDOFF.md",
+                            "handoffExists":  true,
+                            "status":  "PASS"
+                        }
+                    ],
+    "requiredEvidence":  [
+                             {
+                                 "label":  "v1.3 acceptance standard",
+                                 "path":  "docs/auto-execute/scoremap-ai-tutor-v13-acceptance-standard.md",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "inventory verification",
+                                 "path":  "docs/auto-execute/evidence/inventory/T19-verification.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "adapter traces",
+                                 "path":  "docs/auto-execute/evidence/api-db-llm/T20-deterministic-traces.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "schema DB readback",
+                                 "path":  "docs/auto-execute/evidence/api-db-llm/T21-db-readback.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "wrong-question cards",
+                                 "path":  "docs/auto-execute/evidence/api-db-llm/T22-full-report-question-cards.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "AI tutor API",
+                                 "path":  "docs/auto-execute/evidence/api-db-llm/T23-api-success-db-llm.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "route shell contract",
+                                 "path":  "docs/auto-execute/evidence/frontend-shell/v13-ai-tutor-route-contract.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "full report UI",
+                                 "path":  "docs/auto-execute/evidence/frontend-page/T25-full-report-ai-entry.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "question detail UI",
+                                 "path":  "docs/auto-execute/evidence/frontend-page/T26-wrong-question-detail.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "AI tutor UI",
+                                 "path":  "docs/auto-execute/evidence/frontend-page/T27-ai-tutor-interaction.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "exercise feedback UI",
+                                 "path":  "docs/auto-execute/evidence/frontend-page/T28-answer-feedback.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "My reports quota history",
+                                 "path":  "docs/auto-execute/evidence/frontend-page/T29-my-reports-quota-history.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "normal-person clicks",
+                                 "path":  "docs/auto-execute/evidence/owner/all-pages-ai-tutor-v13.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "API DB trace manifest",
+                                 "path":  "docs/auto-execute/evidence/api-db/T32-trace-manifest.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "API branch matrix",
+                                 "path":  "docs/auto-execute/evidence/api-db/T32-api-branches.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "DB readback matrix",
+                                 "path":  "docs/auto-execute/evidence/api-db/T32-db-readback.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "LLM trace manifest",
+                                 "path":  "docs/auto-execute/evidence/llm/T32-llm-trace-manifest.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "local-only guard",
+                                 "path":  "docs/auto-execute/evidence/safety/local-only.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "secret guard",
+                                 "path":  "docs/auto-execute/evidence/safety/secret-guard.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "report integrity log",
+                                 "path":  "docs/auto-execute/latest/T33-integrity.log",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual ai-tutor reference.png",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/reference.png",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual ai-tutor actual.svg",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/actual.svg",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual ai-tutor diff.svg",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/diff.svg",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual ai-tutor metrics.json",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/metrics.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual ai-tutor summary.json",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/summary.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual wrong-question-detail reference.png",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/wrong-question-detail/reference.png",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual wrong-question-detail actual.svg",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/wrong-question-detail/actual.svg",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual wrong-question-detail diff.svg",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/wrong-question-detail/diff.svg",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual wrong-question-detail metrics.json",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/wrong-question-detail/metrics.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual wrong-question-detail summary.json",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/wrong-question-detail/summary.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual answer-feedback reference.png",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/answer-feedback/reference.png",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual answer-feedback actual.svg",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/answer-feedback/actual.svg",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual answer-feedback diff.svg",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/answer-feedback/diff.svg",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual answer-feedback metrics.json",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/answer-feedback/metrics.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual answer-feedback summary.json",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/answer-feedback/summary.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual full-report reference.png",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/reference.png",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual full-report actual.svg",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/actual.svg",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual full-report diff.svg",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/diff.svg",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual full-report metrics.json",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/metrics.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual full-report summary.json",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/summary.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual similar-exercise reference.png",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/similar-exercise/reference.png",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual similar-exercise actual.svg",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/similar-exercise/actual.svg",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual similar-exercise diff.svg",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/similar-exercise/diff.svg",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual similar-exercise metrics.json",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/similar-exercise/metrics.json",
+                                 "exists":  true
+                             },
+                             {
+                                 "label":  "visual similar-exercise summary.json",
+                                 "path":  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/similar-exercise/summary.json",
+                                 "exists":  true
+                             }
+                         ],
+    "mojibakeFindings":  [
+
+                         ],
+    "noPurePassReason":  "All required v1.3 evidence exists, but the visual harness has structural SVG/manual-review diff evidence rather than live miniapp raster pixelmatch.",
+    "limitations":  [
+                        "T19 passed with limitation",
+                        "T25 passed with limitation",
+                        "T26 passed with limitation",
+                        "T27 passed with limitation",
+                        "T28 passed with limitation",
+                        "T30 requires manual UI review",
+                        "T31 requires manual UI review",
+                        "UI One-To-One Acceptance status is PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "Normal-Person Click Acceptance status is PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "Non-Functional Acceptance status is PASS_NEEDS_MANUAL_UI_REVIEW"
+                    ],
+    "failures":  [
+
+                 ]
+}

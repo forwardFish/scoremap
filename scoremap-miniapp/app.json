@@ -1,4 +1,4 @@
-﻿{
+{
   "pages": [
     "pages/index/index",
     "pages/analysis/index",
@@ -9,6 +9,10 @@
     "pages/full-unlock/index",
     "pages/full-report-entry/index",
     "pages/full-report/index",
+    "pages/wrong-question/index",
+    "pages/ai-tutor/index",
+    "pages/ai-exercise/index",
+    "pages/ai-exercise-feedback/index",
     "pages/my/index",
     "pages/reports/index",
     "pages/orders/index",

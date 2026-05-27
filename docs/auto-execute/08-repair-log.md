@@ -1,0 +1,372 @@
+﻿
+## Gap repair planning 2026-05-25 18:12:02
+
+- GAP-STORY-TARGET-STORY-QUALITY-1: Run story extraction, curation, and normalization before final gate.
+- GAP-UI-000: Generate ui-target.json from UI references and rerun comparison.
+- GAP-STORY-TARGET-STORY-QUALITY-1: Run story extraction, curation, and normalization before final gate.
+- GAP-UI-000: Generate ui-target.json from UI references and rerun comparison.
+- GAP-REQ-001: Normalize docs/auto-execute/requirement-candidates.json into requirement-target.json with P0/P1/P2 acceptance criteria, surfaces, and evidence expectations.
+- GAP-UI-000: Generate ui-target.json from UI references and rerun comparison.
+
+## Gap repair planning 2026-05-25 19:03:33
+
+- GAP-V13-R01-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R01.
+- GAP-V13-R01-LIMITATION-REASON: Record the exact limitation and why it is acceptable.
+- GAP-V13-R02-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R02.
+- GAP-V13-R03-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R03.
+- GAP-V13-R04-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R04.
+- GAP-V13-R05-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R05.
+- GAP-V13-R06-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R06.
+- GAP-V13-R07-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R07.
+- GAP-V13-R08-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R08.
+- GAP-V13-R09-STATUS: Implement or repair V13-R09, then update requirement-target.json with truthful evidence.
+- GAP-V13-R09-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R09.
+- GAP-V13-R10-STATUS: Implement or repair V13-R10, then update requirement-target.json with truthful evidence.
+- GAP-V13-R10-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R10.
+- GAP-V13-R11-STATUS: Implement or repair V13-R11, then update requirement-target.json with truthful evidence.
+- GAP-V13-R11-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R11.
+- GAP-V13-R12-STATUS: Implement or repair V13-R12, then update requirement-target.json with truthful evidence.
+- GAP-V13-R12-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R12.
+- GAP-V13-R13-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R13.
+- GAP-V13-R14-STATUS: Implement or repair V13-R14, then update requirement-target.json with truthful evidence.
+- GAP-V13-R14-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R14.
+- GAP-V13-R15-STATUS: Implement or repair V13-R15, then update requirement-target.json with truthful evidence.
+- GAP-V13-R15-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R15.
+- GAP-STORY-REPORT-002-STATUS: Implement/repair STORY-REPORT-002 and attach truthful test-point evidence.
+- GAP-TP-STORY-REPORT-002-001-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-002-001-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-001.
+- GAP-TP-STORY-REPORT-002-002-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-002-002-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-002.
+- GAP-TP-STORY-REPORT-002-003-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-002-003-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-003.
+- GAP-TP-STORY-REPORT-002-004-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-002-004-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-004.
+- GAP-TP-STORY-REPORT-002-005-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-002-005-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-005.
+- GAP-TP-STORY-REPORT-002-006-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-002-006-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-006.
+- GAP-STORY-REPORT-003-STATUS: Implement/repair STORY-REPORT-003 and attach truthful test-point evidence.
+- GAP-TP-STORY-REPORT-003-001-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-001.
+- GAP-TP-STORY-REPORT-003-002-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-002-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-002.
+- GAP-TP-STORY-REPORT-003-003-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-003-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-003.
+- GAP-TP-STORY-REPORT-003-004-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-004-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-004.
+- GAP-TP-STORY-REPORT-003-005-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-005-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-005.
+- GAP-TP-STORY-REPORT-003-006-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-006-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-006.
+- GAP-TP-STORY-REPORT-003-007-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-007-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-007.
+- GAP-STORY-GENERAL-006-STATUS: Implement/repair STORY-GENERAL-006 and attach truthful test-point evidence.
+- GAP-TP-STORY-GENERAL-006-001-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-001-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-001.
+- GAP-TP-STORY-GENERAL-006-002-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-002-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-002.
+- GAP-TP-STORY-GENERAL-006-003-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-003-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-003.
+- GAP-TP-STORY-GENERAL-006-004-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-004-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-004.
+- GAP-TP-STORY-GENERAL-006-005-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-005-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-005.
+- GAP-TP-STORY-GENERAL-006-006-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-006-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-006.
+- GAP-TP-STORY-GENERAL-006-007-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-007-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-007.
+- GAP-STORY-REPORT-009-STATUS: Implement/repair STORY-REPORT-009 and attach truthful test-point evidence.
+- GAP-TP-STORY-REPORT-009-001-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-009-001-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-009-001.
+- GAP-TP-STORY-REPORT-009-002-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-009-002-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-009-002.
+- GAP-TP-STORY-REPORT-009-003-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-009-003-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-009-003.
+- GAP-TP-STORY-REPORT-009-004-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-009-004-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-009-004.
+- GAP-TP-STORY-REPORT-009-005-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-009-005-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-009-005.
+- GAP-UI-C01: Implement/capture/compare UI target UI-C01.
+- GAP-UI-C01-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C01.
+- GAP-UI-C03: Implement/capture/compare UI target UI-C03.
+- GAP-UI-C03-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C03.
+- GAP-UI-C04: Implement/capture/compare UI target UI-C04.
+- GAP-UI-C04-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C04.
+- GAP-UI-C05: Implement/capture/compare UI target UI-C05.
+- GAP-UI-C05-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C05.
+- GAP-UI-C06: Implement/capture/compare UI target UI-C06.
+- GAP-UI-C06-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C06.
+- GAP-UI-C07: Implement/capture/compare UI target UI-C07.
+- GAP-UI-C07-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C07.
+- GAP-UI-C08: Implement/capture/compare UI target UI-C08.
+- GAP-UI-C08-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C08.
+- GAP-UI-C09: Implement/capture/compare UI target UI-C09.
+- GAP-UI-C09-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C09.
+- GAP-UI-C10: Implement/capture/compare UI target UI-C10.
+- GAP-UI-C10-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C10.
+- GAP-UI-C11: Implement/capture/compare UI target UI-C11.
+- GAP-UI-C11-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C11.
+- GAP-V13-UI-FULL-REPORT: Implement/capture/compare UI target V13-UI-FULL-REPORT.
+- GAP-V13-UI-FULL-REPORT-VISUAL-STATUS: Capture and compare visual evidence for UI target V13-UI-FULL-REPORT.
+- GAP-V13-UI-QUESTION-DETAIL: Implement/capture/compare UI target V13-UI-QUESTION-DETAIL.
+- GAP-V13-UI-QUESTION-DETAIL-VISUAL-STATUS: Capture and compare visual evidence for UI target V13-UI-QUESTION-DETAIL.
+- GAP-V13-UI-AI-TUTOR: Implement/capture/compare UI target V13-UI-AI-TUTOR.
+- GAP-V13-UI-AI-TUTOR-VISUAL-STATUS: Capture and compare visual evidence for UI target V13-UI-AI-TUTOR.
+- GAP-V13-UI-EXERCISE: Implement/capture/compare UI target V13-UI-EXERCISE.
+- GAP-V13-UI-EXERCISE-VISUAL-STATUS: Capture and compare visual evidence for UI target V13-UI-EXERCISE.
+- GAP-V13-UI-FEEDBACK: Implement/capture/compare UI target V13-UI-FEEDBACK.
+- GAP-V13-UI-FEEDBACK-VISUAL-STATUS: Capture and compare visual evidence for UI target V13-UI-FEEDBACK.
+- GAP-UI-C12: Implement/capture/compare UI target UI-C12.
+- GAP-V13-R01-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R01.
+- GAP-V13-R01-LIMITATION-REASON: Record the exact limitation and why it is acceptable.
+- GAP-V13-R02-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R02.
+- GAP-V13-R03-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R03.
+- GAP-V13-R04-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R04.
+- GAP-V13-R05-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R05.
+- GAP-V13-R06-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R06.
+- GAP-V13-R07-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R07.
+- GAP-V13-R08-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R08.
+- GAP-V13-R09-STATUS: Implement or repair V13-R09, then update requirement-target.json with truthful evidence.
+- GAP-V13-R09-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R09.
+- GAP-V13-R10-STATUS: Implement or repair V13-R10, then update requirement-target.json with truthful evidence.
+- GAP-V13-R10-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R10.
+- GAP-V13-R11-STATUS: Implement or repair V13-R11, then update requirement-target.json with truthful evidence.
+- GAP-V13-R11-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R11.
+- GAP-V13-R12-STATUS: Implement or repair V13-R12, then update requirement-target.json with truthful evidence.
+- GAP-V13-R12-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R12.
+- GAP-V13-R13-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R13.
+- GAP-V13-R14-STATUS: Implement or repair V13-R14, then update requirement-target.json with truthful evidence.
+- GAP-V13-R14-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R14.
+- GAP-V13-R15-STATUS: Implement or repair V13-R15, then update requirement-target.json with truthful evidence.
+- GAP-V13-R15-TEST-MAP: Specify the unit/API/E2E/screenshot evidence required for V13-R15.
+- GAP-STORY-REPORT-002-STATUS: Implement/repair STORY-REPORT-002 and attach truthful test-point evidence.
+- GAP-TP-STORY-REPORT-002-001-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-002-001-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-001.
+- GAP-TP-STORY-REPORT-002-002-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-002-002-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-002.
+- GAP-TP-STORY-REPORT-002-003-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-002-003-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-003.
+- GAP-TP-STORY-REPORT-002-004-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-002-004-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-004.
+- GAP-TP-STORY-REPORT-002-005-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-005.
+- GAP-TP-STORY-REPORT-002-006-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-002-006-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-006.
+- GAP-STORY-REPORT-003-STATUS: Implement/repair STORY-REPORT-003 and attach truthful test-point evidence.
+- GAP-TP-STORY-REPORT-003-001-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-001-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-001.
+- GAP-TP-STORY-REPORT-003-002-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-002-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-002.
+- GAP-TP-STORY-REPORT-003-003-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-003-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-003.
+- GAP-TP-STORY-REPORT-003-004-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-004-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-004.
+- GAP-TP-STORY-REPORT-003-005-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-005-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-005.
+- GAP-TP-STORY-REPORT-003-006-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-006-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-006.
+- GAP-TP-STORY-REPORT-003-007-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-007-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-007.
+- GAP-STORY-GENERAL-006-STATUS: Implement/repair STORY-GENERAL-006 and attach truthful test-point evidence.
+- GAP-TP-STORY-GENERAL-006-001-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-001-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-001.
+- GAP-TP-STORY-GENERAL-006-002-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-002-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-002.
+- GAP-TP-STORY-GENERAL-006-003-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-003-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-003.
+- GAP-TP-STORY-GENERAL-006-004-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-004-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-004.
+- GAP-TP-STORY-GENERAL-006-005-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-005-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-005.
+- GAP-TP-STORY-GENERAL-006-006-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-006-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-006.
+- GAP-TP-STORY-GENERAL-006-007-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-007-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-007.
+- GAP-STORY-REPORT-009-STATUS: Implement/repair STORY-REPORT-009 and attach truthful test-point evidence.
+- GAP-TP-STORY-REPORT-009-001-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-009-001-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-009-001.
+- GAP-TP-STORY-REPORT-009-002-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-009-002-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-009-002.
+- GAP-TP-STORY-REPORT-009-003-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-009-003-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-009-003.
+- GAP-TP-STORY-REPORT-009-004-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-009-004-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-009-004.
+- GAP-TP-STORY-REPORT-009-005-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-009-005-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-009-005.
+- GAP-UI-C01: Implement/capture/compare UI target UI-C01.
+- GAP-UI-C01-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C01.
+- GAP-UI-C03: Implement/capture/compare UI target UI-C03.
+- GAP-UI-C03-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C03.
+- GAP-UI-C04: Implement/capture/compare UI target UI-C04.
+- GAP-UI-C04-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C04.
+- GAP-UI-C05: Implement/capture/compare UI target UI-C05.
+- GAP-UI-C05-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C05.
+- GAP-UI-C06: Implement/capture/compare UI target UI-C06.
+- GAP-UI-C06-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C06.
+- GAP-UI-C07: Implement/capture/compare UI target UI-C07.
+- GAP-UI-C07-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C07.
+- GAP-UI-C08: Implement/capture/compare UI target UI-C08.
+- GAP-UI-C08-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C08.
+- GAP-UI-C09: Implement/capture/compare UI target UI-C09.
+- GAP-UI-C09-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C09.
+- GAP-UI-C10: Implement/capture/compare UI target UI-C10.
+- GAP-UI-C10-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C10.
+- GAP-UI-C11: Implement/capture/compare UI target UI-C11.
+- GAP-UI-C11-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C11.
+- GAP-V13-UI-FULL-REPORT: Implement/capture/compare UI target V13-UI-FULL-REPORT.
+- GAP-V13-UI-FULL-REPORT-VISUAL-STATUS: Capture and compare visual evidence for UI target V13-UI-FULL-REPORT.
+- GAP-V13-UI-QUESTION-DETAIL: Implement/capture/compare UI target V13-UI-QUESTION-DETAIL.
+- GAP-V13-UI-QUESTION-DETAIL-VISUAL-STATUS: Capture and compare visual evidence for UI target V13-UI-QUESTION-DETAIL.
+- GAP-V13-UI-AI-TUTOR: Implement/capture/compare UI target V13-UI-AI-TUTOR.
+- GAP-V13-UI-AI-TUTOR-VISUAL-STATUS: Capture and compare visual evidence for UI target V13-UI-AI-TUTOR.
+- GAP-V13-UI-EXERCISE: Implement/capture/compare UI target V13-UI-EXERCISE.
+- GAP-V13-UI-EXERCISE-VISUAL-STATUS: Capture and compare visual evidence for UI target V13-UI-EXERCISE.
+- GAP-V13-UI-FEEDBACK: Implement/capture/compare UI target V13-UI-FEEDBACK.
+- GAP-V13-UI-FEEDBACK-VISUAL-STATUS: Capture and compare visual evidence for UI target V13-UI-FEEDBACK.
+- GAP-UI-C12: Implement/capture/compare UI target UI-C12.
+- GAP-V13-R09: Implement and attach evidence for requirement V13-R09.
+- GAP-V13-R10: Implement and attach evidence for requirement V13-R10.
+- GAP-V13-R11: Implement and attach evidence for requirement V13-R11.
+- GAP-V13-R12: Implement and attach evidence for requirement V13-R12.
+- GAP-V13-R14: Implement and attach evidence for requirement V13-R14.
+- GAP-V13-R15: Implement and attach evidence for requirement V13-R15.
+- GAP-UI-C01: Implement/capture/compare UI target UI-C01.
+- GAP-UI-C01-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C01.
+- GAP-UI-C03: Implement/capture/compare UI target UI-C03.
+- GAP-UI-C03-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C03.
+- GAP-UI-C04: Implement/capture/compare UI target UI-C04.
+- GAP-UI-C04-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C04.
+- GAP-UI-C05: Implement/capture/compare UI target UI-C05.
+- GAP-UI-C05-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C05.
+- GAP-UI-C06: Implement/capture/compare UI target UI-C06.
+- GAP-UI-C06-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C06.
+- GAP-UI-C07: Implement/capture/compare UI target UI-C07.
+- GAP-UI-C07-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C07.
+- GAP-UI-C08: Implement/capture/compare UI target UI-C08.
+- GAP-UI-C08-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C08.
+- GAP-UI-C09: Implement/capture/compare UI target UI-C09.
+- GAP-UI-C09-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C09.
+- GAP-UI-C10: Implement/capture/compare UI target UI-C10.
+- GAP-UI-C10-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C10.
+- GAP-UI-C11: Implement/capture/compare UI target UI-C11.
+- GAP-UI-C11-VISUAL-STATUS: Capture and compare visual evidence for UI target UI-C11.
+- GAP-V13-UI-FULL-REPORT: Implement/capture/compare UI target V13-UI-FULL-REPORT.
+- GAP-V13-UI-FULL-REPORT-VISUAL-STATUS: Capture and compare visual evidence for UI target V13-UI-FULL-REPORT.
+- GAP-V13-UI-QUESTION-DETAIL: Implement/capture/compare UI target V13-UI-QUESTION-DETAIL.
+- GAP-V13-UI-QUESTION-DETAIL-VISUAL-STATUS: Capture and compare visual evidence for UI target V13-UI-QUESTION-DETAIL.
+- GAP-V13-UI-AI-TUTOR: Implement/capture/compare UI target V13-UI-AI-TUTOR.
+- GAP-V13-UI-AI-TUTOR-VISUAL-STATUS: Capture and compare visual evidence for UI target V13-UI-AI-TUTOR.
+- GAP-V13-UI-EXERCISE: Implement/capture/compare UI target V13-UI-EXERCISE.
+- GAP-V13-UI-EXERCISE-VISUAL-STATUS: Capture and compare visual evidence for UI target V13-UI-EXERCISE.
+- GAP-V13-UI-FEEDBACK: Implement/capture/compare UI target V13-UI-FEEDBACK.
+- GAP-V13-UI-FEEDBACK-VISUAL-STATUS: Capture and compare visual evidence for UI target V13-UI-FEEDBACK.
+- GAP-UI-C12: Implement/capture/compare UI target UI-C12.
+
+## Gap repair planning 2026-05-25 19:11:15
+
+- GAP-STORY-REPORT-002-STATUS: Implement/repair STORY-REPORT-002 and attach truthful test-point evidence.
+- GAP-TP-STORY-REPORT-002-001-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-002-001-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-001.
+- GAP-TP-STORY-REPORT-002-002-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-002-002-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-002.
+- GAP-TP-STORY-REPORT-002-003-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-002-003-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-003.
+- GAP-TP-STORY-REPORT-002-004-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-002-004-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-004.
+- GAP-TP-STORY-REPORT-002-005-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-002-005-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-005.
+- GAP-TP-STORY-REPORT-002-006-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-002-006-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-006.
+- GAP-STORY-REPORT-003-STATUS: Implement/repair STORY-REPORT-003 and attach truthful test-point evidence.
+- GAP-TP-STORY-REPORT-003-001-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-001-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-001.
+- GAP-TP-STORY-REPORT-003-002-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-002-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-002.
+- GAP-TP-STORY-REPORT-003-003-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-003-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-003.
+- GAP-TP-STORY-REPORT-003-004-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-004-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-004.
+- GAP-TP-STORY-REPORT-003-005-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-005-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-005.
+- GAP-TP-STORY-REPORT-003-006-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-006-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-006.
+- GAP-TP-STORY-REPORT-003-007-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-007-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-007.
+- GAP-STORY-GENERAL-006-STATUS: Implement/repair STORY-GENERAL-006 and attach truthful test-point evidence.
+- GAP-TP-STORY-GENERAL-006-001-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-001-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-001.
+- GAP-TP-STORY-GENERAL-006-002-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-002-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-002.
+- GAP-TP-STORY-GENERAL-006-003-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-003-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-003.
+- GAP-TP-STORY-GENERAL-006-004-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-004-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-004.
+- GAP-TP-STORY-GENERAL-006-005-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-005-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-005.
+- GAP-TP-STORY-GENERAL-006-006-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-006-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-006.
+- GAP-TP-STORY-GENERAL-006-007-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-007-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-007.
+- GAP-STORY-REPORT-009-STATUS: Implement/repair STORY-REPORT-009 and attach truthful test-point evidence.
+- GAP-TP-STORY-REPORT-009-001-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-009-001-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-009-001.
+- GAP-TP-STORY-REPORT-009-002-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-009-002-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-009-002.
+- GAP-TP-STORY-REPORT-009-003-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-009-003-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-009-003.
+- GAP-TP-STORY-REPORT-009-004-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-009-004-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-009-004.
+- GAP-TP-STORY-REPORT-009-005-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-009-005-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-009-005.
+- GAP-STORY-REPORT-002-STATUS: Implement/repair STORY-REPORT-002 and attach truthful test-point evidence.
+- GAP-TP-STORY-REPORT-002-001-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-002-001-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-001.
+- GAP-TP-STORY-REPORT-002-002-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-002-002-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-002.
+- GAP-TP-STORY-REPORT-002-003-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-002-003-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-003.
+- GAP-TP-STORY-REPORT-002-004-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-002-004-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-004.
+- GAP-TP-STORY-REPORT-002-005-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-002-005-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-005.
+- GAP-TP-STORY-REPORT-002-006-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-002-006-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-002-006.
+- GAP-STORY-REPORT-003-STATUS: Implement/repair STORY-REPORT-003 and attach truthful test-point evidence.
+- GAP-TP-STORY-REPORT-003-001-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-001-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-001.
+- GAP-TP-STORY-REPORT-003-002-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-002-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-002.
+- GAP-TP-STORY-REPORT-003-003-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-003-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-003.
+- GAP-TP-STORY-REPORT-003-004-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-004-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-004.
+- GAP-TP-STORY-REPORT-003-005-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-005-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-005.
+- GAP-TP-STORY-REPORT-003-006-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-006-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-006.
+- GAP-TP-STORY-REPORT-003-007-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-003-007-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-003-007.
+- GAP-STORY-GENERAL-006-STATUS: Implement/repair STORY-GENERAL-006 and attach truthful test-point evidence.
+- GAP-TP-STORY-GENERAL-006-001-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-001-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-001.
+- GAP-TP-STORY-GENERAL-006-002-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-002-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-002.
+- GAP-TP-STORY-GENERAL-006-003-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-003-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-003.
+- GAP-TP-STORY-GENERAL-006-004-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-004-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-004.
+- GAP-TP-STORY-GENERAL-006-005-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-005-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-005.
+- GAP-TP-STORY-GENERAL-006-006-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-006-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-006.
+- GAP-TP-STORY-GENERAL-006-007-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-GENERAL-006-007-EVIDENCE: Attach executable evidence for TP-STORY-GENERAL-006-007.
+- GAP-STORY-REPORT-009-STATUS: Implement/repair STORY-REPORT-009 and attach truthful test-point evidence.
+- GAP-TP-STORY-REPORT-009-001-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-009-001-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-009-001.
+- GAP-TP-STORY-REPORT-009-002-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-009-002-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-009-002.
+- GAP-TP-STORY-REPORT-009-003-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-009-003-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-009-003.
+- GAP-TP-STORY-REPORT-009-004-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-009-004-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-009-004.
+- GAP-TP-STORY-REPORT-009-005-STATUS: Run or implement the test point and attach evidence.
+- GAP-TP-STORY-REPORT-009-005-EVIDENCE: Attach executable evidence for TP-STORY-REPORT-009-005.

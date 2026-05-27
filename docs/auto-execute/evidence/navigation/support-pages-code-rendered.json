@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "command": "npm test -- navigation",
+  "assertions": [
+    {
+      "page": "/pages/reports/index",
+      "hotspotCount": 4,
+      "reference": "",
+      "codeRendered": true
+    },
+    {
+      "page": "/pages/orders/index",
+      "hotspotCount": 1,
+      "reference": "",
+      "codeRendered": true
+    },
+    {
+      "page": "/pages/feedback/index",
+      "hotspotCount": 1,
+      "reference": "",
+      "codeRendered": true
+    },
+    {
+      "page": "/pages/scaffold/index",
+      "hotspotCount": 1,
+      "reference": "",
+      "codeRendered": true
+    }
+  ],
+  "referencePolicy": "reports/orders/feedback/scaffold have no standalone pixel references; they are judged by route, state, behavior, and structural visual evidence."
+}

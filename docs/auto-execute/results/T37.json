@@ -1,0 +1,75 @@
+{
+  "taskId": "T37",
+  "title": "old flow preview payment result",
+  "status": "PASS_WITH_LIMITATION",
+  "generatedAt": "2026-05-27T00:00:00.000Z",
+  "scope": [
+    "scoremap-miniapp/pages/preview",
+    "scoremap-miniapp/pages/basic-pay",
+    "scoremap-miniapp/pages/basic-result"
+  ],
+  "implemented": [
+    "Rebuilt preview WXML/WXSS as a page-specific old-flow replica with three visible modules, locked content, and 1 yuan complete-basic CTA.",
+    "Rebuilt basic-pay WXML/WXSS as a confirmation/payment screen with header, three-step progress, preview list, locked rows, and local 1 yuan CTA.",
+    "Rebuilt basic-result WXML/WXSS as a complete basic decision result with summary, quality/object metadata, loss points, weaknesses, advice, 9.9 full-unlock CTA, and local reports navigation.",
+    "Bound visible basic-pay back control to the preview route and basic-result secondary control to the reports route in the miniapp Page replica config."
+  ],
+  "requiredBehavior": {
+    "previewThreeModules": "PASS",
+    "previewLockedArea": "PASS",
+    "previewOneYuanCta": "PASS",
+    "basicPayLocalMockPayment": "PASS",
+    "basicPayRoutesToBasicResult": "PASS",
+    "basicResultDecisionContent": "PASS",
+    "basicResultFullUnlockCta": "PASS",
+    "basicResultReportNavigation": "PASS",
+    "visiblePayShareExportControls": "PASS"
+  },
+  "verification": [
+    {
+      "command": "npm test -- preview-basic-pay basic-result-full-unlock payment-api",
+      "status": "FAIL",
+      "reason": "Repository test runner treats multiple selectors as an AND match and has no single group tagged with all three selectors."
+    },
+    {
+      "command": "npm test -- preview-basic-pay",
+      "status": "PASS",
+      "evidence": [
+        "docs/auto-execute/evidence/frontend-page/preview-basic-pay-route-controls.json",
+        "docs/auto-execute/evidence/frontend-page/preview-basic-pay-api-db.json",
+        "docs/auto-execute/evidence/frontend-page/preview-basic-pay-owner-local.json"
+      ]
+    },
+    {
+      "command": "npm test -- basic-result-full-unlock",
+      "status": "PASS",
+      "evidence": [
+        "docs/auto-execute/evidence/frontend-page/basic-result-full-unlock-route-controls.json",
+        "docs/auto-execute/evidence/frontend-page/basic-result-full-unlock-api-db.json",
+        "docs/auto-execute/evidence/frontend-page/basic-result-full-unlock-owner-local.json"
+      ]
+    },
+    {
+      "command": "npm --prefix server test -- payment",
+      "status": "PASS",
+      "evidence": [
+        "docs/auto-execute/evidence/backend-api-payment/basic-payment.json",
+        "docs/auto-execute/evidence/backend-api-payment/full-payment.json",
+        "docs/auto-execute/evidence/backend-api-payment/failure-recovery-branches.json"
+      ]
+    },
+    {
+      "command": "npm run e2e:owner -- old-flow-preview-payment-result",
+      "status": "PASS"
+    },
+    {
+      "command": "npm run visual:scoremap -- preview basic-pay basic-result",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "reason": "The local visual harness writes deterministic structural artifacts and does not claim live miniapp pixel-perfect PASS."
+    }
+  ],
+  "knownLimitations": [
+    "Pure PASS is not claimed because the exact combined npm test selector is incompatible with the current test runner grouping.",
+    "Visual verification remains PASS_NEEDS_MANUAL_UI_REVIEW because this harness does not run a live WeChat raster pixelmatch."
+  ]
+}

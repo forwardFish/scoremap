@@ -1,4 +1,4 @@
-﻿if (typeof App === 'function') {
+if (typeof App === 'function') {
   App({
     globalData: {
       localOnly: true,

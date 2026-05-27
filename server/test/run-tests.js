@@ -3,10 +3,14 @@ const path = require('node:path');
 
 const requested = new Set(process.argv.slice(2).map((arg) => arg.toLowerCase()));
 const allTests = [
+  { tags: ['ai-adapter', 'prompt-registry', 'local-only'], file: 'ai-adapter.test.js' },
+  { tags: ['real-llm', 'deepseek', 'ai-config'], file: 'deepseek-real-adapter.test.js' },
   { tags: ['adapters', 'local-db', 'payment'], file: 'adapters.test.js' },
   { tags: ['orders', 'uploads', 'preview'], file: 'diagnosis-orders.test.js' },
   { tags: ['payment', 'entitlement'], file: 'payment-api.test.js' },
-  { tags: ['report', 'feedback', 'export'], file: 'reports-api.test.js' },
+  { tags: ['report', 'feedback', 'export', 'full-report', 'wrong-questions'], file: 'reports-api.test.js' },
+  { tags: ['question-interactions', 'db-readback'], file: 'question-interactions.test.js' },
+  { tags: ['ai-tutor', 'quota', 'auth', 'failures'], file: 'ai-tutor-api.test.js' },
   { tags: ['auth', 'recovery', 'errors'], file: 'auth-permission-recovery.test.js' }
 ];
 const selected = allTests

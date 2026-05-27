@@ -1,0 +1,11 @@
+﻿{
+    "finalVerdict":  "PENDING",
+    "lastGapCount":  108,
+    "nextAgentAction":  "docs\\auto-execute\\next-agent-action.md",
+    "maxRounds":  5,
+    "currentRound":  4,
+    "strict":  false,
+    "updatedAt":  "2026-05-25T19:11:22",
+    "status":  "REPAIR_REQUIRED",
+    "repairPlan":  "docs\\auto-execute\\repair-plan.md"
+}

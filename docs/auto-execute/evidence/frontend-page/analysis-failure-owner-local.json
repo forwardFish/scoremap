@@ -32,10 +32,10 @@
   "visualEvidence": {
     "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
     "references": [
-      "docs/UI/小程序/AI分析.png",
-      "docs/UI/小程序/处理失败.png",
-      "docs/UI/小程序/stitch_codex_development_blueprints/ai_1/screen.png",
-      "docs/UI/小程序/stitch_codex_development_blueprints/_3/screen.png"
+      "ui-reference-catalog/小程序/AI分析.png",
+      "ui-reference-catalog/小程序/处理失败.png",
+      "ui-reference-catalog/小程序/stitch_codex_development_blueprints/ai_1/screen-reference",
+      "ui-reference-catalog/小程序/stitch_codex_development_blueprints/_3/screen-reference"
     ],
     "expectedVisualCommand": "npm run visual:scoremap -- analysis failure",
     "limitation": "T08 visual runner produces deterministic structural artifacts and metrics. Pixel-perfect screenshot capture remains assigned to T14."

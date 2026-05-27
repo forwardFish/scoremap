@@ -1,0 +1,72 @@
+{
+  "taskId": "T36",
+  "title": "old flow home analysis failure",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "completedAt": "2026-05-26T14:50:28.590Z",
+  "summary": "Home, analysis, and failure were rebuilt as WXML/WXSS old-flow code replicas while preserving the existing JS upload, progress, and recovery flows.",
+  "changedFiles": [
+    "scoremap-miniapp/pages/index/index.wxml",
+    "scoremap-miniapp/pages/index/index.wxss",
+    "scoremap-miniapp/pages/analysis/index.wxml",
+    "scoremap-miniapp/pages/analysis/index.wxss",
+    "scoremap-miniapp/pages/failure/index.wxml",
+    "scoremap-miniapp/pages/failure/index.wxss",
+    "docs/auto-execute/evidence/ui-one-to-one/T36/summary.json",
+    "docs/auto-execute/results/T36.json",
+    "docs/auto-execute/latest/T36-HANDOFF.md"
+  ],
+  "acceptance": {
+    "homeReplica": "PASS",
+    "analysisReplica": "PASS",
+    "failureReplica": "PASS",
+    "uploadChooseFileCreateOrder": "PASS",
+    "analysisRefreshAndLaterView": "PASS",
+    "failureRetryReuploadBackHome": "PASS",
+    "noFullscreenReferenceScreenshots": "PASS",
+    "noRemoteImagesFontsOrCdn": "PASS"
+  },
+  "verification": [
+    {
+      "command": "npm test -- home-upload analysis-failure",
+      "status": "UNAVAILABLE",
+      "details": "PowerShell blocked npm.ps1. Retried with npm.cmd; the project runner did not support this combined filter because selectors are matched as a single group."
+    },
+    {
+      "command": "npm.cmd test -- home-upload",
+      "status": "PASS",
+      "details": "4 tests passed."
+    },
+    {
+      "command": "npm.cmd test -- analysis-failure",
+      "status": "PASS",
+      "details": "3 tests passed."
+    },
+    {
+      "command": "npm.cmd run e2e:owner -- old-flow-home-analysis-failure",
+      "status": "PASS",
+      "details": "2 tests passed."
+    },
+    {
+      "command": "npm.cmd run visual:scoremap -- home analysis failure",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "details": "3 visual harness screen comparisons written; local harness requires manual UI review for pixel-level acceptance."
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS",
+      "details": "No whitespace errors; line-ending warnings only."
+    }
+  ],
+  "evidence": [
+    "docs/auto-execute/evidence/ui-one-to-one/T36/summary.json",
+    "docs/auto-execute/evidence/frontend-page/home-page-route-controls.json",
+    "docs/auto-execute/evidence/frontend-page/home-upload-api-db.json",
+    "docs/auto-execute/evidence/frontend-page/analysis-page-route-controls.json",
+    "docs/auto-execute/evidence/frontend-page/analysis-failure-api-db.json",
+    "docs/auto-execute/evidence/visual-harness/summary.json"
+  ],
+  "knownLimitations": [
+    "Visual harness status remains PASS_NEEDS_MANUAL_UI_REVIEW because this repository does not run a live WeChat simulator raster/pixelmatch gate locally.",
+    "The owner E2E script accepted the scenario argument but ran the full owner test file."
+  ]
+}

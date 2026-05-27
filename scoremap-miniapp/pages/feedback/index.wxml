@@ -1,9 +1,34 @@
-﻿<view class="replica-page {{derived ? 'derived-page' : ''}}">
-  <view class="derived-shell fallback-shell">
-    <view class="status-spacer"></view>
-    <view class="derived-title">{{title}}</view>
-    <view class="derived-card" wx:for="{{cards}}" wx:key="*this">{{item}}</view>
+<view class="feedback-screen">
+  <view class="feedback-header">
+    <text class="feedback-title">{{title}}</text>
+    <text class="feedback-subtitle">围绕当前报告提交本地反馈，保存后返回我的页面。</text>
   </view>
-  <image wx:if="{{!derived && !imageLoadFailed && reference}}" class="reference-image" src="{{reference}}" mode="widthFix" show-menu-by-longpress="false" binderror="onImageError" />
-  <button wx:for="{{hotspots}}" wx:key="action" class="hotspot {{item.className}}" data-action="{{item.action}}" bindtap="onTap" aria-label="{{item.label}}"></button>
+
+  <view class="feedback-card">
+    <text class="section-label">报告体验</text>
+    <view class="rating-row">
+      <text class="rating-chip active">有帮助</text>
+      <text class="rating-chip">不清楚</text>
+      <text class="rating-chip">不准确</text>
+    </view>
+  </view>
+
+  <view class="feedback-card">
+    <text class="section-label">反馈标签</text>
+    <view class="tag-row">
+      <text class="tag active">判断清晰</text>
+      <text class="tag active">知道下一步</text>
+      <text class="tag">需要更多讲解</text>
+    </view>
+  </view>
+
+  <view class="feedback-card">
+    <text class="section-label">补充说明</text>
+    <view class="feedback-textarea">
+      <text>本地反馈：希望报告继续明确下一步练习建议。</text>
+    </view>
+    <text class="feedback-note">提交行为写入本地 mock 数据库，不会访问线上服务。</text>
+  </view>
+
+  <button class="feedback-submit" data-action="my" bindtap="onTap">提交并返回</button>
 </view>

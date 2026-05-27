@@ -1,0 +1,50 @@
+{
+  "id": "V13-UI-EXERCISE",
+  "screen": "v13-similar-exercise",
+  "referenceKey": "_4",
+  "route": "/pages/ai-exercise/index?interactionId={interactionId}",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "reference": "docs/auto-execute/evidence/visual-harness/v13-similar-exercise/reference.png",
+  "sourceReference": "docs/UI/小程序/stitch_codex_ui_design_kit/_4/screen.png",
+  "declaredReference": "docs/UI/小程序/stitch_codex_ui_design_kit/_4/screen.png",
+  "stitchReference": "docs/UI/小程序/stitch_codex_ui_design_kit/_4/screen.png",
+  "miniappActualAsset": null,
+  "actual": "docs/auto-execute/evidence/visual-harness/v13-similar-exercise/actual.svg",
+  "diff": "docs/auto-execute/evidence/visual-harness/v13-similar-exercise/diff.svg",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "comparison": {
+    "method": "artifact-metadata-equivalence",
+    "reference": {
+      "exists": true,
+      "path": "docs/UI/小程序/stitch_codex_ui_design_kit/_4/screen.png",
+      "bytes": 133542,
+      "sha256": "5793bbec7977547f2bfd900cdafed0e3d5a4bf1a823e3ce3723409b684e445ae",
+      "extension": ".png"
+    },
+    "actual": {
+      "exists": true,
+      "path": "docs/auto-execute/evidence/visual-harness/v13-similar-exercise/actual.svg",
+      "bytes": 2326,
+      "sha256": "d2ce1d7417eec496ad291580663c2910ee3c00483844394d9c7fb8b2ede4e929",
+      "extension": ".svg"
+    },
+    "byteLengthDelta": 131216,
+    "sha256Equal": false,
+    "rasterPixelRatio": null
+  },
+  "pixelDiff": {
+    "status": "MANUAL_REVIEW_REQUIRED",
+    "ratio": null,
+    "threshold": null,
+    "canClaimPixelPerfect": false,
+    "reason": "No live WeChat simulator raster is available in this local harness for this derived or missing-reference page."
+  },
+  "localOnly": {
+    "usesLocalFixtures": true,
+    "remoteNetworkCalls": 0
+  },
+  "knownGaps": []
+}

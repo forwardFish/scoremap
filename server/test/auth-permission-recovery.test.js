@@ -5,6 +5,7 @@ const os = require('node:os');
 const path = require('node:path');
 const { test } = require('node:test');
 const { DEFAULT_FORBIDDEN_PATTERNS, assertLocalOnlyEnvironment, scanTextForForbiddenRemoteCalls } = require('../../shared/local-only');
+const { writeJsonEvidence } = require('../../shared/evidence-paths');
 const { mapApiErrorToRecovery, resolveProtectedRouteState } = require('../../scoremap-miniapp/services/auth-recovery-state');
 const { createLocalAdapters } = require('../src/adapters');
 const { createDiagnosisOrdersRouter } = require('../src/routes/diagnosis-orders');
@@ -12,12 +13,10 @@ const { createPaymentsRouter } = require('../src/routes/payments');
 const { createReportsRouter } = require('../src/routes/reports');
 
 const projectRoot = path.resolve(__dirname, '..', '..');
-const evidenceDir = path.join(projectRoot, 'docs', 'auto-execute', 'evidence', 'contract-security');
 const command = 'npm --prefix server test -- auth recovery errors';
 
 function writeEvidence(name, payload) {
-  fs.mkdirSync(evidenceDir, { recursive: true });
-  fs.writeFileSync(path.join(evidenceDir, name), `${JSON.stringify(payload, null, 2)}\n`);
+  writeJsonEvidence(projectRoot, path.join('contract-security', name), payload);
 }
 
 function makeAdapters() {

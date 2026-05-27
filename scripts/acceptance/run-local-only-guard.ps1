@@ -61,13 +61,13 @@ $summary = Read-JsonFile $summaryPath
 $apiSummary = Read-JsonFile $apiSummaryPath
 
 $localAssertions = @()
-if ($assertions -and $assertions.localOnlyEvidence) {
+if ($assertions -and ($assertions.PSObject.Properties.Name -contains 'localOnlyEvidence') -and $assertions.localOnlyEvidence) {
   $localAssertions += $assertions.localOnlyEvidence
 }
-if ($summary -and $summary.localOnly) {
+if ($summary -and ($summary.PSObject.Properties.Name -contains 'localOnly') -and $summary.localOnly) {
   $localAssertions += $summary.localOnly
 }
-if ($apiSummary -and $apiSummary.localOnly) {
+if ($apiSummary -and ($apiSummary.PSObject.Properties.Name -contains 'localOnly') -and $apiSummary.localOnly) {
   $localAssertions += $apiSummary.localOnly
 }
 

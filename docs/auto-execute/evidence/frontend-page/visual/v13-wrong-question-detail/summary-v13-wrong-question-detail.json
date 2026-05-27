@@ -1,0 +1,33 @@
+{
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "metrics": {
+    "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+    "command": "npm run visual:scoremap -- v13-wrong-question-detail",
+    "route": "/pages/wrong-question/index",
+    "reference": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/_1/screen-reference",
+    "stitchReference": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/_1/code.html",
+    "actual": "docs/auto-execute/evidence/frontend-page/visual/v13-wrong-question-detail/actual-v13-wrong-question-detail-structure.svg",
+    "diff": "docs/auto-execute/evidence/frontend-page/visual/v13-wrong-question-detail/diff-v13-wrong-question-detail-manual-review.svg",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "structuralChecks": {
+      "hasV13Reference": true,
+      "hasOriginalQuestion": true,
+      "hasStudentAnswer": true,
+      "hasCorrectAnswer": true,
+      "hasKnowledgePoint": true,
+      "hasDiagnosis": true,
+      "hasExplanationSummary": true,
+      "hasAiTeacherCta": true,
+      "hasHistoryRow": true,
+      "hasBottomNav": true
+    },
+    "pixelDiff": {
+      "status": "MANUAL_REVIEW_REQUIRED",
+      "ratio": null,
+      "reason": "This T26 runner produces deterministic structural visual evidence only; T30 owns full raster screenshot and pixel comparison."
+    }
+  }
+}

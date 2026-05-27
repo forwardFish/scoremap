@@ -1,0 +1,32 @@
+﻿{
+    "blockers":  [
+                     "Project-specific full-flow test required"
+                 ],
+    "commands":  [
+
+                 ],
+    "lane":  "e2e-flow",
+    "status":  "MANUAL_REVIEW_REQUIRED",
+    "evidence":  [
+                     "docs\\auto-execute\\FULL_FLOW_ACCEPTANCE.md",
+                     "docs/auto-execute/logs",
+                     "docs/auto-execute/results/generated-story-tests.json"
+                 ],
+    "schemaVersion":  "2.0",
+    "nextActions":  [
+                        "Implement or configure a full-flow/E2E verifier for P0/P1 requirements."
+                    ],
+    "updatedAt":  "2026-05-25T19:11:07",
+    "failureClass":  "code-or-test",
+    "e2eEnvironment":  {
+                           "playwrightPackageAvailable":  false,
+                           "npxAvailable":  true,
+                           "browserAvailable":  false,
+                           "baseUrlConfigured":  false,
+                           "serverReachable":  false
+                       },
+    "e2eClassification":  "CODE_OR_FLOW_FAILURE",
+    "diagnosis":  "Fallback full-flow smoke needs project-specific E2E implementation or code/test repair.",
+    "evidenceKind":  "integration-smoke-fallback",
+    "p0p1E2EStoryCount":  0
+}

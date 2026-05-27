@@ -1,0 +1,1165 @@
+{
+  "status": "PASS",
+  "command": "npm test -- my-reports-ai-tutor",
+  "requirementIds": [
+    "V13-R03"
+  ],
+  "ownerScenarioIds": [
+    "V13-O22"
+  ],
+  "acceptance": {
+    "myReportsShowsQuota": "PASS",
+    "savedFullReportCanResume": "PASS",
+    "wrongQuestionResumeTarget": "PASS",
+    "interactionHistoryEntryPoint": "PASS"
+  },
+  "renderedState": {
+    "my": {
+      "route": "/pages/my/index",
+      "title": "我的",
+      "tab": "my",
+      "uiReference": {
+        "png": "ui-reference-catalog/小程序/我的.png",
+        "stitch": "ui-reference-catalog/小程序/stitch_codex_development_blueprints/_1/screen-reference"
+      },
+      "profile": {
+        "avatarText": "家长",
+        "nickname": "匿名家长",
+        "userId": "local-user-scoremap-t06",
+        "copyControl": {
+          "id": "copy-user-id",
+          "text": "复制 ID"
+        }
+      },
+      "rightsCard": {
+        "title": "我的权益",
+        "subtitle": "已购报告权益 / 内测体验权益",
+        "proTreatment": "MVP placeholder only; no subscription, renewal, or real membership purchase is exposed."
+      },
+      "stats": [
+        {
+          "id": "generated-reports",
+          "label": "已生成报告",
+          "value": 2
+        },
+        {
+          "id": "analyzing",
+          "label": "分析中",
+          "value": 1
+        },
+        {
+          "id": "need-material",
+          "label": "待补资料",
+          "value": 0
+        }
+      ],
+      "recentReports": [
+        {
+          "orderId": "order-t12-full",
+          "title": "五年级数学单元测验完整报告",
+          "grade": "五年级",
+          "subject": "数学",
+          "examType": "单元测验",
+          "status": "full_done",
+          "accessLevel": "full",
+          "createdAt": "2026-05-22T10:00:00Z",
+          "savedReport": true,
+          "paymentStatus": "paid",
+          "paidAmountYuan": 10.9,
+          "aiTutor": {
+            "formalEntitlement": true,
+            "statusText": "完整报告 AI 追问可继续",
+            "remainingText": "本报告剩余 8/10 次",
+            "reportQuota": {
+              "used": 2,
+              "total": 10,
+              "remaining": 8,
+              "text": "本报告 AI 错题追问剩余 8/10 次"
+            },
+            "wrongQuestionCount": 2,
+            "firstQuestionId": "order-t12-full-q1",
+            "historyCount": 2,
+            "historyEntry": {
+              "id": "resume-ai-tutor-history",
+              "targetRoute": "/pages/ai-tutor/index",
+              "query": {
+                "orderId": "order-t12-full",
+                "questionId": "order-t12-full-q1",
+                "tab": "history"
+              }
+            }
+          }
+        },
+        {
+          "orderId": "order-t12-analyzing",
+          "title": "分析中的数学资料",
+          "grade": "五年级",
+          "subject": "数学",
+          "examType": "课后练习",
+          "status": "analyzing",
+          "accessLevel": "preview",
+          "createdAt": "2026-05-23T08:00:00Z",
+          "savedReport": false,
+          "paymentStatus": "unpaid",
+          "paidAmountYuan": 0,
+          "aiTutor": {
+            "formalEntitlement": false,
+            "statusText": "未解锁 AI 追问",
+            "remainingText": "解锁 9.9 元完整报告后可用",
+            "historyEntry": null
+          }
+        },
+        {
+          "orderId": "order-t29-basic-only",
+          "title": "五年级数学基础初判报告",
+          "grade": "五年级",
+          "subject": "数学",
+          "examType": "单元测验",
+          "status": "basic_done",
+          "accessLevel": "basic",
+          "createdAt": "2026-05-24T08:00:00Z",
+          "savedReport": true,
+          "paymentStatus": "paid",
+          "paidAmountYuan": 1,
+          "aiTutor": {
+            "formalEntitlement": false,
+            "statusText": "基础报告未解锁正式 AI 追问",
+            "remainingText": "解锁 9.9 元完整报告后可用",
+            "historyEntry": null
+          }
+        }
+      ],
+      "quickEntries": [
+        {
+          "id": "open-reports",
+          "text": "我的报告",
+          "targetRoute": "/pages/reports/index"
+        },
+        {
+          "id": "open-orders",
+          "text": "订单记录",
+          "targetRoute": "/pages/orders/index"
+        },
+        {
+          "id": "open-purchases",
+          "text": "购买记录",
+          "targetRoute": "/pages/orders/index"
+        },
+        {
+          "id": "open-feedback",
+          "text": "帮助与反馈",
+          "targetRoute": "/pages/feedback/index"
+        }
+      ],
+      "controls": [
+        {
+          "id": "load-my-reports",
+          "text": "刷新我的报告",
+          "api": "GET /api/my/reports"
+        },
+        {
+          "id": "copy-user-id",
+          "text": "复制 ID",
+          "toast": "本地用户 ID 已复制"
+        },
+        {
+          "id": "open-reports",
+          "text": "我的报告",
+          "targetRoute": "/pages/reports/index"
+        },
+        {
+          "id": "open-orders",
+          "text": "订单记录",
+          "targetRoute": "/pages/orders/index"
+        },
+        {
+          "id": "open-purchases",
+          "text": "购买记录",
+          "targetRoute": "/pages/orders/index"
+        },
+        {
+          "id": "open-feedback",
+          "text": "帮助与反馈",
+          "targetRoute": "/pages/feedback/index"
+        },
+        {
+          "id": "new-analysis",
+          "text": "继续新建分析",
+          "targetRoute": "/pages/index/index"
+        }
+      ],
+      "bottomTabs": [
+        {
+          "id": "home",
+          "text": "首页",
+          "targetRoute": "/pages/index/index",
+          "active": false
+        },
+        {
+          "id": "my",
+          "text": "我的",
+          "targetRoute": "/pages/my/index",
+          "active": true
+        }
+      ]
+    },
+    "reports": {
+      "route": "/pages/reports/index",
+      "title": "我的报告",
+      "uiReference": {
+        "prd": "PRD C12 我的报告列表页"
+      },
+      "filterTabs": [
+        {
+          "id": "all",
+          "text": "全部",
+          "active": true
+        },
+        {
+          "id": "analyzing",
+          "text": "分析中",
+          "active": false
+        },
+        {
+          "id": "generated",
+          "text": "已生成",
+          "active": false
+        },
+        {
+          "id": "failed",
+          "text": "失败/待补",
+          "active": false
+        }
+      ],
+      "controls": [
+        {
+          "id": "load-my-reports",
+          "text": "刷新报告",
+          "api": "GET /api/my/reports"
+        }
+      ],
+      "emptyState": {
+        "visible": false
+      },
+      "cards": [
+        {
+          "orderId": "order-t12-full",
+          "title": "五年级数学单元测验完整报告",
+          "grade": "五年级",
+          "subject": "数学",
+          "examType": "单元测验",
+          "createdAt": "2026-05-22T10:00:00Z",
+          "status": "full_done",
+          "statusText": "完整报告已解锁",
+          "paymentStatus": "paid",
+          "accessLevel": "full",
+          "targetRoute": "/pages/full-report/index",
+          "actionText": "查看完整报告",
+          "savedReport": true,
+          "aiTutor": {
+            "formalEntitlement": true,
+            "statusText": "完整报告 AI 追问可继续",
+            "remainingText": "本报告剩余 8/10 次",
+            "reportQuota": {
+              "used": 2,
+              "total": 10,
+              "remaining": 8,
+              "text": "本报告 AI 错题追问剩余 8/10 次"
+            },
+            "questionQuota": {
+              "used": 0,
+              "total": 3,
+              "remaining": 3
+            },
+            "wrongQuestionCount": 2,
+            "historyCount": 2,
+            "firstQuestionId": "order-t12-full-q1",
+            "historyEntry": {
+              "id": "resume-ai-tutor-history",
+              "targetRoute": "/pages/ai-tutor/index",
+              "query": {
+                "orderId": "order-t12-full",
+                "questionId": "order-t12-full-q1",
+                "tab": "history"
+              },
+              "latest": "解释为什么用速度差。"
+            }
+          },
+          "resumeTargets": [
+            {
+              "id": "resume-report-card",
+              "targetRoute": "/pages/full-report/index",
+              "query": {
+                "orderId": "order-t12-full"
+              },
+              "resumeMode": "report",
+              "enabled": true
+            },
+            {
+              "id": "resume-wrong-question",
+              "targetRoute": "/pages/wrong-question/index",
+              "query": {
+                "orderId": "order-t12-full",
+                "questionId": "order-t12-full-q1"
+              },
+              "resumeMode": "wrongQuestion",
+              "enabled": true
+            },
+            {
+              "id": "resume-ai-tutor-history",
+              "targetRoute": "/pages/ai-tutor/index",
+              "query": {
+                "orderId": "order-t12-full",
+                "questionId": "order-t12-full-q1",
+                "tab": "history"
+              },
+              "resumeMode": "history",
+              "enabled": true
+            }
+          ]
+        },
+        {
+          "orderId": "order-t12-analyzing",
+          "title": "分析中的数学资料",
+          "grade": "五年级",
+          "subject": "数学",
+          "examType": "课后练习",
+          "createdAt": "2026-05-23T08:00:00Z",
+          "status": "analyzing",
+          "statusText": "分析中",
+          "paymentStatus": "unpaid",
+          "accessLevel": "preview",
+          "targetRoute": "/pages/analysis/index",
+          "actionText": "查看进度",
+          "savedReport": false,
+          "aiTutor": {
+            "formalEntitlement": false,
+            "statusText": "未解锁 AI 追问",
+            "remainingText": "解锁完整报告后可用",
+            "reportQuota": null,
+            "questionQuota": null,
+            "historyCount": 0,
+            "historyEntry": null
+          },
+          "resumeTargets": [
+            {
+              "id": "resume-report-card",
+              "targetRoute": "/pages/analysis/index",
+              "query": {
+                "orderId": "order-t12-analyzing"
+              },
+              "enabled": true
+            },
+            {
+              "id": "resume-ai-tutor-history",
+              "targetRoute": "/pages/analysis/index",
+              "enabled": false,
+              "disabledReason": "FULL_REPORT_ENTITLEMENT_REQUIRED"
+            }
+          ]
+        },
+        {
+          "orderId": "order-t29-basic-only",
+          "title": "五年级数学基础初判报告",
+          "grade": "五年级",
+          "subject": "数学",
+          "examType": "单元测验",
+          "createdAt": "2026-05-24T08:00:00Z",
+          "status": "basic_done",
+          "statusText": "1 元初判已解锁",
+          "paymentStatus": "paid",
+          "accessLevel": "basic",
+          "targetRoute": "/pages/basic-result/index",
+          "actionText": "查看初判结果",
+          "savedReport": true,
+          "aiTutor": {
+            "formalEntitlement": false,
+            "statusText": "基础报告未解锁正式 AI 追问",
+            "remainingText": "解锁完整报告后可用",
+            "reportQuota": null,
+            "questionQuota": null,
+            "historyCount": 0,
+            "historyEntry": null
+          },
+          "resumeTargets": [
+            {
+              "id": "resume-report-card",
+              "targetRoute": "/pages/basic-result/index",
+              "query": {
+                "orderId": "order-t29-basic-only"
+              },
+              "enabled": true
+            },
+            {
+              "id": "resume-ai-tutor-history",
+              "targetRoute": "/pages/basic-result/index",
+              "enabled": false,
+              "disabledReason": "FULL_REPORT_ENTITLEMENT_REQUIRED"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "navigationEvidence": {
+    "reportResume": {
+      "status": "NAVIGATE",
+      "orderId": "order-t12-full",
+      "targetRoute": "/pages/full-report/index",
+      "query": {
+        "orderId": "order-t12-full"
+      },
+      "resumeMode": "report",
+      "aiTutor": {
+        "formalEntitlement": true,
+        "statusText": "完整报告 AI 追问可继续",
+        "remainingText": "本报告剩余 8/10 次",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "questionQuota": {
+          "used": 0,
+          "total": 3,
+          "remaining": 3
+        },
+        "wrongQuestionCount": 2,
+        "historyCount": 2,
+        "firstQuestionId": "order-t12-full-q1",
+        "historyEntry": {
+          "id": "resume-ai-tutor-history",
+          "targetRoute": "/pages/ai-tutor/index",
+          "query": {
+            "orderId": "order-t12-full",
+            "questionId": "order-t12-full-q1",
+            "tab": "history"
+          },
+          "latest": "解释为什么用速度差。"
+        }
+      },
+      "disabledReason": null
+    },
+    "wrongQuestionResume": {
+      "status": "NAVIGATE",
+      "orderId": "order-t12-full",
+      "targetRoute": "/pages/wrong-question/index",
+      "query": {
+        "orderId": "order-t12-full",
+        "questionId": "order-t12-full-q1"
+      },
+      "resumeMode": "wrongQuestion",
+      "aiTutor": {
+        "formalEntitlement": true,
+        "statusText": "完整报告 AI 追问可继续",
+        "remainingText": "本报告剩余 8/10 次",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "questionQuota": {
+          "used": 0,
+          "total": 3,
+          "remaining": 3
+        },
+        "wrongQuestionCount": 2,
+        "historyCount": 2,
+        "firstQuestionId": "order-t12-full-q1",
+        "historyEntry": {
+          "id": "resume-ai-tutor-history",
+          "targetRoute": "/pages/ai-tutor/index",
+          "query": {
+            "orderId": "order-t12-full",
+            "questionId": "order-t12-full-q1",
+            "tab": "history"
+          },
+          "latest": "解释为什么用速度差。"
+        }
+      },
+      "disabledReason": null
+    },
+    "historyResume": {
+      "status": "NAVIGATE",
+      "orderId": "order-t12-full",
+      "targetRoute": "/pages/ai-tutor/index",
+      "query": {
+        "orderId": "order-t12-full",
+        "questionId": "order-t12-full-q1",
+        "tab": "history"
+      },
+      "resumeMode": "history",
+      "aiTutor": {
+        "formalEntitlement": true,
+        "statusText": "完整报告 AI 追问可继续",
+        "remainingText": "本报告剩余 8/10 次",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "questionQuota": {
+          "used": 0,
+          "total": 3,
+          "remaining": 3
+        },
+        "wrongQuestionCount": 2,
+        "historyCount": 2,
+        "firstQuestionId": "order-t12-full-q1",
+        "historyEntry": {
+          "id": "resume-ai-tutor-history",
+          "targetRoute": "/pages/ai-tutor/index",
+          "query": {
+            "orderId": "order-t12-full",
+            "questionId": "order-t12-full-q1",
+            "tab": "history"
+          },
+          "latest": "解释为什么用速度差。"
+        }
+      },
+      "disabledReason": null
+    }
+  },
+  "apiEvidence": [
+    {
+      "method": "GET",
+      "path": "/api/my/reports",
+      "payloadSummary": {
+        "source": "my-page-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "items": [
+          {
+            "orderId": "order-t12-full",
+            "title": "五年级数学单元测验完整报告",
+            "grade": "五年级",
+            "subject": "数学",
+            "examType": "单元测验",
+            "status": "full_done",
+            "accessLevel": "full",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": true,
+            "paymentStatus": "paid",
+            "paidAmountYuan": 10.9
+          },
+          {
+            "orderId": "order-t12-analyzing",
+            "title": "分析中的数学资料",
+            "grade": "五年级",
+            "subject": "数学",
+            "examType": "课后练习",
+            "status": "analyzing",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-23T08:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-t29-basic-only",
+            "title": "五年级数学基础初判报告",
+            "grade": "五年级",
+            "subject": "数学",
+            "examType": "单元测验",
+            "status": "basic_done",
+            "accessLevel": "basic",
+            "createdAt": "2026-05-24T08:00:00Z",
+            "savedReport": true,
+            "paymentStatus": "paid",
+            "paidAmountYuan": 1
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/my/reports",
+      "payloadSummary": {
+        "source": "my-page-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "items": [
+          {
+            "orderId": "order-t12-full",
+            "title": "五年级数学单元测验完整报告",
+            "grade": "五年级",
+            "subject": "数学",
+            "examType": "单元测验",
+            "status": "full_done",
+            "accessLevel": "full",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": true,
+            "paymentStatus": "paid",
+            "paidAmountYuan": 10.9
+          },
+          {
+            "orderId": "order-t12-analyzing",
+            "title": "分析中的数学资料",
+            "grade": "五年级",
+            "subject": "数学",
+            "examType": "课后练习",
+            "status": "analyzing",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-23T08:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-t29-basic-only",
+            "title": "五年级数学基础初判报告",
+            "grade": "五年级",
+            "subject": "数学",
+            "examType": "单元测验",
+            "status": "basic_done",
+            "accessLevel": "basic",
+            "createdAt": "2026-05-24T08:00:00Z",
+            "savedReport": true,
+            "paymentStatus": "paid",
+            "paidAmountYuan": 1
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t12-full/questions",
+      "payloadSummary": {
+        "source": "my-page-ai-tutor-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t12-full",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t12-full-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t12-full-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t12-full/questions/order-t12-full-q1/interactions",
+      "payloadSummary": {
+        "source": "my-page-ai-tutor-history-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t12-full",
+        "questionId": "order-t12-full-q1",
+        "items": [
+          {
+            "id": "order-t12-full-q1-history-2",
+            "orderId": "order-t12-full",
+            "questionId": "order-t12-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "why_method",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "解释为什么用速度差。",
+            "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+            "traceId": "trace-order-t12-full-q1-history-2",
+            "createdAt": "2026-05-25T08:00:02.000Z"
+          },
+          {
+            "id": "order-t12-full-q1-history-1",
+            "orderId": "order-t12-full",
+            "questionId": "order-t12-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "先看速度差，再乘以时间。",
+            "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+            "traceId": "trace-order-t12-full-q1-history-1",
+            "createdAt": "2026-05-25T08:00:01.000Z"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/my/reports",
+      "payloadSummary": {
+        "source": "reports-page-list",
+        "filter": "all"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "items": [
+          {
+            "orderId": "order-t12-full",
+            "title": "五年级数学单元测验完整报告",
+            "grade": "五年级",
+            "subject": "数学",
+            "examType": "单元测验",
+            "status": "full_done",
+            "accessLevel": "full",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": true,
+            "paymentStatus": "paid",
+            "paidAmountYuan": 10.9
+          },
+          {
+            "orderId": "order-t12-analyzing",
+            "title": "分析中的数学资料",
+            "grade": "五年级",
+            "subject": "数学",
+            "examType": "课后练习",
+            "status": "analyzing",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-23T08:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-t29-basic-only",
+            "title": "五年级数学基础初判报告",
+            "grade": "五年级",
+            "subject": "数学",
+            "examType": "单元测验",
+            "status": "basic_done",
+            "accessLevel": "basic",
+            "createdAt": "2026-05-24T08:00:00Z",
+            "savedReport": true,
+            "paymentStatus": "paid",
+            "paidAmountYuan": 1
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t12-full/questions",
+      "payloadSummary": {
+        "source": "reports-page-ai-tutor-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t12-full",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t12-full-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t12-full-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t12-full/questions/order-t12-full-q1/interactions",
+      "payloadSummary": {
+        "source": "reports-page-ai-tutor-history-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t12-full",
+        "questionId": "order-t12-full-q1",
+        "items": [
+          {
+            "id": "order-t12-full-q1-history-2",
+            "orderId": "order-t12-full",
+            "questionId": "order-t12-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "why_method",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "解释为什么用速度差。",
+            "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+            "traceId": "trace-order-t12-full-q1-history-2",
+            "createdAt": "2026-05-25T08:00:02.000Z"
+          },
+          {
+            "id": "order-t12-full-q1-history-1",
+            "orderId": "order-t12-full",
+            "questionId": "order-t12-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "先看速度差，再乘以时间。",
+            "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+            "traceId": "trace-order-t12-full-q1-history-1",
+            "createdAt": "2026-05-25T08:00:01.000Z"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t12-full/questions",
+      "payloadSummary": {
+        "source": "reports-page-ai-tutor-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t12-full",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t12-full-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t12-full-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t12-full/questions/order-t12-full-q1/interactions",
+      "payloadSummary": {
+        "source": "reports-page-ai-tutor-history-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t12-full",
+        "questionId": "order-t12-full-q1",
+        "items": [
+          {
+            "id": "order-t12-full-q1-history-2",
+            "orderId": "order-t12-full",
+            "questionId": "order-t12-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "why_method",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "解释为什么用速度差。",
+            "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+            "traceId": "trace-order-t12-full-q1-history-2",
+            "createdAt": "2026-05-25T08:00:02.000Z"
+          },
+          {
+            "id": "order-t12-full-q1-history-1",
+            "orderId": "order-t12-full",
+            "questionId": "order-t12-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "先看速度差，再乘以时间。",
+            "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+            "traceId": "trace-order-t12-full-q1-history-1",
+            "createdAt": "2026-05-25T08:00:01.000Z"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t12-full/questions",
+      "payloadSummary": {
+        "source": "reports-page-ai-tutor-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t12-full",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t12-full-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t12-full-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t12-full/questions/order-t12-full-q1/interactions",
+      "payloadSummary": {
+        "source": "reports-page-ai-tutor-history-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t12-full",
+        "questionId": "order-t12-full-q1",
+        "items": [
+          {
+            "id": "order-t12-full-q1-history-2",
+            "orderId": "order-t12-full",
+            "questionId": "order-t12-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "why_method",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "解释为什么用速度差。",
+            "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+            "traceId": "trace-order-t12-full-q1-history-2",
+            "createdAt": "2026-05-25T08:00:02.000Z"
+          },
+          {
+            "id": "order-t12-full-q1-history-1",
+            "orderId": "order-t12-full",
+            "questionId": "order-t12-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "先看速度差，再乘以时间。",
+            "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+            "traceId": "trace-order-t12-full-q1-history-1",
+            "createdAt": "2026-05-25T08:00:01.000Z"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t12-full/questions",
+      "payloadSummary": {
+        "source": "reports-page-ai-tutor-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t12-full",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t12-full-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t12-full-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t12-full/questions/order-t12-full-q1/interactions",
+      "payloadSummary": {
+        "source": "reports-page-ai-tutor-history-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t12-full",
+        "questionId": "order-t12-full-q1",
+        "items": [
+          {
+            "id": "order-t12-full-q1-history-2",
+            "orderId": "order-t12-full",
+            "questionId": "order-t12-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "why_method",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "解释为什么用速度差。",
+            "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+            "traceId": "trace-order-t12-full-q1-history-2",
+            "createdAt": "2026-05-25T08:00:02.000Z"
+          },
+          {
+            "id": "order-t12-full-q1-history-1",
+            "orderId": "order-t12-full",
+            "questionId": "order-t12-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "先看速度差，再乘以时间。",
+            "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+            "traceId": "trace-order-t12-full-q1-history-1",
+            "createdAt": "2026-05-25T08:00:01.000Z"
+          }
+        ]
+      }
+    }
+  ],
+  "dbReadback": {
+    "fullOrder": {
+      "id": "order-t12-full",
+      "ownerId": "local-user-scoremap-t06",
+      "title": "五年级数学单元测验完整报告",
+      "grade": "五年级",
+      "subject": "数学",
+      "examType": "单元测验",
+      "status": "full_done",
+      "accessLevel": "full",
+      "savedReport": true,
+      "createdAt": "2026-05-22T10:00:00Z",
+      "source": "T12-my-reports-fixture"
+    },
+    "questions": [
+      {
+        "id": "order-t12-full-q1",
+        "orderId": "order-t12-full",
+        "ownerId": "local-user-scoremap-t06",
+        "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+        "knowledgePoint": "方程应用题",
+        "severity": "high",
+        "masteryStatus": "未掌握",
+        "remainingQuota": 3
+      },
+      {
+        "id": "order-t12-full-q2",
+        "orderId": "order-t12-full",
+        "ownerId": "local-user-scoremap-t06",
+        "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+        "knowledgePoint": "几何证明",
+        "severity": "medium",
+        "masteryStatus": "中等",
+        "remainingQuota": 2
+      }
+    ],
+    "interactions": [
+      {
+        "id": "order-t12-full-q1-history-1",
+        "orderId": "order-t12-full",
+        "questionId": "order-t12-full-q1",
+        "ownerId": "local-user-scoremap-t06",
+        "actionType": "explain_step",
+        "promptId": "LLM-TUTOR-05",
+        "status": "success",
+        "summary": "先看速度差，再乘以时间。",
+        "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+        "traceId": "trace-order-t12-full-q1-history-1",
+        "createdAt": "2026-05-25T08:00:01.000Z"
+      },
+      {
+        "id": "order-t12-full-q1-history-2",
+        "orderId": "order-t12-full",
+        "questionId": "order-t12-full-q1",
+        "ownerId": "local-user-scoremap-t06",
+        "actionType": "why_method",
+        "promptId": "LLM-TUTOR-05",
+        "status": "success",
+        "summary": "解释为什么用速度差。",
+        "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+        "traceId": "trace-order-t12-full-q1-history-2",
+        "createdAt": "2026-05-25T08:00:02.000Z"
+      }
+    ]
+  }
+}

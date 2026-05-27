@@ -1,0 +1,93 @@
+<view class="wq-page">
+  <view class="wq-topbar">
+    <view class="wq-title-wrap">
+      <button class="icon-btn" bindtap="onBackToFullReport" aria-label="返回完整报告">‹</button>
+      <view class="wq-title">{{title}}</view>
+    </view>
+    <view class="wq-actions">
+      <view class="wq-top-meta">错题 {{question.index}} / 8</view>
+      <button class="icon-btn" bindtap="onMoreMenu" aria-label="更多">⋯</button>
+    </view>
+  </view>
+
+  <scroll-view class="wq-scroll" scroll-y="true">
+    <view class="wq-card">
+      <view class="wq-tags">
+        <view wx:for="{{tags}}" wx:key="text" class="wq-tag {{item.tone}}">{{item.text}}</view>
+      </view>
+
+      <view class="wq-section">
+        <view class="section-title">原题</view>
+        <text class="section-body">{{question.originalQuestion}}</text>
+      </view>
+
+      <view class="wq-section">
+        <view class="section-title">学生作答</view>
+        <view class="answer-box">
+          <view class="answer-line"></view>
+          <view class="answer-line short"></view>
+          <text>{{question.studentAnswer}}</text>
+        </view>
+      </view>
+
+      <view class="answer-grid">
+        <view class="wq-section compact">
+          <view class="section-title">正确答案</view>
+          <text class="answer-strong">{{question.correctAnswer}}</text>
+        </view>
+        <view class="wq-section compact">
+          <view class="section-title">知识点</view>
+          <text class="section-body">{{question.knowledgePoint}}</text>
+        </view>
+      </view>
+
+      <view class="diagnosis-box">
+        <view class="diagnosis-title">
+          <text class="diagnosis-icon">diagnosis</text>
+          <text>错因诊断</text>
+        </view>
+        <text class="section-body">{{question.diagnosis}}</text>
+      </view>
+
+      <view class="wq-section summary-section">
+        <view class="section-title">讲解摘要</view>
+        <text class="section-body">{{question.explanationSummary}}</text>
+        <view class="mascot" aria-label="本地 AI 老师形象">
+          <text>AI</text>
+          <text class="mascot-small">tutor</text>
+        </view>
+      </view>
+
+      <button class="ai-cta {{aiTutorCta.enabled ? '' : 'locked'}}" bindtap="onOpenAiTutor" disabled="{{!aiTutorCta.enabled}}">
+        <text class="nav-icon">AI</text>
+        <text>{{aiTutorCta.text}}</text>
+      </button>
+    </view>
+
+    <button class="history-row" bindtap="onOpenHistoryRow" disabled="{{locked}}">
+      <view>
+        <view class="history-title">{{historyRow.text}} ({{historyRow.count}})</view>
+        <view class="history-latest">{{historyRow.latest}}</view>
+      </view>
+      <text class="history-arrow">›</text>
+    </button>
+
+    <view wx:if="{{locked}}" class="locked-copy">基础报告仅展示样例讲解，解锁完整报告后可正式追问。</view>
+    <view wx:if="{{toast}}" class="toast">{{toast}}</view>
+  </scroll-view>
+
+  <view class="bottom-nav">
+    <button bindtap="onShareReport">
+      <text class="nav-icon">↗</text>
+      <text>分享报告</text>
+    </button>
+    <button class="active" bindtap="onOpenAiTutor" disabled="{{locked}}">
+      <text class="nav-icon">AI</text>
+      <text>AI 提分</text>
+    </button>
+    <button bindtap="onExportPdf">
+      <text class="nav-icon">PDF</text>
+      <text>导出 PDF</text>
+    </button>
+  </view>
+</view>

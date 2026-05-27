@@ -1,0 +1,2453 @@
+{
+  "scenarioId": "V13-O23",
+  "status": "PASS",
+  "command": "npm run e2e:owner -- ai-tutor-v13",
+  "requirementIds": [
+    "V13-R14"
+  ],
+  "clickPath": [
+    "O01-O13-preserved",
+    "V13-O14-V13-O22-complete",
+    "full-app-route-control-sweep"
+  ],
+  "routeEvidence": {
+    "routeCount": 18,
+    "p0ControlCount": 73,
+    "missingTargetRoutes": 0
+  },
+  "apiEvidence": [
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-t31-v13-full",
+        "paymentType": "full",
+        "source": "T31-full-entitlement"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "paid",
+        "paymentId": "payment-t06-full",
+        "amountYuan": 9.9,
+        "paymentParams": {
+          "adapter": "local-mock"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t31-v13-full/generate-full",
+      "payloadSummary": {
+        "source": "T31-full-report"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-full/full-report",
+      "payloadSummary": {
+        "source": "full-report-v13-page-load"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_report_ready",
+        "decision": {
+          "level": "full",
+          "reportTitle": "初一数学月考提分报告",
+          "orderId": "order-t31-v13-full",
+          "generatedStatus": "full_report_ready",
+          "summary": "整体基础较好，计算粗心和几何证明步骤不完整是本次失分的主要原因。",
+          "modules": [
+            {
+              "id": "knowledge-diagnosis",
+              "title": "主要丢分点",
+              "content": "计算失误、几何证明步骤缺失、应用题等量关系不清。"
+            },
+            {
+              "id": "loss-point-breakdown",
+              "title": "优先补弱顺序",
+              "content": "先补几何证明表达，再巩固方程应用题和计算检查。"
+            },
+            {
+              "id": "seven-day-plan",
+              "title": "7 天建议",
+              "content": "每天 20 分钟错题复盘，隔天完成同类题迁移练习。"
+            },
+            {
+              "id": "parent-guidance",
+              "title": "家长陪伴建议",
+              "content": "关注孩子是否能讲清思路，不用分数承诺替代过程反馈。"
+            }
+          ],
+          "tabs": [
+            "overview",
+            "loss points",
+            "7-day plan",
+            "parent guidance"
+          ],
+          "reportQuota": {
+            "used": 2,
+            "total": 10,
+            "remaining": 8,
+            "text": "本报告 AI 错题追问剩余 8/10 次"
+          },
+          "wrongQuestionCards": [
+            {
+              "questionId": "order-t31-v13-full-q1",
+              "index": 1,
+              "title": "错题 1 二元一次方程应用题",
+              "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+              "knowledgePoint": "方程应用题",
+              "severity": "high",
+              "masteryStatus": "未掌握",
+              "remainingQuestionQuota": 3,
+              "aiEntryText": "让 AI 老师讲给孩子听"
+            },
+            {
+              "questionId": "order-t31-v13-full-q2",
+              "index": 2,
+              "title": "错题 2 几何证明题",
+              "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+              "knowledgePoint": "几何证明",
+              "severity": "medium",
+              "masteryStatus": "中等",
+              "remainingQuestionQuota": 2,
+              "aiEntryText": "让 AI 老师讲给孩子听"
+            }
+          ],
+          "complianceNotice": "内容仅供学习参考，请结合课堂学习与老师建议使用。"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-full/questions",
+      "payloadSummary": {
+        "source": "full-report-v13-wrong-question-cards"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-full",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t31-v13-full-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t31-v13-full-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-full/questions",
+      "payloadSummary": {
+        "source": "wrong-question-detail-page-load"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-full",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t31-v13-full-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t31-v13-full-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t31-v13-full/generate-full",
+      "payloadSummary": {
+        "source": "T27-ai-tutor-fixture"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-full/questions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-full",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t31-v13-full-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t31-v13-full-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-full/questions/order-t31-v13-full-q1/interactions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-full",
+        "questionId": "order-t31-v13-full-q1",
+        "items": [
+          {
+            "id": "order-t31-v13-full-q1-history-2",
+            "orderId": "order-t31-v13-full",
+            "questionId": "order-t31-v13-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "why_method",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "解释为什么用速度差。",
+            "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+            "traceId": "trace-order-t31-v13-full-q1-history-2",
+            "createdAt": "2026-05-25T08:00:02.000Z"
+          },
+          {
+            "id": "order-t31-v13-full-q1-history-1",
+            "orderId": "order-t31-v13-full",
+            "questionId": "order-t31-v13-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "先看速度差，再乘以时间。",
+            "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+            "traceId": "trace-order-t31-v13-full-q1-history-1",
+            "createdAt": "2026-05-25T08:00:01.000Z"
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t31-v13-full/questions/order-t31-v13-full-q1/interactions",
+      "payloadSummary": {
+        "actionType": "explain_step",
+        "source": "T27-ai-tutor-ui",
+        "forceProviderFailure": false,
+        "forceQuotaExceeded": false
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "ok",
+        "interaction": {
+          "id": "interaction-order-t31-v13-full-q1-explain_step-3",
+          "orderId": "order-t31-v13-full",
+          "questionId": "order-t31-v13-full-q1",
+          "ownerId": "local-user-scoremap-t06",
+          "actionType": "explain_step",
+          "promptId": "LLM-TUTOR-05",
+          "status": "success",
+          "summary": "拆解关键步骤：速度差乘以时间。",
+          "response": "60 - 50 表示甲每小时比乙多走 10 千米，再乘 2 小时就是 20 千米。",
+          "exercise": null,
+          "traceId": "trace-interaction-order-t31-v13-full-q1-explain_step-3",
+          "createdAt": "2026-05-25T01:00:02.000Z"
+        },
+        "quota": {
+          "questionRemaining": 2,
+          "questionTotal": 3
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-full/questions/order-t31-v13-full-q1/interactions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-full",
+        "questionId": "order-t31-v13-full-q1",
+        "items": [
+          {
+            "id": "order-t31-v13-full-q1-history-2",
+            "orderId": "order-t31-v13-full",
+            "questionId": "order-t31-v13-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "why_method",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "解释为什么用速度差。",
+            "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+            "traceId": "trace-order-t31-v13-full-q1-history-2",
+            "createdAt": "2026-05-25T08:00:02.000Z"
+          },
+          {
+            "id": "order-t31-v13-full-q1-history-1",
+            "orderId": "order-t31-v13-full",
+            "questionId": "order-t31-v13-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "先看速度差，再乘以时间。",
+            "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+            "traceId": "trace-order-t31-v13-full-q1-history-1",
+            "createdAt": "2026-05-25T08:00:01.000Z"
+          },
+          {
+            "id": "interaction-order-t31-v13-full-q1-explain_step-3",
+            "orderId": "order-t31-v13-full",
+            "questionId": "order-t31-v13-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "拆解关键步骤：速度差乘以时间。",
+            "response": "60 - 50 表示甲每小时比乙多走 10 千米，再乘 2 小时就是 20 千米。",
+            "exercise": null,
+            "traceId": "trace-interaction-order-t31-v13-full-q1-explain_step-3",
+            "createdAt": "2026-05-25T01:00:02.000Z"
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t31-v13-full/questions/order-t31-v13-full-q1/interactions",
+      "payloadSummary": {
+        "actionType": "why_method",
+        "source": "T27-ai-tutor-ui",
+        "forceProviderFailure": false,
+        "forceQuotaExceeded": false
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "ok",
+        "interaction": {
+          "id": "interaction-order-t31-v13-full-q1-why_method-4",
+          "orderId": "order-t31-v13-full",
+          "questionId": "order-t31-v13-full-q1",
+          "ownerId": "local-user-scoremap-t06",
+          "actionType": "why_method",
+          "promptId": "LLM-TUTOR-05",
+          "status": "success",
+          "summary": "解释方法依据：同时间比较路程差。",
+          "response": "因为题目问“多行多少”，不是两人一共行多少，所以要先做减法。",
+          "exercise": null,
+          "traceId": "trace-interaction-order-t31-v13-full-q1-why_method-4",
+          "createdAt": "2026-05-25T01:00:03.000Z"
+        },
+        "quota": {
+          "questionRemaining": 1,
+          "questionTotal": 3
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-full/questions/order-t31-v13-full-q1/interactions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-full",
+        "questionId": "order-t31-v13-full-q1",
+        "items": [
+          {
+            "id": "order-t31-v13-full-q1-history-2",
+            "orderId": "order-t31-v13-full",
+            "questionId": "order-t31-v13-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "why_method",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "解释为什么用速度差。",
+            "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+            "traceId": "trace-order-t31-v13-full-q1-history-2",
+            "createdAt": "2026-05-25T08:00:02.000Z"
+          },
+          {
+            "id": "order-t31-v13-full-q1-history-1",
+            "orderId": "order-t31-v13-full",
+            "questionId": "order-t31-v13-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "先看速度差，再乘以时间。",
+            "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+            "traceId": "trace-order-t31-v13-full-q1-history-1",
+            "createdAt": "2026-05-25T08:00:01.000Z"
+          },
+          {
+            "id": "interaction-order-t31-v13-full-q1-why_method-4",
+            "orderId": "order-t31-v13-full",
+            "questionId": "order-t31-v13-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "why_method",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "解释方法依据：同时间比较路程差。",
+            "response": "因为题目问“多行多少”，不是两人一共行多少，所以要先做减法。",
+            "exercise": null,
+            "traceId": "trace-interaction-order-t31-v13-full-q1-why_method-4",
+            "createdAt": "2026-05-25T01:00:03.000Z"
+          },
+          {
+            "id": "interaction-order-t31-v13-full-q1-explain_step-3",
+            "orderId": "order-t31-v13-full",
+            "questionId": "order-t31-v13-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "拆解关键步骤：速度差乘以时间。",
+            "response": "60 - 50 表示甲每小时比乙多走 10 千米，再乘 2 小时就是 20 千米。",
+            "exercise": null,
+            "traceId": "trace-interaction-order-t31-v13-full-q1-explain_step-3",
+            "createdAt": "2026-05-25T01:00:02.000Z"
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t31-v13-full/questions/order-t31-v13-full-q1/interactions",
+      "payloadSummary": {
+        "actionType": "another_explanation",
+        "source": "T27-ai-tutor-ui",
+        "forceProviderFailure": false,
+        "forceQuotaExceeded": false
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "ok",
+        "interaction": {
+          "id": "interaction-order-t31-v13-full-q1-another_explanation-5",
+          "orderId": "order-t31-v13-full",
+          "questionId": "order-t31-v13-full-q1",
+          "ownerId": "local-user-scoremap-t06",
+          "actionType": "another_explanation",
+          "promptId": "LLM-TUTOR-05",
+          "status": "success",
+          "summary": "换一种讲法：先算每小时领先多少。",
+          "response": "可以把它想成每过 1 小时甲领先 10 千米，过 2 小时就领先 2 个 10 千米。",
+          "exercise": null,
+          "traceId": "trace-interaction-order-t31-v13-full-q1-another_explanation-5",
+          "createdAt": "2026-05-25T01:00:04.000Z"
+        },
+        "quota": {
+          "questionRemaining": 0,
+          "questionTotal": 3
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-full/questions/order-t31-v13-full-q1/interactions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-full",
+        "questionId": "order-t31-v13-full-q1",
+        "items": [
+          {
+            "id": "order-t31-v13-full-q1-history-2",
+            "orderId": "order-t31-v13-full",
+            "questionId": "order-t31-v13-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "why_method",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "解释为什么用速度差。",
+            "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+            "traceId": "trace-order-t31-v13-full-q1-history-2",
+            "createdAt": "2026-05-25T08:00:02.000Z"
+          },
+          {
+            "id": "order-t31-v13-full-q1-history-1",
+            "orderId": "order-t31-v13-full",
+            "questionId": "order-t31-v13-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "先看速度差，再乘以时间。",
+            "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+            "traceId": "trace-order-t31-v13-full-q1-history-1",
+            "createdAt": "2026-05-25T08:00:01.000Z"
+          },
+          {
+            "id": "interaction-order-t31-v13-full-q1-another_explanation-5",
+            "orderId": "order-t31-v13-full",
+            "questionId": "order-t31-v13-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "another_explanation",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "换一种讲法：先算每小时领先多少。",
+            "response": "可以把它想成每过 1 小时甲领先 10 千米，过 2 小时就领先 2 个 10 千米。",
+            "exercise": null,
+            "traceId": "trace-interaction-order-t31-v13-full-q1-another_explanation-5",
+            "createdAt": "2026-05-25T01:00:04.000Z"
+          },
+          {
+            "id": "interaction-order-t31-v13-full-q1-why_method-4",
+            "orderId": "order-t31-v13-full",
+            "questionId": "order-t31-v13-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "why_method",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "解释方法依据：同时间比较路程差。",
+            "response": "因为题目问“多行多少”，不是两人一共行多少，所以要先做减法。",
+            "exercise": null,
+            "traceId": "trace-interaction-order-t31-v13-full-q1-why_method-4",
+            "createdAt": "2026-05-25T01:00:03.000Z"
+          },
+          {
+            "id": "interaction-order-t31-v13-full-q1-explain_step-3",
+            "orderId": "order-t31-v13-full",
+            "questionId": "order-t31-v13-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "拆解关键步骤：速度差乘以时间。",
+            "response": "60 - 50 表示甲每小时比乙多走 10 千米，再乘 2 小时就是 20 千米。",
+            "exercise": null,
+            "traceId": "trace-interaction-order-t31-v13-full-q1-explain_step-3",
+            "createdAt": "2026-05-25T01:00:02.000Z"
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-t31-v13-exercise",
+        "paymentType": "full",
+        "source": "T28-ai-exercise-fixture"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "paid",
+        "paymentId": "payment-t06-full",
+        "amountYuan": 9.9,
+        "paymentParams": {
+          "adapter": "local-mock"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t31-v13-exercise/generate-full",
+      "payloadSummary": {
+        "source": "T28-ai-exercise-fixture"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-exercise/questions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-exercise",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t31-v13-exercise-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t31-v13-exercise-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t31-v13-exercise/questions/order-t31-v13-exercise-q1/interactions",
+      "payloadSummary": {
+        "actionType": "similar_exercise",
+        "source": "T28-ai-exercise-ui"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "ok",
+        "interaction": {
+          "id": "interaction-order-t31-v13-exercise-q1-similar_exercise-1",
+          "orderId": "order-t31-v13-exercise",
+          "questionId": "order-t31-v13-exercise-q1",
+          "ownerId": "local-user-scoremap-t06",
+          "actionType": "similar_exercise",
+          "promptId": "LLM-EXERCISE-06",
+          "status": "success",
+          "summary": "生成同类练习题。",
+          "response": "已生成一道同类题，继续保持当前错题的数量关系。",
+          "exercise": {
+            "id": "exercise-order-t31-v13-exercise-q1",
+            "stem": "甲每小时行 72km，乙每小时行 60km，3 小时后甲比乙多行多少千米？",
+            "options": [
+              "24 千米",
+              "36 千米",
+              "132 千米",
+              "216 千米"
+            ],
+            "correctOption": "36 千米"
+          },
+          "traceId": "trace-interaction-order-t31-v13-exercise-q1-similar_exercise-1",
+          "createdAt": "2026-05-25T01:00:00.000Z"
+        },
+        "quota": {
+          "questionRemaining": 2,
+          "questionTotal": 3
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t31-v13-exercise/questions/order-t31-v13-exercise-q1/exercise-answer",
+      "payloadSummary": {
+        "interactionId": "interaction-order-t31-v13-exercise-q1-similar_exercise-1",
+        "submittedAnswer": "36 千米",
+        "source": "T28-ai-exercise-ui"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "answered",
+        "interactionId": "interaction-order-t31-v13-exercise-q1-similar_exercise-1",
+        "correctness": true,
+        "feedback": {
+          "correct": true,
+          "headline": "回答正确",
+          "explanation": "你先算出每小时多走 12 千米，再乘以 3 小时，数量关系抓对了。",
+          "summary": "同类题迁移已掌握。"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t31-v13-exercise/generate-full",
+      "payloadSummary": {
+        "source": "T28-feedback-fixture"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-exercise/questions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-exercise",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t31-v13-exercise-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t31-v13-exercise-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-exercise/questions/order-t31-v13-exercise-q1/interactions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-exercise",
+        "questionId": "order-t31-v13-exercise-q1",
+        "items": [
+          {
+            "id": "interaction-order-t31-v13-exercise-q1-similar_exercise-1",
+            "orderId": "order-t31-v13-exercise",
+            "questionId": "order-t31-v13-exercise-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "similar_exercise",
+            "promptId": "LLM-EXERCISE-06",
+            "status": "success",
+            "summary": "同类题迁移已掌握。",
+            "response": "已生成一道同类题，继续保持当前错题的数量关系。",
+            "exercise": {
+              "id": "exercise-order-t31-v13-exercise-q1",
+              "stem": "甲每小时行 72km，乙每小时行 60km，3 小时后甲比乙多行多少千米？",
+              "options": [
+                "24 千米",
+                "36 千米",
+                "132 千米",
+                "216 千米"
+              ],
+              "correctOption": "36 千米"
+            },
+            "traceId": "trace-interaction-order-t31-v13-exercise-q1-similar_exercise-1",
+            "createdAt": "2026-05-25T01:00:00.000Z",
+            "submittedAnswer": "36 千米",
+            "correctness": true,
+            "answerFeedback": {
+              "correct": true,
+              "headline": "回答正确",
+              "explanation": "你先算出每小时多走 12 千米，再乘以 3 小时，数量关系抓对了。",
+              "summary": "同类题迁移已掌握。"
+            },
+            "answerPromptId": "LLM-CHECK-07",
+            "answerTraceId": "trace-interaction-order-t31-v13-exercise-q1-similar_exercise-1-answer"
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-t31-v13-understood",
+        "paymentType": "full",
+        "source": "T27-ai-tutor-fixture"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "paid",
+        "paymentId": "payment-t06-full",
+        "amountYuan": 9.9,
+        "paymentParams": {
+          "adapter": "local-mock"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t31-v13-understood/generate-full",
+      "payloadSummary": {
+        "source": "T27-ai-tutor-fixture"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-understood/questions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-understood",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t31-v13-understood-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t31-v13-understood-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-understood/questions/order-t31-v13-understood-q1/interactions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-understood",
+        "questionId": "order-t31-v13-understood-q1",
+        "items": [
+          {
+            "id": "order-t31-v13-understood-q1-history-2",
+            "orderId": "order-t31-v13-understood",
+            "questionId": "order-t31-v13-understood-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "why_method",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "解释为什么用速度差。",
+            "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+            "traceId": "trace-order-t31-v13-understood-q1-history-2",
+            "createdAt": "2026-05-25T08:00:02.000Z"
+          },
+          {
+            "id": "order-t31-v13-understood-q1-history-1",
+            "orderId": "order-t31-v13-understood",
+            "questionId": "order-t31-v13-understood-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "先看速度差，再乘以时间。",
+            "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+            "traceId": "trace-order-t31-v13-understood-q1-history-1",
+            "createdAt": "2026-05-25T08:00:01.000Z"
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t31-v13-understood/questions/order-t31-v13-understood-q1/interactions",
+      "payloadSummary": {
+        "actionType": "mark_understood",
+        "source": "T27-ai-tutor-ui",
+        "forceProviderFailure": false,
+        "forceQuotaExceeded": false
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "ok",
+        "interaction": {
+          "id": "interaction-order-t31-v13-understood-q1-mark_understood-3",
+          "orderId": "order-t31-v13-understood",
+          "questionId": "order-t31-v13-understood-q1",
+          "ownerId": "local-user-scoremap-t06",
+          "actionType": "mark_understood",
+          "promptId": "LLM-TUTOR-05",
+          "status": "success",
+          "summary": "学生标记已经理解。",
+          "response": "已记录理解状态，后续可以在报告里查看这道题的互动记录。",
+          "exercise": null,
+          "traceId": "trace-interaction-order-t31-v13-understood-q1-mark_understood-3",
+          "createdAt": "2026-05-25T01:00:02.000Z"
+        },
+        "quota": {
+          "questionRemaining": 2,
+          "questionTotal": 3
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-understood/questions/order-t31-v13-understood-q1/interactions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-understood",
+        "questionId": "order-t31-v13-understood-q1",
+        "items": [
+          {
+            "id": "order-t31-v13-understood-q1-history-2",
+            "orderId": "order-t31-v13-understood",
+            "questionId": "order-t31-v13-understood-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "why_method",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "解释为什么用速度差。",
+            "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+            "traceId": "trace-order-t31-v13-understood-q1-history-2",
+            "createdAt": "2026-05-25T08:00:02.000Z"
+          },
+          {
+            "id": "order-t31-v13-understood-q1-history-1",
+            "orderId": "order-t31-v13-understood",
+            "questionId": "order-t31-v13-understood-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "先看速度差，再乘以时间。",
+            "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+            "traceId": "trace-order-t31-v13-understood-q1-history-1",
+            "createdAt": "2026-05-25T08:00:01.000Z"
+          },
+          {
+            "id": "interaction-order-t31-v13-understood-q1-mark_understood-3",
+            "orderId": "order-t31-v13-understood",
+            "questionId": "order-t31-v13-understood-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "mark_understood",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "学生标记已经理解。",
+            "response": "已记录理解状态，后续可以在报告里查看这道题的互动记录。",
+            "exercise": null,
+            "traceId": "trace-interaction-order-t31-v13-understood-q1-mark_understood-3",
+            "createdAt": "2026-05-25T01:00:02.000Z"
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-t31-v13-quota",
+        "paymentType": "full",
+        "source": "T27-ai-tutor-fixture"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "paid",
+        "paymentId": "payment-t06-full",
+        "amountYuan": 9.9,
+        "paymentParams": {
+          "adapter": "local-mock"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t31-v13-quota/generate-full",
+      "payloadSummary": {
+        "source": "T27-ai-tutor-fixture"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-quota/questions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-quota",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t31-v13-quota-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t31-v13-quota-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-quota/questions/order-t31-v13-quota-q1/interactions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-quota",
+        "questionId": "order-t31-v13-quota-q1",
+        "items": [
+          {
+            "id": "order-t31-v13-quota-q1-history-2",
+            "orderId": "order-t31-v13-quota",
+            "questionId": "order-t31-v13-quota-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "why_method",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "解释为什么用速度差。",
+            "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+            "traceId": "trace-order-t31-v13-quota-q1-history-2",
+            "createdAt": "2026-05-25T08:00:02.000Z"
+          },
+          {
+            "id": "order-t31-v13-quota-q1-history-1",
+            "orderId": "order-t31-v13-quota",
+            "questionId": "order-t31-v13-quota-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "先看速度差，再乘以时间。",
+            "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+            "traceId": "trace-order-t31-v13-quota-q1-history-1",
+            "createdAt": "2026-05-25T08:00:01.000Z"
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t31-v13-quota/questions/order-t31-v13-quota-q1/interactions",
+      "payloadSummary": {
+        "actionType": "explain_step",
+        "source": "T27-ai-tutor-ui",
+        "forceProviderFailure": false,
+        "forceQuotaExceeded": true
+      },
+      "responseStatus": 429,
+      "responseBody": {
+        "status": "error",
+        "code": "QUESTION_QUOTA_EXCEEDED"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-t31-v13-basic",
+        "paymentType": "basic",
+        "source": "T31-basic-only"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "paid",
+        "paymentId": "payment-t06-basic",
+        "amountYuan": 1,
+        "paymentParams": {
+          "adapter": "local-mock"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t31-v13-basic/generate-full",
+      "payloadSummary": {
+        "source": "T31-basic-locked-question-fixture"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-basic/questions",
+      "payloadSummary": {
+        "source": "wrong-question-detail-page-load"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-basic",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t31-v13-basic-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t31-v13-basic-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-t31-v13-my-reports",
+        "paymentType": "full",
+        "source": "T31-my-full"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "paid",
+        "paymentId": "payment-t06-full",
+        "amountYuan": 9.9,
+        "paymentParams": {
+          "adapter": "local-mock"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t31-v13-my-reports/generate-full",
+      "payloadSummary": {
+        "source": "T31-my-full-report"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t31-v13-my-reports/save-report",
+      "payloadSummary": {
+        "source": "T31-my-save"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "saved": true
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/my/reports",
+      "payloadSummary": {
+        "source": "my-page-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "items": [
+          {
+            "orderId": "order-t31-v13-my-reports",
+            "title": "Complete score improvement report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "accessLevel": "full",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": true,
+            "paymentStatus": "paid",
+            "paidAmountYuan": 9.9
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/my/reports",
+      "payloadSummary": {
+        "source": "reports-page-list",
+        "filter": "all"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "items": [
+          {
+            "orderId": "order-t31-v13-my-reports",
+            "title": "Complete score improvement report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "accessLevel": "full",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": true,
+            "paymentStatus": "paid",
+            "paidAmountYuan": 9.9
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-my-reports/questions",
+      "payloadSummary": {
+        "source": "reports-page-ai-tutor-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-my-reports",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t31-v13-my-reports-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t31-v13-my-reports-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-my-reports/questions/order-t31-v13-my-reports-q1/interactions",
+      "payloadSummary": {
+        "source": "reports-page-ai-tutor-history-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-my-reports",
+        "questionId": "order-t31-v13-my-reports-q1",
+        "items": [
+          {
+            "id": "order-t31-v13-my-reports-q1-history-2",
+            "orderId": "order-t31-v13-my-reports",
+            "questionId": "order-t31-v13-my-reports-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "why_method",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "解释为什么用速度差。",
+            "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+            "traceId": "trace-order-t31-v13-my-reports-q1-history-2",
+            "createdAt": "2026-05-25T08:00:02.000Z"
+          },
+          {
+            "id": "order-t31-v13-my-reports-q1-history-1",
+            "orderId": "order-t31-v13-my-reports",
+            "questionId": "order-t31-v13-my-reports-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "先看速度差，再乘以时间。",
+            "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+            "traceId": "trace-order-t31-v13-my-reports-q1-history-1",
+            "createdAt": "2026-05-25T08:00:01.000Z"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-my-reports/questions",
+      "payloadSummary": {
+        "source": "reports-page-ai-tutor-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-my-reports",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t31-v13-my-reports-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t31-v13-my-reports-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-my-reports/questions/order-t31-v13-my-reports-q1/interactions",
+      "payloadSummary": {
+        "source": "reports-page-ai-tutor-history-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-my-reports",
+        "questionId": "order-t31-v13-my-reports-q1",
+        "items": [
+          {
+            "id": "order-t31-v13-my-reports-q1-history-2",
+            "orderId": "order-t31-v13-my-reports",
+            "questionId": "order-t31-v13-my-reports-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "why_method",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "解释为什么用速度差。",
+            "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+            "traceId": "trace-order-t31-v13-my-reports-q1-history-2",
+            "createdAt": "2026-05-25T08:00:02.000Z"
+          },
+          {
+            "id": "order-t31-v13-my-reports-q1-history-1",
+            "orderId": "order-t31-v13-my-reports",
+            "questionId": "order-t31-v13-my-reports-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "先看速度差，再乘以时间。",
+            "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+            "traceId": "trace-order-t31-v13-my-reports-q1-history-1",
+            "createdAt": "2026-05-25T08:00:01.000Z"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-my-reports/questions",
+      "payloadSummary": {
+        "source": "reports-page-ai-tutor-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-my-reports",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t31-v13-my-reports-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t31-v13-my-reports-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-my-reports/questions/order-t31-v13-my-reports-q1/interactions",
+      "payloadSummary": {
+        "source": "reports-page-ai-tutor-history-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-my-reports",
+        "questionId": "order-t31-v13-my-reports-q1",
+        "items": [
+          {
+            "id": "order-t31-v13-my-reports-q1-history-2",
+            "orderId": "order-t31-v13-my-reports",
+            "questionId": "order-t31-v13-my-reports-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "why_method",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "解释为什么用速度差。",
+            "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+            "traceId": "trace-order-t31-v13-my-reports-q1-history-2",
+            "createdAt": "2026-05-25T08:00:02.000Z"
+          },
+          {
+            "id": "order-t31-v13-my-reports-q1-history-1",
+            "orderId": "order-t31-v13-my-reports",
+            "questionId": "order-t31-v13-my-reports-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "先看速度差，再乘以时间。",
+            "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+            "traceId": "trace-order-t31-v13-my-reports-q1-history-1",
+            "createdAt": "2026-05-25T08:00:01.000Z"
+          }
+        ]
+      }
+    }
+  ],
+  "dbEvidence": {
+    "coveredOldScenarios": 13,
+    "coveredV13Scenarios": 9,
+    "routeControlMatrix": [
+      {
+        "clickId": "C01.upload-material",
+        "page": "/pages/index/index",
+        "controlId": "upload-material",
+        "action": "create-order-and-upload",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/analysis/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C01.select-upload-file",
+        "page": "/pages/index/index",
+        "controlId": "select-upload-file",
+        "action": "chooseLocalFile",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/analysis/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C01.view-sample-report",
+        "page": "/pages/index/index",
+        "controlId": "view-sample-report",
+        "action": "navigateTo",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/preview/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C01.view-recent-reports",
+        "page": "/pages/index/index",
+        "controlId": "view-recent-reports",
+        "action": "api",
+        "api": "GET /api/my/reports",
+        "fixedAction": null,
+        "targetRoute": "/pages/reports/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C01.open-my-reports",
+        "page": "/pages/index/index",
+        "controlId": "open-my-reports",
+        "action": "api",
+        "api": "GET /api/my/reports",
+        "fixedAction": null,
+        "targetRoute": "/pages/reports/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C01.open-my-tab",
+        "page": "/pages/index/index",
+        "controlId": "open-my-tab",
+        "action": "switchTab",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/my/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C03.refresh-progress",
+        "page": "/pages/analysis/index",
+        "controlId": "refresh-progress",
+        "action": "api",
+        "api": "GET /api/diagnosis-orders/{orderId}/analysis-progress",
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C03.later-view",
+        "page": "/pages/analysis/index",
+        "controlId": "later-view",
+        "action": "navigateTo",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/reports/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C04.retry-analysis",
+        "page": "/pages/failure/index",
+        "controlId": "retry-analysis",
+        "action": "api",
+        "api": "POST /api/diagnosis-orders/{orderId}/start-preview-analysis",
+        "fixedAction": null,
+        "targetRoute": "/pages/analysis/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C04.reupload",
+        "page": "/pages/failure/index",
+        "controlId": "reupload",
+        "action": "navigateTo",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/index/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C04.back-home",
+        "page": "/pages/failure/index",
+        "controlId": "back-home",
+        "action": "switchTab",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/index/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C05.unlock-basic",
+        "page": "/pages/preview/index",
+        "controlId": "unlock-basic",
+        "action": "navigateTo",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/basic-pay/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C06.confirm-basic-pay",
+        "page": "/pages/basic-pay/index",
+        "controlId": "confirm-basic-pay",
+        "action": "api",
+        "api": "POST /api/payments/create",
+        "fixedAction": null,
+        "targetRoute": "/pages/basic-result/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C07.load-basic-decision",
+        "page": "/pages/basic-result/index",
+        "controlId": "load-basic-decision",
+        "action": "api",
+        "api": "GET /api/diagnosis-orders/{orderId}/basic-decision",
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C07.unlock-full",
+        "page": "/pages/basic-result/index",
+        "controlId": "unlock-full",
+        "action": "navigateTo",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/full-unlock/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C08.confirm-full-pay",
+        "page": "/pages/full-unlock/index",
+        "controlId": "confirm-full-pay",
+        "action": "api",
+        "api": "POST /api/payments/create",
+        "fixedAction": null,
+        "targetRoute": "/pages/full-report-entry/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C09.generate-full",
+        "page": "/pages/full-report-entry/index",
+        "controlId": "generate-full",
+        "action": "api",
+        "api": "POST /api/diagnosis-orders/{orderId}/generate-full",
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C09.view-full-report",
+        "page": "/pages/full-report-entry/index",
+        "controlId": "view-full-report",
+        "action": "navigateTo",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/full-report/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C10.load-full-report",
+        "page": "/pages/full-report/index",
+        "controlId": "load-full-report",
+        "action": "api",
+        "api": "GET /api/diagnosis-orders/{orderId}/full-report",
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C10.load-wrong-questions",
+        "page": "/pages/full-report/index",
+        "controlId": "load-wrong-questions",
+        "action": "api",
+        "api": "GET /api/diagnosis-orders/{orderId}/questions",
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C10.open-wrong-question-card",
+        "page": "/pages/full-report/index",
+        "controlId": "open-wrong-question-card",
+        "action": "navigateTo",
+        "api": "GET /api/diagnosis-orders/{orderId}/questions",
+        "fixedAction": null,
+        "targetRoute": "/pages/wrong-question/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C10.share-report",
+        "page": "/pages/full-report/index",
+        "controlId": "share-report",
+        "action": "noNavigation",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": "local-share-placeholder",
+        "routeExists": true
+      },
+      {
+        "clickId": "C10.save-report",
+        "page": "/pages/full-report/index",
+        "controlId": "save-report",
+        "action": "api",
+        "api": "POST /api/diagnosis-orders/{orderId}/save-report",
+        "fixedAction": null,
+        "targetRoute": "/pages/my/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C10.export-pdf",
+        "page": "/pages/full-report/index",
+        "controlId": "export-pdf",
+        "action": "api",
+        "api": "POST /api/diagnosis-orders/{orderId}/export-pdf",
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C01.back-to-full-report",
+        "page": "/pages/wrong-question/index",
+        "controlId": "back-to-full-report",
+        "action": "navigateTo",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/full-report/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C01.more-menu",
+        "page": "/pages/wrong-question/index",
+        "controlId": "more-menu",
+        "action": "noNavigation",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": "local-more-menu-placeholder",
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C01.load-question-detail",
+        "page": "/pages/wrong-question/index",
+        "controlId": "load-question-detail",
+        "action": "api",
+        "api": "GET /api/diagnosis-orders/{orderId}/questions",
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C01.open-ai-tutor",
+        "page": "/pages/wrong-question/index",
+        "controlId": "open-ai-tutor",
+        "action": "navigateTo",
+        "api": "GET /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+        "fixedAction": null,
+        "targetRoute": "/pages/ai-tutor/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C01.open-history-row",
+        "page": "/pages/wrong-question/index",
+        "controlId": "open-history-row",
+        "action": "navigateTo",
+        "api": "GET /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+        "fixedAction": null,
+        "targetRoute": "/pages/ai-tutor/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C01.bottom-share-report",
+        "page": "/pages/wrong-question/index",
+        "controlId": "bottom-share-report",
+        "action": "noNavigation",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": "local-share-placeholder",
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C01.bottom-ai-tutor",
+        "page": "/pages/wrong-question/index",
+        "controlId": "bottom-ai-tutor",
+        "action": "navigateTo",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/ai-tutor/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C01.bottom-export-pdf",
+        "page": "/pages/wrong-question/index",
+        "controlId": "bottom-export-pdf",
+        "action": "api",
+        "api": "POST /api/diagnosis-orders/{orderId}/export-pdf",
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C02.back-to-question-detail",
+        "page": "/pages/ai-tutor/index",
+        "controlId": "back-to-question-detail",
+        "action": "navigateTo",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/wrong-question/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C02.open-history",
+        "page": "/pages/ai-tutor/index",
+        "controlId": "open-history",
+        "action": "api",
+        "api": "GET /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C02.ask-step-explanation",
+        "page": "/pages/ai-tutor/index",
+        "controlId": "ask-step-explanation",
+        "action": "api",
+        "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+        "fixedAction": "explain_step",
+        "targetRoute": null,
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C02.ask-why-method",
+        "page": "/pages/ai-tutor/index",
+        "controlId": "ask-why-method",
+        "action": "api",
+        "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+        "fixedAction": "why_method",
+        "targetRoute": null,
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C02.ask-another-explanation",
+        "page": "/pages/ai-tutor/index",
+        "controlId": "ask-another-explanation",
+        "action": "api",
+        "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+        "fixedAction": "another_explanation",
+        "targetRoute": null,
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C02.generate-similar-exercise",
+        "page": "/pages/ai-tutor/index",
+        "controlId": "generate-similar-exercise",
+        "action": "apiNavigate",
+        "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+        "fixedAction": "similar_exercise",
+        "targetRoute": "/pages/ai-exercise/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C02.mark-understood",
+        "page": "/pages/ai-tutor/index",
+        "controlId": "mark-understood",
+        "action": "apiNavigate",
+        "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+        "fixedAction": "mark_understood",
+        "targetRoute": "/pages/full-report/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C02.toggle-question-context",
+        "page": "/pages/ai-tutor/index",
+        "controlId": "toggle-question-context",
+        "action": "noNavigation",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": "accordion-toggle",
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C02.bottom-share-report",
+        "page": "/pages/ai-tutor/index",
+        "controlId": "bottom-share-report",
+        "action": "noNavigation",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": "local-share-placeholder",
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C02.bottom-ai-tutor",
+        "page": "/pages/ai-tutor/index",
+        "controlId": "bottom-ai-tutor",
+        "action": "noNavigation",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": "active-tab",
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C02.bottom-export-pdf",
+        "page": "/pages/ai-tutor/index",
+        "controlId": "bottom-export-pdf",
+        "action": "api",
+        "api": "POST /api/diagnosis-orders/{orderId}/export-pdf",
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C03.back-to-ai-tutor",
+        "page": "/pages/ai-exercise/index",
+        "controlId": "back-to-ai-tutor",
+        "action": "navigateTo",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/ai-tutor/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C03.refresh-exercise",
+        "page": "/pages/ai-exercise/index",
+        "controlId": "refresh-exercise",
+        "action": "api",
+        "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+        "fixedAction": "similar_exercise",
+        "targetRoute": null,
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C03.select-option-a",
+        "page": "/pages/ai-exercise/index",
+        "controlId": "select-option-a",
+        "action": "noNavigation",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": "select-answer-option",
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C03.select-option-b",
+        "page": "/pages/ai-exercise/index",
+        "controlId": "select-option-b",
+        "action": "noNavigation",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": "select-answer-option",
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C03.select-option-c",
+        "page": "/pages/ai-exercise/index",
+        "controlId": "select-option-c",
+        "action": "noNavigation",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": "select-answer-option",
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C03.select-option-d",
+        "page": "/pages/ai-exercise/index",
+        "controlId": "select-option-d",
+        "action": "noNavigation",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": "select-answer-option",
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C03.submit-answer",
+        "page": "/pages/ai-exercise/index",
+        "controlId": "submit-answer",
+        "action": "apiNavigate",
+        "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/exercise-answer",
+        "fixedAction": null,
+        "targetRoute": "/pages/ai-exercise-feedback/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C03.open-question-context",
+        "page": "/pages/ai-exercise/index",
+        "controlId": "open-question-context",
+        "action": "navigateTo",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/wrong-question/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C03.open-history-row",
+        "page": "/pages/ai-exercise/index",
+        "controlId": "open-history-row",
+        "action": "navigateTo",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/ai-tutor/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C03.bottom-share-report",
+        "page": "/pages/ai-exercise/index",
+        "controlId": "bottom-share-report",
+        "action": "noNavigation",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": "local-share-placeholder",
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C03.bottom-ai-tutor",
+        "page": "/pages/ai-exercise/index",
+        "controlId": "bottom-ai-tutor",
+        "action": "navigateTo",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/ai-tutor/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C03.bottom-export-pdf",
+        "page": "/pages/ai-exercise/index",
+        "controlId": "bottom-export-pdf",
+        "action": "api",
+        "api": "POST /api/diagnosis-orders/{orderId}/export-pdf",
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C04.back-to-exercise",
+        "page": "/pages/ai-exercise-feedback/index",
+        "controlId": "back-to-exercise",
+        "action": "navigateTo",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/ai-exercise/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C04.more-menu",
+        "page": "/pages/ai-exercise-feedback/index",
+        "controlId": "more-menu",
+        "action": "noNavigation",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": "local-more-menu-placeholder",
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C04.retry-similar-exercise",
+        "page": "/pages/ai-exercise-feedback/index",
+        "controlId": "retry-similar-exercise",
+        "action": "apiNavigate",
+        "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+        "fixedAction": "similar_exercise",
+        "targetRoute": "/pages/ai-exercise/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C04.return-full-report",
+        "page": "/pages/ai-exercise-feedback/index",
+        "controlId": "return-full-report",
+        "action": "navigateTo",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/full-report/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C04.open-interaction-record",
+        "page": "/pages/ai-exercise-feedback/index",
+        "controlId": "open-interaction-record",
+        "action": "navigateTo",
+        "api": "GET /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+        "fixedAction": null,
+        "targetRoute": "/pages/ai-tutor/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C04.bottom-share-report",
+        "page": "/pages/ai-exercise-feedback/index",
+        "controlId": "bottom-share-report",
+        "action": "noNavigation",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": "local-share-placeholder",
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C04.bottom-ai-tutor",
+        "page": "/pages/ai-exercise-feedback/index",
+        "controlId": "bottom-ai-tutor",
+        "action": "navigateTo",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/ai-tutor/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "V13-C04.bottom-export-pdf",
+        "page": "/pages/ai-exercise-feedback/index",
+        "controlId": "bottom-export-pdf",
+        "action": "api",
+        "api": "POST /api/diagnosis-orders/{orderId}/export-pdf",
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C11.open-reports",
+        "page": "/pages/my/index",
+        "controlId": "open-reports",
+        "action": "navigateTo",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/reports/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C11.open-orders",
+        "page": "/pages/my/index",
+        "controlId": "open-orders",
+        "action": "navigateTo",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/orders/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C11.open-purchases",
+        "page": "/pages/my/index",
+        "controlId": "open-purchases",
+        "action": "navigateTo",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/orders/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C11.open-feedback",
+        "page": "/pages/my/index",
+        "controlId": "open-feedback",
+        "action": "navigateTo",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/feedback/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C11.new-analysis",
+        "page": "/pages/my/index",
+        "controlId": "new-analysis",
+        "action": "switchTab",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": "/pages/index/index",
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C11.submit-feedback",
+        "page": "/pages/my/index",
+        "controlId": "submit-feedback",
+        "action": "api",
+        "api": "POST /api/diagnosis-orders/{orderId}/feedback",
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C12.load-my-reports",
+        "page": "/pages/reports/index",
+        "controlId": "load-my-reports",
+        "action": "api",
+        "api": "GET /api/my/reports",
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C12.open-report-card",
+        "page": "/pages/reports/index",
+        "controlId": "open-report-card",
+        "action": "guardedRoute",
+        "api": null,
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C11A.load-order-records",
+        "page": "/pages/orders/index",
+        "controlId": "load-order-records",
+        "action": "api",
+        "api": "GET /api/my/reports",
+        "fixedAction": null,
+        "targetRoute": null,
+        "behavior": null,
+        "routeExists": true
+      },
+      {
+        "clickId": "C11B.submit-feedback",
+        "page": "/pages/feedback/index",
+        "controlId": "submit-feedback",
+        "action": "api",
+        "api": "POST /api/diagnosis-orders/{orderId}/feedback",
+        "fixedAction": null,
+        "targetRoute": "/pages/my/index",
+        "behavior": null,
+        "routeExists": true
+      }
+    ],
+    "dbTables": {
+      "diagnosisQuestions": 2,
+      "questionInteractions": 5,
+      "aiModelTraces": 3
+    }
+  },
+  "visualEvidence": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/index/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/home/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/home/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/home/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/home/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/reports/index",
+      "actual": "docs/auto-execute/evidence/visual-harness/reports/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/reports/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/reports/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/reports/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/full-report/index",
+      "reference": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/reference.png",
+      "actual": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/wrong-question/index",
+      "reference": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/wrong-question-detail/reference.png",
+      "actual": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/wrong-question-detail/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/wrong-question-detail/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/wrong-question-detail/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/wrong-question-detail/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/ai-tutor/index",
+      "reference": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/reference.png",
+      "actual": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/ai-exercise/index",
+      "reference": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/similar-exercise/reference.png",
+      "actual": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/similar-exercise/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/similar-exercise/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/similar-exercise/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/similar-exercise/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/ai-exercise-feedback/index",
+      "reference": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/answer-feedback/reference.png",
+      "actual": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/answer-feedback/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/answer-feedback/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/answer-feedback/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/answer-feedback/summary.json"
+    }
+  ],
+  "visibleUiState": {
+    "clickedStates": [
+      "locked",
+      "retry",
+      "history",
+      "quota-exhausted",
+      "answer-feedback",
+      "my-reports-recovery"
+    ],
+    "allRouteTargetsDeclaredInAppJson": true
+  },
+  "localOnly": {
+    "LOCAL_ONLY": "true",
+    "adapterMode": "local-mock",
+    "remoteCalls": []
+  }
+}

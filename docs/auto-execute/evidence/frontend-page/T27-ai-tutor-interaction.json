@@ -1,0 +1,421 @@
+{
+  "status": "PASS",
+  "command": "npm test -- ai-tutor-interaction",
+  "requirementIds": [
+    "V13-R04",
+    "V13-R11"
+  ],
+  "renderedState": {
+    "route": "/pages/ai-tutor/index",
+    "orderId": "order-t27-interaction",
+    "questionId": "order-t27-interaction-q1",
+    "uiReference": {
+      "id": "V13-UI-AI-TUTOR",
+      "source": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/ai/screen-reference"
+    },
+    "title": "教育提分报告",
+    "subtitle": "你还可以追问 3 次",
+    "teacherMessage": "我来帮你再梳理这道题。你可以先选择一个固定问题，我会只围绕当前错题讲解。",
+    "quota": {
+      "reportRemaining": 8,
+      "reportTotal": 10,
+      "questionRemaining": 3,
+      "questionTotal": 3,
+      "text": "本报告 AI 错题追问剩余 8/10 次，本题剩余 3/3 次"
+    },
+    "fixedButtons": [
+      {
+        "id": "ask-step-explanation",
+        "text": "我不懂这一步",
+        "icon": "help_center",
+        "actionType": "explain_step",
+        "enabled": true
+      },
+      {
+        "id": "ask-why-method",
+        "text": "为什么这样算",
+        "icon": "lightbulb",
+        "actionType": "why_method",
+        "enabled": true
+      },
+      {
+        "id": "ask-another-explanation",
+        "text": "换一种方式讲",
+        "icon": "model_training",
+        "actionType": "another_explanation",
+        "enabled": true
+      },
+      {
+        "id": "generate-similar-exercise",
+        "text": "出一道同类题",
+        "icon": "description",
+        "actionType": "similar_exercise",
+        "targetRoute": "/pages/ai-exercise/index",
+        "enabled": true
+      },
+      {
+        "id": "mark-understood",
+        "text": "我已经懂了",
+        "icon": "check_circle",
+        "actionType": "mark_understood",
+        "targetRoute": "/pages/full-report/index",
+        "enabled": true
+      }
+    ],
+    "question": {
+      "questionId": "order-t27-interaction-q1",
+      "type": "应用题",
+      "knowledgePoint": "方程应用题",
+      "originalQuestion": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+      "studentAnswer": "学生把“速度差”看成速度和，写成 (60 + 50) x 2。",
+      "correctAnswer": "20 千米",
+      "diagnosis": "没有先判断两人的速度差，导致数量关系跑偏。",
+      "solution": [
+        "x = (60 - 50) x 2",
+        "x = 10 x 2",
+        "x = 20 千米"
+      ],
+      "remainingQuota": 3
+    },
+    "questionExpanded": true,
+    "historyRow": {
+      "id": "interaction-history",
+      "text": "本题互动记录 (2)",
+      "latest": "解释为什么用速度差。",
+      "targetRoute": "/pages/ai-tutor/index"
+    },
+    "historyDetailOpen": false,
+    "interactionRecords": [
+      {
+        "id": "order-t27-interaction-q1-history-2",
+        "orderId": "order-t27-interaction",
+        "questionId": "order-t27-interaction-q1",
+        "ownerId": "local-user-scoremap-t06",
+        "actionType": "why_method",
+        "promptId": "LLM-TUTOR-05",
+        "status": "success",
+        "summary": "解释为什么用速度差。",
+        "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+        "traceId": "trace-order-t27-interaction-q1-history-2",
+        "createdAt": "2026-05-25T08:00:02.000Z"
+      },
+      {
+        "id": "order-t27-interaction-q1-history-1",
+        "orderId": "order-t27-interaction",
+        "questionId": "order-t27-interaction-q1",
+        "ownerId": "local-user-scoremap-t06",
+        "actionType": "explain_step",
+        "promptId": "LLM-TUTOR-05",
+        "status": "success",
+        "summary": "先看速度差，再乘以时间。",
+        "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+        "traceId": "trace-order-t27-interaction-q1-history-1",
+        "createdAt": "2026-05-25T08:00:01.000Z"
+      }
+    ],
+    "activeResponse": null,
+    "statusBanner": null,
+    "noOpenEndedChat": true,
+    "controls": [
+      {
+        "id": "back-to-question-detail",
+        "text": "返回",
+        "targetRoute": "/pages/wrong-question/index"
+      },
+      {
+        "id": "open-history",
+        "text": "追问记录",
+        "api": "GET /api/diagnosis-orders/order-t27-interaction/questions/order-t27-interaction-q1/interactions"
+      },
+      {
+        "id": "ask-step-explanation",
+        "text": "我不懂这一步",
+        "api": "POST /api/diagnosis-orders/order-t27-interaction/questions/order-t27-interaction-q1/interactions",
+        "fixedAction": "explain_step",
+        "targetRoute": "/pages/ai-tutor/index"
+      },
+      {
+        "id": "ask-why-method",
+        "text": "为什么这样算",
+        "api": "POST /api/diagnosis-orders/order-t27-interaction/questions/order-t27-interaction-q1/interactions",
+        "fixedAction": "why_method",
+        "targetRoute": "/pages/ai-tutor/index"
+      },
+      {
+        "id": "ask-another-explanation",
+        "text": "换一种方式讲",
+        "api": "POST /api/diagnosis-orders/order-t27-interaction/questions/order-t27-interaction-q1/interactions",
+        "fixedAction": "another_explanation",
+        "targetRoute": "/pages/ai-tutor/index"
+      },
+      {
+        "id": "generate-similar-exercise",
+        "text": "出一道同类题",
+        "api": "POST /api/diagnosis-orders/order-t27-interaction/questions/order-t27-interaction-q1/interactions",
+        "fixedAction": "similar_exercise",
+        "targetRoute": "/pages/ai-exercise/index"
+      },
+      {
+        "id": "mark-understood",
+        "text": "我已经懂了",
+        "api": "POST /api/diagnosis-orders/order-t27-interaction/questions/order-t27-interaction-q1/interactions",
+        "fixedAction": "mark_understood",
+        "targetRoute": "/pages/full-report/index"
+      },
+      {
+        "id": "toggle-question-context",
+        "text": "收起原题",
+        "behavior": "accordion-toggle"
+      },
+      {
+        "id": "bottom-share-report",
+        "text": "分享报告",
+        "behavior": "local-share-placeholder"
+      },
+      {
+        "id": "bottom-ai-tutor",
+        "text": "AI 提分",
+        "behavior": "active-tab"
+      },
+      {
+        "id": "bottom-export-pdf",
+        "text": "导出 PDF",
+        "api": "/api/diagnosis-orders/order-t27-interaction/export-pdf"
+      }
+    ]
+  },
+  "history": {
+    "status": "HISTORY_READY",
+    "api": "GET /api/diagnosis-orders/order-t27-interaction/questions/order-t27-interaction-q1/interactions",
+    "records": [
+      {
+        "id": "order-t27-interaction-q1-history-2",
+        "orderId": "order-t27-interaction",
+        "questionId": "order-t27-interaction-q1",
+        "ownerId": "local-user-scoremap-t06",
+        "actionType": "why_method",
+        "promptId": "LLM-TUTOR-05",
+        "status": "success",
+        "summary": "解释为什么用速度差。",
+        "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+        "traceId": "trace-order-t27-interaction-q1-history-2",
+        "createdAt": "2026-05-25T08:00:02.000Z"
+      },
+      {
+        "id": "order-t27-interaction-q1-history-1",
+        "orderId": "order-t27-interaction",
+        "questionId": "order-t27-interaction-q1",
+        "ownerId": "local-user-scoremap-t06",
+        "actionType": "explain_step",
+        "promptId": "LLM-TUTOR-05",
+        "status": "success",
+        "summary": "先看速度差，再乘以时间。",
+        "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+        "traceId": "trace-order-t27-interaction-q1-history-1",
+        "createdAt": "2026-05-25T08:00:01.000Z"
+      }
+    ]
+  },
+  "controlEvidence": [
+    {
+      "controlId": "toggle-question-context",
+      "result": {
+        "status": "QUESTION_COLLAPSED",
+        "questionExpanded": false
+      }
+    },
+    {
+      "controlId": "toggle-question-context",
+      "result": {
+        "status": "QUESTION_EXPANDED",
+        "questionExpanded": true
+      }
+    },
+    {
+      "controlId": "open-history",
+      "result": {
+        "status": "HISTORY_DETAIL_OPEN",
+        "targetRoute": "/pages/ai-tutor/index",
+        "query": {
+          "orderId": "order-t27-interaction",
+          "questionId": "order-t27-interaction-q1",
+          "interactionId": "order-t27-interaction-q1-history-2"
+        },
+        "record": {
+          "id": "order-t27-interaction-q1-history-2",
+          "orderId": "order-t27-interaction",
+          "questionId": "order-t27-interaction-q1",
+          "ownerId": "local-user-scoremap-t06",
+          "actionType": "why_method",
+          "promptId": "LLM-TUTOR-05",
+          "status": "success",
+          "summary": "解释为什么用速度差。",
+          "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+          "traceId": "trace-order-t27-interaction-q1-history-2",
+          "createdAt": "2026-05-25T08:00:02.000Z"
+        }
+      }
+    },
+    {
+      "controlId": "back-to-question-detail",
+      "result": {
+        "status": "NAVIGATE",
+        "targetRoute": "/pages/wrong-question/index",
+        "query": {
+          "orderId": "order-t27-interaction",
+          "questionId": "order-t27-interaction-q1"
+        }
+      }
+    }
+  ],
+  "apiCalls": [
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-t27-interaction",
+        "paymentType": "full",
+        "source": "T27-ai-tutor-fixture"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "paid",
+        "paymentId": "payment-t06-full",
+        "amountYuan": 9.9,
+        "paymentParams": {
+          "adapter": "local-mock"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t27-interaction/generate-full",
+      "payloadSummary": {
+        "source": "T27-ai-tutor-fixture"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t27-interaction/questions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t27-interaction",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t27-interaction-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t27-interaction-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t27-interaction/questions/order-t27-interaction-q1/interactions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t27-interaction",
+        "questionId": "order-t27-interaction-q1",
+        "items": [
+          {
+            "id": "order-t27-interaction-q1-history-2",
+            "orderId": "order-t27-interaction",
+            "questionId": "order-t27-interaction-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "why_method",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "解释为什么用速度差。",
+            "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+            "traceId": "trace-order-t27-interaction-q1-history-2",
+            "createdAt": "2026-05-25T08:00:02.000Z"
+          },
+          {
+            "id": "order-t27-interaction-q1-history-1",
+            "orderId": "order-t27-interaction",
+            "questionId": "order-t27-interaction-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "先看速度差，再乘以时间。",
+            "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+            "traceId": "trace-order-t27-interaction-q1-history-1",
+            "createdAt": "2026-05-25T08:00:01.000Z"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t27-interaction/questions/order-t27-interaction-q1/interactions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t27-interaction",
+        "questionId": "order-t27-interaction-q1",
+        "items": [
+          {
+            "id": "order-t27-interaction-q1-history-2",
+            "orderId": "order-t27-interaction",
+            "questionId": "order-t27-interaction-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "why_method",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "解释为什么用速度差。",
+            "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+            "traceId": "trace-order-t27-interaction-q1-history-2",
+            "createdAt": "2026-05-25T08:00:02.000Z"
+          },
+          {
+            "id": "order-t27-interaction-q1-history-1",
+            "orderId": "order-t27-interaction",
+            "questionId": "order-t27-interaction-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "先看速度差，再乘以时间。",
+            "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+            "traceId": "trace-order-t27-interaction-q1-history-1",
+            "createdAt": "2026-05-25T08:00:01.000Z"
+          }
+        ]
+      }
+    }
+  ]
+}

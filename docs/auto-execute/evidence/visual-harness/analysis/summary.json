@@ -1,7 +1,9 @@
 {
   "id": "UI-C03",
   "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
-  "reference": "docs/UI/小程序/AI分析.png",
+  "referenceKey": null,
+  "reference": "docs/auto-execute/evidence/visual-harness/analysis/reference.png",
+  "sourceReference": "docs/UI/小程序/AI分析.png",
   "actual": "docs/auto-execute/evidence/visual-harness/analysis/actual.jpg",
   "diff": "docs/auto-execute/evidence/visual-harness/analysis/diff.svg",
   "metrics": "docs/auto-execute/evidence/visual-harness/analysis/metrics.json",

@@ -1,9 +1,11 @@
 {
   "id": "UI-C07",
   "screen": "basic-result",
+  "referenceKey": null,
   "route": "/pages/basic-result/index",
   "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
-  "reference": "docs/UI/小程序/ChatGPT Image 2026年5月22日 23_02_21.png",
+  "reference": "docs/auto-execute/evidence/visual-harness/basic-result/reference.png",
+  "sourceReference": "docs/UI/小程序/ChatGPT Image 2026年5月22日 23_02_21.png",
   "declaredReference": "docs/UI/小程序/ChatGPT Image 2026年5月22日 23_02_21.png",
   "stitchReference": null,
   "miniappActualAsset": "scoremap-miniapp/assets/reference/basic-result.jpg",

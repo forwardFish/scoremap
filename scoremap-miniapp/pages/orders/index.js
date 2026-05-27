@@ -1,26 +1,30 @@
-﻿if (typeof Page === 'function') {
-  const { createReplicaPage } = require('../../utils/replica-runtime');
-  createReplicaPage({
-  "title": "订单记录",
-  "reference": "",
-  "derived": true,
-  "hotspots": [
-    {
-      "action": "my",
-      "label": "我的",
-      "className": "bottom-cta"
+if (typeof Page === 'function') {
+  function navigate(url) {
+    if (typeof wx === 'undefined') return;
+    wx.switchTab({ url, fail: () => wx.reLaunch({ url }) });
+  }
+
+  Page({
+    data: {
+      reference: '',
+      derived: true,
+      title: '订单记录',
+      hotspots: [
+        { action: 'my', label: '我的', className: 'bottom-cta' }
+      ]
+    },
+    onLoad(query) {
+      this.query = query || {};
+      if (query && query.mode === 'purchases') this.setData({ title: '购买记录' });
+      if (typeof wx !== 'undefined' && wx.hideTabBar) wx.hideTabBar({ animation: false, fail() {} });
+    },
+    onShow() {
+      if (typeof wx !== 'undefined' && wx.hideTabBar) wx.hideTabBar({ animation: false, fail() {} });
+    },
+    onTap(event) {
+      if (event.currentTarget.dataset.action === 'my') navigate('/pages/my/index');
     }
-  ],
-  "actions": {
-    "my": {
-      "url": "/pages/my/index"
-    }
-  },
-  "cards": [
-    "1 元初判订单",
-    "9.9 元完整报告订单"
-  ]
-});
+  });
 } else {
 const { createMiniappApiClient } = require('../../services/api-client');
 const { seedMyFixtureIfMissing } = require('../my');

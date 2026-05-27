@@ -1,0 +1,66 @@
+{
+  "taskId": "T37",
+  "status": "PASS_WITH_LIMITATION",
+  "screens": [
+    {
+      "name": "preview",
+      "route": "/pages/preview/index",
+      "implementedSurface": "scoremap-miniapp/pages/preview/index.wxml",
+      "styleSurface": "scoremap-miniapp/pages/preview/index.wxss",
+      "reference": "docs/UI/小程序/分析报告.png",
+      "checks": [
+        "three visible modules",
+        "locked area",
+        "1 yuan complete-basic CTA"
+      ]
+    },
+    {
+      "name": "basic-pay",
+      "route": "/pages/basic-pay/index",
+      "implementedSurface": "scoremap-miniapp/pages/basic-pay/index.wxml",
+      "styleSurface": "scoremap-miniapp/pages/basic-pay/index.wxss",
+      "reference": "docs/UI/小程序/1元支付.png",
+      "stitchReference": "docs/UI/小程序/stitch_codex_development_blueprints/1/screen.png",
+      "checks": [
+        "local mock 1 yuan payment",
+        "basic result navigation",
+        "working back control"
+      ]
+    },
+    {
+      "name": "basic-result",
+      "route": "/pages/basic-result/index",
+      "implementedSurface": "scoremap-miniapp/pages/basic-result/index.wxml",
+      "styleSurface": "scoremap-miniapp/pages/basic-result/index.wxss",
+      "reference": "docs/UI/小程序/ChatGPT Image 2026年5月22日 23_02_21.png",
+      "checks": [
+        "complete basic decision content",
+        "9.9 full unlock CTA",
+        "reports navigation"
+      ]
+    }
+  ],
+  "commands": [
+    {
+      "command": "npm test -- preview-basic-pay",
+      "status": "PASS"
+    },
+    {
+      "command": "npm test -- basic-result-full-unlock",
+      "status": "PASS"
+    },
+    {
+      "command": "npm --prefix server test -- payment",
+      "status": "PASS"
+    },
+    {
+      "command": "npm run e2e:owner -- old-flow-preview-payment-result",
+      "status": "PASS"
+    },
+    {
+      "command": "npm run visual:scoremap -- preview basic-pay basic-result",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW"
+    }
+  ],
+  "limitation": "The exact combined npm test selector requested by T37 fails in the current runner because multiple selectors are interpreted as one AND-matched group."
+}

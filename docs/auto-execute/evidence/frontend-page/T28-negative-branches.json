@@ -1,0 +1,254 @@
+{
+  "status": "PASS",
+  "command": "npm test -- ai-exercise-feedback",
+  "requirementIds": [
+    "V13-R06"
+  ],
+  "duplicateAnswer": {
+    "status": "DUPLICATE_ANSWER",
+    "api": "POST /api/diagnosis-orders/order-t28-duplicate/questions/order-t28-duplicate-q1/exercise-answer",
+    "response": {
+      "status": "error",
+      "code": "EXERCISE_ALREADY_ANSWERED"
+    }
+  },
+  "answerBeforeExercise": {
+    "status": 404,
+    "body": {
+      "status": "error",
+      "code": "EXERCISE_NOT_FOUND"
+    }
+  },
+  "duplicateApiCalls": [
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-t28-duplicate",
+        "paymentType": "full",
+        "source": "T28-ai-exercise-fixture"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "paid",
+        "paymentId": "payment-t06-full",
+        "amountYuan": 9.9,
+        "paymentParams": {
+          "adapter": "local-mock"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t28-duplicate/generate-full",
+      "payloadSummary": {
+        "source": "T28-ai-exercise-fixture"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t28-duplicate/questions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t28-duplicate",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t28-duplicate-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t28-duplicate-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t28-duplicate/questions/order-t28-duplicate-q1/interactions",
+      "payloadSummary": {
+        "actionType": "similar_exercise",
+        "source": "T28-ai-exercise-ui"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "ok",
+        "interaction": {
+          "id": "interaction-order-t28-duplicate-q1-similar_exercise-1",
+          "orderId": "order-t28-duplicate",
+          "questionId": "order-t28-duplicate-q1",
+          "ownerId": "local-user-scoremap-t06",
+          "actionType": "similar_exercise",
+          "promptId": "LLM-EXERCISE-06",
+          "status": "success",
+          "summary": "生成同类练习题。",
+          "response": "已生成一道同类题，继续保持当前错题的数量关系。",
+          "exercise": {
+            "id": "exercise-order-t28-duplicate-q1",
+            "stem": "甲每小时行 72km，乙每小时行 60km，3 小时后甲比乙多行多少千米？",
+            "options": [
+              "24 千米",
+              "36 千米",
+              "132 千米",
+              "216 千米"
+            ],
+            "correctOption": "36 千米"
+          },
+          "traceId": "trace-interaction-order-t28-duplicate-q1-similar_exercise-1",
+          "createdAt": "2026-05-25T01:00:00.000Z"
+        },
+        "quota": {
+          "questionRemaining": 2,
+          "questionTotal": 3
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t28-duplicate/questions/order-t28-duplicate-q1/exercise-answer",
+      "payloadSummary": {
+        "interactionId": "interaction-order-t28-duplicate-q1-similar_exercise-1",
+        "submittedAnswer": "24 千米",
+        "source": "T28-ai-exercise-ui"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "answered",
+        "interactionId": "interaction-order-t28-duplicate-q1-similar_exercise-1",
+        "correctness": false,
+        "feedback": {
+          "correct": false,
+          "headline": "还差一步",
+          "explanation": "这类题先比较每小时相差多少，再乘以相同的时间，不要把两个人的速度相加。",
+          "summary": "需要再练一次速度差乘时间。"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t28-duplicate/questions/order-t28-duplicate-q1/exercise-answer",
+      "payloadSummary": {
+        "interactionId": "interaction-order-t28-duplicate-q1-similar_exercise-1",
+        "submittedAnswer": "24 千米",
+        "source": "T28-ai-exercise-ui"
+      },
+      "responseStatus": 409,
+      "responseBody": {
+        "status": "error",
+        "code": "EXERCISE_ALREADY_ANSWERED"
+      }
+    }
+  ],
+  "missingApiCalls": [
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-t28-missing",
+        "paymentType": "full",
+        "source": "T28-negative-fixture"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "paid",
+        "paymentId": "payment-t06-full",
+        "amountYuan": 9.9,
+        "paymentParams": {
+          "adapter": "local-mock"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t28-missing/generate-full",
+      "payloadSummary": {
+        "source": "T28-negative-fixture"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t28-missing/questions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t28-missing",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t28-missing-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t28-missing-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t28-missing/questions/order-t28-missing-q1/exercise-answer",
+      "payloadSummary": {
+        "interactionId": "missing-exercise",
+        "submittedAnswer": "A"
+      },
+      "responseStatus": 404,
+      "responseBody": {
+        "status": "error",
+        "code": "EXERCISE_NOT_FOUND"
+      }
+    }
+  ]
+}

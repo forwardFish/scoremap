@@ -1,15 +1,30 @@
 ﻿const fs = require('node:fs');
 const path = require('node:path');
+const { writeEvidenceFile } = require('../../../shared/evidence-paths');
 
 function writeLocalPdf({ filePath, title, lines }) {
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
   const content = buildMinimalPdf(title, lines);
-  fs.writeFileSync(filePath, content, 'binary');
+  const normalizedPath = String(filePath).replace(/\\/g, '/');
+  const marker = '/docs/auto-execute/evidence/';
+  const markerIndex = normalizedPath.indexOf(marker);
+  const resolvedPath = markerIndex >= 0
+    ? writeEvidenceFile(
+      path.resolve(__dirname, '..', '..', '..'),
+      normalizedPath.slice(markerIndex + marker.length).replace(/\//g, path.sep),
+      content
+    )
+    : writeDirectPdf(filePath, content);
   return {
-    filePath,
-    byteLength: fs.statSync(filePath).size,
+    filePath: resolvedPath,
+    byteLength: fs.statSync(resolvedPath).size,
     format: 'application/pdf'
   };
+}
+
+function writeDirectPdf(filePath, content) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, content, 'binary');
+  return filePath;
 }
 
 function buildMinimalPdf(title, lines) {

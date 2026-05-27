@@ -1,0 +1,28 @@
+{
+  "taskId": "T41",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "scope": [
+    "reports",
+    "orders",
+    "feedback",
+    "scaffold"
+  ],
+  "supportPagePolicy": {
+    "standalonePixelReferencesClaimed": false,
+    "reason": "These support pages have no standalone pixel references; they are validated by code-rendered UI, route state, behavior contracts, and structural visual evidence."
+  },
+  "behaviorPreserved": {
+    "reportsStatusJumpRules": true,
+    "ordersPurchaseHistoryDisplay": true,
+    "feedbackSubmitBehavior": true,
+    "scaffoldRouteContractVisibility": true
+  },
+  "evidence": [
+    "docs/auto-execute/evidence/navigation/support-pages-code-rendered.json",
+    "docs/auto-execute/evidence/frontend-page/my-reports-feedback-api-db.json",
+    "docs/auto-execute/evidence/frontend-page/my-reports-feedback-owner-local.json",
+    "docs/auto-execute/evidence/scaffold/page-route-scaffold.json",
+    "docs/auto-execute/evidence/scaffold/visual-placeholder-status.json",
+    "docs/auto-execute/evidence/visual-harness/reports/summary.json"
+  ]
+}

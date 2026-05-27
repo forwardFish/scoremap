@@ -46,6 +46,19 @@
               "savedReport": false,
               "paymentStatus": "unpaid",
               "paidAmountYuan": 0
+            },
+            {
+              "orderId": "order-t29-basic-only",
+              "title": "五年级数学基础初判报告",
+              "grade": "五年级",
+              "subject": "数学",
+              "examType": "单元测验",
+              "status": "basic_done",
+              "accessLevel": "basic",
+              "createdAt": "2026-05-24T08:00:00Z",
+              "savedReport": true,
+              "paymentStatus": "paid",
+              "paidAmountYuan": 1
             }
           ]
         }
@@ -86,6 +99,19 @@
               "savedReport": false,
               "paymentStatus": "unpaid",
               "paidAmountYuan": 0
+            },
+            {
+              "orderId": "order-t29-basic-only",
+              "title": "五年级数学基础初判报告",
+              "grade": "五年级",
+              "subject": "数学",
+              "examType": "单元测验",
+              "status": "basic_done",
+              "accessLevel": "basic",
+              "createdAt": "2026-05-24T08:00:00Z",
+              "savedReport": true,
+              "paymentStatus": "paid",
+              "paidAmountYuan": 1
             }
           ]
         }
@@ -126,6 +152,19 @@
               "savedReport": false,
               "paymentStatus": "unpaid",
               "paidAmountYuan": 0
+            },
+            {
+              "orderId": "order-t29-basic-only",
+              "title": "五年级数学基础初判报告",
+              "grade": "五年级",
+              "subject": "数学",
+              "examType": "单元测验",
+              "status": "basic_done",
+              "accessLevel": "basic",
+              "createdAt": "2026-05-24T08:00:00Z",
+              "savedReport": true,
+              "paymentStatus": "paid",
+              "paidAmountYuan": 1
             }
           ]
         }
@@ -166,6 +205,19 @@
               "savedReport": false,
               "paymentStatus": "unpaid",
               "paidAmountYuan": 0
+            },
+            {
+              "orderId": "order-t29-basic-only",
+              "title": "五年级数学基础初判报告",
+              "grade": "五年级",
+              "subject": "数学",
+              "examType": "单元测验",
+              "status": "basic_done",
+              "accessLevel": "basic",
+              "createdAt": "2026-05-24T08:00:00Z",
+              "savedReport": true,
+              "paymentStatus": "paid",
+              "paidAmountYuan": 1
             }
           ]
         }
@@ -179,6 +231,39 @@
         "status": "NAVIGATE",
         "orderId": "order-t12-full",
         "targetRoute": "/pages/full-report/index",
+        "query": {
+          "orderId": "order-t12-full"
+        },
+        "resumeMode": "report",
+        "aiTutor": {
+          "formalEntitlement": true,
+          "statusText": "完整报告 AI 追问可继续",
+          "remainingText": "本报告剩余 8/10 次",
+          "reportQuota": {
+            "used": 2,
+            "total": 10,
+            "remaining": 8,
+            "text": "本报告 AI 错题追问剩余 8/10 次"
+          },
+          "questionQuota": {
+            "used": 0,
+            "total": 3,
+            "remaining": 3
+          },
+          "wrongQuestionCount": 2,
+          "historyCount": 2,
+          "firstQuestionId": "order-t12-full-q1",
+          "historyEntry": {
+            "id": "resume-ai-tutor-history",
+            "targetRoute": "/pages/ai-tutor/index",
+            "query": {
+              "orderId": "order-t12-full",
+              "questionId": "order-t12-full-q1",
+              "tab": "history"
+            },
+            "latest": "解释为什么用速度差。"
+          }
+        },
         "disabledReason": null
       }
     },
@@ -188,6 +273,18 @@
         "status": "NAVIGATE",
         "orderId": "order-t12-analyzing",
         "targetRoute": "/pages/analysis/index",
+        "query": {
+          "orderId": "order-t12-analyzing"
+        },
+        "aiTutor": {
+          "formalEntitlement": false,
+          "statusText": "未解锁 AI 追问",
+          "remainingText": "解锁完整报告后可用",
+          "reportQuota": null,
+          "questionQuota": null,
+          "historyCount": 0,
+          "historyEntry": null
+        },
         "disabledReason": null
       }
     }
@@ -218,6 +315,19 @@
         "accessLevel": "preview",
         "createdAt": "2026-05-23T08:00:00Z",
         "source": "T12-my-reports-fixture"
+      },
+      {
+        "id": "order-t29-basic-only",
+        "ownerId": "local-user-scoremap-t06",
+        "title": "五年级数学基础初判报告",
+        "grade": "五年级",
+        "subject": "数学",
+        "examType": "单元测验",
+        "status": "basic_done",
+        "accessLevel": "basic",
+        "savedReport": true,
+        "createdAt": "2026-05-24T08:00:00Z",
+        "source": "T29-basic-entitlement-fixture"
       }
     ],
     "payments": [
@@ -236,6 +346,15 @@
         "ownerId": "local-user-scoremap-t06",
         "paymentType": "full",
         "amountYuan": 9.9,
+        "status": "paid",
+        "adapter": "local-wechat-pay-mock"
+      },
+      {
+        "id": "payment-t29-basic-only",
+        "orderId": "order-t29-basic-only",
+        "ownerId": "local-user-scoremap-t06",
+        "paymentType": "basic",
+        "amountYuan": 1,
         "status": "paid",
         "adapter": "local-wechat-pay-mock"
       }
@@ -316,7 +435,68 @@
           "accessLevel": "full",
           "targetRoute": "/pages/full-report/index",
           "actionText": "查看完整报告",
-          "savedReport": true
+          "savedReport": true,
+          "aiTutor": {
+            "formalEntitlement": true,
+            "statusText": "完整报告 AI 追问可继续",
+            "remainingText": "本报告剩余 8/10 次",
+            "reportQuota": {
+              "used": 2,
+              "total": 10,
+              "remaining": 8,
+              "text": "本报告 AI 错题追问剩余 8/10 次"
+            },
+            "questionQuota": {
+              "used": 0,
+              "total": 3,
+              "remaining": 3
+            },
+            "wrongQuestionCount": 2,
+            "historyCount": 2,
+            "firstQuestionId": "order-t12-full-q1",
+            "historyEntry": {
+              "id": "resume-ai-tutor-history",
+              "targetRoute": "/pages/ai-tutor/index",
+              "query": {
+                "orderId": "order-t12-full",
+                "questionId": "order-t12-full-q1",
+                "tab": "history"
+              },
+              "latest": "解释为什么用速度差。"
+            }
+          },
+          "resumeTargets": [
+            {
+              "id": "resume-report-card",
+              "targetRoute": "/pages/full-report/index",
+              "query": {
+                "orderId": "order-t12-full"
+              },
+              "resumeMode": "report",
+              "enabled": true
+            },
+            {
+              "id": "resume-wrong-question",
+              "targetRoute": "/pages/wrong-question/index",
+              "query": {
+                "orderId": "order-t12-full",
+                "questionId": "order-t12-full-q1"
+              },
+              "resumeMode": "wrongQuestion",
+              "enabled": true
+            },
+            {
+              "id": "resume-ai-tutor-history",
+              "targetRoute": "/pages/ai-tutor/index",
+              "query": {
+                "orderId": "order-t12-full",
+                "questionId": "order-t12-full-q1",
+                "tab": "history"
+              },
+              "resumeMode": "history",
+              "enabled": true
+            }
+          ]
         },
         {
           "orderId": "order-t12-analyzing",
@@ -331,7 +511,72 @@
           "accessLevel": "preview",
           "targetRoute": "/pages/analysis/index",
           "actionText": "查看进度",
-          "savedReport": false
+          "savedReport": false,
+          "aiTutor": {
+            "formalEntitlement": false,
+            "statusText": "未解锁 AI 追问",
+            "remainingText": "解锁完整报告后可用",
+            "reportQuota": null,
+            "questionQuota": null,
+            "historyCount": 0,
+            "historyEntry": null
+          },
+          "resumeTargets": [
+            {
+              "id": "resume-report-card",
+              "targetRoute": "/pages/analysis/index",
+              "query": {
+                "orderId": "order-t12-analyzing"
+              },
+              "enabled": true
+            },
+            {
+              "id": "resume-ai-tutor-history",
+              "targetRoute": "/pages/analysis/index",
+              "enabled": false,
+              "disabledReason": "FULL_REPORT_ENTITLEMENT_REQUIRED"
+            }
+          ]
+        },
+        {
+          "orderId": "order-t29-basic-only",
+          "title": "五年级数学基础初判报告",
+          "grade": "五年级",
+          "subject": "数学",
+          "examType": "单元测验",
+          "createdAt": "2026-05-24T08:00:00Z",
+          "status": "basic_done",
+          "statusText": "1 元初判已解锁",
+          "paymentStatus": "paid",
+          "accessLevel": "basic",
+          "targetRoute": "/pages/basic-result/index",
+          "actionText": "查看初判结果",
+          "savedReport": true,
+          "aiTutor": {
+            "formalEntitlement": false,
+            "statusText": "基础报告未解锁正式 AI 追问",
+            "remainingText": "解锁完整报告后可用",
+            "reportQuota": null,
+            "questionQuota": null,
+            "historyCount": 0,
+            "historyEntry": null
+          },
+          "resumeTargets": [
+            {
+              "id": "resume-report-card",
+              "targetRoute": "/pages/basic-result/index",
+              "query": {
+                "orderId": "order-t29-basic-only"
+              },
+              "enabled": true
+            },
+            {
+              "id": "resume-ai-tutor-history",
+              "targetRoute": "/pages/basic-result/index",
+              "enabled": false,
+              "disabledReason": "FULL_REPORT_ENTITLEMENT_REQUIRED"
+            }
+          ]
         }
       ]
     },
@@ -369,6 +614,15 @@
           "paymentStatus": "unpaid",
           "paidAmountYuan": 0,
           "visibleInPurchaseMode": true
+        },
+        {
+          "orderId": "order-t29-basic-only",
+          "title": "五年级数学基础初判报告",
+          "status": "basic_done",
+          "accessLevel": "basic",
+          "paymentStatus": "paid",
+          "paidAmountYuan": 1,
+          "visibleInPurchaseMode": true
         }
       ],
       "emptyState": {
@@ -399,6 +653,15 @@
           "accessLevel": "full",
           "paymentStatus": "paid",
           "paidAmountYuan": 10.9,
+          "visibleInPurchaseMode": true
+        },
+        {
+          "orderId": "order-t29-basic-only",
+          "title": "五年级数学基础初判报告",
+          "status": "basic_done",
+          "accessLevel": "basic",
+          "paymentStatus": "paid",
+          "paidAmountYuan": 1,
           "visibleInPurchaseMode": true
         }
       ],

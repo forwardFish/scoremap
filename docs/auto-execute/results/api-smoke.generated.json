@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.9.1",
+  "lane": "api-smoke-generated",
+  "status": "HARD_FAIL",
+  "generatedAt": "2026-05-25T11:10:48.656Z",
+  "results": [
+    {
+      "storyId": "STORY-REPORT-002",
+      "testPointId": "TP-STORY-REPORT-002-001",
+      "target": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "method": "POST",
+      "url": "http://127.0.0.1:3000/api/diagnosis-orders/%7BorderId%7D/questions/%7BquestionId%7D/interactions",
+      "pass": false,
+      "error": "connect ECONNREFUSED 127.0.0.1:3000"
+    },
+    {
+      "storyId": "STORY-GENERAL-006",
+      "testPointId": "TP-STORY-GENERAL-006-001",
+      "target": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/exercise-answer",
+      "method": "POST",
+      "url": "http://127.0.0.1:3000/api/diagnosis-orders/%7BorderId%7D/questions/%7BquestionId%7D/exercise-answer",
+      "pass": false,
+      "error": "connect ECONNREFUSED 127.0.0.1:3000"
+    }
+  ]
+}

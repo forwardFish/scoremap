@@ -1,0 +1,13 @@
+﻿# scoremap AI tutor v1.3 UI reference map
+
+| Ref | Source | Target route/state | Required controls | Data fixture | Visual evidence target | Status |
+|---|---|---|---|---|---|---|
+| V13-UI-FULL-REPORT | `docs/UI/灏忕▼搴?stitch_codex_ui_design_kit/_3/screen.png`; `_3/code.html` | `/pages/full-report/index?state=aiTutorReady` or equivalent complete-report state | back, more, report content rows, wrong-question cards, `鍒嗕韩鎶ュ憡`, `瀵煎嚭 PDF` or hidden if not implemented | full order with two wrong-question cards and quota remaining | `docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/{reference,actual,diff,metrics,summary}` | PLANNED |
+| V13-UI-QUESTION-DETAIL | `docs/UI/灏忕▼搴?stitch_codex_ui_design_kit/_1/screen.png`; `_1/code.html` | `/pages/wrong-question/index?questionId=...` or embedded detail state | back, more, original question, student answer, correct answer, knowledge point, diagnosis, explanation summary, AI teacher CTA, history row, bottom nav | one unanswered wrong question with current report entitlement | `docs/auto-execute/evidence/visual-harness/ai-tutor-v13/wrong-question-detail/*` | PLANNED |
+| V13-UI-AI-TUTOR | `docs/UI/灏忕▼搴?stitch_codex_ui_design_kit/ai/screen.png`; `ai/code.html` | `/pages/ai-tutor/index?questionId=...` or report-embedded expanded tutor state | back, history, remaining count, five fixed buttons, question accordion, interaction record, bottom nav | same question with 8/10 remaining and 2 records | `docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/*` | PLANNED |
+| V13-UI-EXERCISE | `docs/UI/灏忕▼搴?stitch_codex_ui_design_kit/_4/screen.png`; `_4/code.html` | `/pages/ai-exercise/index?interactionId=...` or tutor exercise state | back, refresh/more, exercise prompt, four option buttons, submit, wrong-question context card, bottom nav | generated similar exercise pending answer | `docs/auto-execute/evidence/visual-harness/ai-tutor-v13/similar-exercise/*` | PLANNED |
+| V13-UI-FEEDBACK | `docs/UI/灏忕▼搴?stitch_codex_ui_design_kit/_2/screen.png`; `_2/code.html` | `/pages/ai-exercise-feedback/index?interactionId=...` or tutor answer feedback state | back, more, correct/incorrect result, analysis, retry/similar question, return report, interaction-record row, bottom nav | submitted answer with correct result and summary | `docs/auto-execute/evidence/visual-harness/ai-tutor-v13/answer-feedback/*` | PLANNED |
+
+## Required token extraction
+
+T24 must record the common visual tokens from the five files: background color, surface card color, primary/secondary/tertiary colors, 14px top bar rhythm, 16-24px card padding, rounded 12-24px card corners, bottom nav height, Material Symbols icon mapping, mascot replacement policy, and fixed CTA bar behavior.

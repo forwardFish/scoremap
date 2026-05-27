@@ -1,0 +1,708 @@
+﻿{
+    "blockers":  [
+                     {
+                         "detail":  "Missing required evidence file",
+                         "path":  "docs\\auto-execute\\02-requirement-traceability-matrix.md",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "requirements"
+                     },
+                     {
+                         "detail":  "Missing required evidence file",
+                         "path":  "docs\\auto-execute\\04-visual-acceptance-checklist.md",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "ui"
+                     },
+                     {
+                         "detail":  "Missing required evidence file",
+                         "path":  "docs\\auto-execute\\03-surface-map.md",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "surface"
+                     },
+                     {
+                         "detail":  "Missing required evidence file",
+                         "path":  "docs\\auto-execute\\14-frontend-implementation-plan.md",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "frontendPlan"
+                     },
+                     {
+                         "detail":  "Missing required evidence file",
+                         "path":  "docs\\auto-execute\\15-backend-implementation-plan.md",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "backendPlan"
+                     },
+                     {
+                         "detail":  "Missing required evidence file",
+                         "path":  "docs\\auto-execute\\16-integrated-verification-plan.md",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "integratedPlan"
+                     },
+                     {
+                         "detail":  "Missing required evidence file",
+                         "path":  "docs\\auto-execute\\17-final-acceptance-checklist.md",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "finalChecklist"
+                     },
+                     {
+                         "detail":  "P0/P1 story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-001 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-001 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-002 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-002 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-003 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-003 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-004 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-004 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-005 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-005 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-006 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-006 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "P0/P1 story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-001 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-001 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-002 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-002 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-003 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-003 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-004 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-004 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-005 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-005 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-006 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-006 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-007 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-007 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "P0/P1 story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-001 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-001 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-002 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-002 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-003 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-003 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-004 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-004 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-005 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-005 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-006 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-006 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-007 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-007 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "P0/P1 story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-009-001 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-009-001 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-009-002 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-009-002 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-009-003 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-009-003 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-009-004 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-009-004 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-009-005 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-009-005 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "P0/P1 story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-001 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-001 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-002 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-002 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-003 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-003 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-004 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-004 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-005 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-005 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-006 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-002-006 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "P0/P1 story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-001 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-001 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-002 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-002 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-003 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-003 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-004 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-004 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-005 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-005 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-006 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-006 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-007 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-003-007 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "P0/P1 story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-001 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-001 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-002 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-002 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-003 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-003 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-004 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-004 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-005 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-005 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-006 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-006 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-007 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-GENERAL-006-007 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "P0/P1 story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-009-001 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-009-001 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-009-002 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-009-002 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-009-003 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-009-003 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-009-004 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-009-004 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-009-005 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "IN_SCOPE_GAP",
+                         "kind":  "story"
+                     },
+                     {
+                         "detail":  "Test point TP-STORY-REPORT-009-005 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                         "path":  "docs\\auto-execute\\gap-list.json",
+                         "severity":  "HARD_FAIL",
+                         "kind":  "story"
+                     }
+                 ],
+    "commands":  [
+
+                 ],
+    "lane":  "acceptance-compare",
+    "status":  "HARD_FAIL",
+    "evidence":  [
+                     "docs\\auto-execute\\comparison\\round-003.json",
+                     "docs\\auto-execute\\comparison\\round-003.md"
+                 ],
+    "schemaVersion":  "2.0",
+    "nextActions":  [
+                        "Use this comparison round as the next repair input, update implementation/evidence, then run another comparison round."
+                    ],
+    "updatedAt":  "2026-05-25T19:11:12"
+}

@@ -1,9 +1,95 @@
-﻿<view class="replica-page {{derived ? 'derived-page' : ''}}">
-  <view class="derived-shell fallback-shell">
-    <view class="status-spacer"></view>
-    <view class="derived-title">{{title}}</view>
-    <view class="derived-card" wx:for="{{cards}}" wx:key="*this">{{item}}</view>
+<view class="basic-result-screen">
+  <view class="basic-result-shell">
+    <view class="basic-result-header">
+      <view class="basic-result-brand">
+        <view class="result-logo">
+          <view class="result-logo-face">
+            <view class="result-eye left"></view>
+            <view class="result-eye right"></view>
+          </view>
+        </view>
+        <text class="basic-result-title">AI 初判结果</text>
+      </view>
+      <text class="result-paid">1 元初判已完成</text>
+    </view>
+
+    <view class="result-summary-card">
+      <text class="result-label">一句话判断</text>
+      <text class="result-summary">孩子本次数学失分主要来自计算准确率和几何证明表达，需要先巩固基础并规范步骤。</text>
+      <view class="result-meta">
+        <view class="meta-item">
+          <text class="meta-value">中</text>
+          <text class="meta-label">资料可信度</text>
+        </view>
+        <view class="meta-item">
+          <text class="meta-value">初一</text>
+          <text class="meta-label">分析对象</text>
+        </view>
+        <view class="meta-item">
+          <text class="meta-value">L2</text>
+          <text class="meta-label">干预等级</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="result-section">
+      <view class="section-heading">
+        <text>主要丢分点</text>
+        <view class="section-chip red">优先看</view>
+      </view>
+      <view class="result-line">
+        <view class="line-dot red"></view>
+        <text>多步计算中出现进位、符号和抄写错误。</text>
+      </view>
+      <view class="result-line">
+        <view class="line-dot red"></view>
+        <text>几何证明缺少条件引用，结论前的步骤不完整。</text>
+      </view>
+    </view>
+
+    <view class="result-section">
+      <view class="section-heading">
+        <text>优先补弱点</text>
+        <view class="section-chip green">先补这两项</view>
+      </view>
+      <view class="weakness-grid">
+        <view class="weakness-card">
+          <text class="weakness-title">有理数运算</text>
+          <text class="weakness-desc">影响后续整式、方程和函数学习</text>
+        </view>
+        <view class="weakness-card">
+          <text class="weakness-title">辅助线证明</text>
+          <text class="weakness-desc">先写条件、理由，再写结论</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="result-section advice-section">
+      <view class="section-heading">
+        <text>初步建议</text>
+        <view class="section-chip purple">7 天起步</view>
+      </view>
+      <view class="advice-row">
+        <text class="advice-index">01</text>
+        <text>每天 15 分钟整理同类计算错题，复盘错误原因。</text>
+      </view>
+      <view class="advice-row">
+        <text class="advice-index">02</text>
+        <text>几何证明按“条件-理由-结论”三行模板书写。</text>
+      </view>
+    </view>
+
+    <view class="upgrade-card">
+      <view>
+        <text class="upgrade-title">建议解锁完整分析</text>
+        <text class="upgrade-desc">查看完整提分路径、逐题丢分解释和家长陪伴建议。</text>
+      </view>
+      <text class="upgrade-price">9.9 元</text>
+    </view>
   </view>
-  <image wx:if="{{!derived && !imageLoadFailed && reference}}" class="reference-image" src="{{reference}}" mode="widthFix" show-menu-by-longpress="false" binderror="onImageError" />
-  <button wx:for="{{hotspots}}" wx:key="action" class="hotspot {{item.className}}" data-action="{{item.action}}" bindtap="onTap" aria-label="{{item.label}}"></button>
+
+  <view class="basic-result-actions">
+    <button class="basic-result-primary" data-action="unlock" bindtap="onTap">9.9 元解锁完整分析</button>
+    <button class="basic-result-secondary" data-action="home" bindtap="onTap">查看我的报告</button>
+  </view>
 </view>

@@ -1,0 +1,784 @@
+{
+  "schemaVersion": "2.0",
+  "status": "PASS_WITH_LIMITATION",
+  "generatedAt": "2026-05-25T18:52:00+08:00",
+  "sourceDocuments": [
+    "docs/auto-execute/scoremap-ai-tutor-v13-requirement-traceability-matrix.md",
+    "docs/auto-execute/scoremap-ai-tutor-v13-master-plan.md",
+    "docs/auto-execute/scoremap-ai-tutor-v13-final-acceptance-gate.md",
+    "docs/auto-execute/story-target.json",
+    "docs/auto-execute/story-test-matrix.json"
+  ],
+  "note": "Normalized from the durable V13 task pack and story evidence because requirement-candidates.json is empty in this checkout. No unnormalized placeholder records are present.",
+  "requirements": [
+    {
+      "id": "V13-R01",
+      "priority": "P0",
+      "status": "PASS_WITH_LIMITATION",
+      "source": "scoremap-ai-tutor-v13-requirement-traceability-matrix.md#V13-R01",
+      "description": "Complete reports expose wrong-question cards and the AI tutor entry from each eligible wrong-question card.",
+      "acceptanceCriteria": [
+        "Full-report users can see wrong-question cards in the complete report.",
+        "Each eligible wrong-question card exposes the AI tutor entry.",
+        "The entry routes to the wrong-question/tutor experience with visual evidence."
+      ],
+      "surfaces": [
+        "scoremap-miniapp/pages/full-report",
+        "scoremap-miniapp/pages/wrong-question",
+        "GET /api/diagnosis-orders/{orderId}/questions"
+      ],
+      "tasks": [
+        "T22",
+        "T25",
+        "T26",
+        "T31"
+      ],
+      "stories": [
+        "V13-STORY-01"
+      ],
+      "evidenceExpectations": [
+        "functional full-report entry evidence",
+        "wrong-question detail evidence",
+        "visual/manual-review evidence for full-report and wrong-question screens"
+      ],
+      "evidence": [
+        "docs/auto-execute/results/T22.json",
+        "docs/auto-execute/results/T25.json",
+        "docs/auto-execute/results/T26.json",
+        "docs/auto-execute/evidence/frontend-page/T25-full-report-ai-entry.json",
+        "docs/auto-execute/evidence/frontend-page/T26-wrong-question-detail.json",
+        "docs/auto-execute/results/T33.json",
+        "docs/auto-execute/evidence/final-gate/T33-summary.json",
+        "docs/auto-execute/latest/T33-HANDOFF.md",
+        "docs/auto-execute/evidence/navigation/all-click-targets.json",
+        "docs/auto-execute/evidence/api-db/T32-api-branches.json",
+        "docs/auto-execute/results/T30.json",
+        "docs/auto-execute/evidence/frontend-page/T27-ai-tutor-interaction.json"
+      ],
+      "evidenceRequired": [
+        "functional full-report entry evidence",
+        "wrong-question detail evidence",
+        "visual/manual-review evidence for full-report and wrong-question screens",
+        "route/API or UI evidence",
+        "verification result JSON"
+      ],
+      "tests": [
+        "docs/auto-execute/results/T22.json",
+        "docs/auto-execute/results/T25.json",
+        "docs/auto-execute/results/T26.json",
+        "docs/auto-execute/results/T31.json",
+        "docs/auto-execute/results/T33.json"
+      ],
+      "limitationReason": "Functional/API/DB/LLM/click evidence exists; pure visual pixel-perfect PASS is not claimed because live miniapp raster pixelmatch remains manual review."
+    },
+    {
+      "id": "V13-R02",
+      "priority": "P0",
+      "status": "PASS",
+      "source": "scoremap-ai-tutor-v13-requirement-traceability-matrix.md#V13-R02",
+      "description": "Formal tutor use requires full-report entitlement; basic/free users cannot formally ask.",
+      "acceptanceCriteria": [
+        "API rejects unentitled formal tutor access.",
+        "UI shows the locked/basic state without starting formal interaction.",
+        "Entitlement behavior is covered by negative branch evidence."
+      ],
+      "surfaces": [
+        "scoremap-miniapp/pages/wrong-question",
+        "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions"
+      ],
+      "tasks": [
+        "T23",
+        "T31",
+        "T32"
+      ],
+      "stories": [
+        "V13-STORY-01"
+      ],
+      "evidenceExpectations": [
+        "API auth/entitlement failure evidence",
+        "locked UI evidence"
+      ],
+      "evidence": [
+        "docs/auto-execute/results/T23.json",
+        "docs/auto-execute/evidence/frontend-page/T26-locked-basic-state.json",
+        "docs/auto-execute/evidence/api-db-llm/T23-negative-branches-quota-auth.json",
+        "docs/auto-execute/results/T33.json",
+        "docs/auto-execute/evidence/final-gate/T33-summary.json",
+        "docs/auto-execute/latest/T33-HANDOFF.md",
+        "docs/auto-execute/evidence/api-db/T32-api-branches.json",
+        "docs/auto-execute/results/T30.json",
+        "docs/auto-execute/evidence/frontend-page/T25-full-report-ai-entry.json",
+        "docs/auto-execute/evidence/frontend-page/T26-wrong-question-detail.json",
+        "docs/auto-execute/evidence/frontend-page/T27-ai-tutor-interaction.json"
+      ],
+      "evidenceRequired": [
+        "API auth/entitlement failure evidence",
+        "locked UI evidence",
+        "route/API or UI evidence",
+        "verification result JSON"
+      ],
+      "tests": [
+        "docs/auto-execute/results/T23.json",
+        "docs/auto-execute/results/T31.json",
+        "docs/auto-execute/results/T32.json",
+        "docs/auto-execute/results/T33.json"
+      ]
+    },
+    {
+      "id": "V13-R03",
+      "priority": "P0",
+      "status": "PASS",
+      "source": "scoremap-ai-tutor-v13-requirement-traceability-matrix.md#V13-R03",
+      "description": "Each report allows at most 10 tutor interactions and each question allows at most 3 interactions.",
+      "acceptanceCriteria": [
+        "Report-level quota is enforced by API and persisted data.",
+        "Question-level quota is enforced by API and persisted data.",
+        "Quota-exceeded responses are covered by UI or API evidence."
+      ],
+      "surfaces": [
+        "server/src/routes/question-interactions.js",
+        "server/src/services/question-interactions-service.js",
+        "scoremap-miniapp/pages/ai-tutor"
+      ],
+      "tasks": [
+        "T21",
+        "T23",
+        "T32"
+      ],
+      "stories": [
+        "V13-STORY-02"
+      ],
+      "evidenceExpectations": [
+        "quota DB readback",
+        "quota-exceeded API transcript"
+      ],
+      "evidence": [
+        "docs/auto-execute/results/T21.json",
+        "docs/auto-execute/results/T23.json",
+        "docs/auto-execute/results/T32.json",
+        "docs/auto-execute/evidence/api-db/T32-db-readback.json",
+        "docs/auto-execute/results/T33.json",
+        "docs/auto-execute/evidence/final-gate/T33-summary.json",
+        "docs/auto-execute/latest/T33-HANDOFF.md",
+        "docs/auto-execute/evidence/api-db-llm/T23-negative-branches-quota-auth.json",
+        "docs/auto-execute/evidence/navigation/all-click-targets.json",
+        "docs/auto-execute/evidence/api-db/T32-api-branches.json",
+        "docs/auto-execute/results/T30.json",
+        "docs/auto-execute/evidence/frontend-page/T25-full-report-ai-entry.json",
+        "docs/auto-execute/evidence/frontend-page/T26-wrong-question-detail.json",
+        "docs/auto-execute/evidence/frontend-page/T27-ai-tutor-interaction.json"
+      ],
+      "evidenceRequired": [
+        "quota DB readback",
+        "quota-exceeded API transcript",
+        "route/API or UI evidence",
+        "verification result JSON"
+      ],
+      "tests": [
+        "docs/auto-execute/results/T21.json",
+        "docs/auto-execute/results/T23.json",
+        "docs/auto-execute/results/T32.json",
+        "docs/auto-execute/results/T33.json"
+      ]
+    },
+    {
+      "id": "V13-R04",
+      "priority": "P0",
+      "status": "PASS",
+      "source": "scoremap-ai-tutor-v13-requirement-traceability-matrix.md#V13-R04",
+      "description": "The first tutor version uses fixed action buttons only and exposes no open-ended chat surface.",
+      "acceptanceCriteria": [
+        "Tutor UI exposes fixed follow-up controls.",
+        "No freeform chat input is present in the first version.",
+        "Control mapping evidence ties fixed buttons to API actions."
+      ],
+      "surfaces": [
+        "scoremap-miniapp/pages/ai-tutor",
+        "scoremap-miniapp/pages/wrong-question"
+      ],
+      "tasks": [
+        "T23",
+        "T27",
+        "T31"
+      ],
+      "stories": [
+        "V13-STORY-01",
+        "V13-STORY-02"
+      ],
+      "evidenceExpectations": [
+        "click matrix",
+        "UI control map"
+      ],
+      "evidence": [
+        "docs/auto-execute/results/T27.json",
+        "docs/auto-execute/evidence/frontend-page/T27-fixed-button-api-map.json",
+        "docs/auto-execute/evidence/owner/all-pages-ai-tutor-v13.json",
+        "docs/auto-execute/results/T33.json",
+        "docs/auto-execute/evidence/final-gate/T33-summary.json",
+        "docs/auto-execute/latest/T33-HANDOFF.md",
+        "docs/auto-execute/evidence/api-db/T32-api-branches.json",
+        "docs/auto-execute/results/T30.json",
+        "docs/auto-execute/evidence/frontend-page/T26-wrong-question-detail.json",
+        "docs/auto-execute/evidence/frontend-page/T27-ai-tutor-interaction.json"
+      ],
+      "evidenceRequired": [
+        "click matrix",
+        "UI control map",
+        "route/API or UI evidence",
+        "verification result JSON"
+      ],
+      "tests": [
+        "docs/auto-execute/results/T23.json",
+        "docs/auto-execute/results/T27.json",
+        "docs/auto-execute/results/T31.json",
+        "docs/auto-execute/results/T33.json"
+      ]
+    },
+    {
+      "id": "V13-R05",
+      "priority": "P0",
+      "status": "PASS",
+      "source": "scoremap-ai-tutor-v13-requirement-traceability-matrix.md#V13-R05",
+      "description": "AI responses stay around the current wrong question and record a summary.",
+      "acceptanceCriteria": [
+        "Prompt payload includes current wrong-question context.",
+        "Tutor response and summary are persisted to interaction records.",
+        "Local LLM trace contains prompt id, request, response, failure, timeout, and metadata coverage."
+      ],
+      "surfaces": [
+        "server/src/ai",
+        "server/src/services/question-interactions-service.js"
+      ],
+      "tasks": [
+        "T20",
+        "T23",
+        "T32"
+      ],
+      "stories": [
+        "V13-STORY-02"
+      ],
+      "evidenceExpectations": [
+        "LLM trace",
+        "prompt id",
+        "interaction DB row"
+      ],
+      "evidence": [
+        "docs/auto-execute/results/T20.json",
+        "docs/auto-execute/results/T23.json",
+        "docs/auto-execute/evidence/llm/T32-llm-trace-manifest.json",
+        "docs/auto-execute/evidence/api-db/T32-trace-manifest.json",
+        "docs/auto-execute/results/T33.json",
+        "docs/auto-execute/evidence/final-gate/T33-summary.json",
+        "docs/auto-execute/latest/T33-HANDOFF.md",
+        "docs/auto-execute/evidence/frontend-page/T26-wrong-question-detail.json",
+        "docs/auto-execute/evidence/frontend-page/T27-ai-tutor-interaction.json"
+      ],
+      "evidenceRequired": [
+        "LLM trace",
+        "prompt id",
+        "interaction DB row",
+        "route/API or UI evidence",
+        "verification result JSON"
+      ],
+      "tests": [
+        "docs/auto-execute/results/T20.json",
+        "docs/auto-execute/results/T23.json",
+        "docs/auto-execute/results/T32.json",
+        "docs/auto-execute/results/T33.json"
+      ]
+    },
+    {
+      "id": "V13-R06",
+      "priority": "P0",
+      "status": "PASS",
+      "source": "scoremap-ai-tutor-v13-requirement-traceability-matrix.md#V13-R06",
+      "description": "A similar exercise can be generated and submitted for AI feedback.",
+      "acceptanceCriteria": [
+        "Student can generate a similar exercise from the wrong-question context.",
+        "Student can submit an answer for that exercise.",
+        "Feedback is returned and tied to the same question context."
+      ],
+      "surfaces": [
+        "scoremap-miniapp/pages/ai-exercise",
+        "scoremap-miniapp/pages/ai-exercise-feedback",
+        "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/exercise-answer"
+      ],
+      "tasks": [
+        "T23",
+        "T28",
+        "T32"
+      ],
+      "stories": [
+        "V13-STORY-03"
+      ],
+      "evidenceExpectations": [
+        "exercise row",
+        "answer check row",
+        "similar exercise and feedback visual evidence"
+      ],
+      "evidence": [
+        "docs/auto-execute/results/T28.json",
+        "docs/auto-execute/evidence/frontend-page/T28-similar-exercise.json",
+        "docs/auto-execute/evidence/frontend-page/T28-answer-feedback.json",
+        "docs/auto-execute/evidence/api-db/T32-db-readback.json",
+        "docs/auto-execute/results/T33.json",
+        "docs/auto-execute/evidence/final-gate/T33-summary.json",
+        "docs/auto-execute/latest/T33-HANDOFF.md",
+        "docs/auto-execute/evidence/api-db/T32-api-branches.json",
+        "docs/auto-execute/evidence/frontend-page/T26-wrong-question-detail.json"
+      ],
+      "evidenceRequired": [
+        "exercise row",
+        "answer check row",
+        "similar exercise and feedback visual evidence",
+        "route/API or UI evidence",
+        "verification result JSON"
+      ],
+      "tests": [
+        "docs/auto-execute/results/T23.json",
+        "docs/auto-execute/results/T28.json",
+        "docs/auto-execute/results/T32.json",
+        "docs/auto-execute/results/T33.json"
+      ]
+    },
+    {
+      "id": "V13-R07",
+      "priority": "P0",
+      "status": "PASS",
+      "source": "scoremap-ai-tutor-v13-requirement-traceability-matrix.md#V13-R07",
+      "description": "APIs exist for question list, follow-up interaction, exercise answer, and interaction records.",
+      "acceptanceCriteria": [
+        "Question list API is implemented and covered.",
+        "Follow-up interaction API is implemented and covered.",
+        "Exercise answer API and record-read APIs are implemented and covered."
+      ],
+      "surfaces": [
+        "server/src/routes/question-interactions.js",
+        "server/src/routes/diagnosis-orders.js"
+      ],
+      "tasks": [
+        "T21",
+        "T23",
+        "T32"
+      ],
+      "stories": [
+        "V13-STORY-02"
+      ],
+      "evidenceExpectations": [
+        "API/DB matrix evidence"
+      ],
+      "evidence": [
+        "docs/auto-execute/results/T23.json",
+        "docs/auto-execute/results/T32.json",
+        "docs/auto-execute/evidence/api-db/T32-api-branches.json",
+        "docs/auto-execute/results/T33.json",
+        "docs/auto-execute/evidence/final-gate/T33-summary.json",
+        "docs/auto-execute/latest/T33-HANDOFF.md",
+        "docs/auto-execute/evidence/navigation/all-click-targets.json",
+        "docs/auto-execute/evidence/frontend-page/T28-answer-feedback.json",
+        "docs/auto-execute/evidence/frontend-page/T26-wrong-question-detail.json"
+      ],
+      "evidenceRequired": [
+        "API/DB matrix evidence",
+        "route/API or UI evidence",
+        "verification result JSON"
+      ],
+      "tests": [
+        "docs/auto-execute/results/T21.json",
+        "docs/auto-execute/results/T23.json",
+        "docs/auto-execute/results/T32.json",
+        "docs/auto-execute/results/T33.json"
+      ]
+    },
+    {
+      "id": "V13-R08",
+      "priority": "P0",
+      "status": "PASS",
+      "source": "scoremap-ai-tutor-v13-requirement-traceability-matrix.md#V13-R08",
+      "description": "Storage exists for diagnosis questions and question interactions.",
+      "acceptanceCriteria": [
+        "diagnosis_questions data is stored or materialized in the local DB model.",
+        "question_interactions records are persisted and readable.",
+        "DB readback evidence proves the schema behavior."
+      ],
+      "surfaces": [
+        "server/src/db/local-json-db.js",
+        "server/src/services/question-interactions-service.js",
+        "shared/in-memory-db.js"
+      ],
+      "tasks": [
+        "T21",
+        "T22",
+        "T32"
+      ],
+      "stories": [
+        "V13-STORY-02"
+      ],
+      "evidenceExpectations": [
+        "DB readback evidence"
+      ],
+      "evidence": [
+        "docs/auto-execute/results/T21.json",
+        "docs/auto-execute/evidence/api-db/T32-db-readback.json",
+        "docs/auto-execute/results/T33.json",
+        "docs/auto-execute/evidence/final-gate/T33-summary.json",
+        "docs/auto-execute/latest/T33-HANDOFF.md",
+        "docs/auto-execute/evidence/frontend-page/T26-wrong-question-detail.json"
+      ],
+      "evidenceRequired": [
+        "DB readback evidence",
+        "route/API or UI evidence",
+        "verification result JSON"
+      ],
+      "tests": [
+        "docs/auto-execute/results/T21.json",
+        "docs/auto-execute/results/T22.json",
+        "docs/auto-execute/results/T32.json",
+        "docs/auto-execute/results/T33.json"
+      ]
+    },
+    {
+      "id": "V13-R09",
+      "priority": "P0",
+      "status": "PASS_WITH_LIMITATION",
+      "source": "scoremap-ai-tutor-v13-requirement-traceability-matrix.md#V13-R09",
+      "description": "The complete report has a formal visual presentation and includes wrong-question cards.",
+      "acceptanceCriteria": [
+        "Full-report layout includes formal report structure.",
+        "Wrong-question cards are visible in the report.",
+        "Visual harness evidence exists; raster pixel-perfect review remains manual."
+      ],
+      "surfaces": [
+        "scoremap-miniapp/pages/full-report"
+      ],
+      "tasks": [
+        "T22",
+        "T25",
+        "T30"
+      ],
+      "stories": [
+        "V13-STORY-01"
+      ],
+      "evidenceExpectations": [
+        "visual actual/diff/metrics evidence"
+      ],
+      "evidence": [
+        "docs/auto-execute/results/T25.json",
+        "docs/auto-execute/results/T30.json",
+        "docs/auto-execute/evidence/visual-harness/v13-full-report/summary.json",
+        "docs/auto-execute/results/T33.json",
+        "docs/auto-execute/evidence/final-gate/T33-summary.json",
+        "docs/auto-execute/latest/T33-HANDOFF.md",
+        "docs/auto-execute/evidence/frontend-page/T25-full-report-ai-entry.json",
+        "docs/auto-execute/evidence/frontend-page/T26-wrong-question-detail.json"
+      ],
+      "evidenceRequired": [
+        "visual actual/diff/metrics evidence",
+        "route/API or UI evidence",
+        "verification result JSON"
+      ],
+      "tests": [
+        "docs/auto-execute/results/T22.json",
+        "docs/auto-execute/results/T25.json",
+        "docs/auto-execute/results/T30.json",
+        "docs/auto-execute/results/T33.json"
+      ],
+      "limitationReason": "Functional/API/DB/LLM/click evidence exists; pure visual pixel-perfect PASS is not claimed because live miniapp raster pixelmatch remains manual review."
+    },
+    {
+      "id": "V13-R10",
+      "priority": "P0",
+      "status": "PASS_WITH_LIMITATION",
+      "source": "scoremap-ai-tutor-v13-requirement-traceability-matrix.md#V13-R10",
+      "description": "The wrong-question detail page matches the supplied reference.",
+      "acceptanceCriteria": [
+        "Wrong-question detail route is registered and functional.",
+        "The page has visual reference, actual, diff, metrics, and summary evidence.",
+        "Pixel-perfect claim remains manual unless raster diff is accepted."
+      ],
+      "surfaces": [
+        "scoremap-miniapp/pages/wrong-question"
+      ],
+      "tasks": [
+        "T24",
+        "T26",
+        "T30"
+      ],
+      "stories": [
+        "V13-STORY-01"
+      ],
+      "evidenceExpectations": [
+        "visual actual/diff/metrics evidence"
+      ],
+      "evidence": [
+        "docs/auto-execute/results/T26.json",
+        "docs/auto-execute/results/T30.json",
+        "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/summary.json",
+        "docs/auto-execute/results/T33.json",
+        "docs/auto-execute/evidence/final-gate/T33-summary.json",
+        "docs/auto-execute/latest/T33-HANDOFF.md",
+        "docs/auto-execute/evidence/navigation/all-click-targets.json",
+        "docs/auto-execute/evidence/frontend-page/T26-wrong-question-detail.json"
+      ],
+      "evidenceRequired": [
+        "visual actual/diff/metrics evidence",
+        "route/API or UI evidence",
+        "verification result JSON"
+      ],
+      "tests": [
+        "docs/auto-execute/results/T24.json",
+        "docs/auto-execute/results/T26.json",
+        "docs/auto-execute/results/T30.json",
+        "docs/auto-execute/results/T33.json"
+      ],
+      "limitationReason": "Functional/API/DB/LLM/click evidence exists; pure visual pixel-perfect PASS is not claimed because live miniapp raster pixelmatch remains manual review."
+    },
+    {
+      "id": "V13-R11",
+      "priority": "P0",
+      "status": "PASS_WITH_LIMITATION",
+      "source": "scoremap-ai-tutor-v13-requirement-traceability-matrix.md#V13-R11",
+      "description": "The AI tutor interaction page and expanded area match the supplied reference.",
+      "acceptanceCriteria": [
+        "AI tutor route is registered and functional.",
+        "Fixed-button interaction area matches the intended structure.",
+        "Visual harness evidence exists with manual UI review limitation."
+      ],
+      "surfaces": [
+        "scoremap-miniapp/pages/ai-tutor"
+      ],
+      "tasks": [
+        "T24",
+        "T27",
+        "T30"
+      ],
+      "stories": [
+        "V13-STORY-02"
+      ],
+      "evidenceExpectations": [
+        "visual actual/diff/metrics evidence"
+      ],
+      "evidence": [
+        "docs/auto-execute/results/T27.json",
+        "docs/auto-execute/results/T30.json",
+        "docs/auto-execute/evidence/visual-harness/v13-ai-tutor/summary.json",
+        "docs/auto-execute/results/T33.json",
+        "docs/auto-execute/evidence/final-gate/T33-summary.json",
+        "docs/auto-execute/latest/T33-HANDOFF.md",
+        "docs/auto-execute/evidence/navigation/all-click-targets.json",
+        "docs/auto-execute/evidence/frontend-page/T27-ai-tutor-interaction.json"
+      ],
+      "evidenceRequired": [
+        "visual actual/diff/metrics evidence",
+        "route/API or UI evidence",
+        "verification result JSON"
+      ],
+      "tests": [
+        "docs/auto-execute/results/T24.json",
+        "docs/auto-execute/results/T27.json",
+        "docs/auto-execute/results/T30.json",
+        "docs/auto-execute/results/T33.json"
+      ],
+      "limitationReason": "Functional/API/DB/LLM/click evidence exists; pure visual pixel-perfect PASS is not claimed because live miniapp raster pixelmatch remains manual review."
+    },
+    {
+      "id": "V13-R12",
+      "priority": "P0",
+      "status": "PASS_WITH_LIMITATION",
+      "source": "scoremap-ai-tutor-v13-requirement-traceability-matrix.md#V13-R12",
+      "description": "Similar exercise and answer feedback pages match the supplied references.",
+      "acceptanceCriteria": [
+        "Similar exercise page is implemented and reachable.",
+        "Answer feedback page is implemented and reachable.",
+        "Visual harness evidence exists for both states with manual UI review limitation."
+      ],
+      "surfaces": [
+        "scoremap-miniapp/pages/ai-exercise",
+        "scoremap-miniapp/pages/ai-exercise-feedback"
+      ],
+      "tasks": [
+        "T24",
+        "T28",
+        "T30"
+      ],
+      "stories": [
+        "V13-STORY-03"
+      ],
+      "evidenceExpectations": [
+        "visual actual/diff/metrics evidence"
+      ],
+      "evidence": [
+        "docs/auto-execute/results/T28.json",
+        "docs/auto-execute/results/T30.json",
+        "docs/auto-execute/evidence/visual-harness/v13-similar-exercise/summary.json",
+        "docs/auto-execute/evidence/visual-harness/v13-answer-feedback/summary.json",
+        "docs/auto-execute/results/T33.json",
+        "docs/auto-execute/evidence/final-gate/T33-summary.json",
+        "docs/auto-execute/latest/T33-HANDOFF.md",
+        "docs/auto-execute/evidence/api-db/T32-db-readback.json",
+        "docs/auto-execute/evidence/frontend-page/T28-answer-feedback.json"
+      ],
+      "evidenceRequired": [
+        "visual actual/diff/metrics evidence",
+        "route/API or UI evidence",
+        "verification result JSON"
+      ],
+      "tests": [
+        "docs/auto-execute/results/T24.json",
+        "docs/auto-execute/results/T28.json",
+        "docs/auto-execute/results/T30.json",
+        "docs/auto-execute/results/T33.json"
+      ],
+      "limitationReason": "Functional/API/DB/LLM/click evidence exists; pure visual pixel-perfect PASS is not claimed because live miniapp raster pixelmatch remains manual review."
+    },
+    {
+      "id": "V13-R13",
+      "priority": "P1",
+      "status": "PASS",
+      "source": "scoremap-ai-tutor-v13-requirement-traceability-matrix.md#V13-R13",
+      "description": "All large-model call sites are inventoried and routed through testable local adapters.",
+      "acceptanceCriteria": [
+        "Large-model call inventory exists.",
+        "LLM adapter and prompt registry are covered by tests.",
+        "Trace evidence proves local mockable calls for the V13 flow."
+      ],
+      "surfaces": [
+        "server/src/ai",
+        "docs/auto-execute/evidence/llm"
+      ],
+      "tasks": [
+        "T19",
+        "T20",
+        "T32",
+        "T33"
+      ],
+      "stories": [
+        "V13-STORY-02"
+      ],
+      "evidenceExpectations": [
+        "LLM call inventory",
+        "trace E2E"
+      ],
+      "evidence": [
+        "docs/auto-execute/results/T19.json",
+        "docs/auto-execute/results/T20.json",
+        "docs/auto-execute/evidence/llm/T32-llm-trace-manifest.json",
+        "docs/auto-execute/results/T33.json",
+        "docs/auto-execute/evidence/final-gate/T33-summary.json",
+        "docs/auto-execute/latest/T33-HANDOFF.md",
+        "docs/auto-execute/evidence/navigation/all-click-targets.json",
+        "docs/auto-execute/evidence/api-db/T32-trace-manifest.json"
+      ],
+      "evidenceRequired": [
+        "LLM call inventory",
+        "trace E2E",
+        "route/API or UI evidence",
+        "verification result JSON"
+      ],
+      "tests": [
+        "docs/auto-execute/results/T19.json",
+        "docs/auto-execute/results/T20.json",
+        "docs/auto-execute/results/T32.json",
+        "docs/auto-execute/results/T33.json"
+      ]
+    },
+    {
+      "id": "V13-R14",
+      "priority": "P1",
+      "status": "PASS_WITH_LIMITATION",
+      "source": "scoremap-ai-tutor-v13-requirement-traceability-matrix.md#V13-R14",
+      "description": "A normal person can click through all pages and visible P0 controls.",
+      "acceptanceCriteria": [
+        "Owner journey covers legacy and new V13 pages.",
+        "Visible P0 controls are represented in click evidence.",
+        "Manual UI review limitation remains for raster-perfect visual judgement."
+      ],
+      "surfaces": [
+        "scoremap-miniapp/routes.js",
+        "tests/e2e/owner-click-flow.test.js"
+      ],
+      "tasks": [
+        "T31",
+        "T33"
+      ],
+      "stories": [
+        "V13-STORY-03"
+      ],
+      "evidenceExpectations": [
+        "all-pages click evidence"
+      ],
+      "evidence": [
+        "docs/auto-execute/results/T31.json",
+        "docs/auto-execute/evidence/owner/all-pages-ai-tutor-v13.json",
+        "docs/auto-execute/evidence/navigation/all-click-targets.json",
+        "docs/auto-execute/results/T33.json",
+        "docs/auto-execute/evidence/final-gate/T33-summary.json",
+        "docs/auto-execute/latest/T33-HANDOFF.md",
+        "docs/auto-execute/results/T30.json"
+      ],
+      "evidenceRequired": [
+        "all-pages click evidence",
+        "route/API or UI evidence",
+        "verification result JSON"
+      ],
+      "tests": [
+        "docs/auto-execute/results/T31.json",
+        "docs/auto-execute/results/T33.json"
+      ],
+      "limitationReason": "Functional/API/DB/LLM/click evidence exists; pure visual pixel-perfect PASS is not claimed because live miniapp raster pixelmatch remains manual review."
+    },
+    {
+      "id": "V13-R15",
+      "priority": "P1",
+      "status": "PASS_WITH_LIMITATION",
+      "source": "scoremap-ai-tutor-v13-requirement-traceability-matrix.md#V13-R15",
+      "description": "Final acceptance covers function, business, technical, AI quality, and UI evidence.",
+      "acceptanceCriteria": [
+        "Final gate result exists for the V13 scope.",
+        "Final gate evaluates implementation, evidence, local-only safety, secret guard, and UI review status.",
+        "Non-pure PASS is explained by the remaining manual UI review limitation."
+      ],
+      "surfaces": [
+        "scripts/acceptance/run-final-gate.ps1",
+        "docs/AUTO_EXECUTE_DELIVERY_REPORT.md"
+      ],
+      "tasks": [
+        "T33"
+      ],
+      "stories": [
+        "V13-STORY-03"
+      ],
+      "evidenceExpectations": [
+        "final gate result"
+      ],
+      "evidence": [
+        "docs/auto-execute/evidence/final-gate/T33-summary.json",
+        "docs/auto-execute/results/T33.json",
+        "docs/AUTO_EXECUTE_DELIVERY_REPORT.md",
+        "docs/auto-execute/latest/T33-HANDOFF.md",
+        "docs/auto-execute/results/T30.json",
+        "docs/auto-execute/evidence/frontend-page/T25-full-report-ai-entry.json"
+      ],
+      "evidenceRequired": [
+        "final gate result",
+        "route/API or UI evidence",
+        "verification result JSON"
+      ],
+      "tests": [
+        "docs/auto-execute/results/T33.json"
+      ],
+      "limitationReason": "Functional/API/DB/LLM/click evidence exists; pure visual pixel-perfect PASS is not claimed because live miniapp raster pixelmatch remains manual review."
+    }
+  ],
+  "summary": {
+    "total": 15,
+    "p0": 12,
+    "p1": 3,
+    "p2": 0,
+    "pass": 7,
+    "passWithLimitation": 1,
+    "passNeedsManualUiReview": 7,
+    "candidate": 0,
+    "manualReviewReason": "Raster pixel-perfect UI review remains manual; functional, API, DB, LLM, owner journey, story, and final-gate evidence paths are normalized."
+  }
+}

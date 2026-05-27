@@ -1,0 +1,256 @@
+{
+  "status": "PASS",
+  "command": "npm test -- ai-exercise-feedback",
+  "requirementIds": [
+    "V13-R06",
+    "V13-R12"
+  ],
+  "renderedState": {
+    "route": "/pages/ai-exercise/index",
+    "orderId": "order-t28-exercise",
+    "questionId": "order-t28-exercise-q1",
+    "interactionId": "interaction-order-t28-exercise-q1-similar_exercise-1",
+    "uiReference": {
+      "id": "V13-UI-EXERCISE",
+      "source": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/_4/screen-reference"
+    },
+    "title": "同类练习",
+    "subtitle": "围绕当前错题生成，不进入开放聊天。",
+    "exercise": {
+      "id": "exercise-order-t28-exercise-q1",
+      "stem": "甲每小时行 72km，乙每小时行 60km，3 小时后甲比乙多行多少千米？",
+      "options": [
+        {
+          "id": "option-a",
+          "label": "A",
+          "text": "24 千米",
+          "selected": false
+        },
+        {
+          "id": "option-b",
+          "label": "B",
+          "text": "36 千米",
+          "selected": true
+        },
+        {
+          "id": "option-c",
+          "label": "C",
+          "text": "132 千米",
+          "selected": false
+        },
+        {
+          "id": "option-d",
+          "label": "D",
+          "text": "216 千米",
+          "selected": false
+        }
+      ],
+      "correctOption": "36 千米"
+    },
+    "selectedOption": "36 千米",
+    "questionContext": {
+      "questionId": "order-t28-exercise-q1",
+      "title": "原错题",
+      "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+      "knowledgePoint": "方程应用题",
+      "diagnosis": "没有先判断两人的速度差，导致数量关系跑偏。"
+    },
+    "submitEnabled": true,
+    "statusBanner": null,
+    "bottomNav": [
+      {
+        "id": "nav-report",
+        "text": "报告",
+        "targetRoute": "/pages/full-report/index"
+      },
+      {
+        "id": "nav-ai-tutor",
+        "text": "AI 提分",
+        "targetRoute": "/pages/ai-tutor/index",
+        "active": true
+      },
+      {
+        "id": "nav-question",
+        "text": "原错题",
+        "targetRoute": "/pages/wrong-question/index"
+      }
+    ],
+    "controls": [
+      {
+        "id": "back-to-ai-tutor",
+        "text": "返回",
+        "targetRoute": "/pages/ai-tutor/index"
+      },
+      {
+        "id": "refresh-exercise",
+        "text": "换一题",
+        "api": "POST /api/diagnosis-orders/order-t28-exercise/questions/order-t28-exercise-q1/interactions",
+        "fixedAction": "similar_exercise"
+      },
+      {
+        "id": "select-option-a",
+        "text": "24 千米",
+        "behavior": "select-answer-option"
+      },
+      {
+        "id": "select-option-b",
+        "text": "36 千米",
+        "behavior": "select-answer-option"
+      },
+      {
+        "id": "select-option-c",
+        "text": "132 千米",
+        "behavior": "select-answer-option"
+      },
+      {
+        "id": "select-option-d",
+        "text": "216 千米",
+        "behavior": "select-answer-option"
+      },
+      {
+        "id": "submit-answer",
+        "text": "提交答案",
+        "api": "POST /api/diagnosis-orders/order-t28-exercise/questions/order-t28-exercise-q1/exercise-answer",
+        "targetRoute": "/pages/ai-exercise-feedback/index",
+        "enabled": true
+      },
+      {
+        "id": "open-question-context",
+        "text": "查看原错题",
+        "targetRoute": "/pages/wrong-question/index"
+      }
+    ]
+  },
+  "selected": {
+    "status": "OPTION_SELECTED",
+    "selectedOption": "36 千米"
+  },
+  "trace": {
+    "id": "trace-interaction-order-t28-exercise-q1-similar_exercise-1",
+    "traceId": "trace-interaction-order-t28-exercise-q1-similar_exercise-1",
+    "promptId": "LLM-EXERCISE-06",
+    "adapter": "local-miniapp-mock",
+    "status": "success",
+    "localOnly": true,
+    "requestSummary": {
+      "orderId": "order-t28-exercise",
+      "questionId": "order-t28-exercise-q1",
+      "actionType": "similar_exercise"
+    },
+    "responseSummary": {
+      "exerciseId": "exercise-order-t28-exercise-q1"
+    }
+  },
+  "apiCalls": [
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-t28-exercise",
+        "paymentType": "full",
+        "source": "T28-ai-exercise-fixture"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "paid",
+        "paymentId": "payment-t06-full",
+        "amountYuan": 9.9,
+        "paymentParams": {
+          "adapter": "local-mock"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t28-exercise/generate-full",
+      "payloadSummary": {
+        "source": "T28-ai-exercise-fixture"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t28-exercise/questions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t28-exercise",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t28-exercise-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t28-exercise-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t28-exercise/questions/order-t28-exercise-q1/interactions",
+      "payloadSummary": {
+        "actionType": "similar_exercise",
+        "source": "T28-ai-exercise-ui"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "ok",
+        "interaction": {
+          "id": "interaction-order-t28-exercise-q1-similar_exercise-1",
+          "orderId": "order-t28-exercise",
+          "questionId": "order-t28-exercise-q1",
+          "ownerId": "local-user-scoremap-t06",
+          "actionType": "similar_exercise",
+          "promptId": "LLM-EXERCISE-06",
+          "status": "success",
+          "summary": "生成同类练习题。",
+          "response": "已生成一道同类题，继续保持当前错题的数量关系。",
+          "exercise": {
+            "id": "exercise-order-t28-exercise-q1",
+            "stem": "甲每小时行 72km，乙每小时行 60km，3 小时后甲比乙多行多少千米？",
+            "options": [
+              "24 千米",
+              "36 千米",
+              "132 千米",
+              "216 千米"
+            ],
+            "correctOption": "36 千米"
+          },
+          "traceId": "trace-interaction-order-t28-exercise-q1-similar_exercise-1",
+          "createdAt": "2026-05-25T01:00:00.000Z"
+        },
+        "quota": {
+          "questionRemaining": 2,
+          "questionTotal": 3
+        }
+      }
+    }
+  ]
+}

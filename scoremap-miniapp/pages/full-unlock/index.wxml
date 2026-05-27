@@ -1,9 +1,83 @@
-﻿<view class="replica-page {{derived ? 'derived-page' : ''}}">
-  <view class="derived-shell fallback-shell">
-    <view class="status-spacer"></view>
-    <view class="derived-title">{{title}}</view>
-    <view class="derived-card" wx:for="{{cards}}" wx:key="*this">{{item}}</view>
+<view class="unlock-screen">
+  <view class="unlock-decor star-a">✦</view>
+  <view class="unlock-decor star-b">✦</view>
+  <view class="unlock-decor star-c">✦</view>
+
+  <view class="unlock-header">
+    <button class="unlock-back" data-action="back" bindtap="onTap" aria-label="返回"></button>
+    <text class="unlock-title">解锁完整分析</text>
+    <view class="unlock-header-spacer"></view>
   </view>
-  <image wx:if="{{!derived && !imageLoadFailed && reference}}" class="reference-image" src="{{reference}}" mode="widthFix" show-menu-by-longpress="false" binderror="onImageError" />
-  <button wx:for="{{hotspots}}" wx:key="action" class="hotspot {{item.className}}" data-action="{{item.action}}" bindtap="onTap" aria-label="{{item.label}}"></button>
+
+  <view class="unlock-main">
+    <view class="unlock-summary-card">
+      <view class="unlock-tag">
+        <view class="tag-icon"></view>
+        <text>初步分析报告</text>
+      </view>
+      <text class="unlock-report-title">初一数学月考分析</text>
+      <text class="unlock-summary">整体基础较好，计算粗心和几何证明是本次失分的主要原因。</text>
+      <view class="unlock-ready">
+        <view class="ready-check"></view>
+        <text>初步分析已生成</text>
+      </view>
+      <view class="unlock-mascot">
+        <view class="mascot-head"></view>
+        <view class="mascot-eye left"></view>
+        <view class="mascot-eye right"></view>
+        <view class="mascot-beard"></view>
+      </view>
+    </view>
+
+    <view class="unlock-section-title">
+      <text>✦</text>
+      <text class="section-copy">解锁后可查看</text>
+      <text>✦</text>
+    </view>
+
+    <view class="unlock-feature-grid">
+      <view class="feature-card">
+        <view class="lock-badge"></view>
+        <view class="feature-icon dark"></view>
+        <text class="feature-title">详细丢分点</text>
+        <text class="feature-desc">查看每类失分原因与典型表现</text>
+        <view class="skeleton"><view></view><view></view></view>
+      </view>
+      <view class="feature-card">
+        <view class="lock-badge"></view>
+        <view class="feature-icon teal"></view>
+        <text class="feature-title">优先补弱顺序</text>
+        <text class="feature-desc">明确先补什么，再补什么</text>
+        <view class="skeleton"><view></view><view></view></view>
+      </view>
+      <view class="feature-card">
+        <view class="lock-badge"></view>
+        <view class="feature-icon gold"></view>
+        <text class="feature-title">7天行动建议</text>
+        <text class="feature-desc">获得每日练习与执行安排</text>
+        <view class="skeleton"><view></view><view></view></view>
+      </view>
+      <view class="feature-card">
+        <view class="lock-badge"></view>
+        <view class="feature-icon amber"></view>
+        <text class="feature-title">完整学习建议</text>
+        <text class="feature-desc">继续练习 / 找老师讲解 / 复测</text>
+        <view class="skeleton"><view></view><view></view></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="unlock-pay-panel">
+    <view class="unlock-price-row">
+      <text class="unlock-price">9.9</text>
+      <text class="unlock-unit">元</text>
+      <text class="unlock-origin">原价39.9元</text>
+    </view>
+    <view class="unlock-assurance">
+      <view class="shield"></view>
+      <text>已完成初判，可立即解锁完整提分报告</text>
+    </view>
+    <button class="unlock-pay" data-action="pay" bindtap="onTap">立即支付 9.9元</button>
+    <button class="unlock-cancel" data-action="back" bindtap="onTap">暂不解锁</button>
+  </view>
 </view>

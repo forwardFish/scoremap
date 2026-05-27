@@ -1,0 +1,187 @@
+{
+  "scenarioId": "V13-O17",
+  "status": "PASS",
+  "command": "npm run e2e:owner -- ai-tutor-v13",
+  "requirementIds": [
+    "V13-R04",
+    "V13-R05",
+    "V13-R14"
+  ],
+  "clickPath": [
+    "/pages/ai-tutor/index",
+    "ask-another-explanation"
+  ],
+  "routeEvidence": {
+    "route": "/pages/ai-tutor/index",
+    "targetRoute": "/pages/ai-tutor/index"
+  },
+  "apiEvidence": [
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t31-v13-full/questions/order-t31-v13-full-q1/interactions",
+      "payloadSummary": {
+        "actionType": "another_explanation",
+        "source": "T27-ai-tutor-ui",
+        "forceProviderFailure": false,
+        "forceQuotaExceeded": false
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "ok",
+        "interaction": {
+          "id": "interaction-order-t31-v13-full-q1-another_explanation-5",
+          "orderId": "order-t31-v13-full",
+          "questionId": "order-t31-v13-full-q1",
+          "ownerId": "local-user-scoremap-t06",
+          "actionType": "another_explanation",
+          "promptId": "LLM-TUTOR-05",
+          "status": "success",
+          "summary": "换一种讲法：先算每小时领先多少。",
+          "response": "可以把它想成每过 1 小时甲领先 10 千米，过 2 小时就领先 2 个 10 千米。",
+          "exercise": null,
+          "traceId": "trace-interaction-order-t31-v13-full-q1-another_explanation-5",
+          "createdAt": "2026-05-25T01:00:04.000Z"
+        },
+        "quota": {
+          "questionRemaining": 0,
+          "questionTotal": 3
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-full/questions/order-t31-v13-full-q1/interactions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-full",
+        "questionId": "order-t31-v13-full-q1",
+        "items": [
+          {
+            "id": "order-t31-v13-full-q1-history-2",
+            "orderId": "order-t31-v13-full",
+            "questionId": "order-t31-v13-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "why_method",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "解释为什么用速度差。",
+            "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+            "traceId": "trace-order-t31-v13-full-q1-history-2",
+            "createdAt": "2026-05-25T08:00:02.000Z"
+          },
+          {
+            "id": "order-t31-v13-full-q1-history-1",
+            "orderId": "order-t31-v13-full",
+            "questionId": "order-t31-v13-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "先看速度差，再乘以时间。",
+            "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+            "traceId": "trace-order-t31-v13-full-q1-history-1",
+            "createdAt": "2026-05-25T08:00:01.000Z"
+          },
+          {
+            "id": "interaction-order-t31-v13-full-q1-another_explanation-5",
+            "orderId": "order-t31-v13-full",
+            "questionId": "order-t31-v13-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "another_explanation",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "换一种讲法：先算每小时领先多少。",
+            "response": "可以把它想成每过 1 小时甲领先 10 千米，过 2 小时就领先 2 个 10 千米。",
+            "exercise": null,
+            "traceId": "trace-interaction-order-t31-v13-full-q1-another_explanation-5",
+            "createdAt": "2026-05-25T01:00:04.000Z"
+          },
+          {
+            "id": "interaction-order-t31-v13-full-q1-why_method-4",
+            "orderId": "order-t31-v13-full",
+            "questionId": "order-t31-v13-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "why_method",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "解释方法依据：同时间比较路程差。",
+            "response": "因为题目问“多行多少”，不是两人一共行多少，所以要先做减法。",
+            "exercise": null,
+            "traceId": "trace-interaction-order-t31-v13-full-q1-why_method-4",
+            "createdAt": "2026-05-25T01:00:03.000Z"
+          },
+          {
+            "id": "interaction-order-t31-v13-full-q1-explain_step-3",
+            "orderId": "order-t31-v13-full",
+            "questionId": "order-t31-v13-full-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "拆解关键步骤：速度差乘以时间。",
+            "response": "60 - 50 表示甲每小时比乙多走 10 千米，再乘 2 小时就是 20 千米。",
+            "exercise": null,
+            "traceId": "trace-interaction-order-t31-v13-full-q1-explain_step-3",
+            "createdAt": "2026-05-25T01:00:02.000Z"
+          }
+        ]
+      }
+    }
+  ],
+  "dbEvidence": {
+    "interaction": {
+      "id": "interaction-order-t31-v13-full-q1-another_explanation-5",
+      "orderId": "order-t31-v13-full",
+      "questionId": "order-t31-v13-full-q1",
+      "ownerId": "local-user-scoremap-t06",
+      "actionType": "another_explanation",
+      "promptId": "LLM-TUTOR-05",
+      "status": "success",
+      "summary": "换一种讲法：先算每小时领先多少。",
+      "response": "可以把它想成每过 1 小时甲领先 10 千米，过 2 小时就领先 2 个 10 千米。",
+      "exercise": null,
+      "traceId": "trace-interaction-order-t31-v13-full-q1-another_explanation-5",
+      "createdAt": "2026-05-25T01:00:04.000Z"
+    },
+    "trace": {
+      "id": "trace-interaction-order-t31-v13-full-q1-another_explanation-5",
+      "traceId": "trace-interaction-order-t31-v13-full-q1-another_explanation-5",
+      "promptId": "LLM-TUTOR-05",
+      "adapter": "local-miniapp-mock",
+      "status": "success",
+      "localOnly": true,
+      "requestSummary": {
+        "orderId": "order-t31-v13-full",
+        "questionId": "order-t31-v13-full-q1",
+        "actionType": "another_explanation"
+      },
+      "responseSummary": {
+        "summary": "换一种讲法：先算每小时领先多少。"
+      }
+    }
+  },
+  "visualEvidence": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/ai-tutor/index",
+      "reference": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/reference.png",
+      "actual": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/summary.json"
+    }
+  ],
+  "visibleUiState": {
+    "fixedButtonId": "ask-another-explanation"
+  },
+  "localOnly": {
+    "LOCAL_ONLY": "true",
+    "adapterMode": "local-mock",
+    "remoteCalls": []
+  },
+  "llmTraceIds": [
+    "trace-interaction-order-t31-v13-full-q1-another_explanation-5"
+  ]
+}

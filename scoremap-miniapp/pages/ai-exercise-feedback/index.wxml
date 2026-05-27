@@ -1,0 +1,88 @@
+<view class="v13-page feedback-page">
+  <view class="top-bar">
+    <button class="top-icon" bindtap="onTap" data-action="back">arrow_back</button>
+    <text class="page-title">教育提分报告</text>
+    <button class="top-icon">more_vert</button>
+  </view>
+
+  <view class="feedback-hero">
+    <view class="success-icon">
+      <text class="success-symbol">check_circle</text>
+      <text class="confetti">🎉</text>
+      <text class="shine">auto_awesome</text>
+    </view>
+    <text class="hero-title">回答正确！</text>
+    <view class="quote-row">
+      <view class="mascot">AI</view>
+      <view class="quote-bubble">
+        <text>{{explanation}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="analysis-card">
+    <view class="section-heading">
+      <view class="section-bar"></view>
+      <text>解析</text>
+    </view>
+    <view class="analysis-step">
+      <text class="step-label">甲比乙每小时快：</text>
+      <text class="formula">70 - 55 = 15 (千米)</text>
+    </view>
+    <view class="analysis-step">
+      <text class="step-label">3 小时后，甲比乙多行：</text>
+      <text class="formula">15 x 3 = 45 (千米)</text>
+    </view>
+    <view class="answer-summary">
+      <text>答案是：</text>
+      <text class="answer-pill">B. 45 千米</text>
+    </view>
+  </view>
+
+  <view class="tip-block">
+    <view class="tip-icon good">thumb_up</view>
+    <text>做得很好！说明你已经理解了 <text class="good-text">“速度差 x 时间 = 路程差”</text> 这个方法。</text>
+  </view>
+
+  <view class="tip-block">
+    <view class="tip-icon hint">lightbulb</view>
+    <text><text class="hint-text">小提示：</text> 行程问题的关键是先找出速度差，再乘上时间。</text>
+  </view>
+
+  <view class="action-row">
+    <button class="secondary-button" bindtap="onRetry">
+      <text class="button-icon">refresh</text>
+      <text>再来一道</text>
+    </button>
+    <button class="primary-button" bindtap="onReturnReport">
+      <text class="button-icon">assignment_turned_in</text>
+      <text>回到报告</text>
+    </button>
+  </view>
+
+  <view class="history-row" bindtap="onOpenRecord">
+    <view class="history-left">
+      <view class="history-icon">chat</view>
+      <view>
+        <text class="history-title">本题追问记录</text>
+        <text class="history-subtitle">共有 4 条深度解析对话</text>
+      </view>
+    </view>
+    <text class="row-icon">chevron_right</text>
+  </view>
+
+  <view class="bottom-nav">
+    <button>
+      <text class="nav-icon">share</text>
+      <text>分享报告</text>
+    </button>
+    <button>
+      <text class="nav-icon">psychology</text>
+      <text>AI 提分</text>
+    </button>
+    <button>
+      <text class="nav-icon">picture_as_pdf</text>
+      <text>导出 PDF</text>
+    </button>
+  </view>
+</view>

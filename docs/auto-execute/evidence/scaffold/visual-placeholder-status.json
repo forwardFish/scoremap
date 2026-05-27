@@ -1,8 +1,8 @@
 {
   "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
   "command": "npm test",
-  "reason": "T01 provides route and runtime scaffold only; screenshot capture and pixel comparison are assigned to T14.",
-  "referenceStatus": "not_required_for_T01",
-  "actualScreenshotStatus": "not_created_by_T01",
-  "diffStatus": "not_created_by_T01"
+  "reason": "Scaffold is a route-contract page, not a standalone pixel reference screen.",
+  "referenceStatus": "no_standalone_reference",
+  "actualScreenshotStatus": "structural_code_page",
+  "diffStatus": "not_applicable"
 }

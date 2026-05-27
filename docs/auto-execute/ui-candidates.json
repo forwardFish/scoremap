@@ -1,0 +1,434 @@
+﻿{
+    "note":  "UI mapping priority is harness.yml uiMapping, UIReferences auto discovery, filename route guess, then manual review. Actual screenshots must be captured and mapped in ui-target.json before final PASS; auto-guessed mapping cannot claim pure PASS without screenshot and diff evidence.",
+    "generatedAt":  "2026-05-25T19:10:54",
+    "mappingPriority":  [
+                            "harness.yml uiMapping",
+                            "UIReferences auto discovery",
+                            "filename route guess",
+                            "manual review"
+                        ],
+    "schemaVersion":  "2.0",
+    "candidates":  [
+                       {
+                           "id":  "UI-001",
+                           "reference":  "docs\\UI\\web\\backup\\ChatGPT Image 2026年5月23日 18_24_52 (1).png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-002",
+                           "reference":  "docs\\UI\\web\\backup\\ChatGPT Image 2026年5月23日 18_24_52 (2).png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-003",
+                           "reference":  "docs\\UI\\web\\backup\\ChatGPT Image 2026年5月23日 18_24_53 (3).png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-004",
+                           "reference":  "docs\\UI\\web\\backup\\ChatGPT Image 2026年5月23日 18_24_53 (4).png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-005",
+                           "reference":  "docs\\UI\\web\\backup\\ChatGPT Image 2026年5月23日 18_24_54 (5).png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-006",
+                           "reference":  "docs\\UI\\web\\ChatGPT Image 2026年5月23日 18_19_49.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-007",
+                           "reference":  "docs\\UI\\web\\ChatGPT Image 2026年5月23日 21_39_02 (1).png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-008",
+                           "reference":  "docs\\UI\\web\\ChatGPT Image 2026年5月23日 21_39_08 (2).png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-009",
+                           "reference":  "docs\\UI\\web\\ChatGPT Image 2026年5月23日 21_39_08 (3).png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-010",
+                           "reference":  "docs\\UI\\web\\ChatGPT Image 2026年5月23日 21_39_08 (4).png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-011",
+                           "reference":  "docs\\UI\\web\\ChatGPT Image 2026年5月23日 21_39_08 (5).png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-012",
+                           "reference":  "docs\\UI\\小程序\\1元支付.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-013",
+                           "reference":  "docs\\UI\\小程序\\AI分析.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-014",
+                           "reference":  "docs\\UI\\小程序\\backup\\ChatGPT Image 2026年5月22日 18_16_01 (3).png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-015",
+                           "reference":  "docs\\UI\\小程序\\backup\\ChatGPT Image 2026年5月22日 18_16_02 (5).png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-016",
+                           "reference":  "docs\\UI\\小程序\\backup\\ChatGPT Image 2026年5月22日 18_16_05 (6).png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-017",
+                           "reference":  "docs\\UI\\小程序\\backup\\ChatGPT Image 2026年5月22日 18_16_05 (7).png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-018",
+                           "reference":  "docs\\UI\\小程序\\backup\\ChatGPT Image 2026年5月22日 18_16_05 (8).png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-019",
+                           "reference":  "docs\\UI\\小程序\\backup\\ChatGPT Image 2026年5月22日 18_16_05 (9).png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-020",
+                           "reference":  "docs\\UI\\小程序\\backup\\ChatGPT Image 2026年5月22日 19_18_15.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-021",
+                           "reference":  "docs\\UI\\小程序\\backup\\完整提分报告.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-022",
+                           "reference":  "docs\\UI\\小程序\\backup\\我的.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-023",
+                           "reference":  "docs\\UI\\小程序\\ChatGPT Image 2026年5月22日 23_02_21.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-024",
+                           "reference":  "docs\\UI\\小程序\\ChatGPT Image 2026年5月25日 13_20_27 (2).png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-025",
+                           "reference":  "docs\\UI\\小程序\\ChatGPT Image 2026年5月25日 13_20_27 (3).png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-026",
+                           "reference":  "docs\\UI\\小程序\\ChatGPT Image 2026年5月25日 13_20_27 (4).png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-027",
+                           "reference":  "docs\\UI\\小程序\\ChatGPT Image 2026年5月25日 13_20_27 (5).png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-028",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_development_blueprints\\_1\\code.html",
+                           "kind":  "html",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-029",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_development_blueprints\\_1\\screen.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-030",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_development_blueprints\\_2\\code.html",
+                           "kind":  "html",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-031",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_development_blueprints\\_2\\screen.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-032",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_development_blueprints\\_3\\code.html",
+                           "kind":  "html",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-033",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_development_blueprints\\_3\\screen.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-034",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_development_blueprints\\_4\\code.html",
+                           "kind":  "html",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-035",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_development_blueprints\\_4\\screen.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-036",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_development_blueprints\\1\\code.html",
+                           "kind":  "html",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-037",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_development_blueprints\\1\\screen.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-038",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_development_blueprints\\ai_1\\code.html",
+                           "kind":  "html",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-039",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_development_blueprints\\ai_1\\screen.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-040",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_development_blueprints\\ai_2\\code.html",
+                           "kind":  "html",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-041",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_development_blueprints\\ai_2\\screen.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-042",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_development_blueprints\\ai_insight_pro\\DESIGN.md",
+                           "kind":  "md",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-043",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_development_blueprints\\ai_pdf\\code.html",
+                           "kind":  "html",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-044",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_development_blueprints\\ai_pdf\\screen.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-045",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_ui_design_kit\\_1\\code.html",
+                           "kind":  "html",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-046",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_ui_design_kit\\_1\\screen.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-047",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_ui_design_kit\\_2\\code.html",
+                           "kind":  "html",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-048",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_ui_design_kit\\_2\\screen.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-049",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_ui_design_kit\\_3\\code.html",
+                           "kind":  "html",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-050",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_ui_design_kit\\_3\\screen.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-051",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_ui_design_kit\\_4\\code.html",
+                           "kind":  "html",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-052",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_ui_design_kit\\_4\\screen.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-053",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_ui_design_kit\\ai\\code.html",
+                           "kind":  "html",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-054",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_ui_design_kit\\ai\\screen.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-055",
+                           "reference":  "docs\\UI\\小程序\\stitch_codex_ui_design_kit\\luminous_learning\\DESIGN.md",
+                           "kind":  "md",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-056",
+                           "reference":  "docs\\UI\\小程序\\处理失败.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-057",
+                           "reference":  "docs\\UI\\小程序\\分析报告.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-058",
+                           "reference":  "docs\\UI\\小程序\\首页.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-059",
+                           "reference":  "docs\\UI\\小程序\\完整提分报告.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       },
+                       {
+                           "id":  "UI-060",
+                           "reference":  "docs\\UI\\小程序\\我的.png",
+                           "kind":  "png",
+                           "status":  "CANDIDATE",
+                           "mappingSource":  "UIReferences auto discovery"
+                       }
+                   ],
+    "status":  "CANDIDATE"
+}

@@ -1,0 +1,73 @@
+{
+  "taskId": "T38",
+  "title": "old flow full unlock entry my",
+  "status": "PASS_WITH_LIMITATION",
+  "generatedAt": "2026-05-27T02:28:32+08:00",
+  "implemented": [
+    "Rebuilt full-unlock WXML/WXSS as the old-flow unlock page with header, generated basic-analysis hero card, 2x2 locked benefits, 9.9 yuan local mock payment panel, compliance assurance copy, and visible decline path.",
+    "Rebuilt full-report-entry WXML/WXSS as the old-flow complete-report entry with hero status, four report-content rows, view/save/home actions, and reference-matched bottom controls.",
+    "Rebuilt my WXML/WXSS as the old-flow profile/menu/tab page while preserving reports, orders, purchases, feedback, new analysis, and tab actions.",
+    "Added miniapp Page-branch navigation mappings for full-unlock back and my purchases/copy actions without changing the Node page-state service bindings."
+  ],
+  "changedFiles": [
+    "scoremap-miniapp/pages/full-unlock/index.js",
+    "scoremap-miniapp/pages/full-unlock/index.wxml",
+    "scoremap-miniapp/pages/full-unlock/index.wxss",
+    "scoremap-miniapp/pages/full-report-entry/index.wxml",
+    "scoremap-miniapp/pages/full-report-entry/index.wxss",
+    "scoremap-miniapp/pages/my/index.js",
+    "scoremap-miniapp/pages/my/index.wxml",
+    "scoremap-miniapp/pages/my/index.wxss",
+    "docs/auto-execute/evidence/ui-one-to-one/T38/summary.json",
+    "docs/auto-execute/results/T38.json",
+    "docs/auto-execute/latest/T38-HANDOFF.md"
+  ],
+  "requiredBehavior": {
+    "fullUnlockLocalMockFullPayment": "PASS",
+    "fullUnlockComplianceCopy": "PASS",
+    "fullReportEntryGenerationViewSaveHome": "PASS",
+    "myReportsOrdersFeedbackPurchasesNewAnalysisTabs": "PASS",
+    "supportLinksNotBroken": "PASS"
+  },
+  "verification": [
+    {
+      "command": "npm test -- full-report-pdf my-reports-feedback basic-result-full-unlock",
+      "status": "FAIL_KNOWN_RUNNER_LIMITATION",
+      "evidence": "scripts/run-tests.mjs requires all selectors to match a single test group; no group has all three tags."
+    },
+    {
+      "command": "npm.cmd test -- full-report-pdf",
+      "status": "PASS",
+      "evidence": "3/3 tests passed."
+    },
+    {
+      "command": "npm.cmd test -- my-reports-feedback",
+      "status": "PASS",
+      "evidence": "3/3 tests passed."
+    },
+    {
+      "command": "npm.cmd test -- basic-result-full-unlock",
+      "status": "PASS",
+      "evidence": "3/3 tests passed."
+    },
+    {
+      "command": "npm.cmd run e2e:owner -- old-flow-full-unlock-entry-my",
+      "status": "PASS",
+      "evidence": "2/2 owner e2e tests passed."
+    },
+    {
+      "command": "npm.cmd run visual:scoremap -- full-unlock full-report-entry my",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "evidence": "T14 visual harness wrote 6 screen comparisons for requested screens plus paired harness dependencies."
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS_WITH_WARNINGS",
+      "evidence": "Exited 0; Git reported existing LF-to-CRLF normalization warnings only."
+    }
+  ],
+  "knownLimitations": [
+    "The exact combined npm test selector cannot pass without changing the repository test runner grouping, which is outside the T38 allowed file list.",
+    "The visual harness does not claim pixel-perfect screenshot PASS; it returns PASS_NEEDS_MANUAL_UI_REVIEW by design."
+  ]
+}

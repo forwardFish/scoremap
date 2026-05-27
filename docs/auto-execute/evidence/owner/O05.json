@@ -33,30 +33,30 @@
         "status": "full_report_ready",
         "decision": {
           "level": "full",
-          "reportTitle": "Complete score improvement report",
+          "reportTitle": "初一数学月考提分报告",
           "orderId": "order-t07-home-upload",
           "generatedStatus": "full_report_ready",
-          "summary": "Local complete score improvement report for a parent owner review.",
+          "summary": "整体基础较好，计算粗心和几何证明步骤不完整是本次失分的主要原因。",
           "modules": [
             {
               "id": "knowledge-diagnosis",
-              "title": "Knowledge diagnosis",
-              "content": "Calculation rules and formula usage need staged practice."
+              "title": "主要丢分点",
+              "content": "计算失误、几何证明步骤缺失、应用题等量关系不清。"
             },
             {
               "id": "loss-point-breakdown",
-              "title": "Per-question loss point breakdown",
-              "content": "Mark the missing condition, formula, solving process, and final verification."
+              "title": "优先补弱顺序",
+              "content": "先补几何证明表达，再巩固方程应用题和计算检查。"
             },
             {
               "id": "seven-day-plan",
-              "title": "7-day score improvement plan",
-              "content": "Three correction reviews, two targeted exercise days, and one final mistake-book review."
+              "title": "7 天建议",
+              "content": "每天 20 分钟错题复盘，隔天完成同类题迁移练习。"
             },
             {
               "id": "parent-guidance",
-              "title": "Parent guidance",
-              "content": "Use process feedback and avoid guaranteed-score promises."
+              "title": "家长陪伴建议",
+              "content": "关注孩子是否能讲清思路，不用分数承诺替代过程反馈。"
             }
           ],
           "tabs": [
@@ -65,7 +65,37 @@
             "7-day plan",
             "parent guidance"
           ],
-          "complianceNotice": "Local mock report only. No guaranteed-score promise is displayed."
+          "reportQuota": {
+            "used": 2,
+            "total": 10,
+            "remaining": 8,
+            "text": "本报告 AI 错题追问剩余 8/10 次"
+          },
+          "wrongQuestionCards": [
+            {
+              "questionId": "order-t07-home-upload-q1",
+              "index": 1,
+              "title": "错题 1 二元一次方程应用题",
+              "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+              "knowledgePoint": "方程应用题",
+              "severity": "high",
+              "masteryStatus": "未掌握",
+              "remainingQuestionQuota": 3,
+              "aiEntryText": "让 AI 老师讲给孩子听"
+            },
+            {
+              "questionId": "order-t07-home-upload-q2",
+              "index": 2,
+              "title": "错题 2 几何证明题",
+              "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+              "knowledgePoint": "几何证明",
+              "severity": "medium",
+              "masteryStatus": "中等",
+              "remainingQuestionQuota": 2,
+              "aiEntryText": "让 AI 老师讲给孩子听"
+            }
+          ],
+          "complianceNotice": "内容仅供学习参考，请结合课堂学习与老师建议使用。"
         }
       }
     },
@@ -73,37 +103,37 @@
       "method": "GET",
       "path": "/api/diagnosis-orders/order-t07-home-upload/full-report",
       "payloadSummary": {
-        "source": "full-report-page-load"
+        "source": "full-report-v13-page-load"
       },
       "responseStatus": 200,
       "responseBody": {
         "status": "full_report_ready",
         "decision": {
           "level": "full",
-          "reportTitle": "Complete score improvement report",
+          "reportTitle": "初一数学月考提分报告",
           "orderId": "order-t07-home-upload",
           "generatedStatus": "full_report_ready",
-          "summary": "Local complete score improvement report for a parent owner review.",
+          "summary": "整体基础较好，计算粗心和几何证明步骤不完整是本次失分的主要原因。",
           "modules": [
             {
               "id": "knowledge-diagnosis",
-              "title": "Knowledge diagnosis",
-              "content": "Calculation rules and formula usage need staged practice."
+              "title": "主要丢分点",
+              "content": "计算失误、几何证明步骤缺失、应用题等量关系不清。"
             },
             {
               "id": "loss-point-breakdown",
-              "title": "Per-question loss point breakdown",
-              "content": "Mark the missing condition, formula, solving process, and final verification."
+              "title": "优先补弱顺序",
+              "content": "先补几何证明表达，再巩固方程应用题和计算检查。"
             },
             {
               "id": "seven-day-plan",
-              "title": "7-day score improvement plan",
-              "content": "Three correction reviews, two targeted exercise days, and one final mistake-book review."
+              "title": "7 天建议",
+              "content": "每天 20 分钟错题复盘，隔天完成同类题迁移练习。"
             },
             {
               "id": "parent-guidance",
-              "title": "Parent guidance",
-              "content": "Use process feedback and avoid guaranteed-score promises."
+              "title": "家长陪伴建议",
+              "content": "关注孩子是否能讲清思路，不用分数承诺替代过程反馈。"
             }
           ],
           "tabs": [
@@ -112,7 +142,37 @@
             "7-day plan",
             "parent guidance"
           ],
-          "complianceNotice": "Local mock report only. No guaranteed-score promise is displayed."
+          "reportQuota": {
+            "used": 2,
+            "total": 10,
+            "remaining": 8,
+            "text": "本报告 AI 错题追问剩余 8/10 次"
+          },
+          "wrongQuestionCards": [
+            {
+              "questionId": "order-t07-home-upload-q1",
+              "index": 1,
+              "title": "错题 1 二元一次方程应用题",
+              "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+              "knowledgePoint": "方程应用题",
+              "severity": "high",
+              "masteryStatus": "未掌握",
+              "remainingQuestionQuota": 3,
+              "aiEntryText": "让 AI 老师讲给孩子听"
+            },
+            {
+              "questionId": "order-t07-home-upload-q2",
+              "index": 2,
+              "title": "错题 2 几何证明题",
+              "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+              "knowledgePoint": "几何证明",
+              "severity": "medium",
+              "masteryStatus": "中等",
+              "remainingQuestionQuota": 2,
+              "aiEntryText": "让 AI 老师讲给孩子听"
+            }
+          ],
+          "complianceNotice": "内容仅供学习参考，请结合课堂学习与老师建议使用。"
         }
       }
     },
@@ -120,7 +180,7 @@
       "method": "POST",
       "path": "/api/diagnosis-orders/order-t07-home-upload/save-report",
       "payloadSummary": {
-        "source": "full-report-page-save"
+        "source": "full-report-v13-page-save"
       },
       "responseStatus": 200,
       "responseBody": {
@@ -176,6 +236,89 @@
             "savedReport": true,
             "paymentStatus": "paid",
             "paidAmountYuan": 10.9
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t07-home-upload/questions",
+      "payloadSummary": {
+        "source": "reports-page-ai-tutor-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t07-home-upload",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t07-home-upload-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t07-home-upload-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t07-home-upload/questions/order-t07-home-upload-q1/interactions",
+      "payloadSummary": {
+        "source": "reports-page-ai-tutor-history-summary"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t07-home-upload",
+        "questionId": "order-t07-home-upload-q1",
+        "items": [
+          {
+            "id": "order-t07-home-upload-q1-history-2",
+            "orderId": "order-t07-home-upload",
+            "questionId": "order-t07-home-upload-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "why_method",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "解释为什么用速度差。",
+            "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+            "traceId": "trace-order-t07-home-upload-q1-history-2",
+            "createdAt": "2026-05-25T08:00:02.000Z"
+          },
+          {
+            "id": "order-t07-home-upload-q1-history-1",
+            "orderId": "order-t07-home-upload",
+            "questionId": "order-t07-home-upload-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "先看速度差，再乘以时间。",
+            "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+            "traceId": "trace-order-t07-home-upload-q1-history-1",
+            "createdAt": "2026-05-25T08:00:01.000Z"
           }
         ]
       }

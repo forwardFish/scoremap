@@ -1,0 +1,11 @@
+{
+  "id": "V13-UI-FULL-REPORT",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "referenceKey": "_3",
+  "reference": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/reference.png",
+  "sourceReference": "docs/UI/小程序/stitch_codex_ui_design_kit/_3/screen.png",
+  "actual": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/actual.svg",
+  "diff": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/diff.svg",
+  "metrics": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/metrics.json",
+  "knownGaps": []
+}

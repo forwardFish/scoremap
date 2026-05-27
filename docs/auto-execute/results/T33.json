@@ -1,0 +1,182 @@
+﻿{
+    "taskId":  "T33",
+    "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+    "scope":  "ai-tutor-v13",
+    "command":  "powershell -ExecutionPolicy Bypass -File scripts/acceptance/run-final-gate.ps1 -Scope ai-tutor-v13",
+    "evidence":  [
+                     "docs/auto-execute/evidence/final-gate/T33-summary.json",
+                     "docs/auto-execute/results/T33.json",
+                     "docs/auto-execute/latest/T33-HANDOFF.md",
+                     "docs/AUTO_EXECUTE_DELIVERY_REPORT.md"
+                 ],
+    "categoryVerdicts":  [
+                             {
+                                 "id":  "requirement-traceability",
+                                 "name":  "Requirement Traceability Acceptance",
+                                 "status":  "PASS",
+                                 "evidence":  [
+                                                  "docs/auto-execute/scoremap-ai-tutor-v13-requirement-traceability-matrix.md",
+                                                  "docs/auto-execute/results/T32.json"
+                                              ],
+                                 "notes":  [
+                                               "V13-R01 through V13-R15 are backed by T19-T32 task evidence."
+                                           ]
+                             },
+                             {
+                                 "id":  "functional",
+                                 "name":  "Functional Acceptance",
+                                 "status":  "PASS",
+                                 "evidence":  [
+                                                  "docs/auto-execute/evidence/api-db-llm/T22-full-report-question-cards.json",
+                                                  "docs/auto-execute/evidence/frontend-page/T27-ai-tutor-interaction.json",
+                                                  "docs/auto-execute/evidence/frontend-page/T28-answer-feedback.json",
+                                                  "docs/auto-execute/evidence/frontend-page/T29-my-reports-quota-history.json"
+                                              ],
+                                 "notes":  [
+                                               "Cards, formal entitlement, fixed follow-ups, exercise/feedback, history, and quota behavior are covered."
+                                           ]
+                             },
+                             {
+                                 "id":  "ui-one-to-one",
+                                 "name":  "UI One-To-One Acceptance",
+                                 "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                                 "evidence":  [
+                                                  "docs/auto-execute/results/T30.json",
+                                                  "docs/auto-execute/evidence/visual-harness/ai-tutor-v13"
+                                              ],
+                                 "notes":  [
+                                               "All five targets have artifacts; live miniapp raster pixelmatch is not available."
+                                           ]
+                             },
+                             {
+                                 "id":  "normal-person-clicks",
+                                 "name":  "Normal-Person Click Acceptance",
+                                 "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                                 "evidence":  [
+                                                  "docs/auto-execute/evidence/owner/all-pages-ai-tutor-v13.json",
+                                                  "docs/auto-execute/evidence/navigation/all-click-targets.json"
+                                              ],
+                                 "notes":  [
+                                               "V13-O14 through V13-O23 plus legacy O01-O13 are covered."
+                                           ]
+                             },
+                             {
+                                 "id":  "api-contract",
+                                 "name":  "API Contract Acceptance",
+                                 "status":  "PASS",
+                                 "evidence":  [
+                                                  "docs/auto-execute/evidence/api-db/T32-api-branches.json",
+                                                  "docs/auto-execute/evidence/api-db/T32-trace-manifest.json"
+                                              ],
+                                 "notes":  [
+                                               "Success and negative API branches are covered."
+                                           ]
+                             },
+                             {
+                                 "id":  "data",
+                                 "name":  "Data Acceptance",
+                                 "status":  "PASS",
+                                 "evidence":  [
+                                                  "docs/auto-execute/evidence/api-db/T32-db-readback.json",
+                                                  "docs/auto-execute/evidence/api-db-llm/T21-db-readback.json"
+                                              ],
+                                 "notes":  [
+                                               "Question, interaction, quota, answer, and trace records have readback evidence."
+                                           ]
+                             },
+                             {
+                                 "id":  "llm-model-calls",
+                                 "name":  "LLM/Model-Call Acceptance",
+                                 "status":  "PASS",
+                                 "evidence":  [
+                                                  "docs/auto-execute/evidence/llm/T32-llm-trace-manifest.json",
+                                                  "docs/auto-execute/evidence/inventory/T19-verification.json"
+                                              ],
+                                 "notes":  [
+                                               "Mandatory prompt ids LLM-PREVIEW-01 through LLM-CHECK-07 are traced locally."
+                                           ]
+                             },
+                             {
+                                 "id":  "safety-localization",
+                                 "name":  "Safety And Localization Acceptance",
+                                 "status":  "PASS",
+                                 "evidence":  [
+                                                  "docs/auto-execute/evidence/safety/local-only.json",
+                                                  "docs/auto-execute/evidence/safety/secret-guard.json"
+                                              ],
+                                 "notes":  [
+                                               "Local-only and secret guards must pass."
+                                           ]
+                             },
+                             {
+                                 "id":  "exception-boundary",
+                                 "name":  "Exception And Boundary Acceptance",
+                                 "status":  "PASS",
+                                 "evidence":  [
+                                                  "docs/auto-execute/evidence/api-db/T32-api-branches.json",
+                                                  "docs/auto-execute/evidence/api-db-llm/T23-negative-branches-quota-auth.json",
+                                                  "docs/auto-execute/evidence/frontend-page/T28-negative-branches.json"
+                                              ],
+                                 "notes":  [
+                                               "Missing context, AI failure/timeout, quota, entitlement, cross-owner, duplicate, and answer-before-exercise are covered."
+                                           ]
+                             },
+                             {
+                                 "id":  "non-functional",
+                                 "name":  "Non-Functional Acceptance",
+                                 "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                                 "evidence":  [
+                                                  "docs/auto-execute/results/T30.json",
+                                                  "docs/auto-execute/latest/HANDOFF.md"
+                                              ],
+                                 "notes":  [
+                                               "Local repeatability is proven; raster-grade visual proof remains manual review."
+                                           ]
+                             },
+                             {
+                                 "id":  "evidence-integrity",
+                                 "name":  "Evidence Integrity Acceptance",
+                                 "status":  "PASS",
+                                 "evidence":  [
+                                                  "docs/auto-execute/results/T19.json",
+                                                  "docs/auto-execute/results/T32.json",
+                                                  "docs/auto-execute/latest/T19-HANDOFF.md",
+                                                  "docs/auto-execute/latest/T32-HANDOFF.md",
+                                                  "docs/auto-execute/latest/T33-integrity.log"
+                                              ],
+                                 "notes":  [
+                                               "T19-T32 results, task handoffs, and T33 report integrity were checked."
+                                           ]
+                             },
+                             {
+                                 "id":  "mojibake-scan",
+                                 "name":  "Mojibake Scan",
+                                 "status":  "PASS",
+                                 "evidence":  [
+                                                  "docs/auto-execute/scoremap-ai-tutor-v13-master-plan.md",
+                                                  "docs/auto-execute/scoremap-ai-tutor-v13-acceptance-standard.md",
+                                                  "docs/auto-execute/scoremap-ai-tutor-v13-requirement-traceability-matrix.md",
+                                                  "docs/auto-execute/scoremap-ai-tutor-v13-ui-reference-map.md",
+                                                  "docs/auto-execute/scoremap-ai-tutor-v13-owner-scenario-matrix.md"
+                                              ],
+                                 "notes":  [
+                                               "Replacement/Latin-1 marker findings: 0"
+                                           ]
+                             }
+                         ],
+    "failures":  [
+
+                 ],
+    "limitations":  [
+                        "T19 passed with limitation",
+                        "T25 passed with limitation",
+                        "T26 passed with limitation",
+                        "T27 passed with limitation",
+                        "T28 passed with limitation",
+                        "T30 requires manual UI review",
+                        "T31 requires manual UI review",
+                        "UI One-To-One Acceptance status is PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "Normal-Person Click Acceptance status is PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "Non-Functional Acceptance status is PASS_NEEDS_MANUAL_UI_REVIEW"
+                    ]
+}

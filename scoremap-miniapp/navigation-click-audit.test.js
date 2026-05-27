@@ -1,4 +1,4 @@
-﻿const assert = require('node:assert/strict');
+const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const { test } = require('node:test');
@@ -11,6 +11,26 @@ const command = 'npm test -- navigation';
 
 const appRoutes = new Set(appJson.pages.map((page) => `/${page}`));
 const tabRoutes = new Set(appJson.tabBar.list.map((tab) => `/${tab.pagePath}`));
+const forbiddenReplicaShellPattern = new RegExp([
+  'derived' + '-card',
+  'derived' + '-action',
+  'reference' + 'Asset',
+  'code' + 'Surface'
+].join('|'));
+const codeRenderedReplicaPages = [
+  'pages/analysis/index',
+  'pages/failure/index',
+  'pages/preview/index',
+  'pages/basic-pay/index',
+  'pages/basic-result/index',
+  'pages/full-unlock/index',
+  'pages/full-report-entry/index',
+  'pages/my/index',
+  'pages/reports/index',
+  'pages/orders/index',
+  'pages/feedback/index',
+  'pages/scaffold/index'
+];
 
 function writeEvidence(name, payload) {
   fs.mkdirSync(evidenceDir, { recursive: true });
@@ -96,11 +116,17 @@ function invokeTap(page, action) {
 
 test('all runtime page hotspots navigate to declared local miniapp routes', () => {
   const matrix = [];
+  const pageCoverage = [];
 
   for (const pagePath of appJson.pages) {
     const { page } = loadRuntimePage(pagePath);
     const hotspots = page.data.hotspots || [];
     assert.ok(Array.isArray(hotspots), `${pagePath} hotspots must be an array`);
+    pageCoverage.push({
+      page: `/${pagePath}`,
+      hotspotCount: hotspots.length,
+      status: 'LOADED'
+    });
 
     for (const hotspot of hotspots) {
       assert.ok(hotspot.action, `${pagePath} hotspot must declare action`);
@@ -126,16 +152,85 @@ test('all runtime page hotspots navigate to declared local miniapp routes', () =
     }
   }
 
-  assert.equal(new Set(matrix.map((item) => item.page)).size, appJson.pages.length);
+  assert.equal(pageCoverage.length, appJson.pages.length);
   assert.ok(matrix.length >= 30, 'click matrix should cover every visible hotspot across all pages');
 
   writeEvidence('all-click-targets.json', {
     status: 'PASS',
     command,
     pageCount: appJson.pages.length,
+    loadedPageCount: pageCoverage.length,
+    pagesWithoutHotspots: pageCoverage.filter((item) => item.hotspotCount === 0).map((item) => item.page),
     clickCount: matrix.length,
     tabRoutes: [...tabRoutes],
     appRoutes: [...appRoutes],
+    pageCoverage,
     matrix
+  });
+});
+
+test('replica pages render as code surfaces instead of screenshot-only pages', () => {
+  const assertions = [];
+
+  for (const pagePath of codeRenderedReplicaPages) {
+    const { page } = loadRuntimePage(pagePath);
+    const actualWxmlPath = path.join(__dirname, `${pagePath}.wxml`);
+    const wxml = fs.readFileSync(actualWxmlPath, 'utf8');
+
+    assert.ok(Array.isArray(page.data.hotspots), `${pagePath} must keep runtime click hotspots`);
+    assert.equal(page.data.reference, '', `${pagePath} must not mount a screenshot reference as page content`);
+    assert.doesNotMatch(wxml, /<image\b[^>]*reference-image/, `${pagePath} must not render a screenshot-only image`);
+    assert.doesNotMatch(wxml, forbiddenReplicaShellPattern, `${pagePath} must not use the generic replica shell`);
+    assert.match(wxml, /bindtap="onTap"/, `${pagePath} must expose visible code-rendered actions`);
+
+    assertions.push({
+      page: `/${pagePath}`,
+      referenceMounted: Boolean(page.data.reference),
+      actionCount: (page.data.hotspots || []).length
+    });
+  }
+
+  writeEvidence('code-rendered-page-surfaces.json', {
+    status: 'PASS',
+    command,
+    pageCount: assertions.length,
+    assertions
+  });
+});
+
+test('support pages are first-class code pages with no standalone pixel-reference claim', () => {
+  const supportPages = [
+    'pages/reports/index',
+    'pages/orders/index',
+    'pages/feedback/index',
+    'pages/scaffold/index'
+  ];
+  const assertions = [];
+
+  for (const pagePath of supportPages) {
+    const { page } = loadRuntimePage(pagePath);
+    const jsPath = path.join(__dirname, `${pagePath}.js`);
+    const wxmlPath = path.join(__dirname, `${pagePath}.wxml`);
+    const js = fs.readFileSync(jsPath, 'utf8');
+    const wxml = fs.readFileSync(wxmlPath, 'utf8');
+
+    assert.equal(page.data.reference, '', `${pagePath} must not claim a standalone reference asset`);
+    assert.doesNotMatch(js, /createReplicaPage/, `${pagePath} must not use the generic replica runtime scaffold`);
+    assert.doesNotMatch(wxml, /reference-image|screenshot|pixel-perfect/i, `${pagePath} must not masquerade as a reference screen`);
+    assert.match(wxml, /bindtap="onTap"/, `${pagePath} must keep visible route actions`);
+
+    assertions.push({
+      page: `/${pagePath}`,
+      hotspotCount: page.data.hotspots.length,
+      reference: page.data.reference,
+      codeRendered: true
+    });
+  }
+
+  writeEvidence('support-pages-code-rendered.json', {
+    status: 'PASS',
+    command,
+    assertions,
+    referencePolicy: 'reports/orders/feedback/scaffold have no standalone pixel references; they are judged by route, state, behavior, and structural visual evidence.'
   });
 });

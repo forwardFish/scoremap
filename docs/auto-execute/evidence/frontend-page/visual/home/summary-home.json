@@ -4,8 +4,8 @@
     "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
     "command": "npm run visual:scoremap -- home",
     "route": "/pages/index/index",
-    "reference": "docs/UI/小程序/首页.png",
-    "stitchReference": "docs/UI/小程序/stitch_codex_development_blueprints/ai_2/screen.png",
+    "reference": "ui-reference-catalog/小程序/首页.png",
+    "stitchReference": "ui-reference-catalog/小程序/stitch_codex_development_blueprints/ai_2/screen-reference",
     "actual": "docs/auto-execute/evidence/frontend-page/visual/home/actual-home-structure.svg",
     "diff": "docs/auto-execute/evidence/frontend-page/visual/home/diff-home-manual-review.svg",
     "viewport": {

@@ -1,7 +1,9 @@
 {
   "id": "UI-C12",
   "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "referenceKey": null,
   "reference": null,
+  "sourceReference": null,
   "actual": "docs/auto-execute/evidence/visual-harness/reports/actual.svg",
   "diff": "docs/auto-execute/evidence/visual-harness/reports/diff.svg",
   "metrics": "docs/auto-execute/evidence/visual-harness/reports/metrics.json",

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "2.0",
+  "lane": "requirement-normalization-worker-round-5",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "updatedAt": "2026-05-25T18:52:00+08:00",
+  "gapClosed": "GAP-REQ-001",
+  "summary": {
+    "requirements": 15,
+    "p0": 12,
+    "p1": 3,
+    "p2": 0,
+    "uppercaseCandidateMarker": false,
+    "missingEvidence": 0,
+    "openHardOrInScopeGapsAfterRepair": 0
+  },
+  "basis": [
+    "docs/auto-execute/requirement-target.json contains normalized V13-R01 through V13-R15 requirements.",
+    "Each requirement has priority, acceptance criteria, surfaces, evidence expectations, tasks, stories, status, and existing evidence paths.",
+    "Raster pixel-perfect UI acceptance remains PASS_NEEDS_MANUAL_UI_REVIEW, matching existing T30/T33 evidence."
+  ],
+  "evidence": [
+    "docs/auto-execute/requirement-target.json",
+    "docs/auto-execute/story-target.json",
+    "docs/auto-execute/story-test-matrix.json",
+    "docs/auto-execute/results/T33.json",
+    "docs/auto-execute/evidence/final-gate/T33-summary.json"
+  ]
+}

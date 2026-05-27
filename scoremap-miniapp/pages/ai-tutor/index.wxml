@@ -1,0 +1,92 @@
+<view class="ai-tutor-page">
+  <view class="v13-topbar">
+    <button class="icon-button" bindtap="onTap" data-action="back" aria-label="返回错题详情">arrow_back</button>
+    <view class="title-stack">
+      <text class="page-title">教育提分报告</text>
+      <text class="quota-line">你还可以追问 2 次</text>
+    </view>
+    <button class="icon-button" bindtap="onTap" data-action="history" aria-label="追问记录">history</button>
+  </view>
+
+  <view class="teacher-card">
+    <view class="teacher-row">
+      <view class="mascot">AI</view>
+      <view class="teacher-bubble">
+        <text>我来帮你再梳理这道题。你可能没有弄明白“甲比乙多行”是什么意思。你会更想先听哪一部分？</text>
+      </view>
+    </view>
+
+    <view class="fixed-actions">
+      <button class="action-chip" bindtap="onTap" data-action="step">
+        <text class="chip-icon primary">help_center</text>
+        <text>我不懂这一步</text>
+      </button>
+      <button class="action-chip" bindtap="onTap" data-action="why">
+        <text class="chip-icon secondary">lightbulb</text>
+        <text>为什么这样算</text>
+      </button>
+      <button class="action-chip" bindtap="onTap" data-action="another">
+        <text class="chip-icon tertiary">model_training</text>
+        <text>换一种方式讲</text>
+      </button>
+      <button class="action-chip wide" bindtap="onTap" data-action="exercise">
+        <text class="chip-icon primary">description</text>
+        <text>出一道同类题</text>
+      </button>
+      <button class="action-chip understood" bindtap="onTap" data-action="understood">
+        <text class="chip-icon light">check_circle</text>
+        <text>我已经懂了</text>
+      </button>
+    </view>
+  </view>
+
+  <view class="question-card">
+    <view class="question-header" bindtap="onTap" data-action="question">
+      <view class="question-header-left">
+        <view class="question-icon">assignment</view>
+        <text class="question-title">错题信息</text>
+      </view>
+      <text class="accordion-icon">expand_less</text>
+    </view>
+    <view class="question-body">
+      <view class="tag-row">
+        <text class="question-tag">应用题</text>
+        <text class="question-kp">二元一次方程应用题</text>
+      </view>
+      <view class="solution-card">
+        <text class="question-text">甲、乙两人同时从A地出发，甲每小时行 60km，乙每小时行 50km，2 小时后甲比乙多行多少千米？</text>
+        <view class="solution-lines">
+          <text>x = (60 - 50) x 2</text>
+          <text>x = 10 x 2</text>
+          <text>x = 20 (千米)</text>
+          <text class="answer-line">答：甲比乙多行 20 千米。</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <button class="history-row" bindtap="onTap" data-action="history">
+    <view class="history-left">
+      <view class="history-icon">forum</view>
+      <text>本题互动记录 (2)</text>
+    </view>
+    <text class="chevron">chevron_right</text>
+  </button>
+
+  <text class="ai-note">内容由 AI 生成，仅供参考</text>
+
+  <view class="bottom-nav">
+    <button>
+      <text class="nav-icon">share</text>
+      <text>分享报告</text>
+    </button>
+    <button class="active">
+      <text class="nav-icon">psychology</text>
+      <text>AI 提分</text>
+    </button>
+    <button>
+      <text class="nav-icon">picture_as_pdf</text>
+      <text>导出 PDF</text>
+    </button>
+  </view>
+</view>

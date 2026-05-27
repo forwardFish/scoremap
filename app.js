@@ -1,4 +1,4 @@
-﻿App({
+App({
   globalData: {
     localOnly: true,
     adapterMode: 'local-mock'

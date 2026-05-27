@@ -1,0 +1,65 @@
+{
+  "taskId": "T28",
+  "status": "PASS_WITH_LIMITATION",
+  "verificationResult": "PASS_WITH_LIMITATION",
+  "generatedAt": "2026-05-25T16:56:46+08:00",
+  "scope": "similar exercise and answer feedback UI",
+  "requirementIds": ["V13-R06", "V13-R12"],
+  "modifiedFiles": [
+    "scoremap-miniapp/pages/ai-exercise/index.js",
+    "scoremap-miniapp/pages/ai-exercise/index.wxml",
+    "scoremap-miniapp/pages/ai-exercise/index.wxss",
+    "scoremap-miniapp/pages/ai-exercise/ai-exercise-feedback.test.js",
+    "scoremap-miniapp/pages/ai-exercise/visual-ai-exercise-feedback.js",
+    "scoremap-miniapp/pages/ai-exercise-feedback/index.js",
+    "scoremap-miniapp/pages/ai-exercise-feedback/index.wxml",
+    "scoremap-miniapp/pages/ai-exercise-feedback/index.wxss",
+    "scoremap-miniapp/services/api-client.js",
+    "scoremap-miniapp/services/local-fixture-store.js",
+    "scripts/run-tests.mjs",
+    "tools/ui-visual/visual-harness.mjs",
+    "docs/auto-execute/evidence/frontend-page/T28-similar-exercise.json",
+    "docs/auto-execute/evidence/frontend-page/T28-answer-feedback.json",
+    "docs/auto-execute/evidence/frontend-page/T28-negative-branches.json",
+    "docs/auto-execute/evidence/frontend-page/T28-v13-exercise-feedback-visual-structure.json",
+    "docs/auto-execute/results/T28.json",
+    "docs/auto-execute/latest/T28-HANDOFF.md",
+    "docs/auto-execute/latest/HANDOFF.md",
+    "TODO.md"
+  ],
+  "commands": [
+    {
+      "command": "npm test -- ai-exercise-feedback",
+      "status": "PASS",
+      "evidence": [
+        "docs/auto-execute/evidence/frontend-page/T28-similar-exercise.json",
+        "docs/auto-execute/evidence/frontend-page/T28-answer-feedback.json",
+        "docs/auto-execute/evidence/frontend-page/T28-negative-branches.json",
+        "docs/auto-execute/evidence/frontend-page/T28-v13-exercise-feedback-visual-structure.json"
+      ]
+    },
+    {
+      "command": "npm run visual:scoremap -- ai-exercise-feedback",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "evidence": [
+        "docs/auto-execute/evidence/frontend-page/visual/v13-similar-exercise/summary-v13-similar-exercise.json",
+        "docs/auto-execute/evidence/frontend-page/visual/v13-answer-feedback/summary-v13-answer-feedback.json",
+        "docs/auto-execute/evidence/visual-harness/v13-similar-exercise/summary.json",
+        "docs/auto-execute/evidence/visual-harness/v13-answer-feedback/summary.json"
+      ]
+    }
+  ],
+  "acceptance": {
+    "exercisePageShowsPromptOptionsSubmitContextBottomNav": "PASS",
+    "feedbackPageShowsResultExplanationRetryReturnHistory": "PASS",
+    "answerSubmitCallsApiAndRecordsCheckTrace": "PASS",
+    "exerciseGenerationRecordsExerciseTrace": "PASS",
+    "answerFeedbackDataReadback": "PASS",
+    "duplicateAnswerAndAnswerBeforeExercise": "PASS",
+    "visualRepresentationForRef4AndRef2": "PASS_NEEDS_MANUAL_UI_REVIEW"
+  },
+  "evidencePath": "docs/auto-execute/evidence/frontend-page/T28-answer-feedback.json",
+  "visualEvidencePath": "docs/auto-execute/evidence/frontend-page/T28-v13-exercise-feedback-visual-structure.json",
+  "limitation": "T28 creates deterministic structural visual evidence for _4 and _2. T30 remains responsible for raster screenshot diff and pixel comparison, so T28 does not claim pure visual PASS.",
+  "localOnly": true
+}

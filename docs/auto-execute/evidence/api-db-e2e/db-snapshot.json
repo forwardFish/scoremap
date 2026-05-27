@@ -7,6 +7,9 @@
     "upload_files": 3,
     "ai_analysis_tasks": 6,
     "diagnosis_decisions": 5,
+    "diagnosis_questions": 2,
+    "question_interactions": 0,
+    "ai_model_traces": 6,
     "payments": 2,
     "report_exports": 1,
     "feedbacks": 1
@@ -16,11 +19,11 @@
       "id": "local-user-scoremap-t03",
       "role": "parent_owner",
       "displayName": "Local Parent Owner",
-      "createdAt": "2026-05-25T02:55:45.897Z",
-      "updatedAt": "2026-05-25T02:55:45.994Z"
+      "createdAt": "2026-05-27T11:31:31.900Z",
+      "updatedAt": "2026-05-27T11:31:32.022Z"
     },
     "order": {
-      "id": "order-bd735e64c606",
+      "id": "order-db9f94bb273f",
       "ownerId": "local-user-scoremap-t03",
       "source": "T16-main",
       "grade": "grade-5",
@@ -29,14 +32,17 @@
       "materialType": "answer-sheet",
       "status": "failed",
       "accessLevel": "full",
-      "orderToken": "local-order-token-order-bd735e64c606",
-      "createdAt": "2026-05-25T02:55:45.901Z",
-      "updatedAt": "2026-05-25T02:55:45.992Z",
+      "orderToken": "local-order-token-order-db9f94bb273f",
+      "createdAt": "2026-05-27T11:31:31.902Z",
+      "updatedAt": "2026-05-27T11:31:32.020Z",
       "uploadedCount": 1,
-      "previewTaskId": "task-7fa876ef654f",
-      "previewDecisionId": "decision-order-bd735e64c606-preview",
-      "fullTaskId": "task-full-352fc57e9d1c",
-      "fullDecisionId": "decision-order-bd735e64c606-full",
+      "previewTaskId": "task-f4264d6e0aa3",
+      "previewDecisionId": "decision-order-db9f94bb273f-preview",
+      "questionInteractionQuotaTotal": 10,
+      "questionInteractionQuotaUsed": 0,
+      "questionInteractionQuotaRemaining": 10,
+      "fullTaskId": "task-full-90076a0920c8",
+      "fullDecisionId": "decision-order-db9f94bb273f-full",
       "savedReport": true,
       "savedAt": "1970-01-01T00:00:00.000Z",
       "errorCode": "LOW_QUALITY_IMAGE"
@@ -44,23 +50,23 @@
     "upload": {
       "id": "upload-t16-main",
       "ownerId": "local-user-scoremap-t03",
-      "orderId": "order-bd735e64c606",
+      "orderId": "order-db9f94bb273f",
       "originalName": "main.png",
       "mimeType": "image/png",
-      "storagePath": "D:\\lyh\\agent\\agent-frame\\scoremap\\docs\\auto-execute\\evidence\\api-db-e2e\\local-cloud\\local-user-scoremap-t03\\order-bd735e64c606\\upload-t16-main-main.png",
-      "cloudPath": "local-mock://local-user-scoremap-t03/order-bd735e64c606/upload-t16-main-main.png",
+      "storagePath": "D:\\lyh\\agent\\agent-frame\\scoremap\\docs\\auto-execute\\evidence\\api-db-e2e\\local-cloud\\local-user-scoremap-t03\\order-db9f94bb273f\\upload-t16-main-main.png",
+      "cloudPath": "local-mock://local-user-scoremap-t03/order-db9f94bb273f/upload-t16-main-main.png",
       "fileId": "local-cloud-file-upload-t16-main",
       "size": 29,
       "adapter": "local-tencent-cloud-mock",
-      "createdAt": "2026-05-25T02:55:45.912Z",
-      "updatedAt": "2026-05-25T02:55:45.913Z",
+      "createdAt": "2026-05-27T11:31:31.914Z",
+      "updatedAt": "2026-05-27T11:31:31.915Z",
       "authorizationAccepted": true,
       "quality": "normal",
       "localOnly": true
     },
     "previewTask": {
-      "id": "task-7fa876ef654f",
-      "orderId": "order-bd735e64c606",
+      "id": "task-f4264d6e0aa3",
+      "orderId": "order-db9f94bb273f",
       "ownerId": "local-user-scoremap-t03",
       "type": "preview",
       "status": "preview_done",
@@ -68,12 +74,12 @@
       "currentStep": "preview_decision_ready",
       "retryCount": 0,
       "errorCode": null,
-      "createdAt": "2026-05-25T02:55:45.918Z",
-      "updatedAt": "2026-05-25T02:55:45.918Z"
+      "createdAt": "2026-05-27T11:31:31.924Z",
+      "updatedAt": "2026-05-27T11:31:31.924Z"
     },
     "fullTask": {
-      "id": "task-full-352fc57e9d1c",
-      "orderId": "order-bd735e64c606",
+      "id": "task-full-90076a0920c8",
+      "orderId": "order-db9f94bb273f",
       "ownerId": "local-user-scoremap-t03",
       "type": "full",
       "status": "full_report_ready",
@@ -81,12 +87,12 @@
       "currentStep": "full_report_ready",
       "retryCount": 0,
       "errorCode": null,
-      "createdAt": "2026-05-25T02:55:45.954Z",
-      "updatedAt": "2026-05-25T02:55:45.954Z"
+      "createdAt": "2026-05-27T11:31:31.965Z",
+      "updatedAt": "2026-05-27T11:31:31.965Z"
     },
     "previewDecision": {
-      "id": "decision-order-bd735e64c606-preview",
-      "orderId": "order-bd735e64c606",
+      "id": "decision-order-db9f94bb273f-preview",
+      "orderId": "order-db9f94bb273f",
       "ownerId": "local-user-scoremap-t03",
       "level": "preview",
       "preview": {
@@ -112,12 +118,16 @@
         ],
         "cta": "1 CNY unlock complete initial decision"
       },
-      "createdAt": "2026-05-25T02:55:45.919Z",
-      "updatedAt": "2026-05-25T02:55:45.919Z"
+      "promptId": "LLM-PREVIEW-01",
+      "traceId": "trace-llm-preview-01-0001",
+      "modelAdapter": "local-deterministic-ai-mock",
+      "localOnly": true,
+      "createdAt": "2026-05-27T11:31:31.928Z",
+      "updatedAt": "2026-05-27T11:31:31.928Z"
     },
     "basicDecision": {
-      "id": "decision-order-bd735e64c606-basic",
-      "orderId": "order-bd735e64c606",
+      "id": "decision-order-db9f94bb273f-basic",
+      "orderId": "order-db9f94bb273f",
       "ownerId": "local-user-scoremap-t03",
       "level": "basic",
       "basic": {
@@ -144,17 +154,21 @@
         ],
         "upgradeCta": "Unlock the complete score improvement report"
       },
-      "createdAt": "2026-05-25T02:55:45.942Z",
-      "updatedAt": "2026-05-25T02:55:45.942Z"
+      "promptId": "LLM-BASIC-02",
+      "traceId": "trace-llm-basic-02-0002",
+      "modelAdapter": "local-deterministic-ai-mock",
+      "localOnly": true,
+      "createdAt": "2026-05-27T11:31:31.955Z",
+      "updatedAt": "2026-05-27T11:31:31.955Z"
     },
     "fullDecision": {
-      "id": "decision-order-bd735e64c606-full",
-      "orderId": "order-bd735e64c606",
+      "id": "decision-order-db9f94bb273f-full",
+      "orderId": "order-db9f94bb273f",
       "ownerId": "local-user-scoremap-t03",
       "level": "full",
       "full": {
         "reportTitle": "Complete score improvement report",
-        "orderId": "order-bd735e64c606",
+        "orderId": "order-db9f94bb273f",
         "summary": "Local full report for grade-5 math.",
         "modules": [
           {
@@ -179,15 +193,62 @@
           }
         ],
         "basicSummary": "Local basic decision for grade-5 math.",
-        "complianceNotice": "Local mock report only; no guaranteed score wording."
+        "complianceNotice": "Local mock report only; no guaranteed score wording.",
+        "wrongQuestionCards": [
+          {
+            "id": "question-order-db9f94bb273f-1",
+            "index": 1,
+            "title": "Missed condition in a multi-step calculation",
+            "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
+            "studentAnswer": "24",
+            "correctAnswer": "27",
+            "knowledgePoint": "Fraction multiplication",
+            "diagnosis": "The answer used an incomplete fraction relationship and skipped the condition check.",
+            "explanationSummary": "Turn three quarters into 36 x 3 / 4, then verify the result is reasonable.",
+            "masteryStatus": "needs_practice",
+            "quota": {
+              "total": 3,
+              "used": 0,
+              "remaining": 3
+            },
+            "aiTeacherCta": "Let the AI teacher explain this to the child"
+          },
+          {
+            "id": "question-order-db9f94bb273f-2",
+            "index": 2,
+            "title": "Unit conversion omitted in the final answer",
+            "originalQuestion": "A rope is 2.4 meters long and is cut into 6 equal pieces. How many centimeters is each piece?",
+            "studentAnswer": "0.4 cm",
+            "correctAnswer": "40 cm",
+            "knowledgePoint": "Unit conversion",
+            "diagnosis": "The calculation found 0.4 meters but did not convert meters to centimeters.",
+            "explanationSummary": "First divide meters, then convert 0.4 m to 40 cm before writing the answer.",
+            "masteryStatus": "needs_practice",
+            "quota": {
+              "total": 3,
+              "used": 0,
+              "remaining": 3
+            },
+            "aiTeacherCta": "Let the AI teacher explain this to the child"
+          }
+        ],
+        "questionInteractionQuota": {
+          "total": 10,
+          "used": 0,
+          "remaining": 10
+        }
       },
-      "createdAt": "2026-05-25T02:55:45.955Z",
-      "updatedAt": "2026-05-25T02:55:45.955Z"
+      "promptId": "LLM-FULL-03",
+      "traceId": "trace-llm-full-03-0003",
+      "modelAdapter": "local-deterministic-ai-mock",
+      "localOnly": true,
+      "createdAt": "2026-05-27T11:31:31.972Z",
+      "updatedAt": "2026-05-27T11:31:31.972Z"
     },
     "payments": [
       {
         "id": "payment-t16-basic-main",
-        "orderId": "order-bd735e64c606",
+        "orderId": "order-db9f94bb273f",
         "ownerId": "local-user-scoremap-t03",
         "paymentType": "basic",
         "channel": "local-wechat-pay-mock",
@@ -195,13 +256,13 @@
         "status": "paid",
         "mockTransactionId": "mock-tx-t16-basic-main",
         "callbackCount": 1,
-        "createdAt": "2026-05-25T02:55:45.930Z",
-        "updatedAt": "2026-05-25T02:55:45.937Z",
+        "createdAt": "2026-05-27T11:31:31.940Z",
+        "updatedAt": "2026-05-27T11:31:31.947Z",
         "paidAt": "1970-01-01T00:00:00.000Z"
       },
       {
         "id": "payment-t16-full-main",
-        "orderId": "order-bd735e64c606",
+        "orderId": "order-db9f94bb273f",
         "ownerId": "local-user-scoremap-t03",
         "paymentType": "full",
         "channel": "local-wechat-pay-mock",
@@ -209,14 +270,14 @@
         "status": "paid",
         "mockTransactionId": "mock-tx-t16-full-main",
         "callbackCount": 1,
-        "createdAt": "2026-05-25T02:55:45.947Z",
-        "updatedAt": "2026-05-25T02:55:45.951Z",
+        "createdAt": "2026-05-27T11:31:31.958Z",
+        "updatedAt": "2026-05-27T11:31:31.961Z",
         "paidAt": "1970-01-01T00:00:00.000Z"
       }
     ],
     "feedback": {
       "id": "feedback-t16-main",
-      "orderId": "order-bd735e64c606",
+      "orderId": "order-db9f94bb273f",
       "ownerId": "local-user-scoremap-t03",
       "decisionLevel": "full",
       "rating": 5,
@@ -224,20 +285,20 @@
         "api-db-e2e"
       ],
       "text": "Local T16 API DB readback feedback.",
-      "createdAt": "2026-05-25T02:55:45.963Z",
-      "updatedAt": "2026-05-25T02:55:45.963Z"
+      "createdAt": "2026-05-27T11:31:31.984Z",
+      "updatedAt": "2026-05-27T11:31:31.984Z"
     },
     "reportExport": {
       "id": "report-export-t16-main",
-      "orderId": "order-bd735e64c606",
+      "orderId": "order-db9f94bb273f",
       "ownerId": "local-user-scoremap-t03",
       "status": "ready",
       "format": "pdf-local-text",
-      "fileUrl": "local-report-export://local-user-scoremap-t03/order-bd735e64c606/report-export-t16-main.txt",
-      "filePath": "D:\\lyh\\agent\\agent-frame\\scoremap\\docs\\auto-execute\\evidence\\api-db-e2e\\local-report-exports\\local-user-scoremap-t03\\order-bd735e64c606\\report-export-t16-main.txt",
-      "byteLength": 530,
-      "createdAt": "2026-05-25T02:55:45.968Z",
-      "updatedAt": "2026-05-25T02:55:45.968Z"
+      "fileUrl": "local-report-export://local-user-scoremap-t03/order-db9f94bb273f/report-export-t16-main.txt",
+      "filePath": "D:\\lyh\\agent\\agent-frame\\scoremap\\docs\\auto-execute\\evidence\\api-db-e2e\\local-report-exports\\local-user-scoremap-t03\\order-db9f94bb273f\\report-export-t16-main.txt",
+      "byteLength": 662,
+      "createdAt": "2026-05-27T11:31:31.989Z",
+      "updatedAt": "2026-05-27T11:31:31.989Z"
     }
   },
   "operatorExport": {
@@ -248,6 +309,9 @@
       "upload_files": 3,
       "ai_analysis_tasks": 6,
       "diagnosis_decisions": 5,
+      "diagnosis_questions": 2,
+      "question_interactions": 0,
+      "ai_model_traces": 6,
       "payments": 2,
       "report_exports": 1,
       "feedbacks": 1

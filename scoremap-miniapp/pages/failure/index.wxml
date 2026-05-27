@@ -1,9 +1,48 @@
-﻿<view class="replica-page {{derived ? 'derived-page' : ''}}">
-  <view class="derived-shell fallback-shell">
-    <view class="status-spacer"></view>
-    <view class="derived-title">{{title}}</view>
-    <view class="derived-card" wx:for="{{cards}}" wx:key="*this">{{item}}</view>
+<view class="failure-page">
+  <view class="failure-shell">
+    <view class="failure-header">
+      <button class="back-button" data-action="home" bindtap="onTap" aria-label="返回"></button>
+      <text class="header-title">处理失败</text>
+      <view class="header-spacer"></view>
+    </view>
+
+    <view class="failure-card">
+      <view class="soft-glow"></view>
+
+      <view class="failure-illustration">
+        <view class="paper-card">
+          <view class="paper-fold"></view>
+          <view class="paper-line line-one"></view>
+          <view class="paper-line line-two"></view>
+          <view class="paper-image"></view>
+        </view>
+        <view class="owl">
+          <view class="owl-ear left"></view>
+          <view class="owl-ear right"></view>
+          <view class="owl-face">
+            <view class="owl-eye left"></view>
+            <view class="owl-eye right"></view>
+            <view class="owl-beak"></view>
+          </view>
+          <view class="owl-wing"></view>
+          <view class="confused-mark">?</view>
+        </view>
+        <view class="cross-badge">×</view>
+      </view>
+
+      <view class="failure-copy">
+        <text class="failure-title">分析没有成功</text>
+        <text class="failure-desc">可能是资料不清晰或网络异常，请稍后重试。</text>
+      </view>
+
+      <view class="failure-actions">
+        <button class="primary-action" data-action="retry" bindtap="onTap">重新开始分析</button>
+        <button class="secondary-action" data-action="reupload" bindtap="onTap">重新上传资料</button>
+        <button class="home-action" data-action="home" bindtap="onTap">
+          <text>返回首页</text>
+          <text class="home-arrow">›</text>
+        </button>
+      </view>
+    </view>
   </view>
-  <image wx:if="{{!derived && !imageLoadFailed && reference}}" class="reference-image" src="{{reference}}" mode="widthFix" show-menu-by-longpress="false" binderror="onImageError" />
-  <button wx:for="{{hotspots}}" wx:key="action" class="hotspot {{item.className}}" data-action="{{item.action}}" bindtap="onTap" aria-label="{{item.label}}"></button>
 </view>

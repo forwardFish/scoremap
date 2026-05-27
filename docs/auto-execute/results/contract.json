@@ -1,0 +1,20 @@
+﻿{
+    "blockers":  [
+                     "No contracts auto-detected"
+                 ],
+    "commands":  [
+
+                 ],
+    "lane":  "contract",
+    "status":  "MANUAL_REVIEW_REQUIRED",
+    "evidence":  [
+                     "docs\\auto-execute\\04-contract-map.md",
+                     "docs\\auto-execute\\results\\contract-discovery.json",
+                     "docs\\auto-execute\\contract-map.json"
+                 ],
+    "schemaVersion":  "2.0",
+    "nextActions":  [
+                        "Fill 04-contract-map.md manually or add tests that expose API contracts."
+                    ],
+    "updatedAt":  "2026-05-25T19:09:39"
+}

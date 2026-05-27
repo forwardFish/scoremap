@@ -1,7 +1,9 @@
 {
   "id": "UI-C09",
   "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
-  "reference": "docs/UI/小程序/完整提分报告.png",
+  "referenceKey": null,
+  "reference": "docs/auto-execute/evidence/visual-harness/full-report-entry/reference.png",
+  "sourceReference": "docs/UI/小程序/完整提分报告.png",
   "actual": "docs/auto-execute/evidence/visual-harness/full-report-entry/actual.jpg",
   "diff": "docs/auto-execute/evidence/visual-harness/full-report-entry/diff.svg",
   "metrics": "docs/auto-execute/evidence/visual-harness/full-report-entry/metrics.json",

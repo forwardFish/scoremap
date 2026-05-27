@@ -1,0 +1,76 @@
+{
+  "taskId": "T39",
+  "title": "v1.3 report and wrong-question",
+  "status": "PASS_WITH_LIMITATION",
+  "completedAt": "2026-05-27T03:40:00+08:00",
+  "summary": "Rebuilt the v1.3 full-report and wrong-question detail screens as reference-shaped WXML/WXSS replicas while preserving data-backed wrong-question navigation, AI tutor order/question context, local share/save/export contracts, and a distinct T38 old-flow full-report-entry state.",
+  "changedFiles": [
+    "scoremap-miniapp/pages/full-report/index.js",
+    "scoremap-miniapp/pages/full-report/index.wxml",
+    "scoremap-miniapp/pages/full-report/index.wxss",
+    "scoremap-miniapp/pages/wrong-question/index.wxml",
+    "scoremap-miniapp/pages/wrong-question/index.wxss",
+    "docs/auto-execute/evidence/ui-one-to-one/T39/summary.json",
+    "docs/auto-execute/results/T39.json",
+    "docs/auto-execute/latest/T39-HANDOFF.md"
+  ],
+  "evidence": [
+    "docs/auto-execute/evidence/ui-one-to-one/T39/summary.json",
+    "docs/auto-execute/evidence/frontend-page/T25-full-report-ai-entry.json",
+    "docs/auto-execute/evidence/frontend-page/T25-share-save-export.json",
+    "docs/auto-execute/evidence/frontend-page/T26-wrong-question-detail.json",
+    "docs/auto-execute/evidence/frontend-page/T26-locked-basic-state.json",
+    "docs/auto-execute/evidence/frontend-page/full-report-pdf-api-db.json",
+    "docs/auto-execute/evidence/visual-harness/summary.json"
+  ],
+  "verification": [
+    {
+      "command": "npm test -- full-report-ai-entry wrong-question-detail full-report-pdf",
+      "status": "FAIL_KNOWN_RUNNER_LIMITATION",
+      "reason": "The current scripts/run-tests.mjs selector logic filters groups by requiring every requested tag on one group; no single test group contains all three tags."
+    },
+    {
+      "command": "npm test -- full-report-ai-entry",
+      "status": "PASS",
+      "evidence": "3/3 tests passed."
+    },
+    {
+      "command": "npm test -- wrong-question-detail",
+      "status": "PASS",
+      "evidence": "3/3 tests passed."
+    },
+    {
+      "command": "npm test -- full-report-pdf",
+      "status": "PASS",
+      "evidence": "3/3 tests passed."
+    },
+    {
+      "command": "npm run e2e:owner -- v13-report-wrong-question",
+      "status": "PASS",
+      "evidence": "2/2 tests passed."
+    },
+    {
+      "command": "npm run visual:scoremap -- v13-full-report v13-wrong-question-detail",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "evidence": "2 screen comparisons written by the local visual harness."
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS_WITH_WARNINGS",
+      "evidence": "Exited 0 with line-ending warnings only."
+    }
+  ],
+  "acceptance": {
+    "v13FullReportNotGenericShell": "PASS",
+    "wrongQuestionNotGenericShell": "PASS",
+    "wrongQuestionCards": "PASS",
+    "dataBackedCardNavigation": "PASS",
+    "aiTutorOrderQuestionContext": "PASS",
+    "shareSaveExportBehavior": "PASS",
+    "t38OldStateDistinguishable": "PASS"
+  },
+  "limitations": [
+    "Exact combined npm test command is blocked by existing selector semantics; individual required groups pass.",
+    "Visual status remains PASS_NEEDS_MANUAL_UI_REVIEW because the harness is structural and artifact-based, not pixel-perfect."
+  ]
+}

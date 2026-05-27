@@ -1,0 +1,51 @@
+{
+  "taskId": "T26",
+  "workerRound": 8,
+  "status": "PASS_WITH_LIMITATION",
+  "reason": "Wrong-question detail page structure, API-backed detail readback, deterministic controls, AI tutor/history navigation, basic-user lock behavior, PDF/share/back/more actions, and _1 structural visual evidence are implemented and tested. Pure PASS is not claimed because T30 still owns raster screenshot diff and pixel comparison for _1.",
+  "commands": [
+    {
+      "command": "npm test -- wrong-question-detail",
+      "status": "PASS"
+    },
+    {
+      "command": "npm run visual:scoremap -- v13-wrong-question-detail",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW"
+    }
+  ],
+  "modifiedFiles": [
+    "scoremap-miniapp/pages/wrong-question/index.js",
+    "scoremap-miniapp/pages/wrong-question/index.wxml",
+    "scoremap-miniapp/pages/wrong-question/index.wxss",
+    "scoremap-miniapp/pages/wrong-question/wrong-question-detail.test.js",
+    "scoremap-miniapp/pages/wrong-question/visual-wrong-question.js",
+    "scripts/run-tests.mjs",
+    "tools/ui-visual/visual-harness.mjs",
+    "docs/auto-execute/evidence/frontend-page/T26-wrong-question-detail.json",
+    "docs/auto-execute/evidence/frontend-page/T26-locked-basic-state.json",
+    "docs/auto-execute/evidence/frontend-page/T26-v13-wrong-question-visual-structure.json",
+    "docs/auto-execute/evidence/frontend-page/pdf/order-t26-detail-wrong-question-export-order-t26-detail.pdf",
+    "docs/auto-execute/evidence/frontend-page/visual/v13-wrong-question-detail/actual-v13-wrong-question-detail-structure.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/v13-wrong-question-detail/diff-v13-wrong-question-detail-manual-review.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/v13-wrong-question-detail/metrics-v13-wrong-question-detail.json",
+    "docs/auto-execute/evidence/frontend-page/visual/v13-wrong-question-detail/summary-v13-wrong-question-detail.json",
+    "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/actual.svg",
+    "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/diff.svg",
+    "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/metrics.json",
+    "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/summary.json",
+    "docs/auto-execute/evidence/visual-harness/summary.json",
+    "docs/auto-execute/evidence/visual/summary.json",
+    "docs/auto-execute/results/T26.json",
+    "docs/auto-execute/latest/T26-HANDOFF.md",
+    "docs/auto-execute/latest/HANDOFF.md",
+    "TODO.md"
+  ],
+  "evidence": [
+    "docs/auto-execute/evidence/frontend-page/T26-wrong-question-detail.json",
+    "docs/auto-execute/evidence/frontend-page/T26-locked-basic-state.json",
+    "docs/auto-execute/evidence/frontend-page/T26-v13-wrong-question-visual-structure.json",
+    "docs/auto-execute/evidence/frontend-page/visual/v13-wrong-question-detail/summary-v13-wrong-question-detail.json",
+    "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/summary.json"
+  ],
+  "nextTask": "T27"
+}

@@ -1,9 +1,29 @@
-﻿<view class="replica-page {{derived ? 'derived-page' : ''}}">
-  <view class="derived-shell fallback-shell">
-    <view class="status-spacer"></view>
-    <view class="derived-title">{{title}}</view>
-    <view class="derived-card" wx:for="{{cards}}" wx:key="*this">{{item}}</view>
+<view class="scaffold-screen">
+  <view class="scaffold-header">
+    <text class="scaffold-kicker">Local route contract</text>
+    <text class="scaffold-title">{{title}}</text>
+    <text class="scaffold-subtitle">启动页只展示本地壳、API 和数据库读回契约，不声明任何像素参考。</text>
   </view>
-  <image wx:if="{{!derived && !imageLoadFailed && reference}}" class="reference-image" src="{{reference}}" mode="widthFix" show-menu-by-longpress="false" binderror="onImageError" />
-  <button wx:for="{{hotspots}}" wx:key="action" class="hotspot {{item.className}}" data-action="{{item.action}}" bindtap="onTap" aria-label="{{item.label}}"></button>
+
+  <view class="contract-card">
+    <view class="contract-icon api"></view>
+    <view class="contract-copy">
+      <text class="contract-title">/api/scaffold/ping</text>
+      <text class="contract-desc">返回 local adapter status</text>
+    </view>
+  </view>
+
+  <view class="contract-card">
+    <view class="contract-icon db"></view>
+    <view class="contract-copy">
+      <text class="contract-title">/api/scaffold/db-readback</text>
+      <text class="contract-desc">写入并读回 diagnosis_orders</text>
+    </view>
+  </view>
+
+  <view class="contract-note">
+    <text>该页面是路由与契约可见性页面，不是 UI 参考屏或截图挂载页。</text>
+  </view>
+
+  <button class="scaffold-enter" data-action="home" bindtap="onTap">进入首页</button>
 </view>

@@ -113,14 +113,14 @@
       "responseStatus": 201,
       "responseBody": {
         "status": "created",
-        "orderId": "order-bd735e64c606"
+        "orderId": "order-db9f94bb273f"
       }
     },
     {
       "branch": "success",
       "method": "POST",
       "path": "/api/diagnosis-orders/{orderId}/uploads",
-      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/uploads",
+      "concretePath": "/api/diagnosis-orders/order-db9f94bb273f/uploads",
       "payloadSummary": {
         "authorizationAccepted": true,
         "files": "array(1)"
@@ -128,32 +128,32 @@
       "responseStatus": 200,
       "responseBody": {
         "status": "uploaded",
-        "orderId": "order-bd735e64c606"
+        "orderId": "order-db9f94bb273f"
       }
     },
     {
       "branch": "success",
       "method": "POST",
       "path": "/api/diagnosis-orders/{orderId}/start-preview-analysis",
-      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/start-preview-analysis",
+      "concretePath": "/api/diagnosis-orders/order-db9f94bb273f/start-preview-analysis",
       "payloadSummary": {},
       "responseStatus": 200,
       "responseBody": {
         "status": "preview_done",
-        "taskId": "task-7fa876ef654f"
+        "taskId": "task-f4264d6e0aa3"
       }
     },
     {
       "branch": "success",
       "method": "GET",
       "path": "/api/diagnosis-orders/{orderId}/analysis-progress",
-      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/analysis-progress",
+      "concretePath": "/api/diagnosis-orders/order-db9f94bb273f/analysis-progress",
       "payloadSummary": {},
       "responseStatus": 200,
       "responseBody": {
         "status": "preview_done",
-        "orderId": "order-bd735e64c606",
-        "taskId": "task-7fa876ef654f",
+        "orderId": "order-db9f94bb273f",
+        "taskId": "task-f4264d6e0aa3",
         "errorCode": null
       }
     },
@@ -161,7 +161,7 @@
       "branch": "success",
       "method": "GET",
       "path": "/api/diagnosis-orders/{orderId}/preview-decision",
-      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/preview-decision",
+      "concretePath": "/api/diagnosis-orders/order-db9f94bb273f/preview-decision",
       "payloadSummary": {},
       "responseStatus": 200,
       "responseBody": {
@@ -176,14 +176,14 @@
       "path": "/api/payments/create",
       "concretePath": "/api/payments/create",
       "payloadSummary": {
-        "orderId": "order-bd735e64c606",
+        "orderId": "order-db9f94bb273f",
         "paymentType": "basic",
         "paymentId": "payment-t16-basic-main"
       },
       "responseStatus": 201,
       "responseBody": {
         "status": "pending",
-        "orderId": "order-bd735e64c606",
+        "orderId": "order-db9f94bb273f",
         "paymentId": "payment-t16-basic-main",
         "idempotent": false
       }
@@ -202,7 +202,7 @@
       "responseStatus": 200,
       "responseBody": {
         "status": "paid",
-        "orderId": "order-bd735e64c606",
+        "orderId": "order-db9f94bb273f",
         "paymentId": "payment-t16-basic-main",
         "accessLevel": "basic",
         "ok": true,
@@ -213,7 +213,7 @@
       "branch": "success",
       "method": "GET",
       "path": "/api/diagnosis-orders/{orderId}/basic-decision",
-      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/basic-decision",
+      "concretePath": "/api/diagnosis-orders/order-db9f94bb273f/basic-decision",
       "payloadSummary": {},
       "responseStatus": 200,
       "responseBody": {
@@ -228,14 +228,14 @@
       "path": "/api/payments/create",
       "concretePath": "/api/payments/create",
       "payloadSummary": {
-        "orderId": "order-bd735e64c606",
+        "orderId": "order-db9f94bb273f",
         "paymentType": "full",
         "paymentId": "payment-t16-full-main"
       },
       "responseStatus": 201,
       "responseBody": {
         "status": "pending",
-        "orderId": "order-bd735e64c606",
+        "orderId": "order-db9f94bb273f",
         "paymentId": "payment-t16-full-main",
         "idempotent": false
       }
@@ -254,7 +254,7 @@
       "responseStatus": 200,
       "responseBody": {
         "status": "paid",
-        "orderId": "order-bd735e64c606",
+        "orderId": "order-db9f94bb273f",
         "paymentId": "payment-t16-full-main",
         "accessLevel": "full",
         "ok": true,
@@ -265,36 +265,36 @@
       "branch": "success",
       "method": "POST",
       "path": "/api/diagnosis-orders/{orderId}/generate-full",
-      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/generate-full",
+      "concretePath": "/api/diagnosis-orders/order-db9f94bb273f/generate-full",
       "payloadSummary": {},
       "responseStatus": 200,
       "responseBody": {
         "status": "full_report_ready",
-        "taskId": "task-full-352fc57e9d1c"
+        "taskId": "task-full-90076a0920c8"
       }
     },
     {
       "branch": "success",
       "method": "GET",
       "path": "/api/diagnosis-orders/{orderId}/full-report",
-      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/full-report",
+      "concretePath": "/api/diagnosis-orders/order-db9f94bb273f/full-report",
       "payloadSummary": {},
       "responseStatus": 200,
       "responseBody": {
         "status": "full_report_ready",
         "accessLevel": "full",
-        "decision": "object(6)"
+        "decision": "object(8)"
       }
     },
     {
       "branch": "success",
       "method": "POST",
       "path": "/api/diagnosis-orders/{orderId}/save-report",
-      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/save-report",
+      "concretePath": "/api/diagnosis-orders/order-db9f94bb273f/save-report",
       "payloadSummary": {},
       "responseStatus": 200,
       "responseBody": {
-        "orderId": "order-bd735e64c606",
+        "orderId": "order-db9f94bb273f",
         "saved": true
       }
     },
@@ -314,7 +314,7 @@
       "branch": "success",
       "method": "POST",
       "path": "/api/diagnosis-orders/{orderId}/feedback",
-      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/feedback",
+      "concretePath": "/api/diagnosis-orders/order-db9f94bb273f/feedback",
       "payloadSummary": {
         "feedbackId": "feedback-t16-main",
         "decisionLevel": "full",
@@ -332,7 +332,7 @@
       "branch": "success",
       "method": "POST",
       "path": "/api/diagnosis-orders/{orderId}/export-pdf",
-      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/export-pdf",
+      "concretePath": "/api/diagnosis-orders/order-db9f94bb273f/export-pdf",
       "payloadSummary": {
         "exportId": "report-export-t16-main"
       },
@@ -351,7 +351,7 @@
       "responseStatus": 200,
       "responseBody": {
         "status": "ready",
-        "orderId": "order-bd735e64c606",
+        "orderId": "order-db9f94bb273f",
         "exportId": "report-export-t16-main"
       }
     },
@@ -373,7 +373,7 @@
       "branch": "4xx_owner_forbidden",
       "method": "GET",
       "path": "/api/diagnosis-orders/{orderId}/preview-decision",
-      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/preview-decision",
+      "concretePath": "/api/diagnosis-orders/order-db9f94bb273f/preview-decision",
       "payloadSummary": {},
       "responseStatus": 403,
       "responseBody": {
@@ -408,14 +408,14 @@
       "responseStatus": 201,
       "responseBody": {
         "status": "created",
-        "orderId": "order-c8d6a47fb8ad"
+        "orderId": "order-7e2c76b6bc4c"
       }
     },
     {
       "branch": "success",
       "method": "POST",
       "path": "/api/diagnosis-orders/{orderId}/uploads",
-      "concretePath": "/api/diagnosis-orders/order-c8d6a47fb8ad/uploads",
+      "concretePath": "/api/diagnosis-orders/order-7e2c76b6bc4c/uploads",
       "payloadSummary": {
         "authorizationAccepted": true,
         "files": "array(1)"
@@ -423,32 +423,32 @@
       "responseStatus": 200,
       "responseBody": {
         "status": "uploaded",
-        "orderId": "order-c8d6a47fb8ad"
+        "orderId": "order-7e2c76b6bc4c"
       }
     },
     {
       "branch": "success",
       "method": "POST",
       "path": "/api/diagnosis-orders/{orderId}/start-preview-analysis",
-      "concretePath": "/api/diagnosis-orders/order-c8d6a47fb8ad/start-preview-analysis",
+      "concretePath": "/api/diagnosis-orders/order-7e2c76b6bc4c/start-preview-analysis",
       "payloadSummary": {},
       "responseStatus": 200,
       "responseBody": {
         "status": "preview_done",
-        "taskId": "task-9949b10191bd"
+        "taskId": "task-314802c52920"
       }
     },
     {
       "branch": "success",
       "method": "GET",
       "path": "/api/diagnosis-orders/{orderId}/analysis-progress",
-      "concretePath": "/api/diagnosis-orders/order-c8d6a47fb8ad/analysis-progress",
+      "concretePath": "/api/diagnosis-orders/order-7e2c76b6bc4c/analysis-progress",
       "payloadSummary": {},
       "responseStatus": 200,
       "responseBody": {
         "status": "preview_done",
-        "orderId": "order-c8d6a47fb8ad",
-        "taskId": "task-9949b10191bd",
+        "orderId": "order-7e2c76b6bc4c",
+        "taskId": "task-314802c52920",
         "errorCode": null
       }
     },
@@ -456,7 +456,7 @@
       "branch": "success",
       "method": "GET",
       "path": "/api/diagnosis-orders/{orderId}/preview-decision",
-      "concretePath": "/api/diagnosis-orders/order-c8d6a47fb8ad/preview-decision",
+      "concretePath": "/api/diagnosis-orders/order-7e2c76b6bc4c/preview-decision",
       "payloadSummary": {},
       "responseStatus": 200,
       "responseBody": {
@@ -471,7 +471,7 @@
       "path": "/api/payments/create",
       "concretePath": "/api/payments/create",
       "payloadSummary": {
-        "orderId": "order-c8d6a47fb8ad",
+        "orderId": "order-7e2c76b6bc4c",
         "paymentType": "full"
       },
       "responseStatus": 403,
@@ -484,7 +484,7 @@
       "branch": "4xx_low_quality",
       "method": "POST",
       "path": "/api/diagnosis-orders/{orderId}/start-preview-analysis",
-      "concretePath": "/api/diagnosis-orders/order-bd735e64c606/start-preview-analysis",
+      "concretePath": "/api/diagnosis-orders/order-db9f94bb273f/start-preview-analysis",
       "payloadSummary": {
         "simulate": "failure",
         "retry": true,
@@ -512,14 +512,14 @@
       "responseStatus": 201,
       "responseBody": {
         "status": "created",
-        "orderId": "order-bf6e77273a11"
+        "orderId": "order-e9fb3fd94ee2"
       }
     },
     {
       "branch": "success",
       "method": "POST",
       "path": "/api/diagnosis-orders/{orderId}/uploads",
-      "concretePath": "/api/diagnosis-orders/order-bf6e77273a11/uploads",
+      "concretePath": "/api/diagnosis-orders/order-e9fb3fd94ee2/uploads",
       "payloadSummary": {
         "authorizationAccepted": true,
         "files": "array(1)"
@@ -527,32 +527,32 @@
       "responseStatus": 200,
       "responseBody": {
         "status": "uploaded",
-        "orderId": "order-bf6e77273a11"
+        "orderId": "order-e9fb3fd94ee2"
       }
     },
     {
       "branch": "success",
       "method": "POST",
       "path": "/api/diagnosis-orders/{orderId}/start-preview-analysis",
-      "concretePath": "/api/diagnosis-orders/order-bf6e77273a11/start-preview-analysis",
+      "concretePath": "/api/diagnosis-orders/order-e9fb3fd94ee2/start-preview-analysis",
       "payloadSummary": {},
       "responseStatus": 200,
       "responseBody": {
         "status": "preview_done",
-        "taskId": "task-10d8b0d3461e"
+        "taskId": "task-be9afc6e1cf5"
       }
     },
     {
       "branch": "success",
       "method": "GET",
       "path": "/api/diagnosis-orders/{orderId}/analysis-progress",
-      "concretePath": "/api/diagnosis-orders/order-bf6e77273a11/analysis-progress",
+      "concretePath": "/api/diagnosis-orders/order-e9fb3fd94ee2/analysis-progress",
       "payloadSummary": {},
       "responseStatus": 200,
       "responseBody": {
         "status": "preview_done",
-        "orderId": "order-bf6e77273a11",
-        "taskId": "task-10d8b0d3461e",
+        "orderId": "order-e9fb3fd94ee2",
+        "taskId": "task-be9afc6e1cf5",
         "errorCode": null
       }
     },
@@ -560,7 +560,7 @@
       "branch": "success",
       "method": "GET",
       "path": "/api/diagnosis-orders/{orderId}/preview-decision",
-      "concretePath": "/api/diagnosis-orders/order-bf6e77273a11/preview-decision",
+      "concretePath": "/api/diagnosis-orders/order-e9fb3fd94ee2/preview-decision",
       "payloadSummary": {},
       "responseStatus": 200,
       "responseBody": {
@@ -573,7 +573,7 @@
       "branch": "timeout",
       "method": "POST",
       "path": "/api/diagnosis-orders/{orderId}/start-preview-analysis",
-      "concretePath": "/api/diagnosis-orders/order-bf6e77273a11/start-preview-analysis",
+      "concretePath": "/api/diagnosis-orders/order-e9fb3fd94ee2/start-preview-analysis",
       "payloadSummary": {
         "simulate": "timeout",
         "retry": true,

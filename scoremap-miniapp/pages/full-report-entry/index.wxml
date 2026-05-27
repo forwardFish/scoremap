@@ -1,9 +1,78 @@
-﻿<view class="replica-page {{derived ? 'derived-page' : ''}}">
-  <view class="derived-shell fallback-shell">
-    <view class="status-spacer"></view>
-    <view class="derived-title">{{title}}</view>
-    <view class="derived-card" wx:for="{{cards}}" wx:key="*this">{{item}}</view>
+<view class="entry-screen">
+  <view class="entry-header">
+    <button class="entry-back" data-action="home" bindtap="onTap" aria-label="返回"></button>
+    <text class="entry-title">完整提分报告</text>
+    <view class="entry-header-spacer"></view>
   </view>
-  <image wx:if="{{!derived && !imageLoadFailed && reference}}" class="reference-image" src="{{reference}}" mode="widthFix" show-menu-by-longpress="false" binderror="onImageError" />
-  <button wx:for="{{hotspots}}" wx:key="action" class="hotspot {{item.className}}" data-action="{{item.action}}" bindtap="onTap" aria-label="{{item.label}}"></button>
+
+  <view class="entry-main">
+    <view class="entry-hero">
+      <view class="entry-hero-copy">
+        <text class="entry-report-title">初一数学月考分析</text>
+        <text class="entry-summary">整体基础较好，计算粗心和几何证明是本次失分的主要原因。</text>
+        <view class="entry-ready">
+          <view class="ready-check"></view>
+          <text>完整分析已生成</text>
+        </view>
+      </view>
+      <view class="entry-mascot">
+        <view class="lion-face"></view>
+        <view class="lion-mane"></view>
+      </view>
+    </view>
+
+    <text class="entry-section-title">报告内容</text>
+
+    <view class="entry-list">
+      <button class="entry-row" data-action="view" bindtap="onTap">
+        <view class="row-thumb red"></view>
+        <view class="row-copy">
+          <text class="row-title">主要丢分点</text>
+          <text class="row-desc">计算失误、几何证明</text>
+        </view>
+        <text class="row-arrow">›</text>
+      </button>
+      <button class="entry-row" data-action="view" bindtap="onTap">
+        <view class="row-thumb green"></view>
+        <view class="row-copy">
+          <text class="row-title">优先补弱点</text>
+          <text class="row-desc">优先提升几何证明能力</text>
+        </view>
+        <text class="row-arrow">›</text>
+      </button>
+      <button class="entry-row" data-action="view" bindtap="onTap">
+        <view class="row-thumb blue"></view>
+        <view class="row-copy">
+          <text class="row-title">7天建议</text>
+          <text class="row-desc">点击查看每日练习安排</text>
+        </view>
+        <text class="row-arrow">›</text>
+      </button>
+      <button class="entry-row last" data-action="view" bindtap="onTap">
+        <view class="row-thumb yellow"></view>
+        <view class="row-copy">
+          <text class="row-title">下一步建议</text>
+          <text class="row-desc">继续练习 / 找老师讲解 / 再次上传复测</text>
+        </view>
+        <text class="row-arrow">›</text>
+      </button>
+    </view>
+  </view>
+
+  <view class="entry-actions">
+    <view class="entry-action-row">
+      <button class="entry-primary" data-action="view" bindtap="onTap">
+        <view class="doc-icon"></view>
+        <text>查看完整报告</text>
+      </button>
+      <button class="entry-secondary" data-action="save" bindtap="onTap">
+        <view class="download-icon"></view>
+        <text>保存报告</text>
+      </button>
+    </view>
+    <button class="entry-home" data-action="home" bindtap="onTap">
+      <view class="home-icon"></view>
+      <text>回到首页</text>
+    </button>
+  </view>
 </view>

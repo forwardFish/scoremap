@@ -1,0 +1,194 @@
+{
+  "tasks": [
+    {
+      "id": "T34",
+      "title": "Intake reference map",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ui-one-to-one-repair-tasks\\T34-intake-reference-map.md in one fresh codex exec worker. Produce a read-only map of app routes, UI targets, reference code/html/screens, and current WXML status.",
+      "allowedScope": "docs/auto-execute/evidence/ui-one-to-one/T34/**; docs/auto-execute/results/T34.json; docs/auto-execute/latest/T34-HANDOFF.md",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ui-one-to-one-repair-tasks\\T34-intake-reference-map.md'",
+        "rg --files docs/UI",
+        "rg -n \"derived-card|derived-action|referenceAsset|codeSurface|http://|https://|<image|background-image\" scoremap-miniapp docs/auto-execute"
+      ],
+      "doneWhen": [
+        "All 15 required visual targets are mapped",
+        "full-report old and v1.3 states are separated",
+        "Support pages are marked as non-pixel-reference code pages",
+        "docs/auto-execute/results/T34.json and docs/auto-execute/latest/T34-HANDOFF.md are written"
+      ]
+    },
+    {
+      "id": "T35",
+      "title": "Revert generic replica shell",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ui-one-to-one-repair-tasks\\T35-revert-generic-replica-shell.md in one fresh codex exec worker. Remove generic replica shell fields and restore page-specific WXML/WXSS surfaces.",
+      "allowedScope": "scoremap-miniapp/utils/replica-runtime.js; scoremap-miniapp/pages/**/index.wxml; scoremap-miniapp/pages/**/index.wxss; scoremap-miniapp/pages/**/index.js; scoremap-miniapp/miniapp-shell.test.js; scoremap-miniapp/navigation-click-audit.test.js; scoremap-miniapp/routes.js; docs/auto-execute/results/T35.json; docs/auto-execute/latest/T35-HANDOFF.md",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ui-one-to-one-repair-tasks\\T35-revert-generic-replica-shell.md'",
+        "npm test -- miniapp-shell routes",
+        "rg -n \"derived-card|derived-action|referenceAsset|codeSurface\" scoremap-miniapp",
+        "git diff --check"
+      ],
+      "doneWhen": [
+        "No generic replica shell remains in repaired UI",
+        "No full-screen screenshot mounting is introduced",
+        "Route/click contracts remain intact",
+        "docs/auto-execute/results/T35.json and docs/auto-execute/latest/T35-HANDOFF.md are written"
+      ]
+    },
+    {
+      "id": "T36",
+      "title": "Old flow home analysis failure",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ui-one-to-one-repair-tasks\\T36-old-flow-home-analysis-failure.md in one fresh codex exec worker. Rebuild home, analysis, and failure from old-flow references.",
+      "allowedScope": "scoremap-miniapp/pages/index/**; scoremap-miniapp/pages/analysis/**; scoremap-miniapp/pages/failure/**; scoremap-miniapp/routes.js; scoremap-miniapp/utils/**; scoremap-miniapp/services/**; tests/**; tools/ui-visual/**; docs/auto-execute/evidence/ui-one-to-one/T36/**; docs/auto-execute/results/T36.json; docs/auto-execute/latest/T36-HANDOFF.md",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ui-one-to-one-repair-tasks\\T36-old-flow-home-analysis-failure.md'",
+        "npm test -- home-upload analysis-failure",
+        "npm run e2e:owner -- old-flow-home-analysis-failure",
+        "npm run visual:scoremap -- home analysis failure",
+        "git diff --check"
+      ],
+      "doneWhen": [
+        "home, analysis, and failure are page-specific code replicas",
+        "Upload, later-view, retry, reupload, and home navigation work",
+        "Visual evidence or manual-review limitation is recorded",
+        "docs/auto-execute/results/T36.json and docs/auto-execute/latest/T36-HANDOFF.md are written"
+      ]
+    },
+    {
+      "id": "T37",
+      "title": "Old flow preview payment result",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ui-one-to-one-repair-tasks\\T37-old-flow-preview-payment-result.md in one fresh codex exec worker. Rebuild preview, basic-pay, and basic-result.",
+      "allowedScope": "scoremap-miniapp/pages/preview/**; scoremap-miniapp/pages/basic-pay/**; scoremap-miniapp/pages/basic-result/**; scoremap-miniapp/routes.js; scoremap-miniapp/services/**; tests/**; tools/ui-visual/**; docs/auto-execute/evidence/ui-one-to-one/T37/**; docs/auto-execute/results/T37.json; docs/auto-execute/latest/T37-HANDOFF.md",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ui-one-to-one-repair-tasks\\T37-old-flow-preview-payment-result.md'",
+        "npm test -- preview-basic-pay basic-result-full-unlock payment-api",
+        "npm run e2e:owner -- old-flow-preview-payment-result",
+        "npm run visual:scoremap -- preview basic-pay basic-result",
+        "git diff --check"
+      ],
+      "doneWhen": [
+        "preview, basic-pay, and basic-result are reference-driven code pages",
+        "1 yuan payment, basic result unlock, and report navigation work",
+        "No real payment or production service is used",
+        "docs/auto-execute/results/T37.json and docs/auto-execute/latest/T37-HANDOFF.md are written"
+      ]
+    },
+    {
+      "id": "T38",
+      "title": "Old flow full unlock entry my",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ui-one-to-one-repair-tasks\\T38-old-flow-full-unlock-entry-my.md in one fresh codex exec worker. Rebuild full-unlock, full-report-entry, and my.",
+      "allowedScope": "scoremap-miniapp/pages/full-unlock/**; scoremap-miniapp/pages/full-report-entry/**; scoremap-miniapp/pages/my/**; scoremap-miniapp/routes.js; scoremap-miniapp/services/**; tests/**; tools/ui-visual/**; docs/auto-execute/evidence/ui-one-to-one/T38/**; docs/auto-execute/results/T38.json; docs/auto-execute/latest/T38-HANDOFF.md",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ui-one-to-one-repair-tasks\\T38-old-flow-full-unlock-entry-my.md'",
+        "npm test -- full-report-pdf my-reports-feedback basic-result-full-unlock",
+        "npm run e2e:owner -- old-flow-full-unlock-entry-my",
+        "npm run visual:scoremap -- full-unlock full-report-entry my",
+        "git diff --check"
+      ],
+      "doneWhen": [
+        "full-unlock, full-report-entry, and my are old-flow code replicas",
+        "Full unlock, full report entry, support links, and tab behavior work",
+        "reports/orders/feedback links are preserved",
+        "docs/auto-execute/results/T38.json and docs/auto-execute/latest/T38-HANDOFF.md are written"
+      ]
+    },
+    {
+      "id": "T39",
+      "title": "v1.3 report and wrong question",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ui-one-to-one-repair-tasks\\T39-v13-report-and-wrong-question.md in one fresh codex exec worker. Rebuild v1.3 full-report state and wrong-question page.",
+      "allowedScope": "scoremap-miniapp/pages/full-report/**; scoremap-miniapp/pages/wrong-question/**; scoremap-miniapp/routes.js; scoremap-miniapp/services/**; scoremap-miniapp/utils/ai-tutor-v13-design.js; tests/**; tools/ui-visual/**; docs/auto-execute/evidence/ui-one-to-one/T39/**; docs/auto-execute/results/T39.json; docs/auto-execute/latest/T39-HANDOFF.md",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ui-one-to-one-repair-tasks\\T39-v13-report-and-wrong-question.md'",
+        "npm test -- full-report-ai-entry wrong-question-detail full-report-pdf",
+        "npm run e2e:owner -- v13-report-wrong-question",
+        "npm run visual:scoremap -- v13-full-report v13-wrong-question-detail",
+        "git diff --check"
+      ],
+      "doneWhen": [
+        "v1.3 full-report and wrong-question match their code/screen references",
+        "Wrong-question cards and AI tutor entry work",
+        "Share, save, and export behavior is verified or hidden",
+        "docs/auto-execute/results/T39.json and docs/auto-execute/latest/T39-HANDOFF.md are written"
+      ]
+    },
+    {
+      "id": "T40",
+      "title": "v1.3 AI tutor exercise feedback",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ui-one-to-one-repair-tasks\\T40-v13-ai-tutor-exercise-feedback.md in one fresh codex exec worker. Rebuild ai-tutor, ai-exercise, and ai-exercise-feedback.",
+      "allowedScope": "scoremap-miniapp/pages/ai-tutor/**; scoremap-miniapp/pages/ai-exercise/**; scoremap-miniapp/pages/ai-exercise-feedback/**; scoremap-miniapp/routes.js; scoremap-miniapp/services/**; scoremap-miniapp/utils/ai-tutor-v13-design.js; tests/**; tools/ui-visual/**; docs/auto-execute/evidence/ui-one-to-one/T40/**; docs/auto-execute/results/T40.json; docs/auto-execute/latest/T40-HANDOFF.md",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ui-one-to-one-repair-tasks\\T40-v13-ai-tutor-exercise-feedback.md'",
+        "npm test -- ai-tutor-interaction ai-exercise-feedback",
+        "npm run e2e:owner -- v13-ai-tutor-exercise-feedback",
+        "npm run visual:scoremap -- v13-ai-tutor v13-similar-exercise v13-answer-feedback",
+        "git diff --check"
+      ],
+      "doneWhen": [
+        "ai-tutor, ai-exercise, and ai-exercise-feedback match their v1.3 references",
+        "Quota, fixed actions, similar exercise, submit answer, feedback, and history routes work",
+        "No real model provider is called",
+        "docs/auto-execute/results/T40.json and docs/auto-execute/latest/T40-HANDOFF.md are written"
+      ]
+    },
+    {
+      "id": "T41",
+      "title": "Support pages reports orders feedback scaffold",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ui-one-to-one-repair-tasks\\T41-support-pages-reports-orders-feedback-scaffold.md in one fresh codex exec worker. Repair support pages as normal code pages without false pixel-reference claims.",
+      "allowedScope": "scoremap-miniapp/pages/reports/**; scoremap-miniapp/pages/orders/**; scoremap-miniapp/pages/feedback/**; scoremap-miniapp/pages/scaffold/**; scoremap-miniapp/scaffold.test.js; scoremap-miniapp/navigation-click-audit.test.js; scoremap-miniapp/routes.js; scoremap-miniapp/services/**; tests/**; tools/ui-visual/**; docs/auto-execute/evidence/ui-one-to-one/T41/**; docs/auto-execute/results/T41.json; docs/auto-execute/latest/T41-HANDOFF.md",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ui-one-to-one-repair-tasks\\T41-support-pages-reports-orders-feedback-scaffold.md'",
+        "npm test -- scaffold my-reports-feedback navigation-click-audit",
+        "npm run e2e:owner -- support-pages",
+        "npm run visual:scoremap -- reports",
+        "git diff --check"
+      ],
+      "doneWhen": [
+        "reports, orders, feedback, and scaffold are normal code pages",
+        "No standalone pixel-reference claim is made for support pages",
+        "Route state and click behavior are preserved",
+        "docs/auto-execute/results/T41.json and docs/auto-execute/latest/T41-HANDOFF.md are written"
+      ]
+    },
+    {
+      "id": "T42",
+      "title": "Visual click regression gate",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ui-one-to-one-repair-tasks\\T42-visual-click-regression-gate.md in one fresh codex exec worker. Run no-screenshot, no-remote, functional, owner-click, visual, build, and diff hygiene gates.",
+      "allowedScope": "scoremap-miniapp/pages/**; scoremap-miniapp/routes.js; scoremap-miniapp/utils/**; scoremap-miniapp/services/**; scoremap-miniapp/*.test.js; tests/**; tools/ui-visual/**; docs/auto-execute/evidence/ui-one-to-one/T42/**; docs/auto-execute/results/T42.json; docs/auto-execute/latest/T42-HANDOFF.md",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ui-one-to-one-repair-tasks\\T42-visual-click-regression-gate.md'",
+        "npm test",
+        "npm run e2e:owner",
+        "npm run visual:scoremap",
+        "npm run build",
+        "git diff --check"
+      ],
+      "doneWhen": [
+        "Static checks show no screenshot-mounted pages, no remote dependencies, and no generic shell",
+        "All required gates are run and recorded",
+        "Task-caused UI/click regressions are fixed or blocked honestly",
+        "docs/auto-execute/results/T42.json and docs/auto-execute/latest/T42-HANDOFF.md are written"
+      ]
+    },
+    {
+      "id": "T43",
+      "title": "Final UI one-to-one gate",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ui-one-to-one-repair-tasks\\T43-final-ui-one-to-one-gate.md in one fresh codex exec worker. Read T34-T42 results, run final gates, update delivery report, and emit honest final verdict.",
+      "allowedScope": "docs/AUTO_EXECUTE_DELIVERY_REPORT.md; docs/auto-execute/evidence/ui-one-to-one/T43/**; docs/auto-execute/results/T43.json; docs/auto-execute/latest/T43-HANDOFF.md; docs/auto-execute/latest/HANDOFF.md; docs/auto-execute/latest/verification-results.md; docs/auto-execute/latest/blockers.md; scripts/acceptance/run-final-gate.ps1",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ui-one-to-one-repair-tasks\\T43-final-ui-one-to-one-gate.md'",
+        "npm test",
+        "npm run e2e:owner",
+        "npm run visual:scoremap",
+        "npm run build",
+        "git diff --check",
+        "powershell -ExecutionPolicy Bypass -File .\\scripts\\acceptance\\run-final-gate.ps1 -Scope ui-one-to-one"
+      ],
+      "doneWhen": [
+        "T34-T42 results and handoffs are read and summarized",
+        "docs/AUTO_EXECUTE_DELIVERY_REPORT.md is updated with UI one-to-one status",
+        "Final verdict is PASS only with complete evidence, otherwise PASS_NEEDS_MANUAL_UI_REVIEW, REPAIR_REQUIRED, or stricter",
+        "docs/auto-execute/results/T43.json and docs/auto-execute/latest/T43-HANDOFF.md are written"
+      ]
+    }
+  ]
+}

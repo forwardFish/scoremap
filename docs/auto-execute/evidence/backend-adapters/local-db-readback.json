@@ -4,10 +4,13 @@
   "adapter": "LocalJsonDbAdapter",
   "tables": [
     "ai_analysis_tasks",
+    "ai_model_traces",
     "diagnosis_decisions",
     "diagnosis_orders",
+    "diagnosis_questions",
     "feedbacks",
     "payments",
+    "question_interactions",
     "report_exports",
     "upload_files",
     "users"
@@ -18,6 +21,9 @@
     "upload_files": "upload-t02-db",
     "ai_analysis_tasks": "task-t02-db",
     "diagnosis_decisions": "decision-t02-db",
+    "diagnosis_questions": "question-t02-db",
+    "question_interactions": "interaction-t02-db",
+    "ai_model_traces": "trace-t02-db",
     "payments": "payment-t02-db",
     "report_exports": "export-t02-db",
     "feedbacks": "feedback-t02-db"

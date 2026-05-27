@@ -1,0 +1,248 @@
+﻿{
+  "tasks": [
+    {
+      "id": "T19",
+      "title": "Inventory sources and LLM map",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T19-v13-inventory-llm-map.md in one fresh codex exec worker. Produce the v1.3 source, UI, route, API/DB, requirement, and LLM-call inventory without implementing product code.",
+      "allowedScope": "docs/auto-execute/evidence/inventory/**; docs/auto-execute/results/T19.json; docs/auto-execute/latest/T19-HANDOFF.md; focused inventory helpers under scripts/acceptance/** only if needed",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T19-v13-inventory-llm-map.md'",
+        "npm test"
+      ],
+      "doneWhen": [
+        "docs/auto-execute/evidence/inventory/v13-source-inventory.json exists",
+        "All five UI references are mapped to target routes/states and visible controls",
+        "LLM-PREVIEW-01 through LLM-CHECK-07 are inventoried with evidence targets",
+        "docs/auto-execute/results/T19.json and docs/auto-execute/latest/T19-HANDOFF.md are written"
+      ]
+    },
+    {
+      "id": "T20",
+      "title": "Local AI adapter and traces",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T20-local-ai-adapter-prompt-trace.md in one fresh codex exec worker. Implement local-only mockable model adapters, prompt registry, deterministic responses, failure simulation, and trace logging.",
+      "allowedScope": "server/src/ai/**; server/src/services/** only to route through adapter; server/test/**; shared/** if trace helper is shared; docs/auto-execute/results/T20.json; docs/auto-execute/latest/T20-HANDOFF.md",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T20-local-ai-adapter-prompt-trace.md'",
+        "npm --prefix server test -- ai-adapter prompt-registry"
+      ],
+      "doneWhen": [
+        "All mandatory prompt ids have registry entries and deterministic local responses",
+        "Trace records include prompt id, adapter, summaries, status, error code, latency/cost placeholders, and local-only marker",
+        "Timeout and provider-failure simulation are tested",
+        "No default path calls real model providers or logs secrets"
+      ]
+    },
+    {
+      "id": "T21",
+      "title": "Question interaction DB schema",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T21-question-interaction-db-schema.md in one fresh codex exec worker. Add local persistence for wrong-question cards, interactions, exercises, answers, quota, and model traces.",
+      "allowedScope": "shared/in-memory-db.js; server/src/db/**; server/src/services/**; server/test/**; tests/api/** only for readback coverage; docs/auto-execute/results/T21.json; docs/auto-execute/latest/T21-HANDOFF.md",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T21-question-interaction-db-schema.md'",
+        "npm --prefix server test -- question-interactions db-readback"
+      ],
+      "doneWhen": [
+        "diagnosis_questions, question_interactions, quota fields, exercise/answer payloads, and AI trace records are independently readable",
+        "Failed validation, entitlement, provider, and quota-exceeded branches do not count as successful usage",
+        "No online DB is used",
+        "docs/auto-execute/results/T21.json and docs/auto-execute/latest/T21-HANDOFF.md are written"
+      ]
+    },
+    {
+      "id": "T22",
+      "title": "Full-report question cards",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T22-full-report-question-cards.md in one fresh codex exec worker. Extend full-report generation to create L2 content plus wrong-question cards consumable by UI and tutor APIs.",
+      "allowedScope": "server/src/services/reports-service.js; server/src/routes/reports.js; server/src/ai/**; server/test/**; scoremap-miniapp/pages/full-report-entry/** only for fixture compatibility if necessary; docs/auto-execute/results/T22.json; docs/auto-execute/latest/T22-HANDOFF.md",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T22-full-report-question-cards.md'",
+        "npm --prefix server test -- full-report wrong-questions"
+      ],
+      "doneWhen": [
+        "POST /api/diagnosis-orders/{orderId}/generate-full creates full report, at least two wrong-question cards, quota fields, LLM-FULL-03 trace, and LLM-QUESTION-04 trace",
+        "GET /api/diagnosis-orders/{orderId}/full-report returns wrong-question summaries and quota",
+        "Full entitlement is enforced",
+        "Missing prerequisite, entitlement, provider failure, and no-question fallback branches are tested"
+      ]
+    },
+    {
+      "id": "T23",
+      "title": "Tutor APIs, quota, and auth",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T23-ai-tutor-api-quota-auth.md in one fresh codex exec worker. Implement AI tutor API routes, quota enforcement, permissions, adapter calls, failure handling, and DB readbacks.",
+      "allowedScope": "server/src/routes/**; server/src/services/**; server/src/ai/**; server/test/**; tests/api/** if shared e2e helpers need route normalization; docs/auto-execute/results/T23.json; docs/auto-execute/latest/T23-HANDOFF.md",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T23-ai-tutor-api-quota-auth.md'",
+        "npm --prefix server test -- ai-tutor quota auth failures"
+      ],
+      "doneWhen": [
+        "All required tutor routes exist and enforce owner access, full entitlement, report quota 10, and per-question quota 3",
+        "Success, validation, auth, ownership, not found, unpaid, quota exhausted, timeout, provider failure, and repeated-submit branches are covered",
+        "Successful calls increment quota correctly and failed calls do not",
+        "All model calls are traceable through the local adapter"
+      ]
+    },
+    {
+      "id": "T24",
+      "title": "Design tokens and route scaffolds",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T24-design-tokens-routes.md in one fresh codex exec worker. Register the five new v1.3 routes/states and implement reusable design tokens, local assets, route contracts, and page-state scaffolds.",
+      "allowedScope": "scoremap-miniapp/app.json; scoremap-miniapp/routes.js; scoremap-miniapp/pages/**; scoremap-miniapp/utils/**; scoremap-miniapp/services/**; tests/**; tools/ui-visual/**; docs/auto-execute/results/T24.json; docs/auto-execute/latest/T24-HANDOFF.md",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T24-design-tokens-routes.md'",
+        "npm test -- miniapp-shell routes ai-tutor"
+      ],
+      "doneWhen": [
+        "Full-report v1.3, wrong-question detail, AI tutor, similar exercise, and answer feedback routes/states are registered",
+        "Every visible P0 control has a route/API/no-navigation action contract",
+        "Shared tokens match reference colors, spacing, typography, cards, shadows, icons, and bottom nav",
+        "Local deterministic mascot/illustration strategy is documented"
+      ]
+    },
+    {
+      "id": "T25",
+      "title": "Full-report v1.3 UI",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T25-full-report-v13-ui.md in one fresh codex exec worker. Rebuild the complete report state against the _3 reference, including wrong-question cards, share/export/save behavior, and AI tutor entry navigation.",
+      "allowedScope": "scoremap-miniapp/pages/full-report/**; scoremap-miniapp/routes.js; scoremap-miniapp/services/**; tests/**; tools/ui-visual/**; docs/auto-execute/results/T25.json; docs/auto-execute/latest/T25-HANDOFF.md",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T25-full-report-v13-ui.md'",
+        "npm test -- full-report-ai-entry"
+      ],
+      "doneWhen": [
+        "The _3 reference structure and Chinese copy are closely reproduced",
+        "At least two seeded wrong-question cards render from data",
+        "AI tutor entry navigates with order and question context",
+        "Visible share/export/save controls either work with tests or are hidden"
+      ]
+    },
+    {
+      "id": "T26",
+      "title": "Wrong-question detail UI",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T26-wrong-question-detail-ui.md in one fresh codex exec worker. Implement the wrong-question detail surface matching the _1 reference.",
+      "allowedScope": "scoremap-miniapp/pages/wrong-question/** or equivalent embedded state; scoremap-miniapp/routes.js; scoremap-miniapp/services/**; tests/**; tools/ui-visual/**; docs/auto-execute/results/T26.json; docs/auto-execute/latest/T26-HANDOFF.md",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T26-wrong-question-detail-ui.md'",
+        "npm test -- wrong-question-detail"
+      ],
+      "doneWhen": [
+        "Original question, student answer, correct answer, knowledge point, diagnosis, and explanation summary are visible and data-backed",
+        "AI teacher CTA and interaction history row are present",
+        "Back, more, bottom nav, and return-report controls have deterministic actions",
+        "Locked/basic-user state is visible and tested"
+      ]
+    },
+    {
+      "id": "T27",
+      "title": "AI tutor interaction UI",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T27-ai-tutor-interaction-ui.md in one fresh codex exec worker. Implement the AI tutor interaction surface matching the ai reference.",
+      "allowedScope": "scoremap-miniapp/pages/ai-tutor/** or equivalent embedded state; scoremap-miniapp/routes.js; scoremap-miniapp/services/**; tests/**; tools/ui-visual/**; docs/auto-execute/results/T27.json; docs/auto-execute/latest/T27-HANDOFF.md",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T27-ai-tutor-interaction-ui.md'",
+        "npm test -- ai-tutor-interaction"
+      ],
+      "doneWhen": [
+        "Remaining count is visible and correct",
+        "Five fixed buttons are clickable and mapped to API action types",
+        "Accordion and interaction history navigation work",
+        "Quota-exceeded and provider-failure states are visible and tested"
+      ]
+    },
+    {
+      "id": "T28",
+      "title": "Similar exercise and feedback UI",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T28-similar-exercise-feedback-ui.md in one fresh codex exec worker. Implement similar exercise and answer feedback states matching _4 and _2 references.",
+      "allowedScope": "scoremap-miniapp/pages/ai-exercise/**; scoremap-miniapp/pages/ai-exercise-feedback/**; scoremap-miniapp/routes.js; scoremap-miniapp/services/**; tests/**; tools/ui-visual/**; docs/auto-execute/results/T28.json; docs/auto-execute/latest/T28-HANDOFF.md",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T28-similar-exercise-feedback-ui.md'",
+        "npm test -- ai-exercise-feedback"
+      ],
+      "doneWhen": [
+        "Exercise page shows prompt, four options, submit, current wrong-question context, and bottom nav",
+        "Feedback page shows correctness, explanation, retry/similar question, return report, and history row",
+        "Exercise generation records LLM-EXERCISE-06 and answer checking records LLM-CHECK-07",
+        "Duplicate answer and answer-before-exercise branches are handled"
+      ]
+    },
+    {
+      "id": "T29",
+      "title": "My reports quota and history",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T29-my-reports-quota-history.md in one fresh codex exec worker. Update My and reports-list flows so users can revisit full reports, see tutor quota, and resume interactions.",
+      "allowedScope": "scoremap-miniapp/pages/my/**; scoremap-miniapp/pages/reports/**; scoremap-miniapp/routes.js; server/src/services/reports-service.js; server/test/**; tests/**; docs/auto-execute/results/T29.json; docs/auto-execute/latest/T29-HANDOFF.md",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T29-my-reports-quota-history.md'",
+        "npm test -- my-reports-ai-tutor"
+      ],
+      "doneWhen": [
+        "My reports list exposes full-report status and remaining tutor quota",
+        "Full report cards resume to the correct report or wrong-question state",
+        "Interaction history can be reopened from report detail",
+        "Basic/free reports do not expose formal tutor entitlement"
+      ]
+    },
+    {
+      "id": "T30",
+      "title": "Visual one-to-one harness",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T30-visual-one-to-one-v13.md in one fresh codex exec worker. Extend visual evidence so all five v1.3 references have reference, actual, diff, metrics, and summary artifacts.",
+      "allowedScope": "tools/ui-visual/**; scoremap-miniapp/pages/**/visual-*.js; tests/**; docs/auto-execute/evidence/visual-harness/ai-tutor-v13/**; docs/auto-execute/results/T30.json; docs/auto-execute/latest/T30-HANDOFF.md",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T30-visual-one-to-one-v13.md'",
+        "npm run visual:scoremap -- ai-tutor-v13 all"
+      ],
+      "doneWhen": [
+        "References ai, _1, _2, _3, and _4 each have target route/state, fixture, capture command, actual, diff, metrics JSON, and summary JSON",
+        "Material deviations are listed as repair items",
+        "Missing raster evidence is not upgraded to pure PASS",
+        "docs/auto-execute/results/T30.json and docs/auto-execute/latest/T30-HANDOFF.md are written"
+      ]
+    },
+    {
+      "id": "T31",
+      "title": "Normal-person all-page clicks",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T31-normal-person-all-page-clicks.md in one fresh codex exec worker. Extend owner/student E2E to simulate a normal person clicking every existing and new P0 page/control.",
+      "allowedScope": "tests/e2e/**; scoremap-miniapp/navigation-click-audit.test.js; scoremap-miniapp/routes.js; scoremap-miniapp/pages/**; docs/auto-execute/evidence/owner/**; docs/auto-execute/evidence/navigation/**; docs/auto-execute/results/T31.json; docs/auto-execute/latest/T31-HANDOFF.md",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T31-normal-person-all-page-clicks.md'",
+        "npm run e2e:owner -- ai-tutor-v13"
+      ],
+      "doneWhen": [
+        "Old O01-O13 coverage is preserved",
+        "V13-O14 through V13-O23 coverage is added",
+        "All P0 pages, controls, locked states, retry paths, history rows, quota-exhausted states, exercise choices, and submits are clicked or explicitly mapped",
+        "Route, API, DB readback, LLM trace, visible UI state, and visual evidence paths are asserted where applicable"
+      ]
+    },
+    {
+      "id": "T32",
+      "title": "API DB LLM trace E2E",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T32-api-db-llm-trace-e2e.md in one fresh codex exec worker. Extend API/DB E2E to prove route through DB readback and local model trace for every AI tutor backend path.",
+      "allowedScope": "tests/api/**; server/test/**; server/src/** only for small fixes discovered by tests; docs/auto-execute/evidence/api-db/**; docs/auto-execute/evidence/llm/**; docs/auto-execute/results/T32.json; docs/auto-execute/latest/T32-HANDOFF.md",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T32-api-db-llm-trace-e2e.md'",
+        "npm run e2e:api-db -- ai-tutor-v13"
+      ],
+      "doneWhen": [
+        "All routes in the API/DB contract matrix have success and error proof",
+        "Every LLM id from LLM-PREVIEW-01 through LLM-CHECK-07 has trace proof",
+        "Validation, auth, ownership, not found, quota, timeout, provider failure, and duplicate/idempotent branches are covered where applicable",
+        "A trace manifest connects API call to DB mutation/readback to LLM trace to UI consumer"
+      ]
+    },
+    {
+      "id": "T33",
+      "title": "Final v1.3 acceptance gate",
+      "summary": "Execute exactly docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T33-v13-final-acceptance-gate.md in one fresh codex exec worker. Read T19-T32 outputs, run the final gate, repair only final-gate blockers allowed by the task, and produce an honest final verdict.",
+      "allowedScope": "scripts/acceptance/**; docs/auto-execute/results/T33.json; docs/auto-execute/latest/T33-HANDOFF.md; docs/AUTO_EXECUTE_DELIVERY_REPORT.md; small code/test fixes only when required by final-gate failures",
+      "verificationCommands": [
+        "codex exec --cd 'D:\\lyh\\agent\\agent-frame\\scoremap' --prompt-file 'docs\\auto-execute\\scoremap-ai-tutor-v13-tasks\\T33-v13-final-acceptance-gate.md'",
+        "npm test",
+        "npm run e2e:owner -- ai-tutor-v13",
+        "npm run e2e:api-db -- ai-tutor-v13",
+        "npm run visual:scoremap -- ai-tutor-v13 all",
+        "powershell -ExecutionPolicy Bypass -File scripts/acceptance/run-final-gate.ps1 -Scope ai-tutor-v13"
+      ],
+      "doneWhen": [
+        "T19-T32 result JSON and HANDOFF files exist and are internally consistent",
+        "Every acceptance-standard category has an explicit verdict in docs/auto-execute/results/T33.json",
+        "Local-only guard, secret guard, report integrity, mojibake scan, UI evidence, click evidence, API/DB evidence, LLM trace evidence, and final gate are asserted",
+        "Pure PASS is claimed only if every required evidence item exists; otherwise the verdict is an honest limited, repair, blocked, or hard-fail status with exact blockers"
+      ]
+    }
+  ]
+}

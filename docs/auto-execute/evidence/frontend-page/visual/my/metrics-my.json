@@ -2,8 +2,8 @@
   "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
   "command": "npm run visual:scoremap -- my reports",
   "route": "/pages/my/index",
-  "reference": "docs/UI/小程序/我的.png",
-  "stitchReference": "docs/UI/小程序/stitch_codex_development_blueprints/_1/screen.png",
+  "reference": "ui-reference-catalog/小程序/我的.png",
+  "stitchReference": "ui-reference-catalog/小程序/stitch_codex_development_blueprints/_1/screen-reference",
   "actual": "docs/auto-execute/evidence/frontend-page/visual/my/actual-my-structure.svg",
   "diff": "docs/auto-execute/evidence/frontend-page/visual/my/diff-my-manual-review.svg",
   "viewport": {

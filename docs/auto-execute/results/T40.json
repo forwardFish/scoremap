@@ -1,0 +1,86 @@
+{
+  "taskId": "T40",
+  "verdict": "PASS_WITH_LIMITATION",
+  "completedAt": "2026-05-27",
+  "goal": "Rebuild ai-tutor, ai-exercise, and ai-exercise-feedback as v1.3 one-to-one WXML/WXSS code replicas.",
+  "changedFiles": [
+    "scoremap-miniapp/pages/ai-tutor/index.js",
+    "scoremap-miniapp/pages/ai-tutor/index.wxml",
+    "scoremap-miniapp/pages/ai-tutor/index.wxss",
+    "scoremap-miniapp/pages/ai-exercise/index.js",
+    "scoremap-miniapp/pages/ai-exercise/index.wxml",
+    "scoremap-miniapp/pages/ai-exercise/index.wxss",
+    "scoremap-miniapp/pages/ai-exercise-feedback/index.js",
+    "scoremap-miniapp/pages/ai-exercise-feedback/index.wxml",
+    "scoremap-miniapp/pages/ai-exercise-feedback/index.wxss",
+    "docs/auto-execute/evidence/ui-one-to-one/T40/summary.json",
+    "docs/auto-execute/results/T40.json",
+    "docs/auto-execute/latest/T40-HANDOFF.md"
+  ],
+  "references": [
+    "docs/UI/小程序/stitch_codex_ui_design_kit/ai/code.html",
+    "docs/UI/小程序/stitch_codex_ui_design_kit/ai/screen.png",
+    "docs/UI/小程序/stitch_codex_ui_design_kit/_4/code.html",
+    "docs/UI/小程序/stitch_codex_ui_design_kit/_4/screen.png",
+    "docs/UI/小程序/stitch_codex_ui_design_kit/_2/code.html",
+    "docs/UI/小程序/stitch_codex_ui_design_kit/_2/screen.png"
+  ],
+  "acceptance": {
+    "quotaDisplayPreserved": true,
+    "quotaExhaustedStatePreserved": true,
+    "providerFailureStatePreserved": true,
+    "fixedQuestionActionsPreserved": true,
+    "similarExerciseGenerationPreserved": true,
+    "answerSelectionPreserved": true,
+    "submitAnswerPreserved": true,
+    "feedbackPreserved": true,
+    "retryPreserved": true,
+    "returnReportPreserved": true,
+    "historyRoutesPreserved": true,
+    "realModelProvidersCalled": false
+  },
+  "verification": [
+    {
+      "command": "npm test -- ai-tutor-interaction ai-exercise-feedback",
+      "status": "FAIL",
+      "classification": "PRE_EXISTING_RUNNER_SELECTOR_LIMITATION",
+      "details": "No test group matched both selectors because scripts/run-tests.mjs treats multiple selectors as an AND filter."
+    },
+    {
+      "command": "npm test -- ai-tutor-interaction",
+      "status": "PASS"
+    },
+    {
+      "command": "npm test -- ai-exercise-feedback",
+      "status": "PASS"
+    },
+    {
+      "command": "npm run e2e:owner -- v13-ai-tutor-exercise-feedback",
+      "status": "PASS"
+    },
+    {
+      "command": "npm run visual:scoremap -- v13-ai-tutor v13-similar-exercise v13-answer-feedback",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS",
+      "details": "No whitespace errors; command printed existing line-ending warnings."
+    }
+  ],
+  "evidence": [
+    "docs/auto-execute/evidence/ui-one-to-one/T40/summary.json",
+    "docs/auto-execute/evidence/frontend-page/T27-ai-tutor-interaction.json",
+    "docs/auto-execute/evidence/frontend-page/T27-fixed-button-api-map.json",
+    "docs/auto-execute/evidence/frontend-page/T27-quota-provider-failures.json",
+    "docs/auto-execute/evidence/frontend-page/T28-similar-exercise.json",
+    "docs/auto-execute/evidence/frontend-page/T28-answer-feedback.json",
+    "docs/auto-execute/evidence/frontend-page/T28-negative-branches.json",
+    "docs/auto-execute/evidence/owner/all-pages-ai-tutor-v13.json",
+    "docs/auto-execute/evidence/visual-harness/summary.json"
+  ],
+  "whyNotPurePass": [
+    "The visual harness reports PASS_NEEDS_MANUAL_UI_REVIEW rather than pixel-perfect PASS.",
+    "The exact combined npm test command is unsupported by the current selector implementation, though both target groups pass separately."
+  ]
+}

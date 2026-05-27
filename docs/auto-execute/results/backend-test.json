@@ -1,0 +1,22 @@
+﻿{
+    "blockers":  [
+                     null
+                 ],
+    "commands":  [
+                     {
+                         "status":  "PASS",
+                         "command":  "npm run test",
+                         "log":  "docs/auto-execute/logs/backend-test.log"
+                     }
+                 ],
+    "lane":  "backend-test",
+    "status":  "PASS",
+    "evidence":  [
+                     "docs/auto-execute/logs"
+                 ],
+    "schemaVersion":  "2.0",
+    "nextActions":  [
+                        "Repair backend build/unit/integration/API smoke failures and rerun run-backend-test.ps1."
+                    ],
+    "updatedAt":  "2026-05-25T19:09:51"
+}

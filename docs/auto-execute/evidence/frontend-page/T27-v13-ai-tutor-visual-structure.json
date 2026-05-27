@@ -1,0 +1,13 @@
+{
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "command": "npm test -- ai-tutor-interaction",
+  "requirementIds": [
+    "V13-R11"
+  ],
+  "reference": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/ai/screen-reference",
+  "actual": "docs/auto-execute/evidence/frontend-page/visual/v13-ai-tutor/actual-v13-ai-tutor-structure.svg",
+  "diff": "docs/auto-execute/evidence/frontend-page/visual/v13-ai-tutor/diff-v13-ai-tutor-manual-review.svg",
+  "metrics": "docs/auto-execute/evidence/frontend-page/visual/v13-ai-tutor/metrics-v13-ai-tutor.json",
+  "summary": "docs/auto-execute/evidence/frontend-page/visual/v13-ai-tutor/summary-v13-ai-tutor.json",
+  "limitation": "T27 creates deterministic structural visual evidence for ai. T30 remains responsible for raster screenshot diff and pixel comparison."
+}

@@ -1,9 +1,11 @@
 {
   "id": "UI-C05",
   "screen": "preview",
+  "referenceKey": null,
   "route": "/pages/preview/index",
   "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
-  "reference": "docs/UI/小程序/分析报告.png",
+  "reference": "docs/auto-execute/evidence/visual-harness/preview/reference.png",
+  "sourceReference": "docs/UI/小程序/分析报告.png",
   "declaredReference": "docs/UI/小程序/分析报告.png",
   "stitchReference": null,
   "miniappActualAsset": "scoremap-miniapp/assets/reference/preview.jpg",

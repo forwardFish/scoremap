@@ -1,0 +1,377 @@
+{
+  "status": "PASS",
+  "command": "npm test -- full-report-ai-entry",
+  "requirementIds": [
+    "V13-R01",
+    "V13-R09"
+  ],
+  "uiReference": {
+    "id": "V13-UI-FULL-REPORT",
+    "stitch": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/_3/screen-reference",
+    "code": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/_3/code.html"
+  },
+  "cardCount": 2,
+  "renderedState": {
+    "route": "/pages/full-report/index",
+    "orderId": "order-t25-ai-entry",
+    "title": "完整提分报告",
+    "uiReference": {
+      "id": "V13-UI-FULL-REPORT",
+      "stitch": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/_3/screen-reference",
+      "code": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/_3/code.html"
+    },
+    "hero": {
+      "title": "初一数学月考提分报告",
+      "summary": "整体基础较好，计算粗心和几何证明步骤不完整是本次失分的主要原因。",
+      "statusText": "完整分析已生成",
+      "quotaText": "本报告 AI 错题追问剩余 8/10 次"
+    },
+    "paper": {
+      "reportTitle": "初一数学月考提分报告",
+      "summary": "整体基础较好，计算粗心和几何证明步骤不完整是本次失分的主要原因。",
+      "modules": [
+        {
+          "id": "knowledge-diagnosis",
+          "title": "主要丢分点",
+          "content": "计算失误、几何证明步骤缺失、应用题等量关系不清。"
+        },
+        {
+          "id": "loss-point-breakdown",
+          "title": "优先补弱顺序",
+          "content": "先补几何证明表达，再巩固方程应用题和计算检查。"
+        },
+        {
+          "id": "seven-day-plan",
+          "title": "7 天建议",
+          "content": "每天 20 分钟错题复盘，隔天完成同类题迁移练习。"
+        },
+        {
+          "id": "parent-guidance",
+          "title": "家长陪伴建议",
+          "content": "关注孩子是否能讲清思路，不用分数承诺替代过程反馈。"
+        }
+      ],
+      "complianceNotice": "内容仅供学习参考，请结合课堂学习与老师建议使用。"
+    },
+    "reportRows": [
+      {
+        "id": "knowledge-diagnosis",
+        "title": "主要丢分点",
+        "content": "计算失误、几何证明步骤缺失、应用题等量关系不清。",
+        "icon": "track_changes"
+      },
+      {
+        "id": "loss-point-breakdown",
+        "title": "优先补弱顺序",
+        "content": "先补几何证明表达，再巩固方程应用题和计算检查。",
+        "icon": "trending_up"
+      },
+      {
+        "id": "seven-day-plan",
+        "title": "7 天建议",
+        "content": "每天 20 分钟错题复盘，隔天完成同类题迁移练习。",
+        "icon": "calendar_today"
+      },
+      {
+        "id": "parent-guidance",
+        "title": "家长陪伴建议",
+        "content": "关注孩子是否能讲清思路，不用分数承诺替代过程反馈。",
+        "icon": "family_restroom"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "overview",
+        "active": false
+      },
+      {
+        "id": "loss points",
+        "active": false
+      },
+      {
+        "id": "7-day plan",
+        "active": false
+      },
+      {
+        "id": "parent guidance",
+        "active": false
+      }
+    ],
+    "activeTab": "报告总览",
+    "reportQuota": {
+      "used": 2,
+      "total": 10,
+      "remaining": 8,
+      "text": "本报告 AI 错题追问剩余 8/10 次"
+    },
+    "wrongQuestionCards": [
+      {
+        "questionId": "order-t25-ai-entry-q1",
+        "index": 1,
+        "title": "错题 1 二元一次方程应用题",
+        "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+        "knowledgePoint": "方程应用题",
+        "severity": "high",
+        "masteryStatus": "未掌握",
+        "remainingQuestionQuota": 3,
+        "aiEntryText": "让 AI 老师讲给孩子听"
+      },
+      {
+        "questionId": "order-t25-ai-entry-q2",
+        "index": 2,
+        "title": "错题 2 几何证明题",
+        "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+        "knowledgePoint": "几何证明",
+        "severity": "medium",
+        "masteryStatus": "中等",
+        "remainingQuestionQuota": 2,
+        "aiEntryText": "让 AI 老师讲给孩子听"
+      }
+    ],
+    "controls": [
+      {
+        "id": "load-full-report",
+        "text": "刷新完整报告",
+        "api": "GET /api/diagnosis-orders/order-t25-ai-entry/full-report"
+      },
+      {
+        "id": "load-wrong-questions",
+        "text": "加载错题卡片",
+        "api": "GET /api/diagnosis-orders/order-t25-ai-entry/questions"
+      },
+      {
+        "id": "open-wrong-question-card",
+        "text": "查看错题详情",
+        "targetRoute": "/pages/wrong-question/index"
+      },
+      {
+        "id": "open-ai-tutor-from-card",
+        "text": "让 AI 老师讲给孩子听",
+        "targetRoute": "/pages/ai-tutor/index"
+      },
+      {
+        "id": "share-report",
+        "text": "分享报告",
+        "behavior": "local-share-placeholder",
+        "visible": true
+      },
+      {
+        "id": "save-report",
+        "text": "保存报告",
+        "api": "POST /api/diagnosis-orders/order-t25-ai-entry/save-report",
+        "targetRoute": "/pages/my/index",
+        "visible": true
+      },
+      {
+        "id": "export-pdf",
+        "text": "导出 PDF",
+        "api": "POST /api/diagnosis-orders/order-t25-ai-entry/export-pdf",
+        "visible": true
+      },
+      {
+        "id": "return-entry",
+        "text": "返回报告入口",
+        "targetRoute": "/pages/full-report-entry/index"
+      }
+    ],
+    "toast": null
+  },
+  "pageJumpEvidence": [
+    {
+      "controlId": "open-wrong-question-card",
+      "result": {
+        "status": "NAVIGATE",
+        "targetRoute": "/pages/wrong-question/index",
+        "query": {
+          "orderId": "order-t25-ai-entry",
+          "questionId": "order-t25-ai-entry-q1"
+        },
+        "card": {
+          "questionId": "order-t25-ai-entry-q1",
+          "index": 1,
+          "title": "错题 1 二元一次方程应用题",
+          "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+          "knowledgePoint": "方程应用题",
+          "severity": "high",
+          "masteryStatus": "未掌握",
+          "remainingQuestionQuota": 3,
+          "aiEntryText": "让 AI 老师讲给孩子听"
+        }
+      }
+    },
+    {
+      "controlId": "open-ai-tutor-from-card",
+      "result": {
+        "status": "NAVIGATE",
+        "targetRoute": "/pages/ai-tutor/index",
+        "query": {
+          "orderId": "order-t25-ai-entry",
+          "questionId": "order-t25-ai-entry-q1"
+        },
+        "card": {
+          "questionId": "order-t25-ai-entry-q1",
+          "index": 1,
+          "title": "错题 1 二元一次方程应用题",
+          "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+          "knowledgePoint": "方程应用题",
+          "severity": "high",
+          "masteryStatus": "未掌握",
+          "remainingQuestionQuota": 3,
+          "aiEntryText": "让 AI 老师讲给孩子听"
+        },
+        "controlText": "让 AI 老师讲给孩子听"
+      }
+    }
+  ],
+  "apiCalls": [
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-t25-ai-entry",
+        "paymentType": "full",
+        "source": "T25-fixture"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "paid",
+        "paymentId": "payment-t06-full",
+        "amountYuan": 9.9,
+        "paymentParams": {
+          "adapter": "local-mock"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t25-ai-entry/generate-full",
+      "payloadSummary": {
+        "source": "T25-fixture"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t25-ai-entry/full-report",
+      "payloadSummary": {
+        "source": "full-report-v13-page-load"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_report_ready",
+        "decision": {
+          "level": "full",
+          "reportTitle": "初一数学月考提分报告",
+          "orderId": "order-t25-ai-entry",
+          "generatedStatus": "full_report_ready",
+          "summary": "整体基础较好，计算粗心和几何证明步骤不完整是本次失分的主要原因。",
+          "modules": [
+            {
+              "id": "knowledge-diagnosis",
+              "title": "主要丢分点",
+              "content": "计算失误、几何证明步骤缺失、应用题等量关系不清。"
+            },
+            {
+              "id": "loss-point-breakdown",
+              "title": "优先补弱顺序",
+              "content": "先补几何证明表达，再巩固方程应用题和计算检查。"
+            },
+            {
+              "id": "seven-day-plan",
+              "title": "7 天建议",
+              "content": "每天 20 分钟错题复盘，隔天完成同类题迁移练习。"
+            },
+            {
+              "id": "parent-guidance",
+              "title": "家长陪伴建议",
+              "content": "关注孩子是否能讲清思路，不用分数承诺替代过程反馈。"
+            }
+          ],
+          "tabs": [
+            "overview",
+            "loss points",
+            "7-day plan",
+            "parent guidance"
+          ],
+          "reportQuota": {
+            "used": 2,
+            "total": 10,
+            "remaining": 8,
+            "text": "本报告 AI 错题追问剩余 8/10 次"
+          },
+          "wrongQuestionCards": [
+            {
+              "questionId": "order-t25-ai-entry-q1",
+              "index": 1,
+              "title": "错题 1 二元一次方程应用题",
+              "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+              "knowledgePoint": "方程应用题",
+              "severity": "high",
+              "masteryStatus": "未掌握",
+              "remainingQuestionQuota": 3,
+              "aiEntryText": "让 AI 老师讲给孩子听"
+            },
+            {
+              "questionId": "order-t25-ai-entry-q2",
+              "index": 2,
+              "title": "错题 2 几何证明题",
+              "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+              "knowledgePoint": "几何证明",
+              "severity": "medium",
+              "masteryStatus": "中等",
+              "remainingQuestionQuota": 2,
+              "aiEntryText": "让 AI 老师讲给孩子听"
+            }
+          ],
+          "complianceNotice": "内容仅供学习参考，请结合课堂学习与老师建议使用。"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t25-ai-entry/questions",
+      "payloadSummary": {
+        "source": "full-report-v13-wrong-question-cards"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t25-ai-entry",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t25-ai-entry-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t25-ai-entry-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    }
+  ]
+}

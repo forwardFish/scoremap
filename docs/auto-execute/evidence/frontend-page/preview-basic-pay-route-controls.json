@@ -19,7 +19,7 @@
     "orderId": "order-t09-preview",
     "title": "初判报告预览",
     "uiReference": {
-      "png": "docs/UI/小程序/分析报告.png"
+      "png": "ui-reference-catalog/小程序/分析报告.png"
     },
     "reportTitle": "初一数学月考分析",
     "summary": "整体基础较好，计算粗心和几何证明是本次失分的主要原因。",

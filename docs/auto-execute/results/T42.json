@@ -1,0 +1,78 @@
+{
+  "taskId": "T42",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "generatedAt": "2026-05-27T04:26:19.323Z",
+  "scope": "UI one-to-one visual/click regression gate after T34-T41",
+  "honestStatusReason": "npm run visual:scoremap completed with structural/manual-review evidence and no true live pixel diff; status is capped at PASS_NEEDS_MANUAL_UI_REVIEW.",
+  "repairs": [
+    {
+      "type": "static-regression-repair",
+      "summary": "Removed miniapp-local docs/UI screen-reference strings and SVG http namespace literals that triggered the no-screenshot/no-remote static gate; canonical visual reference mapping remains in tools/ui-visual."
+    },
+    {
+      "type": "encoding-recovery",
+      "summary": "Recovered UTF-8 miniapp JS content after an intermediate shell rewrite exposed mojibake syntax failures, then reapplied the static cleanup using a UTF-8-safe Node script."
+    }
+  ],
+  "staticChecks": [
+    {
+      "command": "rg -n \"http://|https://|cdn|font-face|background-image:\\s*url|<image[^>]+src=.*docs/UI|screen.png|???.png|??????.png|1?????png|?????????.png|???.png\" scoremap-miniapp",
+      "status": "COMMAND_INVALID_AS_WRITTEN",
+      "evidence": "The prompt regex contains bare ? quantifiers, which ripgrep rejects with repetition operator missing expression."
+    },
+    {
+      "command": "rg -n \"http://|https://|cdn|font-face|background-image:\\s*url|<image[^>]+src=.*docs/UI|screen\\.png|\\?\\?\\?\\.png|\\?\\?\\?\\?\\?\\?\\.png|1\\?\\?\\?\\?\\?png|\\?\\?\\?\\?\\?\\?\\?\\?\\?\\.png\" scoremap-miniapp",
+      "status": "PASS",
+      "evidence": "Exit 1/no matches after T42 cleanup."
+    },
+    {
+      "command": "rg -n \"derived-card|derived-action|referenceAsset|codeSurface\" scoremap-miniapp",
+      "status": "PASS",
+      "evidence": "Exit 1/no matches."
+    },
+    {
+      "command": "rg -n \"docs/UI|screen\\.png|http://|https://|cdn|font-face|background-image:\\s*url\" scoremap-miniapp",
+      "status": "PASS",
+      "evidence": "Additional guard scan exit 1/no matches."
+    }
+  ],
+  "regressionGates": [
+    {
+      "command": "npm test",
+      "status": "PASS",
+      "evidence": "All Node test batches passed after repair."
+    },
+    {
+      "command": "npm run e2e:owner",
+      "status": "PASS",
+      "evidence": "2/2 owner click tests passed, including T31 V13-O14 through V13-O23."
+    },
+    {
+      "command": "npm run visual:scoremap",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "evidence": "docs/auto-execute/evidence/visual-harness/summary.json",
+      "screenCount": 16
+    },
+    {
+      "command": "npm run build",
+      "status": "PASS",
+      "evidence": "T01 local runtime scaffold build PASS."
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS",
+      "evidence": "Exit 0; only line-ending warnings were printed, no whitespace errors."
+    }
+  ],
+  "blockers": [],
+  "manualReviewRequired": [
+    "Visual evidence is structural/manual-review; no live simulator raster pixel diff was produced by npm run visual:scoremap."
+  ],
+  "evidence": [
+    "docs/auto-execute/evidence/visual-harness/summary.json",
+    "docs/auto-execute/evidence/frontend-page/visual/",
+    "docs/auto-execute/evidence/owner/all-pages-ai-tutor-v13.json",
+    "docs/auto-execute/evidence/ui-one-to-one/T42/T42-summary.json"
+  ],
+  "changedWithinAllowedBoundary": true
+}

@@ -1,7 +1,9 @@
 {
   "id": "UI-C10",
   "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
-  "reference": "docs/UI/小程序/stitch_codex_development_blueprints/ai_pdf/screen.png",
+  "referenceKey": null,
+  "reference": "docs/auto-execute/evidence/visual-harness/full-report/reference.png",
+  "sourceReference": "docs/UI/小程序/stitch_codex_development_blueprints/ai_pdf/screen.png",
   "actual": "docs/auto-execute/evidence/visual-harness/full-report/actual.jpg",
   "diff": "docs/auto-execute/evidence/visual-harness/full-report/diff.svg",
   "metrics": "docs/auto-execute/evidence/visual-harness/full-report/metrics.json",

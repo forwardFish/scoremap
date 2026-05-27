@@ -1,0 +1,282 @@
+﻿{
+    "status":  "PENDING",
+    "schemaVersion":  "2.0",
+    "generatedAt":  "2026-05-25T19:10:44",
+    "testPoints":  [
+                       {
+                           "id":  "TP-STORY-REPORT-002-001",
+                           "storyId":  "STORY-REPORT-002",
+                           "type":  "api",
+                           "target":  "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+                           "expected":  "route is reachable and supports the story goal",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-REPORT-002-002",
+                           "storyId":  "STORY-REPORT-002",
+                           "type":  "route",
+                           "target":  "scoremap-miniapp/pages/wrong-question",
+                           "expected":  "route is reachable and supports the story goal",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-REPORT-002-003",
+                           "storyId":  "STORY-REPORT-002",
+                           "type":  "functional",
+                           "target":  "API rejects unentitled formal tutor access.",
+                           "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-REPORT-002-004",
+                           "storyId":  "STORY-REPORT-002",
+                           "type":  "functional",
+                           "target":  "Entitlement behavior is covered by negative branch evidence.",
+                           "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-REPORT-002-005",
+                           "storyId":  "STORY-REPORT-002",
+                           "type":  "functional",
+                           "target":  "Formal tutor use requires full-report entitlement; basic/free users cannot formally ask.",
+                           "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-REPORT-002-006",
+                           "storyId":  "STORY-REPORT-002",
+                           "type":  "functional",
+                           "target":  "UI shows the locked/basic state without starting formal interaction.",
+                           "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-REPORT-003-001",
+                           "storyId":  "STORY-REPORT-003",
+                           "type":  "route",
+                           "target":  "scoremap-miniapp/pages/ai-tutor",
+                           "expected":  "route is reachable and supports the story goal",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-REPORT-003-002",
+                           "storyId":  "STORY-REPORT-003",
+                           "type":  "route",
+                           "target":  "server/src/routes/question-interactions.js",
+                           "expected":  "route is reachable and supports the story goal",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-REPORT-003-003",
+                           "storyId":  "STORY-REPORT-003",
+                           "type":  "route",
+                           "target":  "server/src/services/question-interactions-service.js",
+                           "expected":  "route is reachable and supports the story goal",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-REPORT-003-004",
+                           "storyId":  "STORY-REPORT-003",
+                           "type":  "functional",
+                           "target":  "Each report allows at most 10 tutor interactions and each question allows at most 3 interactions.",
+                           "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-REPORT-003-005",
+                           "storyId":  "STORY-REPORT-003",
+                           "type":  "functional",
+                           "target":  "Question-level quota is enforced by API and persisted data.",
+                           "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-REPORT-003-006",
+                           "storyId":  "STORY-REPORT-003",
+                           "type":  "functional",
+                           "target":  "Quota-exceeded responses are covered by UI or API evidence.",
+                           "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-REPORT-003-007",
+                           "storyId":  "STORY-REPORT-003",
+                           "type":  "functional",
+                           "target":  "Report-level quota is enforced by API and persisted data.",
+                           "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-GENERAL-006-001",
+                           "storyId":  "STORY-GENERAL-006",
+                           "type":  "api",
+                           "target":  "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/exercise-answer",
+                           "expected":  "route is reachable and supports the story goal",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-GENERAL-006-002",
+                           "storyId":  "STORY-GENERAL-006",
+                           "type":  "route",
+                           "target":  "scoremap-miniapp/pages/ai-exercise",
+                           "expected":  "route is reachable and supports the story goal",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-GENERAL-006-003",
+                           "storyId":  "STORY-GENERAL-006",
+                           "type":  "route",
+                           "target":  "scoremap-miniapp/pages/ai-exercise-feedback",
+                           "expected":  "route is reachable and supports the story goal",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-GENERAL-006-004",
+                           "storyId":  "STORY-GENERAL-006",
+                           "type":  "functional",
+                           "target":  "A similar exercise can be generated and submitted for AI feedback.",
+                           "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-GENERAL-006-005",
+                           "storyId":  "STORY-GENERAL-006",
+                           "type":  "functional",
+                           "target":  "Feedback is returned and tied to the same question context.",
+                           "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-GENERAL-006-006",
+                           "storyId":  "STORY-GENERAL-006",
+                           "type":  "functional",
+                           "target":  "Student can generate a similar exercise from the wrong-question context.",
+                           "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-GENERAL-006-007",
+                           "storyId":  "STORY-GENERAL-006",
+                           "type":  "functional",
+                           "target":  "Student can submit an answer for that exercise.",
+                           "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-REPORT-009-001",
+                           "storyId":  "STORY-REPORT-009",
+                           "type":  "route",
+                           "target":  "scoremap-miniapp/pages/full-report",
+                           "expected":  "route is reachable and supports the story goal",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-REPORT-009-002",
+                           "storyId":  "STORY-REPORT-009",
+                           "type":  "functional",
+                           "target":  "Full-report layout includes formal report structure.",
+                           "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-REPORT-009-003",
+                           "storyId":  "STORY-REPORT-009",
+                           "type":  "visual",
+                           "target":  "The complete report has a formal visual presentation and includes wrong-question cards.",
+                           "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-REPORT-009-004",
+                           "storyId":  "STORY-REPORT-009",
+                           "type":  "visual",
+                           "target":  "Visual harness evidence exists; raster pixel-perfect review remains manual.",
+                           "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       },
+                       {
+                           "id":  "TP-STORY-REPORT-009-005",
+                           "storyId":  "STORY-REPORT-009",
+                           "type":  "functional",
+                           "target":  "Wrong-question cards are visible in the report.",
+                           "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                           "evidence":  [
+
+                                        ],
+                           "status":  "PENDING"
+                       }
+                   ]
+}

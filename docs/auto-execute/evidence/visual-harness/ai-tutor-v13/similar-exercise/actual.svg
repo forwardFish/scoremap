@@ -1,0 +1,26 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+  <rect width="390" height="844" fill="#fdf8ff"/>
+  <text x="54" y="58" font-size="20" font-weight="800" fill="#5a45cb">鍚岀被缁冧範</text>
+
+  <rect x="18" y="92" width="354" height="444" rx="24" fill="#ffffff" stroke="#ebe6f2"/>
+  <text x="42" y="132" font-size="12" font-weight="700" fill="#5a45cb">鍥寸粫褰撳墠閿欓鐢熸垚锛屼笉杩涘叆寮€鏀捐亰澶┿€?/text>
+  <text x="42" y="178" font-size="20" font-weight="800" fill="#1c1b23">鐢叉瘡灏忔椂琛?72km锛屼箼姣忓皬鏃惰 60km锛? 灏忔椂鍚庣敳姣斾箼澶氳澶氬皯鍗冪背锛?/text>
+  <rect x="32" y="276" width="326" height="50" rx="16" fill="#ffffff" stroke="#d8d0f0"/>
+  <text x="54" y="308" font-size="13" font-weight="700" fill="#5a45cb">A.</text>
+  <text x="86" y="308" font-size="13" fill="#1c1b23">24 鍗冪背</text><rect x="32" y="344" width="326" height="50" rx="16" fill="#ffffff" stroke="#d8d0f0"/>
+  <text x="54" y="376" font-size="13" font-weight="700" fill="#5a45cb">B.</text>
+  <text x="86" y="376" font-size="13" fill="#1c1b23">36 鍗冪背</text><rect x="32" y="412" width="326" height="50" rx="16" fill="#ffffff" stroke="#d8d0f0"/>
+  <text x="54" y="444" font-size="13" font-weight="700" fill="#5a45cb">C.</text>
+  <text x="86" y="444" font-size="13" fill="#1c1b23">132 鍗冪背</text><rect x="32" y="480" width="326" height="50" rx="16" fill="#ffffff" stroke="#d8d0f0"/>
+  <text x="54" y="512" font-size="13" font-weight="700" fill="#5a45cb">D.</text>
+  <text x="86" y="512" font-size="13" fill="#1c1b23">216 鍗冪背</text>
+  <rect x="18" y="560" width="354" height="104" rx="22" fill="#f7f1fd" stroke="#ebe6f2"/>
+  <text x="42" y="594" font-size="15" font-weight="800" fill="#1c1b23">鍘熼敊棰樹笂涓嬫枃</text>
+  <text x="42" y="624" font-size="12" fill="#474554">娌℃湁鍏堝垽鏂袱浜虹殑閫熷害宸紝瀵艰嚧鏁伴噺鍏崇郴璺戝亸銆?/text>
+  <rect x="18" y="694" width="354" height="54" rx="18" fill="#5a45cb"/>
+  <text x="158" y="728" font-size="15" font-weight="800" fill="#ffffff">鎻愪氦绛旀</text>
+  <rect x="0" y="776" width="390" height="68" fill="#ffffff" stroke="#ebe6f2"/>
+  <text x="54" y="818" font-size="12" fill="#777383">鎶ュ憡</text>
+  <text x="170" y="818" font-size="12" font-weight="800" fill="#5a45cb">AI 鎻愬垎</text>
+  <text x="294" y="818" font-size="12" fill="#777383">鍘熼敊棰?/text>
+</svg>

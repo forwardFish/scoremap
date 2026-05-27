@@ -1,0 +1,50 @@
+{
+  "id": "V13-UI-QUESTION-DETAIL",
+  "screen": "v13-wrong-question-detail",
+  "referenceKey": "_1",
+  "route": "/pages/wrong-question/index?questionId={questionId}",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "reference": "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/reference.png",
+  "sourceReference": "docs/UI/小程序/stitch_codex_ui_design_kit/_1/screen.png",
+  "declaredReference": "docs/UI/小程序/stitch_codex_ui_design_kit/_1/screen.png",
+  "stitchReference": "docs/UI/小程序/stitch_codex_ui_design_kit/_1/screen.png",
+  "miniappActualAsset": null,
+  "actual": "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/actual.svg",
+  "diff": "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/diff.svg",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "comparison": {
+    "method": "artifact-metadata-equivalence",
+    "reference": {
+      "exists": true,
+      "path": "docs/UI/小程序/stitch_codex_ui_design_kit/_1/screen.png",
+      "bytes": 284465,
+      "sha256": "8270adbb3126684b5c48b564f85b2a6c901cdc34edeab4bc62d4c0a6ae8dc49c",
+      "extension": ".png"
+    },
+    "actual": {
+      "exists": true,
+      "path": "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/actual.svg",
+      "bytes": 3530,
+      "sha256": "ea1f068eeeba24c003cf9c325909dc8c91c6b6e225e0cc7f5fa946a76e64166a",
+      "extension": ".svg"
+    },
+    "byteLengthDelta": 280935,
+    "sha256Equal": false,
+    "rasterPixelRatio": null
+  },
+  "pixelDiff": {
+    "status": "MANUAL_REVIEW_REQUIRED",
+    "ratio": null,
+    "threshold": null,
+    "canClaimPixelPerfect": false,
+    "reason": "No live WeChat simulator raster is available in this local harness for this derived or missing-reference page."
+  },
+  "localOnly": {
+    "usesLocalFixtures": true,
+    "remoteNetworkCalls": 0
+  },
+  "knownGaps": []
+}

@@ -155,7 +155,7 @@ function replaceFileWithRetry(tmpPath, targetPath) {
       fs.renameSync(tmpPath, targetPath);
       return;
     } catch (error) {
-      if (!['EPERM', 'EACCES', 'EBUSY'].includes(error.code) || attempt === attempts - 1) {
+      if (!['EPERM', 'EACCES', 'EBUSY'].includes(error.code)) {
         throw error;
       }
       try {
@@ -163,8 +163,12 @@ function replaceFileWithRetry(tmpPath, targetPath) {
         fs.renameSync(tmpPath, targetPath);
         return;
       } catch (retryError) {
-        if (!['EPERM', 'EACCES', 'EBUSY'].includes(retryError.code) || attempt === attempts - 1) {
+        if (!['EPERM', 'EACCES', 'EBUSY'].includes(retryError.code)) {
           throw retryError;
+        }
+        if (attempt === attempts - 1) {
+          writeFileWithoutRename(tmpPath, targetPath);
+          return;
         }
         sleepSync(10 * (attempt + 1));
       }
@@ -174,6 +178,19 @@ function replaceFileWithRetry(tmpPath, targetPath) {
 
 function sleepSync(ms) {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+}
+
+function writeFileWithoutRename(tmpPath, targetPath) {
+  const content = fs.readFileSync(tmpPath);
+  fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+  fs.writeFileSync(targetPath, content);
+  try {
+    fs.rmSync(tmpPath, { force: true });
+  } catch (error) {
+    if (!['EPERM', 'EACCES', 'EBUSY'].includes(error.code)) {
+      throw error;
+    }
+  }
 }
 
 module.exports = {

@@ -26,9 +26,9 @@
   "visualEvidence": {
     "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
     "references": [
-      "docs/UI/小程序/完整初判结果.png",
-      "docs/UI/小程序/ChatGPT Image 2026年5月22日 23_02_21.png",
-      "docs/UI/小程序/stitch_codex_development_blueprints/_4/screen.png"
+      "ui-reference-catalog/小程序/完整初判结果.png",
+      "ui-reference-catalog/小程序/ChatGPT Image 2026年5月22日 23_02_21.png",
+      "ui-reference-catalog/小程序/stitch_codex_development_blueprints/_4/screen-reference"
     ],
     "expectedVisualCommand": "npm run visual:scoremap -- basic-result full-unlock",
     "limitation": "T10 visual runner produces deterministic structural artifacts and metrics. Pixel-perfect screenshot capture remains assigned to T14."

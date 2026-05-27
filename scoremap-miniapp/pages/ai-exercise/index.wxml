@@ -1,0 +1,53 @@
+<view class="v13-page exercise-page">
+  <view class="top-bar">
+    <button class="top-icon" bindtap="onTap" data-action="back">arrow_back</button>
+    <text class="page-title">AI 老师讲给孩子听</text>
+    <button class="top-icon" bindtap="onRefreshExercise">more_vert</button>
+  </view>
+
+  <text class="subtitle">已为你生成 <text class="subtitle-number">1</text> 道练试题</text>
+
+  <view class="exercise-card">
+    <view class="spark spark-one">auto_awesome</view>
+    <view class="spark spark-two">auto_awesome</view>
+    <view class="exercise-heading">
+      <text class="heading-icon">lightbulb</text>
+      <text>出一道同类题</text>
+    </view>
+    <view class="heading-underline"></view>
+
+    <view class="exercise-prompt">{{exercise.stem}}</view>
+    <button
+      wx:for="{{exercise.options}}"
+      wx:key="*this"
+      class="option-button {{selectedOption === item ? 'selected' : ''}}"
+      data-option="{{item}}"
+      bindtap="onSelectOption"
+    >
+      <text class="option-label">{{index === 0 ? 'A' : index === 1 ? 'B' : index === 2 ? 'C' : 'D'}}.</text>
+      <text class="option-text">{{item}}</text>
+    </button>
+
+    <button class="submit-button" disabled="{{!submitEnabled}}" bindtap="onSubmitAnswer">提交答案</button>
+  </view>
+
+  <button class="history-row" bindtap="onTap" data-action="history">
+    <text>本题追问记录 (3)</text>
+    <text class="row-icon">chevron_right</text>
+  </button>
+
+  <view class="bottom-nav">
+    <button>
+      <text class="nav-icon">share</text>
+      <text>分享报告</text>
+    </button>
+    <button class="active">
+      <text class="nav-icon">psychology</text>
+      <text>AI 提分</text>
+    </button>
+    <button>
+      <text class="nav-icon">picture_as_pdf</text>
+      <text>导出 PDF</text>
+    </button>
+  </view>
+</view>

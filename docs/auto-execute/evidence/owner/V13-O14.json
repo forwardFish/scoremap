@@ -1,0 +1,231 @@
+{
+  "scenarioId": "V13-O14",
+  "status": "PASS",
+  "command": "npm run e2e:owner -- ai-tutor-v13",
+  "requirementIds": [
+    "V13-R01",
+    "V13-R09",
+    "V13-R10",
+    "V13-R14"
+  ],
+  "clickPath": [
+    "/pages/reports/index",
+    "open-report-card",
+    "/pages/full-report/index",
+    "open-wrong-question-card",
+    "/pages/wrong-question/index",
+    "open-ai-tutor"
+  ],
+  "routeEvidence": {
+    "reportRoute": "/pages/full-report/index",
+    "wrongQuestionRoute": "/pages/wrong-question/index",
+    "aiTutorRoute": "/pages/ai-tutor/index",
+    "historyRoute": "/pages/ai-tutor/index"
+  },
+  "apiEvidence": [
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-full/full-report",
+      "payloadSummary": {
+        "source": "full-report-v13-page-load"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_report_ready",
+        "decision": {
+          "level": "full",
+          "reportTitle": "初一数学月考提分报告",
+          "orderId": "order-t31-v13-full",
+          "generatedStatus": "full_report_ready",
+          "summary": "整体基础较好，计算粗心和几何证明步骤不完整是本次失分的主要原因。",
+          "modules": [
+            {
+              "id": "knowledge-diagnosis",
+              "title": "主要丢分点",
+              "content": "计算失误、几何证明步骤缺失、应用题等量关系不清。"
+            },
+            {
+              "id": "loss-point-breakdown",
+              "title": "优先补弱顺序",
+              "content": "先补几何证明表达，再巩固方程应用题和计算检查。"
+            },
+            {
+              "id": "seven-day-plan",
+              "title": "7 天建议",
+              "content": "每天 20 分钟错题复盘，隔天完成同类题迁移练习。"
+            },
+            {
+              "id": "parent-guidance",
+              "title": "家长陪伴建议",
+              "content": "关注孩子是否能讲清思路，不用分数承诺替代过程反馈。"
+            }
+          ],
+          "tabs": [
+            "overview",
+            "loss points",
+            "7-day plan",
+            "parent guidance"
+          ],
+          "reportQuota": {
+            "used": 2,
+            "total": 10,
+            "remaining": 8,
+            "text": "本报告 AI 错题追问剩余 8/10 次"
+          },
+          "wrongQuestionCards": [
+            {
+              "questionId": "order-t31-v13-full-q1",
+              "index": 1,
+              "title": "错题 1 二元一次方程应用题",
+              "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+              "knowledgePoint": "方程应用题",
+              "severity": "high",
+              "masteryStatus": "未掌握",
+              "remainingQuestionQuota": 3,
+              "aiEntryText": "让 AI 老师讲给孩子听"
+            },
+            {
+              "questionId": "order-t31-v13-full-q2",
+              "index": 2,
+              "title": "错题 2 几何证明题",
+              "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+              "knowledgePoint": "几何证明",
+              "severity": "medium",
+              "masteryStatus": "中等",
+              "remainingQuestionQuota": 2,
+              "aiEntryText": "让 AI 老师讲给孩子听"
+            }
+          ],
+          "complianceNotice": "内容仅供学习参考，请结合课堂学习与老师建议使用。"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-full/questions",
+      "payloadSummary": {
+        "source": "full-report-v13-wrong-question-cards"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-full",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t31-v13-full-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t31-v13-full-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-full/questions",
+      "payloadSummary": {
+        "source": "wrong-question-detail-page-load"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-full",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-t31-v13-full-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-t31-v13-full-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    }
+  ],
+  "dbEvidence": {
+    "question": {
+      "id": "order-t31-v13-full-q1",
+      "orderId": "order-t31-v13-full",
+      "ownerId": "local-user-scoremap-t06",
+      "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+      "knowledgePoint": "方程应用题",
+      "severity": "high",
+      "masteryStatus": "未掌握",
+      "remainingQuota": 3
+    },
+    "interactionHistory": []
+  },
+  "visualEvidence": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/full-report/index",
+      "reference": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/reference.png",
+      "actual": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/wrong-question/index",
+      "reference": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/wrong-question-detail/reference.png",
+      "actual": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/wrong-question-detail/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/wrong-question-detail/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/wrong-question-detail/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/wrong-question-detail/summary.json"
+    }
+  ],
+  "visibleUiState": {
+    "wrongQuestionCardCount": 2,
+    "aiTutorCtaEnabled": true,
+    "historyRowVisible": true
+  },
+  "localOnly": {
+    "LOCAL_ONLY": "true",
+    "adapterMode": "local-mock",
+    "remoteCalls": []
+  }
+}

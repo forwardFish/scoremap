@@ -1,0 +1,161 @@
+{
+  "status": "PASS",
+  "command": "npm test -- my-reports-ai-tutor",
+  "requirementIds": [
+    "V13-R02"
+  ],
+  "ownerScenarioIds": [
+    "V13-O21",
+    "V13-O22"
+  ],
+  "acceptance": {
+    "basicDoesNotExposeFormalTutor": "PASS",
+    "freeDoesNotExposeFormalTutor": "PASS",
+    "lockedHistoryDoesNotNavigateToAiTutor": "PASS"
+  },
+  "renderedCards": {
+    "basicCard": {
+      "orderId": "order-t29-basic-only",
+      "title": "五年级数学基础初判报告",
+      "grade": "五年级",
+      "subject": "数学",
+      "examType": "单元测验",
+      "createdAt": "2026-05-24T08:00:00Z",
+      "status": "basic_done",
+      "statusText": "1 元初判已解锁",
+      "paymentStatus": "paid",
+      "accessLevel": "basic",
+      "targetRoute": "/pages/basic-result/index",
+      "actionText": "查看初判结果",
+      "savedReport": true,
+      "aiTutor": {
+        "formalEntitlement": false,
+        "statusText": "基础报告未解锁正式 AI 追问",
+        "remainingText": "解锁完整报告后可用",
+        "reportQuota": null,
+        "questionQuota": null,
+        "historyCount": 0,
+        "historyEntry": null
+      },
+      "resumeTargets": [
+        {
+          "id": "resume-report-card",
+          "targetRoute": "/pages/basic-result/index",
+          "query": {
+            "orderId": "order-t29-basic-only"
+          },
+          "enabled": true
+        },
+        {
+          "id": "resume-ai-tutor-history",
+          "targetRoute": "/pages/basic-result/index",
+          "enabled": false,
+          "disabledReason": "FULL_REPORT_ENTITLEMENT_REQUIRED"
+        }
+      ]
+    },
+    "freeCard": {
+      "orderId": "order-t29-free-preview",
+      "title": "Free preview only",
+      "grade": "Grade 5",
+      "subject": "Math",
+      "examType": "Unit test",
+      "createdAt": "2026-05-24T09:00:00Z",
+      "status": "preview_done",
+      "statusText": "初判预览已生成",
+      "paymentStatus": "unpaid",
+      "accessLevel": "preview",
+      "targetRoute": "/pages/preview/index",
+      "actionText": "查看初判预览",
+      "savedReport": true,
+      "aiTutor": {
+        "formalEntitlement": false,
+        "statusText": "未解锁 AI 追问",
+        "remainingText": "解锁完整报告后可用",
+        "reportQuota": null,
+        "questionQuota": null,
+        "historyCount": 0,
+        "historyEntry": null
+      },
+      "resumeTargets": [
+        {
+          "id": "resume-report-card",
+          "targetRoute": "/pages/preview/index",
+          "query": {
+            "orderId": "order-t29-free-preview"
+          },
+          "enabled": true
+        },
+        {
+          "id": "resume-ai-tutor-history",
+          "targetRoute": "/pages/preview/index",
+          "enabled": false,
+          "disabledReason": "FULL_REPORT_ENTITLEMENT_REQUIRED"
+        }
+      ]
+    }
+  },
+  "navigationEvidence": {
+    "basicHistory": {
+      "status": "NAVIGATE",
+      "orderId": "order-t29-basic-only",
+      "targetRoute": "/pages/basic-result/index",
+      "query": {
+        "orderId": "order-t29-basic-only"
+      },
+      "aiTutor": {
+        "formalEntitlement": false,
+        "statusText": "基础报告未解锁正式 AI 追问",
+        "remainingText": "解锁完整报告后可用",
+        "reportQuota": null,
+        "questionQuota": null,
+        "historyCount": 0,
+        "historyEntry": null
+      },
+      "disabledReason": null
+    },
+    "freeHistory": {
+      "status": "NAVIGATE",
+      "orderId": "order-t29-free-preview",
+      "targetRoute": "/pages/preview/index",
+      "query": {
+        "orderId": "order-t29-free-preview"
+      },
+      "aiTutor": {
+        "formalEntitlement": false,
+        "statusText": "未解锁 AI 追问",
+        "remainingText": "解锁完整报告后可用",
+        "reportQuota": null,
+        "questionQuota": null,
+        "historyCount": 0,
+        "historyEntry": null
+      },
+      "disabledReason": null
+    }
+  },
+  "dbReadback": {
+    "basicOrder": {
+      "id": "order-t29-basic-only",
+      "ownerId": "local-user-scoremap-t06",
+      "title": "五年级数学基础初判报告",
+      "grade": "五年级",
+      "subject": "数学",
+      "examType": "单元测验",
+      "status": "basic_done",
+      "accessLevel": "basic",
+      "savedReport": true,
+      "createdAt": "2026-05-24T08:00:00Z",
+      "source": "T29-basic-entitlement-fixture"
+    },
+    "freeOrder": {
+      "id": "order-t29-free-preview",
+      "ownerId": "local-user-scoremap-t06",
+      "title": "Free preview only",
+      "status": "preview_done",
+      "accessLevel": "preview",
+      "savedReport": true,
+      "createdAt": "2026-05-24T09:00:00Z"
+    },
+    "interactionsForBasic": []
+  }
+}

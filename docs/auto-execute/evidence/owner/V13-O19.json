@@ -1,0 +1,168 @@
+{
+  "scenarioId": "V13-O19",
+  "status": "PASS",
+  "command": "npm run e2e:owner -- ai-tutor-v13",
+  "requirementIds": [
+    "V13-R05",
+    "V13-R14"
+  ],
+  "clickPath": [
+    "/pages/ai-tutor/index",
+    "mark-understood",
+    "/pages/full-report/index"
+  ],
+  "routeEvidence": {
+    "route": "/pages/ai-tutor/index",
+    "targetRoute": "/pages/full-report/index"
+  },
+  "apiEvidence": [
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-t31-v13-understood/questions/order-t31-v13-understood-q1/interactions",
+      "payloadSummary": {
+        "actionType": "mark_understood",
+        "source": "T27-ai-tutor-ui",
+        "forceProviderFailure": false,
+        "forceQuotaExceeded": false
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "ok",
+        "interaction": {
+          "id": "interaction-order-t31-v13-understood-q1-mark_understood-3",
+          "orderId": "order-t31-v13-understood",
+          "questionId": "order-t31-v13-understood-q1",
+          "ownerId": "local-user-scoremap-t06",
+          "actionType": "mark_understood",
+          "promptId": "LLM-TUTOR-05",
+          "status": "success",
+          "summary": "学生标记已经理解。",
+          "response": "已记录理解状态，后续可以在报告里查看这道题的互动记录。",
+          "exercise": null,
+          "traceId": "trace-interaction-order-t31-v13-understood-q1-mark_understood-3",
+          "createdAt": "2026-05-25T01:00:02.000Z"
+        },
+        "quota": {
+          "questionRemaining": 2,
+          "questionTotal": 3
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-t31-v13-understood/questions/order-t31-v13-understood-q1/interactions",
+      "payloadSummary": {},
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-t31-v13-understood",
+        "questionId": "order-t31-v13-understood-q1",
+        "items": [
+          {
+            "id": "order-t31-v13-understood-q1-history-2",
+            "orderId": "order-t31-v13-understood",
+            "questionId": "order-t31-v13-understood-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "why_method",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "解释为什么用速度差。",
+            "response": "两人同时出发、时间相同，比较多走的路程就看每小时多走多少。",
+            "traceId": "trace-order-t31-v13-understood-q1-history-2",
+            "createdAt": "2026-05-25T08:00:02.000Z"
+          },
+          {
+            "id": "order-t31-v13-understood-q1-history-1",
+            "orderId": "order-t31-v13-understood",
+            "questionId": "order-t31-v13-understood-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "explain_step",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "先看速度差，再乘以时间。",
+            "response": "这一步是在求甲每小时比乙多走多少，再用速度差乘以 2 小时。",
+            "traceId": "trace-order-t31-v13-understood-q1-history-1",
+            "createdAt": "2026-05-25T08:00:01.000Z"
+          },
+          {
+            "id": "interaction-order-t31-v13-understood-q1-mark_understood-3",
+            "orderId": "order-t31-v13-understood",
+            "questionId": "order-t31-v13-understood-q1",
+            "ownerId": "local-user-scoremap-t06",
+            "actionType": "mark_understood",
+            "promptId": "LLM-TUTOR-05",
+            "status": "success",
+            "summary": "学生标记已经理解。",
+            "response": "已记录理解状态，后续可以在报告里查看这道题的互动记录。",
+            "exercise": null,
+            "traceId": "trace-interaction-order-t31-v13-understood-q1-mark_understood-3",
+            "createdAt": "2026-05-25T01:00:02.000Z"
+          }
+        ]
+      }
+    }
+  ],
+  "dbEvidence": {
+    "interaction": {
+      "id": "interaction-order-t31-v13-understood-q1-mark_understood-3",
+      "orderId": "order-t31-v13-understood",
+      "questionId": "order-t31-v13-understood-q1",
+      "ownerId": "local-user-scoremap-t06",
+      "actionType": "mark_understood",
+      "promptId": "LLM-TUTOR-05",
+      "status": "success",
+      "summary": "学生标记已经理解。",
+      "response": "已记录理解状态，后续可以在报告里查看这道题的互动记录。",
+      "exercise": null,
+      "traceId": "trace-interaction-order-t31-v13-understood-q1-mark_understood-3",
+      "createdAt": "2026-05-25T01:00:02.000Z"
+    },
+    "trace": {
+      "id": "trace-interaction-order-t31-v13-understood-q1-mark_understood-3",
+      "traceId": "trace-interaction-order-t31-v13-understood-q1-mark_understood-3",
+      "promptId": "LLM-TUTOR-05",
+      "adapter": "local-miniapp-mock",
+      "status": "success",
+      "localOnly": true,
+      "requestSummary": {
+        "orderId": "order-t31-v13-understood",
+        "questionId": "order-t31-v13-understood-q1",
+        "actionType": "mark_understood"
+      },
+      "responseSummary": {
+        "summary": "学生标记已经理解。"
+      }
+    }
+  },
+  "visualEvidence": [
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/ai-tutor/index",
+      "reference": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/reference.png",
+      "actual": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/ai-tutor/summary.json"
+    },
+    {
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "route": "/pages/full-report/index",
+      "reference": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/reference.png",
+      "actual": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/actual.svg",
+      "diff": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/diff.svg",
+      "metrics": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/metrics.json",
+      "summary": "docs/auto-execute/evidence/visual-harness/ai-tutor-v13/full-report/summary.json"
+    }
+  ],
+  "visibleUiState": {
+    "summaryRecorded": true
+  },
+  "localOnly": {
+    "LOCAL_ONLY": "true",
+    "adapterMode": "local-mock",
+    "remoteCalls": []
+  },
+  "llmTraceIds": [
+    "trace-interaction-order-t31-v13-understood-q1-mark_understood-3"
+  ]
+}

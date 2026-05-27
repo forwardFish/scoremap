@@ -1,0 +1,3164 @@
+{
+  "status": "PASS",
+  "command": "npm --prefix server test -- ai-tutor quota auth failures",
+  "requirementIds": [
+    "V13-R02",
+    "V13-R03",
+    "V13-R04",
+    "V13-R06",
+    "V13-R07"
+  ],
+  "branches": {
+    "unauthenticated": {
+      "responseStatus": 401,
+      "response": {
+        "status": "error",
+        "code": "UNAUTHORIZED"
+      }
+    },
+    "unauthorizedCrossOwner": {
+      "responseStatus": 403,
+      "response": {
+        "status": "error",
+        "code": "ORDER_FORBIDDEN"
+      }
+    },
+    "notFound": {
+      "responseStatus": 404,
+      "response": {
+        "status": "error",
+        "code": "NOT_FOUND",
+        "message": "Diagnosis order not found."
+      }
+    },
+    "unpaidFullEntitlement": {
+      "responseStatus": 403,
+      "response": {
+        "status": "error",
+        "code": "FULL_ENTITLEMENT_REQUIRED"
+      }
+    },
+    "fullReportQuestionsNotReady": {
+      "responseStatus": 409,
+      "response": {
+        "status": "error",
+        "code": "FULL_REPORT_QUESTIONS_NOT_READY"
+      }
+    },
+    "validationInvalidAction": {
+      "responseStatus": 400,
+      "response": {
+        "status": "error",
+        "code": "VALIDATION_ERROR",
+        "message": "actionType must be one of the fixed tutor actions."
+      }
+    },
+    "providerTimeout": {
+      "responseStatus": 504,
+      "response": {
+        "status": "error",
+        "code": "LOCAL_AI_TIMEOUT",
+        "interactionId": "interaction-t23-timeout"
+      }
+    },
+    "providerFailure": {
+      "responseStatus": 502,
+      "response": {
+        "status": "error",
+        "code": "LOCAL_AI_PROVIDER_FAILURE",
+        "interactionId": "interaction-t23-provider-failure"
+      }
+    },
+    "outOfScopeRedirect": {
+      "responseStatus": 200,
+      "response": {
+        "status": "redirected",
+        "code": "OUT_OF_SCOPE_REDIRECT",
+        "interactionId": "interaction-t23-redirect",
+        "response": {
+          "mode": "out-of-scope-redirect",
+          "action": "explain_step",
+          "summary": "AI 会围绕当前错题讲解，不会跳到其他内容。请回到这道题的条件、步骤或同类练习。"
+        },
+        "quota": {
+          "report": {
+            "total": 10,
+            "used": 0,
+            "remaining": 10
+          },
+          "question": {
+            "total": 3,
+            "used": 0,
+            "remaining": 3
+          }
+        }
+      }
+    },
+    "missingExercise": {
+      "responseStatus": 404,
+      "response": {
+        "status": "error",
+        "code": "NOT_FOUND",
+        "message": "Exercise interaction not found."
+      }
+    },
+    "invalidAnswer": {
+      "responseStatus": 400,
+      "response": {
+        "status": "error",
+        "code": "VALIDATION_ERROR",
+        "message": "submittedAnswer must match one of the exercise options."
+      }
+    },
+    "duplicateAnswer": {
+      "responseStatus": 409,
+      "response": {
+        "status": "error",
+        "code": "EXERCISE_ALREADY_ANSWERED"
+      }
+    },
+    "reportQuotaExceeded": {
+      "responseStatus": 429,
+      "response": {
+        "status": "error",
+        "code": "QUESTION_INTERACTION_QUOTA_EXCEEDED",
+        "message": "本次报告的 AI 错题追问次数已用完。你仍可以查看完整报告和 7 天建议。"
+      }
+    },
+    "questionQuotaExceeded": {
+      "responseStatus": 429,
+      "response": {
+        "status": "error",
+        "code": "QUESTION_INTERACTION_QUOTA_EXCEEDED",
+        "message": "这道题的 AI 错题追问次数已用完。"
+      }
+    }
+  },
+  "dbReadback": {
+    "orderAfterFailures": {
+      "id": "order-c1b591c80785",
+      "ownerId": "local-user-scoremap-t03",
+      "source": "T23-branches",
+      "grade": "grade-5",
+      "subject": "math",
+      "examType": "unit-test",
+      "materialType": "answer-sheet",
+      "status": "full_report_ready",
+      "accessLevel": "full",
+      "orderToken": "local-order-token-order-c1b591c80785",
+      "createdAt": "2026-05-27T11:31:01.784Z",
+      "updatedAt": "2026-05-27T11:31:01.917Z",
+      "uploadedCount": 1,
+      "previewTaskId": "task-eb726be6ea28",
+      "previewDecisionId": "decision-order-c1b591c80785-preview",
+      "questionInteractionQuotaTotal": 10,
+      "questionInteractionQuotaUsed": 2,
+      "questionInteractionQuotaRemaining": 8,
+      "fullTaskId": "task-full-t23-branches",
+      "fullDecisionId": "decision-order-c1b591c80785-full"
+    },
+    "questionAfterFailures": {
+      "id": "question-order-c1b591c80785-1",
+      "orderId": "order-c1b591c80785",
+      "ownerId": "local-user-scoremap-t03",
+      "index": 1,
+      "title": "Missed condition in a multi-step calculation",
+      "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
+      "studentAnswer": "24",
+      "correctAnswer": "27",
+      "knowledgePoint": "Fraction multiplication",
+      "diagnosis": "The answer used an incomplete fraction relationship and skipped the condition check.",
+      "explanationSummary": "Turn three quarters into 36 x 3 / 4, then verify the result is reasonable.",
+      "masteryStatus": "needs_practice",
+      "questionInteractionQuotaTotal": 3,
+      "questionInteractionQuotaUsed": 2,
+      "questionInteractionQuotaRemaining": 1,
+      "promptId": "LLM-QUESTION-04",
+      "traceId": "trace-llm-question-04-0003",
+      "source": "llm-extraction",
+      "createdAt": "2026-05-27T11:31:01.826Z",
+      "updatedAt": "2026-05-27T11:31:01.919Z"
+    },
+    "timeoutInteraction": {
+      "id": "interaction-t23-timeout",
+      "orderId": "order-c1b591c80785",
+      "questionId": "question-order-c1b591c80785-1",
+      "ownerId": "local-user-scoremap-t03",
+      "actionType": "explain_differently",
+      "promptId": "LLM-TUTOR-05",
+      "traceId": "trace-llm-tutor-05-0004",
+      "response": null,
+      "exercise": null,
+      "submittedAnswer": null,
+      "correctness": null,
+      "summary": null,
+      "status": "failed",
+      "errorCode": "LOCAL_AI_TIMEOUT",
+      "createdAt": "2026-05-27T11:31:01.895Z",
+      "updatedAt": "2026-05-27T11:31:01.895Z"
+    },
+    "providerFailureInteraction": {
+      "id": "interaction-t23-provider-failure",
+      "orderId": "order-c1b591c80785",
+      "questionId": "question-order-c1b591c80785-1",
+      "ownerId": "local-user-scoremap-t03",
+      "actionType": "simpler_example",
+      "promptId": "LLM-TUTOR-05",
+      "traceId": "trace-llm-tutor-05-0005",
+      "response": null,
+      "exercise": null,
+      "submittedAnswer": null,
+      "correctness": null,
+      "summary": null,
+      "status": "failed",
+      "errorCode": "LOCAL_AI_PROVIDER_FAILURE",
+      "createdAt": "2026-05-27T11:31:01.899Z",
+      "updatedAt": "2026-05-27T11:31:01.899Z"
+    },
+    "redirectedInteraction": {
+      "id": "interaction-t23-redirect",
+      "orderId": "order-c1b591c80785",
+      "questionId": "question-order-c1b591c80785-1",
+      "ownerId": "local-user-scoremap-t03",
+      "actionType": "explain_step",
+      "promptId": "LLM-TUTOR-05",
+      "traceId": null,
+      "response": {
+        "mode": "out-of-scope-redirect",
+        "action": "explain_step",
+        "summary": "AI 会围绕当前错题讲解，不会跳到其他内容。请回到这道题的条件、步骤或同类练习。"
+      },
+      "exercise": null,
+      "submittedAnswer": null,
+      "correctness": null,
+      "summary": "Out-of-scope request redirected to the current wrong question.",
+      "status": "redirected",
+      "errorCode": "OUT_OF_SCOPE_REDIRECT",
+      "createdAt": "2026-05-27T11:31:01.901Z",
+      "updatedAt": "2026-05-27T11:31:01.901Z"
+    },
+    "quotaOrder": {
+      "id": "order-068082ef0881",
+      "ownerId": "local-user-scoremap-t03",
+      "source": "T23-quota",
+      "grade": "grade-5",
+      "subject": "math",
+      "examType": "unit-test",
+      "materialType": "answer-sheet",
+      "status": "full_report_ready",
+      "accessLevel": "full",
+      "orderToken": "local-order-token-order-068082ef0881",
+      "createdAt": "2026-05-27T11:31:01.932Z",
+      "updatedAt": "2026-05-27T11:31:02.187Z",
+      "uploadedCount": 1,
+      "previewTaskId": "task-963504856d86",
+      "previewDecisionId": "decision-order-068082ef0881-preview",
+      "questionInteractionQuotaTotal": 10,
+      "questionInteractionQuotaUsed": 10,
+      "questionInteractionQuotaRemaining": 0,
+      "fullTaskId": "task-full-t23-quota",
+      "fullDecisionId": "decision-order-068082ef0881-full"
+    },
+    "traces": [
+      {
+        "id": "trace-llm-basic-02-0001",
+        "traceId": "trace-llm-basic-02-0001",
+        "promptId": "LLM-BASIC-02",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "requestSummary": {
+          "type": "object",
+          "keys": [
+            "input",
+            "promptId",
+            "simulate"
+          ],
+          "fields": {
+            "promptId": {
+              "type": "string",
+              "length": 12,
+              "sha256": "dd5050c1365a9831",
+              "redacted": false
+            },
+            "input": {
+              "type": "object",
+              "keys": [
+                "grade",
+                "orderId",
+                "previewModuleCount",
+                "subject",
+                "weaknesses"
+              ],
+              "fields": {
+                "orderId": {
+                  "type": "string",
+                  "length": 18,
+                  "sha256": "0de006dc81893da7",
+                  "redacted": false
+                },
+                "grade": {
+                  "type": "string",
+                  "length": 7,
+                  "sha256": "ffed61e135e4abbb",
+                  "redacted": false
+                },
+                "subject": {
+                  "type": "string",
+                  "length": 4,
+                  "sha256": "58a6d6801ae771e6",
+                  "redacted": false
+                },
+                "previewModuleCount": {
+                  "type": "number",
+                  "value": 3
+                },
+                "weaknesses": {
+                  "type": "array",
+                  "length": 3,
+                  "items": [
+                    {
+                      "type": "string",
+                      "length": 14,
+                      "sha256": "ed2d26255439b740",
+                      "redacted": false
+                    },
+                    {
+                      "type": "string",
+                      "length": 22,
+                      "sha256": "9824d821460ad90f",
+                      "redacted": false
+                    },
+                    {
+                      "type": "string",
+                      "length": 18,
+                      "sha256": "a6b0938d6d59e5b7",
+                      "redacted": false
+                    }
+                  ]
+                }
+              }
+            },
+            "simulate": {
+              "type": "undefined"
+            }
+          }
+        },
+        "responseSummary": {
+          "type": "object",
+          "keys": [
+            "basicDecision"
+          ],
+          "fields": {
+            "basicDecision": {
+              "type": "object",
+              "keys": [
+                "advice",
+                "lossPoints",
+                "quality",
+                "reportTitle",
+                "scoreLevel",
+                "summary",
+                "upgradeCta",
+                "weaknesses"
+              ],
+              "fields": {
+                "reportTitle": {
+                  "type": "string",
+                  "length": 31,
+                  "sha256": "93097b55d4860962",
+                  "redacted": false
+                },
+                "summary": {
+                  "type": "string",
+                  "length": 38,
+                  "sha256": "3f805e908cfc61db",
+                  "redacted": false
+                },
+                "scoreLevel": {
+                  "type": "string",
+                  "length": 25,
+                  "sha256": "94d5f4cca634f79c",
+                  "redacted": false
+                },
+                "quality": {
+                  "type": "object",
+                  "keys": [
+                    "confidence",
+                    "recognized",
+                    "uploadQuality"
+                  ],
+                  "fields": {
+                    "recognized": {
+                      "type": "boolean",
+                      "value": true
+                    },
+                    "uploadQuality": {
+                      "type": "string",
+                      "length": 6,
+                      "sha256": "317b32c143692b99",
+                      "redacted": false
+                    },
+                    "confidence": {
+                      "type": "number",
+                      "value": 0.86
+                    }
+                  }
+                },
+                "lossPoints": {
+                  "type": "array",
+                  "length": 2,
+                  "items": [
+                    {
+                      "type": "string",
+                      "length": 58,
+                      "sha256": "39af501e979e108f",
+                      "redacted": false
+                    },
+                    {
+                      "type": "string",
+                      "length": 59,
+                      "sha256": "b70cd42da72a2455",
+                      "redacted": false
+                    }
+                  ]
+                },
+                "weaknesses": {
+                  "type": "array",
+                  "length": 3,
+                  "items": [
+                    {
+                      "type": "string",
+                      "length": 14,
+                      "sha256": "ed2d26255439b740",
+                      "redacted": false
+                    },
+                    {
+                      "type": "string",
+                      "length": 22,
+                      "sha256": "9824d821460ad90f",
+                      "redacted": false
+                    },
+                    {
+                      "type": "string",
+                      "length": 18,
+                      "sha256": "a6b0938d6d59e5b7",
+                      "redacted": false
+                    }
+                  ]
+                },
+                "advice": {
+                  "type": "array",
+                  "length": 2,
+                  "items": [
+                    {
+                      "type": "string",
+                      "length": 57,
+                      "sha256": "5f810c31b2049fde",
+                      "redacted": false
+                    },
+                    {
+                      "type": "string",
+                      "length": 55,
+                      "sha256": "8f5dee6d94dc172f",
+                      "redacted": false
+                    }
+                  ]
+                },
+                "upgradeCta": {
+                  "type": "string",
+                  "length": 44,
+                  "sha256": "5d21e1b67a275c53",
+                  "redacted": false
+                }
+              }
+            }
+          }
+        },
+        "status": "SUCCESS",
+        "errorCode": null,
+        "latencyMs": 0,
+        "costEstimateCents": 0,
+        "model": null,
+        "providerId": null,
+        "localOnly": true,
+        "createdAt": "1970-01-01T00:00:00.000Z",
+        "updatedAt": "2026-05-27T11:31:01.819Z"
+      },
+      {
+        "id": "trace-llm-full-03-0002",
+        "traceId": "trace-llm-full-03-0002",
+        "promptId": "LLM-FULL-03",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "requestSummary": {
+          "type": "object",
+          "keys": [
+            "input",
+            "promptId",
+            "simulate"
+          ],
+          "fields": {
+            "promptId": {
+              "type": "string",
+              "length": 11,
+              "sha256": "38a823d261b05c34",
+              "redacted": false
+            },
+            "input": {
+              "type": "object",
+              "keys": [
+                "basicSummary",
+                "grade",
+                "orderId",
+                "subject"
+              ],
+              "fields": {
+                "orderId": {
+                  "type": "string",
+                  "length": 18,
+                  "sha256": "0de006dc81893da7",
+                  "redacted": false
+                },
+                "grade": {
+                  "type": "string",
+                  "length": 7,
+                  "sha256": "ffed61e135e4abbb",
+                  "redacted": false
+                },
+                "subject": {
+                  "type": "string",
+                  "length": 4,
+                  "sha256": "58a6d6801ae771e6",
+                  "redacted": false
+                },
+                "basicSummary": {
+                  "type": "string",
+                  "length": 38,
+                  "sha256": "3f805e908cfc61db",
+                  "redacted": false
+                }
+              }
+            },
+            "simulate": {
+              "type": "undefined"
+            }
+          }
+        },
+        "responseSummary": {
+          "type": "object",
+          "keys": [
+            "fullReport"
+          ],
+          "fields": {
+            "fullReport": {
+              "type": "object",
+              "keys": [
+                "basicSummary",
+                "complianceNotice",
+                "modules",
+                "orderId",
+                "reportTitle",
+                "summary"
+              ],
+              "fields": {
+                "reportTitle": {
+                  "type": "string",
+                  "length": 33,
+                  "sha256": "a177ebf6ebe11b0b",
+                  "redacted": false
+                },
+                "orderId": {
+                  "type": "string",
+                  "length": 18,
+                  "sha256": "0de006dc81893da7",
+                  "redacted": false
+                },
+                "summary": {
+                  "type": "string",
+                  "length": 35,
+                  "sha256": "7f0557a2278946da",
+                  "redacted": false
+                },
+                "modules": {
+                  "type": "array",
+                  "length": 4,
+                  "items": [
+                    {
+                      "type": "object",
+                      "keys": [
+                        "content",
+                        "id",
+                        "title"
+                      ],
+                      "fields": {
+                        "id": {
+                          "type": "string",
+                          "length": 19,
+                          "sha256": "6d31d0c1d68ac4ae",
+                          "redacted": false
+                        },
+                        "title": {
+                          "type": "string",
+                          "length": 19,
+                          "sha256": "1b4d7db5f0d97c1f",
+                          "redacted": false
+                        },
+                        "content": {
+                          "type": "string",
+                          "length": 75,
+                          "sha256": "3cc075a46f09e939",
+                          "redacted": false
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "keys": [
+                        "content",
+                        "id",
+                        "title"
+                      ],
+                      "fields": {
+                        "id": {
+                          "type": "string",
+                          "length": 21,
+                          "sha256": "5817d9be4f73b7f3",
+                          "redacted": false
+                        },
+                        "title": {
+                          "type": "string",
+                          "length": 31,
+                          "sha256": "d8cd88eac4b754e7",
+                          "redacted": false
+                        },
+                        "content": {
+                          "type": "string",
+                          "length": 75,
+                          "sha256": "7f4415afa3759a32",
+                          "redacted": false
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "keys": [
+                        "content",
+                        "id",
+                        "title"
+                      ],
+                      "fields": {
+                        "id": {
+                          "type": "string",
+                          "length": 14,
+                          "sha256": "e2a3d217ea3eb3a3",
+                          "redacted": false
+                        },
+                        "title": {
+                          "type": "string",
+                          "length": 28,
+                          "sha256": "0dd2299ac1c014d8",
+                          "redacted": false
+                        },
+                        "content": {
+                          "type": "string",
+                          "length": 76,
+                          "sha256": "0f23224c2612a2a5",
+                          "redacted": false
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "keys": [
+                        "content",
+                        "id",
+                        "title"
+                      ],
+                      "fields": {
+                        "id": {
+                          "type": "string",
+                          "length": 15,
+                          "sha256": "8d9a9c41ec4cf28b",
+                          "redacted": false
+                        },
+                        "title": {
+                          "type": "string",
+                          "length": 15,
+                          "sha256": "6a118dcabf75b34e",
+                          "redacted": false
+                        },
+                        "content": {
+                          "type": "string",
+                          "length": 77,
+                          "sha256": "6445cdf715ac1871",
+                          "redacted": false
+                        }
+                      }
+                    }
+                  ]
+                },
+                "basicSummary": {
+                  "type": "string",
+                  "length": 38,
+                  "sha256": "3f805e908cfc61db",
+                  "redacted": false
+                },
+                "complianceNotice": {
+                  "type": "string",
+                  "length": 52,
+                  "sha256": "b8ee012be6362429",
+                  "redacted": false
+                }
+              }
+            }
+          }
+        },
+        "status": "SUCCESS",
+        "errorCode": null,
+        "latencyMs": 0,
+        "costEstimateCents": 0,
+        "model": null,
+        "providerId": null,
+        "localOnly": true,
+        "createdAt": "1970-01-01T00:00:00.000Z",
+        "updatedAt": "2026-05-27T11:31:01.823Z"
+      },
+      {
+        "id": "trace-llm-question-04-0003",
+        "traceId": "trace-llm-question-04-0003",
+        "promptId": "LLM-QUESTION-04",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "requestSummary": {
+          "type": "object",
+          "keys": [
+            "input",
+            "promptId",
+            "simulate"
+          ],
+          "fields": {
+            "promptId": {
+              "type": "string",
+              "length": 15,
+              "sha256": "f13d7783c0557cf6",
+              "redacted": false
+            },
+            "input": {
+              "type": "object",
+              "keys": [
+                "forceNoQuestions",
+                "orderId",
+                "reportSummary"
+              ],
+              "fields": {
+                "orderId": {
+                  "type": "string",
+                  "length": 18,
+                  "sha256": "0de006dc81893da7",
+                  "redacted": false
+                },
+                "reportSummary": {
+                  "type": "string",
+                  "length": 35,
+                  "sha256": "7f0557a2278946da",
+                  "redacted": false
+                },
+                "forceNoQuestions": {
+                  "type": "boolean",
+                  "value": false
+                }
+              }
+            },
+            "simulate": {
+              "type": "undefined"
+            }
+          }
+        },
+        "responseSummary": {
+          "type": "object",
+          "keys": [
+            "questions"
+          ],
+          "fields": {
+            "questions": {
+              "type": "array",
+              "length": 2,
+              "items": [
+                {
+                  "type": "object",
+                  "keys": [
+                    "correctAnswer",
+                    "diagnosis",
+                    "explanationSummary",
+                    "knowledgePoint",
+                    "originalQuestion",
+                    "questionId",
+                    "quotaLimit",
+                    "studentAnswer",
+                    "title"
+                  ],
+                  "fields": {
+                    "questionId": {
+                      "type": "string",
+                      "length": 18,
+                      "sha256": "72438cd1210da9e0",
+                      "redacted": false
+                    },
+                    "title": {
+                      "type": "string",
+                      "length": 44,
+                      "sha256": "c7a5e4dde0db1c20",
+                      "redacted": false
+                    },
+                    "originalQuestion": {
+                      "type": "string",
+                      "length": 85,
+                      "sha256": "8301e508f61b1217",
+                      "redacted": false
+                    },
+                    "studentAnswer": {
+                      "type": "string",
+                      "length": 2,
+                      "sha256": "c2356069e9d1e79c",
+                      "redacted": false
+                    },
+                    "correctAnswer": {
+                      "type": "string",
+                      "length": 2,
+                      "sha256": "670671cd97404156",
+                      "redacted": false
+                    },
+                    "knowledgePoint": {
+                      "type": "string",
+                      "length": 23,
+                      "sha256": "feb13729593b24c3",
+                      "redacted": false
+                    },
+                    "diagnosis": {
+                      "type": "string",
+                      "length": 84,
+                      "sha256": "202f3ec2bdcc944d",
+                      "redacted": false
+                    },
+                    "explanationSummary": {
+                      "type": "string",
+                      "length": 74,
+                      "sha256": "33191ce4ee73693d",
+                      "redacted": false
+                    },
+                    "quotaLimit": {
+                      "type": "number",
+                      "value": 3
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "keys": [
+                    "correctAnswer",
+                    "diagnosis",
+                    "explanationSummary",
+                    "knowledgePoint",
+                    "originalQuestion",
+                    "questionId",
+                    "quotaLimit",
+                    "studentAnswer",
+                    "title"
+                  ],
+                  "fields": {
+                    "questionId": {
+                      "type": "string",
+                      "length": 18,
+                      "sha256": "06840561faa5339e",
+                      "redacted": false
+                    },
+                    "title": {
+                      "type": "string",
+                      "length": 43,
+                      "sha256": "d5097ae743fb762b",
+                      "redacted": false
+                    },
+                    "originalQuestion": {
+                      "type": "string",
+                      "length": 93,
+                      "sha256": "c3bb5723bd942106",
+                      "redacted": false
+                    },
+                    "studentAnswer": {
+                      "type": "string",
+                      "length": 6,
+                      "sha256": "3e6287e9b2ed2db4",
+                      "redacted": false
+                    },
+                    "correctAnswer": {
+                      "type": "string",
+                      "length": 5,
+                      "sha256": "a38980f307fad547",
+                      "redacted": false
+                    },
+                    "knowledgePoint": {
+                      "type": "string",
+                      "length": 15,
+                      "sha256": "e1deced5e27d058a",
+                      "redacted": false
+                    },
+                    "diagnosis": {
+                      "type": "string",
+                      "length": 75,
+                      "sha256": "49ca2825319c9130",
+                      "redacted": false
+                    },
+                    "explanationSummary": {
+                      "type": "string",
+                      "length": 75,
+                      "sha256": "719300478ee3019c",
+                      "redacted": false
+                    },
+                    "quotaLimit": {
+                      "type": "number",
+                      "value": 3
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "status": "SUCCESS",
+        "errorCode": null,
+        "latencyMs": 0,
+        "costEstimateCents": 0,
+        "model": null,
+        "providerId": null,
+        "localOnly": true,
+        "createdAt": "1970-01-01T00:00:00.000Z",
+        "updatedAt": "2026-05-27T11:31:01.824Z"
+      },
+      {
+        "id": "trace-llm-tutor-05-0004",
+        "traceId": "trace-llm-tutor-05-0004",
+        "promptId": "LLM-TUTOR-05",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "requestSummary": {
+          "type": "object",
+          "keys": [
+            "input",
+            "promptId",
+            "simulate"
+          ],
+          "fields": {
+            "promptId": {
+              "type": "string",
+              "length": 12,
+              "sha256": "8419c8ea1759a928",
+              "redacted": false
+            },
+            "input": {
+              "type": "object",
+              "keys": [
+                "action",
+                "knowledgePoint",
+                "orderId",
+                "questionId"
+              ],
+              "fields": {
+                "orderId": {
+                  "type": "string",
+                  "length": 18,
+                  "sha256": "0de006dc81893da7",
+                  "redacted": false
+                },
+                "questionId": {
+                  "type": "string",
+                  "length": 29,
+                  "sha256": "5fc72b1a5774af87",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 19,
+                  "sha256": "4fe49c25c564ae10",
+                  "redacted": false
+                },
+                "knowledgePoint": {
+                  "type": "string",
+                  "length": 23,
+                  "sha256": "feb13729593b24c3",
+                  "redacted": false
+                }
+              }
+            },
+            "simulate": {
+              "type": "string",
+              "length": 7,
+              "sha256": "f77d1bb58da886e3",
+              "redacted": false
+            }
+          }
+        },
+        "responseSummary": {
+          "type": "object",
+          "keys": [
+            "errorCode"
+          ],
+          "fields": {
+            "errorCode": {
+              "type": "string",
+              "length": 16,
+              "sha256": "f51029193514237d",
+              "redacted": false
+            }
+          }
+        },
+        "status": "TIMEOUT",
+        "errorCode": "LOCAL_AI_TIMEOUT",
+        "latencyMs": 0,
+        "costEstimateCents": 0,
+        "model": null,
+        "providerId": null,
+        "localOnly": true,
+        "createdAt": "1970-01-01T00:00:00.000Z",
+        "updatedAt": "2026-05-27T11:31:01.894Z"
+      },
+      {
+        "id": "trace-llm-tutor-05-0005",
+        "traceId": "trace-llm-tutor-05-0005",
+        "promptId": "LLM-TUTOR-05",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "requestSummary": {
+          "type": "object",
+          "keys": [
+            "input",
+            "promptId",
+            "simulate"
+          ],
+          "fields": {
+            "promptId": {
+              "type": "string",
+              "length": 12,
+              "sha256": "8419c8ea1759a928",
+              "redacted": false
+            },
+            "input": {
+              "type": "object",
+              "keys": [
+                "action",
+                "knowledgePoint",
+                "orderId",
+                "questionId"
+              ],
+              "fields": {
+                "orderId": {
+                  "type": "string",
+                  "length": 18,
+                  "sha256": "0de006dc81893da7",
+                  "redacted": false
+                },
+                "questionId": {
+                  "type": "string",
+                  "length": 29,
+                  "sha256": "5fc72b1a5774af87",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 15,
+                  "sha256": "c0853d7696326561",
+                  "redacted": false
+                },
+                "knowledgePoint": {
+                  "type": "string",
+                  "length": 23,
+                  "sha256": "feb13729593b24c3",
+                  "redacted": false
+                }
+              }
+            },
+            "simulate": {
+              "type": "string",
+              "length": 16,
+              "sha256": "00436e640c6be36c",
+              "redacted": false
+            }
+          }
+        },
+        "responseSummary": {
+          "type": "object",
+          "keys": [
+            "errorCode"
+          ],
+          "fields": {
+            "errorCode": {
+              "type": "string",
+              "length": 25,
+              "sha256": "18ae0ea05b202ca0",
+              "redacted": false
+            }
+          }
+        },
+        "status": "PROVIDER_FAILURE",
+        "errorCode": "LOCAL_AI_PROVIDER_FAILURE",
+        "latencyMs": 0,
+        "costEstimateCents": 0,
+        "model": null,
+        "providerId": null,
+        "localOnly": true,
+        "createdAt": "1970-01-01T00:00:00.000Z",
+        "updatedAt": "2026-05-27T11:31:01.898Z"
+      },
+      {
+        "id": "trace-llm-tutor-05-0006",
+        "traceId": "trace-llm-tutor-05-0006",
+        "promptId": "LLM-TUTOR-05",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "requestSummary": {
+          "type": "object",
+          "keys": [
+            "input",
+            "promptId",
+            "simulate"
+          ],
+          "fields": {
+            "promptId": {
+              "type": "string",
+              "length": 12,
+              "sha256": "8419c8ea1759a928",
+              "redacted": false
+            },
+            "input": {
+              "type": "object",
+              "keys": [
+                "action",
+                "knowledgePoint",
+                "orderId",
+                "questionId"
+              ],
+              "fields": {
+                "orderId": {
+                  "type": "string",
+                  "length": 18,
+                  "sha256": "0de006dc81893da7",
+                  "redacted": false
+                },
+                "questionId": {
+                  "type": "string",
+                  "length": 29,
+                  "sha256": "5fc72b1a5774af87",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 12,
+                  "sha256": "3102529abcac7a13",
+                  "redacted": false
+                },
+                "knowledgePoint": {
+                  "type": "string",
+                  "length": 23,
+                  "sha256": "feb13729593b24c3",
+                  "redacted": false
+                }
+              }
+            },
+            "simulate": {
+              "type": "undefined"
+            }
+          }
+        },
+        "responseSummary": {
+          "type": "object",
+          "keys": [
+            "tutorReply"
+          ],
+          "fields": {
+            "tutorReply": {
+              "type": "object",
+              "keys": [
+                "action",
+                "mode",
+                "summary"
+              ],
+              "fields": {
+                "mode": {
+                  "type": "string",
+                  "length": 15,
+                  "sha256": "3b1c0aa3817617d0",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 12,
+                  "sha256": "3102529abcac7a13",
+                  "redacted": false
+                },
+                "summary": {
+                  "type": "string",
+                  "length": 97,
+                  "sha256": "6f70f8171e01faf1",
+                  "redacted": false
+                }
+              }
+            }
+          }
+        },
+        "status": "SUCCESS",
+        "errorCode": null,
+        "latencyMs": 0,
+        "costEstimateCents": 0,
+        "model": null,
+        "providerId": null,
+        "localOnly": true,
+        "createdAt": "1970-01-01T00:00:00.000Z",
+        "updatedAt": "2026-05-27T11:31:01.904Z"
+      },
+      {
+        "id": "trace-llm-exercise-06-0007",
+        "traceId": "trace-llm-exercise-06-0007",
+        "promptId": "LLM-EXERCISE-06",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "requestSummary": {
+          "type": "object",
+          "keys": [
+            "input",
+            "promptId",
+            "simulate"
+          ],
+          "fields": {
+            "promptId": {
+              "type": "string",
+              "length": 15,
+              "sha256": "e886e53640bbdfa6",
+              "redacted": false
+            },
+            "input": {
+              "type": "object",
+              "keys": [
+                "action",
+                "knowledgePoint",
+                "orderId",
+                "questionId"
+              ],
+              "fields": {
+                "orderId": {
+                  "type": "string",
+                  "length": 18,
+                  "sha256": "0de006dc81893da7",
+                  "redacted": false
+                },
+                "questionId": {
+                  "type": "string",
+                  "length": 29,
+                  "sha256": "5fc72b1a5774af87",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 16,
+                  "sha256": "73aaef9e27d439e7",
+                  "redacted": false
+                },
+                "knowledgePoint": {
+                  "type": "string",
+                  "length": 23,
+                  "sha256": "feb13729593b24c3",
+                  "redacted": false
+                }
+              }
+            },
+            "simulate": {
+              "type": "undefined"
+            }
+          }
+        },
+        "responseSummary": {
+          "type": "object",
+          "keys": [
+            "exercise"
+          ],
+          "fields": {
+            "exercise": {
+              "type": "object",
+              "keys": [
+                "correctOption",
+                "options",
+                "stem"
+              ],
+              "fields": {
+                "stem": {
+                  "type": "string",
+                  "length": 56,
+                  "sha256": "255e8bbeb3ab064f",
+                  "redacted": false
+                },
+                "options": {
+                  "type": "array",
+                  "length": 4,
+                  "items": [
+                    {
+                      "type": "string",
+                      "length": 1,
+                      "sha256": "559aead08264d579",
+                      "redacted": false
+                    },
+                    {
+                      "type": "string",
+                      "length": 1,
+                      "sha256": "df7e70e5021544f4",
+                      "redacted": false
+                    },
+                    {
+                      "type": "string",
+                      "length": 1,
+                      "sha256": "6b23c0d5f35d1b11",
+                      "redacted": false
+                    },
+                    {
+                      "type": "string",
+                      "length": 1,
+                      "sha256": "3f39d5c348e5b79d",
+                      "redacted": false
+                    }
+                  ]
+                },
+                "correctOption": {
+                  "type": "string",
+                  "length": 1,
+                  "sha256": "df7e70e5021544f4",
+                  "redacted": false
+                }
+              }
+            }
+          }
+        },
+        "status": "SUCCESS",
+        "errorCode": null,
+        "latencyMs": 0,
+        "costEstimateCents": 0,
+        "model": null,
+        "providerId": null,
+        "localOnly": true,
+        "createdAt": "1970-01-01T00:00:00.000Z",
+        "updatedAt": "2026-05-27T11:31:01.914Z"
+      },
+      {
+        "id": "trace-llm-check-07-0008",
+        "traceId": "trace-llm-check-07-0008",
+        "promptId": "LLM-CHECK-07",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "requestSummary": {
+          "type": "object",
+          "keys": [
+            "input",
+            "promptId",
+            "simulate"
+          ],
+          "fields": {
+            "promptId": {
+              "type": "string",
+              "length": 12,
+              "sha256": "98b31921603dd415",
+              "redacted": false
+            },
+            "input": {
+              "type": "object",
+              "keys": [
+                "answer",
+                "interactionId",
+                "orderId",
+                "questionId"
+              ],
+              "fields": {
+                "orderId": {
+                  "type": "string",
+                  "length": 18,
+                  "sha256": "0de006dc81893da7",
+                  "redacted": false
+                },
+                "questionId": {
+                  "type": "string",
+                  "length": 29,
+                  "sha256": "5fc72b1a5774af87",
+                  "redacted": false
+                },
+                "interactionId": {
+                  "type": "string",
+                  "length": 31,
+                  "sha256": "f53c3e2540f04105",
+                  "redacted": false
+                },
+                "answer": {
+                  "type": "string",
+                  "length": 1,
+                  "sha256": "df7e70e5021544f4",
+                  "redacted": false
+                }
+              }
+            },
+            "simulate": {
+              "type": "undefined"
+            }
+          }
+        },
+        "responseSummary": {
+          "type": "object",
+          "keys": [
+            "feedback"
+          ],
+          "fields": {
+            "feedback": {
+              "type": "object",
+              "keys": [
+                "correct",
+                "summary"
+              ],
+              "fields": {
+                "correct": {
+                  "type": "boolean",
+                  "value": true
+                },
+                "summary": {
+                  "type": "string",
+                  "length": 35,
+                  "sha256": "813b6b7175d1bde5",
+                  "redacted": false
+                }
+              }
+            }
+          }
+        },
+        "status": "SUCCESS",
+        "errorCode": null,
+        "latencyMs": 0,
+        "costEstimateCents": 0,
+        "model": null,
+        "providerId": null,
+        "localOnly": true,
+        "createdAt": "1970-01-01T00:00:00.000Z",
+        "updatedAt": "2026-05-27T11:31:01.924Z"
+      },
+      {
+        "id": "trace-llm-basic-02-0009",
+        "traceId": "trace-llm-basic-02-0009",
+        "promptId": "LLM-BASIC-02",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "requestSummary": {
+          "type": "object",
+          "keys": [
+            "input",
+            "promptId",
+            "simulate"
+          ],
+          "fields": {
+            "promptId": {
+              "type": "string",
+              "length": 12,
+              "sha256": "dd5050c1365a9831",
+              "redacted": false
+            },
+            "input": {
+              "type": "object",
+              "keys": [
+                "grade",
+                "orderId",
+                "previewModuleCount",
+                "subject",
+                "weaknesses"
+              ],
+              "fields": {
+                "orderId": {
+                  "type": "string",
+                  "length": 18,
+                  "sha256": "105d3c5ead07ab94",
+                  "redacted": false
+                },
+                "grade": {
+                  "type": "string",
+                  "length": 7,
+                  "sha256": "ffed61e135e4abbb",
+                  "redacted": false
+                },
+                "subject": {
+                  "type": "string",
+                  "length": 4,
+                  "sha256": "58a6d6801ae771e6",
+                  "redacted": false
+                },
+                "previewModuleCount": {
+                  "type": "number",
+                  "value": 3
+                },
+                "weaknesses": {
+                  "type": "array",
+                  "length": 3,
+                  "items": [
+                    {
+                      "type": "string",
+                      "length": 14,
+                      "sha256": "ed2d26255439b740",
+                      "redacted": false
+                    },
+                    {
+                      "type": "string",
+                      "length": 22,
+                      "sha256": "9824d821460ad90f",
+                      "redacted": false
+                    },
+                    {
+                      "type": "string",
+                      "length": 18,
+                      "sha256": "a6b0938d6d59e5b7",
+                      "redacted": false
+                    }
+                  ]
+                }
+              }
+            },
+            "simulate": {
+              "type": "undefined"
+            }
+          }
+        },
+        "responseSummary": {
+          "type": "object",
+          "keys": [
+            "basicDecision"
+          ],
+          "fields": {
+            "basicDecision": {
+              "type": "object",
+              "keys": [
+                "advice",
+                "lossPoints",
+                "quality",
+                "reportTitle",
+                "scoreLevel",
+                "summary",
+                "upgradeCta",
+                "weaknesses"
+              ],
+              "fields": {
+                "reportTitle": {
+                  "type": "string",
+                  "length": 31,
+                  "sha256": "93097b55d4860962",
+                  "redacted": false
+                },
+                "summary": {
+                  "type": "string",
+                  "length": 38,
+                  "sha256": "3f805e908cfc61db",
+                  "redacted": false
+                },
+                "scoreLevel": {
+                  "type": "string",
+                  "length": 25,
+                  "sha256": "94d5f4cca634f79c",
+                  "redacted": false
+                },
+                "quality": {
+                  "type": "object",
+                  "keys": [
+                    "confidence",
+                    "recognized",
+                    "uploadQuality"
+                  ],
+                  "fields": {
+                    "recognized": {
+                      "type": "boolean",
+                      "value": true
+                    },
+                    "uploadQuality": {
+                      "type": "string",
+                      "length": 6,
+                      "sha256": "317b32c143692b99",
+                      "redacted": false
+                    },
+                    "confidence": {
+                      "type": "number",
+                      "value": 0.86
+                    }
+                  }
+                },
+                "lossPoints": {
+                  "type": "array",
+                  "length": 2,
+                  "items": [
+                    {
+                      "type": "string",
+                      "length": 58,
+                      "sha256": "39af501e979e108f",
+                      "redacted": false
+                    },
+                    {
+                      "type": "string",
+                      "length": 59,
+                      "sha256": "b70cd42da72a2455",
+                      "redacted": false
+                    }
+                  ]
+                },
+                "weaknesses": {
+                  "type": "array",
+                  "length": 3,
+                  "items": [
+                    {
+                      "type": "string",
+                      "length": 14,
+                      "sha256": "ed2d26255439b740",
+                      "redacted": false
+                    },
+                    {
+                      "type": "string",
+                      "length": 22,
+                      "sha256": "9824d821460ad90f",
+                      "redacted": false
+                    },
+                    {
+                      "type": "string",
+                      "length": 18,
+                      "sha256": "a6b0938d6d59e5b7",
+                      "redacted": false
+                    }
+                  ]
+                },
+                "advice": {
+                  "type": "array",
+                  "length": 2,
+                  "items": [
+                    {
+                      "type": "string",
+                      "length": 57,
+                      "sha256": "5f810c31b2049fde",
+                      "redacted": false
+                    },
+                    {
+                      "type": "string",
+                      "length": 55,
+                      "sha256": "8f5dee6d94dc172f",
+                      "redacted": false
+                    }
+                  ]
+                },
+                "upgradeCta": {
+                  "type": "string",
+                  "length": 44,
+                  "sha256": "5d21e1b67a275c53",
+                  "redacted": false
+                }
+              }
+            }
+          }
+        },
+        "status": "SUCCESS",
+        "errorCode": null,
+        "latencyMs": 0,
+        "costEstimateCents": 0,
+        "model": null,
+        "providerId": null,
+        "localOnly": true,
+        "createdAt": "1970-01-01T00:00:00.000Z",
+        "updatedAt": "2026-05-27T11:31:01.980Z"
+      },
+      {
+        "id": "trace-llm-full-03-0010",
+        "traceId": "trace-llm-full-03-0010",
+        "promptId": "LLM-FULL-03",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "requestSummary": {
+          "type": "object",
+          "keys": [
+            "input",
+            "promptId",
+            "simulate"
+          ],
+          "fields": {
+            "promptId": {
+              "type": "string",
+              "length": 11,
+              "sha256": "38a823d261b05c34",
+              "redacted": false
+            },
+            "input": {
+              "type": "object",
+              "keys": [
+                "basicSummary",
+                "grade",
+                "orderId",
+                "subject"
+              ],
+              "fields": {
+                "orderId": {
+                  "type": "string",
+                  "length": 18,
+                  "sha256": "105d3c5ead07ab94",
+                  "redacted": false
+                },
+                "grade": {
+                  "type": "string",
+                  "length": 7,
+                  "sha256": "ffed61e135e4abbb",
+                  "redacted": false
+                },
+                "subject": {
+                  "type": "string",
+                  "length": 4,
+                  "sha256": "58a6d6801ae771e6",
+                  "redacted": false
+                },
+                "basicSummary": {
+                  "type": "string",
+                  "length": 38,
+                  "sha256": "3f805e908cfc61db",
+                  "redacted": false
+                }
+              }
+            },
+            "simulate": {
+              "type": "undefined"
+            }
+          }
+        },
+        "responseSummary": {
+          "type": "object",
+          "keys": [
+            "fullReport"
+          ],
+          "fields": {
+            "fullReport": {
+              "type": "object",
+              "keys": [
+                "basicSummary",
+                "complianceNotice",
+                "modules",
+                "orderId",
+                "reportTitle",
+                "summary"
+              ],
+              "fields": {
+                "reportTitle": {
+                  "type": "string",
+                  "length": 33,
+                  "sha256": "a177ebf6ebe11b0b",
+                  "redacted": false
+                },
+                "orderId": {
+                  "type": "string",
+                  "length": 18,
+                  "sha256": "105d3c5ead07ab94",
+                  "redacted": false
+                },
+                "summary": {
+                  "type": "string",
+                  "length": 35,
+                  "sha256": "7f0557a2278946da",
+                  "redacted": false
+                },
+                "modules": {
+                  "type": "array",
+                  "length": 4,
+                  "items": [
+                    {
+                      "type": "object",
+                      "keys": [
+                        "content",
+                        "id",
+                        "title"
+                      ],
+                      "fields": {
+                        "id": {
+                          "type": "string",
+                          "length": 19,
+                          "sha256": "6d31d0c1d68ac4ae",
+                          "redacted": false
+                        },
+                        "title": {
+                          "type": "string",
+                          "length": 19,
+                          "sha256": "1b4d7db5f0d97c1f",
+                          "redacted": false
+                        },
+                        "content": {
+                          "type": "string",
+                          "length": 75,
+                          "sha256": "3cc075a46f09e939",
+                          "redacted": false
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "keys": [
+                        "content",
+                        "id",
+                        "title"
+                      ],
+                      "fields": {
+                        "id": {
+                          "type": "string",
+                          "length": 21,
+                          "sha256": "5817d9be4f73b7f3",
+                          "redacted": false
+                        },
+                        "title": {
+                          "type": "string",
+                          "length": 31,
+                          "sha256": "d8cd88eac4b754e7",
+                          "redacted": false
+                        },
+                        "content": {
+                          "type": "string",
+                          "length": 75,
+                          "sha256": "7f4415afa3759a32",
+                          "redacted": false
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "keys": [
+                        "content",
+                        "id",
+                        "title"
+                      ],
+                      "fields": {
+                        "id": {
+                          "type": "string",
+                          "length": 14,
+                          "sha256": "e2a3d217ea3eb3a3",
+                          "redacted": false
+                        },
+                        "title": {
+                          "type": "string",
+                          "length": 28,
+                          "sha256": "0dd2299ac1c014d8",
+                          "redacted": false
+                        },
+                        "content": {
+                          "type": "string",
+                          "length": 76,
+                          "sha256": "0f23224c2612a2a5",
+                          "redacted": false
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "keys": [
+                        "content",
+                        "id",
+                        "title"
+                      ],
+                      "fields": {
+                        "id": {
+                          "type": "string",
+                          "length": 15,
+                          "sha256": "8d9a9c41ec4cf28b",
+                          "redacted": false
+                        },
+                        "title": {
+                          "type": "string",
+                          "length": 15,
+                          "sha256": "6a118dcabf75b34e",
+                          "redacted": false
+                        },
+                        "content": {
+                          "type": "string",
+                          "length": 77,
+                          "sha256": "6445cdf715ac1871",
+                          "redacted": false
+                        }
+                      }
+                    }
+                  ]
+                },
+                "basicSummary": {
+                  "type": "string",
+                  "length": 38,
+                  "sha256": "3f805e908cfc61db",
+                  "redacted": false
+                },
+                "complianceNotice": {
+                  "type": "string",
+                  "length": 52,
+                  "sha256": "b8ee012be6362429",
+                  "redacted": false
+                }
+              }
+            }
+          }
+        },
+        "status": "SUCCESS",
+        "errorCode": null,
+        "latencyMs": 0,
+        "costEstimateCents": 0,
+        "model": null,
+        "providerId": null,
+        "localOnly": true,
+        "createdAt": "1970-01-01T00:00:00.000Z",
+        "updatedAt": "2026-05-27T11:31:01.987Z"
+      },
+      {
+        "id": "trace-llm-question-04-0011",
+        "traceId": "trace-llm-question-04-0011",
+        "promptId": "LLM-QUESTION-04",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "requestSummary": {
+          "type": "object",
+          "keys": [
+            "input",
+            "promptId",
+            "simulate"
+          ],
+          "fields": {
+            "promptId": {
+              "type": "string",
+              "length": 15,
+              "sha256": "f13d7783c0557cf6",
+              "redacted": false
+            },
+            "input": {
+              "type": "object",
+              "keys": [
+                "forceNoQuestions",
+                "orderId",
+                "reportSummary"
+              ],
+              "fields": {
+                "orderId": {
+                  "type": "string",
+                  "length": 18,
+                  "sha256": "105d3c5ead07ab94",
+                  "redacted": false
+                },
+                "reportSummary": {
+                  "type": "string",
+                  "length": 35,
+                  "sha256": "7f0557a2278946da",
+                  "redacted": false
+                },
+                "forceNoQuestions": {
+                  "type": "boolean",
+                  "value": false
+                }
+              }
+            },
+            "simulate": {
+              "type": "undefined"
+            }
+          }
+        },
+        "responseSummary": {
+          "type": "object",
+          "keys": [
+            "questions"
+          ],
+          "fields": {
+            "questions": {
+              "type": "array",
+              "length": 2,
+              "items": [
+                {
+                  "type": "object",
+                  "keys": [
+                    "correctAnswer",
+                    "diagnosis",
+                    "explanationSummary",
+                    "knowledgePoint",
+                    "originalQuestion",
+                    "questionId",
+                    "quotaLimit",
+                    "studentAnswer",
+                    "title"
+                  ],
+                  "fields": {
+                    "questionId": {
+                      "type": "string",
+                      "length": 18,
+                      "sha256": "72438cd1210da9e0",
+                      "redacted": false
+                    },
+                    "title": {
+                      "type": "string",
+                      "length": 44,
+                      "sha256": "c7a5e4dde0db1c20",
+                      "redacted": false
+                    },
+                    "originalQuestion": {
+                      "type": "string",
+                      "length": 85,
+                      "sha256": "8301e508f61b1217",
+                      "redacted": false
+                    },
+                    "studentAnswer": {
+                      "type": "string",
+                      "length": 2,
+                      "sha256": "c2356069e9d1e79c",
+                      "redacted": false
+                    },
+                    "correctAnswer": {
+                      "type": "string",
+                      "length": 2,
+                      "sha256": "670671cd97404156",
+                      "redacted": false
+                    },
+                    "knowledgePoint": {
+                      "type": "string",
+                      "length": 23,
+                      "sha256": "feb13729593b24c3",
+                      "redacted": false
+                    },
+                    "diagnosis": {
+                      "type": "string",
+                      "length": 84,
+                      "sha256": "202f3ec2bdcc944d",
+                      "redacted": false
+                    },
+                    "explanationSummary": {
+                      "type": "string",
+                      "length": 74,
+                      "sha256": "33191ce4ee73693d",
+                      "redacted": false
+                    },
+                    "quotaLimit": {
+                      "type": "number",
+                      "value": 3
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "keys": [
+                    "correctAnswer",
+                    "diagnosis",
+                    "explanationSummary",
+                    "knowledgePoint",
+                    "originalQuestion",
+                    "questionId",
+                    "quotaLimit",
+                    "studentAnswer",
+                    "title"
+                  ],
+                  "fields": {
+                    "questionId": {
+                      "type": "string",
+                      "length": 18,
+                      "sha256": "06840561faa5339e",
+                      "redacted": false
+                    },
+                    "title": {
+                      "type": "string",
+                      "length": 43,
+                      "sha256": "d5097ae743fb762b",
+                      "redacted": false
+                    },
+                    "originalQuestion": {
+                      "type": "string",
+                      "length": 93,
+                      "sha256": "c3bb5723bd942106",
+                      "redacted": false
+                    },
+                    "studentAnswer": {
+                      "type": "string",
+                      "length": 6,
+                      "sha256": "3e6287e9b2ed2db4",
+                      "redacted": false
+                    },
+                    "correctAnswer": {
+                      "type": "string",
+                      "length": 5,
+                      "sha256": "a38980f307fad547",
+                      "redacted": false
+                    },
+                    "knowledgePoint": {
+                      "type": "string",
+                      "length": 15,
+                      "sha256": "e1deced5e27d058a",
+                      "redacted": false
+                    },
+                    "diagnosis": {
+                      "type": "string",
+                      "length": 75,
+                      "sha256": "49ca2825319c9130",
+                      "redacted": false
+                    },
+                    "explanationSummary": {
+                      "type": "string",
+                      "length": 75,
+                      "sha256": "719300478ee3019c",
+                      "redacted": false
+                    },
+                    "quotaLimit": {
+                      "type": "number",
+                      "value": 3
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "status": "SUCCESS",
+        "errorCode": null,
+        "latencyMs": 0,
+        "costEstimateCents": 0,
+        "model": null,
+        "providerId": null,
+        "localOnly": true,
+        "createdAt": "1970-01-01T00:00:00.000Z",
+        "updatedAt": "2026-05-27T11:31:01.991Z"
+      },
+      {
+        "id": "trace-llm-tutor-05-0012",
+        "traceId": "trace-llm-tutor-05-0012",
+        "promptId": "LLM-TUTOR-05",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "requestSummary": {
+          "type": "object",
+          "keys": [
+            "input",
+            "promptId",
+            "simulate"
+          ],
+          "fields": {
+            "promptId": {
+              "type": "string",
+              "length": 12,
+              "sha256": "8419c8ea1759a928",
+              "redacted": false
+            },
+            "input": {
+              "type": "object",
+              "keys": [
+                "action",
+                "knowledgePoint",
+                "orderId",
+                "questionId"
+              ],
+              "fields": {
+                "orderId": {
+                  "type": "string",
+                  "length": 18,
+                  "sha256": "105d3c5ead07ab94",
+                  "redacted": false
+                },
+                "questionId": {
+                  "type": "string",
+                  "length": 29,
+                  "sha256": "b3c13ecb6d10158b",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 12,
+                  "sha256": "3102529abcac7a13",
+                  "redacted": false
+                },
+                "knowledgePoint": {
+                  "type": "string",
+                  "length": 23,
+                  "sha256": "feb13729593b24c3",
+                  "redacted": false
+                }
+              }
+            },
+            "simulate": {
+              "type": "undefined"
+            }
+          }
+        },
+        "responseSummary": {
+          "type": "object",
+          "keys": [
+            "tutorReply"
+          ],
+          "fields": {
+            "tutorReply": {
+              "type": "object",
+              "keys": [
+                "action",
+                "mode",
+                "summary"
+              ],
+              "fields": {
+                "mode": {
+                  "type": "string",
+                  "length": 15,
+                  "sha256": "3b1c0aa3817617d0",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 12,
+                  "sha256": "3102529abcac7a13",
+                  "redacted": false
+                },
+                "summary": {
+                  "type": "string",
+                  "length": 97,
+                  "sha256": "6f70f8171e01faf1",
+                  "redacted": false
+                }
+              }
+            }
+          }
+        },
+        "status": "SUCCESS",
+        "errorCode": null,
+        "latencyMs": 0,
+        "costEstimateCents": 0,
+        "model": null,
+        "providerId": null,
+        "localOnly": true,
+        "createdAt": "1970-01-01T00:00:00.000Z",
+        "updatedAt": "2026-05-27T11:31:02.019Z"
+      },
+      {
+        "id": "trace-llm-tutor-05-0013",
+        "traceId": "trace-llm-tutor-05-0013",
+        "promptId": "LLM-TUTOR-05",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "requestSummary": {
+          "type": "object",
+          "keys": [
+            "input",
+            "promptId",
+            "simulate"
+          ],
+          "fields": {
+            "promptId": {
+              "type": "string",
+              "length": 12,
+              "sha256": "8419c8ea1759a928",
+              "redacted": false
+            },
+            "input": {
+              "type": "object",
+              "keys": [
+                "action",
+                "knowledgePoint",
+                "orderId",
+                "questionId"
+              ],
+              "fields": {
+                "orderId": {
+                  "type": "string",
+                  "length": 18,
+                  "sha256": "105d3c5ead07ab94",
+                  "redacted": false
+                },
+                "questionId": {
+                  "type": "string",
+                  "length": 29,
+                  "sha256": "b3c13ecb6d10158b",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 12,
+                  "sha256": "3102529abcac7a13",
+                  "redacted": false
+                },
+                "knowledgePoint": {
+                  "type": "string",
+                  "length": 23,
+                  "sha256": "feb13729593b24c3",
+                  "redacted": false
+                }
+              }
+            },
+            "simulate": {
+              "type": "undefined"
+            }
+          }
+        },
+        "responseSummary": {
+          "type": "object",
+          "keys": [
+            "tutorReply"
+          ],
+          "fields": {
+            "tutorReply": {
+              "type": "object",
+              "keys": [
+                "action",
+                "mode",
+                "summary"
+              ],
+              "fields": {
+                "mode": {
+                  "type": "string",
+                  "length": 15,
+                  "sha256": "3b1c0aa3817617d0",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 12,
+                  "sha256": "3102529abcac7a13",
+                  "redacted": false
+                },
+                "summary": {
+                  "type": "string",
+                  "length": 97,
+                  "sha256": "6f70f8171e01faf1",
+                  "redacted": false
+                }
+              }
+            }
+          }
+        },
+        "status": "SUCCESS",
+        "errorCode": null,
+        "latencyMs": 0,
+        "costEstimateCents": 0,
+        "model": null,
+        "providerId": null,
+        "localOnly": true,
+        "createdAt": "1970-01-01T00:00:00.000Z",
+        "updatedAt": "2026-05-27T11:31:02.041Z"
+      },
+      {
+        "id": "trace-llm-tutor-05-0014",
+        "traceId": "trace-llm-tutor-05-0014",
+        "promptId": "LLM-TUTOR-05",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "requestSummary": {
+          "type": "object",
+          "keys": [
+            "input",
+            "promptId",
+            "simulate"
+          ],
+          "fields": {
+            "promptId": {
+              "type": "string",
+              "length": 12,
+              "sha256": "8419c8ea1759a928",
+              "redacted": false
+            },
+            "input": {
+              "type": "object",
+              "keys": [
+                "action",
+                "knowledgePoint",
+                "orderId",
+                "questionId"
+              ],
+              "fields": {
+                "orderId": {
+                  "type": "string",
+                  "length": 18,
+                  "sha256": "105d3c5ead07ab94",
+                  "redacted": false
+                },
+                "questionId": {
+                  "type": "string",
+                  "length": 29,
+                  "sha256": "b3c13ecb6d10158b",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 12,
+                  "sha256": "3102529abcac7a13",
+                  "redacted": false
+                },
+                "knowledgePoint": {
+                  "type": "string",
+                  "length": 23,
+                  "sha256": "feb13729593b24c3",
+                  "redacted": false
+                }
+              }
+            },
+            "simulate": {
+              "type": "undefined"
+            }
+          }
+        },
+        "responseSummary": {
+          "type": "object",
+          "keys": [
+            "tutorReply"
+          ],
+          "fields": {
+            "tutorReply": {
+              "type": "object",
+              "keys": [
+                "action",
+                "mode",
+                "summary"
+              ],
+              "fields": {
+                "mode": {
+                  "type": "string",
+                  "length": 15,
+                  "sha256": "3b1c0aa3817617d0",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 12,
+                  "sha256": "3102529abcac7a13",
+                  "redacted": false
+                },
+                "summary": {
+                  "type": "string",
+                  "length": 97,
+                  "sha256": "6f70f8171e01faf1",
+                  "redacted": false
+                }
+              }
+            }
+          }
+        },
+        "status": "SUCCESS",
+        "errorCode": null,
+        "latencyMs": 0,
+        "costEstimateCents": 0,
+        "model": null,
+        "providerId": null,
+        "localOnly": true,
+        "createdAt": "1970-01-01T00:00:00.000Z",
+        "updatedAt": "2026-05-27T11:31:02.061Z"
+      },
+      {
+        "id": "trace-llm-tutor-05-0015",
+        "traceId": "trace-llm-tutor-05-0015",
+        "promptId": "LLM-TUTOR-05",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "requestSummary": {
+          "type": "object",
+          "keys": [
+            "input",
+            "promptId",
+            "simulate"
+          ],
+          "fields": {
+            "promptId": {
+              "type": "string",
+              "length": 12,
+              "sha256": "8419c8ea1759a928",
+              "redacted": false
+            },
+            "input": {
+              "type": "object",
+              "keys": [
+                "action",
+                "knowledgePoint",
+                "orderId",
+                "questionId"
+              ],
+              "fields": {
+                "orderId": {
+                  "type": "string",
+                  "length": 18,
+                  "sha256": "105d3c5ead07ab94",
+                  "redacted": false
+                },
+                "questionId": {
+                  "type": "string",
+                  "length": 29,
+                  "sha256": "566daeb958695c89",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 12,
+                  "sha256": "3102529abcac7a13",
+                  "redacted": false
+                },
+                "knowledgePoint": {
+                  "type": "string",
+                  "length": 15,
+                  "sha256": "e1deced5e27d058a",
+                  "redacted": false
+                }
+              }
+            },
+            "simulate": {
+              "type": "undefined"
+            }
+          }
+        },
+        "responseSummary": {
+          "type": "object",
+          "keys": [
+            "tutorReply"
+          ],
+          "fields": {
+            "tutorReply": {
+              "type": "object",
+              "keys": [
+                "action",
+                "mode",
+                "summary"
+              ],
+              "fields": {
+                "mode": {
+                  "type": "string",
+                  "length": 15,
+                  "sha256": "3b1c0aa3817617d0",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 12,
+                  "sha256": "3102529abcac7a13",
+                  "redacted": false
+                },
+                "summary": {
+                  "type": "string",
+                  "length": 97,
+                  "sha256": "6f70f8171e01faf1",
+                  "redacted": false
+                }
+              }
+            }
+          }
+        },
+        "status": "SUCCESS",
+        "errorCode": null,
+        "latencyMs": 0,
+        "costEstimateCents": 0,
+        "model": null,
+        "providerId": null,
+        "localOnly": true,
+        "createdAt": "1970-01-01T00:00:00.000Z",
+        "updatedAt": "2026-05-27T11:31:02.078Z"
+      },
+      {
+        "id": "trace-llm-tutor-05-0016",
+        "traceId": "trace-llm-tutor-05-0016",
+        "promptId": "LLM-TUTOR-05",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "requestSummary": {
+          "type": "object",
+          "keys": [
+            "input",
+            "promptId",
+            "simulate"
+          ],
+          "fields": {
+            "promptId": {
+              "type": "string",
+              "length": 12,
+              "sha256": "8419c8ea1759a928",
+              "redacted": false
+            },
+            "input": {
+              "type": "object",
+              "keys": [
+                "action",
+                "knowledgePoint",
+                "orderId",
+                "questionId"
+              ],
+              "fields": {
+                "orderId": {
+                  "type": "string",
+                  "length": 18,
+                  "sha256": "105d3c5ead07ab94",
+                  "redacted": false
+                },
+                "questionId": {
+                  "type": "string",
+                  "length": 29,
+                  "sha256": "566daeb958695c89",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 12,
+                  "sha256": "3102529abcac7a13",
+                  "redacted": false
+                },
+                "knowledgePoint": {
+                  "type": "string",
+                  "length": 15,
+                  "sha256": "e1deced5e27d058a",
+                  "redacted": false
+                }
+              }
+            },
+            "simulate": {
+              "type": "undefined"
+            }
+          }
+        },
+        "responseSummary": {
+          "type": "object",
+          "keys": [
+            "tutorReply"
+          ],
+          "fields": {
+            "tutorReply": {
+              "type": "object",
+              "keys": [
+                "action",
+                "mode",
+                "summary"
+              ],
+              "fields": {
+                "mode": {
+                  "type": "string",
+                  "length": 15,
+                  "sha256": "3b1c0aa3817617d0",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 12,
+                  "sha256": "3102529abcac7a13",
+                  "redacted": false
+                },
+                "summary": {
+                  "type": "string",
+                  "length": 97,
+                  "sha256": "6f70f8171e01faf1",
+                  "redacted": false
+                }
+              }
+            }
+          }
+        },
+        "status": "SUCCESS",
+        "errorCode": null,
+        "latencyMs": 0,
+        "costEstimateCents": 0,
+        "model": null,
+        "providerId": null,
+        "localOnly": true,
+        "createdAt": "1970-01-01T00:00:00.000Z",
+        "updatedAt": "2026-05-27T11:31:02.089Z"
+      },
+      {
+        "id": "trace-llm-tutor-05-0017",
+        "traceId": "trace-llm-tutor-05-0017",
+        "promptId": "LLM-TUTOR-05",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "requestSummary": {
+          "type": "object",
+          "keys": [
+            "input",
+            "promptId",
+            "simulate"
+          ],
+          "fields": {
+            "promptId": {
+              "type": "string",
+              "length": 12,
+              "sha256": "8419c8ea1759a928",
+              "redacted": false
+            },
+            "input": {
+              "type": "object",
+              "keys": [
+                "action",
+                "knowledgePoint",
+                "orderId",
+                "questionId"
+              ],
+              "fields": {
+                "orderId": {
+                  "type": "string",
+                  "length": 18,
+                  "sha256": "105d3c5ead07ab94",
+                  "redacted": false
+                },
+                "questionId": {
+                  "type": "string",
+                  "length": 29,
+                  "sha256": "566daeb958695c89",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 12,
+                  "sha256": "3102529abcac7a13",
+                  "redacted": false
+                },
+                "knowledgePoint": {
+                  "type": "string",
+                  "length": 15,
+                  "sha256": "e1deced5e27d058a",
+                  "redacted": false
+                }
+              }
+            },
+            "simulate": {
+              "type": "undefined"
+            }
+          }
+        },
+        "responseSummary": {
+          "type": "object",
+          "keys": [
+            "tutorReply"
+          ],
+          "fields": {
+            "tutorReply": {
+              "type": "object",
+              "keys": [
+                "action",
+                "mode",
+                "summary"
+              ],
+              "fields": {
+                "mode": {
+                  "type": "string",
+                  "length": 15,
+                  "sha256": "3b1c0aa3817617d0",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 12,
+                  "sha256": "3102529abcac7a13",
+                  "redacted": false
+                },
+                "summary": {
+                  "type": "string",
+                  "length": 97,
+                  "sha256": "6f70f8171e01faf1",
+                  "redacted": false
+                }
+              }
+            }
+          }
+        },
+        "status": "SUCCESS",
+        "errorCode": null,
+        "latencyMs": 0,
+        "costEstimateCents": 0,
+        "model": null,
+        "providerId": null,
+        "localOnly": true,
+        "createdAt": "1970-01-01T00:00:00.000Z",
+        "updatedAt": "2026-05-27T11:31:02.104Z"
+      },
+      {
+        "id": "trace-llm-tutor-05-0018",
+        "traceId": "trace-llm-tutor-05-0018",
+        "promptId": "LLM-TUTOR-05",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "requestSummary": {
+          "type": "object",
+          "keys": [
+            "input",
+            "promptId",
+            "simulate"
+          ],
+          "fields": {
+            "promptId": {
+              "type": "string",
+              "length": 12,
+              "sha256": "8419c8ea1759a928",
+              "redacted": false
+            },
+            "input": {
+              "type": "object",
+              "keys": [
+                "action",
+                "knowledgePoint",
+                "orderId",
+                "questionId"
+              ],
+              "fields": {
+                "orderId": {
+                  "type": "string",
+                  "length": 18,
+                  "sha256": "105d3c5ead07ab94",
+                  "redacted": false
+                },
+                "questionId": {
+                  "type": "string",
+                  "length": 34,
+                  "sha256": "fb49c88a24146e12",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 12,
+                  "sha256": "3102529abcac7a13",
+                  "redacted": false
+                },
+                "knowledgePoint": {
+                  "type": "string",
+                  "length": 23,
+                  "sha256": "feb13729593b24c3",
+                  "redacted": false
+                }
+              }
+            },
+            "simulate": {
+              "type": "undefined"
+            }
+          }
+        },
+        "responseSummary": {
+          "type": "object",
+          "keys": [
+            "tutorReply"
+          ],
+          "fields": {
+            "tutorReply": {
+              "type": "object",
+              "keys": [
+                "action",
+                "mode",
+                "summary"
+              ],
+              "fields": {
+                "mode": {
+                  "type": "string",
+                  "length": 15,
+                  "sha256": "3b1c0aa3817617d0",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 12,
+                  "sha256": "3102529abcac7a13",
+                  "redacted": false
+                },
+                "summary": {
+                  "type": "string",
+                  "length": 97,
+                  "sha256": "6f70f8171e01faf1",
+                  "redacted": false
+                }
+              }
+            }
+          }
+        },
+        "status": "SUCCESS",
+        "errorCode": null,
+        "latencyMs": 0,
+        "costEstimateCents": 0,
+        "model": null,
+        "providerId": null,
+        "localOnly": true,
+        "createdAt": "1970-01-01T00:00:00.000Z",
+        "updatedAt": "2026-05-27T11:31:02.117Z"
+      },
+      {
+        "id": "trace-llm-tutor-05-0019",
+        "traceId": "trace-llm-tutor-05-0019",
+        "promptId": "LLM-TUTOR-05",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "requestSummary": {
+          "type": "object",
+          "keys": [
+            "input",
+            "promptId",
+            "simulate"
+          ],
+          "fields": {
+            "promptId": {
+              "type": "string",
+              "length": 12,
+              "sha256": "8419c8ea1759a928",
+              "redacted": false
+            },
+            "input": {
+              "type": "object",
+              "keys": [
+                "action",
+                "knowledgePoint",
+                "orderId",
+                "questionId"
+              ],
+              "fields": {
+                "orderId": {
+                  "type": "string",
+                  "length": 18,
+                  "sha256": "105d3c5ead07ab94",
+                  "redacted": false
+                },
+                "questionId": {
+                  "type": "string",
+                  "length": 34,
+                  "sha256": "fb49c88a24146e12",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 12,
+                  "sha256": "3102529abcac7a13",
+                  "redacted": false
+                },
+                "knowledgePoint": {
+                  "type": "string",
+                  "length": 23,
+                  "sha256": "feb13729593b24c3",
+                  "redacted": false
+                }
+              }
+            },
+            "simulate": {
+              "type": "undefined"
+            }
+          }
+        },
+        "responseSummary": {
+          "type": "object",
+          "keys": [
+            "tutorReply"
+          ],
+          "fields": {
+            "tutorReply": {
+              "type": "object",
+              "keys": [
+                "action",
+                "mode",
+                "summary"
+              ],
+              "fields": {
+                "mode": {
+                  "type": "string",
+                  "length": 15,
+                  "sha256": "3b1c0aa3817617d0",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 12,
+                  "sha256": "3102529abcac7a13",
+                  "redacted": false
+                },
+                "summary": {
+                  "type": "string",
+                  "length": 97,
+                  "sha256": "6f70f8171e01faf1",
+                  "redacted": false
+                }
+              }
+            }
+          }
+        },
+        "status": "SUCCESS",
+        "errorCode": null,
+        "latencyMs": 0,
+        "costEstimateCents": 0,
+        "model": null,
+        "providerId": null,
+        "localOnly": true,
+        "createdAt": "1970-01-01T00:00:00.000Z",
+        "updatedAt": "2026-05-27T11:31:02.134Z"
+      },
+      {
+        "id": "trace-llm-tutor-05-0020",
+        "traceId": "trace-llm-tutor-05-0020",
+        "promptId": "LLM-TUTOR-05",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "requestSummary": {
+          "type": "object",
+          "keys": [
+            "input",
+            "promptId",
+            "simulate"
+          ],
+          "fields": {
+            "promptId": {
+              "type": "string",
+              "length": 12,
+              "sha256": "8419c8ea1759a928",
+              "redacted": false
+            },
+            "input": {
+              "type": "object",
+              "keys": [
+                "action",
+                "knowledgePoint",
+                "orderId",
+                "questionId"
+              ],
+              "fields": {
+                "orderId": {
+                  "type": "string",
+                  "length": 18,
+                  "sha256": "105d3c5ead07ab94",
+                  "redacted": false
+                },
+                "questionId": {
+                  "type": "string",
+                  "length": 34,
+                  "sha256": "fb49c88a24146e12",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 12,
+                  "sha256": "3102529abcac7a13",
+                  "redacted": false
+                },
+                "knowledgePoint": {
+                  "type": "string",
+                  "length": 23,
+                  "sha256": "feb13729593b24c3",
+                  "redacted": false
+                }
+              }
+            },
+            "simulate": {
+              "type": "undefined"
+            }
+          }
+        },
+        "responseSummary": {
+          "type": "object",
+          "keys": [
+            "tutorReply"
+          ],
+          "fields": {
+            "tutorReply": {
+              "type": "object",
+              "keys": [
+                "action",
+                "mode",
+                "summary"
+              ],
+              "fields": {
+                "mode": {
+                  "type": "string",
+                  "length": 15,
+                  "sha256": "3b1c0aa3817617d0",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 12,
+                  "sha256": "3102529abcac7a13",
+                  "redacted": false
+                },
+                "summary": {
+                  "type": "string",
+                  "length": 97,
+                  "sha256": "6f70f8171e01faf1",
+                  "redacted": false
+                }
+              }
+            }
+          }
+        },
+        "status": "SUCCESS",
+        "errorCode": null,
+        "latencyMs": 0,
+        "costEstimateCents": 0,
+        "model": null,
+        "providerId": null,
+        "localOnly": true,
+        "createdAt": "1970-01-01T00:00:00.000Z",
+        "updatedAt": "2026-05-27T11:31:02.165Z"
+      },
+      {
+        "id": "trace-llm-tutor-05-0021",
+        "traceId": "trace-llm-tutor-05-0021",
+        "promptId": "LLM-TUTOR-05",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "requestSummary": {
+          "type": "object",
+          "keys": [
+            "input",
+            "promptId",
+            "simulate"
+          ],
+          "fields": {
+            "promptId": {
+              "type": "string",
+              "length": 12,
+              "sha256": "8419c8ea1759a928",
+              "redacted": false
+            },
+            "input": {
+              "type": "object",
+              "keys": [
+                "action",
+                "knowledgePoint",
+                "orderId",
+                "questionId"
+              ],
+              "fields": {
+                "orderId": {
+                  "type": "string",
+                  "length": 18,
+                  "sha256": "105d3c5ead07ab94",
+                  "redacted": false
+                },
+                "questionId": {
+                  "type": "string",
+                  "length": 34,
+                  "sha256": "dfd0a2499c07bf61",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 12,
+                  "sha256": "3102529abcac7a13",
+                  "redacted": false
+                },
+                "knowledgePoint": {
+                  "type": "string",
+                  "length": 23,
+                  "sha256": "feb13729593b24c3",
+                  "redacted": false
+                }
+              }
+            },
+            "simulate": {
+              "type": "undefined"
+            }
+          }
+        },
+        "responseSummary": {
+          "type": "object",
+          "keys": [
+            "tutorReply"
+          ],
+          "fields": {
+            "tutorReply": {
+              "type": "object",
+              "keys": [
+                "action",
+                "mode",
+                "summary"
+              ],
+              "fields": {
+                "mode": {
+                  "type": "string",
+                  "length": 15,
+                  "sha256": "3b1c0aa3817617d0",
+                  "redacted": false
+                },
+                "action": {
+                  "type": "string",
+                  "length": 12,
+                  "sha256": "3102529abcac7a13",
+                  "redacted": false
+                },
+                "summary": {
+                  "type": "string",
+                  "length": 97,
+                  "sha256": "6f70f8171e01faf1",
+                  "redacted": false
+                }
+              }
+            }
+          }
+        },
+        "status": "SUCCESS",
+        "errorCode": null,
+        "latencyMs": 0,
+        "costEstimateCents": 0,
+        "model": null,
+        "providerId": null,
+        "localOnly": true,
+        "createdAt": "1970-01-01T00:00:00.000Z",
+        "updatedAt": "2026-05-27T11:31:02.180Z"
+      }
+    ]
+  },
+  "assertions": [
+    "Failed provider, timeout, validation, entitlement, auth, redirect, and quota-exceeded calls did not consume successful quota.",
+    "Report quota stops at 10 and per-question quota stops at 3.",
+    "Exercise answers validate options, reject duplicate submit, and persist LLM-CHECK-07 feedback through the local adapter."
+  ]
+}

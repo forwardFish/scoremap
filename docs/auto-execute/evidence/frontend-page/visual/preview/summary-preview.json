@@ -4,7 +4,7 @@
     "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
     "command": "npm run visual:scoremap -- preview basic-pay",
     "route": "/pages/preview/index",
-    "reference": "docs/UI/小程序/分析报告.png",
+    "reference": "ui-reference-catalog/小程序/分析报告.png",
     "stitchReference": null,
     "actual": "docs/auto-execute/evidence/frontend-page/visual/preview/actual-preview-structure.svg",
     "diff": "docs/auto-execute/evidence/frontend-page/visual/preview/diff-preview-manual-review.svg",

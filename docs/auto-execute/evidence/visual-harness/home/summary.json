@@ -1,7 +1,9 @@
 {
   "id": "UI-C01",
   "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
-  "reference": "docs/UI/小程序/首页.png",
+  "referenceKey": null,
+  "reference": "docs/auto-execute/evidence/visual-harness/home/reference.png",
+  "sourceReference": "docs/UI/小程序/首页.png",
   "actual": "docs/auto-execute/evidence/visual-harness/home/actual.jpg",
   "diff": "docs/auto-execute/evidence/visual-harness/home/diff.svg",
   "metrics": "docs/auto-execute/evidence/visual-harness/home/metrics.json",

@@ -60,7 +60,7 @@
   ],
   "dbReadback": {
     "order": {
-      "id": "order-411cb0ab4fde",
+      "id": "order-de37efa05498",
       "ownerId": "local-user-scoremap-t03",
       "source": "T13-authz",
       "grade": "grade-5",
@@ -69,16 +69,16 @@
       "materialType": "answer-sheet",
       "status": "preview_done",
       "accessLevel": "preview",
-      "orderToken": "local-order-token-order-411cb0ab4fde",
-      "createdAt": "2026-05-25T02:55:22.487Z",
-      "updatedAt": "2026-05-25T02:55:22.518Z",
+      "orderToken": "local-order-token-order-de37efa05498",
+      "createdAt": "2026-05-27T11:31:02.209Z",
+      "updatedAt": "2026-05-27T11:31:02.227Z",
       "uploadedCount": 1,
-      "previewTaskId": "task-3c50b485ca5e",
-      "previewDecisionId": "decision-order-411cb0ab4fde-preview"
+      "previewTaskId": "task-9ac9d17f98d8",
+      "previewDecisionId": "decision-order-de37efa05498-preview"
     },
     "decision": {
-      "id": "decision-order-411cb0ab4fde-preview",
-      "orderId": "order-411cb0ab4fde",
+      "id": "decision-order-de37efa05498-preview",
+      "orderId": "order-de37efa05498",
       "ownerId": "local-user-scoremap-t03",
       "level": "preview",
       "preview": {
@@ -104,8 +104,12 @@
         ],
         "cta": "1 CNY unlock complete initial decision"
       },
-      "createdAt": "2026-05-25T02:55:22.516Z",
-      "updatedAt": "2026-05-25T02:55:22.516Z"
+      "promptId": "LLM-PREVIEW-01",
+      "traceId": "trace-llm-preview-01-0001",
+      "modelAdapter": "local-deterministic-ai-mock",
+      "localOnly": true,
+      "createdAt": "2026-05-27T11:31:02.226Z",
+      "updatedAt": "2026-05-27T11:31:02.226Z"
     }
   }
 }

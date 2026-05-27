@@ -1,0 +1,22 @@
+﻿{
+    "blockers":  [
+
+                 ],
+    "commands":  [
+                     {
+                         "status":  "PASS",
+                         "command":  "git status --short",
+                         "log":  "docs\\auto-execute\\summaries\\git-status.md"
+                     }
+                 ],
+    "lane":  "git-status",
+    "status":  "PASS",
+    "evidence":  [
+                     "docs\\auto-execute\\summaries\\git-status.md"
+                 ],
+    "schemaVersion":  "2.0",
+    "nextActions":  [
+
+                    ],
+    "updatedAt":  "2026-05-25T19:08:21"
+}

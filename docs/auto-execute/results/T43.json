@@ -1,0 +1,254 @@
+﻿{
+    "taskId":  "T43",
+    "scope":  "ui-one-to-one final gate",
+    "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+    "finalVerdict":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+    "generatedAt":  "2026-05-27T07:46:48.8984861Z",
+    "summary":  "Functional, owner-click, visual-harness, build, whitespace, and ui-one-to-one final-gate checks completed. Pure PASS is not claimed without complete raster pixel-diff evidence.",
+    "commandsRun":  [
+                        {
+                            "command":  "npm.cmd test",
+                            "status":  "PASS",
+                            "evidence":  "docs/auto-execute/evidence/ui-one-to-one/T43/npm-test-npmcmd.log"
+                        },
+                        {
+                            "command":  "npm.cmd run e2e:owner",
+                            "status":  "PASS",
+                            "evidence":  "docs/auto-execute/evidence/ui-one-to-one/T43/e2e-owner.log"
+                        },
+                        {
+                            "command":  "npm.cmd run visual:scoremap",
+                            "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                            "evidence":  [
+                                             "docs/auto-execute/evidence/ui-one-to-one/T43/visual-scoremap.log",
+                                             "docs/auto-execute/evidence/visual-harness/summary.json"
+                                         ]
+                        },
+                        {
+                            "command":  "npm.cmd run build",
+                            "status":  "PASS",
+                            "evidence":  "docs/auto-execute/evidence/ui-one-to-one/T43/build.log"
+                        },
+                        {
+                            "command":  "git diff --check",
+                            "status":  "PASS",
+                            "evidence":  "docs/auto-execute/evidence/ui-one-to-one/T43/git-diff-check.log"
+                        },
+                        {
+                            "command":  "powershell -ExecutionPolicy Bypass -File .\\scripts\\acceptance\\run-final-gate.ps1 -Scope ui-one-to-one",
+                            "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                            "evidence":  "docs/auto-execute/evidence/ui-one-to-one/T43/final-gate-ui-one-to-one.log"
+                        }
+                    ],
+    "evidence":  {
+                     "deliveryReport":  "docs/AUTO_EXECUTE_DELIVERY_REPORT.md",
+                     "t34ToT42Results":  "docs/auto-execute/results/T34.json through docs/auto-execute/results/T42.json",
+                     "t34ToT42Handoffs":  "docs/auto-execute/latest/T34-HANDOFF.md through docs/auto-execute/latest/T42-HANDOFF.md",
+                     "visualHarnessSummary":  "docs/auto-execute/evidence/visual-harness/summary.json",
+                     "visualDiffReport":  "docs/auto-execute/visual-diff-report.json",
+                     "finalGateSummary":  "docs/auto-execute/evidence/ui-one-to-one/T43/final-gate-summary.json",
+                     "t43EvidenceDir":  "docs/auto-execute/evidence/ui-one-to-one/T43",
+                     "t43Handoff":  "docs/auto-execute/latest/T43-HANDOFF.md"
+                 },
+    "requiredScreens":  {
+                            "count":  15,
+                            "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                            "screens":  [
+                                            {
+                                                "screen":  "home",
+                                                "route":  "/pages/index/index",
+                                                "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                                                "actual":  "docs/auto-execute/evidence/visual-harness/home/actual.jpg",
+                                                "actualExists":  true,
+                                                "diff":  "docs/auto-execute/evidence/visual-harness/home/diff.svg",
+                                                "diffExists":  true
+                                            },
+                                            {
+                                                "screen":  "analysis",
+                                                "route":  "/pages/analysis/index",
+                                                "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                                                "actual":  "docs/auto-execute/evidence/visual-harness/analysis/actual.jpg",
+                                                "actualExists":  true,
+                                                "diff":  "docs/auto-execute/evidence/visual-harness/analysis/diff.svg",
+                                                "diffExists":  true
+                                            },
+                                            {
+                                                "screen":  "failure",
+                                                "route":  "/pages/failure/index",
+                                                "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                                                "actual":  "docs/auto-execute/evidence/visual-harness/failure/actual.jpg",
+                                                "actualExists":  true,
+                                                "diff":  "docs/auto-execute/evidence/visual-harness/failure/diff.svg",
+                                                "diffExists":  true
+                                            },
+                                            {
+                                                "screen":  "preview",
+                                                "route":  "/pages/preview/index",
+                                                "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                                                "actual":  "docs/auto-execute/evidence/visual-harness/preview/actual.jpg",
+                                                "actualExists":  true,
+                                                "diff":  "docs/auto-execute/evidence/visual-harness/preview/diff.svg",
+                                                "diffExists":  true
+                                            },
+                                            {
+                                                "screen":  "basic-pay",
+                                                "route":  "/pages/basic-pay/index",
+                                                "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                                                "actual":  "docs/auto-execute/evidence/visual-harness/basic-pay/actual.jpg",
+                                                "actualExists":  true,
+                                                "diff":  "docs/auto-execute/evidence/visual-harness/basic-pay/diff.svg",
+                                                "diffExists":  true
+                                            },
+                                            {
+                                                "screen":  "basic-result",
+                                                "route":  "/pages/basic-result/index",
+                                                "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                                                "actual":  "docs/auto-execute/evidence/visual-harness/basic-result/actual.jpg",
+                                                "actualExists":  true,
+                                                "diff":  "docs/auto-execute/evidence/visual-harness/basic-result/diff.svg",
+                                                "diffExists":  true
+                                            },
+                                            {
+                                                "screen":  "full-unlock",
+                                                "route":  "/pages/full-unlock/index",
+                                                "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                                                "actual":  "docs/auto-execute/evidence/visual-harness/full-unlock/actual.jpg",
+                                                "actualExists":  true,
+                                                "diff":  "docs/auto-execute/evidence/visual-harness/full-unlock/diff.svg",
+                                                "diffExists":  true
+                                            },
+                                            {
+                                                "screen":  "full-report-entry",
+                                                "route":  "/pages/full-report-entry/index",
+                                                "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                                                "actual":  "docs/auto-execute/evidence/visual-harness/full-report-entry/actual.jpg",
+                                                "actualExists":  true,
+                                                "diff":  "docs/auto-execute/evidence/visual-harness/full-report-entry/diff.svg",
+                                                "diffExists":  true
+                                            },
+                                            {
+                                                "screen":  "full-report old",
+                                                "route":  "/pages/full-report/index old state",
+                                                "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                                                "actual":  "docs/auto-execute/evidence/visual-harness/full-report/actual.jpg",
+                                                "actualExists":  true,
+                                                "diff":  "docs/auto-execute/evidence/visual-harness/full-report/diff.svg",
+                                                "diffExists":  true
+                                            },
+                                            {
+                                                "screen":  "my",
+                                                "route":  "/pages/my/index",
+                                                "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                                                "actual":  "docs/auto-execute/evidence/visual-harness/my/actual.jpg",
+                                                "actualExists":  true,
+                                                "diff":  "docs/auto-execute/evidence/visual-harness/my/diff.svg",
+                                                "diffExists":  true
+                                            },
+                                            {
+                                                "screen":  "full-report v1.3",
+                                                "route":  "/pages/full-report/index?state=aiTutorReady",
+                                                "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                                                "actual":  "docs/auto-execute/evidence/visual-harness/v13-full-report/actual.svg",
+                                                "actualExists":  true,
+                                                "diff":  "docs/auto-execute/evidence/visual-harness/v13-full-report/diff.svg",
+                                                "diffExists":  true
+                                            },
+                                            {
+                                                "screen":  "wrong-question",
+                                                "route":  "/pages/wrong-question/index?questionId={questionId}",
+                                                "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                                                "actual":  "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/actual.svg",
+                                                "actualExists":  true,
+                                                "diff":  "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/diff.svg",
+                                                "diffExists":  true
+                                            },
+                                            {
+                                                "screen":  "ai-tutor",
+                                                "route":  "/pages/ai-tutor/index?questionId={questionId}",
+                                                "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                                                "actual":  "docs/auto-execute/evidence/visual-harness/v13-ai-tutor/actual.svg",
+                                                "actualExists":  true,
+                                                "diff":  "docs/auto-execute/evidence/visual-harness/v13-ai-tutor/diff.svg",
+                                                "diffExists":  true
+                                            },
+                                            {
+                                                "screen":  "ai-exercise",
+                                                "route":  "/pages/ai-exercise/index?interactionId={interactionId}",
+                                                "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                                                "actual":  "docs/auto-execute/evidence/visual-harness/v13-similar-exercise/actual.svg",
+                                                "actualExists":  true,
+                                                "diff":  "docs/auto-execute/evidence/visual-harness/v13-similar-exercise/diff.svg",
+                                                "diffExists":  true
+                                            },
+                                            {
+                                                "screen":  "ai-exercise-feedback",
+                                                "route":  "/pages/ai-exercise-feedback/index?interactionId={interactionId}",
+                                                "status":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                                                "actual":  "docs/auto-execute/evidence/visual-harness/v13-answer-feedback/actual.svg",
+                                                "actualExists":  true,
+                                                "diff":  "docs/auto-execute/evidence/visual-harness/v13-answer-feedback/diff.svg",
+                                                "diffExists":  true
+                                            }
+                                        ]
+                        },
+    "supportPages":  [
+                         {
+                             "page":  "reports",
+                             "route":  "/pages/reports/index",
+                             "status":  "CODE_RENDERED_SUPPORT_PAGE_MANUAL_REVIEW",
+                             "evidence":  [
+                                              "docs/auto-execute/evidence/visual-harness/reports/actual.svg",
+                                              "docs/auto-execute/evidence/navigation/support-pages-code-rendered.json"
+                                          ],
+                             "pixelReferenceClaim":  false
+                         },
+                         {
+                             "page":  "orders",
+                             "route":  "/pages/orders/index",
+                             "status":  "CODE_RENDERED_SUPPORT_PAGE",
+                             "evidence":  [
+                                              "docs/auto-execute/results/T41.json"
+                                          ],
+                             "pixelReferenceClaim":  false
+                         },
+                         {
+                             "page":  "feedback",
+                             "route":  "/pages/feedback/index",
+                             "status":  "CODE_RENDERED_SUPPORT_PAGE",
+                             "evidence":  [
+                                              "docs/auto-execute/results/T41.json"
+                                          ],
+                             "pixelReferenceClaim":  false
+                         },
+                         {
+                             "page":  "scaffold",
+                             "route":  "/pages/scaffold/index",
+                             "status":  "CODE_RENDERED_SUPPORT_PAGE",
+                             "evidence":  [
+                                              "docs/auto-execute/results/T41.json",
+                                              "docs/auto-execute/evidence/navigation/support-pages-code-rendered.json"
+                                          ],
+                             "pixelReferenceClaim":  false
+                         }
+                     ],
+    "manualReviewRequired":  true,
+    "manualReviewReasons":  [
+                                "Automated raster pixel-diff evidence is unavailable because pixelmatch/pngjs are not installed or no pixel comparisons were produced.",
+                                "The local visual harness writes deterministic reference/actual artifacts and manual-review diff SVGs, not a complete live raster pixelmatch result for every required screen."
+                            ],
+    "blockers":  [
+
+                 ],
+    "limitations":  [
+                        "T34 status is PASS_WITH_LIMITATION",
+                        "T36 status is PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "T37 status is PASS_WITH_LIMITATION",
+                        "T38 status is PASS_WITH_LIMITATION",
+                        "T39 status is PASS_WITH_LIMITATION",
+                        "T40 status is PASS_WITH_LIMITATION",
+                        "T41 status is PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "T42 status is PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "Automated raster pixel-diff evidence is unavailable; pure PASS is not allowed."
+                    ],
+    "nextStep":  "Manual UI review of the 15 required visual-harness actual/reference/diff artifacts, or enable pixelmatch/pngjs and rerun visual/final gates if pure PASS is required."
+}

@@ -1,7 +1,9 @@
 {
   "id": "UI-C06",
   "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
-  "reference": "docs/UI/小程序/1元支付.png",
+  "referenceKey": null,
+  "reference": "docs/auto-execute/evidence/visual-harness/basic-pay/reference.png",
+  "sourceReference": "docs/UI/小程序/1元支付.png",
   "actual": "docs/auto-execute/evidence/visual-harness/basic-pay/actual.jpg",
   "diff": "docs/auto-execute/evidence/visual-harness/basic-pay/diff.svg",
   "metrics": "docs/auto-execute/evidence/visual-harness/basic-pay/metrics.json",

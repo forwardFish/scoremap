@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.9.1",
+  "lane": "route-smoke-generated",
+  "status": "HARD_FAIL",
+  "generatedAt": "2026-05-25T11:10:48.407Z",
+  "results": [
+    {
+      "storyId": "STORY-REPORT-002",
+      "testPointId": "TP-STORY-REPORT-002-002",
+      "target": "scoremap-miniapp/pages/wrong-question",
+      "url": "http://127.0.0.1:3000/scoremap-miniapp/pages/wrong-question",
+      "pass": false,
+      "error": "connect ECONNREFUSED 127.0.0.1:3000"
+    },
+    {
+      "storyId": "STORY-REPORT-003",
+      "testPointId": "TP-STORY-REPORT-003-001",
+      "target": "scoremap-miniapp/pages/ai-tutor",
+      "url": "http://127.0.0.1:3000/scoremap-miniapp/pages/ai-tutor",
+      "pass": false,
+      "error": "connect ECONNREFUSED 127.0.0.1:3000"
+    },
+    {
+      "storyId": "STORY-REPORT-003",
+      "testPointId": "TP-STORY-REPORT-003-002",
+      "target": "server/src/routes/question-interactions.js",
+      "url": "http://127.0.0.1:3000/server/src/routes/question-interactions.js",
+      "pass": false,
+      "error": "connect ECONNREFUSED 127.0.0.1:3000"
+    },
+    {
+      "storyId": "STORY-REPORT-003",
+      "testPointId": "TP-STORY-REPORT-003-003",
+      "target": "server/src/services/question-interactions-service.js",
+      "url": "http://127.0.0.1:3000/server/src/services/question-interactions-service.js",
+      "pass": false,
+      "error": "connect ECONNREFUSED 127.0.0.1:3000"
+    },
+    {
+      "storyId": "STORY-GENERAL-006",
+      "testPointId": "TP-STORY-GENERAL-006-002",
+      "target": "scoremap-miniapp/pages/ai-exercise",
+      "url": "http://127.0.0.1:3000/scoremap-miniapp/pages/ai-exercise",
+      "pass": false,
+      "error": "connect ECONNREFUSED 127.0.0.1:3000"
+    },
+    {
+      "storyId": "STORY-GENERAL-006",
+      "testPointId": "TP-STORY-GENERAL-006-003",
+      "target": "scoremap-miniapp/pages/ai-exercise-feedback",
+      "url": "http://127.0.0.1:3000/scoremap-miniapp/pages/ai-exercise-feedback",
+      "pass": false,
+      "error": "connect ECONNREFUSED 127.0.0.1:3000"
+    },
+    {
+      "storyId": "STORY-REPORT-009",
+      "testPointId": "TP-STORY-REPORT-009-001",
+      "target": "scoremap-miniapp/pages/full-report",
+      "url": "http://127.0.0.1:3000/scoremap-miniapp/pages/full-report",
+      "pass": false,
+      "error": "connect ECONNREFUSED 127.0.0.1:3000"
+    }
+  ]
+}

@@ -5,6 +5,7 @@ const os = require('node:os');
 const path = require('node:path');
 const { test } = require('node:test');
 const { DEFAULT_FORBIDDEN_PATTERNS, assertLocalOnlyEnvironment, scanTextForForbiddenRemoteCalls } = require('../../shared/local-only');
+const { getPrimaryEvidencePath, writeJsonEvidence } = require('../../shared/evidence-paths');
 const { createLocalAdapters } = require('../src/adapters');
 const { createDiagnosisOrdersRouter } = require('../src/routes/diagnosis-orders');
 const { createPaymentsRouter } = require('../src/routes/payments');
@@ -12,12 +13,21 @@ const { createReportsRouter } = require('../src/routes/reports');
 const { exportLocalData } = require('../scripts/export-local-data');
 
 const projectRoot = path.resolve(__dirname, '..', '..');
-const evidenceDir = path.join(projectRoot, 'docs', 'auto-execute', 'evidence', 'backend-api-report');
 const command = 'npm --prefix server test -- report feedback export';
+const t22Command = 'npm --prefix server test -- full-report wrong-questions';
 
 function writeEvidence(name, payload) {
-  fs.mkdirSync(evidenceDir, { recursive: true });
-  fs.writeFileSync(path.join(evidenceDir, name), `${JSON.stringify(payload, null, 2)}\n`);
+  writeJsonEvidence(projectRoot, path.join('backend-api-report', name), payload);
+}
+
+function writeT22Evidence(name, payload) {
+  writeJsonEvidence(projectRoot, path.join('api-db-llm', name), payload);
+}
+
+function writeResult(relativePath, payload) {
+  const outputPath = path.join(projectRoot, relativePath);
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  fs.writeFileSync(outputPath, `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
 }
 
 function makeAdapters() {
@@ -29,8 +39,8 @@ function makeAdapters() {
       cloudRootDir: path.join(tempRoot, 'local-cloud')
     }),
     dbPath,
-    exportRootDir: path.join(evidenceDir, 'local-report-exports'),
-    dataExportPath: path.join(evidenceDir, 'operator-export.json')
+    exportRootDir: getPrimaryEvidencePath(projectRoot, path.join('backend-api-report', 'local-report-exports')),
+    dataExportPath: getPrimaryEvidencePath(projectRoot, path.join('backend-api-report', 'operator-export.json'))
   };
 }
 
@@ -193,6 +203,137 @@ test('T05 reads basic decision, generates full report, saves it, and lists my re
         fullTask,
         fullDecision
       }
+    });
+  });
+});
+
+test('T22 generate-full creates wrong-question cards, quota, and full/question traces for API consumers', async () => {
+  await withApi(async (api) => {
+    const { create } = await createFullPaidOrder(api, 't22-cards');
+    const basic = await requestJson(api.baseUrl, 'GET', `/api/diagnosis-orders/${create.body.orderId}/basic-decision`, undefined, {
+      'x-order-token': create.body.orderToken
+    });
+    const generate = await requestJson(api.baseUrl, 'POST', `/api/diagnosis-orders/${create.body.orderId}/generate-full`, {
+      taskId: 'task-full-t22-cards'
+    }, { 'x-order-token': create.body.orderToken });
+    const full = await requestJson(api.baseUrl, 'GET', `/api/diagnosis-orders/${create.body.orderId}/full-report`, undefined, {
+      'x-order-token': create.body.orderToken
+    });
+
+    assert.equal(basic.status, 200);
+    assert.equal(generate.status, 200);
+    assert.equal(full.status, 200);
+    assert.ok(generate.body.wrongQuestionCards.length >= 2);
+    assert.ok(full.body.wrongQuestionCards.length >= 2);
+    assert.equal(generate.body.quota.report.total, 10);
+    assert.equal(full.body.quota.report.remaining, 10);
+    assert.equal(full.body.quota.questions.length, generate.body.wrongQuestionCards.length);
+
+    const snapshot = api.db.snapshot();
+    const questions = snapshot.diagnosis_questions.filter((row) => row.orderId === create.body.orderId);
+    const traces = snapshot.ai_model_traces;
+    assert.ok(questions.length >= 2);
+    assert.ok(traces.some((trace) => trace.promptId === 'LLM-FULL-03' && trace.status === 'SUCCESS'));
+    assert.ok(traces.some((trace) => trace.promptId === 'LLM-QUESTION-04' && trace.status === 'SUCCESS'));
+    for (const question of questions) {
+      assert.equal(question.questionInteractionQuotaTotal, 3);
+      assert.equal(question.questionInteractionQuotaRemaining, 3);
+    }
+
+    const evidence = {
+      status: 'PASS',
+      command: t22Command,
+      requirementIds: ['V13-R01', 'V13-R08', 'V13-R09'],
+      apiCalls: [
+        { method: 'POST', path: '/api/diagnosis-orders/{orderId}/generate-full', responseStatus: generate.status, response: generate.body },
+        { method: 'GET', path: '/api/diagnosis-orders/{orderId}/full-report', responseStatus: full.status, response: full.body }
+      ],
+      dbReadback: {
+        order: api.db.assertReadback('diagnosis_orders', create.body.orderId, { questionInteractionQuotaTotal: 10 }),
+        questions,
+        traces
+      },
+      assertions: [
+        'Full report generation created at least two wrong-question cards.',
+        'POST and GET responses expose wrong-question summaries and quota for UI/API consumers.',
+        'LLM-FULL-03 and LLM-QUESTION-04 traces are persisted in local ai_model_traces.'
+      ]
+    };
+    writeT22Evidence('T22-full-report-question-cards.json', evidence);
+  });
+});
+
+test('T22 covers entitlement, missing basic context, provider failure, and no-question fallback branches', async () => {
+  await withApi(async (api) => {
+    const basicOnly = await createPreviewReadyOrder(api, 't22-basic-only');
+    await pay(api, basicOnly.create, 'basic', 't22-basic-only');
+    const entitlement = await requestJson(api.baseUrl, 'POST', `/api/diagnosis-orders/${basicOnly.create.body.orderId}/generate-full`, {}, {
+      'x-order-token': basicOnly.create.body.orderToken
+    });
+
+    const missingContext = await requestJson(api.baseUrl, 'POST', '/api/diagnosis-orders', {
+      source: 'T22-missing-basic-context',
+      grade: 'grade-5',
+      subject: 'math',
+      examType: 'unit-test',
+      materialType: 'answer-sheet'
+    });
+    api.db.update('diagnosis_orders', missingContext.body.orderId, { accessLevel: 'full' });
+    const missingBasic = await requestJson(api.baseUrl, 'POST', `/api/diagnosis-orders/${missingContext.body.orderId}/generate-full`, {}, {
+      'x-order-token': missingContext.body.orderToken
+    });
+
+    const providerOrder = await createFullPaidOrder(api, 't22-provider');
+    const providerFailure = await requestJson(api.baseUrl, 'POST', `/api/diagnosis-orders/${providerOrder.create.body.orderId}/generate-full`, {
+      simulateQuestionExtraction: 'provider_failure'
+    }, { 'x-order-token': providerOrder.create.body.orderToken });
+
+    const fallbackOrder = await createFullPaidOrder(api, 't22-fallback');
+    const fallback = await requestJson(api.baseUrl, 'POST', `/api/diagnosis-orders/${fallbackOrder.create.body.orderId}/generate-full`, {
+      forceNoQuestionFallback: true
+    }, { 'x-order-token': fallbackOrder.create.body.orderToken });
+    const fallbackQuestions = api.db.find('diagnosis_questions', (row) => row.orderId === fallbackOrder.create.body.orderId);
+
+    assert.equal(entitlement.status, 403);
+    assert.equal(entitlement.body.code, 'FULL_ENTITLEMENT_REQUIRED');
+    assert.equal(missingBasic.status, 404);
+    assert.equal(providerFailure.status, 502);
+    assert.equal(providerFailure.body.code, 'LOCAL_AI_PROVIDER_FAILURE');
+    assert.equal(fallback.status, 200);
+    assert.ok(fallback.body.wrongQuestionCards.length >= 2);
+    assert.equal(fallbackQuestions.every((row) => row.source === 'fallback'), true);
+
+    const evidence = {
+      status: 'PASS',
+      command: t22Command,
+      branches: {
+        missingFullEntitlement: { responseStatus: entitlement.status, response: entitlement.body },
+        missingBasicDecisionContext: { responseStatus: missingBasic.status, response: missingBasic.body },
+        providerFailure: { responseStatus: providerFailure.status, response: providerFailure.body },
+        noQuestionFallback: { responseStatus: fallback.status, response: fallback.body }
+      },
+      dbReadback: {
+        fallbackOrder: api.db.assertReadback('diagnosis_orders', fallbackOrder.create.body.orderId, { questionInteractionQuotaTotal: 10 }),
+        fallbackQuestions,
+        traces: api.db.all('ai_model_traces')
+      },
+      assertions: [
+        'Unpaid/basic users cannot generate full-report tutor data.',
+        'Missing basic report context fails before creating a full report.',
+        'Provider failure is reported with a local trace id and does not fake success.',
+        'No-question extraction creates explicit fallback cards with source=fallback.'
+      ]
+    };
+    writeT22Evidence('T22-negative-branches.json', evidence);
+    writeResult('docs/auto-execute/results/T22.json', {
+      taskId: 'T22',
+      status: 'PASS',
+      command: t22Command,
+      evidence: [
+        'docs/auto-execute/evidence/api-db-llm/T22-full-report-question-cards.json',
+        'docs/auto-execute/evidence/api-db-llm/T22-negative-branches.json'
+      ],
+      result: 'Full-report generation creates wrong-question cards, quota, and LLM traces, and covers required negative branches.'
     });
   });
 });

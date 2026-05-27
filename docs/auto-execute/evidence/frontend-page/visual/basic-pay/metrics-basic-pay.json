@@ -2,8 +2,8 @@
   "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
   "command": "npm run visual:scoremap -- preview basic-pay",
   "route": "/pages/basic-pay/index",
-  "reference": "docs/UI/小程序/1元支付.png",
-  "stitchReference": "docs/UI/小程序/stitch_codex_development_blueprints/1/screen.png",
+  "reference": "ui-reference-catalog/小程序/1元支付.png",
+  "stitchReference": "ui-reference-catalog/小程序/stitch_codex_development_blueprints/1/screen-reference",
   "actual": "docs/auto-execute/evidence/frontend-page/visual/basic-pay/actual-basic-pay-structure.svg",
   "diff": "docs/auto-execute/evidence/frontend-page/visual/basic-pay/diff-basic-pay-manual-review.svg",
   "viewport": {

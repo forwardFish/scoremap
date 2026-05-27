@@ -1,0 +1,398 @@
+﻿{
+    "blockers":  [
+                     {
+                         "id":  "GAP-STORY-REPORT-002-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "P0/P1 story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Implement/repair STORY-REPORT-002 and attach truthful test-point evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-002-001-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-REPORT-002-001 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-002-001-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-REPORT-002-001 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-REPORT-002-001.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-002-002-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-REPORT-002-002 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-002-002-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-REPORT-002-002 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-REPORT-002-002.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-002-003-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-REPORT-002-003 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-002-003-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-REPORT-002-003 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-REPORT-002-003.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-002-004-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-REPORT-002-004 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-002-004-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-REPORT-002-004 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-REPORT-002-004.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-002-005-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-REPORT-002-005 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-002-005-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-REPORT-002-005 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-REPORT-002-005.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-002-006-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-REPORT-002-006 for story STORY-REPORT-002 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-002-006-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-REPORT-002-006 for P0/P1 story STORY-REPORT-002 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-REPORT-002-006.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-STORY-REPORT-003-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "P0/P1 story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Implement/repair STORY-REPORT-003 and attach truthful test-point evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-003-001-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-REPORT-003-001 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-003-001-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-REPORT-003-001 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-REPORT-003-001.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-003-002-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-REPORT-003-002 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-003-002-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-REPORT-003-002 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-REPORT-003-002.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-003-003-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-REPORT-003-003 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-003-003-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-REPORT-003-003 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-REPORT-003-003.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-003-004-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-REPORT-003-004 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-003-004-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-REPORT-003-004 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-REPORT-003-004.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-003-005-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-REPORT-003-005 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-003-005-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-REPORT-003-005 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-REPORT-003-005.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-003-006-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-REPORT-003-006 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-003-006-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-REPORT-003-006 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-REPORT-003-006.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-003-007-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-REPORT-003-007 for story STORY-REPORT-003 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-003-007-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-REPORT-003-007 for P0/P1 story STORY-REPORT-003 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-REPORT-003-007.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-STORY-GENERAL-006-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "P0/P1 story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Implement/repair STORY-GENERAL-006 and attach truthful test-point evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-GENERAL-006-001-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-GENERAL-006-001 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-GENERAL-006-001-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-GENERAL-006-001 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-GENERAL-006-001.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-GENERAL-006-002-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-GENERAL-006-002 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-GENERAL-006-002-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-GENERAL-006-002 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-GENERAL-006-002.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-GENERAL-006-003-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-GENERAL-006-003 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-GENERAL-006-003-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-GENERAL-006-003 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-GENERAL-006-003.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-GENERAL-006-004-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-GENERAL-006-004 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-GENERAL-006-004-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-GENERAL-006-004 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-GENERAL-006-004.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-GENERAL-006-005-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-GENERAL-006-005 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-GENERAL-006-005-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-GENERAL-006-005 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-GENERAL-006-005.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-GENERAL-006-006-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-GENERAL-006-006 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-GENERAL-006-006-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-GENERAL-006-006 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-GENERAL-006-006.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-GENERAL-006-007-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-GENERAL-006-007 for story STORY-GENERAL-006 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-GENERAL-006-007-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-GENERAL-006-007 for P0/P1 story STORY-GENERAL-006 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-GENERAL-006-007.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-STORY-REPORT-009-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "P0/P1 story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Implement/repair STORY-REPORT-009 and attach truthful test-point evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-009-001-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-REPORT-009-001 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-009-001-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-REPORT-009-001 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-REPORT-009-001.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-009-002-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-REPORT-009-002 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-009-002-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-REPORT-009-002 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-REPORT-009-002.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-009-003-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-REPORT-009-003 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-009-003-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-REPORT-009-003 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-REPORT-009-003.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-009-004-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-REPORT-009-004 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-009-004-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-REPORT-009-004 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-REPORT-009-004.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-009-005-STATUS",
+                         "severity":  "IN_SCOPE_GAP",
+                         "description":  "Test point TP-STORY-REPORT-009-005 for story STORY-REPORT-009 status is PENDING, not PASS/PASS_WITH_LIMITATION.",
+                         "repairTarget":  "Run or implement the test point and attach evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-009-005-EVIDENCE",
+                         "severity":  "HARD_FAIL",
+                         "description":  "Test point TP-STORY-REPORT-009-005 for P0/P1 story STORY-REPORT-009 has no evidence.",
+                         "repairTarget":  "Attach executable evidence for TP-STORY-REPORT-009-005.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     }
+                 ],
+    "commands":  [
+
+                 ],
+    "lane":  "story-verifier",
+    "status":  "HARD_FAIL",
+    "evidence":  [
+                     "docs\\auto-execute\\story-target.json",
+                     "docs\\auto-execute\\story-test-matrix.json",
+                     "docs\\auto-execute\\story-status.json",
+                     "docs\\auto-execute\\gap-list.json"
+                 ],
+    "schemaVersion":  "2.0",
+    "nextActions":  [
+                        "Close story gaps, attach test-point evidence, then rerun run-story-verify.ps1 and final gate."
+                    ],
+    "updatedAt":  "2026-05-25T19:10:52"
+}

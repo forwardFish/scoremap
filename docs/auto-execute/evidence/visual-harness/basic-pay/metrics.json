@@ -1,9 +1,11 @@
 {
   "id": "UI-C06",
   "screen": "basic-pay",
+  "referenceKey": null,
   "route": "/pages/basic-pay/index",
   "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
-  "reference": "docs/UI/小程序/1元支付.png",
+  "reference": "docs/auto-execute/evidence/visual-harness/basic-pay/reference.png",
+  "sourceReference": "docs/UI/小程序/1元支付.png",
   "declaredReference": "docs/UI/小程序/1元支付.png",
   "stitchReference": "docs/UI/小程序/stitch_codex_development_blueprints/1/screen.png",
   "miniappActualAsset": "scoremap-miniapp/assets/reference/basic-pay.jpg",

@@ -1,0 +1,11 @@
+{
+  "id": "V13-UI-QUESTION-DETAIL",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "referenceKey": "_1",
+  "reference": "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/reference.png",
+  "sourceReference": "docs/UI/小程序/stitch_codex_ui_design_kit/_1/screen.png",
+  "actual": "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/actual.svg",
+  "diff": "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/diff.svg",
+  "metrics": "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/metrics.json",
+  "knownGaps": []
+}

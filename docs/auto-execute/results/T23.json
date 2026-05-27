@@ -1,0 +1,16 @@
+{
+  "taskId": "T23",
+  "status": "PASS",
+  "command": "npm --prefix server test -- ai-tutor quota auth failures",
+  "evidence": [
+    "docs/auto-execute/evidence/api-db-llm/T23-api-success-db-llm.json",
+    "docs/auto-execute/evidence/api-db-llm/T23-negative-branches-quota-auth.json"
+  ],
+  "routes": [
+    "GET /api/diagnosis-orders/{orderId}/questions",
+    "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+    "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/exercise-answer",
+    "GET /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions"
+  ],
+  "result": "AI tutor APIs enforce full entitlement, owner access, fixed actions, report/question quota, failure recording, exercise answer storage, history readback, and local LLM traces."
+}

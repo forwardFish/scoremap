@@ -1,0 +1,509 @@
+﻿{
+    "schemaVersion":  "2.0",
+    "status":  "PASS_WITH_LIMITATION",
+    "generatedAt":  "2026-05-25T18:32:00+08:00",
+    "mappingPriority":  [
+                            "harness.yml uiMapping",
+                            "UIReferences auto discovery",
+                            "filename route guess",
+                            "manual review"
+                        ],
+    "source":  "docs/auto-execute/evidence/visual-harness/summary.json",
+    "notes":  [
+                  "Materialized from existing deterministic miniapp visual-harness evidence.",
+                  "Pixel-perfect PASS is not claimed because pixelmatch/pngjs are not installed in this checkout."
+              ],
+    "uiLayerSummary":  {
+                           "requiredScreens":  15,
+                           "structureStatus":  "PASS",
+                           "screenshotStatus":  "PASS",
+                           "visualStatus":  "MANUAL_REVIEW_REQUIRED",
+                           "pixelPerfectStatus":  "MANUAL_REVIEW_REQUIRED",
+                           "pixelPerfectClaimAllowed":  false,
+                           "statusMeaning":  "All 15 required mapped screens have reference and actual visual evidence; one optional reports screen has actual visual evidence but no standalone reference PNG; raster pixel diff remains manual review.",
+                           "status":  "PASS_WITH_LIMITATION"
+                       },
+    "screens":  [
+                    {
+                        "id":  "UI-C01",
+                        "screen":  "home",
+                        "route":  "/pages/index/index",
+                        "required":  true,
+                        "mappingSource":  "visual-harness summary",
+                        "reference":  "docs/auto-execute/evidence/visual-harness/home/reference.png",
+                        "actualScreenshot":  "docs/auto-execute/evidence/visual-harness/home/actual.jpg",
+                        "visualEvidence":  "docs/auto-execute/evidence/visual-harness/home/actual.jpg",
+                        "visualStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "pixelPerfectStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "actual":  "docs/auto-execute/evidence/visual-harness/home/actual.jpg",
+                        "visualDiff":  "docs/auto-execute/evidence/visual-harness/home/diff.svg",
+                        "diffEvidence":  "docs/auto-execute/evidence/visual-harness/home/diff.svg",
+                        "status":  "PASS_WITH_LIMITATION",
+                        "visualEvidenceDetail":  {
+                                                     "actual":  "docs/auto-execute/evidence/visual-harness/home/actual.jpg",
+                                                     "diff":  "docs/auto-execute/evidence/visual-harness/home/diff.svg",
+                                                     "metrics":  "docs/auto-execute/evidence/visual-harness/home/metrics.json",
+                                                     "summary":  "docs/auto-execute/evidence/visual-harness/home/summary.json"
+                                                 },
+                        "structureStatus":  "PASS",
+                        "screenshotStatus":  "PASS",
+                        "pixelDiffStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "finalUiStatus":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "canClaimPixelPerfect":  false,
+                        "knownDifferences":  [
+                                                 "Pixel diff unavailable or incomplete; screenshot evidence exists only if screenshotStatus is PASS."
+                                             ],
+                        "pixelDiffRatio":  null,
+                        "sizeMismatch":  false
+                    },
+                    {
+                        "id":  "UI-C03",
+                        "screen":  "analysis",
+                        "route":  "/pages/analysis/index",
+                        "required":  true,
+                        "mappingSource":  "visual-harness summary",
+                        "reference":  "docs/auto-execute/evidence/visual-harness/analysis/reference.png",
+                        "actualScreenshot":  "docs/auto-execute/evidence/visual-harness/analysis/actual.jpg",
+                        "visualEvidence":  "docs/auto-execute/evidence/visual-harness/analysis/actual.jpg",
+                        "visualStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "pixelPerfectStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "actual":  "docs/auto-execute/evidence/visual-harness/analysis/actual.jpg",
+                        "visualDiff":  "docs/auto-execute/evidence/visual-harness/analysis/diff.svg",
+                        "diffEvidence":  "docs/auto-execute/evidence/visual-harness/analysis/diff.svg",
+                        "status":  "PASS_WITH_LIMITATION",
+                        "visualEvidenceDetail":  {
+                                                     "actual":  "docs/auto-execute/evidence/visual-harness/analysis/actual.jpg",
+                                                     "diff":  "docs/auto-execute/evidence/visual-harness/analysis/diff.svg",
+                                                     "metrics":  "docs/auto-execute/evidence/visual-harness/analysis/metrics.json",
+                                                     "summary":  "docs/auto-execute/evidence/visual-harness/analysis/summary.json"
+                                                 },
+                        "structureStatus":  "PASS",
+                        "screenshotStatus":  "PASS",
+                        "pixelDiffStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "finalUiStatus":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "canClaimPixelPerfect":  false,
+                        "knownDifferences":  [
+                                                 "Pixel diff unavailable or incomplete; screenshot evidence exists only if screenshotStatus is PASS."
+                                             ],
+                        "pixelDiffRatio":  null,
+                        "sizeMismatch":  false
+                    },
+                    {
+                        "id":  "UI-C04",
+                        "screen":  "failure",
+                        "route":  "/pages/failure/index",
+                        "required":  true,
+                        "mappingSource":  "visual-harness summary",
+                        "reference":  "docs/auto-execute/evidence/visual-harness/failure/reference.png",
+                        "actualScreenshot":  "docs/auto-execute/evidence/visual-harness/failure/actual.jpg",
+                        "visualEvidence":  "docs/auto-execute/evidence/visual-harness/failure/actual.jpg",
+                        "visualStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "pixelPerfectStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "actual":  "docs/auto-execute/evidence/visual-harness/failure/actual.jpg",
+                        "visualDiff":  "docs/auto-execute/evidence/visual-harness/failure/diff.svg",
+                        "diffEvidence":  "docs/auto-execute/evidence/visual-harness/failure/diff.svg",
+                        "status":  "PASS_WITH_LIMITATION",
+                        "visualEvidenceDetail":  {
+                                                     "actual":  "docs/auto-execute/evidence/visual-harness/failure/actual.jpg",
+                                                     "diff":  "docs/auto-execute/evidence/visual-harness/failure/diff.svg",
+                                                     "metrics":  "docs/auto-execute/evidence/visual-harness/failure/metrics.json",
+                                                     "summary":  "docs/auto-execute/evidence/visual-harness/failure/summary.json"
+                                                 },
+                        "structureStatus":  "PASS",
+                        "screenshotStatus":  "PASS",
+                        "pixelDiffStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "finalUiStatus":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "canClaimPixelPerfect":  false,
+                        "knownDifferences":  [
+                                                 "Pixel diff unavailable or incomplete; screenshot evidence exists only if screenshotStatus is PASS."
+                                             ],
+                        "pixelDiffRatio":  null,
+                        "sizeMismatch":  false
+                    },
+                    {
+                        "id":  "UI-C05",
+                        "screen":  "preview",
+                        "route":  "/pages/preview/index",
+                        "required":  true,
+                        "mappingSource":  "visual-harness summary",
+                        "reference":  "docs/auto-execute/evidence/visual-harness/preview/reference.png",
+                        "actualScreenshot":  "docs/auto-execute/evidence/visual-harness/preview/actual.jpg",
+                        "visualEvidence":  "docs/auto-execute/evidence/visual-harness/preview/actual.jpg",
+                        "visualStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "pixelPerfectStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "actual":  "docs/auto-execute/evidence/visual-harness/preview/actual.jpg",
+                        "visualDiff":  "docs/auto-execute/evidence/visual-harness/preview/diff.svg",
+                        "diffEvidence":  "docs/auto-execute/evidence/visual-harness/preview/diff.svg",
+                        "status":  "PASS_WITH_LIMITATION",
+                        "visualEvidenceDetail":  {
+                                                     "actual":  "docs/auto-execute/evidence/visual-harness/preview/actual.jpg",
+                                                     "diff":  "docs/auto-execute/evidence/visual-harness/preview/diff.svg",
+                                                     "metrics":  "docs/auto-execute/evidence/visual-harness/preview/metrics.json",
+                                                     "summary":  "docs/auto-execute/evidence/visual-harness/preview/summary.json"
+                                                 },
+                        "structureStatus":  "PASS",
+                        "screenshotStatus":  "PASS",
+                        "pixelDiffStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "finalUiStatus":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "canClaimPixelPerfect":  false,
+                        "knownDifferences":  [
+                                                 "Pixel diff unavailable or incomplete; screenshot evidence exists only if screenshotStatus is PASS."
+                                             ],
+                        "pixelDiffRatio":  null,
+                        "sizeMismatch":  false
+                    },
+                    {
+                        "id":  "UI-C06",
+                        "screen":  "basic-pay",
+                        "route":  "/pages/basic-pay/index",
+                        "required":  true,
+                        "mappingSource":  "visual-harness summary",
+                        "reference":  "docs/auto-execute/evidence/visual-harness/basic-pay/reference.png",
+                        "actualScreenshot":  "docs/auto-execute/evidence/visual-harness/basic-pay/actual.jpg",
+                        "visualEvidence":  "docs/auto-execute/evidence/visual-harness/basic-pay/actual.jpg",
+                        "visualStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "pixelPerfectStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "actual":  "docs/auto-execute/evidence/visual-harness/basic-pay/actual.jpg",
+                        "visualDiff":  "docs/auto-execute/evidence/visual-harness/basic-pay/diff.svg",
+                        "diffEvidence":  "docs/auto-execute/evidence/visual-harness/basic-pay/diff.svg",
+                        "status":  "PASS_WITH_LIMITATION",
+                        "visualEvidenceDetail":  {
+                                                     "actual":  "docs/auto-execute/evidence/visual-harness/basic-pay/actual.jpg",
+                                                     "diff":  "docs/auto-execute/evidence/visual-harness/basic-pay/diff.svg",
+                                                     "metrics":  "docs/auto-execute/evidence/visual-harness/basic-pay/metrics.json",
+                                                     "summary":  "docs/auto-execute/evidence/visual-harness/basic-pay/summary.json"
+                                                 },
+                        "structureStatus":  "PASS",
+                        "screenshotStatus":  "PASS",
+                        "pixelDiffStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "finalUiStatus":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "canClaimPixelPerfect":  false,
+                        "knownDifferences":  [
+                                                 "Pixel diff unavailable or incomplete; screenshot evidence exists only if screenshotStatus is PASS."
+                                             ],
+                        "pixelDiffRatio":  null,
+                        "sizeMismatch":  false
+                    },
+                    {
+                        "id":  "UI-C07",
+                        "screen":  "basic-result",
+                        "route":  "/pages/basic-result/index",
+                        "required":  true,
+                        "mappingSource":  "visual-harness summary",
+                        "reference":  "docs/auto-execute/evidence/visual-harness/basic-result/reference.png",
+                        "actualScreenshot":  "docs/auto-execute/evidence/visual-harness/basic-result/actual.jpg",
+                        "visualEvidence":  "docs/auto-execute/evidence/visual-harness/basic-result/actual.jpg",
+                        "visualStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "pixelPerfectStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "actual":  "docs/auto-execute/evidence/visual-harness/basic-result/actual.jpg",
+                        "visualDiff":  "docs/auto-execute/evidence/visual-harness/basic-result/diff.svg",
+                        "diffEvidence":  "docs/auto-execute/evidence/visual-harness/basic-result/diff.svg",
+                        "status":  "PASS_WITH_LIMITATION",
+                        "visualEvidenceDetail":  {
+                                                     "actual":  "docs/auto-execute/evidence/visual-harness/basic-result/actual.jpg",
+                                                     "diff":  "docs/auto-execute/evidence/visual-harness/basic-result/diff.svg",
+                                                     "metrics":  "docs/auto-execute/evidence/visual-harness/basic-result/metrics.json",
+                                                     "summary":  "docs/auto-execute/evidence/visual-harness/basic-result/summary.json"
+                                                 },
+                        "structureStatus":  "PASS",
+                        "screenshotStatus":  "PASS",
+                        "pixelDiffStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "finalUiStatus":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "canClaimPixelPerfect":  false,
+                        "knownDifferences":  [
+                                                 "Pixel diff unavailable or incomplete; screenshot evidence exists only if screenshotStatus is PASS."
+                                             ],
+                        "pixelDiffRatio":  null,
+                        "sizeMismatch":  false
+                    },
+                    {
+                        "id":  "UI-C08",
+                        "screen":  "full-unlock",
+                        "route":  "/pages/full-unlock/index",
+                        "required":  true,
+                        "mappingSource":  "visual-harness summary",
+                        "reference":  "docs/auto-execute/evidence/visual-harness/full-unlock/reference.png",
+                        "actualScreenshot":  "docs/auto-execute/evidence/visual-harness/full-unlock/actual.jpg",
+                        "visualEvidence":  "docs/auto-execute/evidence/visual-harness/full-unlock/actual.jpg",
+                        "visualStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "pixelPerfectStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "actual":  "docs/auto-execute/evidence/visual-harness/full-unlock/actual.jpg",
+                        "visualDiff":  "docs/auto-execute/evidence/visual-harness/full-unlock/diff.svg",
+                        "diffEvidence":  "docs/auto-execute/evidence/visual-harness/full-unlock/diff.svg",
+                        "status":  "PASS_WITH_LIMITATION",
+                        "visualEvidenceDetail":  {
+                                                     "actual":  "docs/auto-execute/evidence/visual-harness/full-unlock/actual.jpg",
+                                                     "diff":  "docs/auto-execute/evidence/visual-harness/full-unlock/diff.svg",
+                                                     "metrics":  "docs/auto-execute/evidence/visual-harness/full-unlock/metrics.json",
+                                                     "summary":  "docs/auto-execute/evidence/visual-harness/full-unlock/summary.json"
+                                                 },
+                        "structureStatus":  "PASS",
+                        "screenshotStatus":  "PASS",
+                        "pixelDiffStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "finalUiStatus":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "canClaimPixelPerfect":  false,
+                        "knownDifferences":  [
+                                                 "Pixel diff unavailable or incomplete; screenshot evidence exists only if screenshotStatus is PASS."
+                                             ],
+                        "pixelDiffRatio":  null,
+                        "sizeMismatch":  false
+                    },
+                    {
+                        "id":  "UI-C09",
+                        "screen":  "full-report-entry",
+                        "route":  "/pages/full-report-entry/index",
+                        "required":  true,
+                        "mappingSource":  "visual-harness summary",
+                        "reference":  "docs/auto-execute/evidence/visual-harness/full-report-entry/reference.png",
+                        "actualScreenshot":  "docs/auto-execute/evidence/visual-harness/full-report-entry/actual.jpg",
+                        "visualEvidence":  "docs/auto-execute/evidence/visual-harness/full-report-entry/actual.jpg",
+                        "visualStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "pixelPerfectStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "actual":  "docs/auto-execute/evidence/visual-harness/full-report-entry/actual.jpg",
+                        "visualDiff":  "docs/auto-execute/evidence/visual-harness/full-report-entry/diff.svg",
+                        "diffEvidence":  "docs/auto-execute/evidence/visual-harness/full-report-entry/diff.svg",
+                        "status":  "PASS_WITH_LIMITATION",
+                        "visualEvidenceDetail":  {
+                                                     "actual":  "docs/auto-execute/evidence/visual-harness/full-report-entry/actual.jpg",
+                                                     "diff":  "docs/auto-execute/evidence/visual-harness/full-report-entry/diff.svg",
+                                                     "metrics":  "docs/auto-execute/evidence/visual-harness/full-report-entry/metrics.json",
+                                                     "summary":  "docs/auto-execute/evidence/visual-harness/full-report-entry/summary.json"
+                                                 },
+                        "structureStatus":  "PASS",
+                        "screenshotStatus":  "PASS",
+                        "pixelDiffStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "finalUiStatus":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "canClaimPixelPerfect":  false,
+                        "knownDifferences":  [
+                                                 "Pixel diff unavailable or incomplete; screenshot evidence exists only if screenshotStatus is PASS."
+                                             ],
+                        "pixelDiffRatio":  null,
+                        "sizeMismatch":  false
+                    },
+                    {
+                        "id":  "UI-C10",
+                        "screen":  "full-report",
+                        "route":  "/pages/full-report/index",
+                        "required":  true,
+                        "mappingSource":  "visual-harness summary",
+                        "reference":  "docs/auto-execute/evidence/visual-harness/full-report/reference.png",
+                        "actualScreenshot":  "docs/auto-execute/evidence/visual-harness/full-report/actual.jpg",
+                        "visualEvidence":  "docs/auto-execute/evidence/visual-harness/full-report/actual.jpg",
+                        "visualStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "pixelPerfectStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "actual":  "docs/auto-execute/evidence/visual-harness/full-report/actual.jpg",
+                        "visualDiff":  "docs/auto-execute/evidence/visual-harness/full-report/diff.svg",
+                        "diffEvidence":  "docs/auto-execute/evidence/visual-harness/full-report/diff.svg",
+                        "status":  "PASS_WITH_LIMITATION",
+                        "visualEvidenceDetail":  {
+                                                     "actual":  "docs/auto-execute/evidence/visual-harness/full-report/actual.jpg",
+                                                     "diff":  "docs/auto-execute/evidence/visual-harness/full-report/diff.svg",
+                                                     "metrics":  "docs/auto-execute/evidence/visual-harness/full-report/metrics.json",
+                                                     "summary":  "docs/auto-execute/evidence/visual-harness/full-report/summary.json"
+                                                 },
+                        "structureStatus":  "PASS",
+                        "screenshotStatus":  "PASS",
+                        "pixelDiffStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "finalUiStatus":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "canClaimPixelPerfect":  false,
+                        "knownDifferences":  [
+                                                 "Pixel diff unavailable or incomplete; screenshot evidence exists only if screenshotStatus is PASS."
+                                             ],
+                        "pixelDiffRatio":  null,
+                        "sizeMismatch":  false
+                    },
+                    {
+                        "id":  "UI-C11",
+                        "screen":  "my",
+                        "route":  "/pages/my/index",
+                        "required":  true,
+                        "mappingSource":  "visual-harness summary",
+                        "reference":  "docs/auto-execute/evidence/visual-harness/my/reference.png",
+                        "actualScreenshot":  "docs/auto-execute/evidence/visual-harness/my/actual.jpg",
+                        "visualEvidence":  "docs/auto-execute/evidence/visual-harness/my/actual.jpg",
+                        "visualStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "pixelPerfectStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "actual":  "docs/auto-execute/evidence/visual-harness/my/actual.jpg",
+                        "visualDiff":  "docs/auto-execute/evidence/visual-harness/my/diff.svg",
+                        "diffEvidence":  "docs/auto-execute/evidence/visual-harness/my/diff.svg",
+                        "status":  "PASS_WITH_LIMITATION",
+                        "visualEvidenceDetail":  {
+                                                     "actual":  "docs/auto-execute/evidence/visual-harness/my/actual.jpg",
+                                                     "diff":  "docs/auto-execute/evidence/visual-harness/my/diff.svg",
+                                                     "metrics":  "docs/auto-execute/evidence/visual-harness/my/metrics.json",
+                                                     "summary":  "docs/auto-execute/evidence/visual-harness/my/summary.json"
+                                                 },
+                        "structureStatus":  "PASS",
+                        "screenshotStatus":  "PASS",
+                        "pixelDiffStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "finalUiStatus":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "canClaimPixelPerfect":  false,
+                        "knownDifferences":  [
+                                                 "Pixel diff unavailable or incomplete; screenshot evidence exists only if screenshotStatus is PASS."
+                                             ],
+                        "pixelDiffRatio":  null,
+                        "sizeMismatch":  false
+                    },
+                    {
+                        "id":  "V13-UI-FULL-REPORT",
+                        "screen":  "v13-full-report",
+                        "route":  "/pages/full-report/index?state=aiTutorReady",
+                        "required":  true,
+                        "mappingSource":  "v1.3 UI reference map",
+                        "reference":  "docs/auto-execute/evidence/visual-harness/v13-full-report/reference.png",
+                        "actualScreenshot":  "docs/auto-execute/evidence/visual-harness/v13-full-report/actual.svg",
+                        "visualEvidence":  "docs/auto-execute/evidence/visual-harness/v13-full-report/actual.svg",
+                        "visualStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "pixelPerfectStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "actual":  "docs/auto-execute/evidence/visual-harness/v13-full-report/actual.svg",
+                        "visualDiff":  "docs/auto-execute/evidence/visual-harness/v13-full-report/diff.svg",
+                        "diffEvidence":  "docs/auto-execute/evidence/visual-harness/v13-full-report/diff.svg",
+                        "status":  "PASS_WITH_LIMITATION",
+                        "visualEvidenceDetail":  {
+                                                     "actual":  "docs/auto-execute/evidence/visual-harness/v13-full-report/actual.svg",
+                                                     "diff":  "docs/auto-execute/evidence/visual-harness/v13-full-report/diff.svg",
+                                                     "metrics":  "docs/auto-execute/evidence/visual-harness/v13-full-report/metrics.json",
+                                                     "summary":  "docs/auto-execute/evidence/visual-harness/v13-full-report/summary.json"
+                                                 },
+                        "structureStatus":  "PASS",
+                        "screenshotStatus":  "PASS",
+                        "pixelDiffStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "finalUiStatus":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "canClaimPixelPerfect":  false,
+                        "knownDifferences":  [
+                                                 "Pixel diff unavailable or incomplete; screenshot evidence exists only if screenshotStatus is PASS."
+                                             ],
+                        "pixelDiffRatio":  null,
+                        "sizeMismatch":  false
+                    },
+                    {
+                        "id":  "V13-UI-QUESTION-DETAIL",
+                        "screen":  "v13-wrong-question-detail",
+                        "route":  "/pages/wrong-question/index?questionId={questionId}",
+                        "required":  true,
+                        "mappingSource":  "v1.3 UI reference map",
+                        "reference":  "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/reference.png",
+                        "actualScreenshot":  "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/actual.svg",
+                        "visualEvidence":  "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/actual.svg",
+                        "visualStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "pixelPerfectStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "actual":  "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/actual.svg",
+                        "visualDiff":  "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/diff.svg",
+                        "diffEvidence":  "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/diff.svg",
+                        "status":  "PASS_WITH_LIMITATION",
+                        "visualEvidenceDetail":  {
+                                                     "actual":  "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/actual.svg",
+                                                     "diff":  "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/diff.svg",
+                                                     "metrics":  "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/metrics.json",
+                                                     "summary":  "docs/auto-execute/evidence/visual-harness/v13-wrong-question-detail/summary.json"
+                                                 },
+                        "structureStatus":  "PASS",
+                        "screenshotStatus":  "PASS",
+                        "pixelDiffStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "finalUiStatus":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "canClaimPixelPerfect":  false,
+                        "knownDifferences":  [
+                                                 "Pixel diff unavailable or incomplete; screenshot evidence exists only if screenshotStatus is PASS."
+                                             ],
+                        "pixelDiffRatio":  null,
+                        "sizeMismatch":  false
+                    },
+                    {
+                        "id":  "V13-UI-AI-TUTOR",
+                        "screen":  "v13-ai-tutor",
+                        "route":  "/pages/ai-tutor/index?questionId={questionId}",
+                        "required":  true,
+                        "mappingSource":  "v1.3 UI reference map",
+                        "reference":  "docs/auto-execute/evidence/visual-harness/v13-ai-tutor/reference.png",
+                        "actualScreenshot":  "docs/auto-execute/evidence/visual-harness/v13-ai-tutor/actual.svg",
+                        "visualEvidence":  "docs/auto-execute/evidence/visual-harness/v13-ai-tutor/actual.svg",
+                        "visualStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "pixelPerfectStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "actual":  "docs/auto-execute/evidence/visual-harness/v13-ai-tutor/actual.svg",
+                        "visualDiff":  "docs/auto-execute/evidence/visual-harness/v13-ai-tutor/diff.svg",
+                        "diffEvidence":  "docs/auto-execute/evidence/visual-harness/v13-ai-tutor/diff.svg",
+                        "status":  "PASS_WITH_LIMITATION",
+                        "visualEvidenceDetail":  {
+                                                     "actual":  "docs/auto-execute/evidence/visual-harness/v13-ai-tutor/actual.svg",
+                                                     "diff":  "docs/auto-execute/evidence/visual-harness/v13-ai-tutor/diff.svg",
+                                                     "metrics":  "docs/auto-execute/evidence/visual-harness/v13-ai-tutor/metrics.json",
+                                                     "summary":  "docs/auto-execute/evidence/visual-harness/v13-ai-tutor/summary.json"
+                                                 },
+                        "structureStatus":  "PASS",
+                        "screenshotStatus":  "PASS",
+                        "pixelDiffStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "finalUiStatus":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "canClaimPixelPerfect":  false,
+                        "knownDifferences":  [
+                                                 "Pixel diff unavailable or incomplete; screenshot evidence exists only if screenshotStatus is PASS."
+                                             ],
+                        "pixelDiffRatio":  null,
+                        "sizeMismatch":  false
+                    },
+                    {
+                        "id":  "V13-UI-EXERCISE",
+                        "screen":  "v13-similar-exercise",
+                        "route":  "/pages/ai-exercise/index?interactionId={interactionId}",
+                        "required":  true,
+                        "mappingSource":  "v1.3 UI reference map",
+                        "reference":  "docs/auto-execute/evidence/visual-harness/v13-similar-exercise/reference.png",
+                        "actualScreenshot":  "docs/auto-execute/evidence/visual-harness/v13-similar-exercise/actual.svg",
+                        "visualEvidence":  "docs/auto-execute/evidence/visual-harness/v13-similar-exercise/actual.svg",
+                        "visualStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "pixelPerfectStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "actual":  "docs/auto-execute/evidence/visual-harness/v13-similar-exercise/actual.svg",
+                        "visualDiff":  "docs/auto-execute/evidence/visual-harness/v13-similar-exercise/diff.svg",
+                        "diffEvidence":  "docs/auto-execute/evidence/visual-harness/v13-similar-exercise/diff.svg",
+                        "status":  "PASS_WITH_LIMITATION",
+                        "visualEvidenceDetail":  {
+                                                     "actual":  "docs/auto-execute/evidence/visual-harness/v13-similar-exercise/actual.svg",
+                                                     "diff":  "docs/auto-execute/evidence/visual-harness/v13-similar-exercise/diff.svg",
+                                                     "metrics":  "docs/auto-execute/evidence/visual-harness/v13-similar-exercise/metrics.json",
+                                                     "summary":  "docs/auto-execute/evidence/visual-harness/v13-similar-exercise/summary.json"
+                                                 },
+                        "structureStatus":  "PASS",
+                        "screenshotStatus":  "PASS",
+                        "pixelDiffStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "finalUiStatus":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "canClaimPixelPerfect":  false,
+                        "knownDifferences":  [
+                                                 "Pixel diff unavailable or incomplete; screenshot evidence exists only if screenshotStatus is PASS."
+                                             ],
+                        "pixelDiffRatio":  null,
+                        "sizeMismatch":  false
+                    },
+                    {
+                        "id":  "V13-UI-FEEDBACK",
+                        "screen":  "v13-answer-feedback",
+                        "route":  "/pages/ai-exercise-feedback/index?interactionId={interactionId}",
+                        "required":  true,
+                        "mappingSource":  "v1.3 UI reference map",
+                        "reference":  "docs/auto-execute/evidence/visual-harness/v13-answer-feedback/reference.png",
+                        "actualScreenshot":  "docs/auto-execute/evidence/visual-harness/v13-answer-feedback/actual.svg",
+                        "visualEvidence":  "docs/auto-execute/evidence/visual-harness/v13-answer-feedback/actual.svg",
+                        "visualStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "pixelPerfectStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "actual":  "docs/auto-execute/evidence/visual-harness/v13-answer-feedback/actual.svg",
+                        "visualDiff":  "docs/auto-execute/evidence/visual-harness/v13-answer-feedback/diff.svg",
+                        "diffEvidence":  "docs/auto-execute/evidence/visual-harness/v13-answer-feedback/diff.svg",
+                        "status":  "PASS_WITH_LIMITATION",
+                        "visualEvidenceDetail":  {
+                                                     "actual":  "docs/auto-execute/evidence/visual-harness/v13-answer-feedback/actual.svg",
+                                                     "diff":  "docs/auto-execute/evidence/visual-harness/v13-answer-feedback/diff.svg",
+                                                     "metrics":  "docs/auto-execute/evidence/visual-harness/v13-answer-feedback/metrics.json",
+                                                     "summary":  "docs/auto-execute/evidence/visual-harness/v13-answer-feedback/summary.json"
+                                                 },
+                        "structureStatus":  "PASS",
+                        "screenshotStatus":  "PASS",
+                        "pixelDiffStatus":  "MANUAL_REVIEW_REQUIRED",
+                        "finalUiStatus":  "PASS_NEEDS_MANUAL_UI_REVIEW",
+                        "canClaimPixelPerfect":  false,
+                        "knownDifferences":  [
+                                                 "Pixel diff unavailable or incomplete; screenshot evidence exists only if screenshotStatus is PASS."
+                                             ],
+                        "pixelDiffRatio":  null,
+                        "sizeMismatch":  false
+                    }
+                ],
+    "updatedAt":  "2026-05-25T19:11:03"
+}

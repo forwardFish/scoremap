@@ -1,9 +1,47 @@
-﻿<view class="replica-page {{derived ? 'derived-page' : ''}}">
-  <view class="derived-shell fallback-shell">
-    <view class="status-spacer"></view>
-    <view class="derived-title">{{title}}</view>
-    <view class="derived-card" wx:for="{{cards}}" wx:key="*this">{{item}}</view>
+<view class="orders-screen">
+  <view class="orders-header">
+    <text class="orders-title">{{title}}</text>
+    <text class="orders-subtitle">本地记录展示支付状态与报告权益，不连接线上支付。</text>
   </view>
-  <image wx:if="{{!derived && !imageLoadFailed && reference}}" class="reference-image" src="{{reference}}" mode="widthFix" show-menu-by-longpress="false" binderror="onImageError" />
-  <button wx:for="{{hotspots}}" wx:key="action" class="hotspot {{item.className}}" data-action="{{item.action}}" bindtap="onTap" aria-label="{{item.label}}"></button>
+
+  <view class="orders-summary">
+    <view class="summary-item">
+      <text class="summary-value">3</text>
+      <text class="summary-label">报告订单</text>
+    </view>
+    <view class="summary-divider"></view>
+    <view class="summary-item">
+      <text class="summary-value">2</text>
+      <text class="summary-label">已支付</text>
+    </view>
+  </view>
+
+  <view class="order-card">
+    <view class="order-icon basic"></view>
+    <view class="order-copy">
+      <text class="order-title">1 元初判订单</text>
+      <text class="order-meta">基础报告 · local-wechat-pay-mock</text>
+    </view>
+    <text class="order-amount">¥1</text>
+  </view>
+
+  <view class="order-card">
+    <view class="order-icon full"></view>
+    <view class="order-copy">
+      <text class="order-title">9.9 元完整报告订单</text>
+      <text class="order-meta">完整报告 · AI 追问权益</text>
+    </view>
+    <text class="order-amount">¥9.9</text>
+  </view>
+
+  <view class="order-card pending">
+    <view class="order-icon pending-dot"></view>
+    <view class="order-copy">
+      <text class="order-title">分析中报告记录</text>
+      <text class="order-meta">未支付 · 等待初判生成</text>
+    </view>
+    <text class="order-status">待处理</text>
+  </view>
+
+  <button class="orders-back" data-action="my" bindtap="onTap">返回我的</button>
 </view>

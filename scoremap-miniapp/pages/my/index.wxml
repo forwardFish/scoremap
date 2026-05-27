@@ -1,9 +1,76 @@
-﻿<view class="replica-page {{derived ? 'derived-page' : ''}}">
-  <view class="derived-shell fallback-shell">
-    <view class="status-spacer"></view>
-    <view class="derived-title">{{title}}</view>
-    <view class="derived-card" wx:for="{{cards}}" wx:key="*this">{{item}}</view>
+<view class="my-screen">
+  <view class="my-header">
+    <view class="my-header-spacer"></view>
+    <text class="my-title">我的</text>
+    <view class="my-capsule">
+      <text class="capsule-dot">•••</text>
+      <view class="capsule-divider"></view>
+      <view class="capsule-target"></view>
+    </view>
   </view>
-  <image wx:if="{{!derived && !imageLoadFailed && reference}}" class="reference-image" src="{{reference}}" mode="widthFix" show-menu-by-longpress="false" binderror="onImageError" />
-  <button wx:for="{{hotspots}}" wx:key="action" class="hotspot {{item.className}}" data-action="{{item.action}}" bindtap="onTap" aria-label="{{item.label}}"></button>
+
+  <view class="my-profile">
+    <view class="my-avatar">
+      <view class="avatar-face"></view>
+      <view class="avatar-shirt"></view>
+    </view>
+    <view class="profile-copy">
+      <text class="profile-name">We**</text>
+      <view class="profile-id-row">
+        <text class="profile-id">51467607-c876-4608-a825-e84...</text>
+        <button class="copy-id" data-action="copy" bindtap="onTap" aria-label="复制ID"></button>
+      </view>
+    </view>
+  </view>
+
+  <view class="my-menu-card">
+    <button class="my-menu-row" data-action="reports" bindtap="onTap">
+      <view class="menu-icon purple"><view class="file-symbol"></view></view>
+      <view class="menu-copy">
+        <text class="menu-title">我的报告</text>
+        <text class="menu-desc">查看和管理所有分析报告</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </button>
+    <view class="menu-divider"></view>
+    <button class="my-menu-row" data-action="purchases" bindtap="onTap">
+      <view class="menu-icon orange"><view class="bag-symbol"></view></view>
+      <view class="menu-copy">
+        <text class="menu-title">购买记录</text>
+        <text class="menu-desc">查看购买的点数与会员记录</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </button>
+    <view class="menu-divider"></view>
+    <button class="my-menu-row compact" data-action="orders" bindtap="onTap">
+      <view class="menu-icon blue"><view class="order-symbol"></view></view>
+      <view class="menu-copy">
+        <text class="menu-title">订单记录</text>
+        <text class="menu-desc">查看报告订单和支付状态</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </button>
+    <view class="menu-divider"></view>
+    <button class="my-menu-row compact" data-action="feedback" bindtap="onTap">
+      <view class="menu-icon green"><view class="feedback-symbol"></view></view>
+      <view class="menu-copy">
+        <text class="menu-title">帮助与反馈</text>
+        <text class="menu-desc">提交报告反馈和使用问题</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </button>
+  </view>
+
+  <button class="my-new-analysis" data-action="new" bindtap="onTap">继续新建分析</button>
+
+  <view class="my-tabs">
+    <button class="my-tab" data-action="home" bindtap="onTap">
+      <view class="tab-home-icon"></view>
+      <text>首页</text>
+    </button>
+    <button class="my-tab active" data-action="reports" bindtap="onTap">
+      <view class="tab-user-icon"></view>
+      <text>我的</text>
+    </button>
+  </view>
 </view>

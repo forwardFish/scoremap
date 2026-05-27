@@ -1,0 +1,29 @@
+{
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "metrics": {
+    "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+    "command": "npm run visual:scoremap -- v13-answer-feedback",
+    "route": "/pages/ai-exercise-feedback/index",
+    "reference": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/_2/screen-reference",
+    "stitchReference": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/_2/code.html",
+    "actual": "docs/auto-execute/evidence/frontend-page/visual/v13-answer-feedback/actual-v13-answer-feedback-structure.svg",
+    "diff": "docs/auto-execute/evidence/frontend-page/visual/v13-answer-feedback/diff-v13-answer-feedback-manual-review.svg",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "structuralChecks": {
+      "hasV13Reference": true,
+      "hasResult": true,
+      "hasExplanation": true,
+      "hasRetry": true,
+      "hasReturnReport": true,
+      "hasHistoryRow": true
+    },
+    "pixelDiff": {
+      "status": "MANUAL_REVIEW_REQUIRED",
+      "ratio": null,
+      "reason": "This T28 runner produces deterministic structural visual evidence only; T30 owns raster screenshot and pixel comparison."
+    }
+  }
+}

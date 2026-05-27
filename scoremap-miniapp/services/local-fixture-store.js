@@ -1,10 +1,13 @@
-﻿function createLocalFixtureStore() {
+function createLocalFixtureStore() {
   const tables = {
     users: new Map([['local-user-scoremap-t06', { id: 'local-user-scoremap-t06', role: 'parent_owner' }]]),
     diagnosis_orders: new Map(),
     upload_files: new Map(),
     ai_analysis_tasks: new Map(),
     diagnosis_decisions: new Map(),
+    diagnosis_questions: new Map(),
+    question_interactions: new Map(),
+    ai_model_traces: new Map(),
     payments: new Map(),
     report_exports: new Map(),
     feedbacks: new Map()

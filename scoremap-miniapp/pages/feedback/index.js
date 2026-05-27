@@ -1,26 +1,33 @@
-﻿if (typeof Page === 'function') {
-  const { createReplicaPage } = require('../../utils/replica-runtime');
-  createReplicaPage({
-  "title": "帮助与反馈",
-  "reference": "",
-  "derived": true,
-  "hotspots": [
-    {
-      "action": "my",
-      "label": "提交并返回",
-      "className": "bottom-cta"
+if (typeof Page === 'function') {
+  function navigate(url) {
+    if (typeof wx === 'undefined') return;
+    wx.switchTab({ url, fail: () => wx.reLaunch({ url }) });
+  }
+
+  Page({
+    data: {
+      reference: '',
+      derived: true,
+      title: '帮助与反馈',
+      selectedRating: 'helpful',
+      selectedTags: ['判断清晰', '知道下一步'],
+      hotspots: [
+        { action: 'my', label: '提交并返回', className: 'bottom-cta' }
+      ]
+    },
+    onLoad(query) {
+      this.query = query || {};
+      if (typeof wx !== 'undefined' && wx.hideTabBar) wx.hideTabBar({ animation: false, fail() {} });
+    },
+    onShow() {
+      if (typeof wx !== 'undefined' && wx.hideTabBar) wx.hideTabBar({ animation: false, fail() {} });
+    },
+    onTap(event) {
+      if (event.currentTarget.dataset.action !== 'my') return;
+      if (typeof wx !== 'undefined' && wx.showToast) wx.showToast({ title: '反馈已记录', icon: 'none' });
+      navigate('/pages/my/index');
     }
-  ],
-  "actions": {
-    "my": {
-      "url": "/pages/my/index"
-    }
-  },
-  "cards": [
-    "页面已收到反馈",
-    "本地 mock 不会提交到线上服务"
-  ]
-});
+  });
 } else {
 const { createMiniappApiClient } = require('../../services/api-client');
 const { seedMyFixtureIfMissing } = require('../my');

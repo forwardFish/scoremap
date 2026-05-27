@@ -1,0 +1,50 @@
+{
+  "taskId": "T31",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "commands": [
+    {
+      "command": "npm run e2e:owner -- ai-tutor-v13",
+      "status": "PASS"
+    },
+    {
+      "command": "npm test -- navigation",
+      "status": "PASS"
+    }
+  ],
+  "evidence": [
+    "docs/auto-execute/evidence/owner/all-pages-ai-tutor-v13.json",
+    "docs/auto-execute/evidence/navigation/all-click-targets.json"
+  ],
+  "scenarios": [
+    "V13-O14",
+    "V13-O15",
+    "V13-O16",
+    "V13-O17",
+    "V13-O18",
+    "V13-O19",
+    "V13-O20",
+    "V13-O21",
+    "V13-O22",
+    "V13-O23"
+  ],
+  "modifiedFiles": [
+    "tests/e2e/owner-click-flow.test.js",
+    "scoremap-miniapp/navigation-click-audit.test.js",
+    "scoremap-miniapp/pages/full-report-entry/index.js",
+    "docs/auto-execute/evidence/navigation/all-click-targets.json",
+    "docs/auto-execute/evidence/owner/V13-O14.json",
+    "docs/auto-execute/evidence/owner/V13-O15.json",
+    "docs/auto-execute/evidence/owner/V13-O16.json",
+    "docs/auto-execute/evidence/owner/V13-O17.json",
+    "docs/auto-execute/evidence/owner/V13-O18.json",
+    "docs/auto-execute/evidence/owner/V13-O19.json",
+    "docs/auto-execute/evidence/owner/V13-O20.json",
+    "docs/auto-execute/evidence/owner/V13-O21.json",
+    "docs/auto-execute/evidence/owner/V13-O22.json",
+    "docs/auto-execute/evidence/owner/V13-O23.json",
+    "docs/auto-execute/evidence/owner/all-pages-ai-tutor-v13.json",
+    "docs/auto-execute/results/T31.json",
+    "docs/auto-execute/latest/T31-HANDOFF.md"
+  ],
+  "noPurePassReason": "Owner click evidence consumes deterministic page-state plus structural SVG visual artifacts; T30 still classifies raster pixel-perfect review as manual UI review."
+}

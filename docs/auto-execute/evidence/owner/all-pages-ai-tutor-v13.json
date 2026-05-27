@@ -1,0 +1,894 @@
+{
+  "taskId": "T31",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "command": "npm run e2e:owner -- ai-tutor-v13",
+  "scenarioCount": 10,
+  "oldCoveragePreserved": {
+    "scenarios": "O01-O13",
+    "evidence": "docs/auto-execute/evidence/owner/journey-summary.json"
+  },
+  "v13Coverage": [
+    {
+      "scenarioId": "V13-O14",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/V13-O14.json"
+    },
+    {
+      "scenarioId": "V13-O15",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/V13-O15.json"
+    },
+    {
+      "scenarioId": "V13-O16",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/V13-O16.json"
+    },
+    {
+      "scenarioId": "V13-O17",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/V13-O17.json"
+    },
+    {
+      "scenarioId": "V13-O18",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/V13-O18.json"
+    },
+    {
+      "scenarioId": "V13-O19",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/V13-O19.json"
+    },
+    {
+      "scenarioId": "V13-O20",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/V13-O20.json"
+    },
+    {
+      "scenarioId": "V13-O21",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/V13-O21.json"
+    },
+    {
+      "scenarioId": "V13-O22",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/V13-O22.json"
+    },
+    {
+      "scenarioId": "V13-O23",
+      "status": "PASS",
+      "evidence": "docs/auto-execute/evidence/owner/V13-O23.json"
+    }
+  ],
+  "requiredV13Scenarios": [
+    "V13-O14",
+    "V13-O15",
+    "V13-O16",
+    "V13-O17",
+    "V13-O18",
+    "V13-O19",
+    "V13-O20",
+    "V13-O21",
+    "V13-O22",
+    "V13-O23"
+  ],
+  "clickTargetCount": 73,
+  "routeCount": 18,
+  "routeControlMatrix": [
+    {
+      "clickId": "C01.upload-material",
+      "page": "/pages/index/index",
+      "controlId": "upload-material",
+      "action": "create-order-and-upload",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/analysis/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C01.select-upload-file",
+      "page": "/pages/index/index",
+      "controlId": "select-upload-file",
+      "action": "chooseLocalFile",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/analysis/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C01.view-sample-report",
+      "page": "/pages/index/index",
+      "controlId": "view-sample-report",
+      "action": "navigateTo",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/preview/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C01.view-recent-reports",
+      "page": "/pages/index/index",
+      "controlId": "view-recent-reports",
+      "action": "api",
+      "api": "GET /api/my/reports",
+      "fixedAction": null,
+      "targetRoute": "/pages/reports/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C01.open-my-reports",
+      "page": "/pages/index/index",
+      "controlId": "open-my-reports",
+      "action": "api",
+      "api": "GET /api/my/reports",
+      "fixedAction": null,
+      "targetRoute": "/pages/reports/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C01.open-my-tab",
+      "page": "/pages/index/index",
+      "controlId": "open-my-tab",
+      "action": "switchTab",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/my/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C03.refresh-progress",
+      "page": "/pages/analysis/index",
+      "controlId": "refresh-progress",
+      "action": "api",
+      "api": "GET /api/diagnosis-orders/{orderId}/analysis-progress",
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C03.later-view",
+      "page": "/pages/analysis/index",
+      "controlId": "later-view",
+      "action": "navigateTo",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/reports/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C04.retry-analysis",
+      "page": "/pages/failure/index",
+      "controlId": "retry-analysis",
+      "action": "api",
+      "api": "POST /api/diagnosis-orders/{orderId}/start-preview-analysis",
+      "fixedAction": null,
+      "targetRoute": "/pages/analysis/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C04.reupload",
+      "page": "/pages/failure/index",
+      "controlId": "reupload",
+      "action": "navigateTo",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/index/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C04.back-home",
+      "page": "/pages/failure/index",
+      "controlId": "back-home",
+      "action": "switchTab",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/index/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C05.unlock-basic",
+      "page": "/pages/preview/index",
+      "controlId": "unlock-basic",
+      "action": "navigateTo",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/basic-pay/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C06.confirm-basic-pay",
+      "page": "/pages/basic-pay/index",
+      "controlId": "confirm-basic-pay",
+      "action": "api",
+      "api": "POST /api/payments/create",
+      "fixedAction": null,
+      "targetRoute": "/pages/basic-result/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C07.load-basic-decision",
+      "page": "/pages/basic-result/index",
+      "controlId": "load-basic-decision",
+      "action": "api",
+      "api": "GET /api/diagnosis-orders/{orderId}/basic-decision",
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C07.unlock-full",
+      "page": "/pages/basic-result/index",
+      "controlId": "unlock-full",
+      "action": "navigateTo",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/full-unlock/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C08.confirm-full-pay",
+      "page": "/pages/full-unlock/index",
+      "controlId": "confirm-full-pay",
+      "action": "api",
+      "api": "POST /api/payments/create",
+      "fixedAction": null,
+      "targetRoute": "/pages/full-report-entry/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C09.generate-full",
+      "page": "/pages/full-report-entry/index",
+      "controlId": "generate-full",
+      "action": "api",
+      "api": "POST /api/diagnosis-orders/{orderId}/generate-full",
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C09.view-full-report",
+      "page": "/pages/full-report-entry/index",
+      "controlId": "view-full-report",
+      "action": "navigateTo",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/full-report/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C10.load-full-report",
+      "page": "/pages/full-report/index",
+      "controlId": "load-full-report",
+      "action": "api",
+      "api": "GET /api/diagnosis-orders/{orderId}/full-report",
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C10.load-wrong-questions",
+      "page": "/pages/full-report/index",
+      "controlId": "load-wrong-questions",
+      "action": "api",
+      "api": "GET /api/diagnosis-orders/{orderId}/questions",
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C10.open-wrong-question-card",
+      "page": "/pages/full-report/index",
+      "controlId": "open-wrong-question-card",
+      "action": "navigateTo",
+      "api": "GET /api/diagnosis-orders/{orderId}/questions",
+      "fixedAction": null,
+      "targetRoute": "/pages/wrong-question/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C10.share-report",
+      "page": "/pages/full-report/index",
+      "controlId": "share-report",
+      "action": "noNavigation",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": "local-share-placeholder",
+      "routeExists": true
+    },
+    {
+      "clickId": "C10.save-report",
+      "page": "/pages/full-report/index",
+      "controlId": "save-report",
+      "action": "api",
+      "api": "POST /api/diagnosis-orders/{orderId}/save-report",
+      "fixedAction": null,
+      "targetRoute": "/pages/my/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C10.export-pdf",
+      "page": "/pages/full-report/index",
+      "controlId": "export-pdf",
+      "action": "api",
+      "api": "POST /api/diagnosis-orders/{orderId}/export-pdf",
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C01.back-to-full-report",
+      "page": "/pages/wrong-question/index",
+      "controlId": "back-to-full-report",
+      "action": "navigateTo",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/full-report/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C01.more-menu",
+      "page": "/pages/wrong-question/index",
+      "controlId": "more-menu",
+      "action": "noNavigation",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": "local-more-menu-placeholder",
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C01.load-question-detail",
+      "page": "/pages/wrong-question/index",
+      "controlId": "load-question-detail",
+      "action": "api",
+      "api": "GET /api/diagnosis-orders/{orderId}/questions",
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C01.open-ai-tutor",
+      "page": "/pages/wrong-question/index",
+      "controlId": "open-ai-tutor",
+      "action": "navigateTo",
+      "api": "GET /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "fixedAction": null,
+      "targetRoute": "/pages/ai-tutor/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C01.open-history-row",
+      "page": "/pages/wrong-question/index",
+      "controlId": "open-history-row",
+      "action": "navigateTo",
+      "api": "GET /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "fixedAction": null,
+      "targetRoute": "/pages/ai-tutor/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C01.bottom-share-report",
+      "page": "/pages/wrong-question/index",
+      "controlId": "bottom-share-report",
+      "action": "noNavigation",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": "local-share-placeholder",
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C01.bottom-ai-tutor",
+      "page": "/pages/wrong-question/index",
+      "controlId": "bottom-ai-tutor",
+      "action": "navigateTo",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/ai-tutor/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C01.bottom-export-pdf",
+      "page": "/pages/wrong-question/index",
+      "controlId": "bottom-export-pdf",
+      "action": "api",
+      "api": "POST /api/diagnosis-orders/{orderId}/export-pdf",
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C02.back-to-question-detail",
+      "page": "/pages/ai-tutor/index",
+      "controlId": "back-to-question-detail",
+      "action": "navigateTo",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/wrong-question/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C02.open-history",
+      "page": "/pages/ai-tutor/index",
+      "controlId": "open-history",
+      "action": "api",
+      "api": "GET /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C02.ask-step-explanation",
+      "page": "/pages/ai-tutor/index",
+      "controlId": "ask-step-explanation",
+      "action": "api",
+      "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "fixedAction": "explain_step",
+      "targetRoute": null,
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C02.ask-why-method",
+      "page": "/pages/ai-tutor/index",
+      "controlId": "ask-why-method",
+      "action": "api",
+      "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "fixedAction": "why_method",
+      "targetRoute": null,
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C02.ask-another-explanation",
+      "page": "/pages/ai-tutor/index",
+      "controlId": "ask-another-explanation",
+      "action": "api",
+      "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "fixedAction": "another_explanation",
+      "targetRoute": null,
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C02.generate-similar-exercise",
+      "page": "/pages/ai-tutor/index",
+      "controlId": "generate-similar-exercise",
+      "action": "apiNavigate",
+      "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "fixedAction": "similar_exercise",
+      "targetRoute": "/pages/ai-exercise/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C02.mark-understood",
+      "page": "/pages/ai-tutor/index",
+      "controlId": "mark-understood",
+      "action": "apiNavigate",
+      "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "fixedAction": "mark_understood",
+      "targetRoute": "/pages/full-report/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C02.toggle-question-context",
+      "page": "/pages/ai-tutor/index",
+      "controlId": "toggle-question-context",
+      "action": "noNavigation",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": "accordion-toggle",
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C02.bottom-share-report",
+      "page": "/pages/ai-tutor/index",
+      "controlId": "bottom-share-report",
+      "action": "noNavigation",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": "local-share-placeholder",
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C02.bottom-ai-tutor",
+      "page": "/pages/ai-tutor/index",
+      "controlId": "bottom-ai-tutor",
+      "action": "noNavigation",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": "active-tab",
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C02.bottom-export-pdf",
+      "page": "/pages/ai-tutor/index",
+      "controlId": "bottom-export-pdf",
+      "action": "api",
+      "api": "POST /api/diagnosis-orders/{orderId}/export-pdf",
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C03.back-to-ai-tutor",
+      "page": "/pages/ai-exercise/index",
+      "controlId": "back-to-ai-tutor",
+      "action": "navigateTo",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/ai-tutor/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C03.refresh-exercise",
+      "page": "/pages/ai-exercise/index",
+      "controlId": "refresh-exercise",
+      "action": "api",
+      "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "fixedAction": "similar_exercise",
+      "targetRoute": null,
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C03.select-option-a",
+      "page": "/pages/ai-exercise/index",
+      "controlId": "select-option-a",
+      "action": "noNavigation",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": "select-answer-option",
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C03.select-option-b",
+      "page": "/pages/ai-exercise/index",
+      "controlId": "select-option-b",
+      "action": "noNavigation",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": "select-answer-option",
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C03.select-option-c",
+      "page": "/pages/ai-exercise/index",
+      "controlId": "select-option-c",
+      "action": "noNavigation",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": "select-answer-option",
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C03.select-option-d",
+      "page": "/pages/ai-exercise/index",
+      "controlId": "select-option-d",
+      "action": "noNavigation",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": "select-answer-option",
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C03.submit-answer",
+      "page": "/pages/ai-exercise/index",
+      "controlId": "submit-answer",
+      "action": "apiNavigate",
+      "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/exercise-answer",
+      "fixedAction": null,
+      "targetRoute": "/pages/ai-exercise-feedback/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C03.open-question-context",
+      "page": "/pages/ai-exercise/index",
+      "controlId": "open-question-context",
+      "action": "navigateTo",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/wrong-question/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C03.open-history-row",
+      "page": "/pages/ai-exercise/index",
+      "controlId": "open-history-row",
+      "action": "navigateTo",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/ai-tutor/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C03.bottom-share-report",
+      "page": "/pages/ai-exercise/index",
+      "controlId": "bottom-share-report",
+      "action": "noNavigation",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": "local-share-placeholder",
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C03.bottom-ai-tutor",
+      "page": "/pages/ai-exercise/index",
+      "controlId": "bottom-ai-tutor",
+      "action": "navigateTo",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/ai-tutor/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C03.bottom-export-pdf",
+      "page": "/pages/ai-exercise/index",
+      "controlId": "bottom-export-pdf",
+      "action": "api",
+      "api": "POST /api/diagnosis-orders/{orderId}/export-pdf",
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C04.back-to-exercise",
+      "page": "/pages/ai-exercise-feedback/index",
+      "controlId": "back-to-exercise",
+      "action": "navigateTo",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/ai-exercise/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C04.more-menu",
+      "page": "/pages/ai-exercise-feedback/index",
+      "controlId": "more-menu",
+      "action": "noNavigation",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": "local-more-menu-placeholder",
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C04.retry-similar-exercise",
+      "page": "/pages/ai-exercise-feedback/index",
+      "controlId": "retry-similar-exercise",
+      "action": "apiNavigate",
+      "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "fixedAction": "similar_exercise",
+      "targetRoute": "/pages/ai-exercise/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C04.return-full-report",
+      "page": "/pages/ai-exercise-feedback/index",
+      "controlId": "return-full-report",
+      "action": "navigateTo",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/full-report/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C04.open-interaction-record",
+      "page": "/pages/ai-exercise-feedback/index",
+      "controlId": "open-interaction-record",
+      "action": "navigateTo",
+      "api": "GET /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "fixedAction": null,
+      "targetRoute": "/pages/ai-tutor/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C04.bottom-share-report",
+      "page": "/pages/ai-exercise-feedback/index",
+      "controlId": "bottom-share-report",
+      "action": "noNavigation",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": "local-share-placeholder",
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C04.bottom-ai-tutor",
+      "page": "/pages/ai-exercise-feedback/index",
+      "controlId": "bottom-ai-tutor",
+      "action": "navigateTo",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/ai-tutor/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "V13-C04.bottom-export-pdf",
+      "page": "/pages/ai-exercise-feedback/index",
+      "controlId": "bottom-export-pdf",
+      "action": "api",
+      "api": "POST /api/diagnosis-orders/{orderId}/export-pdf",
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C11.open-reports",
+      "page": "/pages/my/index",
+      "controlId": "open-reports",
+      "action": "navigateTo",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/reports/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C11.open-orders",
+      "page": "/pages/my/index",
+      "controlId": "open-orders",
+      "action": "navigateTo",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/orders/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C11.open-purchases",
+      "page": "/pages/my/index",
+      "controlId": "open-purchases",
+      "action": "navigateTo",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/orders/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C11.open-feedback",
+      "page": "/pages/my/index",
+      "controlId": "open-feedback",
+      "action": "navigateTo",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/feedback/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C11.new-analysis",
+      "page": "/pages/my/index",
+      "controlId": "new-analysis",
+      "action": "switchTab",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": "/pages/index/index",
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C11.submit-feedback",
+      "page": "/pages/my/index",
+      "controlId": "submit-feedback",
+      "action": "api",
+      "api": "POST /api/diagnosis-orders/{orderId}/feedback",
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C12.load-my-reports",
+      "page": "/pages/reports/index",
+      "controlId": "load-my-reports",
+      "action": "api",
+      "api": "GET /api/my/reports",
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C12.open-report-card",
+      "page": "/pages/reports/index",
+      "controlId": "open-report-card",
+      "action": "guardedRoute",
+      "api": null,
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C11A.load-order-records",
+      "page": "/pages/orders/index",
+      "controlId": "load-order-records",
+      "action": "api",
+      "api": "GET /api/my/reports",
+      "fixedAction": null,
+      "targetRoute": null,
+      "behavior": null,
+      "routeExists": true
+    },
+    {
+      "clickId": "C11B.submit-feedback",
+      "page": "/pages/feedback/index",
+      "controlId": "submit-feedback",
+      "action": "api",
+      "api": "POST /api/diagnosis-orders/{orderId}/feedback",
+      "fixedAction": null,
+      "targetRoute": "/pages/my/index",
+      "behavior": null,
+      "routeExists": true
+    }
+  ],
+  "localOnlyEvidence": {
+    "status": "PASS",
+    "localOnly": {
+      "status": "PASS",
+      "localOnly": true,
+      "adapterMode": "local-mock",
+      "paymentAdapter": "local-wechat-pay-mock",
+      "cloudAdapter": "local-tencent-cloud-mock",
+      "databaseAdapter": "local-in-memory-db"
+    },
+    "remoteCalls": []
+  },
+  "noPurePassReason": "Owner click evidence consumes deterministic page-state plus structural SVG visual artifacts; T30 still classifies raster pixel-perfect review as manual UI review."
+}

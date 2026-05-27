@@ -1,0 +1,19 @@
+﻿{
+    "visualTargets":  [
+                          {
+                              "storyId":  "STORY-REPORT-009",
+                              "testPointId":  "TP-STORY-REPORT-009-003",
+                              "target":  "The complete report has a formal visual presentation and includes wrong-question cards.",
+                              "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence"
+                          },
+                          {
+                              "storyId":  "STORY-REPORT-009",
+                              "testPointId":  "TP-STORY-REPORT-009-004",
+                              "target":  "Visual harness evidence exists; raster pixel-perfect review remains manual.",
+                              "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence"
+                          }
+                      ],
+    "uiTarget":  "docs\\auto-execute\\ui-target.json",
+    "schemaVersion":  "2.0",
+    "generatedAt":  "2026-05-25T19:10:46"
+}

@@ -1,0 +1,27 @@
+﻿{
+    "generatedAt":  "2026-05-25T19:10:50",
+    "lane":  "story-quality-gate",
+    "failedStories":  [
+
+                      ],
+    "warnings":  [
+                     {
+                         "storyId":  "STORY-REPORT-002",
+                         "issue":  "Title matches candidate text; actor/goal are present, but human review may still improve wording."
+                     },
+                     {
+                         "storyId":  "STORY-REPORT-003",
+                         "issue":  "Title matches candidate text; actor/goal are present, but human review may still improve wording."
+                     },
+                     {
+                         "storyId":  "STORY-GENERAL-006",
+                         "issue":  "Title matches candidate text; actor/goal are present, but human review may still improve wording."
+                     },
+                     {
+                         "storyId":  "STORY-REPORT-009",
+                         "issue":  "Title matches candidate text; actor/goal are present, but human review may still improve wording."
+                     }
+                 ],
+    "schemaVersion":  "2.0",
+    "status":  "PASS_WITH_LIMITATION"
+}

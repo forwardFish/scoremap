@@ -2,7 +2,7 @@
     "taskId":  "T17",
     "guard":  "local-only",
     "status":  "PASS",
-    "checkedAt":  "2026-05-25T02:56:14.2479842Z",
+    "checkedAt":  "2026-05-27T11:32:00.7045517Z",
     "environment":  {
                         "LOCAL_ONLY":  "true (defaulted by local runtime)",
                         "SCOREMAP_ADAPTER_MODE":  "local-mock (defaulted by local runtime)",
@@ -97,16 +97,6 @@
                                     "remoteCalls":  [
 
                                                     ]
-                                },
-                                {
-                                    "LOCAL_ONLY":  "true",
-                                    "SCOREMAP_ADAPTER_MODE":  "local-mock",
-                                    "paymentAdapter":  "local-wechat-pay-mock",
-                                    "cloudAdapter":  "local-tencent-cloud-mock",
-                                    "databaseAdapter":  "local-json-db",
-                                    "remoteCalls":  [
-
-                                                    ]
                                 }
                             ],
     "remoteScan":  {
@@ -118,7 +108,7 @@
                                             "scripts",
                                             "docs/auto-execute/evidence"
                                         ],
-                       "scannedFileCount":  397,
+                       "scannedFileCount":  744,
                        "allowedSentinelFiles":  [
                                                     "shared/local-only.js",
                                                     "scripts/acceptance/run-local-only-guard.ps1",

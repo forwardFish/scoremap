@@ -26,10 +26,10 @@
   "visualEvidence": {
     "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
     "references": [
-      "docs/UI/灏忕▼搴?瀹屾暣鎻愬垎鎶ュ憡.png",
-      "docs/UI/灏忕▼搴?瀹屾暣鎶ュ憡.png",
-      "docs/UI/灏忕▼搴?stitch_codex_development_blueprints/_2/screen.png",
-      "docs/UI/灏忕▼搴?stitch_codex_development_blueprints/ai_pdf/screen.png"
+      "ui-reference-catalog/灏忕▼搴?瀹屾暣鎻愬垎鎶ュ憡.png",
+      "ui-reference-catalog/灏忕▼搴?瀹屾暣鎶ュ憡.png",
+      "ui-reference-catalog/灏忕▼搴?stitch_codex_development_blueprints/_2/screen-reference",
+      "ui-reference-catalog/灏忕▼搴?stitch_codex_development_blueprints/ai_pdf/screen-reference"
     ],
     "expectedVisualCommand": "npm run visual:scoremap -- full-report-entry full-report",
     "limitation": "T11 visual runner produces deterministic structural artifacts and metrics. Pixel-perfect screenshot capture remains assigned to T14."

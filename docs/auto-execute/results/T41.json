@@ -1,0 +1,74 @@
+{
+  "taskId": "T41",
+  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "goal": "Repair support pages reports, orders, feedback, and scaffold as normal code-rendered pages while preserving route state.",
+  "completed": [
+    "reports runtime branch no longer uses the generic replica runtime and exposes explicit report, progress, home, and my route actions",
+    "orders runtime branch no longer uses the generic replica runtime and keeps the purchase/order record surface",
+    "feedback runtime branch no longer uses the generic replica runtime and keeps submit-and-return behavior",
+    "scaffold runtime branch no longer uses the generic replica runtime and shows route/API/DB contract visibility without claiming a pixel reference",
+    "navigation audit now checks support pages are code-rendered and make no standalone pixel-reference claim"
+  ],
+  "commands": [
+    {
+      "command": "npm test -- scaffold my-reports-feedback navigation-click-audit",
+      "status": "UNSUPPORTED_SELECTOR",
+      "note": "scripts/run-tests.mjs matches selectors conjunctively; no test group contains all three tags, so the command exits before running tests."
+    },
+    {
+      "command": "npm test -- scaffold",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "npm test -- my-reports-feedback",
+      "status": "PASS",
+      "tests": 3
+    },
+    {
+      "command": "npm test -- navigation",
+      "status": "PASS",
+      "tests": 3
+    },
+    {
+      "command": "npm run e2e:owner -- support-pages",
+      "status": "PASS",
+      "tests": 2
+    },
+    {
+      "command": "npm run visual:scoremap -- reports",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "note": "reports has structural visual evidence and explicitly no standalone PNG reference."
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS",
+      "note": "Whitespace check passed; Git emitted existing LF-to-CRLF warnings only."
+    }
+  ],
+  "evidence": [
+    "docs/auto-execute/evidence/ui-one-to-one/T41/support-pages-summary.json",
+    "docs/auto-execute/evidence/navigation/support-pages-code-rendered.json",
+    "docs/auto-execute/evidence/visual-harness/reports/summary.json"
+  ],
+  "modifiedFiles": [
+    "scoremap-miniapp/pages/reports/index.js",
+    "scoremap-miniapp/pages/reports/index.wxml",
+    "scoremap-miniapp/pages/reports/index.wxss",
+    "scoremap-miniapp/pages/orders/index.js",
+    "scoremap-miniapp/pages/orders/index.wxml",
+    "scoremap-miniapp/pages/orders/index.wxss",
+    "scoremap-miniapp/pages/feedback/index.js",
+    "scoremap-miniapp/pages/feedback/index.wxml",
+    "scoremap-miniapp/pages/feedback/index.wxss",
+    "scoremap-miniapp/pages/scaffold/index.js",
+    "scoremap-miniapp/pages/scaffold/index.wxml",
+    "scoremap-miniapp/pages/scaffold/index.wxss",
+    "scoremap-miniapp/scaffold.test.js",
+    "scoremap-miniapp/navigation-click-audit.test.js",
+    "docs/auto-execute/evidence/ui-one-to-one/T41/support-pages-summary.json",
+    "docs/auto-execute/results/T41.json",
+    "docs/auto-execute/latest/T41-HANDOFF.md"
+  ],
+  "noPurePassReason": "reports is intentionally recorded as PASS_NEEDS_MANUAL_UI_REVIEW because no standalone pixel reference exists for the support pages."
+}

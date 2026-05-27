@@ -1,0 +1,458 @@
+{
+  "status": "PASS",
+  "command": "npm test -- miniapp-shell routes ai-tutor",
+  "requirementIds": [
+    "V13-R01",
+    "V13-R04",
+    "V13-R10",
+    "V13-R11",
+    "V13-R12",
+    "V13-R14"
+  ],
+  "references": [
+    {
+      "id": "V13-UI-FULL-REPORT",
+      "reference": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/_3/screen-reference",
+      "route": "/pages/full-report/index",
+      "state": "aiTutorReady"
+    },
+    {
+      "id": "V13-UI-QUESTION-DETAIL",
+      "reference": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/_1/screen-reference",
+      "route": "/pages/wrong-question/index",
+      "state": "detail"
+    },
+    {
+      "id": "V13-UI-AI-TUTOR",
+      "reference": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/ai/screen-reference",
+      "route": "/pages/ai-tutor/index",
+      "state": "interaction"
+    },
+    {
+      "id": "V13-UI-EXERCISE",
+      "reference": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/_4/screen-reference",
+      "route": "/pages/ai-exercise/index",
+      "state": "pendingAnswer"
+    },
+    {
+      "id": "V13-UI-FEEDBACK",
+      "reference": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/_2/screen-reference",
+      "route": "/pages/ai-exercise-feedback/index",
+      "state": "answered"
+    }
+  ],
+  "tokens": {
+    "source": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/luminous_learning/DESIGN.md",
+    "colors": {
+      "background": "#fdf8ff",
+      "surface": "#ffffff",
+      "surfaceContainer": "#f1ecf8",
+      "surfaceContainerLow": "#f7f1fd",
+      "surfaceContainerHigh": "#ebe6f2",
+      "primary": "#5a45cb",
+      "primaryContainer": "#7360e5",
+      "primaryFixed": "#e5deff",
+      "secondary": "#8f4e00",
+      "secondaryContainer": "#fc9d41",
+      "secondaryFixed": "#ffdcc2",
+      "tertiary": "#006a35",
+      "tertiaryContainer": "#008645",
+      "text": "#1c1b23",
+      "mutedText": "#474554",
+      "outline": "#787585",
+      "outlineVariant": "#c9c4d6",
+      "error": "#ba1a1a"
+    },
+    "typography": {
+      "display": {
+        "sizePx": 28,
+        "lineHeightPx": 36,
+        "weight": 700,
+        "family": "Be Vietnam Pro"
+      },
+      "headline": {
+        "sizePx": 20,
+        "lineHeightPx": 28,
+        "weight": 600,
+        "family": "Be Vietnam Pro"
+      },
+      "title": {
+        "sizePx": 16,
+        "lineHeightPx": 24,
+        "weight": 600,
+        "family": "Plus Jakarta Sans"
+      },
+      "body": {
+        "sizePx": 15,
+        "lineHeightPx": 22,
+        "weight": 400,
+        "family": "Plus Jakarta Sans"
+      },
+      "bodySmall": {
+        "sizePx": 13,
+        "lineHeightPx": 18,
+        "weight": 400,
+        "family": "Plus Jakarta Sans"
+      },
+      "label": {
+        "sizePx": 12,
+        "lineHeightPx": 16,
+        "weight": 700,
+        "family": "Plus Jakarta Sans"
+      }
+    },
+    "spacingPx": {
+      "baseline": 4,
+      "xs": 8,
+      "sm": 12,
+      "md": 16,
+      "lg": 24,
+      "xl": 32,
+      "pageMargin": 16,
+      "cardPadding": [
+        16,
+        24
+      ],
+      "topBarHeight": 56,
+      "bottomNavHeight": 72,
+      "minTouchTarget": 44
+    },
+    "radiusPx": {
+      "control": 12,
+      "card": 16,
+      "largeCard": 24,
+      "pill": 999
+    },
+    "shadow": {
+      "card": "0 4px 15px rgba(92,71,205,0.04)",
+      "floating": "0 -4px 10px rgba(0,0,0,0.04)"
+    },
+    "icons": {
+      "back": "arrow_back",
+      "more": "more_horiz",
+      "share": "ios_share",
+      "pdf": "picture_as_pdf",
+      "aiTutor": "psychology",
+      "explain": "lightbulb",
+      "exercise": "auto_awesome",
+      "correct": "check_circle",
+      "history": "history",
+      "report": "article"
+    },
+    "mascot": {
+      "strategy": "Use deterministic local CSS/emoji owl placeholder until raster assets are produced; never load remote mascot URLs from references.",
+      "alt": "Friendly local owl tutor mascot",
+      "localOnly": true
+    }
+  },
+  "routeContracts": [
+    {
+      "id": "C10",
+      "path": "/pages/full-report/index",
+      "title": "Full report shell with AI tutor entry",
+      "states": [
+        "default",
+        "aiTutorReady",
+        "quotaExhausted"
+      ],
+      "referenceId": "V13-UI-FULL-REPORT",
+      "controls": [
+        {
+          "id": "load-full-report",
+          "action": "api",
+          "api": "GET /api/diagnosis-orders/{orderId}/full-report"
+        },
+        {
+          "id": "load-wrong-questions",
+          "action": "api",
+          "api": "GET /api/diagnosis-orders/{orderId}/questions"
+        },
+        {
+          "id": "open-wrong-question-card",
+          "action": "navigateTo",
+          "targetRoute": "/pages/wrong-question/index",
+          "api": "GET /api/diagnosis-orders/{orderId}/questions"
+        },
+        {
+          "id": "share-report",
+          "action": "noNavigation",
+          "behavior": "local-share-placeholder"
+        },
+        {
+          "id": "save-report",
+          "action": "api",
+          "api": "POST /api/diagnosis-orders/{orderId}/save-report",
+          "targetRoute": "/pages/my/index"
+        },
+        {
+          "id": "export-pdf",
+          "action": "api",
+          "api": "POST /api/diagnosis-orders/{orderId}/export-pdf"
+        }
+      ]
+    },
+    {
+      "id": "V13-C01",
+      "path": "/pages/wrong-question/index",
+      "title": "Wrong-question detail",
+      "states": [
+        "detail",
+        "lockedBasic",
+        "historyReady"
+      ],
+      "referenceId": "V13-UI-QUESTION-DETAIL",
+      "controls": [
+        {
+          "id": "back-to-full-report",
+          "action": "navigateTo",
+          "targetRoute": "/pages/full-report/index"
+        },
+        {
+          "id": "more-menu",
+          "action": "noNavigation",
+          "behavior": "local-more-menu-placeholder"
+        },
+        {
+          "id": "load-question-detail",
+          "action": "api",
+          "api": "GET /api/diagnosis-orders/{orderId}/questions"
+        },
+        {
+          "id": "open-ai-tutor",
+          "action": "navigateTo",
+          "targetRoute": "/pages/ai-tutor/index",
+          "api": "GET /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions"
+        },
+        {
+          "id": "open-history-row",
+          "action": "navigateTo",
+          "targetRoute": "/pages/ai-tutor/index",
+          "api": "GET /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions"
+        },
+        {
+          "id": "bottom-share-report",
+          "action": "noNavigation",
+          "behavior": "local-share-placeholder"
+        },
+        {
+          "id": "bottom-ai-tutor",
+          "action": "navigateTo",
+          "targetRoute": "/pages/ai-tutor/index"
+        },
+        {
+          "id": "bottom-export-pdf",
+          "action": "api",
+          "api": "POST /api/diagnosis-orders/{orderId}/export-pdf"
+        }
+      ]
+    },
+    {
+      "id": "V13-C02",
+      "path": "/pages/ai-tutor/index",
+      "title": "AI tutor fixed follow-up",
+      "states": [
+        "interaction",
+        "quotaAvailable",
+        "quotaExhausted",
+        "providerFailure"
+      ],
+      "referenceId": "V13-UI-AI-TUTOR",
+      "controls": [
+        {
+          "id": "back-to-question-detail",
+          "action": "navigateTo",
+          "targetRoute": "/pages/wrong-question/index"
+        },
+        {
+          "id": "open-history",
+          "action": "api",
+          "api": "GET /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions"
+        },
+        {
+          "id": "ask-step-explanation",
+          "action": "api",
+          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+          "fixedAction": "explain_step"
+        },
+        {
+          "id": "ask-why-method",
+          "action": "api",
+          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+          "fixedAction": "why_method"
+        },
+        {
+          "id": "ask-another-explanation",
+          "action": "api",
+          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+          "fixedAction": "another_explanation"
+        },
+        {
+          "id": "generate-similar-exercise",
+          "action": "apiNavigate",
+          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+          "fixedAction": "similar_exercise",
+          "targetRoute": "/pages/ai-exercise/index"
+        },
+        {
+          "id": "mark-understood",
+          "action": "apiNavigate",
+          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+          "fixedAction": "mark_understood",
+          "targetRoute": "/pages/full-report/index"
+        },
+        {
+          "id": "toggle-question-context",
+          "action": "noNavigation",
+          "behavior": "accordion-toggle"
+        },
+        {
+          "id": "bottom-share-report",
+          "action": "noNavigation",
+          "behavior": "local-share-placeholder"
+        },
+        {
+          "id": "bottom-ai-tutor",
+          "action": "noNavigation",
+          "behavior": "active-tab"
+        },
+        {
+          "id": "bottom-export-pdf",
+          "action": "api",
+          "api": "POST /api/diagnosis-orders/{orderId}/export-pdf"
+        }
+      ]
+    },
+    {
+      "id": "V13-C03",
+      "path": "/pages/ai-exercise/index",
+      "title": "Similar exercise",
+      "states": [
+        "pendingAnswer",
+        "optionSelected",
+        "missingOption"
+      ],
+      "referenceId": "V13-UI-EXERCISE",
+      "controls": [
+        {
+          "id": "back-to-ai-tutor",
+          "action": "navigateTo",
+          "targetRoute": "/pages/ai-tutor/index"
+        },
+        {
+          "id": "refresh-exercise",
+          "action": "api",
+          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+          "fixedAction": "similar_exercise"
+        },
+        {
+          "id": "select-option-a",
+          "action": "noNavigation",
+          "behavior": "select-answer-option"
+        },
+        {
+          "id": "select-option-b",
+          "action": "noNavigation",
+          "behavior": "select-answer-option"
+        },
+        {
+          "id": "select-option-c",
+          "action": "noNavigation",
+          "behavior": "select-answer-option"
+        },
+        {
+          "id": "select-option-d",
+          "action": "noNavigation",
+          "behavior": "select-answer-option"
+        },
+        {
+          "id": "submit-answer",
+          "action": "apiNavigate",
+          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/exercise-answer",
+          "targetRoute": "/pages/ai-exercise-feedback/index"
+        },
+        {
+          "id": "open-question-context",
+          "action": "navigateTo",
+          "targetRoute": "/pages/wrong-question/index"
+        },
+        {
+          "id": "open-history-row",
+          "action": "navigateTo",
+          "targetRoute": "/pages/ai-tutor/index"
+        },
+        {
+          "id": "bottom-share-report",
+          "action": "noNavigation",
+          "behavior": "local-share-placeholder"
+        },
+        {
+          "id": "bottom-ai-tutor",
+          "action": "navigateTo",
+          "targetRoute": "/pages/ai-tutor/index"
+        },
+        {
+          "id": "bottom-export-pdf",
+          "action": "api",
+          "api": "POST /api/diagnosis-orders/{orderId}/export-pdf"
+        }
+      ]
+    },
+    {
+      "id": "V13-C04",
+      "path": "/pages/ai-exercise-feedback/index",
+      "title": "Similar exercise answer feedback",
+      "states": [
+        "answered",
+        "correct",
+        "incorrect"
+      ],
+      "referenceId": "V13-UI-FEEDBACK",
+      "controls": [
+        {
+          "id": "back-to-exercise",
+          "action": "navigateTo",
+          "targetRoute": "/pages/ai-exercise/index"
+        },
+        {
+          "id": "more-menu",
+          "action": "noNavigation",
+          "behavior": "local-more-menu-placeholder"
+        },
+        {
+          "id": "retry-similar-exercise",
+          "action": "apiNavigate",
+          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+          "fixedAction": "similar_exercise",
+          "targetRoute": "/pages/ai-exercise/index"
+        },
+        {
+          "id": "return-full-report",
+          "action": "navigateTo",
+          "targetRoute": "/pages/full-report/index"
+        },
+        {
+          "id": "open-interaction-record",
+          "action": "navigateTo",
+          "targetRoute": "/pages/ai-tutor/index",
+          "api": "GET /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions"
+        },
+        {
+          "id": "bottom-share-report",
+          "action": "noNavigation",
+          "behavior": "local-share-placeholder"
+        },
+        {
+          "id": "bottom-ai-tutor",
+          "action": "navigateTo",
+          "targetRoute": "/pages/ai-tutor/index"
+        },
+        {
+          "id": "bottom-export-pdf",
+          "action": "api",
+          "api": "POST /api/diagnosis-orders/{orderId}/export-pdf"
+        }
+      ]
+    }
+  ],
+  "controlCount": 45
+}

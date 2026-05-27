@@ -1,0 +1,120 @@
+﻿{
+    "blockers":  [
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-002-003-MANUAL-MATERIALIZATION",
+                         "severity":  "MANUAL_REVIEW_REQUIRED",
+                         "description":  "Test point TP-STORY-REPORT-002-003 could not be automated: Content test point has no route/API target to bind automatically.",
+                         "repairTarget":  "Bind an existing test or record manual review evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-002-004-MANUAL-MATERIALIZATION",
+                         "severity":  "MANUAL_REVIEW_REQUIRED",
+                         "description":  "Test point TP-STORY-REPORT-002-004 could not be automated: Content test point has no route/API target to bind automatically.",
+                         "repairTarget":  "Bind an existing test or record manual review evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-002-005-MANUAL-MATERIALIZATION",
+                         "severity":  "MANUAL_REVIEW_REQUIRED",
+                         "description":  "Test point TP-STORY-REPORT-002-005 could not be automated: Content test point has no route/API target to bind automatically.",
+                         "repairTarget":  "Bind an existing test or record manual review evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-002-006-MANUAL-MATERIALIZATION",
+                         "severity":  "MANUAL_REVIEW_REQUIRED",
+                         "description":  "Test point TP-STORY-REPORT-002-006 could not be automated: Content test point has no route/API target to bind automatically.",
+                         "repairTarget":  "Bind an existing test or record manual review evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-003-004-MANUAL-MATERIALIZATION",
+                         "severity":  "MANUAL_REVIEW_REQUIRED",
+                         "description":  "Test point TP-STORY-REPORT-003-004 could not be automated: Content test point has no route/API target to bind automatically.",
+                         "repairTarget":  "Bind an existing test or record manual review evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-003-005-MANUAL-MATERIALIZATION",
+                         "severity":  "MANUAL_REVIEW_REQUIRED",
+                         "description":  "Test point TP-STORY-REPORT-003-005 could not be automated: Content test point has no route/API target to bind automatically.",
+                         "repairTarget":  "Bind an existing test or record manual review evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-003-006-MANUAL-MATERIALIZATION",
+                         "severity":  "MANUAL_REVIEW_REQUIRED",
+                         "description":  "Test point TP-STORY-REPORT-003-006 could not be automated: Content test point has no route/API target to bind automatically.",
+                         "repairTarget":  "Bind an existing test or record manual review evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-003-007-MANUAL-MATERIALIZATION",
+                         "severity":  "MANUAL_REVIEW_REQUIRED",
+                         "description":  "Test point TP-STORY-REPORT-003-007 could not be automated: Content test point has no route/API target to bind automatically.",
+                         "repairTarget":  "Bind an existing test or record manual review evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-GENERAL-006-004-MANUAL-MATERIALIZATION",
+                         "severity":  "MANUAL_REVIEW_REQUIRED",
+                         "description":  "Test point TP-STORY-GENERAL-006-004 could not be automated: Content test point has no route/API target to bind automatically.",
+                         "repairTarget":  "Bind an existing test or record manual review evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-GENERAL-006-005-MANUAL-MATERIALIZATION",
+                         "severity":  "MANUAL_REVIEW_REQUIRED",
+                         "description":  "Test point TP-STORY-GENERAL-006-005 could not be automated: Content test point has no route/API target to bind automatically.",
+                         "repairTarget":  "Bind an existing test or record manual review evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-GENERAL-006-006-MANUAL-MATERIALIZATION",
+                         "severity":  "MANUAL_REVIEW_REQUIRED",
+                         "description":  "Test point TP-STORY-GENERAL-006-006 could not be automated: Content test point has no route/API target to bind automatically.",
+                         "repairTarget":  "Bind an existing test or record manual review evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-GENERAL-006-007-MANUAL-MATERIALIZATION",
+                         "severity":  "MANUAL_REVIEW_REQUIRED",
+                         "description":  "Test point TP-STORY-GENERAL-006-007 could not be automated: Content test point has no route/API target to bind automatically.",
+                         "repairTarget":  "Bind an existing test or record manual review evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-009-002-MANUAL-MATERIALIZATION",
+                         "severity":  "MANUAL_REVIEW_REQUIRED",
+                         "description":  "Test point TP-STORY-REPORT-009-002 could not be automated: Content test point has no route/API target to bind automatically.",
+                         "repairTarget":  "Bind an existing test or record manual review evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     },
+                     {
+                         "id":  "GAP-TP-STORY-REPORT-009-005-MANUAL-MATERIALIZATION",
+                         "severity":  "MANUAL_REVIEW_REQUIRED",
+                         "description":  "Test point TP-STORY-REPORT-009-005 could not be automated: Content test point has no route/API target to bind automatically.",
+                         "repairTarget":  "Bind an existing test or record manual review evidence.",
+                         "source":  "docs\\auto-execute\\story-candidates-curated.json"
+                     }
+                 ],
+    "commands":  [
+
+                 ],
+    "lane":  "story-test-materialize",
+    "status":  "PASS_WITH_LIMITATION",
+    "evidence":  [
+                     "docs\\auto-execute\\story-materialized-tests.json",
+                     "scripts\\acceptance\\generated\\route-smoke.generated.mjs",
+                     "scripts\\acceptance\\generated\\api-smoke.generated.mjs",
+                     "scripts\\acceptance\\generated\\e2e-flow.generated.spec.ts",
+                     "scripts\\acceptance\\generated\\visual-targets.generated.json",
+                     "docs\\auto-execute\\story-gap-list.json"
+                 ],
+    "schemaVersion":  "2.0",
+    "nextActions":  [
+                        "Run generated or bound commands to produce evidence, then rerun story quality/final gate."
+                    ],
+    "updatedAt":  "2026-05-25T19:10:46"
+}

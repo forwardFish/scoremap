@@ -8,7 +8,7 @@
       "branch": "low_quality",
       "responseStatus": 422,
       "response": {
-        "taskId": "task-bb10c7ecd2ce",
+        "taskId": "task-6599b8abdf26",
         "status": "failed",
         "errorCode": "LOW_QUALITY_IMAGE",
         "retryAvailable": true
@@ -20,7 +20,7 @@
       "branch": "timeout",
       "responseStatus": 202,
       "response": {
-        "taskId": "task-52bd990b2549",
+        "taskId": "task-4d2fefbe8d6f",
         "status": "timeout",
         "errorCode": "ANALYSIS_TIMEOUT",
         "retryAvailable": true
@@ -32,8 +32,8 @@
       "branch": "timeout",
       "responseStatus": 200,
       "response": {
-        "orderId": "order-1e677ceccdd7",
-        "taskId": "task-52bd990b2549",
+        "orderId": "order-506189740ec4",
+        "taskId": "task-4d2fefbe8d6f",
         "status": "timeout",
         "progress": 65,
         "currentStep": "local_mock_timeout",
@@ -60,7 +60,7 @@
   ],
   "dbReadback": {
     "lowQualityOrder": {
-      "id": "order-7fa954cd0fa5",
+      "id": "order-eaa192499781",
       "ownerId": "local-user-scoremap-t03",
       "source": "T03-low-quality",
       "grade": "grade-5",
@@ -69,14 +69,14 @@
       "materialType": "answer-sheet",
       "status": "failed",
       "accessLevel": "preview",
-      "orderToken": "local-order-token-order-7fa954cd0fa5",
-      "createdAt": "2026-05-25T02:55:22.705Z",
-      "updatedAt": "2026-05-25T02:55:22.717Z",
+      "orderToken": "local-order-token-order-eaa192499781",
+      "createdAt": "2026-05-27T11:31:02.410Z",
+      "updatedAt": "2026-05-27T11:31:02.419Z",
       "uploadedCount": 1,
       "errorCode": "LOW_QUALITY_IMAGE"
     },
     "timeoutOrder": {
-      "id": "order-1e677ceccdd7",
+      "id": "order-506189740ec4",
       "ownerId": "local-user-scoremap-t03",
       "source": "T03-timeout",
       "grade": "grade-5",
@@ -85,9 +85,9 @@
       "materialType": "answer-sheet",
       "status": "timeout",
       "accessLevel": "preview",
-      "orderToken": "local-order-token-order-1e677ceccdd7",
-      "createdAt": "2026-05-25T02:55:22.721Z",
-      "updatedAt": "2026-05-25T02:55:22.730Z",
+      "orderToken": "local-order-token-order-506189740ec4",
+      "createdAt": "2026-05-27T11:31:02.422Z",
+      "updatedAt": "2026-05-27T11:31:02.433Z",
       "uploadedCount": 1,
       "errorCode": "ANALYSIS_TIMEOUT"
     }

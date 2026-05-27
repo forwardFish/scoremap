@@ -1,0 +1,527 @@
+﻿{
+    "status":  "PENDING",
+    "schemaVersion":  "2.0",
+    "note":  "P0/P1 stories are accepted only when every required test point has evidence.",
+    "stories":  [
+                    {
+                        "storyId":  "STORY-REPORT-002",
+                        "epicId":  "EPIC-CORE",
+                        "sprintId":  "SPRINT-P0",
+                        "priority":  "P0",
+                        "title":  "Formal tutor use requires full-report entitlement; basic/free users cannot formally ask.",
+                        "sourceRequirements":  [
+                                                   "V13-R02"
+                                               ],
+                        "actor":  "user",
+                        "goal":  "Formal tutor use requires full-report entitlement; basic/free users cannot formally ask.",
+                        "surfaces":  [
+                                         "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+                                         "scoremap-miniapp/pages/wrong-question"
+                                     ],
+                        "apis":  [
+
+                                 ],
+                        "dataModels":  [
+
+                                       ],
+                        "acceptanceCriteria":  [
+                                                   "API rejects unentitled formal tutor access.",
+                                                   "Entitlement behavior is covered by negative branch evidence.",
+                                                   "Formal tutor use requires full-report entitlement; basic/free users cannot formally ask.",
+                                                   "UI shows the locked/basic state without starting formal interaction."
+                                               ],
+                        "evidenceRequired":  [
+                                                 "E2E flow",
+                                                 "route smoke",
+                                                 "screenshot",
+                                                 "story verifier"
+                                             ],
+                        "evidence":  [
+
+                                     ],
+                        "source":  "docs\\auto-execute\\story-candidates-curated.json",
+                        "normalized":  true,
+                        "status":  "PENDING",
+                        "testPoints":  [
+                                           {
+                                               "id":  "TP-STORY-REPORT-002-001",
+                                               "storyId":  "STORY-REPORT-002",
+                                               "type":  "api",
+                                               "target":  "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+                                               "expected":  "route is reachable and supports the story goal",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "GENERATED",
+                                               "command":  "node scripts/acceptance/generated/api-smoke.generated.mjs --project-root .",
+                                               "evidenceOutput":  "docs/auto-execute/results/api-smoke.generated.json"
+                                           },
+                                           {
+                                               "id":  "TP-STORY-REPORT-002-002",
+                                               "storyId":  "STORY-REPORT-002",
+                                               "type":  "route",
+                                               "target":  "scoremap-miniapp/pages/wrong-question",
+                                               "expected":  "route is reachable and supports the story goal",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "GENERATED",
+                                               "command":  "node scripts/acceptance/generated/route-smoke.generated.mjs --project-root .",
+                                               "evidenceOutput":  "docs/auto-execute/results/route-smoke.generated.json"
+                                           },
+                                           {
+                                               "id":  "TP-STORY-REPORT-002-003",
+                                               "storyId":  "STORY-REPORT-002",
+                                               "type":  "functional",
+                                               "target":  "API rejects unentitled formal tutor access.",
+                                               "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                               "command":  "",
+                                               "evidenceOutput":  ""
+                                           },
+                                           {
+                                               "id":  "TP-STORY-REPORT-002-004",
+                                               "storyId":  "STORY-REPORT-002",
+                                               "type":  "functional",
+                                               "target":  "Entitlement behavior is covered by negative branch evidence.",
+                                               "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                               "command":  "",
+                                               "evidenceOutput":  ""
+                                           },
+                                           {
+                                               "id":  "TP-STORY-REPORT-002-005",
+                                               "storyId":  "STORY-REPORT-002",
+                                               "type":  "functional",
+                                               "target":  "Formal tutor use requires full-report entitlement; basic/free users cannot formally ask.",
+                                               "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                               "command":  "",
+                                               "evidenceOutput":  ""
+                                           },
+                                           {
+                                               "id":  "TP-STORY-REPORT-002-006",
+                                               "storyId":  "STORY-REPORT-002",
+                                               "type":  "functional",
+                                               "target":  "UI shows the locked/basic state without starting formal interaction.",
+                                               "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                               "command":  "",
+                                               "evidenceOutput":  ""
+                                           }
+                                       ]
+                    },
+                    {
+                        "storyId":  "STORY-REPORT-003",
+                        "epicId":  "EPIC-CORE",
+                        "sprintId":  "SPRINT-P0",
+                        "priority":  "P0",
+                        "title":  "Each report allows at most 10 tutor interactions and each question allows at most 3 interactions.",
+                        "sourceRequirements":  [
+                                                   "V13-R03"
+                                               ],
+                        "actor":  "user",
+                        "goal":  "Each report allows at most 10 tutor interactions and each question allows at most 3 interactions.",
+                        "surfaces":  [
+                                         "scoremap-miniapp/pages/ai-tutor",
+                                         "server/src/routes/question-interactions.js",
+                                         "server/src/services/question-interactions-service.js"
+                                     ],
+                        "apis":  [
+
+                                 ],
+                        "dataModels":  [
+
+                                       ],
+                        "acceptanceCriteria":  [
+                                                   "Each report allows at most 10 tutor interactions and each question allows at most 3 interactions.",
+                                                   "Question-level quota is enforced by API and persisted data.",
+                                                   "Quota-exceeded responses are covered by UI or API evidence.",
+                                                   "Report-level quota is enforced by API and persisted data."
+                                               ],
+                        "evidenceRequired":  [
+                                                 "E2E flow",
+                                                 "route smoke",
+                                                 "screenshot",
+                                                 "story verifier"
+                                             ],
+                        "evidence":  [
+
+                                     ],
+                        "source":  "docs\\auto-execute\\story-candidates-curated.json",
+                        "normalized":  true,
+                        "status":  "PENDING",
+                        "testPoints":  [
+                                           {
+                                               "id":  "TP-STORY-REPORT-003-001",
+                                               "storyId":  "STORY-REPORT-003",
+                                               "type":  "route",
+                                               "target":  "scoremap-miniapp/pages/ai-tutor",
+                                               "expected":  "route is reachable and supports the story goal",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "GENERATED",
+                                               "command":  "node scripts/acceptance/generated/route-smoke.generated.mjs --project-root .",
+                                               "evidenceOutput":  "docs/auto-execute/results/route-smoke.generated.json"
+                                           },
+                                           {
+                                               "id":  "TP-STORY-REPORT-003-002",
+                                               "storyId":  "STORY-REPORT-003",
+                                               "type":  "route",
+                                               "target":  "server/src/routes/question-interactions.js",
+                                               "expected":  "route is reachable and supports the story goal",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "GENERATED",
+                                               "command":  "node scripts/acceptance/generated/route-smoke.generated.mjs --project-root .",
+                                               "evidenceOutput":  "docs/auto-execute/results/route-smoke.generated.json"
+                                           },
+                                           {
+                                               "id":  "TP-STORY-REPORT-003-003",
+                                               "storyId":  "STORY-REPORT-003",
+                                               "type":  "route",
+                                               "target":  "server/src/services/question-interactions-service.js",
+                                               "expected":  "route is reachable and supports the story goal",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "GENERATED",
+                                               "command":  "node scripts/acceptance/generated/route-smoke.generated.mjs --project-root .",
+                                               "evidenceOutput":  "docs/auto-execute/results/route-smoke.generated.json"
+                                           },
+                                           {
+                                               "id":  "TP-STORY-REPORT-003-004",
+                                               "storyId":  "STORY-REPORT-003",
+                                               "type":  "functional",
+                                               "target":  "Each report allows at most 10 tutor interactions and each question allows at most 3 interactions.",
+                                               "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                               "command":  "",
+                                               "evidenceOutput":  ""
+                                           },
+                                           {
+                                               "id":  "TP-STORY-REPORT-003-005",
+                                               "storyId":  "STORY-REPORT-003",
+                                               "type":  "functional",
+                                               "target":  "Question-level quota is enforced by API and persisted data.",
+                                               "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                               "command":  "",
+                                               "evidenceOutput":  ""
+                                           },
+                                           {
+                                               "id":  "TP-STORY-REPORT-003-006",
+                                               "storyId":  "STORY-REPORT-003",
+                                               "type":  "functional",
+                                               "target":  "Quota-exceeded responses are covered by UI or API evidence.",
+                                               "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                               "command":  "",
+                                               "evidenceOutput":  ""
+                                           },
+                                           {
+                                               "id":  "TP-STORY-REPORT-003-007",
+                                               "storyId":  "STORY-REPORT-003",
+                                               "type":  "functional",
+                                               "target":  "Report-level quota is enforced by API and persisted data.",
+                                               "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                               "command":  "",
+                                               "evidenceOutput":  ""
+                                           }
+                                       ]
+                    },
+                    {
+                        "storyId":  "STORY-GENERAL-006",
+                        "epicId":  "EPIC-CORE",
+                        "sprintId":  "SPRINT-P0",
+                        "priority":  "P0",
+                        "title":  "A similar exercise can be generated and submitted for AI feedback.",
+                        "sourceRequirements":  [
+                                                   "V13-R06"
+                                               ],
+                        "actor":  "user",
+                        "goal":  "A similar exercise can be generated and submitted for AI feedback.",
+                        "surfaces":  [
+                                         "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/exercise-answer",
+                                         "scoremap-miniapp/pages/ai-exercise",
+                                         "scoremap-miniapp/pages/ai-exercise-feedback"
+                                     ],
+                        "apis":  [
+
+                                 ],
+                        "dataModels":  [
+
+                                       ],
+                        "acceptanceCriteria":  [
+                                                   "A similar exercise can be generated and submitted for AI feedback.",
+                                                   "Feedback is returned and tied to the same question context.",
+                                                   "Student can generate a similar exercise from the wrong-question context.",
+                                                   "Student can submit an answer for that exercise."
+                                               ],
+                        "evidenceRequired":  [
+                                                 "E2E flow",
+                                                 "route smoke",
+                                                 "screenshot",
+                                                 "story verifier"
+                                             ],
+                        "evidence":  [
+
+                                     ],
+                        "source":  "docs\\auto-execute\\story-candidates-curated.json",
+                        "normalized":  true,
+                        "status":  "PENDING",
+                        "testPoints":  [
+                                           {
+                                               "id":  "TP-STORY-GENERAL-006-001",
+                                               "storyId":  "STORY-GENERAL-006",
+                                               "type":  "api",
+                                               "target":  "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/exercise-answer",
+                                               "expected":  "route is reachable and supports the story goal",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "GENERATED",
+                                               "command":  "node scripts/acceptance/generated/api-smoke.generated.mjs --project-root .",
+                                               "evidenceOutput":  "docs/auto-execute/results/api-smoke.generated.json"
+                                           },
+                                           {
+                                               "id":  "TP-STORY-GENERAL-006-002",
+                                               "storyId":  "STORY-GENERAL-006",
+                                               "type":  "route",
+                                               "target":  "scoremap-miniapp/pages/ai-exercise",
+                                               "expected":  "route is reachable and supports the story goal",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "GENERATED",
+                                               "command":  "node scripts/acceptance/generated/route-smoke.generated.mjs --project-root .",
+                                               "evidenceOutput":  "docs/auto-execute/results/route-smoke.generated.json"
+                                           },
+                                           {
+                                               "id":  "TP-STORY-GENERAL-006-003",
+                                               "storyId":  "STORY-GENERAL-006",
+                                               "type":  "route",
+                                               "target":  "scoremap-miniapp/pages/ai-exercise-feedback",
+                                               "expected":  "route is reachable and supports the story goal",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "GENERATED",
+                                               "command":  "node scripts/acceptance/generated/route-smoke.generated.mjs --project-root .",
+                                               "evidenceOutput":  "docs/auto-execute/results/route-smoke.generated.json"
+                                           },
+                                           {
+                                               "id":  "TP-STORY-GENERAL-006-004",
+                                               "storyId":  "STORY-GENERAL-006",
+                                               "type":  "functional",
+                                               "target":  "A similar exercise can be generated and submitted for AI feedback.",
+                                               "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                               "command":  "",
+                                               "evidenceOutput":  ""
+                                           },
+                                           {
+                                               "id":  "TP-STORY-GENERAL-006-005",
+                                               "storyId":  "STORY-GENERAL-006",
+                                               "type":  "functional",
+                                               "target":  "Feedback is returned and tied to the same question context.",
+                                               "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                               "command":  "",
+                                               "evidenceOutput":  ""
+                                           },
+                                           {
+                                               "id":  "TP-STORY-GENERAL-006-006",
+                                               "storyId":  "STORY-GENERAL-006",
+                                               "type":  "functional",
+                                               "target":  "Student can generate a similar exercise from the wrong-question context.",
+                                               "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                               "command":  "",
+                                               "evidenceOutput":  ""
+                                           },
+                                           {
+                                               "id":  "TP-STORY-GENERAL-006-007",
+                                               "storyId":  "STORY-GENERAL-006",
+                                               "type":  "functional",
+                                               "target":  "Student can submit an answer for that exercise.",
+                                               "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                               "command":  "",
+                                               "evidenceOutput":  ""
+                                           }
+                                       ]
+                    },
+                    {
+                        "storyId":  "STORY-REPORT-009",
+                        "epicId":  "EPIC-CORE",
+                        "sprintId":  "SPRINT-P0",
+                        "priority":  "P0",
+                        "title":  "The complete report has a formal visual presentation and includes wrong-question cards.",
+                        "sourceRequirements":  [
+                                                   "V13-R09"
+                                               ],
+                        "actor":  "user",
+                        "goal":  "The complete report has a formal visual presentation and includes wrong-question cards.",
+                        "surfaces":  [
+                                         "scoremap-miniapp/pages/full-report"
+                                     ],
+                        "apis":  [
+
+                                 ],
+                        "dataModels":  [
+
+                                       ],
+                        "acceptanceCriteria":  [
+                                                   "Full-report layout includes formal report structure.",
+                                                   "The complete report has a formal visual presentation and includes wrong-question cards.",
+                                                   "Visual harness evidence exists; raster pixel-perfect review remains manual.",
+                                                   "Wrong-question cards are visible in the report."
+                                               ],
+                        "evidenceRequired":  [
+                                                 "E2E flow",
+                                                 "route smoke",
+                                                 "screenshot",
+                                                 "story verifier"
+                                             ],
+                        "evidence":  [
+
+                                     ],
+                        "source":  "docs\\auto-execute\\story-candidates-curated.json",
+                        "normalized":  true,
+                        "status":  "PENDING",
+                        "testPoints":  [
+                                           {
+                                               "id":  "TP-STORY-REPORT-009-001",
+                                               "storyId":  "STORY-REPORT-009",
+                                               "type":  "route",
+                                               "target":  "scoremap-miniapp/pages/full-report",
+                                               "expected":  "route is reachable and supports the story goal",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "GENERATED",
+                                               "command":  "node scripts/acceptance/generated/route-smoke.generated.mjs --project-root .",
+                                               "evidenceOutput":  "docs/auto-execute/results/route-smoke.generated.json"
+                                           },
+                                           {
+                                               "id":  "TP-STORY-REPORT-009-002",
+                                               "storyId":  "STORY-REPORT-009",
+                                               "type":  "functional",
+                                               "target":  "Full-report layout includes formal report structure.",
+                                               "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                               "command":  "",
+                                               "evidenceOutput":  ""
+                                           },
+                                           {
+                                               "id":  "TP-STORY-REPORT-009-003",
+                                               "storyId":  "STORY-REPORT-009",
+                                               "type":  "visual",
+                                               "target":  "The complete report has a formal visual presentation and includes wrong-question cards.",
+                                               "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "BOUND_TO_UI_VERIFIER",
+                                               "command":  "powershell -ExecutionPolicy Bypass -File scripts/acceptance/run-ui-capture.ps1; powershell -ExecutionPolicy Bypass -File scripts/acceptance/run-ui-compare.ps1",
+                                               "evidenceOutput":  "docs/auto-execute/results/ui-verifier.json"
+                                           },
+                                           {
+                                               "id":  "TP-STORY-REPORT-009-004",
+                                               "storyId":  "STORY-REPORT-009",
+                                               "type":  "visual",
+                                               "target":  "Visual harness evidence exists; raster pixel-perfect review remains manual.",
+                                               "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "BOUND_TO_UI_VERIFIER",
+                                               "command":  "powershell -ExecutionPolicy Bypass -File scripts/acceptance/run-ui-capture.ps1; powershell -ExecutionPolicy Bypass -File scripts/acceptance/run-ui-compare.ps1",
+                                               "evidenceOutput":  "docs/auto-execute/results/ui-verifier.json"
+                                           },
+                                           {
+                                               "id":  "TP-STORY-REPORT-009-005",
+                                               "storyId":  "STORY-REPORT-009",
+                                               "type":  "functional",
+                                               "target":  "Wrong-question cards are visible in the report.",
+                                               "expected":  "acceptance criterion is proven by test/log/screenshot/API evidence",
+                                               "evidence":  [
+
+                                                            ],
+                                               "status":  "PENDING",
+                                               "materializationStatus":  "MANUAL_REVIEW_REQUIRED",
+                                               "command":  "",
+                                               "evidenceOutput":  ""
+                                           }
+                                       ]
+                    }
+                ],
+    "generatedAt":  "2026-05-25T19:10:46"
+}

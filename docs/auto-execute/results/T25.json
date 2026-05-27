@@ -1,0 +1,51 @@
+{
+  "taskId": "T25",
+  "workerRound": 7,
+  "status": "PASS_WITH_LIMITATION",
+  "reason": "Full-report v1.3 page structure, wrong-question cards, AI tutor entry navigation, and visible share/save/PDF behaviors are implemented and tested. Pure PASS is not claimed because T30 still owns raster screenshot diff and pixel comparison for _3.",
+  "commands": [
+    {
+      "command": "npm test -- full-report-ai-entry",
+      "status": "PASS"
+    },
+    {
+      "command": "npm run visual:scoremap -- v13-full-report",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW"
+    },
+    {
+      "command": "npm test -- full-report-pdf",
+      "status": "PASS"
+    }
+  ],
+  "modifiedFiles": [
+    "scoremap-miniapp/pages/full-report/index.js",
+    "scoremap-miniapp/pages/full-report/index.wxml",
+    "scoremap-miniapp/pages/full-report/index.wxss",
+    "scoremap-miniapp/pages/full-report/full-report-ai-entry.test.js",
+    "scoremap-miniapp/pages/full-report/visual-full-report-pdf.js",
+    "scoremap-miniapp/services/api-client.js",
+    "scoremap-miniapp/services/local-fixture-store.js",
+    "scripts/run-tests.mjs",
+    "tools/ui-visual/visual-harness.mjs",
+    "docs/auto-execute/evidence/frontend-page/T25-full-report-ai-entry.json",
+    "docs/auto-execute/evidence/frontend-page/T25-share-save-export.json",
+    "docs/auto-execute/evidence/frontend-page/T25-v13-full-report-visual-structure.json",
+    "docs/auto-execute/evidence/frontend-page/visual/v13-full-report/actual-v13-full-report-structure.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/v13-full-report/diff-v13-full-report-manual-review.svg",
+    "docs/auto-execute/evidence/frontend-page/visual/v13-full-report/metrics-v13-full-report.json",
+    "docs/auto-execute/evidence/frontend-page/visual/v13-full-report/summary-v13-full-report.json",
+    "docs/auto-execute/evidence/visual-harness/v13-full-report/metrics.json",
+    "docs/auto-execute/evidence/visual-harness/v13-full-report/summary.json",
+    "docs/auto-execute/results/T25.json",
+    "docs/auto-execute/latest/T25-HANDOFF.md",
+    "docs/auto-execute/latest/HANDOFF.md",
+    "TODO.md"
+  ],
+  "evidence": [
+    "docs/auto-execute/evidence/frontend-page/T25-full-report-ai-entry.json",
+    "docs/auto-execute/evidence/frontend-page/T25-share-save-export.json",
+    "docs/auto-execute/evidence/frontend-page/T25-v13-full-report-visual-structure.json",
+    "docs/auto-execute/evidence/visual-harness/v13-full-report/summary.json"
+  ],
+  "nextTask": "T26"
+}

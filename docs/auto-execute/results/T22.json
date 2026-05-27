@@ -1,0 +1,10 @@
+{
+  "taskId": "T22",
+  "status": "PASS",
+  "command": "npm --prefix server test -- full-report wrong-questions",
+  "evidence": [
+    "docs/auto-execute/evidence/api-db-llm/T22-full-report-question-cards.json",
+    "docs/auto-execute/evidence/api-db-llm/T22-negative-branches.json"
+  ],
+  "result": "Full-report generation creates wrong-question cards, quota, and LLM traces, and covers required negative branches."
+}

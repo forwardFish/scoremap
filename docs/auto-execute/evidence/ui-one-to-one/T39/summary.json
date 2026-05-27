@@ -1,0 +1,89 @@
+{
+  "taskId": "T39",
+  "title": "v1.3 full report and wrong-question one-to-one repair",
+  "status": "PASS_WITH_LIMITATION",
+  "completedAt": "2026-05-27T03:40:00+08:00",
+  "references": [
+    {
+      "id": "V13-UI-FULL-REPORT",
+      "code": "docs/UI/小程序/stitch_codex_ui_design_kit/_3/code.html",
+      "screen": "docs/UI/小程序/stitch_codex_ui_design_kit/_3/screen.png",
+      "target": "scoremap-miniapp/pages/full-report/index.wxml"
+    },
+    {
+      "id": "V13-UI-QUESTION-DETAIL",
+      "code": "docs/UI/小程序/stitch_codex_ui_design_kit/_1/code.html",
+      "screen": "docs/UI/小程序/stitch_codex_ui_design_kit/_1/screen.png",
+      "target": "scoremap-miniapp/pages/wrong-question/index.wxml"
+    }
+  ],
+  "implementation": {
+    "fullReport": {
+      "status": "PASS",
+      "notes": [
+        "Hero, report-content rows, wrong-question cards, disclaimer, and bottom share/PDF actions were rebuilt toward the _3 v1.3 reference.",
+        "Wrong-question card navigation remains data-backed through questionId and orderId.",
+        "The old T38 full-report-entry state remains a separate page; v1.3 full-report uses V13-UI-FULL-REPORT and the /pages/full-report/index state."
+      ]
+    },
+    "wrongQuestion": {
+      "status": "PASS",
+      "notes": [
+        "Top bar, tag row, original question, student answer frame, answer/knowledge grid, diagnosis block, explanation mascot, AI CTA, history row, and bottom navigation were rebuilt toward the _1 reference.",
+        "AI tutor entry preserves orderId and questionId context and remains locked for basic users.",
+        "Share and PDF controls keep local placeholder/export behavior."
+      ]
+    }
+  },
+  "evidence": [
+    "docs/auto-execute/evidence/frontend-page/T25-full-report-ai-entry.json",
+    "docs/auto-execute/evidence/frontend-page/T25-share-save-export.json",
+    "docs/auto-execute/evidence/frontend-page/T26-wrong-question-detail.json",
+    "docs/auto-execute/evidence/frontend-page/T26-locked-basic-state.json",
+    "docs/auto-execute/evidence/frontend-page/full-report-pdf-api-db.json",
+    "docs/auto-execute/evidence/frontend-page/visual/v13-full-report/summary-v13-full-report.json",
+    "docs/auto-execute/evidence/frontend-page/visual/v13-wrong-question-detail/summary-v13-wrong-question-detail.json",
+    "docs/auto-execute/evidence/visual-harness/summary.json"
+  ],
+  "verification": [
+    {
+      "command": "npm test -- full-report-ai-entry wrong-question-detail full-report-pdf",
+      "status": "FAIL_KNOWN_RUNNER_LIMITATION",
+      "reason": "scripts/run-tests.mjs currently requires every requested selector to belong to one test group, so the exact combined command matches no group."
+    },
+    {
+      "command": "npm test -- full-report-ai-entry",
+      "status": "PASS",
+      "evidence": "3/3 tests passed."
+    },
+    {
+      "command": "npm test -- wrong-question-detail",
+      "status": "PASS",
+      "evidence": "3/3 tests passed."
+    },
+    {
+      "command": "npm test -- full-report-pdf",
+      "status": "PASS",
+      "evidence": "3/3 tests passed."
+    },
+    {
+      "command": "npm run e2e:owner -- v13-report-wrong-question",
+      "status": "PASS",
+      "evidence": "2/2 tests passed."
+    },
+    {
+      "command": "npm run visual:scoremap -- v13-full-report v13-wrong-question-detail",
+      "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+      "evidence": "2 v1.3 screen comparisons written by the local structural visual harness."
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS_WITH_WARNINGS",
+      "evidence": "Exited 0 with line-ending warnings only."
+    }
+  ],
+  "limitations": [
+    "The exact combined npm test command is blocked by existing selector semantics; equivalent individual groups pass.",
+    "Visual verification is structural/manual-review evidence. No pixel-perfect PASS is claimed."
+  ]
+}

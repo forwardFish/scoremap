@@ -4,7 +4,7 @@
   "route": "/pages/full-unlock/index",
   "reference": null,
   "alternateReference": null,
-  "stitchReference": "docs/UI/小程序/stitch_codex_development_blueprints/_4/screen.png",
+  "stitchReference": "ui-reference-catalog/小程序/stitch_codex_development_blueprints/_4/screen-reference",
   "actual": "docs/auto-execute/evidence/frontend-page/visual/full-unlock/actual-full-unlock-structure.svg",
   "diff": "docs/auto-execute/evidence/frontend-page/visual/full-unlock/diff-full-unlock-manual-review.svg",
   "viewport": {
