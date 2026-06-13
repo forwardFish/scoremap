@@ -1,7 +1,7 @@
 ﻿const { DiagnosisOrdersService } = require('../services/diagnosis-orders-service');
 const { authFromRequest } = require('../middleware/auth');
 
-function createDiagnosisOrdersRouter({ db, cloud, ai }) {
+function createDiagnosisOrdersRouter({ db, cloud, ai, authService }) {
   const service = new DiagnosisOrdersService({ db, cloud, ai });
 
   return async function diagnosisOrdersRouter(request, response) {
@@ -11,15 +11,15 @@ function createDiagnosisOrdersRouter({ db, cloud, ai }) {
 
     let result;
     if (request.method === 'POST' && url.pathname === '/api/diagnosis-orders') {
-      result = service.createOrder(await readJson(request));
+      result = service.createOrder(await readJson(request), authFromRequest(request, { authService }));
     } else if (request.method === 'POST' && match.action === 'uploads') {
-      result = service.uploadFiles(match.orderId, await readJson(request), authFromRequest(request));
+      result = service.uploadFiles(match.orderId, await readJson(request), authFromRequest(request, { authService }));
     } else if (request.method === 'POST' && match.action === 'start-preview-analysis') {
-      result = service.startPreviewAnalysis(match.orderId, await readJson(request), authFromRequest(request));
+      result = service.startPreviewAnalysis(match.orderId, await readJson(request), authFromRequest(request, { authService }));
     } else if (request.method === 'GET' && match.action === 'analysis-progress') {
-      result = service.getAnalysisProgress(match.orderId, authFromRequest(request));
+      result = service.getAnalysisProgress(match.orderId, authFromRequest(request, { authService }));
     } else if (request.method === 'GET' && match.action === 'preview-decision') {
-      result = service.getPreviewDecision(match.orderId, authFromRequest(request));
+      result = service.getPreviewDecision(match.orderId, authFromRequest(request, { authService }));
     } else {
       sendJson(response, 405, { status: 'error', code: 'METHOD_NOT_ALLOWED' });
       return true;

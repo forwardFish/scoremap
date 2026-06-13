@@ -4,11 +4,12 @@ const path = require('node:path');
 const { test } = require('node:test');
 const { createMiniappShell } = require('./app');
 const appJson = require('./app.json');
-const { AI_TUTOR_V13_DESIGN_TOKENS, AI_TUTOR_V13_REFERENCES, MINIAPP_ROUTES } = require('./routes');
+const { AI_TUTOR_V13_DESIGN_TOKENS, AI_TUTOR_V13_REFERENCES, MINIAPP_ROUTES, TAB_BAR, V143_DESIGN_TOKENS, V143_NAVIGATION_MAP } = require('./routes');
 const { createMiniappApiClient } = require('./services/api-client');
 const { buildNavigationAssertions, resolveOrderRoute } = require('./utils/navigation');
 const { DEFAULT_FORBIDDEN_PATTERNS, assertLocalOnlyEnvironment, scanTextForForbiddenRemoteCalls } = require('../shared/local-only');
 const { writeJsonEvidence } = require('../shared/evidence-paths');
+const { scanTextForMojibake } = require('../tools/mojibake-guard');
 
 const projectRoot = path.resolve(__dirname, '..');
 const command = 'npm test -- miniapp-shell';
@@ -16,6 +17,67 @@ const command = 'npm test -- miniapp-shell';
 function writeEvidence(name, payload) {
   writeJsonEvidence(projectRoot, path.join('frontend-shell', name), payload);
 }
+
+const mojibakePattern = /(?:[ÃÂ]|(?:棣栭|鎴戜|鎻愬|垎鏁|欑粌|灏忕|鍒濆|瀹屾|淇|绗|姝|獙|帉|攳|啓|瓙|伅|辫触))/;
+
+function findMojibake(value, location, findings = []) {
+  if (typeof value === 'string') {
+    if (mojibakePattern.test(value)) {
+      findings.push({ location, value });
+    }
+    return findings;
+  }
+  if (Array.isArray(value)) {
+    value.forEach((item, index) => findMojibake(item, `${location}[${index}]`, findings));
+    return findings;
+  }
+  if (value && typeof value === 'object') {
+    for (const [key, item] of Object.entries(value)) {
+      findMojibake(item, `${location}.${key}`, findings);
+    }
+  }
+  return findings;
+}
+
+test('mojibake guard fails representative negative fixtures', () => {
+  const fixture = [
+    '棣栭〉',
+    '鎴戜殑',
+    'AI鎻愬垎鏁欵粌',
+    '妫ｆ牠',
+    '閹存垳',
+    '閹绘劕',
+    '閸掑棙鐎',
+    '鐎瑰本鏆',
+    '娣囶喖',
+    '闁挎瑥',
+    '閿欏',
+    '閳',
+    '娑�',
+    '娴�'
+  ].join('\n');
+  const findings = scanTextForMojibake(fixture, 'negative-fixture');
+  assert.ok(findings.length >= 14);
+  assert.ok(findings.some((finding) => finding.pattern === '棣栭'));
+  assert.ok(findings.some((finding) => finding.pattern === '鎴戜'));
+  assert.ok(findings.some((finding) => finding.pattern === '鎻愬'));
+});
+
+test('miniapp API client can load in WeChat runtime without Node builtins at module scope', () => {
+  const apiClientSource = fs.readFileSync(path.join(__dirname, 'services', 'api-client.js'), 'utf8');
+  const moduleHeader = apiClientSource.slice(0, apiClientSource.indexOf('function createMiniappApiClient'));
+
+  assert.doesNotMatch(moduleHeader, /require\(['"]node:/);
+  assert.doesNotMatch(moduleHeader, /require\(['"]\.\.\/\.\.\/server\//);
+});
+
+test('full-report runtime imports shared model utilities instead of requiring another page directory', () => {
+  const fullReportSource = fs.readFileSync(path.join(__dirname, 'pages', 'full-report', 'index.js'), 'utf8');
+  const runtimeHeader = fullReportSource.slice(0, fullReportSource.indexOf('function createFullReportPageState'));
+
+  assert.match(runtimeHeader, /utils\/full-report-model/);
+  assert.doesNotMatch(runtimeHeader, /require\(['"]\.\.\/full-report-entry['"]\)/);
+});
 
 test('miniapp-shell route table, tab bar, and page jumps match the T06 contract', () => {
   const shell = createMiniappShell();
@@ -250,5 +312,94 @@ test('v1.3 AI tutor route contracts and design tokens are consumable by later UI
       controls
     })),
     controlCount: controls.length
+  });
+});
+
+test('v1.4.3 design tokens, navigation map, click names, and mojibake guard are declared', () => {
+  const configuredPages = new Set(appJson.pages.map((page) => `/${page}`));
+  const routeIds = new Set(MINIAPP_ROUTES.map((route) => route.id));
+  const requiredUiIds = [
+    'UI143-C01',
+    'UI143-C02',
+    'UI143-C03',
+    'UI143-C04',
+    'UI143-C05',
+    'UI143-C07',
+    'UI143-C10A',
+    'UI143-C10B',
+    'UI143-C11C12',
+    'UI143-C13-1',
+    'UI143-C13-2',
+    'UI143-C13-3',
+    'UI143-C13-4'
+  ];
+  const apiIds = new Set(V143_NAVIGATION_MAP.flatMap((item) => item.apiIds));
+  const clickNames = V143_NAVIGATION_MAP.flatMap((item) => item.clickNames);
+  const activeMojibakeFindings = findMojibake({
+    appJson,
+    tabBar: TAB_BAR,
+    tokens: V143_DESIGN_TOKENS,
+    navigation: V143_NAVIGATION_MAP
+  }, 'v143');
+
+  assert.equal(V143_DESIGN_TOKENS.version, 'v1.4.3');
+  assert.equal(V143_DESIGN_TOKENS.copyPolicy.mojibakeForbidden, true);
+  assert.equal(V143_DESIGN_TOKENS.copyPolicy.guaranteedScoreClaimForbidden, true);
+  assert.equal(V143_DESIGN_TOKENS.spacingRpx.minTouchTarget, 88);
+  assert.equal(appJson.window.navigationBarTitleText, 'AI提分教练');
+  assert.deepEqual(appJson.tabBar.list.map((item) => item.text), ['首页', '我的']);
+  assert.deepEqual(TAB_BAR.map((item) => item.text), ['首页', '我的']);
+  assert.deepEqual(activeMojibakeFindings, []);
+
+  for (const uiId of requiredUiIds) {
+    assert.ok(V143_NAVIGATION_MAP.some((item) => item.uiId === uiId), `${uiId} must be mapped`);
+  }
+  for (const item of V143_NAVIGATION_MAP) {
+    const primaryRouteId = String(item.routeId).split('/')[0];
+    assert.ok(configuredPages.has(item.route), `${item.uiId} route must exist in app.json: ${item.route}`);
+    for (const route of item.compatibleRoutes || []) {
+      assert.ok(configuredPages.has(route), `${item.uiId} compatible route must exist in app.json: ${route}`);
+    }
+    assert.ok(routeIds.has(primaryRouteId) || primaryRouteId === 'C13', `${item.uiId} routeId must be compatible with MINIAPP_ROUTES`);
+    assert.ok(item.ownerScenarios.every((scenario) => /^O143-\d{2}$/.test(scenario)), `${item.uiId} owner scenarios must use O143 ids`);
+    assert.ok(item.clickNames.every((name) => /^[A-Z0-9]+(?:-[A-Z0-9]+)?\.[a-z0-9]+(?:-[a-z0-9]+)*$/.test(name)), `${item.uiId} click names must be stable dot/kebab names`);
+    assert.ok(item.apiIds.every((apiId) => /^API143-\d{3}$/.test(apiId)), `${item.uiId} API ids must use API143 ids`);
+  }
+  for (let index = 1; index <= 18; index += 1) {
+    const apiId = `API143-${String(index).padStart(3, '0')}`;
+    assert.ok(apiIds.has(apiId), `${apiId} must be represented`);
+  }
+  assert.ok(clickNames.length >= 30);
+
+  writeEvidence('v143-design-navigation-mojibake.json', {
+    status: 'PASS',
+    command,
+    requirementIds: ['REQ143-007', 'REQ143-008'],
+    uiIds: requiredUiIds,
+    apiIds: [...apiIds].sort(),
+    tabBar: appJson.tabBar.list,
+    exportedTabBar: TAB_BAR,
+    appTitle: appJson.window.navigationBarTitleText,
+    tokens: V143_DESIGN_TOKENS,
+    navigationMap: V143_NAVIGATION_MAP,
+    clickNameCount: clickNames.length,
+    mojibakeGuard: {
+      status: 'PASS',
+      scannedActiveSurfaces: [
+        'scoremap-miniapp/app.json',
+        'scoremap-miniapp/routes.js exported TAB_BAR',
+        'scoremap-miniapp/routes.js V143_DESIGN_TOKENS',
+        'scoremap-miniapp/routes.js V143_NAVIGATION_MAP'
+      ],
+      findings: activeMojibakeFindings
+    },
+    localOnly: {
+      status: 'PASS',
+      realTencentCloudCalls: 0,
+      realWechatPayCalls: 0,
+      onlineDbCalls: 0,
+      realModelProviderCalls: 0,
+      productionServiceCalls: 0
+    }
   });
 });

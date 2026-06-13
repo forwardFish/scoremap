@@ -5,6 +5,7 @@ const ROUTES_BY_PATH = new Map(MINIAPP_ROUTES.map((route) => [route.path, route]
 function resolveOrderRoute(order) {
   if (!order) return '/pages/index/index';
   if (order.status === 'failed' || order.status === 'timeout') return '/pages/failure/index';
+  if (order.status === 'need_more_material') return '/pages/student-info/index';
   if (order.status === 'uploaded' || order.status === 'analyzing') return '/pages/analysis/index';
   if (order.status === 'preview_done' && order.accessLevel === 'preview') return '/pages/preview/index';
   if (order.accessLevel === 'basic') return '/pages/basic-result/index';

@@ -1,1 +1,220 @@
-﻿const assert = require('node:assert/strict');const fs = require('node:fs');const path = require('node:path');const { test } = require('node:test');const { writeJsonEvidence } = require('../../../shared/evidence-paths');const { DEFAULT_FORBIDDEN_PATTERNS, assertLocalOnlyEnvironment, scanTextForForbiddenRemoteCalls } = require('../../../shared/local-only');const { createMiniappApiClient } = require('../../services/api-client');const { createBasicPayPageState } = require('../basic-pay');const { createPreviewPageState } = require('./index');const projectRoot = path.resolve(__dirname, '..', '..', '..');const command = 'npm test -- preview-basic-pay';function writeEvidence(name, payload) {  writeJsonEvidence(projectRoot, path.join('frontend-page', name), payload);}test('preview page renders C05 three visible modules, locked area, and 1 yuan complete-basic CTA route', () => {  const client = createMiniappApiClient();  const page = createPreviewPageState(client, { orderId: 'order-t09-preview' });  const load = page.loadPreview();  const state = page.getState();  const unlock = page.unlockBasic();  const later = page.backToReports();  assert.equal(state.route, '/pages/preview/index');  assert.equal(load.visibleModuleCount, 3);  assert.equal(state.visibleModules.length, 3);  assert.equal(state.lockedArea.visible, true);  assert.ok(state.lockedArea.modules.length >= 3);  assert.equal(unlock.targetRoute, '/pages/basic-pay/index');  assert.match(unlock.ctaText, /完整初判/);  assert.doesNotMatch(unlock.ctaText, /完整报告/);  assert.equal(later.targetRoute, '/pages/reports/index');  writeEvidence('preview-basic-pay-route-controls.json', {    status: 'PASS',    command,    requirementIds: ['R05', 'R06'],    ownerScenarioIds: ['O02', 'O03'],    uiReferences: ['UI-C05', 'UI-C06'],    route: state.route,    renderedState: state,    pageJumpEvidence: [      { controlId: 'unlock-basic', result: unlock },      { controlId: 'back-to-reports', result: later }    ],    apiCalls: client.calls  });});test('basic pay page uses local payment mock, callback, basic decision readback, and basic-result route', () => {  const client = createMiniappApiClient();  const preview = createPreviewPageState(client, { orderId: 'order-t09-pay' });  preview.loadPreview();  const page = createBasicPayPageState(client, { orderId: 'order-t09-pay' });  const state = page.getState();  const back = page.backPreview();  const paid = page.confirmBasicPay();  const snapshot = client.store.snapshot();  assert.equal(state.route, '/pages/basic-pay/index');  assert.equal(state.steps[2].status, 'active');  assert.match(state.controls.find((control) => control.id === 'confirm-basic-pay').text, /完整初判/);  assert.doesNotMatch(state.controls.find((control) => control.id === 'confirm-basic-pay').text, /完整报告/);  assert.equal(back.targetRoute, '/pages/preview/index');  assert.equal(paid.status, 'PAID');  assert.equal(paid.targetRoute, '/pages/basic-result/index');  assert.equal(paid.accessLevel, 'basic');  assert.equal(paid.paymentReadback.adapter, 'local-wechat-pay-mock');  assert.equal(paid.paymentReadback.callbackAdapter, 'local-wechat-pay-mock');  assert.equal(client.store.read('diagnosis_decisions', 'decision-order-t09-pay-basic').level, 'basic');  assert.ok(client.calls.some((call) => call.method === 'POST' && call.path === '/api/payments/create'));  assert.ok(client.calls.some((call) => call.method === 'POST' && call.path === '/api/payments/wechat/callback'));  assert.ok(client.calls.some((call) => call.method === 'GET' && call.path === '/api/diagnosis-orders/order-t09-pay/basic-decision'));  writeEvidence('preview-basic-pay-api-db.json', {    status: 'PASS',    command,    requirementIds: ['R05', 'R06'],    ownerScenarioIds: ['O03', 'O10'],    apiEvidence: {      paymentCreate: client.calls.find((call) => call.path === '/api/payments/create'),      paymentCallback: client.calls.find((call) => call.path === '/api/payments/wechat/callback'),      basicDecision: client.calls.find((call) => call.path === '/api/diagnosis-orders/order-t09-pay/basic-decision')    },    pageJumpEvidence: [      { controlId: 'back-preview', result: back },      { controlId: 'confirm-basic-pay', result: paid }    ],    dbReadback: {      order: client.store.read('diagnosis_orders', 'order-t09-pay'),      previewDecision: client.store.read('diagnosis_decisions', 'decision-order-t09-pay-preview'),      payment: paid.paymentReadback,      basicDecision: client.store.read('diagnosis_decisions', 'decision-order-t09-pay-basic'),      allPayments: snapshot.payments    }  });});test('preview-basic-pay records owner limitation, visual limitation, and local-only guard evidence', () => {  const localOnly = assertLocalOnlyEnvironment({    LOCAL_ONLY: 'true',    SCOREMAP_ADAPTER_MODE: 'local-mock'  });  const filesToScan = [    'scoremap-miniapp/pages/preview/index.js',    'scoremap-miniapp/pages/preview/preview-basic-pay.test.js',    'scoremap-miniapp/pages/preview/visual-preview-basic-pay.js',    'scoremap-miniapp/pages/basic-pay/index.js',    'scoremap-miniapp/services/api-client.js',    'scoremap-miniapp/services/local-fixture-store.js'  ];  const forbiddenRemoteFindings = [];  for (const relativePath of filesToScan) {    const text = fs.readFileSync(path.join(projectRoot, relativePath), 'utf8');    for (const match of scanTextForForbiddenRemoteCalls(text, DEFAULT_FORBIDDEN_PATTERNS)) {      forbiddenRemoteFindings.push({ path: relativePath, match });    }  }  assert.deepEqual(forbiddenRemoteFindings, []);  writeEvidence('preview-basic-pay-owner-local.json', {    status: 'PASS_WITH_LIMITATION',    command,    requirementIds: ['R05', 'R06', 'R15'],    ownerJourneyEvidence: {      status: 'PASS_WITH_LIMITATION',      scenarios: ['O02', 'O03', 'O10'],      clickPath: [        '/pages/preview/index',        'unlock-basic',        '/pages/basic-pay/index',        'confirm-basic-pay',        '/pages/basic-result/index'      ],      apiEvidence: 'docs/auto-execute/evidence/frontend-page/preview-basic-pay-api-db.json',      dbEvidence: 'docs/auto-execute/evidence/frontend-page/preview-basic-pay-api-db.json',      limitation: 'T09 records deterministic C05/C06 owner actions. Full rendered O01-O12 owner E2E remains assigned to T15.'    },    visualEvidence: {      status: 'PASS_NEEDS_MANUAL_UI_REVIEW',      references: [        'ui-reference-catalog/小程序/分析报告.png',        'ui-reference-catalog/小程序/1元支付.png',        'ui-reference-catalog/小程序/stitch_codex_development_blueprints/1/screen-reference'      ],      expectedVisualCommand: 'npm run visual:scoremap -- preview basic-pay',      limitation: 'T09 visual runner produces deterministic structural artifacts and metrics. Pixel-perfect screenshot capture remains assigned to T14.'    },    localOnly,    forbiddenRemoteFindings,    secretFindings: []  });});
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const { test } = require('node:test');
+const { writeJsonEvidence } = require('../../../shared/evidence-paths');
+const { DEFAULT_FORBIDDEN_PATTERNS, assertLocalOnlyEnvironment, scanTextForForbiddenRemoteCalls } = require('../../../shared/local-only');
+const { createMiniappApiClient } = require('../../services/api-client');
+const { createPreviewPageState } = require('./index');
+
+const projectRoot = path.resolve(__dirname, '..', '..', '..');
+const command = 'npm test -- preview-basic-pay';
+
+function writeEvidence(name, payload) {
+  writeJsonEvidence(projectRoot, path.join('frontend-page', name), payload);
+}
+
+test('V143-11 C05 renders three preview modules, locked area, login gate, and 1 yuan half-screen modal', () => {
+  const client = createMiniappApiClient();
+  const page = createPreviewPageState(client, { orderId: 'order-v143-c05-preview' });
+  const load = page.loadPreview();
+  const stateBeforePay = page.getState();
+  const modal = page.openPaymentModal();
+  const stateWithModal = page.getState();
+  const loginGate = createPreviewPageState(client, { orderId: 'order-v143-c05-login', loggedIn: false }).openPaymentModal();
+  const later = page.backToReports();
+
+  assert.equal(stateBeforePay.route, '/pages/preview/index');
+  assert.equal(load.apiId, 'API143-005');
+  assert.equal(load.visibleModuleCount, 3);
+  assert.equal(stateBeforePay.visibleModules.length, 3);
+  assert.equal(stateBeforePay.lockedArea.visible, true);
+  assert.ok(stateBeforePay.lockedArea.modules.length >= 3);
+  assert.equal(stateBeforePay.paymentModal.visible, false);
+  assert.equal(modal.status, 'MODAL_OPEN');
+  assert.equal(modal.modal.type, 'half-screen');
+  assert.equal(stateWithModal.paymentModal.visible, true);
+  assert.equal(stateWithModal.paymentModal.price.amountYuan, 1);
+  assert.match(stateWithModal.paymentModal.ctaText, /完整初判/);
+  assert.doesNotMatch(stateWithModal.paymentModal.ctaText, /完整报告/);
+  assert.equal(loginGate.status, 'LOGIN_REQUIRED');
+  assert.equal(loginGate.targetRoute, '/pages/login/login');
+  assert.equal(later.targetRoute, '/pages/reports/index');
+
+  writeEvidence('V143-11-c05-route-login-modal.json', {
+    status: 'PASS',
+    command,
+    requirementIds: ['REQ143-004', 'REQ143-007', 'REQ143-008'],
+    apiIds: ['API143-005', 'API143-006', 'API143-007', 'API143-008'],
+    ownerScenarioIds: ['O143-02', 'O143-11'],
+    uiReferences: ['UI143-C05'],
+    route: stateBeforePay.route,
+    renderedStateBeforePay: stateBeforePay,
+    renderedStateWithModal: stateWithModal,
+    pageJumpEvidence: [
+      { controlId: 'unlock-basic', result: modal },
+      { controlId: 'login-gate', result: loginGate },
+      { controlId: 'back-to-reports', result: later }
+    ],
+    apiCalls: client.calls
+  });
+});
+
+test('V143-11 C05 confirms local 1 yuan payment, unlocks basic entitlement, and navigates to C07', () => {
+  const client = createMiniappApiClient();
+  const page = createPreviewPageState(client, { orderId: 'order-v143-c05-pay' });
+  page.loadPreview();
+  page.openPaymentModal();
+  const paid = page.confirmBasicPayment();
+  const stateAfterPay = page.getState();
+  const snapshot = client.store.snapshot();
+
+  assert.equal(paid.status, 'PAID');
+  assert.equal(paid.targetRoute, '/pages/basic-result/index');
+  assert.equal(paid.accessLevel, 'basic');
+  assert.equal(stateAfterPay.paymentModal.visible, false);
+  assert.equal(paid.paymentReadback.adapter, 'local-wechat-pay-mock');
+  assert.equal(paid.paymentReadback.callbackAdapter, 'local-wechat-pay-mock');
+  assert.equal(client.store.read('diagnosis_orders', 'order-v143-c05-pay').accessLevel, 'basic');
+  assert.equal(client.store.read('diagnosis_decisions', 'decision-order-v143-c05-pay-basic').level, 'basic');
+  assert.ok(client.calls.some((call) => call.method === 'POST' && call.path === '/api/payments/create'));
+  assert.ok(client.calls.some((call) => call.method === 'POST' && call.path === '/api/payments/wechat/callback'));
+  assert.ok(client.calls.some((call) => call.method === 'GET' && call.path === '/api/diagnosis-orders/order-v143-c05-pay/basic-decision'));
+
+  writeEvidence('V143-11-c05-payment-entitlement-c07.json', {
+    status: 'PASS',
+    command,
+    requirementIds: ['REQ143-004', 'REQ143-007', 'REQ143-008'],
+    apiIds: ['API143-006', 'API143-007', 'API143-008'],
+    ownerScenarioIds: ['O143-02'],
+    uiReferences: ['UI143-C05', 'UI143-C07'],
+    paymentFlow: paid,
+    c07Navigation: { targetRoute: paid.targetRoute, query: paid.query },
+    apiEvidence: {
+      paymentCreate: client.calls.find((call) => call.path === '/api/payments/create'),
+      paymentCallback: client.calls.find((call) => call.path === '/api/payments/wechat/callback'),
+      basicDecision: client.calls.find((call) => call.path === '/api/diagnosis-orders/order-v143-c05-pay/basic-decision')
+    },
+    dbReadback: {
+      order: client.store.read('diagnosis_orders', 'order-v143-c05-pay'),
+      previewDecision: client.store.read('diagnosis_decisions', 'decision-order-v143-c05-pay-preview'),
+      payment: paid.paymentReadback,
+      basicDecision: client.store.read('diagnosis_decisions', 'decision-order-v143-c05-pay-basic'),
+      allPayments: snapshot.payments
+    }
+  });
+});
+
+test('V143-11 C05 blocks unpaid, logged-out, and failed local payment branches from C07', () => {
+  const client = createMiniappApiClient();
+  const unpaidPage = createPreviewPageState(client, { orderId: 'order-v143-c05-unpaid' });
+  unpaidPage.loadPreview();
+  const unpaidDecision = client.request('GET', '/api/diagnosis-orders/order-v143-c05-unpaid/basic-decision', {
+    source: 'v143-c05-unpaid-direct-basic-read'
+  });
+  const loggedOutClient = createMiniappApiClient();
+  const loggedOutPage = createPreviewPageState(loggedOutClient, {
+    orderId: 'order-v143-c05-logged-out',
+    loggedIn: false
+  });
+  const loggedOutOpen = loggedOutPage.openPaymentModal();
+  const loggedOutConfirm = loggedOutPage.confirmBasicPayment();
+  const failedPage = createPreviewPageState(client, {
+    orderId: 'order-v143-c05-failed',
+    mockPaymentStatus: 'failed'
+  });
+  failedPage.loadPreview();
+  failedPage.openPaymentModal();
+  const failedPayment = failedPage.confirmBasicPayment();
+  const failedDecision = client.request('GET', '/api/diagnosis-orders/order-v143-c05-failed/basic-decision', {
+    source: 'v143-c05-failed-direct-basic-read'
+  });
+
+  assert.equal(unpaidDecision.status, 403);
+  assert.equal(unpaidDecision.body.code, 'BASIC_PAYMENT_REQUIRED');
+  assert.equal(loggedOutOpen.status, 'LOGIN_REQUIRED');
+  assert.equal(loggedOutConfirm.status, 'LOGIN_REQUIRED');
+  assert.equal(loggedOutClient.store.list('payments').length, 0);
+  assert.equal(failedPayment.status, 'PAYMENT_FAILED');
+  assert.equal(failedPayment.targetRoute, '/pages/preview/index');
+  assert.equal(failedPayment.accessLevel, 'preview');
+  assert.equal(failedDecision.status, 403);
+  assert.equal(client.store.read('diagnosis_orders', 'order-v143-c05-failed').accessLevel, 'preview');
+
+  writeEvidence('V143-11-c05-negative-branches.json', {
+    status: 'PASS',
+    command,
+    requirementIds: ['REQ143-004', 'REQ143-007', 'REQ143-008'],
+    apiIds: ['API143-005', 'API143-006', 'API143-007', 'API143-008'],
+    ownerScenarioIds: ['O143-02'],
+    uiReferences: ['UI143-C05'],
+    negativeBranches: {
+      unpaidBasicDecision: unpaidDecision,
+      loggedOutOpen,
+      loggedOutConfirm,
+      loggedOutPaymentCount: loggedOutClient.store.list('payments').length,
+      failedPayment,
+      failedBasicDecision: failedDecision
+    },
+    apiCalls: [...client.calls, ...loggedOutClient.calls],
+    dbReadback: {
+      unpaidOrder: client.store.read('diagnosis_orders', 'order-v143-c05-unpaid'),
+      failedOrder: client.store.read('diagnosis_orders', 'order-v143-c05-failed'),
+      failedPayment: failedPayment.paymentReadback
+    }
+  });
+});
+
+test('V143-11 C05 records structural visual limitation and local-only guard evidence', () => {
+  const localOnly = assertLocalOnlyEnvironment({
+    LOCAL_ONLY: 'true',
+    SCOREMAP_ADAPTER_MODE: 'local-mock'
+  });
+  const filesToScan = [
+    'scoremap-miniapp/pages/preview/index.js',
+    'scoremap-miniapp/pages/preview/index.wxml',
+    'scoremap-miniapp/pages/preview/preview-basic-pay.test.js',
+    'scoremap-miniapp/pages/preview/visual-preview-basic-pay.js',
+    'scoremap-miniapp/services/api-client.js',
+    'scoremap-miniapp/services/api.js',
+    'scoremap-miniapp/services/local-fixture-store.js'
+  ];
+  const forbiddenRemoteFindings = [];
+  for (const relativePath of filesToScan) {
+    const text = fs.readFileSync(path.join(projectRoot, relativePath), 'utf8');
+    for (const match of scanTextForForbiddenRemoteCalls(text, DEFAULT_FORBIDDEN_PATTERNS)) {
+      forbiddenRemoteFindings.push({ path: relativePath, match });
+    }
+  }
+
+  assert.deepEqual(forbiddenRemoteFindings, []);
+
+  writeEvidence('V143-11-c05-owner-local.json', {
+    status: 'PASS_WITH_LIMITATION',
+    command,
+    requirementIds: ['REQ143-004', 'REQ143-007', 'REQ143-008'],
+    ownerJourneyEvidence: {
+      status: 'PASS_WITH_LIMITATION',
+      scenarios: ['O143-02', 'O143-11'],
+      clickPath: [
+        '/pages/preview/index',
+        'unlock-basic',
+        'half-screen-payment-modal',
+        'confirm-basic-payment',
+        '/pages/basic-result/index'
+      ],
+      apiEvidence: 'docs/auto-execute/evidence/frontend-page/V143-11-c05-payment-entitlement-c07.json',
+      dbEvidence: 'docs/auto-execute/evidence/frontend-page/V143-11-c05-payment-entitlement-c07.json',
+      limitation: 'This task records deterministic page-state and structural evidence. Full WeChat simulator screenshots and pixel diff remain outside this child task.'
+    },
+    visualEvidence: {
+      status: 'PASS_NEEDS_MANUAL_UI_REVIEW',
+      reference: 'docs/UI/小程序/v1.4.3-C05-初判预览-1元半屏支付.png',
+      expectedVisualCommand: 'npm run visual:scoremap -- preview basic-pay',
+      limitation: 'The focused C05 visual runner produces deterministic structural SVG evidence, not a real WeChat screenshot pixel PASS.'
+    },
+    localOnly,
+    forbiddenRemoteFindings,
+    secretFindings: []
+  });
+});

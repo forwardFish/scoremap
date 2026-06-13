@@ -1,48 +1,32 @@
 <view class="failure-page">
-  <view class="failure-shell">
-    <view class="failure-header">
-      <button class="back-button" data-action="home" bindtap="onTap" aria-label="返回"></button>
-      <text class="header-title">处理失败</text>
-      <view class="header-spacer"></view>
-    </view>
+  <view class="failure-header">
+    <button class="back-button" data-action="home" bindtap="onTap" aria-label="返回">
+      <text>‹</text>
+    </button>
+    <text class="page-title">处理失败</text>
+  </view>
 
-    <view class="failure-card">
-      <view class="soft-glow"></view>
-
-      <view class="failure-illustration">
-        <view class="paper-card">
-          <view class="paper-fold"></view>
-          <view class="paper-line line-one"></view>
-          <view class="paper-line line-two"></view>
-          <view class="paper-image"></view>
-        </view>
-        <view class="owl">
-          <view class="owl-ear left"></view>
-          <view class="owl-ear right"></view>
-          <view class="owl-face">
-            <view class="owl-eye left"></view>
-            <view class="owl-eye right"></view>
-            <view class="owl-beak"></view>
-          </view>
-          <view class="owl-wing"></view>
-          <view class="confused-mark">?</view>
-        </view>
-        <view class="cross-badge">×</view>
+  <view class="failure-card">
+    <view class="illustration">
+      <view class="paper-graphic">
+        <view class="paper-line long"></view>
+        <view class="paper-line"></view>
+        <view class="paper-mountain"></view>
       </view>
-
-      <view class="failure-copy">
-        <text class="failure-title">分析没有成功</text>
-        <text class="failure-desc">可能是资料不清晰或网络异常，请稍后重试。</text>
+      <view class="owl-wrap">
+        <image class="owl" src="/assets/icons/owl-dashboard-teacher.png" mode="aspectFit" />
+        <view class="sad-mark">?</view>
       </view>
-
-      <view class="failure-actions">
-        <button class="primary-action" data-action="retry" bindtap="onTap">重新开始分析</button>
-        <button class="secondary-action" data-action="reupload" bindtap="onTap">重新上传资料</button>
-        <button class="home-action" data-action="home" bindtap="onTap">
-          <text>返回首页</text>
-          <text class="home-arrow">›</text>
-        </button>
+      <view class="error-badge">
+        <image src="/assets/icons/error-x-eraser.png" mode="aspectFit" />
       </view>
     </view>
+
+    <text class="failure-title">分析没有成功</text>
+    <text class="failure-copy">可能是资料不清晰或网络异常，请稍后重试。</text>
+
+    <button class="retry-button" data-action="retry" bindtap="onTap">重新开始分析</button>
+    <button class="reupload-button" data-action="reupload" bindtap="onTap">重新上传资料</button>
+    <button class="home-link" data-action="home" bindtap="onTap">返回首页 ›</button>
   </view>
 </view>

@@ -1,90 +1,115 @@
 <view class="home-page">
-  <view class="home-content">
-    <view class="status-space"></view>
-
-    <view class="top-bar">
-      <view class="brand-avatar"></view>
-      <text class="page-title">AI提分教练</text>
-      <button class="message-button" data-action="reports" bindtap="onTap" aria-label="消息"></button>
-    </view>
-
-    <view class="hero-card">
-      <view class="hero-copy">
-        <text class="hero-title">上传孩子资料，</text>
-        <view class="hero-title-line">
-          <text class="hero-accent">AI</text>
-          <text> 帮你看不清先补什么</text>
-        </view>
-        <text class="hero-subtitle">支持试卷 / 错题 / 成绩单，先做 <text class="price">1 元</text> 初判</text>
+  <view class="home-header">
+    <view class="brand">
+      <view class="brand-icon-wrap">
+        <image class="brand-icon" src="/assets/icons/ai-robot-smile.png" mode="aspectFit" />
       </view>
+      <text class="brand-title">AI 提分决策</text>
+    </view>
+    <button class="icon-button" data-action="reports" bindtap="onTap" aria-label="消息">
+      <image class="chat-icon" src="/assets/icons/chat-bubble.png" mode="aspectFit" />
+    </button>
+  </view>
 
-      <view class="owl-poster" aria-hidden="true">
-        <view class="poster-owl">
-          <view class="poster-brow left"></view>
-          <view class="poster-brow right"></view>
-          <view class="poster-face">
-            <view class="poster-eye left"></view>
-            <view class="poster-eye right"></view>
-            <view class="poster-beak"></view>
+  <scroll-view class="home-scroll" scroll-y="true" enhanced="true" show-scrollbar="false">
+    <view class="hero-card">
+      <view class="hero-glow"></view>
+      <view class="hero-top">
+        <view class="hero-copy">
+          <text class="hero-title">上传孩子资料，</text>
+          <text class="hero-title"><text class="hero-ai">AI</text> 帮你看清先补什么</text>
+          <view class="hero-subtitle">
+            <text>支持试卷 / 错题 / 成绩单，先做</text>
+            <text class="price-highlight">1 元</text>
+            <text>初判</text>
           </view>
-          <view class="poster-chest"></view>
         </view>
+        <image class="hero-owl" src="/assets/icons/owl-study-stack.png" mode="aspectFit" />
       </view>
 
       <view class="upload-panel">
-        <view class="folder-art">
-          <view class="folder-back"></view>
-          <view class="folder-front"></view>
+        <image class="upload-asset" src="/assets/icons/upload-folder.png" mode="aspectFit" />
+        <view class="upload-copy">
+          <text class="upload-hint">支持图片 / PDF</text>
+          <button class="upload-button" data-action="upload" bindtap="onTap">
+            <image class="upload-button-icon" src="/assets/icons/download-purple.png" mode="aspectFit" />
+            <text>上传资料</text>
+          </button>
         </view>
-        <text class="upload-hint">支持图片 / PDF</text>
-        <button class="primary-button" data-action="upload" bindtap="onTap">
-          <text class="upload-icon">☁</text>
-          <text>上传资料</text>
-        </button>
       </view>
     </view>
 
-    <view class="quick-grid">
-      <button class="quick-card sample-card" data-action="sample" bindtap="onTap">
-        <view class="quick-icon sample-icon"></view>
-        <text>查看样例</text>
-        <text class="chevron">›</text>
+    <view class="quick-actions">
+      <button class="quick-card" data-action="sample" bindtap="onTap">
+        <view class="quick-icon sample-icon">
+          <image src="/assets/icons/document-purple.png" mode="aspectFit" />
+        </view>
+        <text class="quick-label">查看样例</text>
+        <text class="quick-chevron">›</text>
       </button>
-      <button class="quick-card report-card" data-action="reports" bindtap="onTap">
-        <view class="quick-icon report-icon"></view>
-        <text>我的报告</text>
-        <text class="chevron">›</text>
+      <button class="quick-card" data-action="reports" bindtap="onTap">
+        <view class="quick-icon reports-icon">
+          <image src="/assets/icons/report-docs-blue.png" mode="aspectFit" />
+        </view>
+        <text class="quick-label">我的报告</text>
+        <text class="quick-chevron reports-chevron">›</text>
       </button>
     </view>
 
     <view class="recent-card">
       <view class="section-head">
-        <text>最近报告</text>
-        <button class="more-button" data-action="reports" bindtap="onTap">查看更多 <text>›</text></button>
+        <text class="section-title">最近报告</text>
+        <button class="more-link" data-action="reports" bindtap="onTap">
+          <text>查看更多</text>
+          <text class="more-chevron">›</text>
+        </button>
       </view>
-      <view class="report-row">
-        <view class="report-thumb math-thumb"></view>
+
+      <button class="report-row" data-action="reports" bindtap="onTap">
+        <view class="report-leading math-icon">
+          <image src="/assets/icons/calendar-check-blue.png" mode="aspectFit" />
+        </view>
         <text class="report-title">初一数学月考</text>
-        <text class="status done">✓ AI 初判已完成</text>
-        <text class="row-arrow">›</text>
-      </view>
-      <view class="report-row">
-        <view class="report-thumb wrong-thumb"></view>
+        <view class="report-status status-done">
+          <text>AI 初判已完成</text>
+        </view>
+        <text class="row-chevron">›</text>
+      </button>
+
+      <view class="row-divider"></view>
+
+      <button class="report-row" data-action="reports" bindtap="onTap">
+        <view class="report-leading error-icon">
+          <image src="/assets/icons/error-x-eraser.png" mode="aspectFit" />
+        </view>
         <text class="report-title">错题专项分析</text>
-        <text class="status pending">◷ 待查看结果</text>
-        <text class="row-arrow">›</text>
-      </view>
+        <view class="report-status status-pending">
+          <text>待查看结果</text>
+        </view>
+        <text class="row-chevron">›</text>
+      </button>
     </view>
-  </view>
+  </scroll-view>
 
   <view class="bottom-tabs">
     <button class="tab-item active" data-action="home" bindtap="onTap">
-      <view class="tab-icon home-icon"></view>
+      <image class="tab-icon" src="/assets/icons/home-purple.png" mode="aspectFit" />
       <text>首页</text>
     </button>
     <button class="tab-item" data-action="my" bindtap="onTap">
-      <view class="tab-icon my-icon"></view>
+      <image class="tab-icon" src="/assets/icons/user-avatar-gray.png" mode="aspectFit" />
       <text>我的</text>
     </button>
+  </view>
+
+  <view class="auth-mask {{previewHidden}}" wx:if="{{authVisible}}">
+    <view class="auth-sheet">
+      <text class="auth-title">授权使用本地资料</text>
+      <text class="auth-copy">资料仅用于本次 AI 提分分析，写入本地 mock upload_files，不调用真实腾讯云、微信支付或线上数据库。</text>
+      <view class="auth-actions">
+        <button class="auth-secondary" bindtap="cancelAuthModal">暂不同意</button>
+        <button class="auth-primary" bindtap="confirmAuthModal">同意并选择</button>
+      </view>
+    </view>
   </view>
 </view>

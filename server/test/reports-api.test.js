@@ -160,7 +160,7 @@ test('T05 reads basic decision, generates full report, saves it, and lists my re
     const full = await requestJson(api.baseUrl, 'GET', `/api/diagnosis-orders/${create.body.orderId}/full-report`, undefined, {
       'x-order-token': create.body.orderToken
     });
-    const save = await requestJson(api.baseUrl, 'POST', `/api/diagnosis-orders/${create.body.orderId}/save-report`, {}, {
+    const save = await requestJson(api.baseUrl, 'POST', `/api/reports/${create.body.orderId}/save`, {}, {
       'x-order-token': create.body.orderToken
     });
     const reports = await requestJson(api.baseUrl, 'GET', '/api/my/reports', undefined);
@@ -168,6 +168,7 @@ test('T05 reads basic decision, generates full report, saves it, and lists my re
     assert.equal(basic.status, 200);
     assert.equal(basic.body.decision.lossPoints.length, 2);
     assert.equal(generate.status, 200);
+    assert.equal(generate.body.status, 'full_done');
     assert.equal(full.status, 200);
     assert.equal(full.body.decision.modules.length, 4);
     assert.equal(save.status, 200);
@@ -194,13 +195,17 @@ test('T05 reads basic decision, generates full report, saves it, and lists my re
         { method: 'GET', path: '/api/diagnosis-orders/{orderId}/basic-decision', responseStatus: basic.status, response: basic.body },
         { method: 'POST', path: '/api/diagnosis-orders/{orderId}/generate-full', responseStatus: generate.status, response: generate.body },
         { method: 'GET', path: '/api/diagnosis-orders/{orderId}/full-report', responseStatus: full.status, response: full.body },
-        { method: 'POST', path: '/api/diagnosis-orders/{orderId}/save-report', responseStatus: save.status, response: save.body },
+        { method: 'POST', path: '/api/reports/{reportId}/save', responseStatus: save.status, response: save.body },
         { method: 'GET', path: '/api/my/reports', responseStatus: reports.status, response: reports.body }
       ],
       dbReadback: {
-        order: api.db.assertReadback('diagnosis_orders', create.body.orderId, { savedReport: true }),
+        order: api.db.assertReadback('diagnosis_orders', create.body.orderId, {
+          status: 'full_done',
+          accessLevel: 'full',
+          savedReport: true
+        }),
         basicDecision,
-        fullTask,
+        fullTask: api.db.assertReadback('ai_analysis_tasks', fullTask.id, { status: 'full_done' }),
         fullDecision
       }
     });
@@ -345,7 +350,8 @@ test('T05 inserts feedback, exports local PDF record, reads export, and produces
       'x-order-token': create.body.orderToken
     });
     assert.equal(generate.status, 200);
-    const feedback = await requestJson(api.baseUrl, 'POST', `/api/diagnosis-orders/${create.body.orderId}/feedback`, {
+    const feedback = await requestJson(api.baseUrl, 'POST', '/api/feedbacks', {
+      orderId: create.body.orderId,
       decisionLevel: 'full',
       rating: 5,
       tags: ['clear', 'useful'],
@@ -373,7 +379,7 @@ test('T05 inserts feedback, exports local PDF record, reads export, and produces
       command,
       requirementIds: ['R09', 'R10', 'R12'],
       apiCalls: [
-        { method: 'POST', path: '/api/diagnosis-orders/{orderId}/feedback', responseStatus: feedback.status, response: feedback.body },
+        { method: 'POST', path: '/api/feedbacks', responseStatus: feedback.status, response: feedback.body },
         { method: 'POST', path: '/api/diagnosis-orders/{orderId}/export-pdf', responseStatus: pdf.status, response: pdf.body },
         { method: 'GET', path: '/api/report-exports/{exportId}', responseStatus: exportRead.status, response: exportRead.body }
       ],
@@ -407,7 +413,8 @@ test('T05 covers report entitlement, validation, owner denial, and not-found bra
     const missingFull = await requestJson(api.baseUrl, 'GET', `/api/diagnosis-orders/${create.body.orderId}/full-report`, undefined, {
       'x-order-token': create.body.orderToken
     });
-    const invalidFeedback = await requestJson(api.baseUrl, 'POST', `/api/diagnosis-orders/${create.body.orderId}/feedback`, {
+    const invalidFeedback = await requestJson(api.baseUrl, 'POST', '/api/feedbacks', {
+      orderId: create.body.orderId,
       decisionLevel: 'preview',
       rating: 9
     }, { 'x-order-token': create.body.orderToken });
@@ -425,7 +432,7 @@ test('T05 covers report entitlement, validation, owner denial, and not-found bra
         { method: 'GET', path: '/api/diagnosis-orders/{orderId}/basic-decision', branch: 'preview_only_denied', responseStatus: basicDenied.status, response: basicDenied.body },
         { method: 'GET', path: '/api/diagnosis-orders/{orderId}/full-report', branch: 'owner_denial', responseStatus: forbidden.status, response: forbidden.body },
         { method: 'GET', path: '/api/diagnosis-orders/{orderId}/full-report', branch: 'not_generated', responseStatus: missingFull.status, response: missingFull.body },
-        { method: 'POST', path: '/api/diagnosis-orders/{orderId}/feedback', branch: 'validation', responseStatus: invalidFeedback.status, response: invalidFeedback.body },
+        { method: 'POST', path: '/api/feedbacks', branch: 'validation', responseStatus: invalidFeedback.status, response: invalidFeedback.body },
         { method: 'GET', path: '/api/report-exports/{exportId}', branch: 'not_found', responseStatus: missingExport.status, response: missingExport.body }
       ],
       dbReadback: {

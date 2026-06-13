@@ -1,92 +1,56 @@
-<view class="ai-tutor-page">
-  <view class="v13-topbar">
-    <button class="icon-button" bindtap="onTap" data-action="back" aria-label="返回错题详情">arrow_back</button>
-    <view class="title-stack">
-      <text class="page-title">教育提分报告</text>
-      <text class="quota-line">你还可以追问 2 次</text>
+<view class="c13-drawer-page c13-step-two">
+  <view class="c13-bg-report">
+    <view class="c13-status"><text>9:41</text><text>wifi</text></view>
+    <view class="c13-bg-top">
+      <button bindtap="onTap" data-action="back">‹</button>
+      <text>完整报告</text>
+      <text>错题 1 / 8</text>
     </view>
-    <button class="icon-button" bindtap="onTap" data-action="history" aria-label="追问记录">history</button>
-  </view>
-
-  <view class="teacher-card">
-    <view class="teacher-row">
-      <view class="mascot">AI</view>
-      <view class="teacher-bubble">
-        <text>我来帮你再梳理这道题。你可能没有弄明白“甲比乙多行”是什么意思。你会更想先听哪一部分？</text>
+    <text class="c13-bg-title">AI 提分报告（完整）</text>
+    <text class="c13-bg-time">报告生成时间：2024-05-30 10:36</text>
+    <image class="c13-bg-owl c13-pointer-owl" src="/assets/clean-icons/owl-teacher-pointer.png" mode="aspectFit" />
+    <view class="c13-bg-score full">
+      <view class="c13-score-row">
+        <image class="c13-score-icon" src="/assets/clean-icons/shield-check-purple.png" mode="aspectFit" />
+        <view><text>可追回分数</text><text class="c13-score-sub">可优先改善</text></view>
       </view>
-    </view>
-
-    <view class="fixed-actions">
-      <button class="action-chip" bindtap="onTap" data-action="step">
-        <text class="chip-icon primary">help_center</text>
-        <text>我不懂这一步</text>
-      </button>
-      <button class="action-chip" bindtap="onTap" data-action="why">
-        <text class="chip-icon secondary">lightbulb</text>
-        <text>为什么这样算</text>
-      </button>
-      <button class="action-chip" bindtap="onTap" data-action="another">
-        <text class="chip-icon tertiary">model_training</text>
-        <text>换一种方式讲</text>
-      </button>
-      <button class="action-chip wide" bindtap="onTap" data-action="exercise">
-        <text class="chip-icon primary">description</text>
-        <text>出一道同类题</text>
-      </button>
-      <button class="action-chip understood" bindtap="onTap" data-action="understood">
-        <text class="chip-icon light">check_circle</text>
-        <text>我已经懂了</text>
-      </button>
+      <view class="c13-score-value"><text>6-10</text><text>分</text><text>↑</text></view>
+      <text class="c13-score-note">通过优先修复关键错因，有机会追回的分数区间</text>
     </view>
   </view>
+  <view class="c13-overlay dark"></view>
 
-  <view class="question-card">
-    <view class="question-header" bindtap="onTap" data-action="question">
-      <view class="question-header-left">
-        <view class="question-icon">assignment</view>
-        <text class="question-title">错题信息</text>
-      </view>
-      <text class="accordion-icon">expand_less</text>
+  <view class="c13-drawer">
+    <view class="c13-handle"></view>
+    <view class="c13-drawer-head">
+      <text>修复这道关键错题</text>
+      <button bindtap="onTap" data-action="back">×</button>
     </view>
-    <view class="question-body">
-      <view class="tag-row">
-        <text class="question-tag">应用题</text>
-        <text class="question-kp">二元一次方程应用题</text>
-      </view>
-      <view class="solution-card">
-        <text class="question-text">甲、乙两人同时从A地出发，甲每小时行 60km，乙每小时行 50km，2 小时后甲比乙多行多少千米？</text>
-        <view class="solution-lines">
-          <text>x = (60 - 50) x 2</text>
-          <text>x = 10 x 2</text>
-          <text>x = 20 (千米)</text>
-          <text class="answer-line">答：甲比乙多行 20 千米。</text>
+    <view class="c13-progress">
+      <view class="c13-line active-two"></view>
+      <view class="c13-step done"><text>1</text><text>错因诊断</text></view>
+      <view class="c13-step active"><text>2</text><text>换法讲解</text></view>
+      <view class="c13-step"><text>3</text><text>验证练习</text></view>
+      <view class="c13-step"><text>4</text><text>掌握判断</text></view>
+    </view>
+    <scroll-view class="c13-drawer-scroll" scroll-y="true" enhanced="true" show-scrollbar="false">
+      <view class="c13-panel">
+        <text class="c13-panel-title">错题 1 二元一次方程应用题</text>
+        <view class="c13-answer-table three">
+          <text>学生答案</text><text>正确答案</text><text>错因依据</text>
+          <text>20 千米</text><text>45 千米</text><text>速度差 × 时间计算错误</text>
         </view>
       </view>
-    </view>
-  </view>
-
-  <button class="history-row" bindtap="onTap" data-action="history">
-    <view class="history-left">
-      <view class="history-icon">forum</view>
-      <text>本题互动记录 (2)</text>
-    </view>
-    <text class="chevron">chevron_right</text>
-  </button>
-
-  <text class="ai-note">内容由 AI 生成，仅供参考</text>
-
-  <view class="bottom-nav">
-    <button>
-      <text class="nav-icon">share</text>
-      <text>分享报告</text>
-    </button>
-    <button class="active">
-      <text class="nav-icon">psychology</text>
-      <text>AI 提分</text>
-    </button>
-    <button>
-      <text class="nav-icon">picture_as_pdf</text>
-      <text>导出 PDF</text>
-    </button>
+      <view class="c13-panel c13-teach">
+        <text class="c13-panel-title">换一种方式讲</text>
+        <text>关键是把“甲比乙多行”理解为：路程差。每小时相差 10 千米，2 小时就是 20 千米。</text>
+        <view class="c13-method-card">
+          <image class="c13-method-icon" src="/assets/icons/idea-bulb-soft.png" mode="aspectFit" />
+          <text>更容易理解的讲法</text>
+          <text>把两辆车想象成一直在并排走，甲每小时多走 10 千米，2 小时后，甲就比乙多走了 2 × 10 = 20（千米）。</text>
+        </view>
+      </view>
+      <button class="c13-primary" bindtap="onTap" data-action="exercise">下一步：做 1 道验证题</button>
+    </scroll-view>
   </view>
 </view>

@@ -1,1 +1,255 @@
-﻿if (typeof Page === 'function') {  const { createReplicaPage } = require('../../utils/replica-runtime');  createReplicaPage({    title: 'AI 老师讲给孩子听',    reference: '/assets/reference/ai-tutor-v13-interaction.png',    derived: true,    hotspots: [      { action: 'back', label: '返回错题详情', className: 'v13-top-back' },      { action: 'history', label: '追问记录', className: 'v13-history' },      { action: 'step', label: '我不懂这一步', className: 'v13-action-step' },      { action: 'why', label: '为什么这样算', className: 'v13-action-why' },      { action: 'another', label: '换一种方式讲', className: 'v13-action-another' },      { action: 'exercise', label: '出一道同类题', className: 'v13-action-exercise' },      { action: 'understood', label: '我已经懂了', className: 'v13-action-understood' },      { action: 'question', label: '展开原题', className: 'v13-question-card' }    ],    actions: {      back: { url: '/pages/wrong-question/index' },      history: { url: '/pages/ai-tutor/index' },      step: { url: '/pages/ai-tutor/index' },      why: { url: '/pages/ai-tutor/index' },      another: { url: '/pages/ai-tutor/index' },      exercise: { url: '/pages/ai-exercise/index' },      understood: { url: '/pages/full-report/index' },      question: { url: '/pages/wrong-question/index' }    },    cards: ['剩余 8/10 次', '五个固定追问按钮', '本题互动记录', '原题折叠卡片']  });} else {  const { createMiniappApiClient } = require('../../services/api-client');  const AI_TUTOR_ROUTE = '/pages/ai-tutor/index';  const WRONG_QUESTION_ROUTE = '/pages/wrong-question/index';  const AI_EXERCISE_ROUTE = '/pages/ai-exercise/index';  const FULL_REPORT_ROUTE = '/pages/full-report/index';  const REPORT_QUOTA_TOTAL = 10;  const QUESTION_QUOTA_TOTAL = 3;  const fixedButtons = [    { id: 'ask-step-explanation', text: '我不懂这一步', icon: 'help_center', actionType: 'explain_step' },    { id: 'ask-why-method', text: '为什么这样算', icon: 'lightbulb', actionType: 'why_method' },    { id: 'ask-another-explanation', text: '换一种方式讲', icon: 'model_training', actionType: 'another_explanation' },    { id: 'generate-similar-exercise', text: '出一道同类题', icon: 'description', actionType: 'similar_exercise', targetRoute: AI_EXERCISE_ROUTE },    { id: 'mark-understood', text: '我已经懂了', icon: 'check_circle', actionType: 'mark_understood', targetRoute: FULL_REPORT_ROUTE }  ];  function createAiTutorPageState(client = createMiniappApiClient(), options = {}) {    const orderId = options.orderId || 'order-v13-full';    let questionId = options.questionId || `${orderId}-q1`;    let questionExpanded = options.questionExpanded !== false;    let interactionRecords = [];    let activeResponse = null;    let statusBanner = null;    let historyDetailOpen = false;    seedOrder();    loadQuestion();    loadInteractionHistory();    function seedOrder() {      const order = client.store.read('diagnosis_orders', orderId);      if (!order || order.accessLevel !== 'full') {        client.request('POST', '/api/payments/create', {          orderId,          paymentType: 'full',          source: 'T27-ai-tutor-fixture'        });      }      client.request('POST', `/api/diagnosis-orders/${orderId}/generate-full`, {        source: 'T27-ai-tutor-fixture'      });      client.request('GET', `/api/diagnosis-orders/${orderId}/questions`);    }    function loadQuestion() {      const questions = client.store.list('diagnosis_questions').filter((row) => row.orderId === orderId);      if (!questions.some((row) => row.id === questionId)) {        questionId = questions[0] ? questions[0].id : questionId;      }      return normalizeQuestion(client.store.read('diagnosis_questions', questionId));    }    function loadInteractionHistory() {      const response = client.request('GET', interactionPath());      interactionRecords = response.body.items || [];      return {        status: response.status === 200 ? 'HISTORY_READY' : 'HISTORY_ERROR',        api: `GET ${interactionPath()}`,        records: interactionRecords      };    }    function pressFixedAction(actionType, optionsForAction = {}) {      const button = fixedButtons.find((item) => item.actionType === actionType);      if (!button) {        return { status: 'INVALID_ACTION', code: 'INVALID_ACTION_TYPE' };      }      const response = client.request('POST', interactionPath(), {        actionType,        source: 'T27-ai-tutor-ui',        forceProviderFailure: optionsForAction.forceProviderFailure === true,        forceQuotaExceeded: optionsForAction.forceQuotaExceeded === true      });      if (response.status === 200 || response.status === 201) {        activeResponse = response.body.interaction;        statusBanner = null;        loadInteractionHistory();        return {          status: 'ACTION_RECORDED',          actionType,          fixedButtonId: button.id,          api: `POST ${interactionPath()}`,          targetRoute: button.targetRoute || AI_TUTOR_ROUTE,          response: response.body        };      }      statusBanner = {        status: response.status === 429 ? 'QUOTA_EXCEEDED' : 'PROVIDER_FAILURE',        code: response.body.code,        text: response.status === 429          ? '本题或本报告 AI 追问次数已用完，先复盘已有讲解。'          : 'AI 老师暂时没有响应，请稍后再试。'      };      return {        status: statusBanner.status,        actionType,        fixedButtonId: button.id,        api: `POST ${interactionPath()}`,        response: response.body      };    }    function toggleQuestionContext() {      questionExpanded = !questionExpanded;      return {        status: questionExpanded ? 'QUESTION_EXPANDED' : 'QUESTION_COLLAPSED',        questionExpanded      };    }    function openHistoryDetail(interactionId = interactionRecords[0] && interactionRecords[0].id) {      historyDetailOpen = true;      return {        status: 'HISTORY_DETAIL_OPEN',        targetRoute: AI_TUTOR_ROUTE,        query: { orderId, questionId, interactionId },        record: interactionRecords.find((record) => record.id === interactionId) || null      };    }    function backToQuestionDetail() {      return { status: 'NAVIGATE', targetRoute: WRONG_QUESTION_ROUTE, query: { orderId, questionId } };    }    function interactionPath() {      return `/api/diagnosis-orders/${orderId}/questions/${questionId}/interactions`;    }    function getState() {      const question = loadQuestion();      const quota = buildQuota(question, interactionRecords);      return {        route: AI_TUTOR_ROUTE,        orderId,        questionId,        uiReference: {          id: 'V13-UI-AI-TUTOR',          source: 'ui-reference-catalog/小程序/stitch_codex_ui_design_kit/ai/screen-reference'        },        title: '教育提分报告',        subtitle: `你还可以追问 ${quota.questionRemaining} 次`,        teacherMessage: '我来帮你再梳理这道题。你可以先选择一个固定问题，我会只围绕当前错题讲解。',        quota,        fixedButtons: fixedButtons.map((button) => ({          ...button,          enabled: !statusBanner || statusBanner.status !== 'QUOTA_EXCEEDED'        })),        question,        questionExpanded,        historyRow: {          id: 'interaction-history',          text: `本题互动记录 (${interactionRecords.length})`,          latest: interactionRecords[0] ? interactionRecords[0].summary : '还没有互动记录',          targetRoute: AI_TUTOR_ROUTE        },        historyDetailOpen,        interactionRecords,        activeResponse,        statusBanner,        noOpenEndedChat: true,        controls: [          { id: 'back-to-question-detail', text: '返回', targetRoute: WRONG_QUESTION_ROUTE },          { id: 'open-history', text: '追问记录', api: `GET ${interactionPath()}` },          ...fixedButtons.map((button) => ({            id: button.id,            text: button.text,            api: `POST ${interactionPath()}`,            fixedAction: button.actionType,            targetRoute: button.targetRoute || AI_TUTOR_ROUTE          })),          { id: 'toggle-question-context', text: questionExpanded ? '收起原题' : '展开原题', behavior: 'accordion-toggle' },          { id: 'bottom-share-report', text: '分享报告', behavior: 'local-share-placeholder' },          { id: 'bottom-ai-tutor', text: 'AI 提分', behavior: 'active-tab' },          { id: 'bottom-export-pdf', text: '导出 PDF', api: `/api/diagnosis-orders/${orderId}/export-pdf` }        ]      };    }    return {      backToQuestionDetail,      getState,      loadInteractionHistory,      openHistoryDetail,      pressFixedAction,      toggleQuestionContext    };  }  function normalizeQuestion(row) {    const source = row || {};    return {      questionId: source.id || 'question-v13-1',      type: '应用题',      knowledgePoint: source.knowledgePoint || '方程应用题',      originalQuestion: source.stem || '甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，2 小时后甲比乙多行多少千米？',      studentAnswer: source.studentAnswer || '学生把“速度差”看成速度和，写成 (60 + 50) x 2。',      correctAnswer: source.correctAnswer || '20 千米',      diagnosis: source.diagnosis || '没有先判断两人的速度差，导致数量关系跑偏。',      solution: ['x = (60 - 50) x 2', 'x = 10 x 2', 'x = 20 千米'],      remainingQuota: Number.isFinite(source.remainingQuota) ? source.remainingQuota : QUESTION_QUOTA_TOTAL    };  }  function buildQuota(question, records) {    const successfulRecords = records.filter((record) => record.status === 'success');    const questionUsed = Math.min(QUESTION_QUOTA_TOTAL, Math.max(0, QUESTION_QUOTA_TOTAL - question.remainingQuota));    const reportUsed = Math.max(2, successfulRecords.length);    return {      reportRemaining: Math.max(0, REPORT_QUOTA_TOTAL - reportUsed),      reportTotal: REPORT_QUOTA_TOTAL,      questionRemaining: Math.max(0, QUESTION_QUOTA_TOTAL - questionUsed),      questionTotal: QUESTION_QUOTA_TOTAL,      text: `本报告 AI 错题追问剩余 ${Math.max(0, REPORT_QUOTA_TOTAL - reportUsed)}/${REPORT_QUOTA_TOTAL} 次，本题剩余 ${Math.max(0, QUESTION_QUOTA_TOTAL - questionUsed)}/${QUESTION_QUOTA_TOTAL} 次`    };  }  module.exports = {    AI_EXERCISE_ROUTE,    AI_TUTOR_ROUTE,    FULL_REPORT_ROUTE,    WRONG_QUESTION_ROUTE,    createAiTutorPageState,    fixedButtons  };}
+const AI_TUTOR_ROUTE = '/pages/ai-tutor/index';
+const WRONG_QUESTION_ROUTE = '/pages/wrong-question/index';
+const AI_EXERCISE_ROUTE = '/pages/ai-exercise/index';
+const FULL_REPORT_ROUTE = '/pages/full-report/index';
+const REPORT_QUOTA_TOTAL = 10;
+const QUESTION_QUOTA_TOTAL = 3;
+
+const fixedButtons = [
+  { id: 'ask-step-explanation', text: '我不懂这一步', icon: 'help_center', actionType: 'explain_step' },
+  { id: 'ask-why-method', text: '为什么这样算', icon: 'lightbulb', actionType: 'why_method' },
+  { id: 'ask-another-explanation', text: '换一种方式讲', icon: 'model_training', actionType: 'another_explanation' },
+  { id: 'generate-similar-exercise', text: '出一道同类题', icon: 'description', actionType: 'similar_exercise', targetRoute: AI_EXERCISE_ROUTE },
+  { id: 'mark-understood', text: '我已经懂了', icon: 'check_circle', actionType: 'mark_understood', targetRoute: FULL_REPORT_ROUTE }
+];
+
+function createAiTutorPageState(client, options = {}) {
+  const apiClient = client || require('../../services/api-client').createMiniappApiClient();
+  const orderId = options.orderId || 'order-v13-full';
+  let questionId = options.questionId || `${orderId}-q1`;
+  let questionExpanded = options.questionExpanded !== false;
+  let interactionRecords = [];
+  let activeResponse = null;
+  let statusBanner = null;
+  let historyDetailOpen = false;
+
+  seedOrder();
+  loadQuestion();
+  loadInteractionHistory();
+
+  function seedOrder() {
+    const order = apiClient.store.read('diagnosis_orders', orderId);
+    if (!order || order.accessLevel !== 'full') {
+      apiClient.request('POST', '/api/payments/create', {
+        orderId,
+        paymentType: 'full',
+        source: 'T27-ai-tutor-fixture'
+      });
+    }
+    apiClient.request('POST', `/api/diagnosis-orders/${orderId}/generate-full`, {
+      source: 'T27-ai-tutor-fixture'
+    });
+    apiClient.request('GET', `/api/diagnosis-orders/${orderId}/questions`);
+  }
+
+  function loadQuestion() {
+    const questions = apiClient.store.list('diagnosis_questions').filter((row) => row.orderId === orderId);
+    if (!questions.some((row) => row.id === questionId)) {
+      questionId = questions[0] ? questions[0].id : questionId;
+    }
+    return normalizeQuestion(apiClient.store.read('diagnosis_questions', questionId));
+  }
+
+  function loadInteractionHistory() {
+    const response = apiClient.request('GET', interactionPath());
+    interactionRecords = response.body.items || [];
+    return {
+      status: response.status === 200 ? 'HISTORY_READY' : 'HISTORY_ERROR',
+      api: `GET ${interactionPath()}`,
+      records: interactionRecords
+    };
+  }
+
+  function pressFixedAction(actionType, optionsForAction = {}) {
+    const button = fixedButtons.find((item) => item.actionType === actionType);
+    if (!button) return { status: 'INVALID_ACTION', code: 'INVALID_ACTION_TYPE' };
+
+    const response = apiClient.request('POST', interactionPath(), {
+      actionType,
+      source: 'T27-ai-tutor-ui',
+      forceProviderFailure: optionsForAction.forceProviderFailure === true,
+      forceQuotaExceeded: optionsForAction.forceQuotaExceeded === true
+    });
+
+    if (response.status === 200 || response.status === 201) {
+      activeResponse = response.body.interaction;
+      statusBanner = null;
+      loadInteractionHistory();
+      return {
+        status: 'ACTION_RECORDED',
+        actionType,
+        fixedButtonId: button.id,
+        api: `POST ${interactionPath()}`,
+        targetRoute: button.targetRoute || AI_TUTOR_ROUTE,
+        response: response.body
+      };
+    }
+
+    statusBanner = {
+      status: response.status === 429 ? 'QUOTA_EXCEEDED' : 'PROVIDER_FAILURE',
+      code: response.body.code,
+      text: response.status === 429
+        ? '本题或本报告 AI 追问次数已用完，先复盘已有讲解。'
+        : 'AI 老师暂时没有响应，请稍后再试。'
+    };
+    return {
+      status: statusBanner.status,
+      actionType,
+      fixedButtonId: button.id,
+      api: `POST ${interactionPath()}`,
+      response: response.body
+    };
+  }
+
+  function toggleQuestionContext() {
+    questionExpanded = !questionExpanded;
+    return {
+      status: questionExpanded ? 'QUESTION_EXPANDED' : 'QUESTION_COLLAPSED',
+      questionExpanded
+    };
+  }
+
+  function openHistoryDetail(interactionId = interactionRecords[0] && interactionRecords[0].id) {
+    historyDetailOpen = true;
+    return {
+      status: 'HISTORY_DETAIL_OPEN',
+      targetRoute: AI_TUTOR_ROUTE,
+      query: { orderId, questionId, interactionId },
+      record: interactionRecords.find((record) => record.id === interactionId) || null
+    };
+  }
+
+  function backToQuestionDetail() {
+    return { status: 'NAVIGATE', targetRoute: WRONG_QUESTION_ROUTE, query: { orderId, questionId } };
+  }
+
+  function interactionPath() {
+    return `/api/diagnosis-orders/${orderId}/questions/${questionId}/interactions`;
+  }
+
+  function getState() {
+    const question = loadQuestion();
+    const quota = buildQuota(question, interactionRecords);
+    return {
+      route: AI_TUTOR_ROUTE,
+      orderId,
+      questionId,
+      uiReference: {
+        id: 'V13-UI-AI-TUTOR',
+        source: 'ui-reference-catalog/小程序/stitch_codex_ui_design_kit/ai/screen-reference'
+      },
+      title: '教育提分报告',
+      subtitle: `你还可以追问 ${quota.questionRemaining} 次`,
+      teacherMessage: '我来帮你再梳理这道题。你可以先选择一个固定问题，我会只围绕当前错题讲解。',
+      quota,
+      fixedButtons: fixedButtons.map((button) => ({
+        ...button,
+        enabled: !statusBanner || statusBanner.status !== 'QUOTA_EXCEEDED'
+      })),
+      question,
+      questionExpanded,
+      historyRow: {
+        id: 'interaction-history',
+        text: `本题互动记录 (${interactionRecords.length})`,
+        latest: interactionRecords[0] ? interactionRecords[0].summary : '还没有互动记录',
+        targetRoute: AI_TUTOR_ROUTE
+      },
+      historyDetailOpen,
+      interactionRecords,
+      activeResponse,
+      statusBanner,
+      noOpenEndedChat: true,
+      controls: [
+        { id: 'back-to-question-detail', text: '返回', targetRoute: WRONG_QUESTION_ROUTE },
+        { id: 'open-history', text: '追问记录', api: `GET ${interactionPath()}` },
+        ...fixedButtons.map((button) => ({
+          id: button.id,
+          text: button.text,
+          api: `POST ${interactionPath()}`,
+          fixedAction: button.actionType,
+          targetRoute: button.targetRoute || AI_TUTOR_ROUTE
+        })),
+        { id: 'toggle-question-context', text: questionExpanded ? '收起原题' : '展开原题', behavior: 'accordion-toggle' },
+        { id: 'bottom-share-report', text: '分享报告', behavior: 'local-share-placeholder' },
+        { id: 'bottom-ai-tutor', text: 'AI 提分', behavior: 'active-tab' },
+        { id: 'bottom-export-pdf', text: '导出 PDF', api: `/api/diagnosis-orders/${orderId}/export-pdf` }
+      ]
+    };
+  }
+
+  return {
+    backToQuestionDetail,
+    getState,
+    loadInteractionHistory,
+    openHistoryDetail,
+    pressFixedAction,
+    toggleQuestionContext
+  };
+}
+
+function normalizeQuestion(row) {
+  const source = row || {};
+  return {
+    questionId: source.id || 'question-v13-1',
+    type: '应用题',
+    knowledgePoint: source.knowledgePoint || '方程应用题',
+    originalQuestion: source.stem || '甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，2 小时后甲比乙多行多少千米？',
+    studentAnswer: source.studentAnswer || '学生把“速度差”看成速度和，写成 (60 + 50) x 2。',
+    correctAnswer: source.correctAnswer || '20 千米',
+    diagnosis: source.diagnosis || '没有先判断两人的速度差，导致数量关系跑偏。',
+    solution: ['x = (60 - 50) x 2', 'x = 10 x 2', 'x = 20 千米'],
+    remainingQuota: Number.isFinite(source.remainingQuota) ? source.remainingQuota : QUESTION_QUOTA_TOTAL
+  };
+}
+
+function buildQuota(question, records) {
+  const successfulRecords = records.filter((record) => record.status === 'success');
+  const questionUsed = Math.min(QUESTION_QUOTA_TOTAL, Math.max(0, QUESTION_QUOTA_TOTAL - question.remainingQuota));
+  const reportUsed = Math.max(2, successfulRecords.length);
+  return {
+    reportRemaining: Math.max(0, REPORT_QUOTA_TOTAL - reportUsed),
+    reportTotal: REPORT_QUOTA_TOTAL,
+    questionRemaining: Math.max(0, QUESTION_QUOTA_TOTAL - questionUsed),
+    questionTotal: QUESTION_QUOTA_TOTAL,
+    text: `本报告 AI 错题追问剩余 ${Math.max(0, REPORT_QUOTA_TOTAL - reportUsed)}/${REPORT_QUOTA_TOTAL} 次，本题剩余 ${Math.max(0, QUESTION_QUOTA_TOTAL - questionUsed)}/${QUESTION_QUOTA_TOTAL} 次`
+  };
+}
+
+if (typeof Page === 'function') {
+  const { createReplicaPage } = require('../../utils/replica-runtime');
+
+  createReplicaPage({
+    title: 'AI 老师讲给孩子听',
+    derived: true,
+    hotspots: [
+      { action: 'back', label: '返回错题详情', className: 'v13-top-back' },
+      { action: 'history', label: '追问记录', className: 'v13-history' },
+      { action: 'step', label: '我不懂这一步', className: 'v13-action-step' },
+      { action: 'why', label: '为什么这样算', className: 'v13-action-why' },
+      { action: 'another', label: '换一种方式讲', className: 'v13-action-another' },
+      { action: 'exercise', label: '出一道同类题', className: 'v13-action-exercise' },
+      { action: 'understood', label: '我已经懂了', className: 'v13-action-understood' },
+      { action: 'question', label: '展开原题', className: 'v13-question-card' }
+    ],
+    actions: {
+      back: { url: WRONG_QUESTION_ROUTE },
+      history: { url: AI_TUTOR_ROUTE },
+      step: { url: AI_TUTOR_ROUTE },
+      why: { url: AI_TUTOR_ROUTE },
+      another: { url: AI_TUTOR_ROUTE },
+      exercise: { url: AI_EXERCISE_ROUTE },
+      understood: { url: FULL_REPORT_ROUTE },
+      question: { url: WRONG_QUESTION_ROUTE }
+    },
+    cards: ['剩余 8/10 次', '五个固定追问按钮', '本题互动记录', '原题折叠卡片']
+  });
+}
+
+module.exports = {
+  AI_EXERCISE_ROUTE,
+  AI_TUTOR_ROUTE,
+  FULL_REPORT_ROUTE,
+  WRONG_QUESTION_ROUTE,
+  createAiTutorPageState,
+  fixedButtons
+};

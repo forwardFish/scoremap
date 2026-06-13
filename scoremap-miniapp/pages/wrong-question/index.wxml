@@ -1,93 +1,55 @@
-<view class="wq-page">
-  <view class="wq-topbar">
-    <view class="wq-title-wrap">
-      <button class="icon-btn" bindtap="onBackToFullReport" aria-label="返回完整报告">‹</button>
-      <view class="wq-title">{{title}}</view>
+<view class="c13-drawer-page c13-step-one">
+  <view class="c13-bg-report">
+    <view class="c13-status"><text>9:41</text><text>wifi</text></view>
+    <view class="c13-bg-top">
+      <button bindtap="onBackToFullReport">‹</button>
+      <text>完整报告</text>
+      <text>错题 1 / 8</text>
     </view>
-    <view class="wq-actions">
-      <view class="wq-top-meta">错题 {{question.index}} / 8</view>
-      <button class="icon-btn" bindtap="onMoreMenu" aria-label="更多">⋯</button>
+    <text class="c13-bg-title">AI 提分报告（完整）</text>
+    <text class="c13-bg-time">报告生成时间：2024-05-30 10:36</text>
+    <image class="c13-bg-owl c13-pointer-owl" src="/assets/clean-icons/owl-teacher-pointer.png" mode="aspectFit" />
+    <view class="c13-bg-score full">
+      <view class="c13-score-row">
+        <image class="c13-score-icon" src="/assets/clean-icons/shield-check-purple.png" mode="aspectFit" />
+        <view><text>可追回分数</text><text class="c13-score-sub">可优先改善</text></view>
+      </view>
+      <view class="c13-score-value"><text>6-10</text><text>分</text><text>↑</text></view>
+      <text class="c13-score-note">通过优先修复关键错因，有机会追回的分数区间</text>
     </view>
+    <view class="c13-bg-card"><text>证据锚点</text><text>本报告结论均基于事实题目分析</text></view>
   </view>
+  <view class="c13-overlay"></view>
 
-  <scroll-view class="wq-scroll" scroll-y="true">
-    <view class="wq-card">
-      <view class="wq-tags">
-        <view wx:for="{{tags}}" wx:key="text" class="wq-tag {{item.tone}}">{{item.text}}</view>
-      </view>
-
-      <view class="wq-section">
-        <view class="section-title">原题</view>
-        <text class="section-body">{{question.originalQuestion}}</text>
-      </view>
-
-      <view class="wq-section">
-        <view class="section-title">学生作答</view>
-        <view class="answer-box">
-          <view class="answer-line"></view>
-          <view class="answer-line short"></view>
-          <text>{{question.studentAnswer}}</text>
-        </view>
-      </view>
-
-      <view class="answer-grid">
-        <view class="wq-section compact">
-          <view class="section-title">正确答案</view>
-          <text class="answer-strong">{{question.correctAnswer}}</text>
-        </view>
-        <view class="wq-section compact">
-          <view class="section-title">知识点</view>
-          <text class="section-body">{{question.knowledgePoint}}</text>
-        </view>
-      </view>
-
-      <view class="diagnosis-box">
-        <view class="diagnosis-title">
-          <text class="diagnosis-icon">diagnosis</text>
-          <text>错因诊断</text>
-        </view>
-        <text class="section-body">{{question.diagnosis}}</text>
-      </view>
-
-      <view class="wq-section summary-section">
-        <view class="section-title">讲解摘要</view>
-        <text class="section-body">{{question.explanationSummary}}</text>
-        <view class="mascot" aria-label="本地 AI 老师形象">
-          <text>AI</text>
-          <text class="mascot-small">tutor</text>
-        </view>
-      </view>
-
-      <button class="ai-cta {{aiTutorCta.enabled ? '' : 'locked'}}" bindtap="onOpenAiTutor" disabled="{{!aiTutorCta.enabled}}">
-        <text class="nav-icon">AI</text>
-        <text>{{aiTutorCta.text}}</text>
-      </button>
+  <view class="c13-drawer">
+    <view class="c13-handle"></view>
+    <view class="c13-drawer-head">
+      <text>修复这道关键错题</text>
+      <button bindtap="onBackToFullReport">×</button>
     </view>
-
-    <button class="history-row" bindtap="onOpenHistoryRow" disabled="{{locked}}">
-      <view>
-        <view class="history-title">{{historyRow.text}} ({{historyRow.count}})</view>
-        <view class="history-latest">{{historyRow.latest}}</view>
+    <view class="c13-progress">
+      <view class="c13-line"></view>
+      <view class="c13-step active"><text>1</text><text>错因诊断</text></view>
+      <view class="c13-step"><text>2</text><text>换法讲解</text></view>
+      <view class="c13-step"><text>3</text><text>验证练习</text></view>
+      <view class="c13-step"><text>4</text><text>掌握判断</text></view>
+    </view>
+    <scroll-view class="c13-drawer-scroll" scroll-y="true" enhanced="true" show-scrollbar="false">
+      <view class="c13-panel">
+        <text class="c13-panel-title">当前题目</text>
+        <text class="c13-question">甲、乙两车同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，2 小时后甲比乙多行多少千米？</text>
+        <view class="c13-answer-table four">
+          <text>题号</text><text>学生答案</text><text>正确答案</text><text>错因依据</text>
+          <text>二(1)</text><text>20 千米</text><text>45 千米</text><text>速度差 × 时间计算错误</text>
+        </view>
       </view>
-      <text class="history-arrow">›</text>
-    </button>
-
-    <view wx:if="{{locked}}" class="locked-copy">基础报告仅展示样例讲解，解锁完整报告后可正式追问。</view>
-    <view wx:if="{{toast}}" class="toast">{{toast}}</view>
-  </scroll-view>
-
-  <view class="bottom-nav">
-    <button bindtap="onShareReport">
-      <text class="nav-icon">↗</text>
-      <text>分享报告</text>
-    </button>
-    <button class="active" bindtap="onOpenAiTutor" disabled="{{locked}}">
-      <text class="nav-icon">AI</text>
-      <text>AI 提分</text>
-    </button>
-    <button bindtap="onExportPdf">
-      <text class="nav-icon">PDF</text>
-      <text>导出 PDF</text>
-    </button>
+      <view class="c13-panel">
+        <text class="c13-panel-title">错因诊断</text>
+        <text class="c13-bullet">知识点：二元一次方程的应用-行程问题</text>
+        <text class="c13-bullet">你的错误：把“速度差”当成了“速度和”。</text>
+        <text class="c13-bullet">本质原因：没有理解“速度差 × 时间 = 路程差”的数量关系。</text>
+      </view>
+      <button class="c13-primary" bindtap="onOpenAiTutor">下一步：换一种方法讲</button>
+    </scroll-view>
   </view>
 </view>

@@ -29,7 +29,7 @@ class PaymentsService {
     this.payment = payment;
   }
 
-  createPayment(input = {}, auth = {}) {
+  async createPayment(input = {}, auth = {}) {
     const validation = this.validateCreateInput(input);
     if (validation) return validation;
 
@@ -41,10 +41,11 @@ class PaymentsService {
 
     const paymentId = input.paymentId || createPaymentId(input.orderId, input.paymentType);
     try {
-      const created = this.payment.createPayment({
+      const created = await this.payment.createPayment({
         paymentId,
         orderId: input.orderId,
         ownerId: ownerCheck.order.ownerId,
+        openid: auth.openid || input.openid || null,
         paymentType: input.paymentType
       });
       const readback = this.db.assertReadback('payments', created.payment.id, {
@@ -84,6 +85,12 @@ class PaymentsService {
     if (!paymentBefore) {
       return notFound('Payment not found.');
     }
+    if (paymentBefore.channel !== 'local-wechat-pay-mock') {
+      return {
+        statusCode: 400,
+        body: { status: 'error', code: 'VERIFIED_NOTIFY_OR_REFRESH_REQUIRED' }
+      };
+    }
 
     const callback = this.payment.handleCallback({
       paymentId: input.paymentId,
@@ -116,6 +123,68 @@ class PaymentsService {
         order: orderReadback
       }
     };
+  }
+
+  async refreshWechatPayment(input = {}, auth = {}) {
+    if (!input.paymentId) return validationError('paymentId is required.');
+    const payment = this.db.read('payments', input.paymentId);
+    if (!payment) return notFound('Payment not found.');
+    const ownerCheck = this.assertOrderAccess(payment.orderId, auth);
+    if (ownerCheck.error) return ownerCheck.error;
+    if (!this.payment.refreshPayment) {
+      return validationError('refresh is only available for the env-gated WeChat provider.');
+    }
+    try {
+      const refreshed = await this.payment.refreshPayment({ paymentId: payment.id });
+      return {
+        statusCode: 200,
+        body: {
+          ok: true,
+          status: refreshed.payment.status,
+          paymentId: refreshed.payment.id,
+          orderId: refreshed.order && refreshed.order.id,
+          accessLevel: refreshed.order && refreshed.order.accessLevel,
+          fulfilled: refreshed.fulfilled
+        },
+        readback: {
+          payment: this.db.assertReadback('payments', payment.id, { id: payment.id }),
+          order: refreshed.order
+        }
+      };
+    } catch (error) {
+      return validationError(error.message);
+    }
+  }
+
+  async handleWechatNotify({ headers = {}, body = {}, rawBody = '' } = {}) {
+    if (!this.payment.handleNotify) {
+      return validationError('notify is only available for the env-gated WeChat provider.');
+    }
+    try {
+      const result = await this.payment.handleNotify({ headers, body, rawBody });
+      return {
+        statusCode: 200,
+        body: {
+          code: 'SUCCESS',
+          message: 'success',
+          ignored: result.ignored === true,
+          fulfilled: result.fulfilled === true,
+          paymentId: result.payment && result.payment.id,
+          orderId: result.order && result.order.id
+        },
+        readback: result.payment
+          ? {
+              payment: this.db.assertReadback('payments', result.payment.id, { id: result.payment.id }),
+              order: result.order
+            }
+          : null
+      };
+    } catch (error) {
+      return {
+        statusCode: 400,
+        body: { code: 'FAIL', message: error.message }
+      };
+    }
   }
 
   validateCreateInput(input) {

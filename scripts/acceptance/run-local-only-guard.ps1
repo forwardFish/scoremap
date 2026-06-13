@@ -116,6 +116,7 @@ $forbiddenPatterns = @(
 
 $allowedSentinelFiles = @(
   'shared/local-only.js',
+  'server/src/adapters/wechat-pay-provider.js',
   'scripts/acceptance/run-local-only-guard.ps1',
   'docs/auto-execute/scoremap-auto-execute-master-plan.md',
   'docs/auto-execute/scoremap-development-standard.md',

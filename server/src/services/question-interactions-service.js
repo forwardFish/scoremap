@@ -10,6 +10,7 @@ const ACTIONS = {
   explain_differently: { promptId: 'LLM-TUTOR-05' },
   simpler_example: { promptId: 'LLM-TUTOR-05' },
   similar_question: { promptId: 'LLM-EXERCISE-06', exercise: true },
+  similar_exercise: { promptId: 'LLM-EXERCISE-06', exercise: true },
   check_mastery: { promptId: 'LLM-EXERCISE-06', exercise: true },
   explain_error: { promptId: 'LLM-TUTOR-05' },
   teach_child: { promptId: 'LLM-TUTOR-05' },
@@ -90,6 +91,27 @@ class QuestionInteractionsService {
         questions
       }
     };
+  }
+
+  teachChild(orderId, questionId, input = {}, auth = {}) {
+    return this.createInteraction(orderId, questionId, {
+      ...input,
+      actionType: 'teach_child'
+    }, auth);
+  }
+
+  createSimilarExercise(orderId, questionId, input = {}, auth = {}) {
+    return this.createInteraction(orderId, questionId, {
+      ...input,
+      actionType: 'similar_exercise'
+    }, auth);
+  }
+
+  checkMastery(orderId, questionId, interactionId, input = {}, auth = {}) {
+    return this.submitExerciseAnswer(orderId, questionId, interactionId, {
+      ...input,
+      checkMastery: true
+    }, auth);
   }
 
   createInteraction(orderId, questionId, input = {}, auth = {}) {
@@ -179,7 +201,7 @@ class QuestionInteractionsService {
       const updatedQuestion = this.incrementQuestionQuota(question.row);
       return {
         statusCode: 201,
-        body: { status: 'created', interactionId: interaction.id, quota: quotaBody(order, updatedQuestion), response, exercise },
+        body: { status: 'created', interactionId: interaction.id, interaction, quota: quotaBody(order, updatedQuestion), response, exercise },
         readback: {
           order,
           question: updatedQuestion,
@@ -242,19 +264,23 @@ class QuestionInteractionsService {
         simulate: input.simulate
       });
       const feedback = aiResult.output.feedback;
+      const masteryStatus = masteryStatusFromFeedback(feedback);
       const updated = this.db.update('question_interactions', interactionId, {
         submittedAnswer: input.submittedAnswer,
         correctness: feedback.correct,
         summary: feedback.summary,
         answerPromptId: aiResult.promptId,
         answerTraceId: aiResult.traceId,
-        answerFeedback: feedback
+        answerFeedback: feedback,
+        masteryStatus
       });
+      const updatedQuestion = this.updateQuestionMastery(orderId, question.row, masteryStatus, updated);
       return {
         statusCode: 200,
-        body: { status: 'answered', interactionId, correctness: updated.correctness, feedback },
+        body: { status: input.checkMastery ? 'mastery_checked' : 'answered', interactionId, correctness: updated.correctness, feedback, masteryStatus },
         readback: {
           interaction: this.db.assertReadback('question_interactions', interactionId, { submittedAnswer: input.submittedAnswer }),
+          question: this.db.assertReadback('diagnosis_questions', questionId, { masteryStatus: updatedQuestion.masteryStatus }),
           aiTrace: this.db.assertReadback('ai_model_traces', aiResult.traceId, { promptId: 'LLM-CHECK-07' })
         }
       };
@@ -287,6 +313,33 @@ class QuestionInteractionsService {
         interactions: items
       }
     };
+  }
+
+  updateQuestionMastery(orderId, question, masteryStatus, interaction) {
+    const updatedQuestion = this.db.update('diagnosis_questions', question.id, {
+      masteryStatus,
+      latestInteractionSummary: interaction.summary,
+      latestInteractionId: interaction.id
+    });
+    const fullDecision = this.db.read('diagnosis_decisions', `decision-${orderId}-full`);
+    if (fullDecision && fullDecision.full && Array.isArray(fullDecision.full.wrongQuestionCards)) {
+      const cards = fullDecision.full.wrongQuestionCards.map((card) => {
+        if (card.id !== question.id && card.questionId !== question.id) return card;
+        return {
+          ...card,
+          masteryStatus,
+          latestHistory: interaction.summary,
+          interactionCount: (Number(card.interactionCount) || 0) + 1
+        };
+      });
+      this.db.update('diagnosis_decisions', fullDecision.id, {
+        full: {
+          ...fullDecision.full,
+          wrongQuestionCards: cards
+        }
+      });
+    }
+    return updatedQuestion;
   }
 
   ensureOrderQuota(order) {
@@ -380,6 +433,13 @@ function validationError(message) {
 
 function notFound(message) {
   return { statusCode: 404, body: { status: 'error', code: 'NOT_FOUND', message } };
+}
+
+function masteryStatusFromFeedback(feedback = {}) {
+  if (feedback.correct === true) return 'initial_mastery';
+  const summary = `${feedback.summary || ''} ${feedback.explanation || ''}`;
+  if (/基础|formula|condition|step/i.test(summary)) return 'needs_foundation';
+  return 'needs_more_practice';
 }
 
 module.exports = {

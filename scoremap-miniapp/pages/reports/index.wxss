@@ -13,9 +13,9 @@ button::after { border: 0; }
 .header-spacer { width: 148rpx; }
 .reports-title { flex: 1; text-align: center; font-size: 36rpx; font-weight: 900; line-height: 1; }
 .header-capsule { width: 148rpx; height: 58rpx; border-radius: 999rpx; background: #fff; display: flex; align-items: center; justify-content: space-around; padding: 0 18rpx; box-sizing: border-box; box-shadow: 0 6rpx 14rpx rgba(31, 41, 55, 0.08); }
-.capsule-dot { font-size: 30rpx; font-weight: 900; line-height: 1; }
+.capsule-dot { width: 32rpx; height: 32rpx; }
 .capsule-divider { width: 2rpx; height: 30rpx; background: #e5e7eb; }
-.capsule-target { width: 26rpx; height: 26rpx; border: 5rpx solid #111827; border-radius: 50%; box-sizing: border-box; }
+.capsule-target { width: 26rpx; height: 26rpx; border-radius: 50%; box-sizing: border-box; }
 .reports-tabs { display: flex; gap: 14rpx; margin: 26rpx 0 26rpx; }
 .reports-tab { height: 54rpx; padding: 0 22rpx; border-radius: 999rpx; display: flex; align-items: center; justify-content: center; background: #fff; color: #6b7280; font-size: 24rpx; font-weight: 700; box-shadow: 0 8rpx 18rpx rgba(31, 41, 55, 0.04); }
 .reports-tab.active { background: #111827; color: #fff; }
@@ -31,14 +31,21 @@ button::after { border: 0; }
 .report-copy { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 10rpx; }
 .report-title { font-size: 30rpx; line-height: 1.25; font-weight: 900; color: #111827; }
 .report-meta, .quota-text, .muted-note { font-size: 24rpx; line-height: 1.45; color: #6b7280; }
-.report-arrow { color: #9ca3af; font-size: 42rpx; line-height: 1; margin-left: 16rpx; }
+.report-arrow { width: 32rpx; height: 32rpx; margin-left: 16rpx; }
 .report-status-row { margin-top: 24rpx; display: flex; align-items: center; justify-content: space-between; gap: 18rpx; }
-.status-pill { min-height: 42rpx; padding: 0 18rpx; border-radius: 999rpx; display: flex; align-items: center; font-size: 22rpx; font-weight: 800; }
+.status-pill { min-height: 42rpx; padding: 0 18rpx; border-radius: 999rpx; display: flex; align-items: center; gap: 6rpx; font-size: 22rpx; font-weight: 800; }
+.status-icon { width: 24rpx; height: 24rpx; }
 .status-pill.success { background: #ecfdf5; color: #047857; }
 .status-pill.pending { background: #eff6ff; color: #2563eb; }
 .progress-track { height: 10rpx; margin-top: 24rpx; border-radius: 999rpx; overflow: hidden; background: #e5e7eb; }
 .progress-fill { width: 45%; height: 100%; border-radius: 999rpx; background: #2563eb; }
 .muted-note { display: block; margin-top: 22rpx; }
 .reports-bottom-tabs { position: fixed; left: 0; right: 0; bottom: 0; height: 124rpx; padding-bottom: 18rpx; display: flex; background: rgba(255, 255, 255, 0.96); box-shadow: 0 -12rpx 28rpx rgba(31, 41, 55, 0.06); }
-.bottom-tab { flex: 1; display: flex; align-items: center; justify-content: center; color: #6b7280; font-size: 26rpx; font-weight: 700; text-align: center; }
+.bottom-tab { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6rpx; color: #6b7280; font-size: 24rpx; font-weight: 700; text-align: center; }
 .bottom-tab.active { color: #2563eb; }
+.bottom-tab-icon { width: 34rpx; height: 34rpx; }
+
+/* Icon asset replacements */
+.capsule-dot, .capsule-target, .report-icon, .report-arrow, .status-icon, .bottom-tab-icon { display: block; object-fit: contain; }
+.report-icon { padding: 8rpx; box-sizing: border-box; }
+.report-icon::before { content: none; }

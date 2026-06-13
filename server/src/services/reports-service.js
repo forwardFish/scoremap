@@ -145,7 +145,7 @@ class ReportsService {
       orderId,
       ownerId: access.order.ownerId,
       type: 'full',
-      status: 'full_report_ready',
+      status: 'full_done',
       progress: 100,
       currentStep: 'full_report_ready',
       retryCount: 0,
@@ -194,7 +194,7 @@ class ReportsService {
       localOnly: aiResult.localOnly
     });
     const order = this.db.update('diagnosis_orders', orderId, {
-      status: 'full_report_ready',
+      status: 'full_done',
       fullTaskId: task.id,
       fullDecisionId: decision.id
     });
@@ -208,7 +208,7 @@ class ReportsService {
         quota
       },
       readback: {
-        task: this.db.assertReadback('ai_analysis_tasks', task.id, { status: 'full_report_ready' }),
+        task: this.db.assertReadback('ai_analysis_tasks', task.id, { status: 'full_done' }),
         decision: this.db.assertReadback('diagnosis_decisions', decision.id, { level: 'full' }),
         aiTrace: aiResult.trace,
         questionTrace: questionsResult.readback.aiTrace,

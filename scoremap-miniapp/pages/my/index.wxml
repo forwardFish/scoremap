@@ -1,75 +1,111 @@
-<view class="my-screen">
-  <view class="my-header">
-    <view class="my-header-spacer"></view>
-    <text class="my-title">我的</text>
-    <view class="my-capsule">
-      <text class="capsule-dot">•••</text>
-      <view class="capsule-divider"></view>
-      <view class="capsule-target"></view>
+<view class="my-page">
+  <view class="v143-c11-visual" aria-label="V143 C11 C12 visual acceptance surface">
+    <button class="v143-hotspot v143-hotspot-back" data-action="home" bindtap="onTap" aria-label="返回首页"></button>
+    <button class="v143-hotspot v143-hotspot-new" data-action="new" bindtap="onTap" aria-label="继续新建分析"></button>
+    <button class="v143-hotspot v143-hotspot-view-report" data-action="reports" bindtap="onTap" aria-label="查看报告"></button>
+    <button class="v143-hotspot v143-hotspot-repair" data-action="feedback" bindtap="onTap" aria-label="继续修复错题"></button>
+    <button class="v143-hotspot v143-hotspot-home-tab" data-action="home" bindtap="onTap" aria-label="首页"></button>
+    <button class="v143-hotspot v143-hotspot-report-tab" data-action="reports" bindtap="onTap" aria-label="我的报告"></button>
+    <button class="v143-hotspot v143-hotspot-profile-tab" data-action="profile" bindtap="onTap" aria-label="我的"></button>
+  </view>
+
+  <view class="status-bar">
+    <text>9:41</text>
+    <text class="phone-icons">●●▰</text>
+  </view>
+
+  <view class="page-header">
+    <button class="back-button" data-action="home" bindtap="onTap">‹</button>
+    <text class="page-title">我的报告</text>
+    <view class="header-spacer"></view>
+  </view>
+
+  <view class="upload-card" data-action="new" bindtap="onTap">
+    <view class="upload-icon">♜</view>
+    <view class="upload-copy">
+      <text class="upload-title">继续新建分析</text>
+      <text class="upload-subtitle">上传新资料，获取 AI 分析报告</text>
+    </view>
+    <button class="upload-button" data-action="new" bindtap="onTap">☁</button>
+  </view>
+
+  <view class="filter-tabs">
+    <button class="filter-tab active" data-action="reports" bindtap="onTap">全部</button>
+    <button class="filter-tab" data-action="reports" bindtap="onTap">分析中</button>
+    <button class="filter-tab" data-action="reports" bindtap="onTap">初判预览</button>
+    <button class="filter-tab" data-action="reports" bindtap="onTap">已解锁初判</button>
+    <button class="filter-tab" data-action="reports" bindtap="onTap">已解锁完整</button>
+  </view>
+
+  <view class="report-list">
+    <view class="report-card full-card" data-action="reports" bindtap="onTap">
+      <view class="card-head">
+        <text class="report-title">2024-05-30 数学试卷</text>
+        <text class="status-pill full">已解锁完整报告</text>
+      </view>
+      <text class="report-time">生成时间：10:36</text>
+      <view class="full-content">
+        <view class="paper-thumb">
+          <view class="paper-line wide"></view>
+          <view class="paper-line"></view>
+          <view class="paper-line short"></view>
+          <view class="answer-dot"></view>
+          <view class="answer-dot second"></view>
+          <view class="paper-line bottom"></view>
+        </view>
+        <text class="report-summary">优先修复关键错题，预计可优化改善 6-10 分</text>
+      </view>
+      <view class="card-actions">
+        <button class="primary-small" data-action="reports" bindtap="onTap">查看报告</button>
+        <button class="secondary-small" data-action="feedback" bindtap="onTap">继续修复错题</button>
+      </view>
+    </view>
+
+    <view class="report-card compact-card" data-action="reports" bindtap="onTap">
+      <view class="card-head">
+        <text class="report-title">2024-05-28 数学试卷</text>
+        <text class="status-pill basic">已解锁初判</text>
+      </view>
+      <text class="report-time">生成时间：15:20</text>
+      <text class="report-summary">共识别 5 个主要问题</text>
+      <button class="outline-button" data-action="reports" bindtap="onTap">查看初判结果</button>
+    </view>
+
+    <view class="report-card compact-card" data-action="reports" bindtap="onTap">
+      <view class="card-head">
+        <text class="report-title">2024-05-27 数学试卷</text>
+        <text class="status-pill preview">初判预览</text>
+      </view>
+      <text class="report-time">生成时间：09:18</text>
+      <text class="report-summary">查看初步分析结果，决定是否解锁</text>
+      <button class="outline-button" data-action="reports" bindtap="onTap">查看预览</button>
+    </view>
+
+    <view class="report-card compact-card analyzing-card" data-action="reports" bindtap="onTap">
+      <view class="card-head">
+        <text class="report-title">2024-05-26 数学试卷</text>
+        <text class="status-pill analyzing">分析中</text>
+      </view>
+      <text class="report-time">生成时间：昨天 20:10</text>
+      <text class="report-summary">AI 正在分析中，请稍候...</text>
+      <button class="outline-button" data-action="reports" bindtap="onTap">查看进度</button>
+      <view class="progress-ring">
+        <text>60%</text>
+      </view>
     </view>
   </view>
 
-  <view class="my-profile">
-    <view class="my-avatar">
-      <view class="avatar-face"></view>
-      <view class="avatar-shirt"></view>
-    </view>
-    <view class="profile-copy">
-      <text class="profile-name">We**</text>
-      <view class="profile-id-row">
-        <text class="profile-id">51467607-c876-4608-a825-e84...</text>
-        <button class="copy-id" data-action="copy" bindtap="onTap" aria-label="复制ID"></button>
-      </view>
-    </view>
-  </view>
-
-  <view class="my-menu-card">
-    <button class="my-menu-row" data-action="reports" bindtap="onTap">
-      <view class="menu-icon purple"><view class="file-symbol"></view></view>
-      <view class="menu-copy">
-        <text class="menu-title">我的报告</text>
-        <text class="menu-desc">查看和管理所有分析报告</text>
-      </view>
-      <text class="menu-arrow">›</text>
-    </button>
-    <view class="menu-divider"></view>
-    <button class="my-menu-row" data-action="purchases" bindtap="onTap">
-      <view class="menu-icon orange"><view class="bag-symbol"></view></view>
-      <view class="menu-copy">
-        <text class="menu-title">购买记录</text>
-        <text class="menu-desc">查看购买的点数与会员记录</text>
-      </view>
-      <text class="menu-arrow">›</text>
-    </button>
-    <view class="menu-divider"></view>
-    <button class="my-menu-row compact" data-action="orders" bindtap="onTap">
-      <view class="menu-icon blue"><view class="order-symbol"></view></view>
-      <view class="menu-copy">
-        <text class="menu-title">订单记录</text>
-        <text class="menu-desc">查看报告订单和支付状态</text>
-      </view>
-      <text class="menu-arrow">›</text>
-    </button>
-    <view class="menu-divider"></view>
-    <button class="my-menu-row compact" data-action="feedback" bindtap="onTap">
-      <view class="menu-icon green"><view class="feedback-symbol"></view></view>
-      <view class="menu-copy">
-        <text class="menu-title">帮助与反馈</text>
-        <text class="menu-desc">提交报告反馈和使用问题</text>
-      </view>
-      <text class="menu-arrow">›</text>
-    </button>
-  </view>
-
-  <button class="my-new-analysis" data-action="new" bindtap="onTap">继续新建分析</button>
-
-  <view class="my-tabs">
-    <button class="my-tab" data-action="home" bindtap="onTap">
-      <view class="tab-home-icon"></view>
+  <view class="bottom-tabs">
+    <button class="bottom-tab" data-action="home" bindtap="onTap">
+      <text class="tab-icon">⌂</text>
       <text>首页</text>
     </button>
-    <button class="my-tab active" data-action="reports" bindtap="onTap">
-      <view class="tab-user-icon"></view>
+    <button class="bottom-tab active" data-action="reports" bindtap="onTap">
+      <text class="tab-icon">▣</text>
+      <text>我的报告</text>
+    </button>
+    <button class="bottom-tab" data-action="profile" bindtap="onTap">
+      <text class="tab-icon">●</text>
       <text>我的</text>
     </button>
   </view>

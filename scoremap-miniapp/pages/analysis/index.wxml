@@ -1,80 +1,58 @@
 <view class="analysis-page">
-  <view class="analysis-shell">
-    <view class="analysis-header">
-      <button class="back-button" data-action="later" bindtap="onTap" aria-label="返回"></button>
-      <view class="analysis-brand">
-        <view class="bot-mark">
-          <view class="bot-face">
-            <view class="bot-eye left"></view>
-            <view class="bot-eye right"></view>
-          </view>
+  <view class="analysis-header">
+    <button class="back-button" data-action="later" bindtap="onTap" aria-label="返回">
+      <text>‹</text>
+    </button>
+    <image class="robot-icon" src="/assets/icons/ai-robot-smile.png" mode="aspectFit" />
+    <text class="brand-title">AI 提分决策</text>
+  </view>
+
+  <view class="analysis-card">
+    <view class="card-glow"></view>
+    <text class="spark sparkle-one">✦</text>
+    <text class="spark sparkle-two">✦</text>
+    <text class="spark sparkle-three">✦</text>
+
+    <text class="analysis-title"><text>AI</text> 正在分析中</text>
+
+    <view class="progress-stage">
+      <view class="progress-ring">
+        <view class="ring-track"></view>
+        <view class="ring-arc arc-top"></view>
+        <view class="ring-arc arc-bottom"></view>
+        <view class="ring-center">
+          <text class="progress-number">68</text>
+          <text class="percent">%</text>
         </view>
-        <text class="brand-title">AI提分教练</text>
       </view>
-      <view class="header-spacer"></view>
+      <image class="owl" src="/assets/icons/owl-report-teacher.png" mode="aspectFit" />
     </view>
 
-    <view class="analysis-card">
-      <view class="card-stars">
-        <text class="star star-one">★</text>
-        <text class="star star-two">★</text>
-        <text class="star star-three">★</text>
-        <text class="star star-four">★</text>
+    <view class="step-list">
+      <view class="step-row done">
+        <view class="step-node">✓</view>
+        <text>已识别上传资料</text>
       </view>
-
-      <view class="analysis-title-row">
-        <text class="analysis-title-accent">AI</text>
-        <text class="analysis-title-text">正在分析中</text>
+      <view class="step-row done">
+        <view class="step-node">✓</view>
+        <text>已匹配年级与学科</text>
       </view>
-
-      <view class="progress-wrap">
-        <view class="progress-track"></view>
-        <view class="progress-arc arc-main"></view>
-        <view class="progress-arc arc-tail"></view>
-        <view class="progress-value">
-          <text class="progress-number">{{progress || 68}}</text>
-          <text class="progress-unit">%</text>
-        </view>
-        <view class="mascot-bubble">
-          <view class="cap"></view>
-          <view class="glasses">
-            <view></view>
-            <view></view>
-          </view>
-        </view>
+      <view class="step-row active">
+        <view class="step-node spinner"></view>
+        <text>正在定位主要丢分点</text>
       </view>
-
-      <view class="step-list">
-        <view class="step-row done">
-          <view class="step-dot">✓</view>
-          <text>已识别上传资料</text>
-        </view>
-        <view class="step-row done">
-          <view class="step-dot">✓</view>
-          <text>已匹配年级与学科</text>
-        </view>
-        <view class="step-row active">
-          <view class="step-dot pulse-dot"></view>
-          <text>正在定位主要丢分点</text>
-        </view>
-        <view class="step-row pending">
-          <view class="step-dot hourglass"></view>
-          <text>正在生成初步建议</text>
-        </view>
-      </view>
-
-      <view class="estimate-line">
-        <view class="clock-icon"></view>
-        <text>{{estimateText || '通常需要10-30秒'}}</text>
+      <view class="step-row pending">
+        <view class="step-node hourglass">⌛</view>
+        <text>正在生成初步建议</text>
       </view>
     </view>
 
-    <view class="analysis-actions">
-      <button class="later-button" data-action="later" bindtap="onTap">稍后查看</button>
-      <button class="refresh-button" data-action="refresh" bindtap="onTap">
-        <text class="refresh-icon">↻</text>
-        <text>刷新进度</text>
-      </button>
+    <view class="estimate">
+      <text class="clock">◷</text>
+      <text>通常需要 20-30秒</text>
     </view>
   </view>
+
+  <button class="primary-button" data-action="later" bindtap="onTap">稍后查看</button>
+  <button class="refresh-button" data-action="refresh" bindtap="onTap">↻ 刷新进度</button>
 </view>

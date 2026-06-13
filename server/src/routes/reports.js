@@ -1,20 +1,34 @@
 ﻿const { ReportsService } = require('../services/reports-service');
 const { authFromRequest } = require('../middleware/auth');
 
-function createReportsRouter({ db, exportRootDir, ai }) {
+function createReportsRouter({ db, exportRootDir, ai, authService }) {
   const service = new ReportsService({ db, exportRootDir, ai });
 
   return async function reportsRouter(request, response) {
     const url = new URL(request.url, 'http://127.0.0.1');
     const reportExportMatch = url.pathname.match(/^\/api\/report-exports\/([^/]+)$/);
     if (request.method === 'GET' && reportExportMatch) {
-      const result = service.getReportExport(decodeURIComponent(reportExportMatch[1]), authFromRequest(request));
+      const result = service.getReportExport(decodeURIComponent(reportExportMatch[1]), authFromRequest(request, { authService }));
       sendJson(response, result.statusCode, result.body);
       return true;
     }
 
     if (request.method === 'GET' && url.pathname === '/api/my/reports') {
-      const result = service.listMyReports(Object.fromEntries(url.searchParams.entries()), authFromRequest(request));
+      const result = service.listMyReports(Object.fromEntries(url.searchParams.entries()), authFromRequest(request, { authService }));
+      sendJson(response, result.statusCode, result.body);
+      return true;
+    }
+
+    const saveReportMatch = url.pathname.match(/^\/api\/reports\/([^/]+)\/save$/);
+    if (request.method === 'POST' && saveReportMatch) {
+      const result = service.saveReport(decodeURIComponent(saveReportMatch[1]), authFromRequest(request, { authService }));
+      sendJson(response, result.statusCode, result.body);
+      return true;
+    }
+
+    if (request.method === 'POST' && url.pathname === '/api/feedbacks') {
+      const input = await readJson(request);
+      const result = service.createFeedback(input.orderId, input, authFromRequest(request, { authService }));
       sendJson(response, result.statusCode, result.body);
       return true;
     }
@@ -26,17 +40,17 @@ function createReportsRouter({ db, exportRootDir, ai }) {
     const action = match[2];
     let result;
     if (request.method === 'GET' && action === 'basic-decision') {
-      result = service.getBasicDecision(orderId, authFromRequest(request));
+      result = service.getBasicDecision(orderId, authFromRequest(request, { authService }));
     } else if (request.method === 'POST' && action === 'generate-full') {
-      result = service.generateFullReport(orderId, await readJson(request), authFromRequest(request));
+      result = service.generateFullReport(orderId, await readJson(request), authFromRequest(request, { authService }));
     } else if (request.method === 'GET' && action === 'full-report') {
-      result = service.getFullReport(orderId, authFromRequest(request));
+      result = service.getFullReport(orderId, authFromRequest(request, { authService }));
     } else if (request.method === 'POST' && action === 'save-report') {
-      result = service.saveReport(orderId, authFromRequest(request));
+      result = service.saveReport(orderId, authFromRequest(request, { authService }));
     } else if (request.method === 'POST' && action === 'feedback') {
-      result = service.createFeedback(orderId, await readJson(request), authFromRequest(request));
+      result = service.createFeedback(orderId, await readJson(request), authFromRequest(request, { authService }));
     } else if (request.method === 'POST' && action === 'export-pdf') {
-      result = service.exportPdf(orderId, await readJson(request), authFromRequest(request));
+      result = service.exportPdf(orderId, await readJson(request), authFromRequest(request, { authService }));
     } else {
       return false;
     }

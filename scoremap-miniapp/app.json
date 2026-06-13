@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/login/login",
+    "pages/student-info/index",
     "pages/analysis/index",
     "pages/failure/index",
     "pages/preview/index",
@@ -32,7 +34,7 @@
     ]
   },
   "window": {
-    "navigationBarTitleText": "Scoremap",
+    "navigationBarTitleText": "AI提分教练",
     "navigationStyle": "custom",
     "backgroundColor": "#f7f4ef",
     "backgroundTextStyle": "light"

@@ -1,53 +1,53 @@
-<view class="v13-page exercise-page">
-  <view class="top-bar">
-    <button class="top-icon" bindtap="onTap" data-action="back">arrow_back</button>
-    <text class="page-title">AI 老师讲给孩子听</text>
-    <button class="top-icon" bindtap="onRefreshExercise">more_vert</button>
-  </view>
-
-  <text class="subtitle">已为你生成 <text class="subtitle-number">1</text> 道练试题</text>
-
-  <view class="exercise-card">
-    <view class="spark spark-one">auto_awesome</view>
-    <view class="spark spark-two">auto_awesome</view>
-    <view class="exercise-heading">
-      <text class="heading-icon">lightbulb</text>
-      <text>出一道同类题</text>
+<view class="c13-drawer-page c13-step-three">
+  <view class="c13-bg-report">
+    <view class="c13-status"><text>9:41</text><text>wifi</text></view>
+    <view class="c13-bg-top">
+      <button bindtap="onRefreshExercise">‹</button>
+      <text>完整报告</text>
+      <text>错题 1 / 8</text>
     </view>
-    <view class="heading-underline"></view>
-
-    <view class="exercise-prompt">{{exercise.stem}}</view>
-    <button
-      wx:for="{{exercise.options}}"
-      wx:key="*this"
-      class="option-button {{selectedOption === item ? 'selected' : ''}}"
-      data-option="{{item}}"
-      bindtap="onSelectOption"
-    >
-      <text class="option-label">{{index === 0 ? 'A' : index === 1 ? 'B' : index === 2 ? 'C' : 'D'}}.</text>
-      <text class="option-text">{{item}}</text>
-    </button>
-
-    <button class="submit-button" disabled="{{!submitEnabled}}" bindtap="onSubmitAnswer">提交答案</button>
+    <text class="c13-bg-title">AI 提分报告（完整）</text>
+    <text class="c13-bg-time">报告生成时间：2024-05-30 10:36</text>
+    <image class="c13-bg-owl c13-pointer-owl" src="/assets/clean-icons/owl-teacher-pointer.png" mode="aspectFit" />
+    <view class="c13-bg-score full">
+      <view class="c13-score-row">
+        <image class="c13-score-icon" src="/assets/clean-icons/shield-check-purple.png" mode="aspectFit" />
+        <view><text>可追回分数</text><text class="c13-score-sub">可优先改善</text></view>
+      </view>
+      <view class="c13-score-value"><text>6-10</text><text>分</text><text>↑</text></view>
+      <text class="c13-score-note">通过优先修复关键错因，有机会追回的分数区间</text>
+    </view>
   </view>
+  <view class="c13-overlay dark"></view>
 
-  <button class="history-row" bindtap="onTap" data-action="history">
-    <text>本题追问记录 (3)</text>
-    <text class="row-icon">chevron_right</text>
-  </button>
-
-  <view class="bottom-nav">
-    <button>
-      <text class="nav-icon">share</text>
-      <text>分享报告</text>
-    </button>
-    <button class="active">
-      <text class="nav-icon">psychology</text>
-      <text>AI 提分</text>
-    </button>
-    <button>
-      <text class="nav-icon">picture_as_pdf</text>
-      <text>导出 PDF</text>
-    </button>
+  <view class="c13-drawer">
+    <view class="c13-handle"></view>
+    <view class="c13-drawer-head">
+      <text>修复这道关键错题</text>
+      <button bindtap="onRefreshExercise">×</button>
+    </view>
+    <view class="c13-progress">
+      <view class="c13-line active-three"></view>
+      <view class="c13-step done"><text>1</text><text>错因诊断</text></view>
+      <view class="c13-step done"><text>2</text><text>换法讲解</text></view>
+      <view class="c13-step active"><text>3</text><text>验证练习</text></view>
+      <view class="c13-step"><text>4</text><text>掌握判断</text></view>
+    </view>
+    <scroll-view class="c13-drawer-scroll" scroll-y="true" enhanced="true" show-scrollbar="false">
+      <view class="c13-panel exercise-panel">
+        <view class="c13-practice-head">
+          <text>做 1 道同类验证题</text>
+          <text>只做 1 道即时验证题</text>
+        </view>
+        <text class="c13-question">甲、乙两车同时从 A 地出发，甲每小时行 70km，乙每小时行 55km，3 小时后甲比乙多行多少千米？</text>
+        <view class="c13-options">
+          <button bindtap="onSelectOption" data-option="40 千米"><text>A</text><text>40 千米</text></button>
+          <button bindtap="onSelectOption" data-option="45 千米"><text>B</text><text>45 千米</text></button>
+          <button bindtap="onSelectOption" data-option="50 千米"><text>C</text><text>50 千米</text></button>
+          <button bindtap="onSelectOption" data-option="55 千米"><text>D</text><text>55 千米</text></button>
+        </view>
+        <button class="c13-primary" bindtap="onSubmitAnswer">提交答案</button>
+      </view>
+    </scroll-view>
   </view>
 </view>

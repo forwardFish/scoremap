@@ -32,14 +32,15 @@ class DiagnosisOrdersService {
     this.ai = ai || createLocalAiAdapter();
   }
 
-  createOrder(input = {}) {
+  createOrder(input = {}, auth = {}) {
+    if (auth.invalidToken) return unauthorized('Invalid bearer token.');
     const required = ['source', 'grade', 'subject', 'examType', 'materialType'];
     const missing = required.filter((field) => !input[field]);
     if (missing.length > 0) {
       return validationError(`Missing required fields: ${missing.join(', ')}`);
     }
 
-    const ownerId = input.ownerId || LOCAL_OWNER_ID;
+    const ownerId = auth.ownerId || input.ownerId || LOCAL_OWNER_ID;
     this.db.upsert('users', {
       id: ownerId,
       role: 'parent_owner',
@@ -303,6 +304,7 @@ class DiagnosisOrdersService {
 }
 
 function decodeFileContent(file = {}) {
+  if (Buffer.isBuffer(file.buffer)) return file.buffer;
   if (file.base64) return Buffer.from(file.base64, 'base64');
   if (file.content) return Buffer.from(String(file.content));
   return Buffer.from('local mock upload bytes');

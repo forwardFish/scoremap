@@ -1,67 +1,117 @@
-<view class="v13-report-page">
-  <view class="v13-topbar">
-    <button class="icon-button" aria-label="返回报告入口" bindtap="onReturnEntry">‹</button>
-    <text class="topbar-title">完整提分报告</text>
-    <button class="icon-button" aria-label="更多">⋯</button>
-  </view>
-
-  <scroll-view scroll-y class="report-scroll">
-    <view class="hero-card">
-      <view class="hero-copy">
-        <text class="hero-title">{{hero.title}}</text>
-        <text class="hero-summary">{{hero.summary}}</text>
-        <view class="hero-pills">
-          <text class="status-pill">✓ {{hero.statusText}}</text>
-          <text class="quota-pill">{{hero.quotaText}}</text>
-        </view>
-      </view>
-      <view class="local-mascot">
-        <text class="mascot-cap">AI</text>
-        <text class="mascot-face">owl</text>
-      </view>
+<view class="full-report-page">
+  <view class="page-scroll c10-report">
+    <view class="c10-status">
+      <text>9:41</text>
+      <text>▰ wifi ▰</text>
     </view>
 
-    <view class="section-title">
-      <view class="title-marker"></view>
-      <text>报告内容</text>
+    <view class="c10-top">
+      <button class="c10-back" bindtap="onReturnEntry" aria-label="返回">‹</button>
+      <text class="c10-title">完整报告</text>
+      <text class="c10-count">错题 1 / 8</text>
     </view>
 
-    <view class="report-row" wx:for="{{reportRows}}" wx:key="id">
-      <view class="row-icon tone-{{item.tone}}">{{item.glyph}}</view>
-      <view class="row-copy">
-        <text class="row-title">{{item.title}}</text>
-        <text class="row-summary">{{item.content}}</text>
-      </view>
-      <text class="row-chevron">›</text>
-    </view>
-
-    <view class="section-title wrong-title">
-      <view class="title-marker secondary"></view>
-      <text>错题提分</text>
-    </view>
-
-    <view class="wrong-card severity-{{item.severity}}" wx:for="{{wrongQuestionCards}}" wx:key="questionId" data-question-id="{{item.questionId}}" bindtap="onOpenWrongQuestion">
-      <view class="wrong-main">
-        <view class="wrong-icon">{{item.glyph}}</view>
-        <view class="wrong-copy">
-          <view class="wrong-head">
-            <text class="wrong-name">{{item.title}}</text>
-            <text class="mastery">{{item.masteryStatus}}</text>
+    <view class="c10-hero">
+      <view>
+        <text class="c10-heading">AI 提分报告（完整）</text>
+        <text class="c10-time">报告生成时间：2024-05-30 10:36</text>
+        <view class="c10-score-card">
+          <image class="c10-score-icon" src="/assets/icons/lock-purple.png" mode="aspectFit" />
+          <view>
+            <text class="c10-score-label">可追回分数（可优先改善）</text>
+            <view class="c10-score-line"><text>6-10</text><text>分 ↑</text></view>
+            <text class="c10-score-note">通过优先修复关键错因，有机会追回的分数区间</text>
           </view>
-          <text class="wrong-stem">{{item.stem}}</text>
         </view>
       </view>
-      <text class="wrong-chevron">›</text>
+      <image class="c10-owl" src="/assets/icons/owl-teacher-pointer.png" mode="aspectFit" />
     </view>
 
-    <view class="disclaimer">
-      <text class="disclaimer-icon">✓</text>
-      <text>内容仅供学习参考，请结合课堂学习与老师建议使用</text>
+    <view class="c10-card c10-evidence">
+      <view class="c10-card-head">
+        <image class="c10-card-icon" src="/assets/icons/shield-check-purple.png" mode="aspectFit" />
+        <view>
+          <text class="c10-card-title">证据锚点</text>
+          <text class="c10-card-sub">本报告结论均基于事实题目分析</text>
+        </view>
+      </view>
+      <view class="c10-table">
+        <text>题号</text><text>学生答案</text><text>正确答案</text><text>错因依据</text>
+        <text>二(1)</text><text>20 千米</text><text>45 千米</text><text>速度差 × 时间 计算错误</text>
+      </view>
     </view>
-  </scroll-view>
 
-  <view class="bottom-actions">
-    <button class="share-button" bindtap="onShareReport">分享报告</button>
-    <button class="pdf-button" bindtap="onExportPdf">导出 PDF</button>
+    <view class="c10-card c10-priority">
+      <view>
+        <view class="c10-card-head tight">
+          <image class="c10-card-icon" src="/assets/icons/target-purple.png" mode="aspectFit" />
+          <view>
+            <text class="c10-card-title">提分优先级</text>
+            <text class="c10-priority-title">行程问题中的数量关系建模</text>
+          </view>
+        </view>
+        <text class="c10-priority-copy">优先级依据：本次考试中该类问题失去 7 分，属于高频且可快速改善的题型。</text>
+      </view>
+      <view class="c10-target">◎</view>
+    </view>
+
+    <view class="c10-card c10-question-list core-only">
+      <text class="c10-section-title">关键错题</text>
+      <text class="c10-section-sub">建议优先修复 1-3 道</text>
+      <view class="c10-question">
+        <text class="c10-number">1</text>
+        <view class="c10-question-body">
+          <view class="c10-question-head"><text>二元一次方程应用题（行程问题）</text><text class="c10-badge red">未修复</text></view>
+          <text class="c10-blue">可追回分数：2-3 分</text>
+          <text>知识点：二元一次方程的应用-行程问题</text>
+          <text>学生错误：速度单位换算错误，导致时间计算偏差</text>
+          <text>错因：未理解“速度差 × 时间=路程差”模型</text>
+          <button class="c10-fix" data-question-id="q1" bindtap="onOpenRepairDrawer">修复这道关键错题</button>
+        </view>
+      </view>
+      <view class="c10-question second">
+        <text class="c10-number">2</text>
+        <view class="c10-question-body">
+          <view class="c10-question-head"><text>一次函数图像与性质</text><text class="c10-badge red">未修复</text></view>
+          <text class="c10-blue">可追回分数：1-2 分</text>
+          <text>知识点：一次函数的图像与性质</text>
+          <text>学生错误：截距理解偏差，图像平移方向错误</text>
+          <button class="c10-fix" data-question-id="q2" bindtap="onOpenRepairDrawer">修复这道关键错题</button>
+        </view>
+      </view>
+    </view>
+
+    <view class="c10-card c10-question-list writeback-only">
+      <text class="c10-section-title">关键错题</text>
+      <text class="c10-section-sub">建议优先修复 1-3 道</text>
+      <view class="c10-question">
+        <text class="c10-number">1</text>
+        <view class="c10-question-body">
+          <view class="c10-question-head"><text>二元一次方程应用题（行程问题）</text><text class="c10-badge green">已修复 / 初步掌握</text></view>
+          <text class="c10-blue">可追回分数：2-3 分</text>
+          <text>知识点：二元一次方程的应用-行程问题</text>
+          <text>学生错误：速度单位换算错误，导致时间计算偏差</text>
+          <text>错点：未理解“速度差 × 时间=路程差”模型</text>
+          <button class="c10-fix" data-question-id="q1" bindtap="onOpenRepairDrawer">查看修复记录</button>
+        </view>
+      </view>
+    </view>
+
+    <view class="c10-card c10-teacher">
+      <image class="c10-card-icon" src="/assets/icons/shield-check-purple.png" mode="aspectFit" />
+      <view>
+        <view class="c10-question-head"><text class="c10-card-title">老师介入判断</text><text class="c10-blue">查看判断依据 ›</text></view>
+        <text class="c10-priority-title">暂不需要老师介入</text>
+        <text class="c10-priority-copy">依据：关键错题验证通过，当前可先自主专项训练。</text>
+      </view>
+    </view>
   </view>
+
+  <view class="bottom-actions c10-actions">
+    <button class="outline-button" data-action="save-report" bindtap="onSaveReport">保存报告</button>
+    <button class="outline-button share-action" data-action="share-report" bindtap="onShareReport">分享报告</button>
+    <button class="solid-button" data-question-id="q1" bindtap="onOpenRepairDrawer">继续看下一部分 ›</button>
+  </view>
+
+  <view class="toast" wx:if="{{toast}}">{{toast}}</view>
 </view>

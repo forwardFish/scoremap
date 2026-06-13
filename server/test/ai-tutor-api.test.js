@@ -381,6 +381,116 @@ test('T23 covers auth, entitlement, validation, provider failure, timeout, redir
   });
 });
 
+test('V143-05 repair drawer APIs expose route-specific C13 actions, mastery writeback, quota, unpaid guards, and failures', async () => {
+  await withApi(async (api) => {
+    const { create } = await createFullPaidOrder(api, 'v143-05');
+    const auth = { 'x-order-token': create.body.orderToken };
+    const questions = await requestJson(api.baseUrl, 'GET', `/api/diagnosis-orders/${create.body.orderId}/questions`, undefined, auth);
+    assert.equal(questions.status, 200);
+    const question = questions.body.questions[0];
+    const secondQuestion = questions.body.questions[1];
+
+    const teachChild = await requestJson(api.baseUrl, 'POST', `/api/diagnosis-orders/${create.body.orderId}/questions/${question.id}/teach-child`, {
+      interactionId: 'interaction-v143-05-teach'
+    }, auth);
+    const similarExercise = await requestJson(api.baseUrl, 'POST', `/api/diagnosis-orders/${create.body.orderId}/questions/${question.id}/similar-exercise`, {
+      interactionId: 'interaction-v143-05-exercise'
+    }, auth);
+    const exerciseAnswer = await requestJson(api.baseUrl, 'POST', `/api/diagnosis-orders/${create.body.orderId}/questions/${question.id}/exercise-answer`, {
+      interactionId: similarExercise.body.interactionId,
+      submittedAnswer: 'B'
+    }, auth);
+    const masteryExercise = await requestJson(api.baseUrl, 'POST', `/api/diagnosis-orders/${create.body.orderId}/questions/${question.id}/similar-exercise`, {
+      interactionId: 'interaction-v143-05-mastery-exercise'
+    }, auth);
+    const checkMastery = await requestJson(api.baseUrl, 'POST', `/api/diagnosis-orders/${create.body.orderId}/questions/${question.id}/check-mastery`, {
+      interactionId: masteryExercise.body.interactionId,
+      submittedAnswer: 'B'
+    }, auth);
+    const history = await requestJson(api.baseUrl, 'GET', `/api/diagnosis-orders/${create.body.orderId}/questions/${question.id}/interactions`, undefined, auth);
+    const quotaExceeded = await requestJson(api.baseUrl, 'POST', `/api/diagnosis-orders/${create.body.orderId}/questions/${question.id}/teach-child`, {
+      interactionId: 'interaction-v143-05-quota-exceeded'
+    }, auth);
+
+    assert.equal(teachChild.status, 201);
+    assert.equal(teachChild.body.interaction.actionType, 'teach_child');
+    assert.equal(similarExercise.status, 201);
+    assert.equal(similarExercise.body.interaction.actionType, 'similar_exercise');
+    assert.ok(similarExercise.body.exercise);
+    assert.equal(exerciseAnswer.status, 200);
+    assert.equal(exerciseAnswer.body.status, 'answered');
+    assert.equal(masteryExercise.status, 201);
+    assert.equal(checkMastery.status, 200);
+    assert.equal(checkMastery.body.status, 'mastery_checked');
+    assert.equal(checkMastery.body.masteryStatus, 'initial_mastery');
+    assert.equal(history.status, 200);
+    assert.equal(history.body.items.length, 3);
+    assert.equal(history.body.quota.question.used, 3);
+    assert.equal(quotaExceeded.status, 429);
+
+    const missingQuestion = await requestJson(api.baseUrl, 'POST', `/api/diagnosis-orders/${create.body.orderId}/questions/missing-question/teach-child`, {}, auth);
+    const invalidAnswer = await requestJson(api.baseUrl, 'POST', `/api/diagnosis-orders/${create.body.orderId}/questions/${secondQuestion.id}/check-mastery`, {
+      interactionId: 'missing-interaction',
+      submittedAnswer: 'B'
+    }, auth);
+    const providerFailure = await requestJson(api.baseUrl, 'POST', `/api/diagnosis-orders/${create.body.orderId}/questions/${secondQuestion.id}/teach-child`, {
+      interactionId: 'interaction-v143-05-provider-failure',
+      simulate: 'provider_failure'
+    }, auth);
+    const basicOnly = await createPreviewReadyOrder(api, 'v143-05-basic-only');
+    await pay(api, basicOnly.create, 'basic', 'v143-05-basic-only');
+    const unpaidGuard = await requestJson(api.baseUrl, 'POST', `/api/diagnosis-orders/${basicOnly.create.body.orderId}/questions/${question.id}/teach-child`, {}, {
+      'x-order-token': basicOnly.create.body.orderToken
+    });
+
+    assert.equal(missingQuestion.status, 404);
+    assert.equal(invalidAnswer.status, 404);
+    assert.equal(providerFailure.status, 502);
+    assert.equal(unpaidGuard.status, 403);
+
+    const questionReadback = api.db.assertReadback('diagnosis_questions', question.id, { masteryStatus: 'initial_mastery' });
+    const decisionReadback = api.db.assertReadback('diagnosis_decisions', `decision-${create.body.orderId}-full`, { level: 'full' });
+    const reportCard = decisionReadback.full.wrongQuestionCards.find((card) => card.id === question.id || card.questionId === question.id);
+    assert.equal(reportCard.masteryStatus, 'initial_mastery');
+    assert.equal(api.db.read('question_interactions', 'interaction-v143-05-quota-exceeded'), null);
+
+    const evidence = {
+      status: 'PASS',
+      command,
+      requirementIds: ['REQ143-005'],
+      apiIds: ['API143-011', 'API143-012', 'API143-013', 'API143-014', 'API143-015'],
+      ownerScenarios: ['O143-05', 'O143-06', 'O143-07', 'O143-08', 'O143-11'],
+      apiCalls: [
+        { apiId: 'API143-011', route: 'POST /api/diagnosis-orders/{orderId}/questions/{questionId}/teach-child', responseStatus: teachChild.status },
+        { apiId: 'API143-012', route: 'POST /api/diagnosis-orders/{orderId}/questions/{questionId}/similar-exercise', responseStatus: similarExercise.status },
+        { apiId: 'API143-013', route: 'POST /api/diagnosis-orders/{orderId}/questions/{questionId}/exercise-answer', responseStatus: exerciseAnswer.status },
+        { apiId: 'API143-014', route: 'POST /api/diagnosis-orders/{orderId}/questions/{questionId}/check-mastery', responseStatus: checkMastery.status },
+        { apiId: 'API143-015', route: 'GET /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions', responseStatus: history.status }
+      ],
+      branchEvidence: {
+        success: { teachChild: teachChild.status, similarExercise: similarExercise.status, exerciseAnswer: exerciseAnswer.status, checkMastery: checkMastery.status, history: history.status },
+        quotaExceeded: { responseStatus: quotaExceeded.status, response: quotaExceeded.body },
+        unpaidGuard: { responseStatus: unpaidGuard.status, response: unpaidGuard.body },
+        missingQuestion: { responseStatus: missingQuestion.status, response: missingQuestion.body },
+        invalidAnswer: { responseStatus: invalidAnswer.status, response: invalidAnswer.body },
+        providerFailure: { responseStatus: providerFailure.status, response: providerFailure.body }
+      },
+      dbReadback: {
+        question: questionReadback,
+        reportCard,
+        interactions: history.body.items.map((item) => ({ id: item.id, actionType: item.actionType, status: item.status, submittedAnswer: item.submittedAnswer || null })),
+        providerFailureInteraction: api.db.assertReadback('question_interactions', 'interaction-v143-05-provider-failure', { status: 'failed' })
+      },
+      localOnly: {
+        paymentAdapter: api.payment.assertLocalOnly(),
+        cloudAdapter: api.cloud.assertLocalOnly(),
+        remoteCalls: []
+      }
+    };
+    writeEvidence('V143-05-repair-drawer-apis.json', evidence);
+  });
+});
+
 function seedAdditionalQuestions(api, orderId, template, count) {
   const order = api.db.read('diagnosis_orders', orderId);
   const existing = api.db.find('diagnosis_questions', (row) => row.orderId === orderId);

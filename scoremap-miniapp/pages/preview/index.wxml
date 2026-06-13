@@ -1,87 +1,55 @@
-<view class="preview-screen">
-  <view class="preview-shell">
-    <view class="preview-header">
-      <view class="preview-brand">
-        <view class="preview-mascot">
-          <view class="preview-mascot-face">
-            <view class="preview-eye left"></view>
-            <view class="preview-eye right"></view>
-          </view>
+<view class="preview-page">
+  <view class="status-bar">
+    <text>9:41</text>
+    <text>wifi</text>
+  </view>
+
+  <view class="top-bar">
+    <button class="back-button" data-action="back" bindtap="onTap">‹</button>
+    <text class="page-title">初判报告（预览）</text>
+  </view>
+
+  <scroll-view class="preview-scroll" scroll-y="true" enhanced="true" show-scrollbar="false">
+    <view class="preview-card soft-blur">
+      <view class="card-row">
+        <text class="section-title">初步分析结果</text>
+        <view class="unlock-pill">
+          <image class="pill-icon" src="/assets/icons/lock-purple.png" mode="aspectFit" />
+          <text>完整内容需解锁</text>
         </view>
-        <text class="preview-title">初判报告预览</text>
       </view>
-      <text class="preview-status">AI 已生成</text>
+      <view class="skeleton skeleton-lg"></view>
+      <view class="skeleton skeleton-md"></view>
+      <view class="skeleton skeleton-sm"></view>
+      <view class="skeleton skeleton-wide"></view>
+      <view class="divider"></view>
+      <text class="section-title spaced">主要问题（部分）</text>
+      <view class="bullet-row"><view class="dot"></view><text>二元一次方程应用题理解不足</text></view>
+      <view class="bullet-row"><view class="dot"></view><text>一次函数图像移动规律易错</text></view>
+      <view class="divider"></view>
+      <text class="section-title spaced">优先建议（部分）</text>
+      <view class="bullet-row"><view class="dot"></view><text>先补强：行程问题中的数量关系建模</text></view>
+      <view class="bullet-row"><view class="dot"></view><text>7 天行动方向：每天 20 分钟专项练习</text></view>
     </view>
+  </scroll-view>
 
-    <view class="preview-hero">
-      <view class="preview-hero-copy">
-        <text class="preview-kicker">初一数学月考分析</text>
-        <text class="preview-headline">先看 3 个关键判断</text>
-        <text class="preview-summary">整体基础较好，计算粗心和几何证明步骤不完整是本次失分的主要原因。</text>
+  <view class="payment-mask">
+    <view class="payment-sheet">
+      <view class="sheet-handle"></view>
+      <button class="sheet-close" data-action="close-pay" bindtap="onTap">×</button>
+      <view class="sheet-title-row">
+        <image class="sheet-lock" src="/assets/icons/lock-purple.png" mode="aspectFit" />
+        <text>解锁完整初判</text>
       </view>
-      <view class="preview-hero-figure">
-        <view class="preview-cap"></view>
-        <view class="preview-glasses">
-          <view></view>
-          <view></view>
-        </view>
-      </view>
-    </view>
-
-    <view class="preview-section-title">报告内容预览</view>
-    <view class="preview-list">
-      <view class="preview-module">
-        <view class="module-icon red">1</view>
-        <view class="module-copy">
-          <text class="module-title">主要丢分点</text>
-          <text class="module-desc">计算失误、几何证明步骤不完整</text>
-        </view>
-        <text class="module-arrow">›</text>
-      </view>
-      <view class="preview-module">
-        <view class="module-icon green">2</view>
-        <view class="module-copy">
-          <text class="module-title">优先补弱点</text>
-          <text class="module-desc">先提升有理数运算和辅助线意识</text>
-        </view>
-        <text class="module-arrow">›</text>
-      </view>
-      <view class="preview-module">
-        <view class="module-icon purple">3</view>
-        <view class="module-copy">
-          <text class="module-title">初步建议</text>
-          <text class="module-desc">7 天基础纠错和同类题复盘</text>
-        </view>
-        <text class="module-arrow">›</text>
-      </view>
-
-      <view class="preview-locked">
-        <view class="locked-row">
-          <view class="module-icon blue lock-dot"></view>
-          <view class="module-copy">
-            <text class="module-title">详细错因判断</text>
-            <text class="module-desc">支付后查看完整初判内容</text>
-          </view>
-        </view>
-        <view class="locked-row dim">
-          <view class="module-icon amber lock-dot"></view>
-          <view class="module-copy">
-            <text class="module-title">7 天行动建议</text>
-            <text class="module-desc">每日练习安排已锁定</text>
-          </view>
-        </view>
-        <view class="locked-mask">
-          <view class="lock-badge">
-            <view class="lock-shape"></view>
-            <text>更多内容需 1 元解锁</text>
-          </view>
-        </view>
-      </view>
+      <view class="price-row"><text>1.00</text><text>元</text></view>
+      <view class="sheet-divider"></view>
+      <text class="unlock-heading">支付后可解锁</text>
+      <view class="benefit-line"><view class="dot"></view><text>完整初判结果</text></view>
+      <view class="benefit-line"><view class="dot"></view><text>主要丢分点分析</text></view>
+      <view class="benefit-line"><view class="dot"></view><text>优先补弱建议</text></view>
+      <button class="pay-button" loading="{{paying}}" data-action="confirm-pay" bindtap="onTap">立即支付 1 元</button>
     </view>
   </view>
 
-  <view class="preview-footer">
-    <button class="preview-pay" data-action="pay" bindtap="onTap">立即支付 1 元查看完整初判</button>
-    <text class="preview-footnote">不会解锁 9.9 元完整报告</text>
-  </view>
+  <view wx:if="{{errorText}}" class="error-text">{{errorText}}</view>
 </view>

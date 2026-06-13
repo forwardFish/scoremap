@@ -1,88 +1,59 @@
-<view class="v13-page feedback-page">
-  <view class="top-bar">
-    <button class="top-icon" bindtap="onTap" data-action="back">arrow_back</button>
-    <text class="page-title">教育提分报告</text>
-    <button class="top-icon">more_vert</button>
-  </view>
-
-  <view class="feedback-hero">
-    <view class="success-icon">
-      <text class="success-symbol">check_circle</text>
-      <text class="confetti">🎉</text>
-      <text class="shine">auto_awesome</text>
+<view class="c13-drawer-page c13-step-four">
+  <view class="c13-bg-report">
+    <view class="c13-status"><text>9:41</text><text>wifi</text></view>
+    <view class="c13-bg-top">
+      <button bindtap="onReturnReport">‹</button>
+      <text>完整报告</text>
+      <text>错题 1 / 8</text>
     </view>
-    <text class="hero-title">回答正确！</text>
-    <view class="quote-row">
-      <view class="mascot">AI</view>
-      <view class="quote-bubble">
-        <text>{{explanation}}</text>
+    <text class="c13-bg-title">AI 提分报告（完整）</text>
+    <text class="c13-bg-time">报告生成时间：2024-05-30 10:36</text>
+    <image class="c13-bg-owl c13-pointer-owl" src="/assets/clean-icons/owl-teacher-pointer.png" mode="aspectFit" />
+    <view class="c13-bg-score full">
+      <view class="c13-score-row">
+        <image class="c13-score-icon" src="/assets/icons/lock-purple.png" mode="aspectFit" />
+        <view><text>可追回分数</text><text class="c13-score-sub">可优先改善</text></view>
       </view>
+      <view class="c13-score-value"><text>6-10</text><text>分</text><text>↑</text></view>
+      <text class="c13-score-note">通过优先修复关键错因，有机会追回的分数区间</text>
     </view>
   </view>
+  <view class="c13-overlay light"></view>
 
-  <view class="analysis-card">
-    <view class="section-heading">
-      <view class="section-bar"></view>
-      <text>解析</text>
+  <view class="c13-drawer">
+    <view class="c13-handle"></view>
+    <view class="c13-drawer-head">
+      <text>修复这道关键错题</text>
+      <button bindtap="onReturnReport">×</button>
     </view>
-    <view class="analysis-step">
-      <text class="step-label">甲比乙每小时快：</text>
-      <text class="formula">70 - 55 = 15 (千米)</text>
+    <view class="c13-progress">
+      <view class="c13-line active-four"></view>
+      <view class="c13-step done"><text>1</text><text>错因诊断</text></view>
+      <view class="c13-step done"><text>2</text><text>换法讲解</text></view>
+      <view class="c13-step done"><text>3</text><text>验证练习</text></view>
+      <view class="c13-step active"><text>4</text><text>掌握判断</text></view>
     </view>
-    <view class="analysis-step">
-      <text class="step-label">3 小时后，甲比乙多行：</text>
-      <text class="formula">15 x 3 = 45 (千米)</text>
-    </view>
-    <view class="answer-summary">
-      <text>答案是：</text>
-      <text class="answer-pill">B. 45 千米</text>
-    </view>
-  </view>
-
-  <view class="tip-block">
-    <view class="tip-icon good">thumb_up</view>
-    <text>做得很好！说明你已经理解了 <text class="good-text">“速度差 x 时间 = 路程差”</text> 这个方法。</text>
-  </view>
-
-  <view class="tip-block">
-    <view class="tip-icon hint">lightbulb</view>
-    <text><text class="hint-text">小提示：</text> 行程问题的关键是先找出速度差，再乘上时间。</text>
-  </view>
-
-  <view class="action-row">
-    <button class="secondary-button" bindtap="onRetry">
-      <text class="button-icon">refresh</text>
-      <text>再来一道</text>
-    </button>
-    <button class="primary-button" bindtap="onReturnReport">
-      <text class="button-icon">assignment_turned_in</text>
-      <text>回到报告</text>
-    </button>
-  </view>
-
-  <view class="history-row" bindtap="onOpenRecord">
-    <view class="history-left">
-      <view class="history-icon">chat</view>
-      <view>
-        <text class="history-title">本题追问记录</text>
-        <text class="history-subtitle">共有 4 条深度解析对话</text>
+    <scroll-view class="c13-drawer-scroll" scroll-y="true" enhanced="true" show-scrollbar="false">
+      <view class="c13-success">
+        <text class="c13-check">✓</text>
+        <text class="c13-success-title">初步掌握</text>
+        <text>你已经理解了“速度差 × 时间 = 路程差”这个方法。</text>
       </view>
-    </view>
-    <text class="row-icon">chevron_right</text>
-  </view>
-
-  <view class="bottom-nav">
-    <button>
-      <text class="nav-icon">share</text>
-      <text>分享报告</text>
-    </button>
-    <button>
-      <text class="nav-icon">psychology</text>
-      <text>AI 提分</text>
-    </button>
-    <button>
-      <text class="nav-icon">picture_as_pdf</text>
-      <text>导出 PDF</text>
-    </button>
+      <view class="c13-panel">
+        <text class="c13-panel-title">掌握状态说明</text>
+        <view class="c13-status-row good"><text>初步掌握</text><text>能在引导下正确应用方法</text></view>
+        <view class="c13-status-row warn"><text>仍需复习</text><text>方法理解不稳定，需再练习</text></view>
+        <view class="c13-status-row bad"><text>需要补前置知识</text><text>缺少必要知识，需先补齐</text></view>
+      </view>
+      <view class="c13-panel">
+        <text class="c13-panel-title">已回写报告</text>
+        <text class="c13-bullet">本题验证通过，已更新掌握状态：初步掌握。</text>
+        <text class="c13-bullet">相关内容将在完整报告中同步更新。</text>
+      </view>
+      <view class="c13-actions">
+        <button class="c13-secondary" bindtap="onReturnReport">返回报告</button>
+        <button class="c13-primary" bindtap="onReturnReport">继续修复下一题</button>
+      </view>
+    </scroll-view>
   </view>
 </view>

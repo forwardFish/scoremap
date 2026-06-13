@@ -1,0 +1,130 @@
+<view class="student-info-page">
+  <view class="top-area">
+    <view class="header-row">
+      <button class="back-button" data-action="back" bindtap="onTap" aria-label="返回">
+        <image class="back-icon" src="/assets/icons/student-info-back-chevron.png" mode="aspectFit" />
+      </button>
+      <view class="title-cluster">
+        <view class="robot-wrap">
+          <image class="robot-icon" src="/assets/icons/student-info-robot-wink.png" mode="aspectFit" />
+        </view>
+        <view>
+          <text class="page-title">填写孩子信息</text>
+          <text class="page-subtitle">用于个性化分析与建议</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="steps">
+      <view class="step-line"></view>
+      <view class="step-line active"></view>
+      <view class="step-item done">
+        <view class="step-dot">
+          <image class="step-icon" src="/assets/icons/student-info-step-check.png" mode="aspectFit" />
+        </view>
+        <text>上传资料</text>
+      </view>
+      <view class="step-item active">
+        <view class="step-dot">
+          <image class="step-icon" src="/assets/icons/student-info-step-2.png" mode="aspectFit" />
+        </view>
+        <text>填写信息</text>
+      </view>
+      <view class="step-item">
+        <view class="step-dot">
+          <image class="step-icon" src="/assets/icons/student-info-step-3.png" mode="aspectFit" />
+        </view>
+        <text>AI 分析</text>
+      </view>
+    </view>
+  </view>
+
+  <scroll-view class="form-scroll" scroll-y="true" enhanced="true" show-scrollbar="false">
+    <view class="main-card">
+      <view class="material-section">
+        <text class="section-title">已上传资料</text>
+        <view class="uploaded-list">
+          <view class="uploaded-item paper">
+            <image class="uploaded-icon" src="/assets/icons/student-info-paper.png" mode="aspectFit" />
+            <text>试卷</text>
+          </view>
+          <view class="uploaded-item wrong">
+            <image class="uploaded-icon" src="/assets/icons/student-info-wrong-question.png" mode="aspectFit" />
+            <text>错题</text>
+          </view>
+          <view class="uploaded-item score">
+            <image class="uploaded-icon" src="/assets/icons/student-info-score-report.png" mode="aspectFit" />
+            <text>成绩单</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="info-section">
+        <text class="section-title">孩子信息</text>
+
+        <view class="field-row">
+          <text class="field-label">年级</text>
+          <picker class="field-control picker-control" mode="selector" range="{{grades}}" value="{{gradeIndex}}" bindchange="onGradeChange">
+            <view class="picker-value">
+              <text>{{grade}}</text>
+              <image class="chevron-icon" src="/assets/icons/student-info-chevron-down.png" mode="aspectFit" />
+            </view>
+          </picker>
+        </view>
+
+        <view class="field-row">
+          <text class="field-label">学科</text>
+          <picker class="field-control picker-control" mode="selector" range="{{subjects}}" value="{{subjectIndex}}" bindchange="onSubjectChange">
+            <view class="picker-value">
+              <text>{{subject}}</text>
+              <image class="chevron-icon" src="/assets/icons/student-info-chevron-down.png" mode="aspectFit" />
+            </view>
+          </picker>
+        </view>
+
+        <view class="field-row">
+          <text class="field-label">当前分数 <text class="optional">选填</text></text>
+          <input class="field-control text-input" type="number" value="{{currentScore}}" placeholder="例如 78" data-field="currentScore" bindinput="onInput" />
+        </view>
+
+        <view class="field-row">
+          <text class="field-label">目标分数 <text class="optional">选填</text></text>
+          <input class="field-control text-input" type="number" value="{{targetScore}}" placeholder="例如 95" data-field="targetScore" bindinput="onInput" />
+        </view>
+
+        <view class="field-row">
+          <text class="field-label two-line">考试类型 <text class="optional">选填</text></text>
+          <input class="field-control text-input" value="{{examType}}" placeholder="月考 / 期中 / 期末" data-field="examType" bindinput="onInput" />
+        </view>
+
+        <view class="field-row material-row">
+          <text class="field-label">资料类型</text>
+          <view class="material-tags">
+            <button class="material-tag {{selectedMaterial.paper ? 'selected' : ''}}" data-id="paper" bindtap="onToggleMaterial">
+              <image class="tag-icon" src="/assets/icons/student-info-paper.png" mode="aspectFit" />
+              <text>试卷</text>
+            </button>
+            <button class="material-tag {{selectedMaterial.wrong ? 'selected warm' : 'warm'}}" data-id="wrong" bindtap="onToggleMaterial">
+              <image class="tag-icon" src="/assets/icons/student-info-wrong-question.png" mode="aspectFit" />
+              <text>错题</text>
+            </button>
+            <button class="material-tag {{selectedMaterial.score ? 'selected green' : 'green'}}" data-id="score" bindtap="onToggleMaterial">
+              <image class="tag-icon" src="/assets/icons/student-info-score-report.png" mode="aspectFit" />
+              <text>成绩单</text>
+            </button>
+          </view>
+        </view>
+      </view>
+
+      <button class="privacy-note" data-action="authorization" bindtap="onTap">
+        <image class="privacy-icon" src="/assets/icons/student-info-shield-check.png" mode="aspectFit" />
+        <text>{{authorizationAccepted ? '信息仅用于生成分析结果' : '请先确认资料授权'}}</text>
+      </button>
+    </view>
+  </scroll-view>
+
+  <view class="bottom-actions">
+    <button class="submit-button" data-action="submit" bindtap="onTap">提交并开始分析</button>
+    <button class="bottom-back" data-action="back" bindtap="onTap">返回上一步</button>
+  </view>
+</view>

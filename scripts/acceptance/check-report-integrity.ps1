@@ -1,4 +1,4 @@
-param(
+﻿param(
   [string]$ProjectRoot = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path,
   [string]$Scope = 'ai-tutor-v13'
 )
@@ -40,6 +40,77 @@ function Test-Json {
   } catch {
     Add-Failure "Invalid JSON: $RelativePath :: $($_.Exception.Message)"
   }
+}
+
+if ($Scope -eq 'v143-mvp') {
+  $requiredDocs = @(
+    'AGENTS.md',
+    'docs/auto-execute/scoremap-v143-mvp-development-standard.md',
+    'docs/auto-execute/scoremap-v143-mvp-software-test-standard.md',
+    'docs/auto-execute/scoremap-v143-mvp-requirement-traceability-matrix.md',
+    'docs/auto-execute/scoremap-v143-mvp-api-db-contract-matrix.md',
+    'docs/auto-execute/scoremap-v143-mvp-ui-reference-map.md',
+    'docs/auto-execute/scoremap-v143-mvp-owner-scenario-matrix.md',
+    'docs/auto-execute/scoremap-v143-mvp-final-acceptance-gate.md',
+    'docs/auto-execute/scoremap-v143-mvp-total-task.md'
+  )
+
+  foreach ($doc in $requiredDocs) {
+    Require-File $doc
+  }
+
+  foreach ($taskId in @('V143-00','V143-01')) {
+    Test-Json "docs/auto-execute/results/$taskId.json"
+    Require-File "docs/auto-execute/latest/$taskId-HANDOFF.md"
+  }
+
+  Require-File 'docs/auto-execute/evidence/final-gate/v143-mvp/summary.json'
+  Test-Json 'docs/auto-execute/evidence/final-gate/v143-mvp/summary.json'
+
+  $scanFiles = @($requiredDocs) + @(
+    'docs/auto-execute/results/V143-00.json',
+    'docs/auto-execute/results/V143-01.json',
+    'docs/auto-execute/latest/V143-00-HANDOFF.md',
+    'docs/auto-execute/latest/V143-01-HANDOFF.md',
+    'docs/auto-execute/evidence/final-gate/v143-mvp/summary.json'
+  )
+  $mojibakePatterns = @([string]([char]0xFFFD), [string]([char]0x8100), [string]([char]0x8117))
+  foreach ($relative in $scanFiles) {
+    if (-not (Test-RelativeFile $relative)) {
+      continue
+    }
+    $text = Get-Content -LiteralPath (Join-Path $root $relative) -Raw -Encoding UTF8
+    foreach ($pattern in $mojibakePatterns) {
+      if ($text -match $pattern) {
+        Add-Failure "Mojibake marker '$pattern' found in $relative"
+      }
+    }
+    $fenceCount = ([regex]::Matches($text, '```|~~~')).Count
+    if (($fenceCount % 2) -ne 0) {
+      Add-Failure "Unbalanced Markdown fence in $relative"
+    }
+  }
+
+  $logPath = Join-Path $latestDir 'V143-01-integrity.log'
+  if ($failures.Count -gt 0) {
+    @('REPORT_INTEGRITY[v143-mvp]: FAIL') + @($failures | ForEach-Object { "- $_" }) |
+      Set-Content -LiteralPath $logPath -Encoding UTF8
+    Write-Host 'REPORT_INTEGRITY[v143-mvp]: FAIL'
+    $failures | ForEach-Object { Write-Host "- $_" }
+    exit 1
+  }
+
+  @(
+    'REPORT_INTEGRITY[v143-mvp]: PASS',
+    "Scope: $Scope",
+    "Checked docs: $($requiredDocs.Count)",
+    'Checked child artifacts: V143-00, V143-01',
+    'Checked final-gate bootstrap summary: docs/auto-execute/evidence/final-gate/v143-mvp/summary.json'
+  ) | Set-Content -LiteralPath $logPath -Encoding UTF8
+
+  Write-Host 'REPORT_INTEGRITY[v143-mvp]: PASS'
+  Write-Host 'Evidence: docs/auto-execute/latest/V143-01-integrity.log'
+  exit 0
 }
 
 if ($Scope -ne 'ai-tutor-v13') {
@@ -92,7 +163,7 @@ $scanFiles = @($requiredDocs) + @(
   'docs/auto-execute/results/T33.json',
   'docs/auto-execute/latest/T33-HANDOFF.md'
 )
-$mojibakePatterns = @([char]0xFFFD, 'Ã', 'Â')
+$mojibakePatterns = @([char]0xFFFD, '脙', '脗')
 foreach ($relative in $scanFiles) {
   if (-not (Test-RelativeFile $relative)) {
     continue

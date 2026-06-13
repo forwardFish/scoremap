@@ -1,4 +1,5 @@
 if (typeof Page === 'function') {
+  const { requireLogin } = require('../../utils/auth');
   const TAB_ROUTES = { '/pages/index/index': true, '/pages/my/index': true };
 
   function navigate(url) {
@@ -28,6 +29,7 @@ if (typeof Page === 'function') {
     },
     onShow() {
       if (typeof wx !== 'undefined' && wx.hideTabBar) wx.hideTabBar({ animation: false, fail() {} });
+      requireLogin({ redirectUrl: '/pages/reports/index' });
     },
     onTap(event) {
       const action = event.currentTarget.dataset.action;
@@ -37,6 +39,11 @@ if (typeof Page === 'function') {
         home: '/pages/index/index',
         my: '/pages/my/index'
       };
+      if (action === 'home' || action === 'my') {
+        if (routes[action]) navigate(routes[action]);
+        return;
+      }
+      if (!requireLogin({ redirectUrl: '/pages/reports/index' })) return;
       if (routes[action]) navigate(routes[action]);
     }
   });
@@ -48,6 +55,7 @@ if (typeof Page === 'function') {
   const REPORTS_ROUTE = '/pages/reports/index';
   const WRONG_QUESTION_ROUTE = '/pages/wrong-question/index';
   const AI_TUTOR_ROUTE = '/pages/ai-tutor/index';
+  const LOGIN_ROUTE = '/pages/login/login';
 
   function createReportsPageState(clientOrItems = createMiniappApiClient(), options = {}) {
     if (Array.isArray(clientOrItems)) {
@@ -55,7 +63,8 @@ if (typeof Page === 'function') {
     }
 
     const client = clientOrItems;
-    seedMyFixtureIfMissing(client);
+    const loggedIn = options.loggedIn !== false;
+    if (loggedIn) seedMyFixtureIfMissing(client);
     let response = null;
 
     const page = {
@@ -65,6 +74,10 @@ if (typeof Page === 'function') {
       },
       title: '我的报告',
       loadReports(filter = options.filter || 'all') {
+        if (!loggedIn) {
+          response = { status: 401, body: { items: [] } };
+          return loginRequiredResult(REPORTS_ROUTE);
+        }
         response = client.request('GET', '/api/my/reports', { source: 'reports-page-list', filter });
         return {
           status: response.status === 200 ? 'REPORTS_READY' : 'REPORTS_FAILED',
@@ -74,6 +87,7 @@ if (typeof Page === 'function') {
         };
       },
       openReportCard(orderId, optionsForOpen = {}) {
+        if (!loggedIn) return loginRequiredResult(REPORTS_ROUTE);
         if (!response) page.loadReports();
         const item = response.body.items.find((entry) => entry.orderId === orderId);
         const enriched = item ? enrichReportItem(client, item) : null;
@@ -128,11 +142,23 @@ if (typeof Page === 'function') {
         paymentStatus: item.paymentStatus || 'unpaid',
         accessLevel: item.accessLevel,
         targetRoute: resolveOrderRoute(item),
+        recoveryRoute: resolveOrderRoute(item),
+        recoveryMode: toRecoveryMode(item),
         actionText: toActionText(item),
         savedReport: Boolean(item.savedReport),
         aiTutor: item.aiTutor || null,
         resumeTargets: item.resumeTargets || []
       }))
+    };
+  }
+
+  function loginRequiredResult(redirectUrl) {
+    return {
+      status: 'LOGIN_REQUIRED',
+      loginRequired: true,
+      targetRoute: LOGIN_ROUTE,
+      redirectUrl,
+      toast: '请先完成微信登录后再继续'
     };
   }
 
@@ -161,6 +187,16 @@ if (typeof Page === 'function') {
     if (item.accessLevel === 'basic') return '查看初判结果';
     if (item.status === 'preview_done') return '查看初判预览';
     return '继续上传';
+  }
+
+  function toRecoveryMode(item) {
+    if (item.status === 'analyzing' || item.status === 'uploaded') return 'analysisProgress';
+    if (item.status === 'failed' || item.status === 'timeout') return 'failureRecovery';
+    if (item.status === 'need_more_material') return 'supplementMaterial';
+    if (item.status === 'preview_done' && item.accessLevel === 'preview') return 'previewDecision';
+    if (item.accessLevel === 'basic') return 'basicDecision';
+    if (item.accessLevel === 'full') return item.savedReport ? 'savedFullReport' : 'generateFullReport';
+    return 'newUpload';
   }
 
   function enrichReportItem(client, item) {

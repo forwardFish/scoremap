@@ -1,1 +1,159 @@
-﻿if (typeof Page === 'function') {  const { createReplicaPage } = require('../../utils/replica-runtime');  createReplicaPage({  "title": "确认 1 元初判",  "reference": "/assets/reference/basic-pay.jpg",  "derived": false,  "hotspots": [    {      "action": "pay",      "label": "立即支付 1 元",      "className": "bottom-cta"    }  ],  "actions": {    "pay": {      "url": "/pages/basic-result/index"    }  },  "cards": []});} else {const { createMiniappApiClient } = require('../../services/api-client');const { DEFAULT_PREVIEW } = require('../preview');const BASIC_PAY_ROUTE = '/pages/basic-pay/index';const PREVIEW_ROUTE = '/pages/preview/index';const BASIC_RESULT_ROUTE = '/pages/basic-result/index';function createBasicPayPageState(client = createMiniappApiClient(), options = {}) {  const orderId = options.orderId || 'order-t09-preview';  let toast = null;  seedPaymentFixtureIfMissing(client, orderId);  const page = {    route: BASIC_PAY_ROUTE,    orderId,    uiReference: {      png: 'ui-reference-catalog/小程序/1元支付.png',      stitch: 'ui-reference-catalog/小程序/stitch_codex_development_blueprints/1/screen-reference'    },    title: '确认 1 元初判',    subtitle: '仅需 1 元，AI 帮你初步分析孩子学习情况',    steps: [      { id: 'upload', text: '上传资料', status: 'done' },      { id: 'analysis', text: 'AI 分析', status: 'done' },      { id: 'confirm-pay', text: '确认支付', status: 'active' }    ],    controls: [      { id: 'confirm-basic-pay', text: '立即支付 1 元查看完整初判', api: 'POST /api/payments/create', run: () => page.confirmBasicPay() },      { id: 'back-preview', text: '返回上一步', run: () => page.backPreview() }    ],    getState() {      const previewDecision = client.store.read('diagnosis_decisions', `decision-${orderId}-preview`);      const preview = previewDecision && previewDecision.preview ? previewDecision.preview : DEFAULT_PREVIEW;      return {        route: BASIC_PAY_ROUTE,        orderId,        title: page.title,        subtitle: page.subtitle,        uiReference: page.uiReference,        steps: page.steps,        reportSummary: {          title: preview.reportTitle || DEFAULT_PREVIEW.reportTitle,          summary: preview.summary || DEFAULT_PREVIEW.summary,          statusText: '初步分析已生成'        },        contentPreview: (preview.visibleModules || DEFAULT_PREVIEW.visibleModules).slice(0, 3),        lockedArea: {          visible: true,          modules: preview.lockedModules || DEFAULT_PREVIEW.lockedModules,          copy: '支付后解锁完整初判，不是 9.9 元完整报告'        },        price: { amountYuan: 1, text: '1 元' },        toast,        controls: page.controls.map((control) => ({          id: control.id,          text: control.text,          api: control.api || null,          targetRoute: control.id === 'confirm-basic-pay' ? BASIC_RESULT_ROUTE : PREVIEW_ROUTE        }))      };    },    confirmBasicPay() {      const create = client.request('POST', '/api/payments/create', {        orderId,        paymentType: 'basic',        amountYuan: 1,        source: 'basic-pay-confirm'      });      const callback = client.request('POST', '/api/payments/wechat/callback', {        paymentId: create.body.paymentId,        status: 'paid',        mockTransactionId: `local-mock-basic-${orderId}`      });      const basicDecision = client.request('GET', `/api/diagnosis-orders/${orderId}/basic-decision`, {        source: 'basic-pay-success'      });      const order = client.store.read('diagnosis_orders', orderId);      const payment = client.store.read('payments', create.body.paymentId);      toast = '1 元完整初判已解锁';      return {        status: callback.body.status === 'paid' ? 'PAID' : 'PAYMENT_PENDING',        targetRoute: callback.body.status === 'paid' ? BASIC_RESULT_ROUTE : BASIC_PAY_ROUTE,        paymentId: create.body.paymentId,        paymentCreateStatus: create.status,        callbackStatus: callback.status,        basicDecisionStatus: basicDecision.status,        accessLevel: order.accessLevel,        paymentReadback: payment,        orderReadback: order,        toast      };    },    backPreview() {      return {        status: 'NAVIGATE',        targetRoute: PREVIEW_ROUTE,        query: { orderId }      };    }  };  return page;}function seedPaymentFixtureIfMissing(client, orderId) {  if (!client.store.read('diagnosis_orders', orderId)) {    client.store.upsert('diagnosis_orders', {      id: orderId,      ownerId: 'local-user-scoremap-t06',      status: 'preview_done',      accessLevel: 'preview',      source: 'T09-preview-basic-pay'    });  }  const decisionId = `decision-${orderId}-preview`;  if (!client.store.read('diagnosis_decisions', decisionId)) {    client.store.upsert('diagnosis_decisions', {      id: decisionId,      orderId,      ownerId: 'local-user-scoremap-t06',      level: 'preview',      preview: DEFAULT_PREVIEW    });  }}module.exports = { createBasicPayPageState };}
+if (typeof Page === 'function') {
+  const { createReplicaPage } = require('../../utils/replica-runtime');
+
+  createReplicaPage({
+    title: '确认 1 元初判',
+    derived: false,
+    hotspots: [
+      { action: 'pay', label: '立即支付 1 元', className: 'bottom-cta' }
+    ],
+    actions: {
+      pay: { url: '/pages/basic-result/index', paymentFlow: true, paymentType: 'basic' }
+    },
+    cards: []
+  });
+} else {
+  const { createMiniappApiClient } = require('../../services/api-client');
+  const { DEFAULT_PREVIEW } = require('../preview');
+
+  const BASIC_PAY_ROUTE = '/pages/basic-pay/index';
+  const PREVIEW_ROUTE = '/pages/preview/index';
+  const BASIC_RESULT_ROUTE = '/pages/basic-result/index';
+  const LOGIN_ROUTE = '/pages/login/login';
+
+  function createBasicPayPageState(client = createMiniappApiClient(), options = {}) {
+    const orderId = options.orderId || 'order-t09-preview';
+    let toast = null;
+    seedPaymentFixtureIfMissing(client, orderId);
+
+    const page = {
+      route: BASIC_PAY_ROUTE,
+      orderId,
+      uiReference: {
+        png: 'ui-reference-catalog/小程序/1元支付.png',
+        stitch: 'ui-reference-catalog/小程序/stitch_codex_development_blueprints/1/screen-reference'
+      },
+      title: '确认 1 元初判',
+      subtitle: '仅需 1 元，AI 帮你初步分析孩子学习情况',
+      steps: [
+        { id: 'upload', text: '上传资料', status: 'done' },
+        { id: 'analysis', text: 'AI 分析', status: 'done' },
+        { id: 'confirm-pay', text: '确认支付', status: 'active' }
+      ],
+      controls: [
+        { id: 'confirm-basic-pay', text: '立即支付 1 元查看完整初判', api: 'POST /api/payments/create', run: () => page.confirmBasicPay() },
+        { id: 'back-preview', text: '返回上一步', run: () => page.backPreview() }
+      ],
+      getState() {
+        const previewDecision = client.store.read('diagnosis_decisions', `decision-${orderId}-preview`);
+        const preview = previewDecision && previewDecision.preview ? previewDecision.preview : DEFAULT_PREVIEW;
+        return {
+          route: BASIC_PAY_ROUTE,
+          orderId,
+          title: page.title,
+          subtitle: page.subtitle,
+          uiReference: page.uiReference,
+          steps: page.steps,
+          reportSummary: {
+            title: preview.reportTitle || DEFAULT_PREVIEW.reportTitle,
+            summary: preview.summary || DEFAULT_PREVIEW.summary,
+            statusText: '初步分析已生成'
+          },
+          contentPreview: (preview.visibleModules || DEFAULT_PREVIEW.visibleModules).slice(0, 3),
+          lockedArea: {
+            visible: true,
+            modules: preview.lockedModules || DEFAULT_PREVIEW.lockedModules,
+            copy: '支付后解锁完整初判，不是 9.9 元完整报告'
+          },
+          price: { amountYuan: 1, text: '1 元' },
+          toast,
+          controls: page.controls.map((control) => ({
+            id: control.id,
+            text: control.text,
+            api: control.api || null,
+            targetRoute: control.id === 'confirm-basic-pay' ? BASIC_RESULT_ROUTE : PREVIEW_ROUTE
+          }))
+        };
+      },
+      confirmBasicPay() {
+        if (!isLoggedIn(options)) return loginRequiredResult(BASIC_PAY_ROUTE);
+        const create = client.request('POST', '/api/payments/create', {
+          orderId,
+          paymentType: 'basic',
+          amountYuan: 1,
+          source: 'basic-pay-confirm'
+        });
+        const callback = client.request('POST', '/api/payments/wechat/callback', {
+          paymentId: create.body.paymentId,
+          status: 'paid',
+          mockTransactionId: `local-mock-basic-${orderId}`
+        });
+        const basicDecision = client.request('GET', `/api/diagnosis-orders/${orderId}/basic-decision`, {
+          source: 'basic-pay-success'
+        });
+        const order = client.store.read('diagnosis_orders', orderId);
+        const payment = client.store.read('payments', create.body.paymentId);
+        toast = '1 元完整初判已解锁';
+        return {
+          status: callback.body.status === 'paid' ? 'PAID' : 'PAYMENT_PENDING',
+          targetRoute: callback.body.status === 'paid' ? BASIC_RESULT_ROUTE : BASIC_PAY_ROUTE,
+          paymentId: create.body.paymentId,
+          paymentCreateStatus: create.status,
+          callbackStatus: callback.status,
+          basicDecisionStatus: basicDecision.status,
+          accessLevel: order.accessLevel,
+          paymentReadback: payment,
+          orderReadback: order,
+          toast
+        };
+      },
+      backPreview() {
+        return {
+          status: 'NAVIGATE',
+          targetRoute: PREVIEW_ROUTE,
+          query: { orderId }
+        };
+      }
+    };
+
+    return page;
+  }
+
+  function isLoggedIn(options = {}) {
+    return options.loggedIn !== false;
+  }
+
+  function loginRequiredResult(redirectUrl) {
+    return {
+      status: 'LOGIN_REQUIRED',
+      loginRequired: true,
+      targetRoute: LOGIN_ROUTE,
+      redirectUrl,
+      toast: '请先完成微信登录后再继续'
+    };
+  }
+
+  function seedPaymentFixtureIfMissing(client, orderId) {
+    if (!client.store.read('diagnosis_orders', orderId)) {
+      client.store.upsert('diagnosis_orders', {
+        id: orderId,
+        ownerId: 'local-user-scoremap-t06',
+        status: 'preview_done',
+        accessLevel: 'preview',
+        source: 'T09-preview-basic-pay'
+      });
+    }
+    const decisionId = `decision-${orderId}-preview`;
+    if (!client.store.read('diagnosis_decisions', decisionId)) {
+      client.store.upsert('diagnosis_decisions', {
+        id: decisionId,
+        orderId,
+        ownerId: 'local-user-scoremap-t06',
+        level: 'preview',
+        preview: DEFAULT_PREVIEW
+      });
+    }
+  }
+
+  module.exports = { createBasicPayPageState };
+}

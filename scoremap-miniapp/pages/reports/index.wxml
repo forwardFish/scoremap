@@ -3,9 +3,9 @@
     <view class="header-spacer"></view>
     <text class="reports-title">{{title}}</text>
     <view class="header-capsule">
-      <text class="capsule-dot">•••</text>
+      <image class="capsule-dot" src="/assets/icons/message-bubble-purple.png" mode="aspectFit" />
       <view class="capsule-divider"></view>
-      <view class="capsule-target"></view>
+      <image class="capsule-target" src="/assets/icons/target-purple.png" mode="aspectFit" />
     </view>
   </view>
 
@@ -18,48 +18,48 @@
 
   <button class="report-card primary" data-action="full" bindtap="onTap">
     <view class="report-card-top">
-      <view class="report-icon purple"></view>
+      <image class="report-icon purple" src="/assets/icons/report-docs-blue.png" mode="aspectFit" />
       <view class="report-copy">
         <text class="report-title">五年级数学单元测验完整报告</text>
         <text class="report-meta">数学 · 单元测验 · 已保存</text>
       </view>
-      <text class="report-arrow">›</text>
+      <image class="report-arrow" src="/assets/icons/share-arrow-purple.png" mode="aspectFit" />
     </view>
     <view class="report-status-row">
-      <text class="status-pill success">完整报告已解锁</text>
+      <view class="status-pill success"><image class="status-icon" src="/assets/icons/success-check-green.png" mode="aspectFit" /><text>完整报告已解锁</text></view>
       <text class="quota-text">AI 追问剩余 8/10</text>
     </view>
   </button>
 
   <button class="report-card" data-action="analyzing" bindtap="onTap">
     <view class="report-card-top">
-      <view class="report-icon blue"></view>
+      <image class="report-icon blue" src="/assets/icons/sync-refresh-blue.png" mode="aspectFit" />
       <view class="report-copy">
         <text class="report-title">分析中的数学资料</text>
         <text class="report-meta">课后练习 · 进度 45%</text>
       </view>
-      <text class="report-arrow">›</text>
+      <image class="report-arrow" src="/assets/icons/share-arrow-purple.png" mode="aspectFit" />
     </view>
     <view class="progress-track"><view class="progress-fill"></view></view>
     <view class="report-status-row">
-      <text class="status-pill pending">分析中</text>
+      <view class="status-pill pending"><image class="status-icon" src="/assets/icons/history-clock.png" mode="aspectFit" /><text>分析中</text></view>
       <text class="quota-text">点击继续查看进度</text>
     </view>
   </button>
 
   <view class="report-card muted">
     <view class="report-card-top">
-      <view class="report-icon orange"></view>
+      <image class="report-icon orange" src="/assets/icons/document-list-purple.png" mode="aspectFit" />
       <view class="report-copy">
         <text class="report-title">基础报告记录</text>
         <text class="report-meta">已支付 1 元初判</text>
       </view>
     </view>
-    <text class="muted-note">基础报告保留历史记录，正式 AI 追问需解锁完整报告。</text>
+    <text class="muted-note">基础报告保留历史记录，正式 AI 追问需要解锁完整报告。</text>
   </view>
 
   <view class="reports-bottom-tabs">
-    <button class="bottom-tab" data-action="home" bindtap="onTap">首页</button>
-    <button class="bottom-tab active" data-action="my" bindtap="onTap">我的</button>
+    <button class="bottom-tab" data-action="home" bindtap="onTap"><image class="bottom-tab-icon" src="/assets/icons/home-purple.png" mode="aspectFit" /><text>首页</text></button>
+    <button class="bottom-tab active" data-action="my" bindtap="onTap"><image class="bottom-tab-icon" src="/assets/icons/user-avatar-gray.png" mode="aspectFit" /><text>我的</text></button>
   </view>
 </view>

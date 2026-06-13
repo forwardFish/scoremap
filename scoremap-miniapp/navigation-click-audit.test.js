@@ -37,6 +37,10 @@ function writeEvidence(name, payload) {
   fs.writeFileSync(path.join(evidenceDir, name), `${JSON.stringify(payload, null, 2)}\n`);
 }
 
+function routeOnly(url = '') {
+  return String(url || '').split('?')[0];
+}
+
 function clearPageRequireCache(pagePath) {
   const absolutePage = path.join(__dirname, `${pagePath}.js`);
   const absoluteRuntime = path.join(__dirname, 'utils', 'replica-runtime.js');
@@ -79,7 +83,7 @@ function loadRuntimePage(pagePath) {
   return { page: registeredPage, calls };
 }
 
-function invokeTap(page, action) {
+async function invokeTap(page, action) {
   const calls = [];
   global.wx = {
     hideTabBar(options = {}) {
@@ -96,6 +100,23 @@ function invokeTap(page, action) {
     },
     reLaunch(options = {}) {
       calls.push({ method: 'reLaunch', url: options.url });
+    },
+    login(options = {}) {
+      calls.push({ method: 'login' });
+      options.success && options.success({ code: 'navigation-audit-login-code' });
+    },
+    getStorageSync() {
+      return null;
+    },
+    setStorageSync() {},
+    showLoading(options = {}) {
+      calls.push({ method: 'showLoading', options });
+    },
+    hideLoading() {
+      calls.push({ method: 'hideLoading' });
+    },
+    showToast(options = {}) {
+      calls.push({ method: 'showToast', options });
     }
   };
 
@@ -108,13 +129,16 @@ function invokeTap(page, action) {
   };
 
   page.onLoad.call(context, {});
-  page.onTap.call(context, { currentTarget: { dataset: { action } } });
+  const result = page.onTap.call(context, { currentTarget: { dataset: { action } } });
+  if (result && typeof result.then === 'function') {
+    await result;
+  }
 
   delete global.wx;
-  return calls.filter((call) => call.method !== 'hideTabBar');
+  return calls.filter((call) => !['hideTabBar', 'login', 'showLoading', 'hideLoading', 'showToast'].includes(call.method));
 }
 
-test('all runtime page hotspots navigate to declared local miniapp routes', () => {
+test('all runtime page hotspots navigate to declared local miniapp routes', async () => {
   const matrix = [];
   const pageCoverage = [];
 
@@ -131,13 +155,14 @@ test('all runtime page hotspots navigate to declared local miniapp routes', () =
     for (const hotspot of hotspots) {
       assert.ok(hotspot.action, `${pagePath} hotspot must declare action`);
 
-      const tapCalls = invokeTap(page, hotspot.action);
+      const tapCalls = await invokeTap(page, hotspot.action);
       assert.equal(tapCalls.length, 1, `${pagePath}:${hotspot.action} must trigger exactly one navigation call`);
 
       const actual = tapCalls[0];
-      const expectedMethod = tabRoutes.has(actual.url) ? 'switchTab' : 'navigateTo';
+      const actualRoute = routeOnly(actual.url);
+      const expectedMethod = tabRoutes.has(actualRoute) ? 'switchTab' : 'navigateTo';
       assert.equal(actual.method, expectedMethod, `${pagePath}:${hotspot.action} should use ${expectedMethod} for ${actual.url}`);
-      assert.ok(appRoutes.has(actual.url), `${pagePath}:${hotspot.action} target route must exist in app.json: ${actual.url}`);
+      assert.ok(appRoutes.has(actualRoute), `${pagePath}:${hotspot.action} target route must exist in app.json: ${actual.url}`);
 
       matrix.push({
         page: `/${pagePath}`,
@@ -147,6 +172,7 @@ test('all runtime page hotspots navigate to declared local miniapp routes', () =
         expectedWxMethod: expectedMethod,
         actualWxMethod: actual.method,
         targetRoute: actual.url,
+        targetPage: actualRoute,
         status: 'PASS'
       });
     }
@@ -175,10 +201,13 @@ test('replica pages render as code surfaces instead of screenshot-only pages', (
   for (const pagePath of codeRenderedReplicaPages) {
     const { page } = loadRuntimePage(pagePath);
     const actualWxmlPath = path.join(__dirname, `${pagePath}.wxml`);
+    const actualJsPath = path.join(__dirname, `${pagePath}.js`);
+    const js = fs.readFileSync(actualJsPath, 'utf8');
     const wxml = fs.readFileSync(actualWxmlPath, 'utf8');
 
     assert.ok(Array.isArray(page.data.hotspots), `${pagePath} must keep runtime click hotspots`);
     assert.equal(page.data.reference, '', `${pagePath} must not mount a screenshot reference as page content`);
+    assert.doesNotMatch(js, /assets\/reference|renderReference\s*:\s*true/i, `${pagePath} must not carry screenshot reference assets in runtime JS`);
     assert.doesNotMatch(wxml, /<image\b[^>]*reference-image/, `${pagePath} must not render a screenshot-only image`);
     assert.doesNotMatch(wxml, forbiddenReplicaShellPattern, `${pagePath} must not use the generic replica shell`);
     assert.match(wxml, /bindtap="onTap"/, `${pagePath} must expose visible code-rendered actions`);
@@ -216,6 +245,7 @@ test('support pages are first-class code pages with no standalone pixel-referenc
 
     assert.equal(page.data.reference, '', `${pagePath} must not claim a standalone reference asset`);
     assert.doesNotMatch(js, /createReplicaPage/, `${pagePath} must not use the generic replica runtime scaffold`);
+    assert.doesNotMatch(js, /assets\/reference|renderReference\s*:\s*true/i, `${pagePath} must not carry screenshot reference assets in runtime JS`);
     assert.doesNotMatch(wxml, /reference-image|screenshot|pixel-perfect/i, `${pagePath} must not masquerade as a reference screen`);
     assert.match(wxml, /bindtap="onTap"/, `${pagePath} must keep visible route actions`);
 

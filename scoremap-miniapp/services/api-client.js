@@ -1,5 +1,3 @@
-const nodePath = require('node:path');
-const { writeLocalPdf } = require('../../server/src/report/local-pdf');
 const { createLocalFixtureStore } = require('./local-fixture-store');
 
 const LOCAL_OWNER_ID = 'local-user-scoremap-t06';
@@ -28,7 +26,13 @@ function createMiniappApiClient(options = {}) {
           ownerId: LOCAL_OWNER_ID,
           status: 'created',
           accessLevel: 'preview',
-          source: payload.source || 'T06-miniapp-shell'
+          source: payload.source || 'T06-miniapp-shell',
+          grade: payload.grade || null,
+          subject: payload.subject || null,
+          examType: payload.examType || null,
+          currentScore: payload.currentScore || null,
+          targetScore: payload.targetScore || null,
+          materialTypes: payload.materialTypes || []
         });
         return record(method, path, payload, 201, { status: 'created', orderId, orderToken: `local-order-token-${orderId}` });
       }
@@ -116,6 +120,15 @@ function createMiniappApiClient(options = {}) {
         });
       }
 
+      const saveReportPath = path.match(/^\/api\/reports\/([^/]+)\/save$/);
+      if (saveReportPath && method === 'POST') {
+        return handleOrderAction({ method, path, payload, orderId: saveReportPath[1], action: 'save-report', store, record });
+      }
+
+      if (method === 'POST' && path === '/api/feedbacks') {
+        return handleOrderAction({ method, path, payload, orderId: payload.orderId, action: 'feedback', store, record });
+      }
+
       return record(method, path, payload, 404, { status: 'error', code: 'NOT_FOUND' });
     }
   };
@@ -141,9 +154,9 @@ function handleQuestionAction({ method, path, payload, orderId, questionId, acti
     });
   }
 
-  if (method === 'POST' && action === 'interactions') {
-    const actionType = payload.actionType;
-    const allowedActions = new Set(['explain_step', 'why_method', 'another_explanation', 'similar_exercise', 'mark_understood']);
+  if (method === 'POST' && ['interactions', 'teach-child', 'similar-exercise'].includes(action)) {
+    const actionType = normalizeQuestionAction(action, payload.actionType);
+    const allowedActions = new Set(['explain_step', 'why_method', 'another_explanation', 'explain_differently', 'simpler_example', 'similar_exercise', 'similar_question', 'generate_similar_exercise', 'mark_understood', 'teach_child']);
     if (!allowedActions.has(actionType)) {
       return record(method, path, payload, 400, { status: 'error', code: 'INVALID_ACTION_TYPE' });
     }
@@ -161,23 +174,23 @@ function handleQuestionAction({ method, path, payload, orderId, questionId, acti
       questionId,
       ownerId: LOCAL_OWNER_ID,
       actionType,
-      promptId: actionType === 'similar_exercise' ? 'LLM-EXERCISE-06' : 'LLM-TUTOR-05',
+      promptId: isSimilarExerciseAction(actionType) ? 'LLM-EXERCISE-06' : 'LLM-TUTOR-05',
       status: 'success',
       summary: buildTutorSummary(actionType),
       response: buildTutorResponse(actionType),
-      exercise: actionType === 'similar_exercise' ? buildSimilarExercise(questionId) : null,
+      exercise: isSimilarExerciseAction(actionType) ? buildSimilarExercise(questionId) : null,
       traceId: `trace-${interactionId}`,
       createdAt: payload.createdAt || new Date(2026, 4, 25, 9, 0, store.list('question_interactions').length).toISOString()
     });
     store.upsert('ai_model_traces', {
       id: `trace-${interactionId}`,
       traceId: `trace-${interactionId}`,
-      promptId: actionType === 'similar_exercise' ? 'LLM-EXERCISE-06' : 'LLM-TUTOR-05',
+      promptId: isSimilarExerciseAction(actionType) ? 'LLM-EXERCISE-06' : 'LLM-TUTOR-05',
       adapter: 'local-miniapp-mock',
       status: 'success',
       localOnly: true,
       requestSummary: { orderId, questionId, actionType },
-      responseSummary: actionType === 'similar_exercise' ? { exerciseId: interaction.exercise.id } : { summary: interaction.summary }
+      responseSummary: isSimilarExerciseAction(actionType) ? { exerciseId: interaction.exercise.id } : { summary: interaction.summary }
     });
     store.upsert('diagnosis_questions', {
       ...question,
@@ -228,8 +241,10 @@ function handleQuestionAction({ method, path, payload, orderId, questionId, acti
       answerFeedback: feedback,
       answerPromptId: 'LLM-CHECK-07',
       answerTraceId: traceId,
-      summary: feedback.summary
+      summary: feedback.summary,
+      masteryStatus: correct ? 'initial_mastery' : 'needs_more_practice'
     });
+    updateQuestionAndReportMastery(store, orderId, questionId, updated.masteryStatus, updated);
     store.upsert('ai_model_traces', {
       id: traceId,
       traceId,
@@ -241,10 +256,24 @@ function handleQuestionAction({ method, path, payload, orderId, questionId, acti
       responseSummary: { correct, summary: feedback.summary }
     });
     return record(method, path, payload, 200, {
-      status: 'answered',
+      status: payload.checkMastery ? 'mastery_checked' : 'answered',
       interactionId: interaction.id,
       correctness: updated.correctness,
-      feedback
+      feedback,
+      masteryStatus: updated.masteryStatus
+    });
+  }
+
+  if (method === 'POST' && action === 'check-mastery') {
+    return handleQuestionAction({
+      method,
+      path,
+      payload: { ...payload, checkMastery: true },
+      orderId,
+      questionId,
+      action: 'exercise-answer',
+      store,
+      record
     });
   }
 
@@ -401,9 +430,8 @@ function handleOrderAction({ method, path, payload, orderId, action, store, reco
     const report = store.read('diagnosis_decisions', `decision-${orderId}-full`);
     const reportData = report && report.full ? report.full : createFullReportFixture(orderId);
     const relativePath = pathJoin('docs', 'auto-execute', 'evidence', 'frontend-page', 'pdf', `${orderId}-${exportId}.pdf`);
-    const filePath = nodePath.resolve(__dirname, '..', '..', relativePath);
-    const pdf = writeLocalPdf({
-      filePath,
+    const pdf = writeLocalPdfExport({
+      relativePath,
       title: reportData.reportTitle,
       lines: [
         reportData.summary,
@@ -498,6 +526,25 @@ function pathJoin(...parts) {
   return parts.join('/');
 }
 
+function writeLocalPdfExport({ relativePath, title, lines }) {
+  if (typeof wx !== 'undefined') {
+    return {
+      filePath: relativePath,
+      byteLength: 0,
+      format: 'application/pdf',
+      deferred: true
+    };
+  }
+
+  const nodePath = require('node:path');
+  const { writeLocalPdf } = require('../../server/src/report/local-pdf');
+  return writeLocalPdf({
+    filePath: nodePath.resolve(__dirname, '..', '..', relativePath),
+    title,
+    lines
+  });
+}
+
 function upsertBasicDecision(store, orderId) {
   const decisionId = `decision-${orderId}-basic`;
   if (!store.read('diagnosis_decisions', decisionId)) {
@@ -527,11 +574,12 @@ function summarize(payload) {
 function buildAnalysisSteps(task) {
   const progress = task ? task.progress : 0;
   const failed = task && (task.status === 'preview_failed' || task.status === 'failed');
+  const done = task && ['preview_done', 'review_done', 'full_done', 'full_report_ready'].includes(task.status);
   return [
     { id: 'read-material', text: 'uploaded material recognized', status: progress >= 10 && !failed ? 'done' : 'pending' },
     { id: 'match-subject', text: 'grade and subject matched', status: progress >= 35 && !failed ? 'done' : 'pending' },
-    { id: 'locate-loss-points', text: 'locating score-loss points', status: progress >= 70 && !failed ? 'active' : progress >= 35 && !failed ? 'active' : 'pending' },
-    { id: 'generate-preview', text: 'generating preview advice', status: progress >= 100 && !failed ? 'done' : failed ? 'failed' : 'pending' }
+    { id: 'locate-loss-points', text: 'locating score-loss points', status: done || (progress >= 70 && !failed) ? 'done' : progress >= 35 && !failed ? 'active' : 'pending' },
+    { id: 'generate-preview', text: done ? 'analysis result ready' : 'generating preview advice', status: done ? 'done' : failed ? 'failed' : 'pending' }
   ];
 }
 
@@ -595,6 +643,48 @@ function buildSimilarExercise(questionId) {
     options: ['24 千米', '36 千米', '132 千米', '216 千米'],
     correctOption: '36 \u5343\u7c73'
   };
+}
+
+function normalizeQuestionAction(pathAction, actionType) {
+  if (pathAction === 'teach-child') return actionType || 'teach_child';
+  if (pathAction === 'similar-exercise') return 'similar_exercise';
+  return actionType;
+}
+
+function isSimilarExerciseAction(actionType) {
+  return ['similar_exercise', 'similar_question', 'generate_similar_exercise'].includes(actionType);
+}
+
+function updateQuestionAndReportMastery(store, orderId, questionId, masteryStatus, interaction) {
+  const question = store.read('diagnosis_questions', questionId);
+  if (question) {
+    store.upsert('diagnosis_questions', {
+      ...question,
+      masteryStatus,
+      latestInteractionId: interaction.id,
+      latestInteractionSummary: interaction.summary
+    });
+  }
+
+  const decision = store.read('diagnosis_decisions', `decision-${orderId}-full`);
+  if (!decision || !decision.full || !Array.isArray(decision.full.wrongQuestionCards)) return;
+  const wrongQuestionCards = decision.full.wrongQuestionCards.map((card) => {
+    if (card.questionId !== questionId && card.id !== questionId) return card;
+    return {
+      ...card,
+      masteryStatus,
+      latestHistory: interaction.summary,
+      latestInteractionId: interaction.id,
+      interactionCount: (Number(card.interactionCount) || 0) + 1
+    };
+  });
+  store.upsert('diagnosis_decisions', {
+    ...decision,
+    full: {
+      ...decision.full,
+      wrongQuestionCards
+    }
+  });
 }
 
 module.exports = { LOCAL_OWNER_ID, createMiniappApiClient };

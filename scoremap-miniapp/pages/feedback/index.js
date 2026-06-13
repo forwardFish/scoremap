@@ -1,4 +1,6 @@
 if (typeof Page === 'function') {
+  const { requireLogin } = require('../../utils/auth');
+
   function navigate(url) {
     if (typeof wx === 'undefined') return;
     wx.switchTab({ url, fail: () => wx.reLaunch({ url }) });
@@ -8,11 +10,11 @@ if (typeof Page === 'function') {
     data: {
       reference: '',
       derived: true,
-      title: '帮助与反馈',
+      title: 'Help and feedback',
       selectedRating: 'helpful',
-      selectedTags: ['判断清晰', '知道下一步'],
+      selectedTags: ['Clear decision', 'Next step is clear'],
       hotspots: [
-        { action: 'my', label: '提交并返回', className: 'bottom-cta' }
+        { action: 'my', label: 'Submit and return', className: 'bottom-cta' }
       ]
     },
     onLoad(query) {
@@ -24,7 +26,8 @@ if (typeof Page === 'function') {
     },
     onTap(event) {
       if (event.currentTarget.dataset.action !== 'my') return;
-      if (typeof wx !== 'undefined' && wx.showToast) wx.showToast({ title: '反馈已记录', icon: 'none' });
+      if (!requireLogin({ redirectUrl: '/pages/feedback/index' })) return;
+      if (typeof wx !== 'undefined' && wx.showToast) wx.showToast({ title: 'Feedback saved', icon: 'none' });
       navigate('/pages/my/index');
     }
   });
@@ -34,38 +37,41 @@ const { seedMyFixtureIfMissing } = require('../my');
 
 const FEEDBACK_ROUTE = '/pages/feedback/index';
 const MY_ROUTE = '/pages/my/index';
+const LOGIN_ROUTE = '/pages/login/login';
 
 function createFeedbackPageState(client = createMiniappApiClient(), options = {}) {
-  seedMyFixtureIfMissing(client);
+  const loggedIn = options.loggedIn !== false;
+  if (loggedIn) seedMyFixtureIfMissing(client);
   const orderId = options.orderId || 'order-t12-full';
   let lastSubmit = null;
 
   const page = {
     route: FEEDBACK_ROUTE,
-    title: '帮助与反馈',
+    title: 'Help and feedback',
     orderId,
     form: {
       ratingOptions: ['very_helpful', 'helpful', 'unclear', 'inaccurate'],
-      tagOptions: ['判断清楚', '知道下一步怎么做', '不准确', '看不懂'],
-      defaultTags: ['判断清楚', '知道下一步怎么做']
+      tagOptions: ['Clear decision', 'Next step is clear', 'Inaccurate', 'Hard to understand'],
+      defaultTags: ['Clear decision', 'Next step is clear']
     },
     submitFeedback(input = {}) {
+      if (!loggedIn) return loginRequiredResult(FEEDBACK_ROUTE);
       const payload = {
         feedbackId: input.feedbackId || 'feedback-t12-my',
         decisionLevel: input.decisionLevel || 'full',
         rating: input.rating || 'very_helpful',
         tags: input.tags || page.form.defaultTags,
-        text: input.text || '本地 T12 反馈：知道下一步怎么做。',
+        text: input.text || 'Local T12 feedback: the next practice step is clear.',
         source: 'T12-feedback-page'
       };
-      const response = client.request('POST', `/api/diagnosis-orders/${orderId}/feedback`, payload);
+      const response = client.request('POST', '/api/feedbacks', { ...payload, orderId });
       lastSubmit = {
         status: response.status === 201 ? 'FEEDBACK_SUBMITTED' : 'FEEDBACK_FAILED',
         apiStatus: response.status,
         targetRoute: response.status === 201 ? MY_ROUTE : FEEDBACK_ROUTE,
         response: response.body,
         dbReadback: client.store.read('feedbacks', payload.feedbackId),
-        toast: response.status === 201 ? '反馈已记录' : '反馈提交失败'
+        toast: response.status === 201 ? 'Feedback saved' : 'Feedback submit failed'
       };
       return lastSubmit;
     },
@@ -83,7 +89,7 @@ function createFeedbackPageState(client = createMiniappApiClient(), options = {}
         form: page.form,
         controls: [
           { id: 'return-my', text: 'My', targetRoute: MY_ROUTE },
-          { id: 'submit-feedback', text: '提交反馈', api: `POST /api/diagnosis-orders/${orderId}/feedback` }
+          { id: 'submit-feedback', text: 'Submit feedback', api: 'POST /api/feedbacks' }
         ],
         lastSubmit
       };
@@ -91,6 +97,16 @@ function createFeedbackPageState(client = createMiniappApiClient(), options = {}
   };
 
   return page;
+}
+
+function loginRequiredResult(redirectUrl) {
+  return {
+    status: 'LOGIN_REQUIRED',
+    loginRequired: true,
+    targetRoute: LOGIN_ROUTE,
+    redirectUrl,
+    toast: '请先完成微信登录后再继续'
+  };
 }
 
 module.exports = { FEEDBACK_ROUTE, MY_ROUTE, createFeedbackPageState };

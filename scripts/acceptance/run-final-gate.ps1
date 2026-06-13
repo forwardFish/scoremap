@@ -86,18 +86,259 @@ function Add-Category {
 
 function Test-MojibakeClean {
   param([string[]]$RelativePaths)
-  $patterns = @([string]([char]0xFFFD), 'Ã', 'Â')
-  $findings = New-Object System.Collections.Generic.List[object]
-  foreach ($relative in $RelativePaths) {
-    if (-not (Test-RelativeFile $relative)) { continue }
-    $text = Get-Content -LiteralPath (Join-Path $script:root $relative) -Raw -Encoding UTF8
-    foreach ($pattern in $patterns) {
-      if ($text -match [regex]::Escape($pattern)) {
-        $findings.Add([ordered]@{ path = $relative; pattern = $pattern }) | Out-Null
+  $guard = Join-Path $script:root 'tools/mojibake-guard.js'
+  if (-not (Test-Path -LiteralPath $guard -PathType Leaf)) {
+    Add-Failure 'Missing mojibake guard: tools/mojibake-guard.js'
+    return @([ordered]@{ path = 'tools/mojibake-guard.js'; pattern = 'missing-guard' })
+  }
+  $output = & node $guard --json @RelativePaths 2>&1
+  $exitCode = $LASTEXITCODE
+  try {
+    $payload = ($output | Out-String) | ConvertFrom-Json
+  } catch {
+    Add-Failure "Mojibake guard returned invalid JSON: $($_.Exception.Message)"
+    return @([ordered]@{ path = 'tools/mojibake-guard.js'; pattern = 'invalid-json'; output = ($output | Out-String) })
+  }
+  if ($exitCode -notin @(0, 2)) {
+    Add-Failure "Mojibake guard failed to run with exit code $exitCode"
+  }
+  return @($payload.findings)
+}
+
+if ($Scope -eq 'v143-mvp') {
+  $v143EvidenceDir = Join-Path $evidenceDir 'v143-mvp'
+  New-Item -ItemType Directory -Force -Path $v143EvidenceDir | Out-Null
+
+  $allowedStatuses = @(
+    'PASS',
+    'PASS_WITH_LIMITATION',
+    'PASS_NEEDS_MANUAL_UI_REVIEW',
+    'REPAIR_REQUIRED',
+    'BLOCKED_BY_ENVIRONMENT',
+    'BLOCKED_BY_MISSING_SOURCE',
+    'HARD_FAIL',
+    'FAIL'
+  )
+
+  function Get-RegexValues {
+    param([string]$RelativePath, [string]$Pattern)
+    if (-not (Test-RelativeFile $RelativePath)) { return @() }
+    $text = Get-Content -LiteralPath (Join-Path $script:root $RelativePath) -Raw -Encoding UTF8
+    return @([regex]::Matches($text, $Pattern) | ForEach-Object { $_.Groups[1].Value } | Select-Object -Unique)
+  }
+
+  function Get-Hash {
+    param([string]$RelativePath)
+    if (-not (Test-RelativeFile $RelativePath)) { return $null }
+    return (Get-FileHash -LiteralPath (Join-Path $script:root $RelativePath) -Algorithm SHA256).Hash
+  }
+
+  function Get-JsonPropertyValue {
+    param($Object, [string]$Name)
+    if ($null -eq $Object) { return $null }
+    if ($Object.PSObject.Properties.Name -contains $Name) { return $Object.$Name }
+    return $null
+  }
+
+  $requiredDocs = @(
+    'AGENTS.md',
+    'docs/auto-execute/scoremap-v143-wechat-final-repair-development-standard.md',
+    'docs/auto-execute/scoremap-v143-wechat-final-repair-software-test-standard.md',
+    'docs/auto-execute/scoremap-v143-wechat-final-repair-requirement-traceability-matrix.md',
+    'docs/auto-execute/scoremap-v143-wechat-final-repair-api-db-contract-matrix.md',
+    'docs/auto-execute/scoremap-v143-wechat-final-repair-ui-reference-map.md',
+    'docs/auto-execute/scoremap-v143-wechat-final-repair-owner-scenario-matrix.md',
+    'docs/auto-execute/scoremap-v143-wechat-final-repair-execution-assurance-gate.md',
+    'docs/auto-execute/scoremap-v143-wechat-final-repair-final-acceptance-gate.md',
+    'docs/auto-execute/scoremap-v143-wechat-final-repair-tasks/T00-omx-auto-execute-orchestrator.md'
+  )
+
+  $requiredDocRows = New-Object System.Collections.Generic.List[object]
+  foreach ($doc in $requiredDocs) {
+    $exists = Test-RelativeFile $doc
+    if (-not $exists) { Add-Failure "Missing V143 source-of-truth doc: $doc" }
+    $requiredDocRows.Add([ordered]@{
+      path = $doc
+      exists = $exists
+      sha256 = Get-Hash $doc
+    }) | Out-Null
+  }
+
+  $requirements = Get-RegexValues 'docs/auto-execute/scoremap-v143-wechat-final-repair-requirement-traceability-matrix.md' '(REQ143-\d{3})'
+  $apiRows = Get-RegexValues 'docs/auto-execute/scoremap-v143-wechat-final-repair-api-db-contract-matrix.md' '(API143-\d{3})'
+  $uiRows = Get-RegexValues 'docs/auto-execute/scoremap-v143-wechat-final-repair-ui-reference-map.md' '(UI143-[A-Z0-9-]+)'
+  $ownerRows = Get-RegexValues 'docs/auto-execute/scoremap-v143-wechat-final-repair-owner-scenario-matrix.md' '(O143-\d{2})'
+
+  if ($requirements.Count -ne 11) { Add-Failure "Expected 11 V143 final-repair requirement rows, found $($requirements.Count)." }
+  if ($apiRows.Count -ne 18) { Add-Failure "Expected 18 V143 API rows, found $($apiRows.Count)." }
+  if ($uiRows.Count -ne 14) { Add-Failure "Expected 14 V143 final-repair UI rows, found $($uiRows.Count)." }
+  if ($ownerRows.Count -ne 13) { Add-Failure "Expected 13 V143 final-repair owner scenarios, found $($ownerRows.Count)." }
+
+  $taskRows = New-Object System.Collections.Generic.List[object]
+  for ($i = 1; $i -le 14; $i++) {
+    $taskId = 'V143-R{0:00}' -f $i
+    $resultRel = "docs/auto-execute/results/$taskId.json"
+    $handoffRel = "docs/auto-execute/latest/$taskId-HANDOFF.md"
+    $result = Read-Json $resultRel
+    $status = Get-Status $result
+    $resultExists = Test-RelativeFile $resultRel
+    $handoffExists = Test-RelativeFile $handoffRel
+    if (-not $handoffExists) { Add-Failure "Missing V143 handoff: $handoffRel" }
+    if (-not $resultExists) {
+      Add-Failure "Missing V143 result: $resultRel"
+    } elseif ($allowedStatuses -notcontains $status) {
+      Add-Failure "$taskId has unsupported status $status"
+    } elseif ($status -in @('REPAIR_REQUIRED','HARD_FAIL','FAIL','BLOCKED_BY_ENVIRONMENT','BLOCKED_BY_MISSING_SOURCE')) {
+      Add-Failure "$taskId has blocking status $status"
+    } elseif ($i -lt 14 -and $status -in @('PASS_WITH_LIMITATION','PASS_NEEDS_MANUAL_UI_REVIEW')) {
+      Add-Limitation "$taskId primary surface status is $status"
+    } elseif ($i -eq 14 -and $status -in @('PASS_WITH_LIMITATION','PASS_NEEDS_MANUAL_UI_REVIEW')) {
+      Add-Limitation "$taskId final aggregation status is $status"
+    }
+    $evidencePaths = @()
+    $maybeEvidence = Get-JsonPropertyValue $result 'evidencePaths'
+    if ($null -ne $maybeEvidence) { $evidencePaths = @($maybeEvidence) }
+    $runtimeEvidencePaths = @()
+    $maybeRuntimeEvidence = Get-JsonPropertyValue $result 'runtimeEvidencePaths'
+    if ($null -ne $maybeRuntimeEvidence) { $runtimeEvidencePaths = @($maybeRuntimeEvidence) }
+    $visualEvidencePaths = @()
+    $maybeVisualEvidence = Get-JsonPropertyValue $result 'visualEvidencePaths'
+    if ($null -ne $maybeVisualEvidence) { $visualEvidencePaths = @($maybeVisualEvidence) }
+    $taskRows.Add([ordered]@{
+      taskId = $taskId
+      result = $resultRel
+      resultExists = $resultExists
+      handoff = $handoffRel
+      handoffExists = $handoffExists
+      status = $status
+      evidencePathCount = $evidencePaths.Count
+      visualEvidencePathCount = $visualEvidencePaths.Count
+      runtimeEvidencePathCount = $runtimeEvidencePaths.Count
+    }) | Out-Null
+  }
+
+  $legacyRows = New-Object System.Collections.Generic.List[object]
+  for ($i = 0; $i -le 19; $i++) {
+    $legacyTaskId = 'V143-{0:00}' -f $i
+    $legacyResultRel = "docs/auto-execute/results/$legacyTaskId.json"
+    $legacyResult = $null
+    $legacyStatus = 'MISSING'
+    $legacyParseError = $null
+    if (Test-RelativeFile $legacyResultRel) {
+      try {
+        $legacyResult = Get-Content -LiteralPath (Join-Path $script:root $legacyResultRel) -Raw -Encoding UTF8 | ConvertFrom-Json
+        $legacyStatus = Get-Status $legacyResult
+      } catch {
+        $legacyStatus = 'INVALID_JSON'
+        $legacyParseError = $_.Exception.Message
       }
     }
+    $legacyRows.Add([ordered]@{
+      taskId = $legacyTaskId
+      result = $legacyResultRel
+      resultExists = Test-RelativeFile $legacyResultRel
+      status = $legacyStatus
+      parseError = $legacyParseError
+      usedForVerdict = $false
+      reason = 'Historical legacy queue result; v143 final repair gate uses V143-R01..V143-R14 only.'
+    }) | Out-Null
   }
-  return $findings.ToArray()
+
+  $safetyRows = New-Object System.Collections.Generic.List[object]
+  foreach ($safetyRel in @('docs/auto-execute/evidence/safety/local-only.json','docs/auto-execute/evidence/safety/secret-guard.json')) {
+    $safety = Read-Json $safetyRel
+    $status = Get-Status $safety
+    if ($status -ne 'PASS') { Add-Failure "Safety guard is not PASS: $safetyRel => $status" }
+    $safetyRows.Add([ordered]@{ path = $safetyRel; exists = Test-RelativeFile $safetyRel; status = $status }) | Out-Null
+  }
+
+  $mojibakeScanPaths = @(
+    'scoremap-miniapp/app.json',
+    'scoremap-miniapp/routes.js',
+    'scoremap-miniapp/pages'
+  )
+  $mojibakeFindings = @(Test-MojibakeClean $mojibakeScanPaths)
+  if ($mojibakeFindings.Count -gt 0) {
+    Add-Failure "V143 miniapp visible copy contains mojibake markers: $($mojibakeFindings.Count)"
+  }
+
+  $visualSummaryRel = 'docs/auto-execute/evidence/screenshot-pixel/harness/summary.json'
+  $visualSummary = Read-Json $visualSummaryRel
+  $visualStatus = Get-Status $visualSummary
+  if ($visualStatus -in @('REPAIR_REQUIRED','BLOCKED_BY_ENVIRONMENT','BLOCKED_BY_MISSING_SOURCE')) {
+    Add-Limitation "Visual pixel evidence is $visualStatus; pure PASS is not allowed without unblocked raster evidence."
+  } elseif ($visualStatus -in @('PASS_WITH_LIMITATION','PASS_NEEDS_REFERENCE','PASS_NEEDS_MANUAL_UI_REVIEW')) {
+    Add-Limitation "Visual pixel evidence is $visualStatus."
+  } elseif ($visualStatus -ne 'PASS') {
+    Add-Failure "Visual pixel evidence has unsupported status $visualStatus"
+  }
+
+  $r13 = Read-Json 'docs/auto-execute/results/V143-R13.json'
+  $r13Status = Get-Status $r13
+  $r13Runtime = Get-JsonPropertyValue $r13 'devtoolsRuntime'
+  $r13CorrectedOpen = Get-JsonPropertyValue $r13Runtime 'correctedOpenSmoke'
+  $r13CorrectedOpenStatus = Get-Status $r13CorrectedOpen
+  if ($r13CorrectedOpenStatus -ne 'PASS' -and $r13CorrectedOpenStatus -ne 'PASS_WITH_LIMITATION') {
+    Add-Limitation "WeChat DevTools corrected project-open smoke is not fully proven: $r13CorrectedOpenStatus"
+  }
+  if ($r13Status -ne 'PASS') {
+    Add-Limitation "WeChat runtime smoke status is $r13Status; full preview/login simulator journey is not claimed."
+  }
+
+  $finalStatus = 'PASS'
+  if ($failures.Count -gt 0) {
+    $hardFailure = @($failures | Where-Object { $_ -like '*HARD_FAIL*' -or $_ -like '*Safety guard*' }).Count -gt 0
+    $finalStatus = if ($hardFailure) { 'HARD_FAIL' } else { 'REPAIR_REQUIRED' }
+  } elseif (@($limitations | Where-Object { $_ -like '*PASS_NEEDS_MANUAL_UI_REVIEW*' }).Count -gt 0) {
+    $finalStatus = 'PASS_NEEDS_MANUAL_UI_REVIEW'
+  } elseif ($limitations.Count -gt 0) {
+    $finalStatus = 'PASS_WITH_LIMITATION'
+  }
+
+  $summary = [ordered]@{
+    scope = 'v143-mvp'
+    status = $finalStatus
+    generatedAt = (Get-Date).ToUniversalTime().ToString('o')
+    finalVerdictSource = 'scripts/acceptance/run-final-gate.ps1 -Scope v143-mvp'
+    localOnly = $true
+    externalServicesCalled = $false
+    traceability = [ordered]@{
+      requirementCount = $requirements.Count
+      requirementIds = $requirements
+      apiCount = $apiRows.Count
+      apiIds = $apiRows
+      uiCount = $uiRows.Count
+      uiIds = $uiRows
+      ownerScenarioCount = $ownerRows.Count
+      ownerScenarioIds = $ownerRows
+    }
+    requiredDocs = $requiredDocRows.ToArray()
+    freshRepairTaskResults = $taskRows.ToArray()
+    taskResults = $taskRows.ToArray()
+    legacyTaskResultsIgnored = $legacyRows.ToArray()
+    safety = $safetyRows.ToArray()
+    visualPixel = [ordered]@{
+      path = $visualSummaryRel
+      status = $visualStatus
+    }
+    wechatRuntime = [ordered]@{
+      result = 'docs/auto-execute/results/V143-R13.json'
+      status = $r13Status
+      correctedProjectOpenStatus = $r13CorrectedOpenStatus
+    }
+    mojibakeFindings = $mojibakeFindings
+    failures = @($failures)
+    limitations = @($limitations)
+  }
+  $summary | ConvertTo-Json -Depth 20 | Set-Content -LiteralPath (Join-Path $v143EvidenceDir 'summary.json') -Encoding UTF8
+
+  Write-Host "FINAL_GATE[$Scope]: $finalStatus"
+  Write-Host 'Summary: docs/auto-execute/evidence/final-gate/v143-mvp/summary.json'
+
+  if ($finalStatus -eq 'PASS') { exit 0 }
+  if ($finalStatus -in @('PASS_WITH_LIMITATION','PASS_NEEDS_MANUAL_UI_REVIEW')) { exit 3 }
+  if ($finalStatus -eq 'REPAIR_REQUIRED') { exit 2 }
+  exit 1
 }
 
 if ($Scope -eq 'ui-one-to-one') {

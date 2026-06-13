@@ -6,12 +6,14 @@ const { test } = require('node:test');
 const { DEFAULT_FORBIDDEN_PATTERNS, assertLocalOnlyEnvironment, scanTextForForbiddenRemoteCalls } = require('../../shared/local-only');
 const { writeJsonEvidence } = require('../../shared/evidence-paths');
 const { createLocalAdapters } = require('../src/adapters');
-const { createLocalAiAdapter, PROMPT_IDS, assertPromptRegistryComplete, containsSecretLikeText } = require('../src/ai');
+const { createLocalAiAdapter, LocalAiTraceStore, PROMPT_IDS, assertPromptRegistryComplete, containsSecretLikeText } = require('../src/ai');
+const { LOCAL_SCHEMA_CONTRACT, TABLES } = require('../src/db/local-json-db');
 const { DiagnosisOrdersService } = require('../src/services/diagnosis-orders-service');
 const { ReportsService } = require('../src/services/reports-service');
+const { QuestionInteractionsService } = require('../src/services/question-interactions-service');
 
 const projectRoot = path.resolve(__dirname, '..', '..');
-const command = 'npm --prefix server test -- ai-adapter prompt-registry';
+const command = 'npm --prefix server test -- ai-adapter';
 
 function writeEvidence(name, payload) {
   writeJsonEvidence(projectRoot, path.join('api-db-llm', name), payload);
@@ -161,6 +163,91 @@ test('T20 local-only guard finds no provider endpoint strings or secret-bearing 
     secretFindings: [],
     traceSecretSafe: true,
     traces
+  });
+});
+
+test('V143-02 local schema and AI report contracts cover full report, repair state, quotas, and teacher intervention', () => {
+  const { db, cloud } = makeAdapters();
+  const ai = createLocalAiAdapter({ traceStore: new LocalAiTraceStore({ db }) });
+  const diagnosis = new DiagnosisOrdersService({ db, cloud, ai });
+  const reports = new ReportsService({ db, ai });
+  const questions = new QuestionInteractionsService({ db, ai });
+
+  assert.deepEqual(Object.keys(LOCAL_SCHEMA_CONTRACT).sort(), [...TABLES].sort());
+  assert.deepEqual(LOCAL_SCHEMA_CONTRACT.diagnosis_decisions.includes('full'), true);
+  assert.deepEqual(LOCAL_SCHEMA_CONTRACT.diagnosis_questions.includes('masteryStatus'), true);
+  assert.deepEqual(LOCAL_SCHEMA_CONTRACT.question_interactions.includes('actionType'), true);
+  assert.deepEqual(LOCAL_SCHEMA_CONTRACT.question_interactions.includes('answerFeedback'), true);
+
+  const created = diagnosis.createOrder({
+    orderId: 'order-v143-02',
+    source: 'V143-02-local-schema-contract',
+    grade: 'grade-5',
+    subject: 'math',
+    examType: 'unit-test',
+    materialType: 'answer-sheet'
+  });
+  const auth = { orderToken: created.body.orderToken };
+  diagnosis.uploadFiles('order-v143-02', {
+    authorizationAccepted: true,
+    files: [{ id: 'upload-v143-02', content: 'local mock upload bytes' }]
+  }, auth);
+  diagnosis.startPreviewAnalysis('order-v143-02', {}, auth);
+  db.update('diagnosis_orders', 'order-v143-02', { accessLevel: 'full' });
+
+  const full = reports.generateFullReport('order-v143-02', { taskId: 'task-full-v143-02' }, auth);
+  assert.equal(full.statusCode, 200);
+  const card = full.body.wrongQuestionCards[0];
+  assert.ok(card);
+  assert.equal(card.quota.total, 3);
+  assert.equal(full.body.quota.report.total, 10);
+
+  const tutor = questions.createInteraction('order-v143-02', card.id, {
+    interactionId: 'interaction-v143-02-teacher',
+    actionType: 'teach_child'
+  }, auth);
+  const exercise = questions.createInteraction('order-v143-02', card.id, {
+    interactionId: 'interaction-v143-02-repair-exercise',
+    actionType: 'generate_similar_exercise'
+  }, auth);
+  const answer = questions.submitExerciseAnswer('order-v143-02', card.id, exercise.body.interactionId, {
+    submittedAnswer: 'B'
+  }, auth);
+
+  assert.equal(tutor.statusCode, 201);
+  assert.equal(exercise.statusCode, 201);
+  assert.equal(answer.statusCode, 200);
+  assert.equal(tutor.body.response.mode, 'fixed-follow-up');
+  assert.equal(answer.body.correctness, true);
+
+  const orderReadback = db.assertReadback('diagnosis_orders', 'order-v143-02', { questionInteractionQuotaUsed: 2 });
+  const questionReadback = db.assertReadback('diagnosis_questions', card.id, { masteryStatus: 'initial_mastery' });
+  const tutorReadback = db.assertReadback('question_interactions', 'interaction-v143-02-teacher', { actionType: 'teach_child' });
+  const exerciseReadback = db.assertReadback('question_interactions', 'interaction-v143-02-repair-exercise', { submittedAnswer: 'B' });
+  const fullDecision = db.assertReadback('diagnosis_decisions', 'decision-order-v143-02-full', { level: 'full' });
+  const traces = db.all('ai_model_traces');
+
+  writeEvidence('V143-02-local-schema-ai-report-contract.json', {
+    status: 'PASS',
+    command,
+    taskId: 'V143-02',
+    requirementIds: ['REQ143-002'],
+    apiContractBasis: ['API143-010', 'API143-011', 'API143-012', 'API143-013', 'API143-014', 'API143-015'],
+    schemaContract: LOCAL_SCHEMA_CONTRACT,
+    readback: {
+      order: orderReadback,
+      fullDecision,
+      question: questionReadback,
+      teacherIntervention: tutorReadback,
+      repairExercise: exerciseReadback,
+      traces
+    },
+    assertions: [
+      'Full report decision persists wrong-question card summaries and report quota.',
+      'Diagnosis question cards persist masteryStatus after answer feedback and per-question quota state.',
+      'Teacher intervention uses fixed teach_child action through the local AI adapter.',
+      'Repair exercise answer persists answer feedback without remote provider calls.'
+    ]
   });
 });
 

@@ -8,6 +8,7 @@ const allTests = [
   { tags: ['adapters', 'local-db', 'payment'], file: 'adapters.test.js' },
   { tags: ['orders', 'uploads', 'preview'], file: 'diagnosis-orders.test.js' },
   { tags: ['payment', 'entitlement'], file: 'payment-api.test.js' },
+  { tags: ['wechat-auth', 'upload', 'wechat-payment', 'express-app'], file: 'wechat-auth-upload-payment.test.js' },
   { tags: ['report', 'feedback', 'export', 'full-report', 'wrong-questions'], file: 'reports-api.test.js' },
   { tags: ['question-interactions', 'db-readback'], file: 'question-interactions.test.js' },
   { tags: ['ai-tutor', 'quota', 'auth', 'failures'], file: 'ai-tutor-api.test.js' },

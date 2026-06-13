@@ -1,255 +1,124 @@
-.v13-page {
-  min-height: 100vh;
-  padding: 0 32rpx 154rpx;
-  background: #fdf8ff;
-  color: #1c1b23;
-  box-sizing: border-box;
-}
+@import "../ai-tutor/c13-common.wxss";
 
-.top-bar {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  height: 112rpx;
-  margin: 0 -32rpx;
-  padding: 0 32rpx;
+.generated {
+  height: 51px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  border-bottom: 1rpx solid rgba(201, 196, 214, 0.24);
-  background: rgba(253, 248, 255, 0.96);
-  box-shadow: 0 2rpx 12rpx rgba(90, 69, 203, 0.04);
-}
-
-.top-icon,
-.heading-icon,
-.row-icon,
-.nav-icon,
-.spark {
-  font-family: "Material Symbols Outlined";
-}
-
-.top-icon {
-  width: 72rpx;
-  height: 72rpx;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: #5a45cb;
-  font-size: 42rpx;
-  line-height: 72rpx;
-}
-
-.page-title {
-  color: #5a45cb;
-  font-size: 38rpx;
-  font-weight: 900;
-}
-
-.subtitle {
-  display: block;
-  margin: 28rpx 0 52rpx;
-  color: #1c1b23;
-  font-size: 26rpx;
-  text-align: center;
-}
-
-.subtitle-number {
-  color: #5a45cb;
-  font-weight: 900;
-}
-
-.exercise-card,
-.history-row,
-.analysis-card,
-.feedback-hero,
-.tip-block {
-  background: #ffffff;
-  border: 1rpx solid rgba(201, 196, 214, 0.28);
-  box-shadow: 0 30rpx 80rpx -30rpx rgba(90, 69, 203, 0.16);
+  justify-content: center;
+  color: #3e4558;
+  font-size: 13px;
 }
 
 .exercise-card {
   position: relative;
+  margin: 12px 16px 0;
+  padding: 25px 24px 30px;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(82, 69, 135, 0.06);
   overflow: hidden;
-  padding: 56rpx 48rpx;
-  border-radius: 36rpx;
 }
 
-.spark {
-  position: absolute;
-  color: rgba(115, 96, 229, 0.12);
-  line-height: 1;
-}
-
-.spark-one {
-  top: 8rpx;
-  right: 62rpx;
-  font-size: 142rpx;
-}
-
-.spark-two {
-  top: 124rpx;
-  right: -2rpx;
-  font-size: 74rpx;
-}
-
-.exercise-heading {
-  position: relative;
-  z-index: 1;
+.exercise-head {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 18rpx;
-  color: #5a45cb;
-  font-size: 32rpx;
+  align-items: center;
+  gap: 12px;
+  color: #6b4ee6;
+}
+
+.exercise-head image {
+  width: 28px;
+  height: 28px;
+}
+
+.exercise-title {
+  display: block;
+  font-size: 18px;
+  line-height: 25px;
   font-weight: 900;
 }
 
-.heading-icon {
-  font-size: 54rpx;
+.title-underline {
+  width: 50px;
+  height: 4px;
+  margin: 8px auto 0;
+  border-radius: 2px;
+  background: #b8a6ff;
 }
 
-.heading-underline {
-  width: 96rpx;
-  height: 8rpx;
-  margin: 22rpx auto 68rpx;
-  border-radius: 999rpx;
-  background: #c8bfff;
+.star {
+  position: absolute;
+  right: 29px;
+  top: 8px;
+  color: #e8e1ff;
+  font-size: 88px;
 }
 
-.exercise-prompt {
-  position: relative;
-  z-index: 1;
-  margin-bottom: 66rpx;
-  font-size: 31rpx;
-  line-height: 1.68;
-  font-weight: 500;
+.stem {
+  display: block;
+  margin-top: 32px;
+  color: #1e2439;
+  font-size: 15px;
+  line-height: 24px;
 }
 
-.option-button {
-  width: 100%;
-  height: 132rpx;
-  margin-top: 24rpx;
-  padding: 0 34rpx;
+.options {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option-row {
+  height: 60px;
+  padding: 0 18px;
+  border-radius: 10px;
+  background: #f3edf9;
+  color: #1d2238;
+  font-size: 15px;
   display: flex;
   align-items: center;
-  gap: 34rpx;
-  border: 2rpx solid transparent;
-  border-radius: 28rpx;
-  background: #f7f1fd;
-  color: #1c1b23;
-  text-align: left;
-}
-
-.option-button.selected {
-  border-color: #5a45cb;
-  background: #e5deff;
-  transform: scale(1.02);
+  gap: 18px;
 }
 
 .option-label {
-  width: 64rpx;
-  height: 64rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 64rpx;
-  border-radius: 32rpx;
-  background: #ffffff;
-  color: #5a45cb;
-  font-size: 25rpx;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  background: #fbf8ff;
+  color: #6b4ee6;
+  text-align: center;
+  line-height: 32px;
+  font-size: 13px;
   font-weight: 900;
-}
-
-.option-button.selected .option-label {
-  background: #5a45cb;
-  color: #ffffff;
-}
-
-.option-text {
-  font-size: 31rpx;
-  font-weight: 500;
 }
 
 .submit-button {
+  margin-top: 30px;
   width: 100%;
-  height: 96rpx;
-  margin-top: 64rpx;
-  border-radius: 48rpx;
-  background: #7360e5;
+  height: 56px;
+  border-radius: 28px;
+  background: #6b4ee6;
   color: #ffffff;
-  font-size: 31rpx;
+  font-size: 16px;
   font-weight: 900;
-  line-height: 96rpx;
-  box-shadow: 0 14rpx 24rpx rgba(90, 69, 203, 0.22);
-}
-
-.submit-button[disabled] {
-  background: #c9c4d6;
-  color: #ffffff;
-  box-shadow: none;
-}
-
-.history-row {
-  width: 100%;
-  min-height: 112rpx;
-  margin-top: 48rpx;
-  padding: 0 32rpx;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 20rpx;
-  color: #1c1b23;
-  font-size: 30rpx;
-  text-align: left;
-}
-
-.row-icon {
-  color: #787585;
-  font-size: 42rpx;
-}
-
-.bottom-nav {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 132rpx;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 8rpx 32rpx 18rpx;
-  border-top: 1rpx solid rgba(201, 196, 214, 0.62);
-  background: rgba(253, 248, 255, 0.94);
-  backdrop-filter: blur(16rpx);
-}
-
-.bottom-nav button {
-  min-width: 144rpx;
-  min-height: 86rpx;
-  padding: 8rpx 20rpx;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4rpx;
-  border: 0;
-  border-radius: 28rpx;
-  background: transparent;
-  color: #474554;
-  font-size: 24rpx;
+  box-shadow: 0 8px 18px rgba(107, 78, 230, 0.25);
+}
+
+.history-card {
+  margin: 16px;
+  height: 64px;
+  padding: 0 16px;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(82, 69, 135, 0.06);
+  color: #1e2439;
+  font-size: 14px;
   font-weight: 800;
-}
-
-.bottom-nav .active {
-  min-width: 150rpx;
-  background: #7360e5;
-  color: #ffffff;
-  box-shadow: 0 16rpx 28rpx rgba(115, 96, 229, 0.28);
-}
-
-.nav-icon {
-  font-size: 40rpx;
-  line-height: 40rpx;
+  display: flex;
+  align-items: center;
 }

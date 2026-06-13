@@ -3,6 +3,8 @@ const TAB_ROUTES = {
   '/pages/my/index': true
 };
 
+const { requireLogin } = require('./auth');
+
 function createReplicaPage(config) {
   const hotspots = config.hotspots || [];
   const cards = config.cards && config.cards.length
@@ -11,8 +13,8 @@ function createReplicaPage(config) {
 
   Page({
     data: {
-      reference: '',
-      derived: true,
+      reference: config.renderReference === true ? config.reference || '' : '',
+      derived: config.derived !== false,
       imageLoadFailed: false,
       title: config.title || '',
       cards,
@@ -35,14 +37,31 @@ function createReplicaPage(config) {
     onTap(event) {
       const action = event.currentTarget.dataset.action;
       const target = (config.actions && config.actions[action]) || config.defaultTarget;
-      if (!target) return;
+      if (!target) return null;
+      if (shouldRequireLogin(action, target) && !requireLogin({
+        redirectUrl: target.redirectUrl,
+        message: target.loginMessage
+      })) {
+        return null;
+      }
       if (target.uploadFlow) {
         beginUploadFlow(target);
-        return;
+        return null;
+      }
+      if (target.paymentFlow) {
+        beginPaymentFlow(target, this.query);
+        return null;
       }
       navigate(target);
+      return null;
     }
   });
+}
+
+function shouldRequireLogin(action, target = {}) {
+  if (target.authRequired) return true;
+  if (target.public === true) return false;
+  return ['upload', 'reports', 'orders', 'purchases', 'feedback', 'pay', 'save', 'download', 'export'].includes(action);
 }
 
 function hideNativeTabBar() {
@@ -79,7 +98,7 @@ function beginUploadFlow(target) {
 
 function completeUploadFlow(target, file) {
   if (!file || !file.tempFilePath) {
-    showUploadToast('未选择文件');
+    showToast('No file selected');
     return;
   }
   const app = typeof getApp === 'function' ? getApp() : null;
@@ -93,11 +112,36 @@ function completeUploadFlow(target, file) {
       localOnly: true
     };
   }
-  showUploadToast('已选择，开始分析');
+  showToast('File selected');
   const fileName = encodeURIComponent(file.name || 'upload');
   const fileType = encodeURIComponent(file.fileType || 'file');
   const separator = String(target.url || '').includes('?') ? '&' : '?';
   navigate(`${target.url}${separator}uploadReady=1&fileType=${fileType}&fileName=${fileName}`);
+}
+
+async function beginPaymentFlow(target, query = {}) {
+  if (typeof wx === 'undefined' || typeof wx.request !== 'function') {
+    navigate(target);
+    return;
+  }
+  const app = typeof getApp === 'function' ? getApp() : null;
+  const orderId = (query && query.orderId) || (app && app.globalData && app.globalData.scoremapLastOrderId) || target.orderId;
+  if (!orderId) {
+    showToast('Please finish analysis first');
+    navigate(target);
+    return;
+  }
+  try {
+    if (wx.showLoading) wx.showLoading({ title: 'Paying...', mask: true });
+    const api = require('../services/api');
+    const paid = await api.payForReport({ orderId, paymentType: target.paymentType || 'basic' });
+    if (app && app.globalData) app.globalData.scoremapLastPayment = paid;
+    if (wx.hideLoading) wx.hideLoading();
+    navigate(target);
+  } catch (error) {
+    if (wx.hideLoading) wx.hideLoading();
+    showToast(error.message || 'Payment not completed');
+  }
 }
 
 function normalizeSelectedFile(file) {
@@ -119,10 +163,10 @@ function inferSelectedFileType(name, declaredType) {
   return 'file';
 }
 
-function showUploadToast(title) {
+function showToast(title) {
   if (typeof wx !== 'undefined' && wx.showToast) {
     wx.showToast({ title, icon: 'none' });
   }
 }
 
-module.exports = { createReplicaPage };
+module.exports = { createReplicaPage, shouldRequireLogin };

@@ -6,4 +6,6 @@
 .codex/skills/.system/**
 !.codex/prompts/
 !.codex/prompts/**
+node_modules/
+temp/
 .runtime/

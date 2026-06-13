@@ -1,7 +1,7 @@
 const { QuestionInteractionsService } = require('../services/question-interactions-service');
 const { authFromRequest } = require('../middleware/auth');
 
-function createQuestionInteractionsRouter({ db, ai }) {
+function createQuestionInteractionsRouter({ db, ai, authService }) {
   const service = new QuestionInteractionsService({ db, ai });
 
   return async function questionInteractionsRouter(request, response) {
@@ -12,18 +12,25 @@ function createQuestionInteractionsRouter({ db, ai }) {
 
     let result;
     if (request.method === 'GET' && listMatch) {
-      result = service.listQuestions(decodeURIComponent(listMatch[1]), authFromRequest(request));
+      result = service.listQuestions(decodeURIComponent(listMatch[1]), authFromRequest(request, { authService }));
     } else if (detailMatch) {
       const orderId = decodeURIComponent(detailMatch[1]);
       const questionId = decodeURIComponent(detailMatch[2]);
       const action = detailMatch[3];
       if (request.method === 'POST' && action === 'interactions') {
-        result = service.createInteraction(orderId, questionId, await readJson(request), authFromRequest(request));
+        result = service.createInteraction(orderId, questionId, await readJson(request), authFromRequest(request, { authService }));
+      } else if (request.method === 'POST' && action === 'teach-child') {
+        result = service.teachChild(orderId, questionId, await readJson(request), authFromRequest(request, { authService }));
+      } else if (request.method === 'POST' && action === 'similar-exercise') {
+        result = service.createSimilarExercise(orderId, questionId, await readJson(request), authFromRequest(request, { authService }));
       } else if (request.method === 'POST' && action === 'exercise-answer') {
         const body = await readJson(request);
-        result = service.submitExerciseAnswer(orderId, questionId, body.interactionId, body, authFromRequest(request));
+        result = service.submitExerciseAnswer(orderId, questionId, body.interactionId, body, authFromRequest(request, { authService }));
+      } else if (request.method === 'POST' && action === 'check-mastery') {
+        const body = await readJson(request);
+        result = service.checkMastery(orderId, questionId, body.interactionId, body, authFromRequest(request, { authService }));
       } else if (request.method === 'GET' && action === 'interactions') {
-        result = service.listInteractions(orderId, questionId, authFromRequest(request));
+        result = service.listInteractions(orderId, questionId, authFromRequest(request, { authService }));
       } else {
         sendJson(response, 405, { status: 'error', code: 'METHOD_NOT_ALLOWED' });
         return true;

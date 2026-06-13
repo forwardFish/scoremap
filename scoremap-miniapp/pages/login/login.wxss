@@ -1,0 +1,361 @@
+page {
+  min-height: 100%;
+  background: #fafbff;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+button::after {
+  border: 0;
+}
+
+.login-page {
+  min-height: 100vh;
+  padding: 16rpx 0 30rpx;
+  box-sizing: border-box;
+  background:
+    radial-gradient(circle at 14% 28%, rgba(126, 104, 238, .13) 0, rgba(126, 104, 238, 0) 270rpx),
+    radial-gradient(circle at 84% 82%, rgba(126, 104, 238, .14) 0, rgba(126, 104, 238, 0) 300rpx),
+    #fafbff;
+  overflow: hidden;
+}
+
+.login-shell {
+  min-height: calc(100vh - 46rpx);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.topbar {
+  width: 100%;
+  height: 62rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-title {
+  color: #181b2a;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  font-weight: 900;
+}
+
+.login-hero {
+  width: 100%;
+  height: 454rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.login-visual {
+  width: 430rpx;
+  height: 430rpx;
+}
+
+.brand-title {
+  margin-top: 72rpx;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  color: #151928;
+  font-size: 72rpx;
+  line-height: 84rpx;
+  font-weight: 900;
+  text-align: center;
+}
+
+.brand-ai {
+  margin-right: 12rpx;
+  color: #6654e8;
+  font-size: 72rpx;
+  font-style: italic;
+  line-height: 84rpx;
+}
+
+.brand-name {
+  color: #151928;
+}
+
+.brand-subtitle {
+  margin-top: 16rpx;
+  color: #9199aa;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  font-weight: 900;
+  text-align: center;
+}
+
+.login-actions {
+  width: 100%;
+  margin-top: 68rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-action {
+  width: 306px;
+  max-width: 78vw;
+  height: 90rpx;
+  border-radius: 18rpx;
+  font-size: 30rpx;
+  line-height: 90rpx;
+  font-weight: 900;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.wechat-btn {
+  background: #6ccc75;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 16rpx 36rpx rgba(88, 194, 101, .22);
+}
+
+.wechat-icon {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 26rpx;
+}
+
+.home-btn {
+  margin-top: 22rpx;
+  background: #fff;
+  color: #343b4d;
+  border: 2rpx solid #e0e5ef;
+  box-shadow: 0 12rpx 34rpx rgba(31, 41, 55, .08);
+}
+
+.agreement {
+  margin-top: auto;
+  width: 100%;
+  padding: 40rpx 32rpx 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: #7d8494;
+  font-size: 26rpx;
+  line-height: 40rpx;
+  font-weight: 900;
+}
+
+.checkbox {
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 16rpx;
+  border-radius: 7rpx;
+  border: 3rpx solid #a1a8ba;
+  color: #fff;
+  font-size: 21rpx;
+  line-height: 24rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.checkbox.checked {
+  background: #6356e8;
+  border-color: #6356e8;
+}
+
+.link,
+.terms-link {
+  color: #5653e7;
+  margin: 0 4rpx;
+  font-weight: 900;
+}
+
+.terms-mask,
+.profile-mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 90;
+  background: rgba(38, 41, 54, .62);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 58rpx;
+  box-sizing: border-box;
+}
+
+.terms-dialog {
+  position: relative;
+  width: 100%;
+  padding: 48rpx 44rpx 42rpx;
+  border-radius: 34rpx;
+  background: linear-gradient(135deg, #fff 0%, #fbfdff 68%, #f3fff7 100%);
+  box-shadow: 0 42rpx 120rpx rgba(21, 27, 50, .34);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.terms-accent {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 10rpx;
+  background: linear-gradient(90deg, #7658f5 0%, #93d8ff 58%, #69cf7a 100%);
+}
+
+.terms-header {
+  display: flex;
+  align-items: center;
+}
+
+.terms-logo {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 26rpx;
+  border-radius: 18rpx;
+  background: #fff;
+  box-shadow: 0 8rpx 18rpx rgba(84, 82, 180, .16);
+}
+
+.terms-title {
+  color: #161b2d;
+  font-size: 44rpx;
+  line-height: 58rpx;
+  font-weight: 900;
+}
+
+.terms-content {
+  margin-top: 32rpx;
+  padding: 32rpx;
+  border: 2rpx solid #e6e9f2;
+  border-radius: 20rpx;
+  background: #f7f8fc;
+  color: #545b6e;
+  font-size: 30rpx;
+  line-height: 54rpx;
+  font-weight: 600;
+}
+
+.terms-paragraph {
+  display: inline;
+}
+
+.terms-divider {
+  height: 2rpx;
+  margin: 28rpx 0;
+  background: #e5e8f0;
+}
+
+.terms-actions,
+.profile-actions {
+  margin-top: 36rpx;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 22rpx;
+}
+
+.terms-btn,
+.profile-cancel,
+.profile-submit {
+  width: 100%;
+  height: 86rpx;
+  border-radius: 20rpx;
+  font-size: 30rpx;
+  line-height: 86rpx;
+  font-weight: 900;
+  text-align: center;
+}
+
+.terms-cancel,
+.profile-cancel {
+  background: #fff;
+  color: #303646;
+  border: 2rpx solid #e3e7ef;
+}
+
+.terms-confirm,
+.profile-submit {
+  background: linear-gradient(135deg, #81dc86 0%, #58bf68 100%);
+  color: #fff;
+  box-shadow: 0 18rpx 34rpx rgba(82, 190, 105, .22);
+}
+
+.profile-mask {
+  align-items: flex-end;
+  padding: 0;
+}
+
+.profile-sheet {
+  width: 100%;
+  padding: 22rpx 44rpx calc(38rpx + env(safe-area-inset-bottom));
+  border-radius: 40rpx 40rpx 0 0;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.profile-grabber {
+  width: 72rpx;
+  height: 8rpx;
+  margin: 0 auto 30rpx;
+  border-radius: 999rpx;
+  background: #e2e8f0;
+}
+
+.profile-title {
+  color: #1f2937;
+  font-size: 38rpx;
+  line-height: 50rpx;
+  font-weight: 800;
+  text-align: center;
+}
+
+.profile-desc {
+  margin-top: 8rpx;
+  color: #64748b;
+  font-size: 26rpx;
+  line-height: 38rpx;
+  text-align: center;
+}
+
+.avatar-select {
+  width: 100%;
+  min-height: 108rpx;
+  margin-top: 36rpx;
+  padding: 0 28rpx;
+  border-radius: 26rpx;
+  background: #f8fafc;
+  color: #1f2937;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+}
+
+.avatar-preview {
+  width: 78rpx;
+  height: 78rpx;
+  margin-right: 24rpx;
+  border-radius: 50%;
+  background: #e2e8f0;
+}
+
+.nickname-input {
+  height: 100rpx;
+  margin-top: 20rpx;
+  padding: 0 30rpx;
+  border-radius: 26rpx;
+  background: #f8fafc;
+  color: #1f2937;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}

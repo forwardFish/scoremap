@@ -1,29 +1,29 @@
 <view class="scaffold-screen">
   <view class="scaffold-header">
     <text class="scaffold-kicker">Local route contract</text>
-    <text class="scaffold-title">{{title}}</text>
-    <text class="scaffold-subtitle">启动页只展示本地壳、API 和数据库读回契约，不声明任何像素参考。</text>
+    <text class="scaffold-title">Scoremap Local Scaffold</text>
+    <text class="scaffold-subtitle">Shell-only route validation for the local miniapp, API adapter, and database readback contract. This is not a product pixel reference screen.</text>
   </view>
 
   <view class="contract-card">
-    <view class="contract-icon api"></view>
+    <image class="contract-icon api" src="/assets/icons/document-blue.png" mode="aspectFit" />
     <view class="contract-copy">
       <text class="contract-title">/api/scaffold/ping</text>
-      <text class="contract-desc">返回 local adapter status</text>
+      <text class="contract-desc">Local adapter status endpoint</text>
     </view>
   </view>
 
   <view class="contract-card">
-    <view class="contract-icon db"></view>
+    <image class="contract-icon db" src="/assets/icons/checklist-purple.png" mode="aspectFit" />
     <view class="contract-copy">
       <text class="contract-title">/api/scaffold/db-readback</text>
-      <text class="contract-desc">写入并读回 diagnosis_orders</text>
+      <text class="contract-desc">Local diagnosis_orders mutation and readback</text>
     </view>
   </view>
 
   <view class="contract-note">
-    <text>该页面是路由与契约可见性页面，不是 UI 参考屏或截图挂载页。</text>
+    <text>Scaffold evidence proves route and shell rendering only. It must not be promoted to product pixel PASS.</text>
   </view>
 
-  <button class="scaffold-enter" data-action="home" bindtap="onTap">进入首页</button>
+  <button class="scaffold-enter" data-action="home" bindtap="onTap">Enter home</button>
 </view>

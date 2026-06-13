@@ -1,34 +1,44 @@
-<view class="feedback-screen">
+﻿<view class="feedback-screen">
   <view class="feedback-header">
-    <text class="feedback-title">{{title}}</text>
-    <text class="feedback-subtitle">围绕当前报告提交本地反馈，保存后返回我的页面。</text>
+    <image class="feedback-header-icon" src="/assets/icons/chat-bubble.png" mode="aspectFit" />
+    <text class="feedback-title">Help and feedback</text>
+    <text class="feedback-subtitle">Submit local report feedback and return to My. No production service is called.</text>
   </view>
 
   <view class="feedback-card">
-    <text class="section-label">报告体验</text>
+    <view class="section-label">
+      <image class="section-icon" src="/assets/icons/success-check-green.png" mode="aspectFit" />
+      <text>Report experience</text>
+    </view>
     <view class="rating-row">
-      <text class="rating-chip active">有帮助</text>
-      <text class="rating-chip">不清楚</text>
-      <text class="rating-chip">不准确</text>
+      <text class="rating-chip active">Helpful</text>
+      <text class="rating-chip">Unclear</text>
+      <text class="rating-chip">Inaccurate</text>
     </view>
   </view>
 
   <view class="feedback-card">
-    <text class="section-label">反馈标签</text>
+    <view class="section-label">
+      <image class="section-icon" src="/assets/clean-icons/document-list-purple.png" mode="aspectFit" />
+      <text>Feedback tags</text>
+    </view>
     <view class="tag-row">
-      <text class="tag active">判断清晰</text>
-      <text class="tag active">知道下一步</text>
-      <text class="tag">需要更多讲解</text>
+      <text class="tag active">Clear decision</text>
+      <text class="tag active">Next step is clear</text>
+      <text class="tag">Need more explanation</text>
     </view>
   </view>
 
   <view class="feedback-card">
-    <text class="section-label">补充说明</text>
-    <view class="feedback-textarea">
-      <text>本地反馈：希望报告继续明确下一步练习建议。</text>
+    <view class="section-label">
+      <image class="section-icon" src="/assets/icons/idea-bulb-soft.png" mode="aspectFit" />
+      <text>Extra note</text>
     </view>
-    <text class="feedback-note">提交行为写入本地 mock 数据库，不会访问线上服务。</text>
+    <view class="feedback-textarea">
+      <text>Local feedback: keep the next practice recommendation clear after the report is unlocked.</text>
+    </view>
+    <text class="feedback-note">The submit action writes to local mock storage for evidence only.</text>
   </view>
 
-  <button class="feedback-submit" data-action="my" bindtap="onTap">提交并返回</button>
+  <button class="feedback-submit" data-action="my" bindtap="onTap">Submit and return</button>
 </view>

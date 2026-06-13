@@ -1,5 +1,6 @@
 {
   "setting": {
+    "urlCheck": false,
     "es6": true,
     "postcss": true,
     "minified": true,
@@ -29,6 +30,18 @@
     "ignore": [
       {
         "value": "assets/reference/*.png",
+        "type": "glob"
+      },
+      {
+        "value": "assets/reference",
+        "type": "folder"
+      },
+      {
+        "value": "assets/home-icons",
+        "type": "folder"
+      },
+      {
+        "value": "pages/*/*.png",
         "type": "glob"
       }
     ],

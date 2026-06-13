@@ -15,6 +15,66 @@ const TABLES = [
   'feedbacks'
 ];
 
+const LOCAL_SCHEMA_CONTRACT = {
+  users: ['id', 'role', 'displayName'],
+  diagnosis_orders: [
+    'id',
+    'ownerId',
+    'status',
+    'accessLevel',
+    'questionInteractionQuotaTotal',
+    'questionInteractionQuotaUsed',
+    'questionInteractionQuotaRemaining',
+    'fullTaskId',
+    'fullDecisionId',
+    'savedReport'
+  ],
+  upload_files: ['id', 'orderId', 'ownerId', 'originalName', 'mimeType', 'quality', 'localOnly'],
+  ai_analysis_tasks: ['id', 'orderId', 'ownerId', 'type', 'status', 'progress', 'currentStep', 'retryCount', 'errorCode'],
+  diagnosis_decisions: ['id', 'orderId', 'ownerId', 'level', 'preview', 'basic', 'full', 'promptId', 'traceId', 'modelAdapter', 'localOnly'],
+  diagnosis_questions: [
+    'id',
+    'orderId',
+    'ownerId',
+    'title',
+    'originalQuestion',
+    'studentAnswer',
+    'correctAnswer',
+    'knowledgePoint',
+    'diagnosis',
+    'explanationSummary',
+    'masteryStatus',
+    'questionInteractionQuotaTotal',
+    'questionInteractionQuotaUsed',
+    'questionInteractionQuotaRemaining',
+    'promptId',
+    'traceId'
+  ],
+  question_interactions: [
+    'id',
+    'orderId',
+    'questionId',
+    'ownerId',
+    'actionType',
+    'promptId',
+    'traceId',
+    'response',
+    'exercise',
+    'submittedAnswer',
+    'correctness',
+    'summary',
+    'status',
+    'errorCode',
+    'answerPromptId',
+    'answerTraceId',
+    'answerFeedback'
+  ],
+  ai_model_traces: ['traceId', 'promptId', 'modelAdapter', 'requestSummary', 'responseSummary', 'status', 'errorCode', 'localOnly'],
+  payments: ['id', 'orderId', 'ownerId', 'paymentType', 'status', 'amountCents', 'localOnly'],
+  report_exports: ['id', 'orderId', 'ownerId', 'status', 'format', 'fileUrl', 'filePath', 'byteLength'],
+  feedbacks: ['id', 'orderId', 'ownerId', 'decisionLevel', 'rating', 'tags', 'text']
+};
+
 function emptyState() {
   return Object.fromEntries(TABLES.map((name) => [name, []]));
 }
@@ -195,5 +255,6 @@ function writeFileWithoutRename(tmpPath, targetPath) {
 
 module.exports = {
   LocalJsonDbAdapter,
+  LOCAL_SCHEMA_CONTRACT,
   TABLES
 };
