@@ -750,7 +750,8 @@ async function createChromiumCaptureContext() {
     const { chromium } = await import('playwright');
     const workspaceChromiumExecutable = path.join(
       projectRoot,
-      '.pw-local',
+      'temp',
+      'pw-local',
       'chromium_headless_shell-1223',
       'chrome-headless-shell-win64',
       'chrome-headless-shell.exe'
