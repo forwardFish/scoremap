@@ -145,6 +145,99 @@ function startPreviewAnalysis(orderId, input = {}) {
   });
 }
 
+function getAnalysisProgress(orderId) {
+  return request({
+    method: 'GET',
+    url: `/api/diagnosis-orders/${encodeURIComponent(orderId)}/analysis-progress`,
+    header: orderTokenHeader(orderId)
+  });
+}
+
+function getPreviewDecision(orderId) {
+  return request({
+    method: 'GET',
+    url: `/api/diagnosis-orders/${encodeURIComponent(orderId)}/preview-decision`,
+    header: orderTokenHeader(orderId)
+  });
+}
+
+function getBasicDecision(orderId) {
+  return request({
+    method: 'GET',
+    url: `/api/diagnosis-orders/${encodeURIComponent(orderId)}/basic-decision`,
+    header: orderTokenHeader(orderId)
+  });
+}
+
+function generateFullReport(orderId, input = {}) {
+  return request({
+    method: 'POST',
+    url: `/api/diagnosis-orders/${encodeURIComponent(orderId)}/generate-full`,
+    header: { 'content-type': 'application/json', ...orderTokenHeader(orderId) },
+    data: input
+  });
+}
+
+function getFullReport(orderId) {
+  return request({
+    method: 'GET',
+    url: `/api/diagnosis-orders/${encodeURIComponent(orderId)}/full-report`,
+    header: orderTokenHeader(orderId)
+  });
+}
+
+function getQuestions(orderId) {
+  return request({
+    method: 'GET',
+    url: `/api/diagnosis-orders/${encodeURIComponent(orderId)}/questions`,
+    header: orderTokenHeader(orderId)
+  });
+}
+
+function createQuestionInteraction({ orderId, questionId, actionType, interactionId }) {
+  return request({
+    method: 'POST',
+    url: `/api/diagnosis-orders/${encodeURIComponent(orderId)}/questions/${encodeURIComponent(questionId)}/interactions`,
+    header: { 'content-type': 'application/json', ...orderTokenHeader(orderId) },
+    data: { actionType, interactionId }
+  });
+}
+
+function getQuestionInteractions({ orderId, questionId }) {
+  return request({
+    method: 'GET',
+    url: `/api/diagnosis-orders/${encodeURIComponent(orderId)}/questions/${encodeURIComponent(questionId)}/interactions`,
+    header: orderTokenHeader(orderId)
+  });
+}
+
+function submitExerciseAnswer({ orderId, questionId, interactionId, submittedAnswer }) {
+  return request({
+    method: 'POST',
+    url: `/api/diagnosis-orders/${encodeURIComponent(orderId)}/questions/${encodeURIComponent(questionId)}/exercise-answer`,
+    header: { 'content-type': 'application/json', ...orderTokenHeader(orderId) },
+    data: { interactionId, submittedAnswer }
+  });
+}
+
+function saveReport(orderId) {
+  return request({
+    method: 'POST',
+    url: `/api/reports/${encodeURIComponent(orderId)}/save`,
+    header: { 'content-type': 'application/json', ...orderTokenHeader(orderId) },
+    data: {}
+  });
+}
+
+function exportPdf(orderId) {
+  return request({
+    method: 'POST',
+    url: `/api/diagnosis-orders/${encodeURIComponent(orderId)}/export-pdf`,
+    header: { 'content-type': 'application/json', ...orderTokenHeader(orderId) },
+    data: { exportId: `report-export-${orderId}` }
+  });
+}
+
 function createPayment({ orderId, paymentType }) {
   return request({
     method: 'POST',
@@ -226,15 +319,26 @@ function parseJson(value) {
 
 module.exports = {
   createDiagnosisOrder,
+  createQuestionInteraction,
   createPayment,
+  exportPdf,
+  generateFullReport,
+  getAnalysisProgress,
+  getBasicDecision,
+  getFullReport,
   getMyReports,
   getMe,
+  getPreviewDecision,
+  getQuestionInteractions,
+  getQuestions,
   loginWechat,
   payForReport,
   refreshPayment,
   request,
   requestPayment,
+  saveReport,
   startPreviewAnalysis,
+  submitExerciseAnswer,
   updateProfile,
   uploadDiagnosisFile,
   uploadDiagnosisFiles

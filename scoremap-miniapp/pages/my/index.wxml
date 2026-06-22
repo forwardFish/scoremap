@@ -21,12 +21,14 @@
   </view>
 
   <view class="upload-card" data-action="new" bindtap="onTap">
-    <view class="upload-icon">♜</view>
+    <view class="upload-icon">
+      <image class="upload-icon-image" src="/assets/icons/document-purple.png" mode="aspectFit" />
+    </view>
     <view class="upload-copy">
       <text class="upload-title">继续新建分析</text>
       <text class="upload-subtitle">上传新资料，获取 AI 分析报告</text>
     </view>
-    <button class="upload-button" data-action="new" bindtap="onTap">☁</button>
+    <button class="upload-button" data-action="new" bindtap="onTap">↑</button>
   </view>
 
   <view class="filter-tabs">
@@ -56,8 +58,8 @@
         <text class="report-summary">优先修复关键错题，预计可优化改善 6-10 分</text>
       </view>
       <view class="card-actions">
-        <button class="primary-small" data-action="reports" bindtap="onTap">查看报告</button>
         <button class="secondary-small" data-action="feedback" bindtap="onTap">继续修复错题</button>
+        <button class="primary-small" data-action="reports" bindtap="onTap">查看报告</button>
       </view>
     </view>
 

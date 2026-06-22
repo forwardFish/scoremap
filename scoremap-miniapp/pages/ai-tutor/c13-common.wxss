@@ -138,6 +138,18 @@ button::after {
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
+.c13-step-one::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 36px;
+  background: #e9eaed;
+  pointer-events: none;
+  z-index: 5;
+}
+
 .c13-bg-report {
   position: absolute;
   inset: 0;
@@ -157,6 +169,12 @@ button::after {
   font-size: 12px;
   line-height: 16px;
   font-weight: 700;
+}
+
+.c13-step-one .c13-status,
+.c13-step-two .c13-status,
+.c13-step-three .c13-status {
+  visibility: hidden;
 }
 
 .c13-bg-report.exercise-bg {
@@ -414,9 +432,46 @@ button::after {
 }
 
 .c13-step-one .c13-drawer {
-  left: 53px;
-  right: 53px;
-  height: 602px;
+  left: 0;
+  right: 0;
+  height: 640px;
+}
+
+.c13-step-one .c13-drawer::before,
+.c13-step-one .c13-drawer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  background: #e1e2e4;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.c13-step-one .c13-drawer::before {
+  left: 0;
+  width: 8px;
+}
+
+.c13-step-one .c13-drawer::after {
+  right: 0;
+  width: 8px;
+}
+
+.c13-step-one .c13-overlay {
+  background: rgba(0, 0, 0, 0.42);
+}
+
+.c13-step-one .c13-primary {
+  left: 28px;
+  right: 28px;
+  bottom: 62px;
+}
+
+.c13-step-one .c13-progress {
+  height: 90px;
+  margin-top: 26px;
 }
 
 .c13-handle {
@@ -429,18 +484,82 @@ button::after {
 
 .c13-step-two .c13-handle {
   background: transparent;
+  height: 0;
+  margin: 6px auto 0;
 }
 
 .c13-step-two .c13-drawer {
-  height: 522px;
+  height: 574px;
 }
 
 .c13-step-two .c13-primary {
-  bottom: 28px;
+  position: static;
+  width: calc(100% - 40px);
+  margin: 10px 20px 0;
+  box-sizing: border-box;
 }
 
 .c13-step-two .c13-drawer-scroll {
-  padding-bottom: 102px;
+  height: 470px;
+  padding-bottom: 60px;
+}
+
+.c13-step-two .c13-panel {
+  margin-bottom: 4px;
+  padding: 10px 14px;
+}
+
+.c13-step-two .c13-question {
+  margin-top: 8px;
+  padding: 8px 10px;
+  line-height: 18px;
+}
+
+.c13-step-two .c13-answer-table {
+  margin-top: 9px;
+}
+
+.c13-step-two .c13-answer-table text,
+.c13-step-two .c13-answer-table span {
+  min-height: 23px;
+  padding: 3px 4px;
+  line-height: 14px;
+}
+
+.c13-step-two .c13-method-card {
+  margin-top: 6px;
+  padding: 6px 10px;
+  line-height: 15px;
+  font-size: 11px;
+}
+
+.c13-step-two .c13-method-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+}
+
+.c13-step-two .c13-teach {
+  line-height: 17px;
+}
+
+.c13-step-two .c13-bg-title {
+  margin-top: 8px;
+}
+
+.c13-step-two .c13-pointer-owl {
+  right: 16px;
+  top: 76px;
+  width: 140px;
+  height: 150px;
+}
+
+.c13-step-two .c13-drawer-head > text {
+  top: -4px;
+}
+
+.c13-step-two .c13-drawer-head button {
+  top: -3px;
 }
 
 .c13-drawer-head {
@@ -830,6 +949,16 @@ button::after {
   color: #ef4444;
 }
 
+.c13-step-four .c13-status-row {
+  grid-template-columns: 132px 1fr;
+  gap: 0;
+}
+
+.c13-step-four .c13-status-row text:nth-child(2) {
+  padding-left: 12px;
+  border-left: 1px solid #eef0f5;
+}
+
 .c13-actions {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
@@ -840,11 +969,30 @@ button::after {
   position: absolute;
   left: 20px;
   right: 20px;
-  bottom: 18px;
+  bottom: 4px;
 }
 
 .c13-step-four .c13-drawer {
-  height: 530px;
+  left: 0;
+  right: 0;
+  height: 595px;
+}
+
+.c13-step-four .c13-overlay.light {
+  background: rgba(248, 249, 252, 0.78);
+}
+
+.c13-step-four .c13-drawer-head > text {
+  top: -3px;
+}
+
+.c13-step-four .c13-drawer-head button {
+  top: -2px;
+}
+
+.c13-step-four .c13-progress {
+  height: 74px;
+  margin-top: 16px;
 }
 
 .c13-actions .c13-primary,
@@ -854,7 +1002,17 @@ button::after {
 }
 
 .c13-step-four .c13-drawer-scroll {
-  padding-bottom: 110px;
+  height: 360px;
+  padding: 0 20px 110px;
+}
+
+.c13-step-four .c13-success {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.c13-step-four .c13-panel + .c13-panel {
+  margin-top: 86px;
 }
 
 .c13-step-three .c13-drawer-scroll {
@@ -863,14 +1021,209 @@ button::after {
 
 .c13-step-three .c13-primary {
   bottom: 34px;
+  background: linear-gradient(90deg, #5b63f7 0%, #555df5 100%);
 }
 
 .c13-step-three .c13-drawer-scroll {
+  height: 560px;
   padding-bottom: 112px;
+}
+
+.c13-step-three .c13-drawer {
+  left: 0;
+  right: 0;
+  height: 744px;
+}
+
+.c13-step-three .c13-overlay.dark {
+  background: rgba(0, 0, 0, 0.42);
+}
+
+.c13-step-three .c13-progress {
+  margin-top: 36px;
 }
 
 
 .c13-step-one .c13-drawer-scroll {
   height: 482px;
-  padding-bottom: 88px;
+  padding: 0 28px 88px;
+}
+
+/* C13 step-two pixel alignment overrides. */
+.c13-step-two .c13-drawer-head {
+  height: 30px;
+}
+
+.c13-step-two .c13-drawer-head > text {
+  top: -2px;
+}
+
+.c13-step-two .c13-drawer-head button {
+  top: -1px;
+}
+
+.c13-step-two .c13-progress {
+  height: 58px;
+  padding-top: 3px;
+}
+
+.c13-step-two .c13-panel {
+  margin-bottom: 8px;
+  padding: 9px 12px;
+}
+
+.c13-step-two .c13-panel-title {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c13-step-two .c13-answer-table {
+  margin-top: 7px;
+}
+
+.c13-step-two .c13-answer-table text,
+.c13-step-two .c13-answer-table span {
+  min-height: 21px;
+  padding: 2px 4px;
+  font-size: 10px;
+  line-height: 13px;
+}
+
+.c13-step-two .c13-teach {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.c13-step-two .c13-method-card {
+  margin-top: 7px;
+  padding: 7px 10px;
+  font-size: 11px;
+  line-height: 17px;
+}
+
+.c13-step-two .c13-method-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+}
+
+.c13-step-two .c13-primary {
+  height: 40px;
+  min-height: 40px;
+  margin: 4px 20px 0;
+  border-radius: 9px;
+  font-size: 15px;
+  line-height: 40px;
+}
+
+.c13-step-one .c13-bg-score,
+.c13-step-one .c13-bg-owl,
+.c13-step-one .c13-bg-card {
+  display: none;
+}
+
+.c13-step-one .c13-drawer-head {
+  margin-top: 4px;
+  border-bottom: 1px solid #f0f1f6;
+}
+
+.c13-step-one .c13-drawer-head button {
+  color: #9aa2b3;
+  font-size: 26px;
+  line-height: 24px;
+}
+
+.c13-step-one .c13-panel:nth-of-type(2) {
+  max-height: 120px;
+  overflow: hidden;
+}
+
+.c13-step-one .c13-panel:nth-of-type(2) .c13-bullet:nth-of-type(n+3) {
+  display: none;
+}
+
+.c13-step-one .c13-panel:first-child .c13-panel-title::after {
+  content: "（证据锚点）";
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 6px;
+  border-radius: 5px;
+  background: #f7f8fa;
+  color: #9aa2b3;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 600;
+  vertical-align: 1px;
+}
+
+/* C13 reference-alignment pass: keep the drawer structure WXML-driven while
+   matching the captured reference spacing more closely. */
+.c13-step-three .c13-progress {
+  margin-top: 20px;
+}
+
+.c13-step-three .c13-drawer-head > text {
+  top: 0;
+}
+
+.c13-step-three .c13-drawer-head button {
+  top: 1px;
+  color: #6b7280;
+  font-size: 26px;
+}
+
+.c13-step-three .c13-drawer-scroll {
+  height: 576px;
+  padding: 20px 16px 112px;
+}
+
+.c13-step-three .exercise-panel {
+  margin-left: 4px;
+  margin-right: 4px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.c13-step-three .c13-question {
+  margin-top: 18px;
+  padding: 18px 20px;
+  border: 1px solid #f0f1f5;
+  border-radius: 12px;
+  background: #f7f8fa;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+.c13-step-three .c13-options {
+  margin-top: 18px;
+  gap: 12px;
+}
+
+.c13-step-three .c13-options button {
+  height: 62px;
+  padding: 0 16px;
+}
+
+.c13-step-three .c13-primary {
+  left: 36px;
+  right: 36px;
+  height: 56px;
+  border-radius: 12px;
+  bottom: 17px;
+}
+
+.c13-step-three .c13-practice-head text:last-child::before {
+  content: "PO";
+  display: inline-flex;
+  height: 16px;
+  margin-right: 5px;
+  padding: 0 5px;
+  border-radius: 4px;
+  background: #7c71ff;
+  color: #ffffff;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  line-height: 16px;
+  font-weight: 900;
 }

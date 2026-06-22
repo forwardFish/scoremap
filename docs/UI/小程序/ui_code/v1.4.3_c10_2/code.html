@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>AI Score Improvement Report</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style data-purpose="custom-utilities">
+    /* Prevent text selection on mobile */
+    body {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    /* Hide scrollbar for a cleaner app-like feel */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    .glass-effect {
+      background: rgba(246, 248, 252, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+  </style>
+</head>
+<body class="bg-[#F6F8FC] text-slate-800 antialiased pb-24">
+<!-- BEGIN: MainHeader -->
+<header class="sticky top-0 z-50 glass-effect px-4 py-3 flex items-center justify-between" data-purpose="top-navigation">
+<!-- Back Button -->
+<button aria-label="Go back" class="w-8 h-8 flex items-center justify-start text-slate-800">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.75 19.5L8.25 12l7.5-7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Page Title -->
+<h1 class="text-[17px] font-bold tracking-wide">完整报告</h1>
+<!-- Progress Indicator -->
+<div class="text-sm font-medium text-slate-500">
+      错题 <span class="text-slate-800 font-bold">1</span> / 8
+    </div>
+</header>
+<!-- END: MainHeader -->
+<main class="w-full max-w-md mx-auto">
+<!-- BEGIN: HeroSection -->
+<section class="px-5 pt-4 pb-6 relative" data-purpose="report-header">
+<div class="relative z-10">
+<h2 class="text-2xl font-extrabold text-slate-800 mb-1.5 tracking-tight">AI 提分报告（完整）</h2>
+<p class="text-xs text-slate-500">报告生成时间：2024-05-30 10:36</p>
+</div>
+<!-- Mascot Illustration -->
+<div class="absolute right-0 top-0 w-36 h-36 z-0 transform translate-x-2 -translate-y-2 pointer-events-none">
+<img alt="AI Mascot" class="w-full h-full object-contain drop-shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGx89-1AiocQr9FSiZmyuwRuVatCPJLapNcq0DqLBW9v32VEM8JG9yThUmoiN5ABBcylr2S6KGg6AHdYiRF3iF-IWU0NX-3Khu5g0OrAF1-llDkrWHIOeGVfdTvOW6gz2lh7CTqgE7pd49AGRj2I8Z9hxvQe0kwWky-qOEkjMmwvU63fiuha3OWIKYwmm83Pkc3xGQjd7K-6uLHuV081N4MhKlHalUBSgxskF3WVDdR7A5YbGKCJBtwLNpdOQEPFaNr0RMfX481hM"/>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: ScoreImprovementCard -->
+<section class="mx-4 mb-4 relative rounded-2xl bg-white shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] border border-orange-100/50 overflow-hidden" data-purpose="score-summary">
+<!-- Subtle top border glow -->
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-200 via-pink-200 to-orange-100"></div>
+<div class="p-4 flex items-start gap-3">
+<!-- Icon -->
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-100 to-indigo-50 flex items-center justify-center shrink-0">
+<svg class="w-6 h-6 text-indigo-500" fill="currentColor" viewbox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><circle cx="12" cy="10" fill="#fff" r="3"></circle></svg>
+</div>
+<!-- Content -->
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<h3 class="text-[15px] font-bold text-indigo-600">可追回分数 <span class="text-xs font-normal text-indigo-400">(可优先改善)</span></h3>
+</div>
+<p class="text-xs text-slate-500 mb-1">预计优先改善</p>
+<div class="flex items-end gap-1 mb-2">
+<span class="text-4xl font-extrabold text-indigo-600 leading-none">6-10</span>
+<span class="text-sm font-bold text-indigo-600 mb-1">分</span>
+<svg class="w-5 h-5 text-red-500 mb-1 ml-1" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<p class="text-[11px] text-slate-400 leading-tight w-4/5">基于当前错题与薄弱点分析，非成绩保证，实际效果因人而异。</p>
+</div>
+</div>
+</section>
+<!-- END: ScoreImprovementCard -->
+<!-- BEGIN: EvidenceAnchorCard -->
+<section class="mx-4 mb-4 bg-white rounded-2xl shadow-sm p-4" data-purpose="evidence-details">
+<!-- Section Header -->
+<div class="flex items-center gap-2 mb-3">
+<div class="w-6 h-6 rounded-lg bg-indigo-100 flex items-center justify-center">
+<svg class="w-4 h-4 text-indigo-600" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-1.998A11.954 11.954 0 0110 1.944zM10 14a4 4 0 100-8 4 4 0 000 8zm0-2a2 2 0 100-4 2 2 0 000 4z" fill-rule="evenodd"></path></svg>
+</div>
+<h3 class="text-[15px] font-bold text-slate-800">证据锚点 <span class="text-xs font-normal text-slate-400">(部分)</span></h3>
+</div>
+<!-- Data Table -->
+<div class="rounded-xl overflow-hidden border border-slate-100">
+<table class="w-full text-center text-xs">
+<thead class="bg-slate-50/80 text-slate-500 font-medium border-b border-slate-100">
+<tr>
+<th class="py-2.5 px-2 font-medium">题号</th>
+<th class="py-2.5 px-2 font-medium">学生答案</th>
+<th class="py-2.5 px-2 font-medium">正确答案</th>
+<th class="py-2.5 px-2 font-medium">错因依据</th>
+</tr>
+</thead>
+<tbody class="text-slate-700 bg-white">
+<tr>
+<td class="py-3 px-2 border-r border-slate-50 last:border-r-0">一(1)</td>
+<td class="py-3 px-2 border-r border-slate-50 last:border-r-0">20 千米</td>
+<td class="py-3 px-2 border-r border-slate-50 last:border-r-0">45 千米</td>
+<td class="py-3 px-2 border-r border-slate-50 last:border-r-0">
+<span class="block">速度差 × 时间</span>
+<span class="block">计算错误</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- END: EvidenceAnchorCard -->
+<!-- BEGIN: PriorityStrategyCard -->
+<section class="mx-4 mb-4 bg-white rounded-2xl shadow-sm p-4 relative overflow-hidden" data-purpose="priority-strategy">
+<div class="flex items-center justify-between relative z-10">
+<div class="pr-16">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-6 h-6 rounded-full bg-indigo-100 flex items-center justify-center">
+<span class="text-indigo-600 text-sm font-bold">1</span>
+</div>
+<h3 class="text-[15px] font-bold text-slate-800">提分优先级 <span class="text-xs font-normal text-indigo-500">(本次优先修复)</span></h3>
+</div>
+<h4 class="text-[15px] font-bold text-slate-800 mb-1.5">行程问题中的数量关系建模</h4>
+<p class="text-xs text-slate-500 leading-relaxed">优先策略：本次优先修复此薄弱点 7 分，属于做题入口快速改善的题型。</p>
+</div>
+<!-- Target Icon Illustration -->
+<div class="absolute right-2 top-1/2 -translate-y-1/2 w-16 h-16 pointer-events-none opacity-90">
+<img alt="Target Goal" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6FIlZj_3ugRn-tjDedI4r4faWJnP3UbkAiBxR_AIs5f6q9yvElvWXL0s__wwXnbQob6i-vDMxMHjwt0GthuJQgQ3eVv3CW56byRQiCxDc1hSgw69pLG-jUIjOUbNxkgssiZeRnaxVOeYUuWc2rEHhVX1TewJo7CQ32MC8QwI8eSJcykmYH9KYxPi6kQdQKgjv_OEUFxKfTVVeserdP6pMGMK_EpcNAWmojMxhw9_ausYtX19TyHjSklNwDHrQ7aBqPtuFxt78_ns"/>
+</div>
+</div>
+</section>
+<!-- END: PriorityStrategyCard -->
+<!-- BEGIN: KeyErrorsList -->
+<section class="mx-4 mb-4" data-purpose="key-errors-container">
+<div class="flex items-center gap-2 mb-2 px-1">
+<h3 class="text-[15px] font-bold text-slate-800">关键错题 <span class="text-xs font-normal text-slate-500">(建议优先修复 1~3 道)</span></h3>
+</div>
+<!-- Error Item Card -->
+<article class="bg-white rounded-2xl shadow-sm p-4" data-purpose="error-item">
+<!-- Header -->
+<header class="flex items-start justify-between mb-3">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-indigo-500 text-white flex items-center justify-center text-sm font-bold shrink-0">1</div>
+<h4 class="text-[15px] font-bold text-slate-800 leading-snug">二元一次方程应用题（行程问题）</h4>
+</div>
+<!-- Status Badge -->
+<div class="bg-green-50 text-green-600 border border-green-100 px-2 py-0.5 rounded-full text-[10px] font-medium whitespace-nowrap shrink-0 mt-0.5">
+            已修复 / 初步掌握
+          </div>
+</header>
+<!-- Tags -->
+<div class="flex flex-wrap gap-2 mb-3">
+<span class="bg-[#F6F8FC] text-indigo-600 px-2.5 py-1 rounded-md text-[11px]">可追回分数：2-3 分</span>
+<span class="bg-[#F6F8FC] text-slate-500 px-2.5 py-1 rounded-md text-[11px]">知识点：二元一次方程的应用-行程问题</span>
+</div>
+<!-- Description text -->
+<div class="text-[11px] text-slate-500 space-y-1 mb-4 leading-relaxed">
+<p><span class="text-slate-400">学生错因：</span>速度差 × 时间计算错误，导致时间计算偏差</p>
+<p><span class="text-slate-400">锚点：</span>未理解“速度差 × 时间=路程差”模型</p>
+</div>
+<!-- Action Button -->
+<button class="w-full bg-[#6366f1] text-white font-medium text-[15px] py-2.5 rounded-full hover:bg-indigo-600 active:bg-indigo-700 transition-colors">
+          查看修复记录
+        </button>
+</article>
+</section>
+<!-- END: KeyErrorsList -->
+<!-- BEGIN: TeacherInterventionCard -->
+<section class="mx-4 mb-6 bg-white rounded-2xl shadow-sm p-4" data-purpose="teacher-intervention">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-lg bg-indigo-50 flex items-center justify-center">
+<svg class="w-4 h-4 text-indigo-400" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg>
+</div>
+<h3 class="text-[15px] font-bold text-slate-800">老师介入判断</h3>
+</div>
+<a class="text-[11px] text-indigo-500 flex items-center gap-0.5" href="#">
+          查看判断依据
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</a>
+</div>
+<h4 class="text-[15px] font-bold text-slate-800 mb-1 ml-8">暂不需要老师介入</h4>
+<p class="text-[11px] text-slate-500 ml-8">依据：关键错题验证通过，当前可先自主专项训练。</p>
+</section>
+<!-- END: TeacherInterventionCard -->
+</main>
+<!-- BEGIN: BottomActionBar -->
+<footer class="fixed bottom-0 left-0 right-0 bg-white px-4 pt-3 pb-safe-bottom min-h-[70px] flex items-center gap-3 shadow-[0_-4px_20px_rgba(0,0,0,0.06)] z-50" data-purpose="sticky-bottom-actions">
+<!-- Secondary Button -->
+<button class="flex-1 bg-white border border-slate-200 text-slate-700 font-medium text-[15px] py-3 rounded-full active:bg-slate-50 transition-colors">
+      保存报告
+    </button>
+<!-- Primary Button -->
+<button class="flex-[1.8] bg-gradient-to-r from-[#7C74FF] to-[#6366F1] text-white font-medium text-[15px] py-3 rounded-full flex items-center justify-center gap-2 shadow-md shadow-indigo-200 active:opacity-90 transition-opacity">
+      继续修复下一题
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</footer>
+<!-- END: BottomActionBar -->
+<!-- safe area bottom spacing for modern iOS -->
+<style>
+    .pb-safe-bottom {
+      padding-bottom: max(12px, env(safe-area-inset-bottom));
+    }
+  </style>
+</body></html>

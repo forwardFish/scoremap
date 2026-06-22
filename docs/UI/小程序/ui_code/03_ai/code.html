@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Analysis Loading</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style data-purpose="custom-utilities">
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+      /* Subtle gradient background as seen in the original */
+      background: linear-gradient(180deg, #F0F2FF 0%, #F8F9FF 100%);
+    }
+    .custom-shadow {
+      box-shadow: 0 10px 40px -10px rgba(120, 100, 255, 0.1);
+    }
+    .text-gradient {
+      background: linear-gradient(90deg, #8A63FF 0%, #6842FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .bg-gradient-btn {
+      background: linear-gradient(90deg, #A488FF 0%, #825CFF 100%);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex justify-center text-gray-800">
+<!-- Mobile Container -->
+<div class="w-full max-w-[400px] min-h-screen flex flex-col relative overflow-hidden">
+<!-- Background glow effects -->
+<div class="absolute top-[-100px] left-[-50px] w-[300px] h-[300px] bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+<div class="absolute top-[100px] right-[-100px] w-[250px] h-[250px] bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 z-0"></div>
+<!-- BEGIN: MainHeader -->
+<header class="relative z-10 flex items-center justify-between px-5 pt-12 pb-4">
+<div class="flex items-center gap-3">
+<!-- Back Button -->
+<button aria-label="Go back" class="p-1 -ml-1 text-[#2B1B61]">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Robot Avatar -->
+<div class="w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center overflow-hidden border border-purple-100">
+<img alt="AI Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBanTOiB-EXhtCeNCHFLZ-I6sFcxuhVr_yUEVmO47qen7_JOHgk1z6rKZ9DMLGC4H4Ec4lip13EnDuGElFrGW5r6t2zEM8L3zfPMpO7CSJgDy6HThK_rf467BiCRQ5rOoM1IE-xmakTR1pz97uyL2OlE27hxQXN2xk-80DZ2KVXNkB5mmOWg9SiD73xJhZMCZTK4CJusaAEwhTXYYmlwT6wLaF68Qj06X-Qv6c2qild5UCw7UjrpbLdOX-iqEbd2rr39gvRAiCKatk"/>
+</div>
+<!-- Title -->
+<h1 class="text-xl font-bold text-[#2B1B61]">AI 提分决策</h1>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContent -->
+<main class="relative z-10 flex-1 px-5 pb-8 flex flex-col">
+<!-- Card Container -->
+<section class="bg-white rounded-[32px] custom-shadow pt-8 pb-6 px-5 flex flex-col items-center flex-1 relative overflow-hidden">
+<!-- Decorative Stars -->
+<svg class="absolute top-10 left-12 w-4 h-4 text-purple-300 opacity-60" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2L14.4 9.6H22L15.8 14.4L18.2 22L12 17.2L5.8 22L8.2 14.4L2 9.6H9.6L12 2Z"></path></svg>
+<svg class="absolute top-12 right-12 w-5 h-5 text-yellow-300 opacity-60" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2L14.4 9.6H22L15.8 14.4L18.2 22L12 17.2L5.8 22L8.2 14.4L2 9.6H9.6L12 2Z"></path></svg>
+<svg class="absolute top-20 right-24 w-3 h-3 text-purple-300 opacity-50" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2L14.4 9.6H22L15.8 14.4L18.2 22L12 17.2L5.8 22L8.2 14.4L2 9.6H9.6L12 2Z"></path></svg>
+<!-- Card Title -->
+<h2 class="text-[28px] font-bold tracking-wide mb-8 z-10 flex items-center">
+<span class="text-[#8A63FF] mr-2">AI</span>
+<span class="text-[#1C1645]">正在分析中</span>
+</h2>
+<!-- Progress Ring Section -->
+<div class="relative w-48 h-48 mb-6 flex items-center justify-center z-10">
+<!-- Background Circle -->
+<svg class="absolute inset-0 w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="42" stroke="#F0EEFA" stroke-width="8"></circle>
+<!-- Progress Circle: 68% of circumference (2 * pi * 42 = 263.89) -> 263.89 * 0.68 = 179.4 -->
+<!-- Stroke-dasharray = total circumference, Stroke-dashoffset = total - progress -->
+<circle class="transition-all duration-1000 ease-out" cx="50" cy="50" fill="none" r="42" stroke="#8A63FF" stroke-dasharray="263.89" stroke-dashoffset="84.49" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<!-- Percentage Text -->
+<div class="text-[#8A63FF] flex items-baseline font-bold">
+<span class="text-[56px] leading-none">68</span>
+<span class="text-2xl ml-1">%</span>
+</div>
+<!-- Owl Mascot -->
+<!-- Absolute positioned relative to the progress ring container -->
+<img alt="Owl Mascot" class="absolute -right-8 -bottom-4 w-24 h-auto drop-shadow-md z-20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBH-SaBesFMbEUAKdEPvkheh52sld6LZZkiDyxInGcgYfSssJzADrHocHByjK1rE4GdkeA84nMw9o_5kv7UkUTgcjVNKwQnm57xtodE55H6ZwYOfP3Sxc_84CHflJxNXQ58fBxcZ1uHZklDjNe_gL8oY5W1kN7m-g94IpjLT1WVkNZNna2zSitZ8i-xWifoH-rXGBGm5xMYICFUGo6tB-mN80Xx8gHqz_3ZzHomJVsDCGrhJlFxAVt8g67Nv8O5tfd9u3-3LFMV5ho"/>
+</div>
+<!-- Checklist Section -->
+<div class="w-full mt-4 flex-1">
+<div class="relative pl-2">
+<!-- Connecting Dotted Line -->
+<div class="absolute left-[19px] top-[24px] bottom-[24px] w-px border-l-2 border-dotted border-purple-200 z-0"></div>
+<ul class="space-y-3 relative z-10 text-[15px] text-gray-700 font-medium">
+<!-- Item 1: Checked -->
+<li class="flex items-center gap-4 bg-[#FDFDFF] p-2 rounded-lg">
+<div class="w-6 h-6 rounded-full bg-[#4BD198] flex items-center justify-center shrink-0 shadow-sm border border-white">
+<svg class="h-4 w-4 text-white" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span>已识别上传资料</span>
+</li>
+<!-- Item 2: Checked -->
+<li class="flex items-center gap-4 bg-[#FDFDFF] p-2 rounded-lg">
+<div class="w-6 h-6 rounded-full bg-[#4BD198] flex items-center justify-center shrink-0 shadow-sm border border-white">
+<svg class="h-4 w-4 text-white" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span>已匹配年级与学科</span>
+</li>
+<!-- Item 3: Loading -->
+<li class="flex items-center gap-4 bg-[#FDFDFF] p-2 rounded-lg">
+<div class="w-6 h-6 rounded-full border-2 border-dashed border-[#8A63FF] border-t-[#D0C4FE] animate-spin shrink-0 flex items-center justify-center bg-white shadow-sm">
+<!-- Inner dot for effect -->
+<div class="w-1.5 h-1.5 bg-[#8A63FF] rounded-full"></div>
+</div>
+<span class="text-[#1C1645]">正在定位主要丢分点</span>
+</li>
+<!-- Item 4: Pending -->
+<li class="flex items-center gap-4 bg-[#FDFDFF] p-2 rounded-lg opacity-80">
+<div class="w-6 h-6 rounded-full bg-[#EFEAFE] flex items-center justify-center shrink-0 shadow-sm border border-white">
+<svg class="h-3.5 w-3.5 text-[#8A63FF]" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<span class="text-gray-500">正在生成初步建议</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Note Text -->
+<div class="mt-8 flex items-center gap-1.5 text-xs text-gray-400">
+<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>通常需要10-30秒</span>
+</div>
+</section>
+<!-- Bottom Actions -->
+<section class="mt-6 flex flex-col gap-4 z-10 w-full px-2">
+<!-- Primary Button -->
+<button class="w-full bg-gradient-btn text-white font-semibold text-lg py-3.5 rounded-full shadow-lg shadow-purple-200/50 hover:opacity-90 active:scale-[0.98] transition-all">
+          稍后查看
+        </button>
+<!-- Secondary Action -->
+<button class="flex items-center justify-center gap-1.5 text-sm text-[#8A63FF] font-medium py-2 w-full active:opacity-70 transition-opacity">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+          刷新进度
+        </button>
+</section>
+</main>
+<!-- END: MainContent -->
+</div>
+</body></html>

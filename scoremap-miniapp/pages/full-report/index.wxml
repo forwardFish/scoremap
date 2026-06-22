@@ -16,7 +16,7 @@
         <text class="c10-heading">AI 提分报告（完整）</text>
         <text class="c10-time">报告生成时间：2024-05-30 10:36</text>
         <view class="c10-score-card">
-          <image class="c10-score-icon" src="/assets/icons/lock-purple.png" mode="aspectFit" />
+          <image class="c10-score-icon" src="/assets/icons/shield-check-purple-clean.png" mode="aspectFit" />
           <view>
             <text class="c10-score-label">可追回分数（可优先改善）</text>
             <view class="c10-score-line"><text>6-10</text><text>分 ↑</text></view>
@@ -24,12 +24,13 @@
           </view>
         </view>
       </view>
-      <image class="c10-owl" src="/assets/icons/owl-teacher-pointer.png" mode="aspectFit" />
+      <image class="c10-owl c10-owl-core" src="/assets/icons/full-report-mascot.png" mode="aspectFill" />
+      <image class="c10-owl c10-owl-v13" src="/assets/icons/v13-full-report-mascot.png" mode="aspectFill" />
     </view>
 
     <view class="c10-card c10-evidence">
       <view class="c10-card-head">
-        <image class="c10-card-icon" src="/assets/icons/shield-check-purple.png" mode="aspectFit" />
+        <image class="c10-card-icon" src="/assets/icons/shield-check-purple-clean.png" mode="aspectFit" />
         <view>
           <text class="c10-card-title">证据锚点</text>
           <text class="c10-card-sub">本报告结论均基于事实题目分析</text>
@@ -44,7 +45,7 @@
     <view class="c10-card c10-priority">
       <view>
         <view class="c10-card-head tight">
-          <image class="c10-card-icon" src="/assets/icons/target-purple.png" mode="aspectFit" />
+          <image class="c10-card-icon" src="/assets/icons/target-purple-clean.png" mode="aspectFit" />
           <view>
             <text class="c10-card-title">提分优先级</text>
             <text class="c10-priority-title">行程问题中的数量关系建模</text>
@@ -52,7 +53,8 @@
         </view>
         <text class="c10-priority-copy">优先级依据：本次考试中该类问题失去 7 分，属于高频且可快速改善的题型。</text>
       </view>
-      <view class="c10-target">◎</view>
+      <image class="c10-target c10-target-core" src="/assets/icons/full-report-target.png" mode="aspectFill" />
+      <image class="c10-target c10-target-v13" src="/assets/icons/v13-full-report-target.png" mode="aspectFill" />
     </view>
 
     <view class="c10-card c10-question-list core-only">
@@ -98,7 +100,7 @@
     </view>
 
     <view class="c10-card c10-teacher">
-      <image class="c10-card-icon" src="/assets/icons/shield-check-purple.png" mode="aspectFit" />
+      <image class="c10-card-icon" src="/assets/icons/shield-check-purple-clean.png" mode="aspectFit" />
       <view>
         <view class="c10-question-head"><text class="c10-card-title">老师介入判断</text><text class="c10-blue">查看判断依据 ›</text></view>
         <text class="c10-priority-title">暂不需要老师介入</text>

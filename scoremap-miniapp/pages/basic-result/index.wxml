@@ -19,7 +19,7 @@
           <text>✓ 初步分析已生成</text>
         </view>
       </view>
-      <image class="hero-owl" src="/assets/clean-icons/owl-teacher-pointer.png" mode="aspectFit" />
+      <image class="hero-owl" src="/assets/icons/basic-result-mascot.png" mode="aspectFill" />
     </view>
 
     <view class="summary-card">

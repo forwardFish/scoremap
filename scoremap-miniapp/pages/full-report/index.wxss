@@ -51,9 +51,14 @@ body[data-screen="v13-full-report"] .page-scroll {
   display: block;
 }
 
+body[data-screen="full-report"] .c10-status,
+body[data-screen="v13-full-report"] .c10-status {
+  visibility: hidden;
+}
+
 body[data-screen="full-report"] .bottom-actions,
 body[data-screen="v13-full-report"] .bottom-actions {
-  display: flex;
+  display: none;
 }
 
 .page-scroll {
@@ -579,7 +584,7 @@ body[data-screen="v13-full-report"] .bottom-actions {
 
 .c10-hero {
   position: relative;
-  min-height: 202px;
+  min-height: 278px;
 }
 
 .c10-heading,
@@ -612,56 +617,134 @@ body[data-screen="v13-full-report"] .bottom-actions {
 
 .c10-owl {
   position: absolute;
-  right: 0;
-  top: -5px;
-  width: 116px;
-  height: 136px;
+  right: -16px;
+  top: 8px;
+  width: 120px;
+  height: 100px;
+  box-shadow: 0 6px 16px rgba(12, 20, 36, 0.14);
+}
+
+.c10-owl-v13,
+.c10-target-v13 {
+  display: none;
+}
+
+body[data-screen="v13-full-report"] .c10-owl-core,
+body[data-screen="v13-full-report"] .c10-target-core {
+  display: none;
+}
+
+body[data-screen="v13-full-report"] .c10-owl-v13,
+body[data-screen="v13-full-report"] .c10-target-v13 {
+  display: block;
 }
 
 .c10-score-card {
   position: absolute;
   left: 0;
-  top: 70px;
-  width: 214px;
-  min-height: 100px;
-  padding: 11px 10px 10px 62px;
+  top: 118px;
+  width: 358px;
+  min-height: 116px;
+  padding: 18px 18px 16px 72px;
   border: 1px solid #ffb0a4;
-  border-radius: 9px;
+  border-radius: 16px;
   background: linear-gradient(135deg, #fff8fb 0%, #fffefe 100%);
   box-sizing: border-box;
 }
 
 body[data-screen="full-report"] .c10-report {
-  width: 302px;
-  margin: 0 auto;
-  padding-right: 10px;
-  padding-left: 10px;
+  width: 390px;
+  margin: 0;
+  padding: 0 16px 70px;
+}
+
+body[data-screen="full-report"] .c10-hero {
+  min-height: 260px;
+}
+
+body[data-screen="full-report"] .c10-heading {
+  margin-top: 28px;
+}
+
+body[data-screen="full-report"] .c10-time {
+  margin-top: 8px;
 }
 
 body[data-screen="full-report"] .c10-owl {
-  right: 0;
+  right: -6px;
+  top: -8px;
+  width: 112px;
+  height: 98px;
 }
 
 body[data-screen="full-report"] .c10-score-card {
-  width: 180px;
-  top: 50px;
+  width: 358px;
+  top: 106px;
+  min-height: 154px;
+}
+
+body[data-screen="full-report"] .c10-score-label {
+  position: relative;
+  color: transparent;
+}
+
+body[data-screen="full-report"] .c10-score-label::before {
+  content: "可追回分数";
+  color: #6a55ff;
+}
+
+body[data-screen="full-report"] .c10-score-label::after {
+  content: "可优先改善";
+  display: inline-flex;
+  height: 18px;
+  margin-left: 8px;
+  padding: 0 8px;
+  border-radius: 8px;
+  background: #f0edff;
+  color: #9a8cff;
+  align-items: center;
+  font-size: 10px;
+  line-height: 18px;
+  font-weight: 700;
+}
+
+body[data-screen="full-report"] .c10-score-note {
+  width: 220px;
 }
 
 body[data-screen="full-report"] .c10-card {
-  width: 282px;
+  width: 358px;
+}
+
+body[data-screen="full-report"] .c10-evidence {
+  min-height: 224px;
+  padding-top: 27px;
+}
+
+body[data-screen="full-report"] .c10-priority {
+  min-height: 178px;
+  padding-top: 27px;
+}
+
+body[data-screen="full-report"] .c10-evidence .c10-table {
+  margin-top: 16px;
 }
 
 .c10-score-icon {
   position: absolute;
-  left: 13px;
-  top: 16px;
-  width: 38px;
-  height: 38px;
+  left: 20px;
+  top: 20px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border-radius: 15px;
+  background: #f1efff;
+  box-sizing: border-box;
 }
 
 .c10-score-label {
   color: #6a55ff;
-  font-size: 9px;
+  font-size: 14px;
   font-weight: 800;
 }
 
@@ -684,18 +767,18 @@ body[data-screen="full-report"] .c10-card {
 }
 
 .c10-score-note {
-  margin-top: 2px;
+  margin-top: 6px;
   color: #53607a;
-  font-size: 9px;
-  line-height: 14px;
+  font-size: 12px;
+  line-height: 18px;
 }
 
 .c10-card {
   position: relative;
   width: 350px;
-  margin-top: 10px;
-  padding: 13px;
-  border-radius: 9px;
+  margin-top: 16px;
+  padding: 18px;
+  border-radius: 16px;
   background: #ffffff;
   box-shadow: 0 7px 22px rgba(108, 91, 190, 0.09);
   box-sizing: border-box;
@@ -714,6 +797,10 @@ body[data-screen="full-report"] .c10-card {
 .c10-card-icon {
   width: 34px;
   height: 34px;
+  padding: 8px;
+  border-radius: 14px;
+  background: #f1efff;
+  box-sizing: border-box;
   flex: 0 0 34px;
 }
 
@@ -755,7 +842,7 @@ body[data-screen="full-report"] .c10-card {
 
 .c10-priority {
   min-height: 112px;
-  padding-right: 88px;
+  padding-right: 104px;
 }
 
 .c10-priority-title {
@@ -767,17 +854,11 @@ body[data-screen="full-report"] .c10-card {
 
 .c10-target {
   position: absolute;
-  right: 17px;
-  top: 32px;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  color: #704cff;
-  background: #eeeaff;
-  font-size: 42px;
-  line-height: 56px;
-  text-align: center;
-  font-weight: 900;
+  right: 20px;
+  top: 30px;
+  width: 66px;
+  height: 66px;
+  border-radius: 0;
 }
 
 .c10-question-list {
@@ -923,6 +1004,153 @@ body[data-screen="v13-full-report"] .writeback-only {
 
 body[data-screen="v13-full-report"] .c10-question-list {
   min-height: 160px;
+  margin-top: 4px;
+}
+
+body[data-screen="v13-full-report"] .c10-question-list.writeback-only {
+  padding: 8px 0 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+body[data-screen="v13-full-report"] .c10-question-list .c10-section-title {
+  margin-left: 4px;
+}
+
+body[data-screen="v13-full-report"] .c10-question-list .c10-section-sub {
+  left: 76px;
+  top: 11px;
+}
+
+body[data-screen="v13-full-report"] .c10-question-list .c10-question {
+  margin-top: 22px;
+  padding: 13px 12px 13px;
+  min-height: 176px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 7px 22px rgba(108, 91, 190, 0.09);
+  box-sizing: border-box;
+}
+
+body[data-screen="v13-full-report"] .c10-question-list .c10-fix {
+  display: none;
+}
+
+body[data-screen="v13-full-report"] .c10-hero {
+  min-height: 218px;
+}
+
+body[data-screen="v13-full-report"] .c10-top {
+  transform: translateY(-32px);
+}
+
+body[data-screen="v13-full-report"] .c10-owl {
+  right: -18px;
+  top: -30px;
+  width: 136px;
+  height: 136px;
+}
+
+body[data-screen="v13-full-report"] .c10-score-card {
+  left: -4px;
+  top: 62px;
+  width: 358px;
+  min-height: 150px;
+  border-color: transparent;
+  box-shadow: 0 2px 10px rgba(16, 24, 40, 0.04);
+  overflow: hidden;
+}
+
+body[data-screen="v13-full-report"] .c10-score-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ffd5a8 0%, #ffc4dc 55%, #ffe4bf 100%);
+}
+
+body[data-screen="v13-full-report"] .c10-score-label::after {
+  content: "预计优先改善";
+  display: block;
+  margin-top: 8px;
+  color: #6b7280;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+body[data-screen="v13-full-report"] .c10-score-line {
+  margin-top: 3px;
+}
+
+body[data-screen="v13-full-report"] .c10-score-note {
+  position: relative;
+  width: 210px;
+  color: transparent;
+}
+
+body[data-screen="v13-full-report"] .c10-score-note::after {
+  content: "基于当前错题与薄弱点分析，非成绩保证，实际效果因人而异。";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 210px;
+  color: #697386;
+  font-size: 10px;
+  line-height: 15px;
+  font-weight: 500;
+}
+
+body[data-screen="v13-full-report"] .c10-card {
+  margin-left: -4px;
+  width: 358px;
+}
+
+body[data-screen="v13-full-report"] .c10-evidence {
+  min-height: 164px;
+  padding-top: 18px;
+}
+
+body[data-screen="v13-full-report"] .c10-priority {
+  min-height: 132px;
+  padding-top: 22px;
+}
+
+body[data-screen="v13-full-report"] .c10-table text,
+body[data-screen="v13-full-report"] .c10-table span {
+  min-height: 34px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+body[data-screen="v13-full-report"] .c10-priority-title {
+  margin-top: 6px;
+}
+
+body[data-screen="v13-full-report"] .c10-priority::before {
+  content: "1";
+  position: absolute;
+  left: 17px;
+  top: 16px;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #eef0ff;
+  color: #6258ff;
+  text-align: center;
+  font-size: 12px;
+  line-height: 23px;
+  font-weight: 900;
+}
+
+body[data-screen="v13-full-report"] .c10-priority .c10-card-icon {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  flex-basis: 22px;
+  opacity: 0;
 }
 
 .c10-actions {
@@ -953,10 +1181,10 @@ body[data-screen="v13-full-report"] .c10-question-list {
 }
 
 body[data-screen="full-report"] .c10-actions {
-  width: 302px;
-  left: 44px;
-  padding-right: 10px;
-  padding-left: 10px;
+  width: 390px;
+  left: 0;
+  padding-right: 16px;
+  padding-left: 16px;
 }
 
 body[data-screen="v13-full-report"] .c10-actions {

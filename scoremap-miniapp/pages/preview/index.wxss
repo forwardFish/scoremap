@@ -33,7 +33,7 @@ button::after {
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
-  color: #111827;
+  color: rgba(17, 24, 39, 0.1);
   font-size: 12px;
   font-weight: 700;
 }
@@ -82,8 +82,8 @@ button::after {
 }
 
 .soft-blur {
-  filter: blur(0.2px);
-  opacity: 0.86;
+  filter: blur(3px);
+  opacity: 0.72;
 }
 
 .card-row {
@@ -174,9 +174,13 @@ button::after {
 
 .payment-mask {
   position: absolute;
-  inset: 0;
+  left: 0;
+  right: 0;
+  top: 34px;
+  bottom: 0;
   z-index: 10;
-  background: rgba(18, 23, 44, 0.03);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -184,34 +188,35 @@ button::after {
 
 .payment-sheet {
   position: relative;
-  width: 276px;
-  min-height: 330px;
-  margin-bottom: 8px;
-  padding: 45px 16px 22px;
-  border-radius: 12px 12px 0 0;
+  width: 390px;
+  height: 341px;
+  margin-bottom: 0;
+  padding: 40px 24px 24px;
+  border-radius: 24px 24px 0 0;
   background: #ffffff;
-  box-shadow: 0 10px 30px rgba(100, 88, 190, 0.12);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .sheet-handle {
   position: absolute;
-  top: 14px;
-  left: 126px;
-  width: 28px;
+  top: 12px;
+  left: 175px;
+  width: 40px;
   height: 4px;
   border-radius: 4px;
-  background: #d4d6e2;
+  background: #e5e7eb;
 }
 
 .sheet-close {
   position: absolute;
-  right: 12px;
-  top: 24px;
+  right: 16px;
+  top: 16px;
   width: 26px;
   height: 26px;
-  color: #10152f;
-  font-size: 28px;
+  color: #9ca3af;
+  font-size: 24px;
   line-height: 22px;
 }
 
@@ -221,24 +226,28 @@ button::after {
   justify-content: center;
   gap: 8px;
   color: #10152f;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 900;
 }
 
 .sheet-lock {
-  width: 26px;
-  height: 26px;
+  width: 32px;
+  height: 32px;
+  padding: 8px;
+  border-radius: 50%;
+  background: #efecff;
+  box-sizing: border-box;
 }
 
 .price-row {
-  margin-top: 14px;
+  margin-top: 16px;
   color: #6254ff;
   text-align: center;
   font-weight: 900;
 }
 
 .price-row text:first-child {
-  font-size: 34px;
+  font-size: 36px;
 }
 
 .price-row text:last-child {
@@ -248,13 +257,16 @@ button::after {
 
 .sheet-divider {
   height: 1px;
-  margin: 18px 0 13px;
-  background: #eeeefa;
+  margin: 18px 0 14px;
+  border-top: 1px dashed #e5e7eb;
+  background: transparent;
 }
 
 .unlock-heading {
   display: block;
-  text-align: center;
+  width: 318px;
+  margin: 0 auto;
+  text-align: left;
   color: #11193a;
   font-size: 13px;
   font-weight: 800;
@@ -264,10 +276,10 @@ button::after {
   display: flex;
   align-items: center;
   gap: 9px;
-  width: 110px;
+  width: 318px;
   margin: 10px auto 0;
   color: #19213c;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .benefit-line .dot {
@@ -278,10 +290,10 @@ button::after {
 }
 
 .pay-button {
-  width: 248px;
-  height: 48px;
-  margin: 24px auto 0;
-  border-radius: 8px;
+  width: 342px;
+  height: 50px;
+  margin: 50px auto 0;
+  border-radius: 12px;
   background: linear-gradient(180deg, #815cff 0%, #5b3df4 100%);
   color: #ffffff;
   display: flex;

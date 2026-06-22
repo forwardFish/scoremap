@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Error Diagnosis Drawer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style data-purpose="custom-styles">
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-color: #f3f4f6; /* Light gray background to show off the drawer */
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .device-container {
+      width: 375px;
+      height: 812px;
+      background-color: #fff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Simulate the background app */
+    .bg-app {
+      background: linear-gradient(180deg, #f0f0ff 0%, #ffffff 100%);
+      height: 100%;
+      width: 100%;
+      padding: 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    /* Drawer overlay */
+    .drawer-overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 40;
+    }
+
+    /* Drawer container */
+    .drawer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #ffffff;
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+      height: 75%; /* Approximate height from screenshot */
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Top Handle */
+    .drawer-handle {
+      width: 40px;
+      height: 4px;
+      background-color: #E5E7EB;
+      border-radius: 9999px;
+      margin: 12px auto;
+    }
+
+    /* Progress bar line */
+    .progress-line {
+      position: absolute;
+      top: 14px;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background-color: #E5E7EB;
+      z-index: 0;
+    }
+
+    /* Custom gradient button */
+    .btn-gradient {
+      background: linear-gradient(90deg, #6366F1 0%, #8B5CF6 100%);
+    }
+  </style>
+</head>
+<body>
+<!-- BEGIN: Device Container -->
+<div class="device-container">
+<!-- BEGIN: Background App (Simulated) -->
+<div class="bg-app">
+<!-- Content from the background image is mostly obscured, adding some filler for realism -->
+<div class="flex justify-between items-center mb-6 mt-10">
+<svg fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M15 18L9 12L15 6" stroke="#111827" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<h1 class="text-lg font-semibold text-gray-900">完整报告</h1>
+<span class="text-sm text-gray-500">错题 1 / 8</span>
+</div>
+<div class="mt-8">
+<h2 class="text-2xl font-bold text-gray-900">AI 提分报告（完整）</h2>
+<p class="text-xs text-gray-500 mt-1">报告生成时间: 2024-05-30 10:36</p>
+</div>
+<!-- Placeholder image from input to simulate background -->
+<img alt="Background" class="absolute top-0 left-0 w-full h-full object-cover opacity-30 pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTeDBnlLSE30_Jtdc2n-mWvZWm824JPEKPl60wS_PSyUlcGc7mXAlo0_3nQBph2up4layigDc9v5EFejhYmFG0UFG689ZJ5XwJfx_AbX5FOYiojZdOklrUQYOrf1GnLKowedkPkq9FAZnd_IJ_eiL6aODQXbKPwBgfyD3g7jynm4rrSLT8iC0uFjeG_kAHBWCeecfbc1OrQ4fP_GEWYRgIDsXq3LAiWZrBKp4MzkpI6e8EpD0-_4u-HTZnEjv42BJfkLDdKllUhP4" style="z-index: -1;"/>
+</div>
+<!-- END: Background App -->
+<!-- BEGIN: Drawer Overlay -->
+<div class="drawer-overlay"></div>
+<!-- END: Drawer Overlay -->
+<!-- BEGIN: Drawer -->
+<div class="drawer">
+<!-- BEGIN: Drawer Header -->
+<div class="flex flex-col relative pb-4 border-b border-gray-100">
+<div class="drawer-handle"></div>
+<div class="flex justify-center items-center relative px-4">
+<h2 class="text-[17px] font-semibold text-gray-900">修复这道关键错题</h2>
+<button class="absolute right-4 text-gray-400 hover:text-gray-600">
+<svg fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- END: Drawer Header -->
+<!-- BEGIN: Drawer Content Area -->
+<div class="flex-1 overflow-y-auto px-5 py-6">
+<!-- BEGIN: Progress Indicator -->
+<div class="relative mb-8">
+<div class="progress-line"></div>
+<div class="flex justify-between relative z-10">
+<!-- Step 1 (Active) -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-[#5C6BFF] text-white flex items-center justify-center text-sm font-semibold shadow-sm">
+                1
+              </div>
+<span class="text-[11px] font-medium text-[#5C6BFF]">错因诊断</span>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-white border border-gray-200 text-gray-400 flex items-center justify-center text-sm font-medium">
+                2
+              </div>
+<span class="text-[11px] text-gray-400">换法讲解</span>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-white border border-gray-200 text-gray-400 flex items-center justify-center text-sm font-medium">
+                3
+              </div>
+<span class="text-[11px] text-gray-400">验证练习</span>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-white border border-gray-200 text-gray-400 flex items-center justify-center text-sm font-medium">
+                4
+              </div>
+<span class="text-[11px] text-gray-400">掌握判断</span>
+</div>
+</div>
+</div>
+<!-- END: Progress Indicator -->
+<!-- BEGIN: Current Question Card -->
+<div class="bg-white rounded-xl border border-gray-100 shadow-sm mb-4 p-4">
+<div class="flex items-center gap-2 mb-3">
+<h3 class="text-[15px] font-semibold text-gray-900">当前题目</h3>
+<span class="text-[11px] text-gray-500 bg-gray-50 px-1.5 py-0.5 rounded">(证据错点)</span>
+</div>
+<div class="bg-[#F8F9FA] rounded-lg p-3 text-[14px] text-gray-800 leading-relaxed mb-4">
+            甲、乙两车同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，2 小时后甲比乙多行多少千米？
+          </div>
+<!-- Answer Comparison Table -->
+<table class="w-full text-[13px] text-left">
+<thead>
+<tr class="text-gray-500 font-normal">
+<th class="pb-2 font-normal w-12">题号</th>
+<th class="pb-2 font-normal">学生答案</th>
+<th class="pb-2 font-normal">正确答案</th>
+<th class="pb-2 font-normal">错因依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="text-gray-900 py-1 align-top">二(1)</td>
+<td class="text-gray-900 py-1 align-top">20 千米</td>
+<td class="text-gray-900 py-1 align-top">45 千米</td>
+<td class="text-gray-900 py-1 align-top leading-tight">速度差 × 时间<br/>计算错误</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- END: Current Question Card -->
+<!-- BEGIN: Diagnosis Card -->
+<div class="bg-white rounded-xl border border-gray-100 shadow-sm p-4 mb-4">
+<h3 class="text-[15px] font-semibold text-gray-900 mb-3">错因诊断</h3>
+<ul class="space-y-3 text-[13px] text-gray-700 leading-relaxed">
+<li class="flex items-start">
+<span class="w-1.5 h-1.5 rounded-full bg-[#5C6BFF] mt-1.5 mr-2 flex-shrink-0"></span>
+<span><strong class="font-semibold text-gray-900">知识点：</strong>二元一次方程的应用-行程问题</span>
+</li>
+<li class="flex items-start">
+<span class="w-1.5 h-1.5 rounded-full bg-[#5C6BFF] mt-1.5 mr-2 flex-shrink-0"></span>
+<span><strong class="font-semibold text-gray-900">你的错误：</strong>把“速度差”当成了“速度和” 采用</span>
+</li>
+<li class="flex items-start">
+<span class="w-1.5 h-1.5 rounded-full bg-[#5C6BFF] mt-1.5 mr-2 flex-shrink-0"></span>
+<span><strong class="font-semibold text-gray-900">本质原因：</strong>没有理解“速度差 × 时间 = 路程差”的数量关系原理</span>
+</li>
+<li class="flex items-start">
+<span class="w-1.5 h-1.5 rounded-full bg-[#5C6BFF] mt-1.5 mr-2 flex-shrink-0"></span>
+<span><strong class="font-semibold text-gray-900">下次避免：</strong>先画示意图或写出数量关系，再列式计算</span>
+</li>
+</ul>
+</div>
+<!-- END: Diagnosis Card -->
+<!-- BEGIN: AI Hint Box -->
+<div class="bg-[#F4F5FF] rounded-xl p-4 flex flex-col gap-2">
+<div class="flex items-center gap-1.5 text-[#5C6BFF] font-medium text-[13px]">
+<svg fill="none" height="14" viewbox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M12 16V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M12 8H12.01" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+            AI 提示
+          </div>
+<p class="text-[13px] text-gray-700 leading-relaxed">
+            这类题的关键是先找出“速度差”，再乘上时间，<br/>不要把“两车同时出发”理解错。
+          </p>
+</div>
+<!-- END: AI Hint Box -->
+</div>
+<!-- END: Drawer Content Area -->
+<!-- BEGIN: Bottom Action Area -->
+<div class="p-5 pt-2 bg-white pb-8">
+<button class="w-full btn-gradient text-white rounded-full py-3.5 font-medium text-[15px] shadow-sm active:opacity-90 transition-opacity">
+          下一步：换法讲解
+        </button>
+</div>
+<!-- END: Bottom Action Area -->
+</div>
+<!-- END: Drawer -->
+</div>
+<!-- END: Device Container -->
+</body></html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>修复关键错题</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-purple': '#6366f1',
+            'brand-purple-light': '#818cf8',
+            'brand-bg': '#f5f3ff',
+            'brand-gray': '#4b5563',
+            'brand-gray-light': '#9ca3af',
+            'brand-border': '#e5e7eb',
+            'blue-bg': '#eff6ff',
+            'blue-text': '#3b82f6',
+          },
+          borderRadius: {
+            '4xl': '2rem',
+          },
+          boxShadow: {
+            'top': '0 -4px 6px -1px rgba(0, 0, 0, 0.05)',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-utilities">
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background-color: #f8f8fc; /* Approximated background from the image behind the modal */
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end; /* Align modal to bottom */
+      overflow: hidden; /* Prevent body scroll when modal is open */
+    }
+
+    .gradient-text {
+      background: linear-gradient(to right, #4f46e5, #9333ea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .modal-enter {
+      animation: slideUp 0.3s ease-out forwards;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+
+    /* Background placeholder styling to simulate the context */
+    .bg-context {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDhnM1xU8lNRse-1UabnZHZMJirmbnzGeGJDYD2FEP0KutU7x0l-PEHPkoU9sadHWKHYCoWdSOvRwvMLB3ixN6G1Tu5c_G1967ttUDrf9v-MHw53-BbOcrpdSzYiELLvVigeQsYkLaHw3i37pna3P6M2ClR_-wrLYvo1sDH57Fmyp-ulTkJDhXaC_XEdcQyY5JYRu8uJ8TJvjjp693XAcQ0oMv-bKijWIwWQSFZnPu36-B2H9MSwRzrO_L1KbBvJaq8kkPpn4Tb4zo'); /* Using provided image as background reference if needed, but we build the modal itself */
+      background-size: cover;
+      background-position: top;
+      opacity: 0.3; /* Just for context, we focus on the modal */
+      z-index: -1;
+    }
+  </style>
+</head>
+<body class="relative">
+<!-- Background Context (Simulated) -->
+<div aria-hidden="true" class="bg-context"></div>
+<!-- BEGIN: Bottom Modal Drawer -->
+<div class="bg-white rounded-t-4xl w-full max-w-md mx-auto shadow-top modal-enter flex flex-col h-[85vh] relative z-10" data-purpose="modal-drawer">
+<!-- BEGIN: Modal Header -->
+<header class="flex items-center justify-between px-6 pt-6 pb-4 shrink-0" data-purpose="modal-header">
+<div class="w-6"></div> <!-- Spacer for centering -->
+<h2 class="text-xl font-bold text-gray-900">修复这道关键错题</h2>
+<button aria-label="关闭" class="w-6 h-6 flex items-center justify-center rounded-full text-gray-500 hover:bg-gray-100 transition-colors">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</header>
+<!-- END: Modal Header -->
+<!-- BEGIN: Progress Indicator -->
+<div class="px-6 py-2 shrink-0" data-purpose="progress-steps">
+<div class="flex items-center justify-between relative">
+<!-- Connecting Line -->
+<div class="absolute left-[10%] right-[10%] top-4 h-px bg-gray-200 -z-10"></div>
+<div class="absolute left-[10%] right-[50%] top-4 h-px bg-brand-purple -z-10"></div>
+<!-- Step 1 -->
+<div class="flex flex-col items-center gap-1 z-10 bg-white px-2">
+<div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-sm font-medium text-gray-500">1</div>
+<span class="text-xs text-gray-500">错因诊断</span>
+</div>
+<!-- Step 2 (Active) -->
+<div class="flex flex-col items-center gap-1 z-10 bg-white px-2">
+<div class="w-8 h-8 rounded-full bg-brand-purple text-white flex items-center justify-center text-sm font-bold shadow-sm">2</div>
+<span class="text-xs font-semibold text-brand-purple">换法讲解</span>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center gap-1 z-10 bg-white px-2">
+<div class="w-8 h-8 rounded-full border border-gray-200 bg-white flex items-center justify-center text-sm font-medium text-gray-400">3</div>
+<span class="text-xs text-gray-400">验证练习</span>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col items-center gap-1 z-10 bg-white px-2">
+<div class="w-8 h-8 rounded-full border border-gray-200 bg-white flex items-center justify-center text-sm font-medium text-gray-400">4</div>
+<span class="text-xs text-gray-400">掌握判断</span>
+</div>
+</div>
+</div>
+<!-- END: Progress Indicator -->
+<!-- BEGIN: Scrollable Content Area -->
+<main class="flex-1 overflow-y-auto px-5 py-4 space-y-4 pb-24" data-purpose="modal-content">
+<!-- BEGIN: Question Summary Card -->
+<section class="border border-brand-border rounded-2xl p-4 bg-white" data-purpose="question-summary">
+<h3 class="text-base font-bold text-gray-900 mb-3">错题 1 二元一次方程应用题</h3>
+<div class="grid grid-cols-3 bg-gray-50 rounded-xl overflow-hidden text-center text-sm">
+<!-- Table Header -->
+<div class="py-2 text-gray-500 font-medium border-b border-r border-white">学生答案</div>
+<div class="py-2 text-gray-500 font-medium border-b border-r border-white">正确答案</div>
+<div class="py-2 text-gray-500 font-medium border-b border-white">错因依据</div>
+<!-- Table Body -->
+<div class="py-3 font-medium text-gray-900 bg-white border-r border-gray-50">20 千米</div>
+<div class="py-3 font-medium text-gray-900 bg-white border-r border-gray-50">45 千米</div>
+<div class="py-3 text-sm text-gray-700 bg-white flex flex-col items-center justify-center leading-tight">
+<span>速度差 × 时间</span>
+<span>计算错误</span>
+</div>
+</div>
+</section>
+<!-- END: Question Summary Card -->
+<!-- BEGIN: Explanation Section -->
+<section class="border border-brand-border rounded-2xl p-5 bg-white shadow-sm" data-purpose="explanation-content">
+<header class="flex items-center gap-2 mb-4">
+<div class="w-6 h-6 flex items-center justify-center">
+<svg class="w-6 h-6 text-brand-purple" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22C13.1 22 14 21.1 14 20H10C10 21.1 10.9 22 12 22ZM18 15V11C18 7.69 15.81 4.9 12.5 4.19V3.5C12.5 2.67 11.83 2 11 2C10.17 2 9.5 2.67 9.5 3.5V4.19C6.19 4.9 4 7.69 4 11V15L2 17V18H22V17L18 15ZM16 16H6V11C6 8.24 7.76 6 11 6C14.24 6 16 8.24 16 11V16Z" fill="currentColor"></path>
+</svg>
+</div>
+<h3 class="text-lg font-bold text-gray-900">换一种方式讲</h3>
+</header>
+<div class="text-gray-800 leading-relaxed mb-4 space-y-1">
+<p>关键是把“甲比乙多行”理解为：路程差。</p>
+<p>每小时相差 <span class="font-semibold">10</span> 千米，<span class="font-semibold">2</span> 小时就相差 <span class="font-semibold">20</span> 千米。</p>
+</div>
+<!-- Analogy Box -->
+<div class="bg-blue-bg rounded-xl p-4 relative" data-purpose="analogy-box">
+<div class="flex items-center gap-2 mb-2 text-blue-text">
+<svg class="h-5 w-5" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" fill-rule="evenodd"></path>
+</svg>
+<h4 class="font-bold text-[15px]">更容易理解的讲法</h4>
+</div>
+<p class="text-gray-700 text-sm leading-relaxed">
+            把两辆车想象成一直在并排走，甲比乙每小时多走<br/>
+<span class="font-semibold">10</span> 千米，<span class="font-semibold">2</span> 小时后，甲就比乙多走了 <span class="font-semibold">2 × 10 = 20</span> （千米）。
+          </p>
+</div>
+</section>
+<!-- END: Explanation Section -->
+</main>
+<!-- END: Scrollable Content Area -->
+<!-- BEGIN: Fixed Bottom Action -->
+<div class="absolute bottom-0 left-0 right-0 p-5 bg-white border-t border-gray-100 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.05)]" data-purpose="bottom-action">
+<button class="w-full bg-gradient-to-r from-brand-purple to-[#7c3aed] text-white font-bold text-lg py-4 rounded-2xl shadow-md active:scale-[0.98] transition-transform">
+        下一步：做 1 道验证题
+      </button>
+</div>
+<!-- END: Fixed Bottom Action -->
+</div>
+<!-- END: Bottom Modal Drawer -->
+</body></html>

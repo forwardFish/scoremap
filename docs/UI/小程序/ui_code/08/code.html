@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Analysis Failed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style data-purpose="custom-styles">
+    /* Custom background color to match the design */
+    body {
+      background-color: #f7f8fc;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    /* Button gradients and shadows */
+    .btn-primary {
+      background: linear-gradient(90deg, #9b7afe 0%, #765cf5 100%);
+      box-shadow: 0 4px 14px 0 rgba(118, 92, 245, 0.39);
+    }
+
+    .btn-secondary {
+      border: 1px solid #9b7afe;
+      background-color: transparent;
+      color: #765cf5;
+    }
+
+    /* Image container shadow for depth */
+    .illustration-container {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body class="antialiased text-gray-800 min-h-screen flex flex-col items-center justify-center p-4">
+<!-- BEGIN: Mobile Container -->
+<div class="w-full max-w-[400px] h-full min-h-[800px] bg-[#f7f8fc] rounded-[40px] overflow-hidden relative shadow-xl border border-gray-100 flex flex-col">
+<!-- BEGIN: Header -->
+<header class="flex items-center px-6 pt-12 pb-4 bg-transparent z-10" data-purpose="top-navigation">
+<button aria-label="Go back" class="text-gray-800 focus:outline-none flex items-center justify-center w-8 h-8">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<h1 class="text-xl font-semibold ml-2 text-gray-900 tracking-wide">处理失败</h1>
+</header>
+<!-- END: Header -->
+<!-- BEGIN: Main Content Area -->
+<main class="flex-1 px-6 flex flex-col items-center justify-center pb-20 bg-white m-4 mt-0 rounded-3xl shadow-sm relative z-0">
+<!-- Illustration Section -->
+<div class="illustration-container w-full flex justify-center mt-8 mb-6" data-purpose="error-illustration">
+<img alt="Analysis failed illustration with a worried owl and document error" class="w-4/5 max-w-[280px] h-auto object-contain drop-shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzWoeq6fsUvELqoaDZ7qTZTdcLTnHtAQz4TUcacg0lolkifXQzFAH5vNoEn9uQ_-JX6-rPJaPU2bT87GtdtFG5cXHZo8epUq2Ak046BdrzFo0Jzub3dbOaLuz94eID89npTvQ1xlp_4KV0GTv_7WrCxVeqozKUJSKvs-RkQxQJpNTdepKR17lWJ84MwYMLXnE_8USqdjp43OMvlNYUwcBhuhyVJK3-klBuSsNy4C6D6JOChDk2rRQihR0prWDwETE3meceG1ztUOM"/>
+</div>
+<!-- Text Content -->
+<div class="text-center mb-10 px-4" data-purpose="error-message-text">
+<h2 class="text-2xl font-bold text-[#1a2035] mb-3 tracking-wider">分析没有成功</h2>
+<p class="text-sm text-gray-500 leading-relaxed">可能是资料不清晰或网络异常，请稍后重试。</p>
+</div>
+<!-- Action Buttons -->
+<div class="w-full flex flex-col gap-4 mt-4" data-purpose="action-buttons">
+<!-- Primary Action -->
+<button class="btn-primary w-full py-3.5 rounded-2xl text-white font-medium text-[16px] transition-transform active:scale-95 focus:outline-none">
+          重新开始分析
+        </button>
+<!-- Secondary Action -->
+<button class="btn-secondary w-full py-3.5 rounded-2xl font-medium text-[16px] transition-transform active:scale-95 focus:outline-none">
+          重新上传资料
+        </button>
+</div>
+<!-- Footer Link -->
+<div class="mt-8 text-center" data-purpose="footer-navigation">
+<a class="text-[#8c71f6] text-sm flex items-center justify-center gap-1 hover:underline focus:outline-none" href="#">
+          返回首页
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</div>
+</main>
+<!-- END: Main Content Area -->
+</div>
+<!-- END: Mobile Container -->
+</body></html>

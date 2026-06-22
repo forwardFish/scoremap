@@ -32,7 +32,7 @@ test('student-info renders C02 form defaults and validates required inputs', () 
   assert.doesNotMatch(wxml, /src=["']\/pages\/student-info\/[^"']+\.(?:png|jpe?g|webp)["']/);
   assert.match(wxml, /<picker class="field-control picker-control"/);
   assert.match(wxml, /<input class="field-control text-input"/);
-  assert.match(wxml, /student-info-robot-wink\.png/);
+  assert.match(wxml, /ai-robot-smile\.png/);
   assert.match(wxml, /student-info-paper\.png/);
   const toggle = page.toggleMaterialType('wrong');
   assert.deepEqual(toggle.materialTypes, ['paper', 'score']);

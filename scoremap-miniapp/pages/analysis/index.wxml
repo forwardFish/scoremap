@@ -3,7 +3,10 @@
     <button class="back-button" data-action="later" bindtap="onTap" aria-label="返回">
       <text>‹</text>
     </button>
-    <image class="robot-icon" src="/assets/icons/ai-robot-smile.png" mode="aspectFit" />
+    <view class="robot-icon">
+      <image src="/assets/icons/user-avatar-gray.png" mode="aspectFit" />
+      <view class="avatar-drawn"><view></view></view>
+    </view>
     <text class="brand-title">AI 提分决策</text>
   </view>
 
@@ -25,7 +28,20 @@
           <text class="percent">%</text>
         </view>
       </view>
-      <image class="owl" src="/assets/icons/owl-report-teacher.png" mode="aspectFit" />
+      <image class="owl" src="/assets/icons/owl-dashboard-teacher.png" mode="aspectFit" />
+      <view class="owl-drawn">
+        <view class="owl-ear left"></view>
+        <view class="owl-ear right"></view>
+        <view class="owl-head">
+          <view class="owl-eye left"><view></view></view>
+          <view class="owl-eye right"><view></view></view>
+          <view class="owl-beak"></view>
+          <view class="owl-feather"></view>
+        </view>
+        <view class="owl-body">
+          <view class="owl-belly"></view>
+        </view>
+      </view>
     </view>
 
     <view class="step-list">

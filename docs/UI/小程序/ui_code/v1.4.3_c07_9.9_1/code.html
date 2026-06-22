@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>初步分析报告</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style data-purpose="custom-utilities">
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #F7F8FC;
+      -webkit-font-smoothing: antialiased;
+    }
+    .text-shadow-sm {
+      text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .bg-gradient-header {
+      background: linear-gradient(180deg, #FFFFFF 0%, #F7F8FC 100%);
+    }
+    .bg-gradient-card {
+      background: linear-gradient(135deg, #F0F4FF 0%, #E6EEFF 100%);
+    }
+    .bg-gradient-btn {
+      background: linear-gradient(90deg, #7C60FF 0%, #5B40FF 100%);
+    }
+    .bg-gradient-premium {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%);
+      box-shadow: 0 4px 20px rgba(124, 96, 255, 0.1);
+      border: 1px solid transparent;
+      background-clip: padding-box;
+      position: relative;
+    }
+    .bg-gradient-premium::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      z-index: -1;
+      margin: -1px;
+      border-radius: inherit;
+      background: linear-gradient(135deg, #FFE2E2 0%, #E6E0FF 50%, #FFECD2 100%);
+    }
+  </style>
+</head>
+<body class="text-gray-800 pb-8 min-h-screen">
+<!-- BEGIN: Navigation Header -->
+<header class="sticky top-0 z-50 bg-gradient-header px-4 pt-12 pb-4 flex items-center justify-between shadow-sm">
+<button aria-label="返回" class="p-2 -ml-2">
+<svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<h1 class="text-lg font-bold text-gray-900 tracking-wide">初步分析报告</h1>
+<span class="text-sm text-gray-500 font-medium">初一数学月考分析</span>
+</header>
+<!-- END: Navigation Header -->
+<main class="px-4 space-y-4 mt-2">
+<!-- BEGIN: Hero Section -->
+<section class="bg-gradient-card rounded-2xl p-5 relative overflow-hidden flex flex-col justify-center min-h-[160px] shadow-sm">
+<div class="relative z-10 w-3/5">
+<h2 class="text-2xl font-bold text-gray-900 mb-2">初步分析已生成</h2>
+<p class="text-sm text-gray-600 leading-relaxed mb-4">整体基础较好，计算粗心和几何证明是本次失分的主要原因。</p>
+<div class="inline-flex items-center bg-green-100 text-green-700 px-2.5 py-1 rounded-full text-xs font-semibold">
+<svg class="w-3.5 h-3.5 mr-1" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path></svg>
+          初步分析已生成
+        </div>
+</div>
+<img alt="分析完成吉祥物" class="absolute right-0 bottom-0 w-2/5 object-cover object-left-bottom max-h-[140px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJYx9mNZ3xJrCISRaRLNmPVBJ8UYyma7NSz7qq_0xglURVIlmIDZxrqwDQmcIMHKCQq49kA5xXhbgV_0JcuVCOH3qLbXK_jduHcDZH-QAgbFNdnHnSBh3xzg0EzTjKo0R2V7mFDmri-zSxfAVgfeM9UK8ISTG-hGWIoV5MNGAq3q9GpHuR8Nx7GgnT4KuYHFV_FuH-ZDdkUAG9hFf9FXcWr31EO-e407EIN1rIe-76AXe8CS2c81zCFYolfBDlmoUgDzwP8KoU8cI"/>
+</section>
+<!-- END: Hero Section -->
+<!-- BEGIN: Summary List -->
+<section class="bg-white rounded-2xl p-4 shadow-sm space-y-4">
+<div class="flex items-center justify-between border-b border-gray-100 pb-3 last:border-0 last:pb-0">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-500">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<span class="text-gray-700 font-medium">主要丢分点</span>
+</div>
+<span class="text-gray-800 font-semibold text-right">计算失误、几何证明</span>
+</div>
+<div class="flex items-center justify-between border-b border-gray-100 pb-3 last:border-0 last:pb-0">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-500">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<span class="text-gray-700 font-medium">优先补弱点</span>
+</div>
+<span class="text-gray-800 font-semibold text-right">优先提升几何证明能力</span>
+</div>
+<div class="flex items-center justify-between border-b border-gray-100 pb-3 last:border-0 last:pb-0">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-full bg-purple-50 flex items-center justify-center text-purple-500">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<span class="text-gray-700 font-medium">答题质量概览</span>
+</div>
+<span class="text-gray-800 font-semibold text-right text-sm">基础题较稳，步骤规范性一般</span>
+</div>
+<div class="flex items-center justify-between border-b border-gray-100 pb-3 last:border-0 last:pb-0">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-full bg-yellow-50 flex items-center justify-center text-yellow-500">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<span class="text-gray-700 font-medium">简短建议</span>
+</div>
+<span class="text-gray-800 font-semibold text-right text-sm">先修复高频错因，再看完整建议</span>
+</div>
+</section>
+<!-- END: Summary List -->
+<!-- BEGIN: Locked Content Preview -->
+<section class="bg-white rounded-2xl p-4 shadow-sm opacity-80 pointer-events-none relative">
+<div class="flex items-center text-indigo-600 mb-3 font-semibold">
+<svg class="w-4 h-4 mr-1.5" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" fill-rule="evenodd"></path></svg>
+        完整报告解锁后可查看
+      </div>
+<div class="space-y-2">
+<div class="bg-gray-50 rounded-xl p-3 flex justify-between items-center">
+<div class="flex items-center text-gray-500">
+<svg class="w-4 h-4 mr-2" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" fill-rule="evenodd"></path></svg>
+            详细丢分点分析
+          </div>
+<svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div class="bg-gray-50 rounded-xl p-3 flex justify-between items-center">
+<div class="flex items-center text-gray-500">
+<svg class="w-4 h-4 mr-2" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" fill-rule="evenodd"></path></svg>
+            优先补弱顺序
+          </div>
+<svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div class="bg-gray-50 rounded-xl p-3 flex justify-between items-center">
+<div class="flex items-center text-gray-500">
+<svg class="w-4 h-4 mr-2" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" fill-rule="evenodd"></path></svg>
+            7天行动建议
+          </div>
+<svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div class="bg-gray-50 rounded-xl p-3 flex justify-between items-center">
+<div class="flex items-center text-gray-500">
+<svg class="w-4 h-4 mr-2" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" fill-rule="evenodd"></path></svg>
+            完整学习建议
+          </div>
+<svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div class="bg-gray-50 rounded-xl p-3 flex justify-between items-center">
+<div class="flex items-center text-gray-500">
+<svg class="w-4 h-4 mr-2" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" fill-rule="evenodd"></path></svg>
+            关键错题修复 / 同类题练习入口
+          </div>
+<svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+</section>
+<!-- END: Locked Content Preview -->
+<!-- BEGIN: Payment Call to Action -->
+<section class="bg-gradient-premium rounded-2xl p-5 mt-6 mb-4">
+<div class="flex items-start mb-4">
+<div class="w-16 h-16 mr-3 flex-shrink-0">
+<img alt="Unlock icon" class="w-full h-full object-contain rounded-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEHNpQCB61HF8C5K6F2KNBwTNyZWxbRE_j1091iPeoLzgXzFX_KVRGdi--B6WFcnnvda4LdL7LNKuXLXj8LGO4MqWNjZMuXePKDLo_ohvzQJzU0EnhKu_5lKI5s9cdAUXgvoHKO3mX7k6cBdPaVuMDeD6eiWQ29_QvFTjTr6us2dl7ekKSfGpoyAZm6H1M3EDWk5OpZU9aYNWmvIMIDWFMs6E6ImlNu9Jv2cTBIVSbRSeWfSC1NcnHNPrexJ8Gp0aN0zZbJHwyR5U"/>
+</div>
+<div>
+<div class="flex items-baseline mb-1">
+<span class="text-3xl font-bold text-indigo-600 mr-1">9.9</span>
+<span class="text-sm font-medium text-indigo-600">元</span>
+</div>
+<p class="text-xs text-gray-600 font-medium">已完成初判，可立即解锁完整提分报告</p>
+<div class="flex flex-wrap gap-2 mt-2">
+<div class="flex items-center text-xs text-indigo-500">
+<svg class="w-3 h-3 mr-0.5" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path></svg>
+              完整报告
+            </div>
+<div class="flex items-center text-xs text-indigo-500">
+<svg class="w-3 h-3 mr-0.5" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path></svg>
+              7天建议
+            </div>
+<div class="flex items-center text-xs text-indigo-500">
+<svg class="w-3 h-3 mr-0.5" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path></svg>
+              错题修复
+            </div>
+</div>
+</div>
+</div>
+<button class="w-full bg-gradient-btn text-white py-3.5 rounded-xl font-bold text-lg shadow-md mb-3 active:scale-[0.98] transition-transform">
+        立即支付 9.9元
+      </button>
+<div class="text-center">
+<button class="text-sm font-medium text-indigo-400 py-1">暂不解锁</button>
+</div>
+</section>
+<!-- END: Payment Call to Action -->
+<div class="text-center text-xs text-gray-400 mt-4 flex items-center justify-center">
+<svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+      结果基于当前资料分析，仅供学习参考。
+    </div>
+</main>
+</body></html>

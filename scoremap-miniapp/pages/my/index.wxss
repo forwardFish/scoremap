@@ -31,7 +31,6 @@ button::after {
 }
 
 .v143-c11-visual,
-.v143-c11-shot,
 .v143-hotspot {
   display: none;
 }
@@ -70,13 +69,6 @@ body[data-screen="my-stitch"] .v143-c11-visual {
   width: 390px;
   height: 844px;
   overflow: hidden;
-}
-
-body[data-screen="my"] .v143-c11-shot,
-body[data-screen="my-stitch"] .v143-c11-shot {
-  display: block;
-  width: 390px;
-  height: 844px;
 }
 
 body[data-screen="my"] .v143-hotspot,
@@ -211,6 +203,11 @@ body[data-screen="my-stitch"] .v143-hotspot-profile-tab {
   font-size: 28rpx;
   line-height: 64rpx;
   text-align: center;
+}
+
+.upload-icon-image {
+  width: 28rpx;
+  height: 28rpx;
 }
 
 .upload-copy {
@@ -538,4 +535,105 @@ body[data-screen="my-stitch"] .bottom-tabs {
 body[data-screen="my"] .v143-c11-visual,
 body[data-screen="my-stitch"] .v143-c11-visual {
   display: none;
+}
+
+body[data-screen="my"] .my-page,
+body[data-screen="my-stitch"] .my-page {
+  background: #f7f5ff;
+}
+
+body[data-screen="my"] .status-bar,
+body[data-screen="my-stitch"] .status-bar {
+  visibility: hidden;
+}
+
+body[data-screen="my"] .page-header,
+body[data-screen="my-stitch"] .page-header {
+  margin-top: 14px;
+}
+
+body[data-screen="my"] .bottom-tabs,
+body[data-screen="my-stitch"] .bottom-tabs {
+  display: none;
+}
+
+body[data-screen="my"] .upload-card,
+body[data-screen="my-stitch"] .upload-card {
+  min-height: 90px;
+  margin-top: 22px;
+  margin-bottom: 42px;
+  border-radius: 16px;
+}
+
+body[data-screen="my"] .upload-icon,
+body[data-screen="my-stitch"] .upload-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #f0efff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body[data-screen="my"] .upload-icon-image,
+body[data-screen="my-stitch"] .upload-icon-image {
+  width: 22px;
+  height: 22px;
+}
+
+body[data-screen="my"] .upload-button,
+body[data-screen="my-stitch"] .upload-button {
+  font-size: 24px;
+  line-height: 33px;
+  text-align: center;
+}
+
+body[data-screen="my"] .filter-tabs,
+body[data-screen="my-stitch"] .filter-tabs {
+  margin-bottom: 28px;
+}
+
+body[data-screen="my"] .report-list,
+body[data-screen="my-stitch"] .report-list {
+  margin: 0 16px;
+}
+
+body[data-screen="my"] .report-card,
+body[data-screen="my-stitch"] .report-card {
+  border-radius: 16px;
+}
+
+body[data-screen="my"] .full-card,
+body[data-screen="my-stitch"] .full-card {
+  min-height: 292px;
+  padding-top: 24px;
+}
+
+body[data-screen="my"] .paper-thumb,
+body[data-screen="my-stitch"] .paper-thumb {
+  width: 102px;
+  height: 112px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #f8f9ff 0%, #ffffff 100%);
+}
+
+body[data-screen="my"] .paper-line,
+body[data-screen="my-stitch"] .paper-line {
+  left: 18px;
+}
+
+body[data-screen="my"] .report-summary,
+body[data-screen="my-stitch"] .report-summary {
+  margin-left: 20px;
+  padding-top: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+body[data-screen="my"] .paper-line,
+body[data-screen="my"] .answer-dot,
+body[data-screen="my-stitch"] .paper-line,
+body[data-screen="my-stitch"] .answer-dot {
+  opacity: 0.15;
 }

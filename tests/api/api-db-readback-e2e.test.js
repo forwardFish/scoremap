@@ -12,13 +12,23 @@ const { createPaymentsRouter } = require('../../server/src/routes/payments');
 const { createQuestionInteractionsRouter } = require('../../server/src/routes/question-interactions');
 const { createReportsRouter } = require('../../server/src/routes/reports');
 const { exportLocalData } = require('../../server/scripts/export-local-data');
+const { removeFileWithRetry, writeFileWithRetry } = require('../support/file-io');
 
 const projectRoot = path.resolve(__dirname, '..', '..');
-const evidenceRoot = path.join(projectRoot, 'docs', 'auto-execute', 'evidence', 'api-db-e2e');
-const apiDbSummaryRoot = path.join(projectRoot, 'docs', 'auto-execute', 'evidence', 'api-db');
+const evidenceRoot = process.env.SCOREMAP_API_DB_EVIDENCE_DIR
+  ? path.resolve(projectRoot, process.env.SCOREMAP_API_DB_EVIDENCE_DIR)
+  : path.join(projectRoot, 'docs', 'auto-execute', 'evidence', 'api-db-e2e-current');
+const apiDbSummaryRoot = process.env.SCOREMAP_API_DB_SUMMARY_DIR
+  ? path.resolve(projectRoot, process.env.SCOREMAP_API_DB_SUMMARY_DIR)
+  : path.join(projectRoot, 'docs', 'auto-execute', 'evidence', 'api-db-current');
+const ownerEvidenceRel = process.env.SCOREMAP_OWNER_EVIDENCE_DIR || rel('docs', 'auto-execute', 'evidence', 'owner-current');
+const apiDbSummaryRel = path.relative(projectRoot, apiDbSummaryRoot).split(path.sep).join('/');
+const llmEvidenceRel = process.env.SCOREMAP_LLM_EVIDENCE_DIR || rel('docs', 'auto-execute', 'evidence', 'llm-current');
+const resultRootRel = process.env.SCOREMAP_RESULT_DIR || rel('docs', 'auto-execute', 'results-current');
 const command = 'npm run e2e:api-db';
 const t32Command = 'npm run e2e:api-db -- ai-tutor-v13';
 const isV13ApiDbRun = process.argv.includes('ai-tutor-v13');
+const evidenceRootRel = path.relative(projectRoot, evidenceRoot).split(path.sep).join('/');
 
 const successPaths = [
   'POST /api/diagnosis-orders',
@@ -50,24 +60,30 @@ function rel(...parts) {
   return parts.join('/');
 }
 
+function e2eRel(fileName) {
+  return rel(...evidenceRootRel.split('/'), fileName);
+}
+
 function writeJson(relativePath, payload) {
   const absolutePath = path.join(projectRoot, relativePath);
   fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
-  fs.writeFileSync(absolutePath, `${JSON.stringify(payload, null, 2)}\n`);
+  writeFileWithRetry(absolutePath, `${JSON.stringify(payload, null, 2)}\n`);
   return relativePath;
 }
 
 function resetEvidenceDir() {
   fs.mkdirSync(evidenceRoot, { recursive: true });
   fs.mkdirSync(apiDbSummaryRoot, { recursive: true });
-  fs.rmSync(path.join(evidenceRoot, 'local-db-snapshot-source.json'), { force: true });
+  const preferredDbPath = path.join(evidenceRoot, 'local-db-snapshot-source.json');
+  if (removeFileWithRetry(preferredDbPath)) return preferredDbPath;
+  return path.join(evidenceRoot, `local-db-snapshot-source-${process.pid}-${Date.now()}.json`);
 }
 
 function makeAdapters() {
-  resetEvidenceDir();
+  const dbPath = resetEvidenceDir();
   const adapters = {
     ...createLocalAdapters({
-      dbPath: path.join(evidenceRoot, 'local-db-snapshot-source.json'),
+      dbPath,
       cloudRootDir: path.join(evidenceRoot, 'local-cloud')
     }),
     exportRootDir: path.join(evidenceRoot, 'local-report-exports'),
@@ -255,7 +271,7 @@ function buildPageEvidence() {
   return [
     {
       status: 'PASS_WITH_LIMITATION',
-      source: 'docs/auto-execute/evidence/owner/journey-summary.json',
+      source: rel(ownerEvidenceRel, 'journey-summary.json'),
       routes: [
         '/pages/index/index',
         '/pages/analysis/index',
@@ -286,7 +302,7 @@ function buildVisualEvidence() {
 }
 
 function buildOwnerEvidence() {
-  const ownerSummary = rel('docs', 'auto-execute', 'evidence', 'owner', 'journey-summary.json');
+  const ownerSummary = rel(ownerEvidenceRel, 'journey-summary.json');
   assert.ok(fs.existsSync(path.join(projectRoot, ownerSummary)), `missing owner evidence ${ownerSummary}`);
   return [
     {
@@ -396,7 +412,7 @@ test('T16 API and DB readback E2E covers contract matrix success, error, timeout
       full.payment.body.paymentId
     ], feedback.body.feedbackId, pdf.body.exportId);
     const operatorExport = exportLocalData({
-      dbPath: path.join(evidenceRoot, 'local-db-snapshot-source.json'),
+      dbPath: api.db.filePath,
       outputPath: path.join(evidenceRoot, 'operator-export.json')
     });
     const snapshot = api.db.snapshot();
@@ -407,7 +423,7 @@ test('T16 API and DB readback E2E covers contract matrix success, error, timeout
     assert.deepEqual(api.payment.remoteCalls, []);
     assert.ok(fs.existsSync(api.db.read('report_exports', pdf.body.exportId).filePath));
 
-    const apiTracePath = writeJson(rel('docs', 'auto-execute', 'evidence', 'api-db-e2e', 'api-trace.json'), {
+    const apiTracePath = writeJson(e2eRel('api-trace.json'), {
       taskId: 'T16',
       status: 'PASS',
       command,
@@ -424,17 +440,17 @@ test('T16 API and DB readback E2E covers contract matrix success, error, timeout
       ],
       calls: api.trace
     });
-    const dbSnapshotPath = writeJson(rel('docs', 'auto-execute', 'evidence', 'api-db-e2e', 'db-snapshot.json'), {
+    const dbSnapshotPath = writeJson(e2eRel('db-snapshot.json'), {
       taskId: 'T16',
       status: 'PASS',
       tables: Object.fromEntries(Object.entries(snapshot).map(([table, rows]) => [table, rows.length])),
       readback: dbReadback,
       operatorExport: {
-        path: rel('docs', 'auto-execute', 'evidence', 'api-db-e2e', 'operator-export.json'),
+        path: e2eRel('operator-export.json'),
         tables: Object.fromEntries(Object.entries(operatorExport.tables).map(([table, rows]) => [table, rows.length]))
       }
     });
-    const assertionsPath = writeJson(rel('docs', 'auto-execute', 'evidence', 'api-db-e2e', 'assertions.json'), {
+    const assertionsPath = writeJson(e2eRel('assertions.json'), {
       taskId: 'T16',
       status: 'PASS',
       requirementIds: ['R02', 'R06', 'R08', 'R09', 'R10', 'R11', 'R12', 'R15'],
@@ -478,8 +494,8 @@ test('T16 API and DB readback E2E covers contract matrix success, error, timeout
         reason: 'T16 verifies API and local DB readback. It references existing T14 deterministic visual artifacts and T15 owner click evidence, but does not create new live miniapp screenshots or raster pixel diffs.'
       }]
     };
-    const summaryPath = writeJson(rel('docs', 'auto-execute', 'evidence', 'api-db-e2e', 'summary.json'), summary);
-    writeJson(rel('docs', 'auto-execute', 'evidence', 'api-db', 'summary.json'), {
+    const summaryPath = writeJson(e2eRel('summary.json'), summary);
+    writeJson(rel(apiDbSummaryRel, 'summary.json'), {
       ...summary,
       canonicalEvidence: summaryPath
     });
@@ -765,8 +781,8 @@ test('T32 API DB LLM trace E2E covers v1.3 tutor routes, branches, readbacks, an
     assert.deepEqual(api.payment.remoteCalls, []);
     assert.equal(traceManifest.apiToDbToLlmToUi.every((item) => item.llmTrace), true);
 
-    const traceManifestPath = writeJson(rel('docs', 'auto-execute', 'evidence', 'api-db', 'T32-trace-manifest.json'), traceManifest);
-    const llmManifestPath = writeJson(rel('docs', 'auto-execute', 'evidence', 'llm', 'T32-llm-trace-manifest.json'), {
+    const traceManifestPath = writeJson(rel(apiDbSummaryRel, 'T32-trace-manifest.json'), traceManifest);
+    const llmManifestPath = writeJson(rel(llmEvidenceRel, 'T32-llm-trace-manifest.json'), {
       taskId: 'T32',
       status: 'PASS',
       command: t32Command,
@@ -774,7 +790,7 @@ test('T32 API DB LLM trace E2E covers v1.3 tutor routes, branches, readbacks, an
       traces,
       secretSafe: traces.every((trace) => trace.localOnly === true && !JSON.stringify(trace).match(/sk-[A-Za-z0-9]{12,}|AKID[A-Za-z0-9]{8,}/))
     });
-    const apiTranscriptPath = writeJson(rel('docs', 'auto-execute', 'evidence', 'api-db', 'T32-api-branches.json'), {
+    const apiTranscriptPath = writeJson(rel(apiDbSummaryRel, 'T32-api-branches.json'), {
       taskId: 'T32',
       status: 'PASS',
       command: t32Command,
@@ -782,7 +798,7 @@ test('T32 API DB LLM trace E2E covers v1.3 tutor routes, branches, readbacks, an
       successCoverage: t32SuccessCoverage,
       branchEvidence: traceManifest.branchEvidence
     });
-    const dbReadbackPath = writeJson(rel('docs', 'auto-execute', 'evidence', 'api-db', 'T32-db-readback.json'), {
+    const dbReadbackPath = writeJson(rel(apiDbSummaryRel, 'T32-db-readback.json'), {
       taskId: 'T32',
       status: 'PASS',
       command: t32Command,
@@ -790,14 +806,14 @@ test('T32 API DB LLM trace E2E covers v1.3 tutor routes, branches, readbacks, an
       readback: traceManifest.dbReadback
     });
 
-    writeJson(rel('docs', 'auto-execute', 'results', 'T32.json'), {
+    writeJson(rel(resultRootRel, 'T32.json'), {
       taskId: 'T32',
       status: 'PASS',
       command: t32Command,
       evidence: [traceManifestPath, llmManifestPath, apiTranscriptPath, dbReadbackPath],
       result: 'All v1.3 API routes, DB readbacks, mandatory LLM prompt ids, local-only adapters, quota/auth/error branches, and UI consumer trace links are covered.'
     });
-    writeJson(rel('docs', 'auto-execute', 'evidence', 'api-db', 'summary.json'), {
+    writeJson(rel(apiDbSummaryRel, 'summary.json'), {
       taskId: 'T32',
       status: 'PASS',
       command: t32Command,

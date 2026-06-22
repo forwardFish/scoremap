@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>填写孩子信息</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style data-purpose="custom-fonts">
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f7f8fc;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+<style data-purpose="custom-utilities">
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .gradient-bg {
+      background: linear-gradient(135deg, #f0f4ff 0%, #f8efff 100%);
+    }
+
+    .form-input-custom {
+      border: 1px solid #f0f0f0;
+      background-color: #fafbfc;
+    }
+    .form-input-custom:focus {
+      border-color: #a78bfa;
+      ring: 1px solid #a78bfa;
+      background-color: #ffffff;
+    }
+
+    .shadow-soft {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .btn-primary-gradient {
+      background: linear-gradient(90deg, #8b5cf6 0%, #7c3aed 100%);
+    }
+  </style>
+</head>
+<body class="bg-[#f5f6fa] text-gray-800 min-h-screen flex flex-col items-center justify-start gradient-bg">
+<!-- Mobile Container -->
+<div class="w-full max-w-[430px] min-h-screen bg-transparent relative pb-24 overflow-x-hidden no-scrollbar">
+<!-- BEGIN: Header Section -->
+<header class="pt-12 pb-6 px-6 relative z-10">
+<div class="flex items-center mb-2">
+<button aria-label="Go back" class="p-2 -ml-2 text-gray-800 hover:bg-gray-100 rounded-full transition-colors">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<div class="flex items-center ml-2">
+<div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3 relative shadow-sm">
+<!-- Robot Avatar Placeholder -->
+<div class="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-xs overflow-hidden">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4ZM8.5 9.5C9.33 9.5 10 10.17 10 11C10 11.83 9.33 12.5 8.5 12.5C7.67 12.5 7 11.83 7 11C7 10.17 7.67 9.5 8.5 9.5ZM15.5 9.5C16.33 9.5 17 10.17 17 11C17 11.83 16.33 12.5 15.5 12.5C14.67 12.5 14 11.83 14 11C14 10.17 14.67 9.5 15.5 9.5ZM12 17C9.33 17 7 15.33 7 15.33C7 15.33 8 14 8 14C8 14 9.67 15 12 15C14.33 15 16 14 16 14C16 14 17 15.33 17 15.33C17 15.33 14.67 17 12 17Z"></path>
+</svg>
+</div>
+<div class="absolute -top-1 -right-1 w-3 h-3 bg-purple-400 rounded-full border-2 border-white"></div>
+</div>
+<div>
+<h1 class="text-xl font-bold text-gray-900 tracking-tight">填写孩子信息</h1>
+</div>
+</div>
+</div>
+<p class="text-gray-500 text-sm pl-12 ml-3">用于个性化分析与建议</p>
+</header>
+<!-- END: Header Section -->
+<!-- BEGIN: Progress Bar Section -->
+<div class="px-8 pb-6 relative z-10">
+<div class="flex items-center justify-between relative">
+<!-- Connecting Line Base -->
+<div class="absolute top-4 left-[15%] right-[15%] h-[2px] bg-indigo-100 -z-10"></div>
+<!-- Connecting Line Active -->
+<div class="absolute top-4 left-[15%] w-[35%] h-[2px] bg-indigo-500 -z-10"></div>
+<!-- Step 1: Completed -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-indigo-500 text-white flex items-center justify-center shadow-md">
+<svg class="h-5 w-5" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-xs text-gray-600 font-medium">上传资料</span>
+</div>
+<!-- Step 2: Current -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-indigo-500 text-white flex items-center justify-center shadow-md shadow-indigo-200">
+<span class="font-semibold text-sm">2</span>
+</div>
+<span class="text-xs text-indigo-600 font-medium">填写信息</span>
+</div>
+<!-- Step 3: Pending -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-white border-2 border-gray-200 text-gray-400 flex items-center justify-center">
+<span class="font-semibold text-sm">3</span>
+</div>
+<span class="text-xs text-gray-400 font-medium">AI 分析</span>
+</div>
+</div>
+</div>
+<!-- END: Progress Bar Section -->
+<!-- BEGIN: Main Content Card -->
+<main class="mx-4 bg-white rounded-3xl shadow-soft overflow-hidden mb-8 relative z-10">
+<!-- Uploaded Materials Section -->
+<section class="p-5 border-b border-gray-50">
+<h2 class="text-base font-semibold text-gray-800 mb-4">已上传资料</h2>
+<div class="flex gap-3 overflow-x-auto no-scrollbar pb-2">
+<!-- Material Item 1 -->
+<div class="flex-shrink-0 flex items-center gap-2 bg-[#f8fafe] border border-blue-50 rounded-xl px-3 py-2.5 min-w-[90px]">
+<div class="w-8 h-8 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-500 shadow-sm">
+<svg class="h-5 w-5" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+<path clip-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-sm text-gray-700 font-medium">试卷</span>
+</div>
+<!-- Material Item 2 -->
+<div class="flex-shrink-0 flex items-center gap-2 bg-[#fffbf5] border border-orange-50 rounded-xl px-3 py-2.5 min-w-[90px]">
+<div class="w-8 h-8 rounded-lg bg-orange-100 flex items-center justify-center text-orange-500 shadow-sm">
+<svg class="h-5 w-5" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-sm text-gray-700 font-medium">错题</span>
+</div>
+<!-- Material Item 3 -->
+<div class="flex-shrink-0 flex items-center gap-2 bg-[#f4fdf8] border border-green-50 rounded-xl px-3 py-2.5 min-w-[90px]">
+<div class="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center text-green-500 shadow-sm">
+<svg class="h-5 w-5" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11 4a1 1 0 10-2 0v4a1 1 0 102 0V7zm-3 1a1 1 0 10-2 0v3a1 1 0 102 0V8zM8 9a1 1 0 00-2 0v2a1 1 0 102 0V9z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-sm text-gray-700 font-medium">成绩单</span>
+</div>
+</div>
+</section>
+<!-- Child Information Form Section -->
+<section class="p-5">
+<h2 class="text-base font-semibold text-gray-800 mb-5">孩子信息</h2>
+<form class="space-y-4">
+<!-- Grade Dropdown -->
+<div class="flex items-center gap-4">
+<label class="w-24 text-sm text-gray-600 font-medium shrink-0">年级</label>
+<div class="relative w-full">
+<select class="w-full appearance-none form-input-custom rounded-xl py-3 pl-4 pr-10 text-sm text-gray-800 focus:outline-none transition-all">
+<option>初一</option>
+<option>初二</option>
+<option>初三</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+<svg class="h-4 w-4 text-gray-400" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Subject Dropdown -->
+<div class="flex items-center gap-4">
+<label class="w-24 text-sm text-gray-600 font-medium shrink-0">学科</label>
+<div class="relative w-full">
+<select class="w-full appearance-none form-input-custom rounded-xl py-3 pl-4 pr-10 text-sm text-gray-800 focus:outline-none transition-all">
+<option>数学</option>
+<option>语文</option>
+<option>英语</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+<svg class="h-4 w-4 text-gray-400" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Current Score Input -->
+<div class="flex items-center gap-4">
+<label class="w-24 text-sm text-gray-600 font-medium shrink-0">
+              当前分数 <span class="text-xs text-gray-400 font-normal ml-0.5">(选填)</span>
+</label>
+<input class="w-full form-input-custom rounded-xl py-3 px-4 text-sm text-gray-800 placeholder-gray-300 focus:outline-none transition-all" placeholder="例如 78" type="text"/>
+</div>
+<!-- Target Score Input -->
+<div class="flex items-center gap-4">
+<label class="w-24 text-sm text-gray-600 font-medium shrink-0">
+              目标分数 <span class="text-xs text-gray-400 font-normal ml-0.5">(选填)</span>
+</label>
+<input class="w-full form-input-custom rounded-xl py-3 px-4 text-sm text-gray-800 placeholder-gray-300 focus:outline-none transition-all" placeholder="例如 95" type="text"/>
+</div>
+<!-- Exam Type Input -->
+<div class="flex items-center gap-4">
+<label class="w-24 text-sm text-gray-600 font-medium shrink-0 flex flex-col justify-center leading-tight">
+<span>考试类型</span>
+<span class="text-xs text-gray-400 font-normal">(选填)</span>
+</label>
+<input class="w-full form-input-custom rounded-xl py-3 px-4 text-sm text-gray-800 placeholder-gray-300 focus:outline-none transition-all" placeholder="月考 / 期中 / 期末" type="text"/>
+</div>
+<!-- Material Types Tags (Interactive representation) -->
+<div class="flex items-center gap-4 pt-2">
+<label class="w-24 text-sm text-gray-600 font-medium shrink-0">资料类型</label>
+<div class="flex flex-wrap gap-2 w-full">
+<!-- Selected Tag 1 -->
+<div class="relative flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-50 border border-indigo-200 cursor-pointer">
+<svg class="h-4 w-4 text-indigo-500" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+<path clip-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" fill-rule="evenodd"></path>
+</svg>
+<span class="text-sm text-gray-700">试卷</span>
+<div class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-indigo-500 rounded-full border border-white flex items-center justify-center">
+<svg class="h-2.5 w-2.5 text-white" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
+</svg>
+</div>
+</div>
+<!-- Selected Tag 2 -->
+<div class="relative flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-orange-50 border border-orange-200 cursor-pointer">
+<svg class="h-4 w-4 text-orange-500" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" fill-rule="evenodd"></path>
+</svg>
+<span class="text-sm text-gray-700">错题</span>
+<div class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-indigo-500 rounded-full border border-white flex items-center justify-center">
+<svg class="h-2.5 w-2.5 text-white" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
+</svg>
+</div>
+</div>
+<!-- Unselected Tag 3 -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-gray-200 cursor-pointer text-gray-400">
+<svg class="h-4 w-4 text-green-500" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11 4a1 1 0 10-2 0v4a1 1 0 102 0V7zm-3 1a1 1 0 10-2 0v3a1 1 0 102 0V8zM8 9a1 1 0 00-2 0v2a1 1 0 102 0V9z" fill-rule="evenodd"></path>
+</svg>
+<span class="text-sm text-gray-700">成绩单</span>
+</div>
+</div>
+</div>
+</form>
+</section>
+<!-- Footer Privacy Note -->
+<footer class="bg-indigo-50/50 py-4 px-5 border-t border-indigo-50 flex items-center justify-center gap-2">
+<svg class="h-4 w-4 text-indigo-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-xs text-gray-500 font-medium">信息仅用于生成分析结果</span>
+</footer>
+</main>
+<!-- END: Main Content Card -->
+<!-- BEGIN: Bottom Action Area -->
+<div class="px-6 pb-8 flex flex-col items-center gap-4 relative z-10">
+<button class="w-full btn-primary-gradient text-white rounded-full py-4 font-semibold text-base shadow-lg shadow-purple-200/50 hover:opacity-90 transition-opacity active:scale-[0.98]">
+        提交并开始分析
+      </button>
+<button class="text-indigo-500 font-medium text-sm hover:text-indigo-600 transition-colors bg-transparent border-none">
+        返回上一步
+      </button>
+</div>
+<!-- END: Bottom Action Area -->
+</div>
+</body></html>

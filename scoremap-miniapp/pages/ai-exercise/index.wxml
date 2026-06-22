@@ -8,7 +8,7 @@
     </view>
     <text class="c13-bg-title">AI 提分报告（完整）</text>
     <text class="c13-bg-time">报告生成时间：2024-05-30 10:36</text>
-    <image class="c13-bg-owl c13-pointer-owl" src="/assets/clean-icons/owl-teacher-pointer.png" mode="aspectFit" />
+    <image class="c13-bg-owl c13-pointer-owl" src="/assets/clean-icons/owl-teacher-pointer-clean.png" mode="aspectFit" />
     <view class="c13-bg-score full">
       <view class="c13-score-row">
         <image class="c13-score-icon" src="/assets/clean-icons/shield-check-purple.png" mode="aspectFit" />

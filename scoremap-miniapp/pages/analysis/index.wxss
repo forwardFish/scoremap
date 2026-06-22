@@ -26,14 +26,14 @@ button::after {
   color: #111c3b;
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
   box-sizing: border-box;
-  padding: 25px 17px 0;
+  padding: 28px 20px 0;
 }
 
 .analysis-header {
   height: 48px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .back-button {
@@ -48,22 +48,35 @@ button::after {
 }
 
 .robot-icon {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #111827;
+  box-shadow: 0 4px 12px rgba(17, 24, 39, 0.16);
+}
+
+.robot-icon image {
+  width: 100%;
+  height: 100%;
+}
+
+.avatar-drawn {
+  display: none;
 }
 
 .brand-title {
   color: #101946;
-  font-size: 23px;
+  font-size: 22px;
   line-height: 32px;
   font-weight: 900;
 }
 
 .analysis-card {
   position: relative;
-  height: 579px;
-  margin-top: 18px;
-  padding: 31px 24px 0;
+  height: 625px;
+  margin-top: 20px;
+  padding: 32px 24px 0;
   border-radius: 24px;
   background: linear-gradient(180deg, #ffffff 0%, #fdfcff 100%);
   box-shadow: 0 10px 35px rgba(123, 97, 255, 0.08);
@@ -122,15 +135,15 @@ button::after {
 
 .progress-stage {
   position: relative;
-  height: 240px;
+  height: 265px;
 }
 
 .progress-ring {
   position: absolute;
-  left: 72px;
-  top: 21px;
-  width: 176px;
-  height: 176px;
+  left: 58px;
+  top: 29px;
+  width: 190px;
+  height: 190px;
 }
 
 .ring-track,
@@ -142,11 +155,11 @@ button::after {
 }
 
 .ring-track {
-  border: 16px solid #eeeaff;
+  border: 15px solid #eeeaff;
 }
 
 .ring-arc {
-  border: 16px solid transparent;
+  border: 15px solid transparent;
   border-top-color: #8e6bff;
   border-right-color: #8e6bff;
 }
@@ -190,21 +203,26 @@ button::after {
 
 .owl {
   position: absolute;
-  right: -6px;
-  top: 102px;
+  right: 18px;
+  top: 148px;
   width: 96px;
   height: 108px;
+}
+
+.owl-drawn {
+  display: none;
 }
 
 .step-list {
   position: relative;
   z-index: 1;
+  margin: 0 12px;
 }
 
 .step-row {
   position: relative;
   height: 49px;
-  margin-bottom: 2px;
+  margin-bottom: 0;
   padding: 0 14px;
   border-radius: 12px;
   background: #ffffff;
@@ -256,9 +274,14 @@ button::after {
   font-size: 13px;
 }
 
+.pending {
+  color: #8a91a4;
+  font-weight: 500;
+}
+
 .estimate {
   height: 28px;
-  margin-top: 15px;
+  margin-top: 23px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -274,11 +297,11 @@ button::after {
 
 .primary-button {
   position: absolute;
-  left: 21px;
-  top: 694px;
-  width: 348px;
+  left: 28px;
+  top: 745px;
+  width: 334px;
   height: 60px;
-  border-radius: 14px;
+  border-radius: 30px;
   background: linear-gradient(90deg, #a687ff 0%, #7b61ff 100%);
   color: #ffffff;
   font-size: 20px;
@@ -292,7 +315,7 @@ button::after {
 .refresh-button {
   position: absolute;
   left: 130px;
-  top: 775px;
+  top: 819px;
   width: 130px;
   height: 34px;
   color: #8b5cf6;
@@ -302,4 +325,148 @@ button::after {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+body[data-screen="analysis"] .robot-icon {
+  background: #f1f5f9;
+  box-shadow: none;
+}
+
+body[data-screen="analysis"] .robot-icon image {
+  display: block;
+}
+
+body[data-screen="analysis"] .avatar-drawn {
+  display: none;
+}
+
+.owl {
+  display: none;
+}
+
+.owl-drawn {
+  position: absolute;
+  right: 28px;
+  top: 145px;
+  display: block;
+  width: 84px;
+  height: 94px;
+  filter: drop-shadow(0 4px 5px rgba(87, 61, 30, 0.18));
+}
+
+.owl-drawn::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: -2px;
+  width: 92px;
+  height: 92px;
+  border-radius: 2px;
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(31, 41, 55, 0.08);
+  z-index: 0;
+}
+
+.owl-ear {
+  position: absolute;
+  top: 9px;
+  width: 24px;
+  height: 24px;
+  background: #5a2f16;
+  transform: rotate(45deg);
+  z-index: 1;
+}
+
+.owl-ear.left {
+  left: 12px;
+}
+
+.owl-ear.right {
+  right: 12px;
+}
+
+.owl-head {
+  position: absolute;
+  left: 7px;
+  top: 15px;
+  width: 70px;
+  height: 64px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 54%, #f3d79f 0 25px, #8a4f24 26px, #2f1a12 35px);
+  border: 2px solid #3c2418;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.owl-body {
+  position: absolute;
+  left: 15px;
+  top: 54px;
+  width: 54px;
+  height: 39px;
+  border-radius: 50% 50% 46% 46%;
+  background: linear-gradient(180deg, #6e3f20 0%, #412416 100%);
+  z-index: 1;
+}
+
+.owl-belly {
+  position: absolute;
+  left: 11px;
+  top: 6px;
+  width: 32px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f4e4c7;
+}
+
+.owl-eye {
+  position: absolute;
+  top: 20px;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background: #f4c742;
+  border: 3px solid #3f2619;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.owl-eye.left {
+  left: 13px;
+}
+
+.owl-eye.right {
+  right: 13px;
+}
+
+.owl-eye view {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #111827;
+}
+
+.owl-beak {
+  position: absolute;
+  left: 30px;
+  top: 39px;
+  width: 10px;
+  height: 10px;
+  background: #e7a725;
+  transform: rotate(45deg);
+  z-index: 3;
+}
+
+.owl-feather {
+  position: absolute;
+  left: 22px;
+  top: 47px;
+  width: 26px;
+  height: 12px;
+  border-radius: 0 0 18px 18px;
+  border-bottom: 3px solid rgba(70, 39, 22, 0.45);
+  z-index: 3;
 }

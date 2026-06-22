@@ -19,26 +19,29 @@ button::after {
 
 .failure-page {
   position: relative;
-  width: 390px;
+  width: 358px;
+  margin: 17px auto 0;
   min-height: 844px;
   overflow: hidden;
   background: #f8fafc;
+  border: 1px solid #f0f1f5;
+  border-radius: 40px 40px 0 0;
   color: #10203f;
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
   box-sizing: border-box;
-  padding: 23px 5px 0;
+  padding: 30px 16px 0;
 }
 
 .failure-header {
-  height: 45px;
-  margin-left: 15px;
+  height: 66px;
+  margin-left: 17px;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
 .back-button {
-  width: 26px;
+  width: 28px;
   height: 40px;
   color: #14213f;
   font-size: 36px;
@@ -50,17 +53,17 @@ button::after {
 
 .page-title {
   color: #101946;
-  font-size: 22px;
+  font-size: 21px;
   line-height: 30px;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .failure-card {
   position: relative;
-  height: 748px;
-  margin-top: 19px;
-  padding-top: 72px;
-  border-radius: 22px;
+  height: 730px;
+  margin-top: 10px;
+  padding: 34px 22px 0;
+  border-radius: 24px;
   background: linear-gradient(180deg, #ffffff 0%, #ffffff 72%, #fbfaff 100%);
   box-shadow: 0 12px 34px rgba(94, 73, 170, 0.08);
   box-sizing: border-box;
@@ -69,120 +72,184 @@ button::after {
 
 .illustration {
   position: relative;
-  height: 288px;
-}
-
-.paper-graphic {
-  position: absolute;
-  left: 63px;
-  top: 72px;
-  width: 106px;
-  height: 142px;
-  border-radius: 14px;
-  background: linear-gradient(145deg, #ffffff 0%, #f4f1ff 100%);
-  box-shadow: 0 12px 28px rgba(104, 84, 178, 0.11);
-  transform: rotate(-1deg);
-}
-
-.paper-graphic::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 34px;
-  height: 34px;
-  border-radius: 0 14px 0 12px;
-  background: #e8e2ff;
-}
-
-.paper-line {
-  position: absolute;
-  left: 22px;
-  top: 42px;
-  width: 47px;
-  height: 7px;
-  border-radius: 4px;
-  background: #ece8ff;
-}
-
-.paper-line.long {
-  top: 26px;
-  width: 62px;
-}
-
-.paper-mountain {
-  position: absolute;
-  left: 23px;
-  bottom: 24px;
-  width: 58px;
-  height: 42px;
-  border-radius: 9px;
-  background: linear-gradient(145deg, #d8d2ff 0%, #f2f0ff 100%);
-  transform: skew(-8deg);
-}
-
-.owl-wrap {
-  position: absolute;
-  right: 59px;
-  top: 40px;
-  width: 150px;
-  height: 178px;
-}
-
-.owl {
-  width: 150px;
-  height: 178px;
-}
-
-.sad-mark {
-  position: absolute;
-  right: 13px;
-  top: -7px;
-  width: 34px;
-  height: 34px;
-  border-radius: 17px;
-  border: 4px solid #b7a1f3;
-  color: #9a82e8;
-  box-sizing: border-box;
-  text-align: center;
-  line-height: 26px;
-  font-size: 18px;
-  font-weight: 900;
-  transform: rotate(18deg);
-}
-
-.error-badge {
-  position: absolute;
-  left: 128px;
-  top: 168px;
-  width: 59px;
-  height: 59px;
-  border-radius: 30px;
-  background: #ff6b8f;
-  box-shadow: 0 10px 22px rgba(255, 107, 143, 0.28);
+  height: 390px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
-.error-badge image {
-  width: 36px;
+.failure-illustration {
+  width: 220px;
+  height: 390px;
+  border-radius: 7px;
+  background: linear-gradient(135deg, #fbfaff 0%, #f5f2ff 100%);
+  box-shadow: 0 8px 18px rgba(40, 38, 70, 0.08);
+  overflow: hidden;
+  box-sizing: border-box;
+  transform: translateY(-9px);
+}
+
+.mini-header {
   height: 36px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #111827;
+  font-size: 8px;
+  font-weight: 800;
+  box-sizing: border-box;
+}
+
+.mini-back {
+  font-size: 15px;
+  line-height: 15px;
+}
+
+.mini-card {
+  width: 198px;
+  height: 326px;
+  margin: 0 auto;
+  padding: 30px 10px 0;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 8px 18px rgba(91, 80, 150, 0.08);
+  box-sizing: border-box;
+}
+
+.mini-art {
+  position: relative;
+  width: 154px;
+  height: 112px;
+  margin: 0 auto;
+}
+
+.mini-paper {
+  position: absolute;
+  left: 2px;
+  bottom: 11px;
+  width: 58px;
+  height: 70px;
+  border-radius: 5px;
+  background: #f7f6ff;
+  transform: rotate(-6deg);
+  box-shadow: 8px 12px 18px rgba(101, 84, 180, 0.09);
+}
+
+.mini-paper view {
+  width: 31px;
+  height: 4px;
+  margin: 16px 0 0 14px;
+  border-radius: 4px;
+  background: #e1ddfb;
+}
+
+.mini-paper view:nth-child(2) {
+  width: 38px;
+  margin-top: 13px;
+}
+
+.mini-paper view:nth-child(3) {
+  width: 28px;
+  height: 18px;
+  margin-top: 12px;
+  border-radius: 3px;
+}
+
+.mini-owl {
+  position: absolute;
+  right: 4px;
+  bottom: 0;
+  width: 104px;
+  height: 104px;
+}
+
+.mini-error {
+  position: absolute;
+  left: 53px;
+  bottom: 12px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ff6b84;
+  color: #ffffff;
+  text-align: center;
+  font-size: 25px;
+  line-height: 27px;
+  font-weight: 900;
+  box-shadow: 0 6px 12px rgba(255, 107, 132, 0.22);
+}
+
+.mini-title {
+  display: block;
+  margin-top: 21px;
+  text-align: center;
+  color: #10203f;
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 900;
+}
+
+.mini-copy {
+  display: block;
+  width: 150px;
+  margin: 8px auto 0;
+  text-align: center;
+  color: #697386;
+  font-size: 6px;
+  line-height: 10px;
+}
+
+.mini-primary,
+.mini-secondary {
+  width: 158px;
+  height: 28px;
+  margin: 20px auto 0;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: 800;
+  box-sizing: border-box;
+}
+
+.mini-primary {
+  color: #ffffff;
+  background: linear-gradient(180deg, #a383ff 0%, #7757f4 100%);
+  box-shadow: 0 5px 10px rgba(122, 87, 244, 0.2);
+}
+
+.mini-secondary {
+  margin-top: 8px;
+  color: #7b57f4;
+  background: #ffffff;
+  border: 1px solid #9a80ff;
+}
+
+.mini-home {
+  display: block;
+  margin-top: 15px;
+  color: #7b57f4;
+  text-align: center;
+  font-size: 6px;
+  font-weight: 700;
 }
 
 .failure-title {
   display: block;
-  margin-top: 22px;
+  margin-top: 10px;
   text-align: center;
   color: #10203f;
-  font-size: 27px;
-  line-height: 38px;
+  font-size: 26px;
+  line-height: 36px;
   font-weight: 900;
 }
 
 .failure-copy {
   display: block;
-  margin-top: 12px;
+  width: 244px;
+  margin: 12px auto 0;
   text-align: center;
   color: #647086;
   font-size: 14px;
@@ -204,7 +271,7 @@ button::after {
 }
 
 .retry-button {
-  margin-top: 45px;
+  margin-top: 58px;
   color: #ffffff;
   background: linear-gradient(180deg, #a383ff 0%, #7757f4 100%);
   box-shadow: 0 8px 18px rgba(122, 87, 244, 0.26);

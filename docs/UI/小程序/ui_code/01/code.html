@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>AI 提分决策 - 上传资料</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- BEGIN: Config & Styles -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            app: {
+              bg: '#f8f9fe',
+              primary: '#8a6cf2',
+              primaryLight: '#a18af5',
+              text: '#333333',
+              textSub: '#888888',
+              cardBg: '#ffffff',
+            }
+          },
+          boxShadow: {
+            'card': '0 4px 16px rgba(138, 108, 242, 0.08)',
+            'btn': '0 4px 12px rgba(138, 108, 242, 0.3)',
+          },
+          backgroundImage: {
+            'gradient-primary': 'linear-gradient(to right, #9c7eff, #7a5cf0)',
+            'gradient-light': 'linear-gradient(to bottom right, #ffffff, #fdfdff)',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-utilities">
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
+
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      background-color: #f8f9fe;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Hide scrollbar for clean mobile look */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    .dashed-border {
+      background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='20' ry='20' stroke='%23a18af544' stroke-width='2' stroke-dasharray='8%2c8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+      border-radius: 20px;
+    }
+
+    .mascot-bg {
+       /* Simulating the glowing background behind the mascot */
+       background: radial-gradient(circle at center, rgba(138, 108, 242, 0.15) 0%, transparent 70%);
+    }
+  </style>
+<!-- END: Config & Styles -->
+</head>
+<body class="bg-app-bg text-app-text min-h-screen flex flex-col max-w-md mx-auto relative overflow-x-hidden">
+<!-- BEGIN: Header Section -->
+<header class="pt-12 pb-4 px-5 flex justify-between items-center z-10 relative">
+<div class="flex items-center gap-3">
+<!-- AI Bot Icon (Placeholder for the actual 3D icon) -->
+<div class="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center p-1 relative">
+<div class="w-full h-full rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center relative overflow-hidden">
+<!-- Simulated robot face details -->
+<div class="absolute w-5 h-2 bg-black rounded-full top-1/2 -mt-1 flex items-center justify-around px-1">
+<div class="w-1.5 h-1.5 bg-blue-300 rounded-full"></div>
+<div class="text-[6px] text-blue-300 transform scale-x-150">^</div>
+</div>
+</div>
+<!-- Small glow effect -->
+<div class="absolute -inset-1 bg-app-primaryLight rounded-full opacity-20 blur-sm"></div>
+</div>
+<h1 class="text-xl font-bold tracking-wide">AI 提分决策</h1>
+</div>
+<!-- Chat Button -->
+<button class="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-app-primary">
+<i class="fa-regular fa-comment-dots text-lg"></i>
+</button>
+</header>
+<!-- END: Header Section -->
+<!-- BEGIN: Main Content -->
+<main class="flex-1 px-5 pb-24 overflow-y-auto">
+<!-- Hero Section Card -->
+<section class="bg-white rounded-[24px] shadow-card p-6 pt-8 mb-4 relative overflow-hidden">
+<!-- Top decorative glow -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-app-primaryLight opacity-10 rounded-full blur-3xl -mr-20 -mt-20"></div>
+<!-- Mascot & Title Area -->
+<div class="flex justify-between items-start mb-6 relative z-10">
+<div class="max-w-[60%]">
+<h2 class="text-[26px] leading-tight font-bold mb-2">
+            上传孩子资料，<br/>
+<span class="text-app-primary">AI</span> 帮你看清先补什么
+          </h2>
+<p class="text-app-textSub text-xs mt-3 flex items-center whitespace-nowrap">
+            支持试卷 / 错题 / 成绩单，先做 <span class="text-app-primary font-medium mx-1">1 元</span> 初判
+          </p>
+</div>
+<!-- Owl Mascot (Placeholder using FontAwesome as fallback, ideally an image) -->
+<div class="absolute right-[-20px] top-[-30px] w-40 h-40 mascot-bg flex items-center justify-center pointer-events-none">
+<!-- Since I must not invent image URLs, I'll use a styled placeholder that resembles the structure -->
+<div class="w-28 h-32 relative flex flex-col items-center justify-end pb-2">
+<!-- Simplified CSS representation of the owl for aesthetic layout purposes without breaking rules -->
+<div class="w-16 h-20 bg-app-primaryLight rounded-[40px] opacity-20 absolute bottom-4"></div>
+<i class="fa-solid fa-graduation-cap text-3xl text-indigo-800 mb-[-10px] z-10 transform -rotate-12"></i>
+<div class="w-20 h-20 bg-purple-200 rounded-full border-4 border-white flex items-center justify-center shadow-inner relative z-0">
+<div class="flex gap-2">
+<div class="w-6 h-6 rounded-full bg-white border-2 border-indigo-400 flex items-center justify-center"><div class="w-2 h-2 bg-black rounded-full"></div></div>
+<div class="w-6 h-6 rounded-full bg-white border-2 border-indigo-400 flex items-center justify-center"><div class="text-[10px] transform scale-x-150">^</div></div>
+</div>
+<div class="absolute w-3 h-3 bg-yellow-400 rounded-full bottom-3 transform rotate-45"></div>
+</div>
+<!-- Book representation -->
+<div class="w-24 h-6 bg-blue-100 border border-blue-200 rounded-sm mt-1 z-10 relative">
+<div class="absolute top-0 left-1/2 w-px h-full bg-blue-300"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Upload Dropzone -->
+<div class="dashed-border p-5 flex flex-row items-center justify-between relative bg-[#fdfcff]">
+<!-- Folder Graphic (Placeholder) -->
+<div class="w-24 h-24 relative ml-2">
+<!-- Simulated Folder -->
+<div class="w-20 h-16 bg-indigo-200 rounded-lg absolute bottom-2 left-2 opacity-50 transform -rotate-6"></div>
+<div class="w-22 h-18 bg-gradient-to-b from-app-primaryLight to-app-primary rounded-xl absolute bottom-0 left-0 shadow-md flex items-center justify-center">
+<!-- Cloud Icon -->
+<i class="fa-solid fa-cloud-arrow-up text-white text-2xl opacity-80 mt-2"></i>
+</div>
+<!-- Decorative floating elements -->
+<i class="fa-solid fa-image text-green-400 absolute top-2 right-[-10px] transform rotate-12 text-lg shadow-sm bg-white rounded-sm p-1"></i>
+<i class="fa-solid fa-file-lines text-blue-300 absolute top-0 left-2 transform -rotate-12 text-xl bg-white rounded-sm p-1 shadow-sm"></i>
+</div>
+<!-- Upload Actions -->
+<div class="flex flex-col items-center flex-1 mr-2 z-10">
+<span class="text-sm text-app-textSub mb-3">支持图片 / PDF</span>
+<button class="bg-gradient-primary w-full py-3 rounded-full text-white font-medium shadow-btn flex items-center justify-center gap-2 transition-transform active:scale-95">
+<i class="fa-solid fa-cloud-arrow-up text-lg"></i>
+              上传资料
+            </button>
+</div>
+</div>
+</section>
+<!-- Quick Actions (View Sample / My Reports) -->
+<section class="flex gap-4 mb-6">
+<!-- Sample Action -->
+<button class="flex-1 bg-white rounded-[20px] p-4 flex items-center justify-between shadow-card relative overflow-hidden group">
+<div class="absolute left-0 top-0 w-full h-full bg-purple-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex items-center gap-3 relative z-10">
+<div class="w-10 h-10 rounded-xl bg-purple-100 text-app-primary flex items-center justify-center">
+<i class="fa-solid fa-file-invoice text-xl"></i>
+</div>
+<span class="font-medium text-[15px]">查看样例</span>
+</div>
+<i class="fa-solid fa-chevron-right text-app-primaryLight text-sm relative z-10"></i>
+</button>
+<!-- Reports Action -->
+<button class="flex-1 bg-white rounded-[20px] p-4 flex items-center justify-between shadow-card relative overflow-hidden group">
+<div class="absolute left-0 top-0 w-full h-full bg-blue-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex items-center gap-3 relative z-10">
+<div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-500 flex items-center justify-center">
+<i class="fa-solid fa-file-alt text-xl"></i>
+</div>
+<span class="font-medium text-[15px]">我的报告</span>
+</div>
+<i class="fa-solid fa-chevron-right text-blue-300 text-sm relative z-10"></i>
+</button>
+</section>
+<!-- Recent Reports Section -->
+<section class="bg-white rounded-[24px] shadow-card p-5 mb-6">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-bold text-[17px]">最近报告</h3>
+<button class="text-xs text-app-textSub flex items-center gap-1">
+          查看更多 <i class="fa-solid fa-chevron-right text-[10px]"></i>
+</button>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Report Item 1 -->
+<div class="flex items-center justify-between p-2 hover:bg-gray-50 rounded-xl transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-blue-400 border border-blue-100">
+<i class="fa-solid fa-calculator text-lg"></i>
+</div>
+<span class="text-[15px]">初一数学月考</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-green-50 text-green-600 text-xs px-2 py-1 rounded-md flex items-center gap-1">
+<i class="fa-regular fa-circle-check"></i> AI 初判已完成
+            </span>
+<i class="fa-solid fa-chevron-right text-gray-300 text-sm"></i>
+</div>
+</div>
+<!-- Divider -->
+<div class="h-px bg-gray-100 w-full ml-12"></div>
+<!-- Report Item 2 -->
+<div class="flex items-center justify-between p-2 hover:bg-gray-50 rounded-xl transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-pink-50 flex items-center justify-center text-pink-400 border border-pink-100 relative overflow-hidden">
+<i class="fa-solid fa-xmark text-xl"></i>
+<!-- little sparkle -->
+<div class="absolute bottom-1 right-1 w-2 h-2 bg-yellow-300 rounded-full"></div>
+</div>
+<span class="text-[15px]">错题专项分析</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-orange-50 text-orange-500 text-xs px-2 py-1 rounded-md flex items-center gap-1">
+<i class="fa-regular fa-clock"></i> 待查看结果
+            </span>
+<i class="fa-solid fa-chevron-right text-gray-300 text-sm"></i>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- END: Main Content -->
+<!-- BEGIN: Bottom Navigation -->
+<footer class="fixed bottom-0 w-full max-w-md bg-white/90 backdrop-blur-md border-t border-gray-100 pb-safe pt-2 px-6 z-50">
+<div class="flex justify-around items-center h-14">
+<!-- Home Tab (Active) -->
+<a class="flex flex-col items-center justify-center w-16 h-full gap-1 group" href="#">
+<div class="text-app-primary transition-transform group-active:scale-90">
+<i class="fa-solid fa-house text-[22px]"></i>
+</div>
+<span class="text-[10px] text-app-primary font-medium">首页</span>
+</a>
+<!-- Profile Tab (Inactive) -->
+<a class="flex flex-col items-center justify-center w-16 h-full gap-1 group" href="#">
+<div class="text-gray-400 transition-transform group-active:scale-90">
+<i class="fa-solid fa-user text-[22px]"></i>
+</div>
+<span class="text-[10px] text-gray-400 font-medium">我的</span>
+</a>
+</div>
+<!-- Safe area spacing for modern iPhones -->
+<div class="h-6 w-full flex justify-center items-end pb-2">
+<div class="w-1/3 h-1 bg-black rounded-full"></div>
+</div>
+</footer>
+<!-- END: Bottom Navigation -->
+</body></html>

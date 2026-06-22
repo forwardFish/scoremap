@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>修复这道关键错题 - 验证练习</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style data-purpose="custom-styles">
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      background-color: #f7f8fa;
+    }
+
+    /* Simulate the background content to show the drawer overlaying */
+    .bg-content-simulate {
+      background-image: linear-gradient(to bottom, #f0f4ff, #fff);
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Drawer overlay styling */
+    .drawer-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 40;
+    }
+
+    /* Drawer container */
+    .drawer-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #ffffff;
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
+      z-index: 50;
+      padding-bottom: env(safe-area-inset-bottom);
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Option button selection styles (for interactivity simulation if needed) */
+    .option-card:active {
+      background-color: #f0f5ff;
+      border-color: #6366f1;
+    }
+  </style>
+</head>
+<body>
+<!-- BEGIN: MainContainer -->
+<main class="bg-content-simulate w-full max-w-[430px] mx-auto h-screen shadow-lg relative">
+<!-- Background Image Mockup (Blurred to emphasize drawer) -->
+<div class="absolute inset-0 opacity-40 blur-sm pointer-events-none" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBXVKOzsAI2OKyplIGvi2sl99dgfeoZKSp2mY3zV1hF0XwwjME5T-GkFkQuMIKXG7_1MRSiByocEQSr9qYZ01n2Uo9QU_JdX7bNPA1FsMp5BDXL7yg4VMEQ2VaU1Dq5iB1KY8WGhIgmAlSPhjrLZMlU8sdzPK91b2vVrEvDaKvM2fhZVPQPxNPxnv_ly-5SYgwWoqKCJameTiZDLv6jhWrsX6LLaSKzlhf8HtWX61YZCCGE4hntSZJjHG00SwSaBffdZMiTVpRmIp0'); background-size: cover; background-position: top center;"></div>
+<!-- BEGIN: DrawerOverlay -->
+<div class="drawer-overlay"></div>
+<!-- END: DrawerOverlay -->
+<!-- BEGIN: Drawer -->
+<div class="drawer-container flex flex-col max-h-[90vh]">
+<!-- BEGIN: DrawerHandle -->
+<div class="w-full flex justify-center pt-3 pb-1">
+<div class="w-10 h-1 bg-gray-300 rounded-full"></div>
+</div>
+<!-- END: DrawerHandle -->
+<!-- BEGIN: DrawerHeader -->
+<div class="px-5 py-4 flex items-center justify-between relative">
+<!-- Close button (X) -->
+<div class="w-6"></div> <!-- Spacer for centering title -->
+<h2 class="text-[18px] font-bold text-gray-800 tracking-wide text-center flex-1">修复这道关键错题</h2>
+<button aria-label="关闭" class="w-6 h-6 flex items-center justify-center text-gray-500 hover:bg-gray-100 rounded-full">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+<!-- END: DrawerHeader -->
+<!-- BEGIN: ProgressIndicator -->
+<div class="px-6 py-2 relative">
+<!-- Connecting Line -->
+<div class="absolute top-[22px] left-[45px] right-[45px] h-[1px] bg-indigo-100 -z-10"></div>
+<div class="flex justify-between items-start">
+<!-- Step 1 -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-400 font-medium text-sm shadow-sm z-10">
+              1
+            </div>
+<span class="text-xs text-gray-500 font-medium">错因诊断</span>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-400 font-medium text-sm shadow-sm z-10">
+              2
+            </div>
+<span class="text-xs text-gray-500 font-medium">换法讲解</span>
+</div>
+<!-- Step 3 (Active) -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-[#5b52ff] flex items-center justify-center text-white font-medium text-sm shadow-md shadow-indigo-200 z-10 ring-4 ring-[#edecff]">
+              3
+            </div>
+<span class="text-xs text-[#5b52ff] font-bold">验证练习</span>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-400 font-medium text-sm shadow-sm z-10">
+              4
+            </div>
+<span class="text-xs text-gray-400 font-medium">掌握判断</span>
+</div>
+</div>
+</div>
+<!-- END: ProgressIndicator -->
+<!-- BEGIN: ScrollableContent -->
+<div class="px-5 py-4 overflow-y-auto flex-1">
+<!-- Main Content Card -->
+<div class="bg-white rounded-2xl border border-gray-100 p-4 shadow-sm relative overflow-hidden">
+<!-- Soft Background Hue -->
+<div class="absolute inset-0 bg-gradient-to-b from-[#f9f9ff] to-white opacity-50 pointer-events-none"></div>
+<!-- Header inside card -->
+<div class="flex justify-between items-center mb-4 relative z-10">
+<h3 class="text-[17px] font-bold text-gray-800">
+              做 <span class="text-xl mx-0.5">1</span> 道同类验证题
+            </h3>
+<div class="flex items-center bg-[#f0f0ff] rounded-full px-2.5 py-1">
+<span class="bg-[#7c71ff] text-white text-[10px] font-bold px-1.5 rounded-sm mr-1">PO</span>
+<span class="text-[#7c71ff] text-[11px] font-medium">只做 1 道即时验证题</span>
+</div>
+</div>
+<!-- Question Content -->
+<div class="bg-[#f7f8fa] rounded-xl p-5 mb-5 text-gray-800 text-[15px] leading-relaxed relative z-10 border border-gray-100 shadow-sm shadow-gray-200/50">
+            甲、乙两车同时从 A 地出发，甲每小时行 70km，乙每小时行 55km，3 小时后甲比乙多行多少千米？
+          </div>
+<!-- Multiple Choice Options -->
+<div class="space-y-3 relative z-10">
+<!-- Option A -->
+<label class="option-card flex items-center bg-white border border-gray-100 rounded-xl p-3.5 cursor-pointer shadow-sm hover:border-[#a09cff] transition-colors">
+<input class="hidden peer" name="math_answer" type="radio" value="A"/>
+<div class="w-8 h-8 rounded-lg bg-[#f4f3ff] flex items-center justify-center text-[#5b52ff] font-bold text-lg mr-4 peer-checked:bg-[#5b52ff] peer-checked:text-white transition-colors">
+                A
+              </div>
+<span class="text-gray-800 text-[16px] font-medium flex-1">40 千米</span>
+</label>
+<!-- Option B -->
+<label class="option-card flex items-center bg-white border border-gray-100 rounded-xl p-3.5 cursor-pointer shadow-sm hover:border-[#a09cff] transition-colors">
+<input class="hidden peer" name="math_answer" type="radio" value="B"/>
+<div class="w-8 h-8 rounded-lg bg-[#f4f3ff] flex items-center justify-center text-[#5b52ff] font-bold text-lg mr-4 peer-checked:bg-[#5b52ff] peer-checked:text-white transition-colors">
+                B
+              </div>
+<span class="text-gray-800 text-[16px] font-medium flex-1">45 千米</span>
+</label>
+<!-- Option C -->
+<label class="option-card flex items-center bg-white border border-gray-100 rounded-xl p-3.5 cursor-pointer shadow-sm hover:border-[#a09cff] transition-colors">
+<input class="hidden peer" name="math_answer" type="radio" value="C"/>
+<div class="w-8 h-8 rounded-lg bg-[#f4f3ff] flex items-center justify-center text-[#5b52ff] font-bold text-lg mr-4 peer-checked:bg-[#5b52ff] peer-checked:text-white transition-colors">
+                C
+              </div>
+<span class="text-gray-800 text-[16px] font-medium flex-1">50 千米</span>
+</label>
+<!-- Option D -->
+<label class="option-card flex items-center bg-white border border-gray-100 rounded-xl p-3.5 cursor-pointer shadow-sm hover:border-[#a09cff] transition-colors">
+<input class="hidden peer" name="math_answer" type="radio" value="D"/>
+<div class="w-8 h-8 rounded-lg bg-[#f4f3ff] flex items-center justify-center text-[#5b52ff] font-bold text-lg mr-4 peer-checked:bg-[#5b52ff] peer-checked:text-white transition-colors">
+                D
+              </div>
+<span class="text-gray-800 text-[16px] font-medium flex-1">55 千米</span>
+</label>
+</div>
+<!-- Submit Button -->
+<div class="mt-6 relative z-10">
+<button class="w-full bg-[#5b52ff] text-white font-medium text-[16px] py-4 rounded-xl shadow-md shadow-indigo-200 hover:bg-[#4b43eb] active:scale-[0.98] transition-all">
+              提交答案
+            </button>
+</div>
+</div>
+</div>
+<!-- END: ScrollableContent -->
+<!-- Bottom Safe Area Padding -->
+<div class="h-6 bg-white"></div>
+</div>
+<!-- END: Drawer -->
+</main>
+<!-- END: MainContainer -->
+</body></html>

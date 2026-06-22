@@ -24,15 +24,25 @@
             <text>初判</text>
           </view>
         </view>
-        <image class="hero-owl" src="/assets/icons/owl-study-stack.png" mode="aspectFit" />
+        <view class="hero-owl" aria-hidden="true">
+          <view class="owl-cap"></view>
+          <view class="owl-body">
+            <view class="owl-eye left"><view></view></view>
+            <view class="owl-eye right"><text>^</text></view>
+            <view class="owl-beak"></view>
+          </view>
+          <view class="owl-book"><view></view></view>
+        </view>
       </view>
 
       <view class="upload-panel">
-        <image class="upload-asset" src="/assets/icons/upload-folder.png" mode="aspectFit" />
+        <view class="upload-asset" aria-hidden="true">
+          <image class="upload-asset-image" src="/assets/icons/upload-folder.png" mode="aspectFit" />
+        </view>
         <view class="upload-copy">
           <text class="upload-hint">支持图片 / PDF</text>
           <button class="upload-button" data-action="upload" bindtap="onTap">
-            <image class="upload-button-icon" src="/assets/icons/download-purple.png" mode="aspectFit" />
+            <text class="upload-button-icon">☁</text>
             <text>上传资料</text>
           </button>
         </view>
@@ -42,14 +52,14 @@
     <view class="quick-actions">
       <button class="quick-card" data-action="sample" bindtap="onTap">
         <view class="quick-icon sample-icon">
-          <image src="/assets/icons/document-purple.png" mode="aspectFit" />
+          <text class="quick-symbol">▤</text>
         </view>
         <text class="quick-label">查看样例</text>
         <text class="quick-chevron">›</text>
       </button>
       <button class="quick-card" data-action="reports" bindtap="onTap">
         <view class="quick-icon reports-icon">
-          <image src="/assets/icons/report-docs-blue.png" mode="aspectFit" />
+          <text class="quick-symbol">▤</text>
         </view>
         <text class="quick-label">我的报告</text>
         <text class="quick-chevron reports-chevron">›</text>
@@ -67,7 +77,7 @@
 
       <button class="report-row" data-action="reports" bindtap="onTap">
         <view class="report-leading math-icon">
-          <image src="/assets/icons/calendar-check-blue.png" mode="aspectFit" />
+          <text class="report-symbol">▦</text>
         </view>
         <text class="report-title">初一数学月考</text>
         <view class="report-status status-done">
@@ -80,7 +90,8 @@
 
       <button class="report-row" data-action="reports" bindtap="onTap">
         <view class="report-leading error-icon">
-          <image src="/assets/icons/error-x-eraser.png" mode="aspectFit" />
+          <text class="report-symbol">×</text>
+          <view class="error-dot"></view>
         </view>
         <text class="report-title">错题专项分析</text>
         <view class="report-status status-pending">

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>修复这道关键错题 - 掌握判断</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style data-purpose="custom-fonts">
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+    }
+  </style>
+<style data-purpose="custom-styles">
+    .drawer-shadow {
+      box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.05);
+    }
+    .progress-line-active {
+      background: linear-gradient(90deg, #E2E8F0 0%, #6366F1 100%);
+    }
+    .text-gradient-purple {
+      background: linear-gradient(135deg, #6366F1 0%, #A855F7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .bg-gradient-purple {
+      background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+    }
+    .btn-outline-purple {
+      border: 1px solid #6366F1;
+      color: #6366F1;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 flex justify-center min-h-screen">
+<!-- BEGIN: Mobile Container -->
+<div class="w-full max-w-[430px] bg-white relative h-screen flex flex-col overflow-hidden" data-purpose="mobile-container">
+<!-- BEGIN: Background Context (Faded out for drawer) -->
+<div class="absolute inset-0 bg-[#F4F6FF] z-0 opacity-40">
+<img alt="Background context" class="w-full h-full object-cover opacity-30 pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTkOhIVIbL9UKDWYBeOFKwfA0y20ptlcfqJBpjrhROd2qlq3adAe7jenkuDLSTDPcNqf2_P8IVOe3b8UaJJxrsv_jH8eq7FExaJjFXtR821Sts7DU-ie_CZ_ohgc60Z7iNcaRjwcQpmeEw5yfx5UDXPd-6g27GXuwnQeduFaKage0crJLQbwWPSEm9GU9ffg-Vp5vR-oODYMR4NIl-ikSK6Ny8GCiP3uO71Ji9sdaf1c53FpEySZvsKEZuHQ94-ZuT8aDFtg0fTzg"/>
+</div>
+<!-- END: Background Context -->
+<!-- BEGIN: Overlay -->
+<div class="absolute inset-0 bg-black/10 z-10"></div>
+<!-- END: Overlay -->
+<!-- BEGIN: Bottom Drawer -->
+<div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl z-20 flex flex-col drawer-shadow pb-8" data-purpose="bottom-drawer" style="height: 72%;">
+<!-- BEGIN: Drawer Handle & Header -->
+<div class="flex flex-col items-center pt-3 pb-4 relative">
+<div class="w-10 h-1 bg-gray-200 rounded-full mb-4"></div>
+<h2 class="text-[18px] font-bold text-gray-900">修复这道关键错题</h2>
+<button class="absolute right-4 top-5 p-2">
+<svg fill="none" height="14" viewbox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 1L13 13M1 13L13 1" stroke="#111827" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
+</button>
+</div>
+<!-- END: Drawer Handle & Header -->
+<!-- BEGIN: Drawer Content Area -->
+<div class="flex-1 overflow-y-auto px-5 scrollbar-hide">
+<!-- BEGIN: Progress Indicator -->
+<div class="flex items-center justify-between mt-4 mb-6 relative">
+<!-- Connecting Lines -->
+<div class="absolute top-4 left-[10%] right-[10%] h-[1px] bg-gray-200 z-0"></div>
+<div class="absolute top-4 left-[10%] right-[38%] h-[1px] bg-[#E2E8F0] z-0"></div>
+<!-- Step 1 -->
+<div class="flex flex-col items-center relative z-10 w-1/4">
+<div class="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-400 text-sm font-medium mb-2">1</div>
+<span class="text-xs text-gray-500">错因诊断</span>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center relative z-10 w-1/4">
+<div class="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-400 text-sm font-medium mb-2">2</div>
+<span class="text-xs text-gray-500">换法讲解</span>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center relative z-10 w-1/4">
+<div class="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-400 text-sm font-medium mb-2">3</div>
+<span class="text-xs text-gray-500">验证练习</span>
+</div>
+<!-- Step 4 (Active) -->
+<div class="flex flex-col items-center relative z-10 w-1/4">
+<div class="w-8 h-8 rounded-full bg-[#6366F1] flex items-center justify-center text-white text-sm font-medium mb-2">4</div>
+<span class="text-xs text-[#6366F1] font-medium">掌握判断</span>
+</div>
+</div>
+<!-- END: Progress Indicator -->
+<!-- BEGIN: Success Message Box -->
+<div class="bg-[#F0FDF4] border border-[#BBF7D0] rounded-2xl p-5 mb-5 flex flex-col items-center text-center">
+<div class="flex items-center justify-center mb-3">
+<svg class="mr-2" fill="none" height="28" viewbox="0 0 28 28" width="28" xmlns="http://www.w3.org/2000/svg">
+<circle cx="14" cy="14" fill="#22C55E" r="14"></circle>
+<path d="M8 14.5L12 18.5L20 10.5" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+<h3 class="text-[20px] font-bold text-[#16A34A]">初步掌握</h3>
+</div>
+<p class="text-[14px] text-[#15803D]">你已经理解了“速度差 × 时间 = 路程差”这个方法。</p>
+</div>
+<!-- END: Success Message Box -->
+<!-- BEGIN: Mastery Status Table -->
+<div class="bg-gray-50 rounded-2xl p-4 mb-5 border border-gray-100">
+<h4 class="text-[14px] font-bold text-gray-900 mb-3">掌握状态说明</h4>
+<div class="flex flex-col gap-2">
+<!-- Status Row 1 -->
+<div class="flex items-center py-2 bg-white rounded-lg px-3">
+<div class="w-32 flex items-center">
+<svg class="mr-1.5" fill="none" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<circle cx="8" cy="8" fill="#DCFCE7" r="8"></circle>
+<circle cx="8" cy="8" fill="#22C55E" r="4"></circle>
+</svg>
+<span class="text-[13px] font-medium text-[#16A34A]">初步掌握</span>
+</div>
+<div class="flex-1 text-[13px] text-gray-500 border-l border-gray-100 pl-3">
+                能在引导下正确应用方法
+              </div>
+</div>
+<!-- Status Row 2 -->
+<div class="flex items-center py-2 bg-white rounded-lg px-3">
+<div class="w-32 flex items-center">
+<svg class="mr-1.5" fill="none" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<circle cx="8" cy="8" fill="#FEF3C7" r="8"></circle>
+<path d="M8 4V9" stroke="#D97706" stroke-linecap="round" stroke-width="1.5"></path>
+<circle cx="8" cy="11.5" fill="#D97706" r="1"></circle>
+</svg>
+<span class="text-[13px] font-medium text-[#D97706]">仍需复习</span>
+</div>
+<div class="flex-1 text-[13px] text-gray-500 border-l border-gray-100 pl-3">
+                方法理解不稳定，需再练习
+              </div>
+</div>
+<!-- Status Row 3 -->
+<div class="flex items-center py-2 bg-white rounded-lg px-3">
+<div class="w-32 flex items-center">
+<svg class="mr-1.5" fill="none" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<circle cx="8" cy="8" fill="#FEE2E2" r="8"></circle>
+<path d="M5.5 5.5L10.5 10.5M10.5 5.5L5.5 10.5" stroke="#EF4444" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
+<span class="text-[13px] font-medium text-[#EF4444]">需要补前置知识</span>
+</div>
+<div class="flex-1 text-[13px] text-gray-500 border-l border-gray-100 pl-3">
+                缺少必要知识，需先补齐
+              </div>
+</div>
+</div>
+</div>
+<!-- END: Mastery Status Table -->
+<!-- BEGIN: Report Update Notice -->
+<div class="bg-[#F8FAFC] rounded-2xl p-4 flex items-start">
+<svg class="mt-0.5 mr-2 flex-shrink-0" fill="none" height="20" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 6H13M7 10H13M5 14H9M4 18H16C17.1046 18 18 17.1046 18 16V4C18 2.89543 17.1046 2 16 2H4C2.89543 2 2 2.89543 2 4V16C2 17.1046 2.89543 18 4 18Z" stroke="#64748B" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M12.5 16.5L14 18L17.5 14.5" stroke="#64748B" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+<div>
+<h5 class="text-[14px] font-medium text-gray-700 mb-1">已回写报告</h5>
+<p class="text-[13px] text-gray-500 leading-relaxed">
+              本题验证通过，已更新掌握状态：<span class="text-[#16A34A] font-medium">初步掌握</span><br/>
+              相关内容将在完整报告中同步更新。
+            </p>
+</div>
+</div>
+<!-- END: Report Update Notice -->
+</div>
+<!-- END: Drawer Content Area -->
+<!-- BEGIN: Action Buttons -->
+<div class="px-5 pt-4 pb-2 flex gap-3 mt-auto bg-white">
+<button class="flex-1 py-3.5 rounded-xl font-medium text-[16px] btn-outline-purple bg-white">
+          返回报告
+        </button>
+<button class="flex-[1.5] py-3.5 rounded-xl font-medium text-[16px] text-white bg-gradient-purple shadow-md shadow-indigo-200">
+          继续修复下一题
+        </button>
+</div>
+<!-- END: Action Buttons -->
+</div>
+<!-- END: Bottom Drawer -->
+</div>
+<!-- END: Mobile Container -->
+</body></html>

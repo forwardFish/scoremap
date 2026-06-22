@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Preliminary Report Preview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style data-purpose="custom-fonts">
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #F8F9FA;
+    }
+  </style>
+<style data-purpose="animations">
+    .slide-up {
+      animation: slideUp 0.3s ease-out forwards;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+    .fade-in {
+      animation: fadeIn 0.3s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#6C5CE7',
+            'primary-light': '#8C7CF0',
+            bg: '#F4F5F9',
+            'card-bg': '#E8EAF6',
+            text: {
+              main: '#2D3436',
+              sub: '#636E72',
+              light: '#B2BEC3'
+            }
+          },
+          boxShadow: {
+            'modal': '0 -4px 20px rgba(0, 0, 0, 0.08)',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white min-h-screen relative flex flex-col items-center justify-center pt-8 pb-8 sm:p-0">
+<!-- Mobile Device Container for Previewing on larger screens -->
+<div class="relative w-full h-[100vh] sm:w-[375px] sm:h-[812px] sm:rounded-[40px] sm:overflow-hidden sm:shadow-2xl sm:border-[8px] sm:border-gray-900 bg-[#F4F5F9] flex flex-col font-sans relative">
+<!-- Status Bar Placeholder -->
+<div class="h-11 w-full flex items-center justify-between px-6 z-10 shrink-0">
+<span class="text-[15px] font-semibold text-black">9:41</span>
+<div class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-black" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"></path></svg>
+<svg class="w-4 h-4 text-black" fill="currentColor" viewbox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"></path></svg>
+<div class="w-6 h-3 rounded-sm border border-black p-[1px] flex relative">
+<div class="bg-black w-[80%] rounded-[1px]"></div>
+<div class="absolute -right-[2px] top-1/2 -translate-y-1/2 w-[2px] h-[4px] bg-black rounded-r-[1px]"></div>
+</div>
+</div>
+</div>
+<!-- BEGIN: Header -->
+<header class="flex items-center justify-between px-4 py-3 shrink-0 z-10">
+<button class="w-8 h-8 flex items-center justify-center active:bg-gray-200 rounded-full transition-colors">
+<svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<h1 class="text-lg font-medium text-gray-900 tracking-wide">初判报告 (预览)</h1>
+<div class="w-8"></div> <!-- Spacer for centering -->
+</header>
+<!-- END: Header -->
+<!-- BEGIN: Main Content Area (Blurred Background) -->
+<main class="flex-1 overflow-y-auto px-4 pb-32">
+<div class="bg-card-bg rounded-2xl p-5 mb-4 shadow-sm opacity-60">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-base font-semibold text-text-main flex items-center">
+            初步分析结果 <span class="text-xs font-normal text-text-sub ml-2">(部分)</span>
+</h2>
+<div class="bg-indigo-100 text-indigo-500 text-xs px-2 py-1 rounded-full flex items-center gap-1 font-medium">
+<svg class="w-3 h-3" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" fill-rule="evenodd"></path></svg>
+            完整内容需解锁
+          </div>
+</div>
+<!-- Skeleton Loaders -->
+<div class="space-y-3 mb-6">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-indigo-100"></div>
+<div class="h-3 bg-indigo-100 rounded-full w-3/4"></div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-indigo-100"></div>
+<div class="h-3 bg-indigo-100 rounded-full w-1/2"></div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-indigo-100"></div>
+<div class="h-3 bg-indigo-100 rounded-full w-2/3"></div>
+</div>
+</div>
+<div class="w-full h-1 bg-indigo-50 rounded-full overflow-hidden mb-6">
+<div class="w-1/3 h-full bg-indigo-200 rounded-full relative">
+<div class="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-indigo-300 rounded-full"></div>
+</div>
+</div>
+<!-- Section 2 -->
+<h2 class="text-base font-semibold text-text-main mb-3 flex items-center">
+          主要问题 <span class="text-xs font-normal text-text-sub ml-2">(部分)</span>
+</h2>
+<ul class="space-y-2 mb-6">
+<li class="flex items-start gap-2 text-sm text-text-sub">
+<span class="w-4 h-4 rounded-full bg-indigo-100 flex items-center justify-center mt-0.5 shrink-0">
+<div class="w-1.5 h-1.5 bg-indigo-300 rounded-full"></div>
+</span>
+            二元一次方程应用题理解不足
+          </li>
+<li class="flex items-start gap-2 text-sm text-text-sub">
+<span class="w-4 h-4 rounded-full bg-indigo-100 flex items-center justify-center mt-0.5 shrink-0">
+<div class="w-1.5 h-1.5 bg-indigo-300 rounded-full"></div>
+</span>
+            一次函数图像移动规律易错
+          </li>
+</ul>
+<!-- Section 3 -->
+<h2 class="text-base font-semibold text-text-main mb-3 flex items-center">
+          优先建议 <span class="text-xs font-normal text-text-sub ml-2">(部分)</span>
+</h2>
+<ul class="space-y-2">
+<li class="flex items-start gap-2 text-sm text-text-sub">
+<span class="w-4 h-4 rounded-full bg-indigo-100 flex items-center justify-center mt-0.5 shrink-0">
+<div class="w-1.5 h-1.5 bg-indigo-300 rounded-full"></div>
+</span>
+            优先补弱：行程问题中的数量关系建模
+          </li>
+<li class="flex items-start gap-2 text-sm text-text-sub">
+<span class="w-4 h-4 rounded-full bg-indigo-100 flex items-center justify-center mt-0.5 shrink-0">
+<div class="w-1.5 h-1.5 bg-indigo-300 rounded-full"></div>
+</span>
+            7 天行动方向：每天 20 分钟专项练习
+          </li>
+</ul>
+</div>
+</main>
+<!-- END: Main Content Area -->
+<!-- BEGIN: Overlay & Bottom Sheet Modal -->
+<div class="absolute inset-0 z-20 flex flex-col justify-end">
+<!-- Dark overlay -->
+<div class="absolute inset-0 bg-black/50 fade-in backdrop-blur-sm"></div>
+<!-- Bottom Sheet -->
+<div class="bg-white rounded-t-3xl p-6 relative slide-up shadow-modal flex flex-col z-30">
+<!-- Handlebar -->
+<div class="w-10 h-1 bg-gray-200 rounded-full mx-auto absolute top-3 left-1/2 -translate-x-1/2"></div>
+<!-- Close Button -->
+<button class="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 active:bg-gray-100 rounded-full">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<!-- Header -->
+<div class="flex items-center justify-center gap-2 mt-4 mb-2">
+<div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center shadow-inner relative overflow-hidden">
+<!-- Shield Icon Placeholder (using basic SVG) -->
+<svg class="w-5 h-5 text-indigo-500 relative z-10" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
+</svg>
+<div class="absolute inset-0 bg-gradient-to-tr from-indigo-200 to-transparent opacity-50"></div>
+</div>
+<h2 class="text-xl font-bold text-gray-900 tracking-tight">解锁完整初判</h2>
+</div>
+<!-- Price -->
+<div class="text-center mb-6">
+<span class="text-4xl font-bold text-primary">1.00</span>
+<span class="text-base font-medium text-primary">元</span>
+</div>
+<!-- Divider -->
+<div class="w-full border-t border-dashed border-gray-200 mb-6"></div>
+<!-- Benefits List -->
+<div class="px-4 mb-8">
+<h3 class="text-sm font-medium text-gray-800 mb-3">支付后可解锁</h3>
+<ul class="space-y-2.5">
+<li class="flex items-center gap-2 text-sm text-gray-600">
+<span class="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
+              完整初判结果
+            </li>
+<li class="flex items-center gap-2 text-sm text-gray-600">
+<span class="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
+              主要丢分点分析
+            </li>
+<li class="flex items-center gap-2 text-sm text-gray-600">
+<span class="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
+              优先补弱建议
+            </li>
+</ul>
+</div>
+<!-- Action Button -->
+<button class="w-full bg-primary hover:bg-primary-light active:scale-[0.98] transition-all text-white font-medium text-base py-3.5 rounded-xl shadow-lg shadow-indigo-200 flex items-center justify-center">
+          立即支付 1 元
+        </button>
+<!-- Safe Area Spacer for iOS -->
+<div class="h-6"></div>
+</div>
+</div>
+<!-- END: Overlay & Bottom Sheet Modal -->
+</div>
+</body></html>

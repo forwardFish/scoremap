@@ -6,6 +6,7 @@ const { test } = require('node:test');
 const { DEFAULT_FORBIDDEN_PATTERNS, assertLocalOnlyEnvironment, scanTextForForbiddenRemoteCalls } = require('../../shared/local-only');
 const { createMiniappApiClient } = require('../../scoremap-miniapp/services/api-client');
 const { createHomeUploadPageState } = require('../../scoremap-miniapp/pages/index');
+const { createStudentInfoPageState } = require('../../scoremap-miniapp/pages/student-info');
 const { createAnalysisPageState } = require('../../scoremap-miniapp/pages/analysis');
 const { createFailurePageState } = require('../../scoremap-miniapp/pages/failure');
 const { createPreviewPageState } = require('../../scoremap-miniapp/pages/preview');
@@ -23,15 +24,20 @@ const { createAiTutorPageState, fixedButtons } = require('../../scoremap-miniapp
 const { createAiExercisePageState } = require('../../scoremap-miniapp/pages/ai-exercise');
 const { createAiExerciseFeedbackPageState } = require('../../scoremap-miniapp/pages/ai-exercise-feedback');
 const { MINIAPP_ROUTES } = require('../../scoremap-miniapp/routes');
+const { writeFileWithRetry } = require('../support/file-io');
 const appJson = require('../../scoremap-miniapp/app.json');
 
 const projectRoot = path.resolve(__dirname, '..', '..');
-const evidenceRoot = path.join(projectRoot, 'docs', 'auto-execute', 'evidence', 'owner');
+const ownerEvidenceRel = process.env.SCOREMAP_OWNER_EVIDENCE_DIR || rel('docs', 'auto-execute', 'evidence', 'owner-current');
+const resultRootRel = process.env.SCOREMAP_RESULT_DIR || rel('docs', 'auto-execute', 'results-current');
+const latestRootRel = process.env.SCOREMAP_LATEST_DIR || rel('docs', 'auto-execute', 'latest-current');
+const evidenceRoot = path.join(projectRoot, ownerEvidenceRel);
 const command = 'npm run e2e:owner';
 const appRoutes = new Set(appJson.pages.map((page) => `/${page}`));
 
 const visualByRoute = {
   '/pages/index/index': 'home',
+  '/pages/student-info/index': 'student-info',
   '/pages/analysis/index': 'analysis',
   '/pages/failure/index': 'failure',
   '/pages/preview/index': 'preview',
@@ -59,7 +65,7 @@ function rel(...parts) {
 function writeJson(relativePath, payload) {
   const absolutePath = path.join(projectRoot, relativePath);
   fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
-  fs.writeFileSync(absolutePath, `${JSON.stringify(payload, null, 2)}\n`);
+  writeFileWithRetry(absolutePath, `${JSON.stringify(payload, null, 2)}\n`);
   return relativePath;
 }
 
@@ -121,7 +127,7 @@ function scenario(id, requirementIds, clickPath, routeEvidence, apiCalls, dbRead
     },
     ...extra
   };
-  const file = writeJson(rel('docs', 'auto-execute', 'evidence', 'owner', `${id}.json`), payload);
+  const file = writeJson(rel(ownerEvidenceRel, `${id}.json`), payload);
   return { scenarioId: id, status: 'PASS', evidence: file };
 }
 
@@ -142,6 +148,7 @@ function scanLocalOnlyFiles() {
     'scoremap-miniapp/services/local-fixture-store.js',
     'scoremap-miniapp/utils/navigation.js',
     'scoremap-miniapp/pages/index/index.js',
+    'scoremap-miniapp/pages/student-info/index.js',
     'scoremap-miniapp/pages/analysis/index.js',
     'scoremap-miniapp/pages/failure/index.js',
     'scoremap-miniapp/pages/preview/index.js',
@@ -170,14 +177,21 @@ test('T15 parent owner clicks O01-O13 with route, API, DB, visual, and local-onl
 
   const home = createHomeUploadPageState(client);
   const authPrompt = home.tapUploadMaterial();
+  const uploadReady = home.confirmUploadAuthorization();
+  const studentInfo = createStudentInfoPageState(client);
+  studentInfo.updateField('currentScore', '78');
+  studentInfo.updateField('targetScore', '95');
+  studentInfo.updateField('examType', '月考');
   const uploadStart = callsSince(client, 0).length;
-  const upload = home.confirmUploadAuthorization();
+  const upload = studentInfo.submitStudentInfo();
   assert.equal(authPrompt.status, 'AUTH_REQUIRED');
+  assert.equal(uploadReady.targetRoute, '/pages/student-info/index');
   assert.equal(upload.targetRoute, '/pages/analysis/index');
   assert.equal(client.store.read('diagnosis_orders', upload.orderId).status, 'preview_done');
   results.push(scenario('O01', ['R01', 'R02', 'R14', 'R15'], [
-    '/pages/index/index', 'upload-material', 'upload-authorization modal', 'confirm-upload-authorization', '/pages/analysis/index'
-  ], { startRoute: '/pages/index/index', targetRoute: upload.targetRoute, modal: authPrompt.modalId }, callsSince(client, uploadStart), {
+    '/pages/index/index', 'upload-material', 'upload-authorization modal', 'confirm-upload-authorization',
+    '/pages/student-info/index', 'submit-student-info', '/pages/analysis/index'
+  ], { startRoute: '/pages/index/index', infoRoute: uploadReady.targetRoute, targetRoute: upload.targetRoute, modal: authPrompt.modalId }, callsSince(client, uploadStart), {
     order: client.store.read('diagnosis_orders', upload.orderId),
     upload: client.store.read('upload_files', 'upload-t07-home-upload'),
     analysisTask: client.store.read('ai_analysis_tasks', 'task-t07-preview')
@@ -317,10 +331,13 @@ test('T15 parent owner clicks O01-O13 with route, API, DB, visual, and local-onl
   const reupload = failurePage.reupload();
   const freshHome = createHomeUploadPageState(client);
   freshHome.tapUploadMaterial();
-  const secondUpload = freshHome.confirmUploadAuthorization();
+  const secondInfoRoute = freshHome.confirmUploadAuthorization();
+  const freshStudentInfo = createStudentInfoPageState(client, { orderId: 'order-t15-reupload' });
+  const secondUpload = freshStudentInfo.submitStudentInfo();
   assert.equal(reupload.targetRoute, '/pages/index/index');
+  assert.equal(secondInfoRoute.targetRoute, '/pages/student-info/index');
   assert.equal(secondUpload.targetRoute, '/pages/analysis/index');
-  results.push(scenario('O09', ['R04', 'R14'], ['failure-page', 'reupload', '/pages/index/index', 'confirm-upload-authorization', '/pages/analysis/index'], {
+  results.push(scenario('O09', ['R04', 'R14'], ['failure-page', 'reupload', '/pages/index/index', 'confirm-upload-authorization', '/pages/student-info/index', 'submit-student-info', '/pages/analysis/index'], {
     reuploadRoute: reupload.targetRoute,
     uploadTargetRoute: secondUpload.targetRoute
   }, callsSince(client, reuploadStart), {
@@ -376,7 +393,9 @@ test('T15 parent owner clicks O01-O13 with route, API, DB, visual, and local-onl
   const controlStart = controlClient.calls.length;
   const controlHome = createHomeUploadPageState(controlClient);
   controlHome.tapUploadMaterial();
-  const controlUpload = controlHome.confirmUploadAuthorization();
+  const controlInfoRoute = controlHome.confirmUploadAuthorization();
+  const controlStudentInfo = createStudentInfoPageState(controlClient, { orderId: 'order-t15-control-full' });
+  const controlUpload = controlStudentInfo.submitStudentInfo();
   const controlOrderId = controlUpload.orderId;
   const controlAnalysis = createAnalysisPageState(controlClient, { orderId: controlOrderId });
   const controlPreview = createPreviewPageState(controlClient, { orderId: controlOrderId });
@@ -399,6 +418,8 @@ test('T15 parent owner clicks O01-O13 with route, API, DB, visual, and local-onl
     { controlId: 'home.open-recent-reports', result: controlHome.openRecentReports() },
     { controlId: 'home.open-my-reports', result: controlHome.openMyReports() },
     { controlId: 'home.open-my-tab', result: controlHome.openMyTab() },
+    { controlId: 'student-info.back-upload', result: controlStudentInfo.backUpload() },
+    { controlId: 'student-info.submit-student-info', result: controlInfoRoute.status === 'UPLOAD_READY' ? controlUpload : controlStudentInfo.submitStudentInfo() },
     { controlId: 'analysis.refresh-progress', result: controlAnalysis.refreshProgress() },
     { controlId: 'analysis.later-view', result: controlAnalysis.laterView() },
     { controlId: 'failure.retry-analysis', result: createFailurePageState(controlClient, { orderId: 'order-t15-control-failed' }).retryAnalysis() },
@@ -491,7 +512,7 @@ test('T15 parent owner clicks O01-O13 with route, API, DB, visual, and local-onl
       }
     ]
   };
-  writeJson(rel('docs', 'auto-execute', 'evidence', 'owner', 'journey-summary.json'), summary);
+  writeJson(rel(ownerEvidenceRel, 'journey-summary.json'), summary);
 });
 
 test('T31 normal person clicks V13-O14 through V13-O23 with route, API, DB, LLM, and visual evidence', () => {
@@ -533,7 +554,7 @@ test('T31 normal person clicks V13-O14 through V13-O23 with route, API, DB, LLM,
       },
       ...extra
     };
-    const file = writeJson(rel('docs', 'auto-execute', 'evidence', 'owner', `${id}.json`), payload);
+    const file = writeJson(rel(ownerEvidenceRel, `${id}.json`), payload);
     results.push({ scenarioId: id, status: 'PASS', evidence: file });
     return payload;
   }
@@ -823,7 +844,7 @@ test('T31 normal person clicks V13-O14 through V13-O23 with route, API, DB, LLM,
     status: 'PASS_NEEDS_MANUAL_UI_REVIEW',
     command: 'npm run e2e:owner -- ai-tutor-v13',
     scenarioCount: results.length,
-    oldCoveragePreserved: { scenarios: 'O01-O13', evidence: rel('docs', 'auto-execute', 'evidence', 'owner', 'journey-summary.json') },
+    oldCoveragePreserved: { scenarios: 'O01-O13', evidence: rel(ownerEvidenceRel, 'journey-summary.json') },
     v13Coverage: results,
     requiredV13Scenarios: [...requiredV13Scenarios, 'V13-O23'],
     clickTargetCount: routeControlMatrix.length,
@@ -832,8 +853,8 @@ test('T31 normal person clicks V13-O14 through V13-O23 with route, API, DB, LLM,
     localOnlyEvidence: { status: 'PASS', localOnly, remoteCalls: [] },
     noPurePassReason: 'Owner click evidence consumes deterministic page-state plus structural SVG visual artifacts; T30 still classifies raster pixel-perfect review as manual UI review.'
   };
-  writeJson(rel('docs', 'auto-execute', 'evidence', 'owner', 'all-pages-ai-tutor-v13.json'), summary);
-  writeJson(rel('docs', 'auto-execute', 'results', 'T31.json'), {
+  writeJson(rel(ownerEvidenceRel, 'all-pages-ai-tutor-v13.json'), summary);
+  const resultPath = writeJson(rel(resultRootRel, 'T31.json'), {
     taskId: 'T31',
     status: 'PASS_NEEDS_MANUAL_UI_REVIEW',
     commands: [
@@ -841,7 +862,7 @@ test('T31 normal person clicks V13-O14 through V13-O23 with route, API, DB, LLM,
       { command: 'npm test -- navigation', status: 'PASS' }
     ],
     evidence: [
-      rel('docs', 'auto-execute', 'evidence', 'owner', 'all-pages-ai-tutor-v13.json'),
+      rel(ownerEvidenceRel, 'all-pages-ai-tutor-v13.json'),
       rel('docs', 'auto-execute', 'evidence', 'navigation', 'all-click-targets.json')
     ],
     scenarios: summary.requiredV13Scenarios,
@@ -850,29 +871,29 @@ test('T31 normal person clicks V13-O14 through V13-O23 with route, API, DB, LLM,
       'scoremap-miniapp/navigation-click-audit.test.js',
       'scoremap-miniapp/pages/full-report-entry/index.js',
       'docs/auto-execute/evidence/navigation/all-click-targets.json',
-      'docs/auto-execute/evidence/owner/V13-O14.json',
-      'docs/auto-execute/evidence/owner/V13-O15.json',
-      'docs/auto-execute/evidence/owner/V13-O16.json',
-      'docs/auto-execute/evidence/owner/V13-O17.json',
-      'docs/auto-execute/evidence/owner/V13-O18.json',
-      'docs/auto-execute/evidence/owner/V13-O19.json',
-      'docs/auto-execute/evidence/owner/V13-O20.json',
-      'docs/auto-execute/evidence/owner/V13-O21.json',
-      'docs/auto-execute/evidence/owner/V13-O22.json',
-      'docs/auto-execute/evidence/owner/V13-O23.json',
-      'docs/auto-execute/evidence/owner/all-pages-ai-tutor-v13.json',
-      'docs/auto-execute/results/T31.json',
-      'docs/auto-execute/latest/T31-HANDOFF.md'
+      rel(ownerEvidenceRel, 'V13-O14.json'),
+      rel(ownerEvidenceRel, 'V13-O15.json'),
+      rel(ownerEvidenceRel, 'V13-O16.json'),
+      rel(ownerEvidenceRel, 'V13-O17.json'),
+      rel(ownerEvidenceRel, 'V13-O18.json'),
+      rel(ownerEvidenceRel, 'V13-O19.json'),
+      rel(ownerEvidenceRel, 'V13-O20.json'),
+      rel(ownerEvidenceRel, 'V13-O21.json'),
+      rel(ownerEvidenceRel, 'V13-O22.json'),
+      rel(ownerEvidenceRel, 'V13-O23.json'),
+      rel(ownerEvidenceRel, 'all-pages-ai-tutor-v13.json'),
+      rel(resultRootRel, 'T31.json'),
+      rel(latestRootRel, 'T31-HANDOFF.md')
     ],
     noPurePassReason: summary.noPurePassReason
   });
-  fs.mkdirSync(path.join(projectRoot, 'docs', 'auto-execute', 'latest'), { recursive: true });
-  fs.writeFileSync(path.join(projectRoot, 'docs', 'auto-execute', 'latest', 'T31-HANDOFF.md'), [
+  fs.mkdirSync(path.join(projectRoot, latestRootRel), { recursive: true });
+  fs.writeFileSync(path.join(projectRoot, latestRootRel, 'T31-HANDOFF.md'), [
     '# T31 Handoff',
     '',
     '- Status: PASS_NEEDS_MANUAL_UI_REVIEW',
-    '- Evidence: docs/auto-execute/evidence/owner/all-pages-ai-tutor-v13.json',
-    '- Result: docs/auto-execute/results/T31.json',
+    `- Evidence: ${rel(ownerEvidenceRel, 'all-pages-ai-tutor-v13.json')}`,
+    `- Result: ${resultPath}`,
     '- Commands: npm run e2e:owner -- ai-tutor-v13; npm test -- navigation',
     '- Notes: O01-O13 owner journey remains covered, V13-O14 through V13-O23 are recorded with route/API/DB/LLM/visible-state evidence. Pure PASS is not claimed because v1.3 visual proof remains structural/manual-review per T30.'
   ].join('\n') + '\n');

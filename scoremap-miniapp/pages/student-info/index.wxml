@@ -6,7 +6,7 @@
       </button>
       <view class="title-cluster">
         <view class="robot-wrap">
-          <image class="robot-icon" src="/assets/icons/student-info-robot-wink.png" mode="aspectFit" />
+          <image class="robot-icon" src="/assets/icons/ai-robot-smile.png" mode="aspectFit" />
         </view>
         <view>
           <text class="page-title">填写孩子信息</text>

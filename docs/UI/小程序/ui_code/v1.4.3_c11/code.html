@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>我的报告</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              purple: '#6B4EFF',
+              light: '#F8F8FF',
+              dark: '#111827',
+              gray: '#6B7280'
+            }
+          },
+          fontFamily: {
+            sans: ['PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-styles">
+    body {
+      background-color: #F8F8FF; /* Very light purple/gray background */
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Hide scrollbar for tabs */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Custom shadow for cards to match design */
+    .card-shadow {
+      box-shadow: 0 4px 20px rgba(107, 78, 255, 0.05);
+    }
+
+    .tab-active {
+      color: #6B4EFF;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .tab-active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 3px;
+      background-color: #6B4EFF;
+      border-radius: 2px;
+    }
+
+    .tab-inactive {
+      color: #6B7280;
+    }
+  </style>
+</head>
+<body class="text-gray-800 pb-20 relative min-h-screen">
+<!-- BEGIN: Header Section -->
+<header class="sticky top-0 z-50 bg-[#F8F8FF]/90 backdrop-blur-md px-4 pt-12 pb-4 flex items-center justify-between">
+<button aria-label="Go back" class="p-2 -ml-2">
+<svg fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M15 19L8 12L15 5" stroke="#111827" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</button>
+<h1 class="text-[18px] font-semibold text-center flex-1 pr-6">我的报告</h1>
+</header>
+<!-- END: Header Section -->
+<main class="px-4 pb-6 space-y-5">
+<!-- BEGIN: Start New Assessment Banner -->
+<section class="bg-white rounded-[20px] p-4 flex items-center justify-between card-shadow cursor-pointer">
+<div class="flex items-center space-x-4">
+<div class="w-[48px] h-[48px] bg-[#EEF2FF] rounded-2xl flex items-center justify-center">
+<!-- Placeholder for icon -->
+<svg fill="none" height="28" viewbox="0 0 24 24" width="28" xmlns="http://www.w3.org/2000/svg">
+<path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="#6B4EFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M14 2V8H20" stroke="#6B4EFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M12 18V12" stroke="#6B4EFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M9 15L12 12L15 15" stroke="#6B4EFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<h2 class="text-[17px] font-semibold text-gray-900 leading-tight mb-1">继续新建分析</h2>
+<p class="text-[13px] text-gray-500">上传新资料，获取 AI 分析报告</p>
+</div>
+</div>
+<div class="w-[44px] h-[44px] rounded-full bg-gradient-to-br from-[#A58BFF] to-[#6B4EFF] flex items-center justify-center shadow-md shadow-[#6B4EFF]/30">
+<svg fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 16V8M12 8L8 12M12 8L16 12" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</section>
+<!-- END: Start New Assessment Banner -->
+<!-- BEGIN: Tabs Navigation -->
+<nav class="flex space-x-6 overflow-x-auto no-scrollbar py-2 text-[15px]">
+<button class="whitespace-nowrap tab-active">全部</button>
+<button class="whitespace-nowrap tab-inactive">分析中</button>
+<button class="whitespace-nowrap tab-inactive">初判预览</button>
+<button class="whitespace-nowrap tab-inactive">已解锁初判</button>
+<button class="whitespace-nowrap tab-inactive">已解锁完整</button>
+</nav>
+<!-- END: Tabs Navigation -->
+<!-- BEGIN: Report List -->
+<div class="space-y-4">
+<!-- Card 1: Completed Report -->
+<article class="bg-white rounded-[24px] p-5 card-shadow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-[17px] font-semibold text-gray-900 tracking-wide">2024-05-30 数学试卷</h3>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-[12px] font-medium bg-[#ECFDF5] text-[#10B981]">
+            已解锁完整报告
+          </span>
+</div>
+<div class="text-[13px] text-gray-500 mb-4 flex items-center space-x-4">
+<span>生成时间：10:36</span>
+</div>
+<div class="flex space-x-4 mb-5">
+<!-- Thumbnail Image -->
+<div class="w-[100px] h-[120px] bg-gray-100 rounded-xl overflow-hidden flex-shrink-0 border border-gray-100">
+<img alt="Report thumbnail" class="w-full h-full object-cover opacity-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxu-2XH1NW0C5g5EbkVVwMy37TQFZq90EdBnRh5uNDVFcKB9uJ3MOGL_Atp1UdWRAoLabeXGBirc20QquQZtHex_GvttVFh26_H3Pq_RNoOJLkpdZ0Pd5_aEd0K7bpsl0G3LtXOR6WcsRQ9JENlXvy9lUeD2SAfpb_JtIjb1YBy62IDtP3FzokeME0nYxMZRFxP5Ua3PYvrCYFJWgW7Q3Z9YD9-3dAk2AAgNy0_ncKNYaiFMQnBKx78TuVtKBa51VxAnwAbQeLcpw" style="object-position: top center;"/>
+</div>
+<!-- Summary Text -->
+<p class="text-[14px] text-gray-700 leading-relaxed flex-1 pt-1">
+            优先修复关键错题，预计可优化改善 6-10 分
+          </p>
+</div>
+<div class="flex justify-end space-x-3">
+<button class="px-5 py-2.5 rounded-full border border-[#E5E7EB] text-[#6B7280] text-[14px] font-medium hover:bg-gray-50">
+            继续修复错题
+          </button>
+<button class="px-5 py-2.5 rounded-full bg-[#6B4EFF] text-white text-[14px] font-medium hover:bg-[#5A3EE0]">
+            查看报告
+          </button>
+</div>
+</article>
+<!-- Card 2: Initial Judgment Unlocked -->
+<article class="bg-white rounded-[24px] p-5 card-shadow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-[17px] font-semibold text-gray-900 tracking-wide">2024-05-28 数学试卷</h3>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-[12px] font-medium bg-[#EFF6FF] text-[#3B82F6]">
+            已解锁初判
+          </span>
+</div>
+<div class="text-[13px] text-gray-500 mb-2">
+<span>生成时间：15:20</span>
+</div>
+<p class="text-[14px] text-gray-700 mb-5">
+          共识别 5 个主要问题
+        </p>
+<button class="w-[140px] px-5 py-2.5 rounded-full border border-[#6B4EFF]/30 text-[#6B4EFF] text-[14px] font-medium hover:bg-[#EEF2FF]">
+          查看初判结果
+        </button>
+</article>
+<!-- Card 3: Preview -->
+<article class="bg-white rounded-[24px] p-5 card-shadow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-[17px] font-semibold text-gray-900 tracking-wide">2024-05-27 数学试卷</h3>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-[12px] font-medium bg-[#FFF7ED] text-[#F97316]">
+            初判预览
+          </span>
+</div>
+<div class="text-[13px] text-gray-500 mb-2">
+<span>生成时间：09:18</span>
+</div>
+<p class="text-[14px] text-gray-700 mb-5">
+          查看初步分析结果，决定是否解锁
+        </p>
+<button class="w-[120px] px-5 py-2.5 rounded-full border border-[#6B4EFF]/30 text-[#6B4EFF] text-[14px] font-medium hover:bg-[#EEF2FF]">
+          查看预览
+        </button>
+</article>
+<!-- Card 4: Analyzing -->
+<article class="bg-white rounded-[24px] p-5 card-shadow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-[17px] font-semibold text-gray-900 tracking-wide">2024-05-26 数学试卷</h3>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-[12px] font-medium bg-[#F3F4F6] text-[#6B7280]">
+            分析中
+          </span>
+</div>
+<div class="text-[13px] text-gray-500 mb-2">
+<span>生成时间：昨天 20:10</span>
+</div>
+<div class="flex justify-between items-end">
+<div class="flex-1">
+<p class="text-[14px] text-gray-700 mb-5">
+              AI 正在分析中，请稍候...
+            </p>
+<button class="w-[120px] px-5 py-2.5 rounded-full border border-[#E5E7EB] text-[#6B7280] text-[14px] font-medium hover:bg-gray-50">
+              查看进度
+            </button>
+</div>
+<!-- Progress Circle Placeholder -->
+<div class="w-[56px] h-[56px] rounded-full border-4 border-[#EEF2FF] border-t-[#6B4EFF] flex items-center justify-center">
+<span class="text-[14px] font-semibold text-[#6B4EFF]">60%</span>
+</div>
+</div>
+</article>
+</div>
+<!-- END: Report List -->
+</main>
+<!-- BEGIN: Bottom Navigation Bar -->
+<footer class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-lg border-t border-gray-100 flex justify-around items-center pt-3 pb-safe-bottom z-50 h-[80px] pb-6">
+<button class="flex flex-col items-center space-y-1 w-16">
+<svg fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" fill="#9CA3AF"></path>
+</svg>
+<span class="text-[10px] text-gray-400">首页</span>
+</button>
+<button class="flex flex-col items-center space-y-1 w-16">
+<svg fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" fill="#6B4EFF"></path>
+<path d="M9 13H15" stroke="white" stroke-linecap="round" stroke-width="2"></path>
+<path d="M9 17H13" stroke="white" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+<span class="text-[10px] font-medium text-[#6B4EFF]">我的报告</span>
+</button>
+<button class="flex flex-col items-center space-y-1 w-16">
+<svg fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" fill="#9CA3AF"></path>
+<path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" fill="#9CA3AF"></path>
+</svg>
+<span class="text-[10px] text-gray-400">我的</span>
+</button>
+</footer>
+<!-- END: Bottom Navigation Bar -->
+</body></html>

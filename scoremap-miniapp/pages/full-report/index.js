@@ -12,7 +12,7 @@ function createFullReportPageState(client = createMiniappApiClient(), options = 
   const orderId = options.orderId || 'order-v143-c10-full-report';
   let fullReportResponse = null;
   let questionsResponse = null;
-  let activeTab = '鎶ュ憡鎬昏';
+  let activeTab = '报告总览';
   let toast = null;
   let pdfExportEntry = null;
   let repairDrawer = null;
@@ -163,7 +163,7 @@ function createFullReportPageState(client = createMiniappApiClient(), options = 
     },
 
     shareReport() {
-      toast = '鎶ュ憡鍒嗕韩鍗＄墖宸茬敓鎴愶紝鍙彂閫佺粰瀹堕暱鍏卞悓鏌ョ湅';
+      toast = '报告分享卡片已生成，可发送给家长共同查看';
       return {
         status: 'SHARE_READY',
         behavior: 'local-share-placeholder',
@@ -177,7 +177,7 @@ function createFullReportPageState(client = createMiniappApiClient(), options = 
       const response = client.request('POST', `/api/reports/${orderId}/save`, {
         source: 'v143-c10-page-save'
       });
-      toast = response.status === 200 ? '鎶ュ憡宸蹭繚瀛樺埌鎴戠殑鎶ュ憡' : '淇濆瓨澶辫触锛岃绋嶅悗閲嶈瘯';
+      toast = response.status === 200 ? '报告已保存到我的报告' : '保存失败，请稍后重试';
       return {
         status: response.status === 200 ? 'SAVED' : 'SAVE_FAILED',
         apiStatus: response.status,
@@ -205,7 +205,7 @@ function createFullReportPageState(client = createMiniappApiClient(), options = 
             byteLength: exportRecord.byteLength
           }
         : null;
-      toast = response.status === 201 ? 'PDF 宸插鍑哄埌鏈湴璇佹嵁鐩綍' : 'PDF 瀵煎嚭澶辫触锛岃绋嶅悗閲嶈瘯';
+      toast = response.status === 201 ? 'PDF 已导出到本地证据目录' : 'PDF 导出失败，请稍后重试';
       return {
         status: response.status === 201 ? 'PDF_READY' : 'PDF_FAILED',
         apiStatus: response.status,
@@ -286,13 +286,13 @@ function createFullReportPageState(client = createMiniappApiClient(), options = 
         wrongQuestionCards,
         repairDrawer,
         controls: [
-          { id: 'load-full-report', text: '鍒锋柊瀹屾暣鎶ュ憡', api: `GET /api/diagnosis-orders/${orderId}/full-report` },
+          { id: 'load-full-report', text: '刷新完整报告', api: `GET /api/diagnosis-orders/${orderId}/full-report` },
           { id: 'load-wrong-questions', text: '鍔犺浇鍏抽敭閿欓', api: `GET /api/diagnosis-orders/${orderId}/questions` },
-          { id: 'open-wrong-question-card', text: '鏌ョ湅閿欓璇︽儏', targetRoute: WRONG_QUESTION_ROUTE },
-          { id: 'open-repair-drawer', text: '鎵撳紑淇鎶藉眽', behavior: 'drawer-diagnosis', visible: true },
+          { id: 'open-wrong-question-card', text: '查看错题详情', targetRoute: WRONG_QUESTION_ROUTE },
+          { id: 'open-repair-drawer', text: '打开修复抽屉', behavior: 'drawer-diagnosis', visible: true },
           { id: 'open-ai-tutor-from-card', text: 'Ask AI tutor', targetRoute: AI_TUTOR_ROUTE },
-          { id: 'share-report', text: '鍒嗕韩鎶ュ憡', behavior: 'local-share-placeholder', visible: true },
-          { id: 'save-report', text: '淇濆瓨鎶ュ憡', api: `POST /api/reports/${orderId}/save`, targetRoute: MY_ROUTE, visible: true },
+          { id: 'share-report', text: '分享报告', behavior: 'local-share-placeholder', visible: true },
+          { id: 'save-report', text: '保存报告', api: `POST /api/reports/${orderId}/save`, targetRoute: MY_ROUTE, visible: true },
           {
             id: 'export-pdf',
             text: '瀵煎嚭 PDF',
@@ -302,13 +302,13 @@ function createFullReportPageState(client = createMiniappApiClient(), options = 
           },
           {
             id: 'pdf-export-entry',
-            text: 'PDF 鏂囦欢',
+            text: 'PDF 文件',
             visible: Boolean(pdfExportEntry),
             fileUrl: pdfExportEntry && pdfExportEntry.fileUrl,
             filePath: pdfExportEntry && pdfExportEntry.filePath,
             status: pdfExportEntry ? pdfExportEntry.status : 'hidden_until_export_ready'
           },
-          { id: 'return-entry', text: '杩斿洖鎶ュ憡鍏ュ彛', targetRoute: FULL_REPORT_ENTRY_ROUTE }
+          { id: 'return-entry', text: '返回报告入口', targetRoute: FULL_REPORT_ENTRY_ROUTE }
         ],
         toast
       };
@@ -318,59 +318,117 @@ function createFullReportPageState(client = createMiniappApiClient(), options = 
 }
 
 if (typeof Page === 'function') {
+  const api = require('../../services/api');
+
   Page({
-    data: {},
+    data: { loading: true, toast: null },
     onLoad(query = {}) {
-      this.pageState = createFullReportPageState(createMiniappApiClient(), { orderId: query.orderId });
-      this.setData(this.pageState.getState());
+      this.orderId = query.orderId;
+      this.loadRemoteState();
+    },
+    async loadRemoteState() {
+      if (!this.orderId) {
+        this.setData({ loading: false, toast: '缺少报告订单，请从我的报告重新进入。' });
+        return;
+      }
+      try {
+        const [fullReport, questions] = await Promise.all([
+          api.getFullReport(this.orderId),
+          api.getQuestions(this.orderId)
+        ]);
+        const report = normalizeReport({
+          ...(fullReport.decision || {}),
+          wrongQuestionCards: questions.wrongQuestionCards || [],
+          reportQuota: questions.reportQuota
+        });
+        this.setData({
+          loading: false,
+          route: FULL_REPORT_ROUTE,
+          orderId: this.orderId,
+          title: '完整提分报告',
+          hero: {
+            title: report.reportTitle,
+            summary: report.summary,
+            statusText: 'Full analysis ready',
+            quotaText: report.reportQuota && report.reportQuota.text
+          },
+          paper: report,
+          valueCards: report.fiveCoreCards,
+          reportRows: report.modules,
+          tabs: report.tabs.map((tab, index) => ({ id: tab, active: index === 0 })),
+          wrongQuestionCards: report.wrongQuestionCards,
+          reportQuota: report.reportQuota,
+          toast: null
+        });
+      } catch (error) {
+        this.setData({ loading: false, toast: error.message || '完整报告加载失败，请稍后重试。' });
+      }
     },
     onShareReport() {
-      const result = this.pageState.shareReport();
-      this.setData({ toast: result.toast });
+      this.setData({ toast: '报告分享卡片已生成，可发送给家长共同查看。' });
     },
-    onSaveReport() {
+    async onSaveReport() {
       if (!requireLogin({ redirectUrl: currentReportUrl(this) })) return;
-      const result = this.pageState.saveReport();
-      this.setData(this.pageState.getState());
-      this.setData({ toast: result.toast });
+      try {
+        await api.saveReport(this.orderId);
+        this.setData({ toast: '报告已保存到我的报告。' });
+      } catch (error) {
+        this.setData({ toast: error.message || '保存失败，请稍后重试。' });
+      }
     },
     onReturnEntry() {
-      const result = this.pageState.returnEntry();
-      if (typeof wx !== 'undefined' && result.status === 'NAVIGATE') {
-        wx.navigateTo({ url: `${result.targetRoute}?orderId=${result.query.orderId}` });
+      if (typeof wx !== 'undefined') {
+        wx.navigateTo({ url: `${FULL_REPORT_ENTRY_ROUTE}?orderId=${this.orderId}` });
       }
     },
     onOpenWrongQuestion(event) {
       const questionId = event.currentTarget.dataset.questionId;
-      const result = this.pageState.openWrongQuestion(questionId);
-      if (typeof wx !== 'undefined' && result.status === 'NAVIGATE') {
-        wx.navigateTo({ url: `${result.targetRoute}?orderId=${result.query.orderId}&questionId=${result.query.questionId}` });
+      if (typeof wx !== 'undefined' && questionId) {
+        wx.navigateTo({ url: `${WRONG_QUESTION_ROUTE}?orderId=${this.orderId}&questionId=${questionId}` });
       }
     },
     onOpenAiTutor(event) {
       const questionId = event.currentTarget.dataset.questionId;
-      const result = this.pageState.openAiTutorFromCard(questionId);
-      if (typeof wx !== 'undefined' && result.status === 'NAVIGATE') {
-        wx.navigateTo({ url: `${result.targetRoute}?orderId=${result.query.orderId}&questionId=${result.query.questionId}` });
+      if (typeof wx !== 'undefined' && questionId) {
+        wx.navigateTo({ url: `${AI_TUTOR_ROUTE}?orderId=${this.orderId}&questionId=${questionId}` });
       }
     },
     onOpenRepairDrawer(event) {
-      const questionId = event.currentTarget.dataset.questionId;
-      const result = this.pageState.openRepairDrawer(questionId);
-      this.setData({ activeDrawer: result.drawerState, activeQuestionId: result.query.questionId, toast: '宸叉墦寮€閿欏洜璇婃柇鎶藉眽' });
-    }
-    ,
-    onRepairNextStep() {
-      this.pageState.advanceRepairDrawer();
-      this.setData(this.pageState.getState());
+      this.setData({
+        activeDrawer: 'diagnosis',
+        activeQuestionId: event.currentTarget.dataset.questionId,
+        toast: '已打开错因诊断抽屉'
+      });
     },
-    onRepairSubmitAnswer(event) {
-      this.pageState.submitRepairAnswer(event.currentTarget.dataset.answer);
-      this.setData(this.pageState.getState());
+    async onRepairNextStep() {
+      const questionId = this.data.activeQuestionId;
+      if (!questionId) return;
+      try {
+        await api.createQuestionInteraction({ orderId: this.orderId, questionId, actionType: 'explain_step' });
+        this.setData({ activeDrawer: 'explanation', toast: 'AI 讲解已写入互动记录。' });
+      } catch (error) {
+        this.setData({ toast: error.message || '修复步骤生成失败。' });
+      }
+    },
+    async onRepairSubmitAnswer(event) {
+      const questionId = this.data.activeQuestionId;
+      if (!questionId) return;
+      try {
+        const exercise = await api.createQuestionInteraction({ orderId: this.orderId, questionId, actionType: 'similar_question' });
+        await api.submitExerciseAnswer({
+          orderId: this.orderId,
+          questionId,
+          interactionId: exercise.interactionId || (exercise.interaction && exercise.interaction.id),
+          submittedAnswer: event.currentTarget.dataset.answer
+        });
+        await this.loadRemoteState();
+        this.setData({ activeDrawer: 'mastery', toast: '掌握判断已回写完整报告。' });
+      } catch (error) {
+        this.setData({ toast: error.message || '掌握判断失败。' });
+      }
     },
     onCloseRepairDrawer() {
-      this.pageState.closeRepairDrawer();
-      this.setData(this.pageState.getState());
+      this.setData({ activeDrawer: null, activeQuestionId: null });
     }
   });
 }
@@ -418,6 +476,6 @@ function loginRequiredResult(redirectUrl) {
     loginRequired: true,
     targetRoute: LOGIN_ROUTE,
     redirectUrl,
-    toast: '璇峰厛瀹屾垚寰俊鐧诲綍鍚庡啀缁х画'
+    toast: '请先完成微信登录后再继续'
   };
 }

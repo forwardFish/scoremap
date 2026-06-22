@@ -35,7 +35,7 @@
       <view class="price"><text>9.9</text><text>元</text></view>
       <text class="copy">已完成初判，可立即解锁完整提分报告</text>
       <view class="benefit-panel">
-        <text class="benefit-title">✦ 支付后可解锁 ✦</text>
+        <view class="benefit-title"><text>✦</text><text>支付后可解锁</text><text>✦</text></view>
         <view class="benefit-grid">
           <text>完整报告</text>
           <text>7天行动建议</text>

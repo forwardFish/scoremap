@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payment Confirmation Modal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style data-purpose="custom-fonts">
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+    }
+  </style>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary-purple': '#635BFF',
+            'bg-purple-light': '#F8F8FF',
+            'text-dark': '#1F2329',
+            'text-gray': '#8F959E',
+            'overlay': 'rgba(0,0,0,0.4)',
+          },
+          boxShadow: {
+            'modal': '0px -8px 24px rgba(0, 0, 0, 0.08)',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-100 h-screen w-full relative overflow-hidden flex justify-center">
+<!-- BEGIN: Background Context (Blurred/Darkened) -->
+<div class="absolute inset-0 bg-gray-200" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVEm0DaAVHD1bu9Lw_bDVY-NKrXlinDi3O1zcieCtHflA3ay4cXyCAchCp4JWQ4NR3l9Z7mwDaeM-VNxKeb4gFQhUbHDYZdqjPnKvGCU5CT_D-4w2T67s9uRaKyCL6m5T7BcSTCnwdXZPikPX43eGPnUWBRNiIFqEwvfxlaVxFZ0n9TM75MIdVpRe8xHxBbc6R_xwBNTdEtVRVpgR0WpLkF1VONzLj0LU_AzJlzaxLuk7Vk0UYtIyyYHPbCynZu7N43NCrcmPDbQs'); background-size: cover; background-position: center; filter: blur(4px);"></div>
+<div class="absolute inset-0 bg-black/40 z-10"></div>
+<!-- END: Background Context -->
+<!-- BEGIN: Bottom Sheet Modal -->
+<div class="absolute bottom-0 left-0 w-full bg-[#FDFDFF] rounded-t-3xl z-20 pb-8 pt-4 px-6 shadow-modal max-w-md mx-auto right-0" data-purpose="payment-modal">
+<!-- Drag Handle -->
+<div class="w-10 h-1 bg-gray-300 rounded-full mx-auto mb-6"></div>
+<!-- Close Button -->
+<button aria-label="Close" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-[#F2F3F5] text-gray-500 rounded-full hover:bg-gray-200 transition-colors">
+<svg class="h-5 w-5" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" fill-rule="evenodd"></path>
+</svg>
+</button>
+<!-- Modal Header & Price -->
+<div class="text-center mb-6">
+<h2 class="text-[22px] font-bold text-text-dark mb-4">确认解锁完整报告</h2>
+<div class="text-primary-purple font-bold flex items-baseline justify-center gap-1">
+<span class="text-[56px] leading-none tracking-tight">9.9</span>
+<span class="text-2xl">元</span>
+</div>
+<p class="text-[13px] text-text-gray mt-2">已完成初判，可立即解锁完整提分报告</p>
+</div>
+<!-- Benefits Box -->
+<div class="bg-bg-purple-light rounded-2xl p-5 mb-8 border border-purple-100/50">
+<div class="flex items-center justify-center gap-2 mb-4">
+<svg class="w-3 h-3 text-primary-purple opacity-60" fill="currentColor" viewbox="0 0 12 12"><path d="M6 0L7.5 4.5L12 6L7.5 7.5L6 12L4.5 7.5L0 6L4.5 4.5L6 0Z"></path></svg>
+<span class="text-[15px] font-medium text-text-dark">支付后可解锁</span>
+<svg class="w-3 h-3 text-primary-purple opacity-60" fill="currentColor" viewbox="0 0 12 12"><path d="M6 0L7.5 4.5L12 6L7.5 7.5L6 12L4.5 7.5L0 6L4.5 4.5L6 0Z"></path></svg>
+</div>
+<div class="grid grid-cols-2 gap-y-4 gap-x-2">
+<!-- Benefit Item -->
+<div class="flex items-center gap-2">
+<svg class="w-[18px] h-[18px] text-primary-purple flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[14px] text-text-dark">完整报告</span>
+</div>
+<!-- Benefit Item -->
+<div class="flex items-center gap-2">
+<svg class="w-[18px] h-[18px] text-primary-purple flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[14px] text-text-dark">7天行动建议</span>
+</div>
+<!-- Benefit Item -->
+<div class="flex items-center gap-2">
+<svg class="w-[18px] h-[18px] text-primary-purple flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[14px] text-text-dark">详细丢分点分析</span>
+</div>
+<!-- Benefit Item -->
+<div class="flex items-center gap-2">
+<svg class="w-[18px] h-[18px] text-primary-purple flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[14px] text-text-dark">关键错题修复</span>
+</div>
+<!-- Benefit Item -->
+<div class="flex items-center gap-2">
+<svg class="w-[18px] h-[18px] text-primary-purple flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[14px] text-text-dark">优先补弱顺序</span>
+</div>
+<!-- Benefit Item -->
+<div class="flex items-center gap-2">
+<svg class="w-[18px] h-[18px] text-primary-purple flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[14px] text-text-dark">家长学习建议</span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="space-y-4">
+<button class="w-full bg-gradient-to-r from-[#7B61FF] to-[#5541FF] text-white font-medium text-[16px] py-[14px] rounded-2xl shadow-[0_4px_12px_rgba(99,91,255,0.25)] hover:opacity-90 transition-opacity active:scale-[0.98]">
+        确认支付 9.9元
+      </button>
+<button class="w-full text-center text-primary-purple text-[15px] py-2 bg-transparent">
+        暂不解锁
+      </button>
+</div>
+</div>
+<!-- END: Bottom Sheet Modal -->
+</body></html>

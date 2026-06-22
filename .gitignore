@@ -9,3 +9,7 @@
 node_modules/
 temp/
 .runtime/
+docs/auto-execute/evidence/*-current/
+docs/auto-execute/evidence-current/
+docs/auto-execute/latest-current/
+docs/auto-execute/results-current/

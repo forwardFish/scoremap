@@ -38,7 +38,7 @@
       <view class="sheet-handle"></view>
       <button class="sheet-close" data-action="close-pay" bindtap="onTap">×</button>
       <view class="sheet-title-row">
-        <image class="sheet-lock" src="/assets/icons/lock-purple.png" mode="aspectFit" />
+        <image class="sheet-lock" src="/assets/clean-icons/shield-check-purple.png" mode="aspectFit" />
         <text>解锁完整初判</text>
       </view>
       <view class="price-row"><text>1.00</text><text>元</text></view>
