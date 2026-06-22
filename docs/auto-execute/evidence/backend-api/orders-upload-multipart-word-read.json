@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "command": "npm --prefix server test -- orders uploads preview",
+  "sourceProject": "C:/LYH/Code/printersheet",
+  "uploadResponse": {
+    "orderId": "order-bc5813a2da25",
+    "status": "uploaded",
+    "uploadedCount": 1
+  },
+  "readback": {
+    "originalName": "wx-upload-word.docx",
+    "extension": ".docx",
+    "parseStatus": "parsed",
+    "parsedTextLength": 64,
+    "preview": "Multipart Word upload sample: algebra review from wx.uploadFile."
+  }
+}

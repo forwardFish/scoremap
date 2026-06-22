@@ -23,15 +23,15 @@ button::after {
   width: 390px;
   min-height: 844px;
   overflow: hidden;
-  background: #f8f9fe;
+  background: #f8f9ff;
   color: #333333;
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
 .home-header {
-  height: 104px;
-  padding: 48px 20px 16px;
+  height: 92px;
+  padding: 18px 20px 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,27 +43,29 @@ button::after {
 .brand {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 12px;
 }
 
 .brand-icon-wrap {
   position: relative;
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  background: #5a6eed;
-  box-shadow: 0 4px 14px rgba(90, 110, 237, 0.2);
+  width: 58px;
+  height: 58px;
+  border-radius: 29px;
+  background: transparent;
+  box-shadow: none;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .brand-icon {
-  display: none;
+  display: block;
+  width: 58px;
+  height: 58px;
 }
 
 .brand-icon-wrap::before {
-  content: "";
+  content: none;
   width: 21px;
   height: 12px;
   border-radius: 8px;
@@ -71,7 +73,7 @@ button::after {
 }
 
 .brand-icon-wrap::after {
-  content: "";
+  content: none;
   position: absolute;
   left: 13px;
   top: 16px;
@@ -84,16 +86,16 @@ button::after {
 
 .brand-title {
   color: #202433;
-  font-size: 20px;
-  line-height: 28px;
+  font-size: 22px;
+  line-height: 30px;
   font-weight: 800;
 }
 
 .icon-button {
   position: relative;
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 18px;
   background: #ffffff;
   box-shadow: 0 4px 14px rgba(65, 73, 112, 0.08);
   display: flex;
@@ -102,7 +104,7 @@ button::after {
 }
 
 .icon-button::before {
-  content: "";
+  content: none;
   width: 18px;
   height: 14px;
   border: 2px solid #8a6cf2;
@@ -111,7 +113,7 @@ button::after {
 }
 
 .icon-button::after {
-  content: "";
+  content: none;
   position: absolute;
   left: 15px;
   top: 18px;
@@ -123,12 +125,14 @@ button::after {
 }
 
 .chat-icon {
-  display: none;
+  display: block;
+  width: 32px;
+  height: 32px;
 }
 
 .home-scroll {
-  height: 740px;
-  padding: 0 20px 96px;
+  height: 752px;
+  padding: 0 20px 98px;
   box-sizing: border-box;
 }
 
@@ -142,7 +146,7 @@ button::after {
 
 .hero-card {
   position: relative;
-  min-height: 371px;
+  min-height: 416px;
   padding: 32px 24px 24px;
   margin-bottom: 16px;
   overflow: hidden;
@@ -161,12 +165,12 @@ button::after {
 
 .hero-top {
   position: relative;
-  min-height: 166px;
+  min-height: 158px;
   z-index: 1;
 }
 
 .hero-copy {
-  width: 60%;
+  width: 72%;
   position: relative;
   z-index: 2;
 }
@@ -174,9 +178,10 @@ button::after {
 .hero-title {
   display: block;
   color: #242637;
-  font-size: 26px;
-  line-height: 33px;
+  font-size: 23px;
+  line-height: 34px;
   font-weight: 900;
+  white-space: nowrap;
 }
 
 .hero-ai,
@@ -185,7 +190,7 @@ button::after {
 }
 
 .hero-subtitle {
-  margin-top: 12px;
+  margin-top: 14px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -198,15 +203,23 @@ button::after {
 
 .hero-owl {
   position: absolute;
-  right: -20px;
-  top: -30px;
-  width: 160px;
-  height: 160px;
+  right: -4px;
+  top: -12px;
+  width: 130px;
+  height: 166px;
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
   background: radial-gradient(circle at center, rgba(138, 108, 242, 0.15) 0%, rgba(138, 108, 242, 0) 70%);
+  overflow: hidden;
+}
+
+.hero-owl-image {
+  width: 162px;
+  height: 162px;
+  display: block;
+  transform: translateX(26px);
 }
 
 .owl-cap {
@@ -308,8 +321,8 @@ button::after {
 
 .upload-panel {
   position: relative;
-  min-height: 134px;
-  padding: 20px;
+  min-height: 202px;
+  padding: 22px 22px;
   border-radius: 20px;
   background: #fdfcff;
   box-sizing: border-box;
@@ -321,20 +334,20 @@ button::after {
 
 .upload-asset {
   position: relative;
-  width: 96px;
-  height: 96px;
-  margin-left: 8px;
+  width: 118px;
+  height: 112px;
+  margin-left: 2px;
   flex: 0 0 auto;
 }
 
 .upload-asset-image {
   position: relative;
-  left: -14px;
-  top: -15px;
-  width: 128px;
-  height: 128px;
+  left: -18px;
+  top: -18px;
+  width: 150px;
+  height: 150px;
   display: block;
-  opacity: 0.2;
+  opacity: 1;
 }
 
 .folder-back {
@@ -413,8 +426,8 @@ button::after {
 }
 
 .upload-button {
-  width: 148px;
-  height: 48px;
+  width: 158px;
+  height: 52px;
   border-radius: 25px;
   background: linear-gradient(90deg, #9c7eff 0%, #7a5cf0 100%);
   box-shadow: 0 4px 12px rgba(138, 108, 242, 0.3);
@@ -436,12 +449,12 @@ button::after {
 .quick-actions {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-bottom: 24px;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .quick-card {
-  height: 72px;
+  height: 64px;
   padding: 16px;
   border-radius: 20px;
   background: #ffffff;
@@ -460,25 +473,31 @@ button::after {
 }
 
 .quick-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  margin-right: 11px;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  margin-right: 12px;
+  overflow: visible;
 }
 
 .quick-symbol {
-  font-size: 22px;
-  line-height: 22px;
-  font-weight: 800;
+  display: none;
+}
+
+.quick-icon-image {
+  width: 44px;
+  height: 44px;
+  display: block;
+  flex: 0 0 auto;
 }
 
 .sample-icon {
-  background: #f1ebff;
+  background: transparent;
   color: #8a6cf2;
 }
 
 .reports-icon {
-  background: #eaf4ff;
+  background: transparent;
   color: #3b82f6;
 }
 
@@ -504,8 +523,8 @@ button::after {
 }
 
 .recent-card {
-  min-height: 226px;
-  padding: 20px;
+  min-height: 160px;
+  padding: 16px 20px;
   margin-bottom: 24px;
 }
 
@@ -552,17 +571,18 @@ button::after {
   margin-right: 12px;
   border: 1px solid transparent;
   box-sizing: border-box;
+  overflow: visible;
 }
 
 .report-leading image {
-  width: 26px;
-  height: 26px;
+  width: 40px;
+  height: 40px;
+  display: block;
+  flex: 0 0 auto;
 }
 
 .report-symbol {
-  font-size: 22px;
-  line-height: 22px;
-  font-weight: 800;
+  display: none;
 }
 
 .error-icon {
@@ -580,14 +600,14 @@ button::after {
 }
 
 .math-icon {
-  background: #eff7ff;
-  border-color: #dceeff;
+  background: transparent;
+  border-color: transparent;
   color: #3b82f6;
 }
 
 .error-icon {
-  background: #fff1f5;
-  border-color: #ffe1ea;
+  background: transparent;
+  border-color: transparent;
   color: #ec4899;
 }
 
@@ -643,15 +663,17 @@ button::after {
 
 .bottom-tabs {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 80px;
-  padding: 8px 48px 10px;
+  left: 20px;
+  right: 20px;
+  bottom: 8px;
+  height: 72px;
+  padding: 8px 58px 8px;
   background: rgba(255, 255, 255, 0.94);
-  border-top: 1px solid #f1f2f6;
+  border: 1px solid #f1f2f6;
+  border-radius: 28px;
+  box-shadow: 0 8px 24px rgba(92, 92, 130, 0.08);
   box-sizing: border-box;
-  display: none;
+  display: flex;
   justify-content: space-between;
   z-index: 5;
 }
@@ -675,8 +697,9 @@ button::after {
 }
 
 .tab-icon {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
+  display: block;
 }
 
 .auth-mask {

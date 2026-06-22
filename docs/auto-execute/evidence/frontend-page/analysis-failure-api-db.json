@@ -1,19 +1,27 @@
 {
   "status": "PASS",
+  "taskId": "V143-10",
   "command": "npm test -- analysis-failure",
   "requirementIds": [
-    "R03",
-    "R04"
+    "REQ143-007",
+    "REQ143-008"
+  ],
+  "apiIds": [
+    "API143-003",
+    "API143-004"
+  ],
+  "uiIds": [
+    "UI143-C03",
+    "UI143-C04"
   ],
   "ownerScenarioIds": [
-    "O08",
-    "O09",
-    "O11"
+    "O143-01",
+    "O143-12"
   ],
   "apiEvidence": {
     "failureProgressCall": {
       "method": "GET",
-      "path": "/api/diagnosis-orders/order-t08-failure/analysis-progress",
+      "path": "/api/diagnosis-orders/order-v143-10-failure/analysis-progress",
       "payloadSummary": {
         "source": "manual-refresh",
         "elapsedMs": 0
@@ -50,9 +58,9 @@
     },
     "retryCall": {
       "method": "POST",
-      "path": "/api/diagnosis-orders/order-t08-failure/start-preview-analysis",
+      "path": "/api/diagnosis-orders/order-v143-10-failure/start-preview-analysis",
       "payloadSummary": {
-        "taskId": "task-t08-retry-order-t08-failure",
+        "taskId": "task-v143-10-retry-order-v143-10-failure",
         "retry": true,
         "progress": 10,
         "currentStep": "reading_material"
@@ -60,12 +68,12 @@
       "responseStatus": 200,
       "responseBody": {
         "status": "analyzing",
-        "taskId": "task-t08-retry-order-t08-failure"
+        "taskId": "task-v143-10-retry-order-v143-10-failure"
       }
     },
     "timeoutCall": {
       "method": "GET",
-      "path": "/api/diagnosis-orders/order-t08-timeout/analysis-progress",
+      "path": "/api/diagnosis-orders/order-v143-10-timeout/analysis-progress",
       "payloadSummary": {
         "source": "poll",
         "elapsedMs": 30000
@@ -89,7 +97,7 @@
           {
             "id": "locate-loss-points",
             "text": "locating score-loss points",
-            "status": "active"
+            "status": "done"
           },
           {
             "id": "generate-preview",
@@ -128,7 +136,7 @@
         "status": "RETRY_STARTED",
         "targetRoute": "/pages/analysis/index",
         "apiStatus": "analyzing",
-        "taskId": "task-t08-retry-order-t08-failure",
+        "taskId": "task-v143-10-retry-order-v143-10-failure",
         "toast": "已重新开始本地分析"
       }
     },
@@ -151,16 +159,16 @@
   ],
   "dbReadback": {
     "failedOrder": {
-      "id": "order-t08-failure",
-      "ownerId": "local-user-scoremap-t06",
+      "id": "order-v143-10-failure",
+      "ownerId": "local-user-scoremap-v143-10",
       "status": "analyzing",
       "accessLevel": "preview",
-      "source": "T08-analysis-failure"
+      "source": "V143-10-analysis-failure"
     },
     "failedTask": {
-      "id": "task-t08-failure",
-      "orderId": "order-t08-failure",
-      "ownerId": "local-user-scoremap-t06",
+      "id": "task-v143-10-failure",
+      "orderId": "order-v143-10-failure",
+      "ownerId": "local-user-scoremap-v143-10",
       "type": "preview",
       "status": "preview_failed",
       "progress": 0,
@@ -169,8 +177,8 @@
       "retryCount": 0
     },
     "retryTask": {
-      "id": "task-t08-retry-order-t08-failure",
-      "orderId": "order-t08-failure",
+      "id": "task-v143-10-retry-order-v143-10-failure",
+      "orderId": "order-v143-10-failure",
       "ownerId": "local-user-scoremap-t06",
       "type": "preview",
       "status": "analyzing",
@@ -181,9 +189,9 @@
     },
     "allAnalysisTasks": [
       {
-        "id": "task-t08-failure",
-        "orderId": "order-t08-failure",
-        "ownerId": "local-user-scoremap-t06",
+        "id": "task-v143-10-failure",
+        "orderId": "order-v143-10-failure",
+        "ownerId": "local-user-scoremap-v143-10",
         "type": "preview",
         "status": "preview_failed",
         "progress": 0,
@@ -192,8 +200,8 @@
         "retryCount": 0
       },
       {
-        "id": "task-t08-retry-order-t08-failure",
-        "orderId": "order-t08-failure",
+        "id": "task-v143-10-retry-order-v143-10-failure",
+        "orderId": "order-v143-10-failure",
         "ownerId": "local-user-scoremap-t06",
         "type": "preview",
         "status": "analyzing",

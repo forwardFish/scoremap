@@ -1,0 +1,182 @@
+{
+  "status": "PASS",
+  "command": "npm test -- basic-result-full-unlock",
+  "requirementIds": [
+    "REQ143-004",
+    "REQ143-007",
+    "REQ143-008"
+  ],
+  "apiIds": [
+    "API143-008"
+  ],
+  "ownerScenarioIds": [
+    "O143-03"
+  ],
+  "uiReferences": [
+    "UI143-C07"
+  ],
+  "pageState": {
+    "route": "/pages/basic-result/index",
+    "orderId": "order-v143-c07-basic",
+    "title": "初步分析报告",
+    "subtitle": "初一数学月考分析",
+    "uiReference": {
+      "basicResultPng": "docs/UI/小程序/v1.4.3-C07-完整初判-9.9解锁.png",
+      "paymentModalPng": "docs/UI/小程序/v1.4.3-C07-确认9.9支付半屏弹窗.png"
+    },
+    "hero": {
+      "title": "初步分析已生成",
+      "summary": "整体基础较好，计算粗心和几何证明是本次失分的主要原因。",
+      "statusText": "初步分析已生成"
+    },
+    "basicDecisionFields": {
+      "mainLossPoints": [
+        "计算失误、几何证明"
+      ],
+      "priorityWeaknesses": [
+        "优先提升几何证明能力"
+      ],
+      "answerQuality": "基础题较稳，步骤规范性一般",
+      "initialAdvice": [
+        "先修复高频错因，再看完整建议"
+      ]
+    },
+    "lockedReportCard": {
+      "title": "完整报告解锁后可查看",
+      "modules": [
+        "详细丢分点分析",
+        "优先补弱顺序",
+        "7天行动建议",
+        "完整学习建议",
+        "关键错题修复 / 同类题练习入口"
+      ]
+    },
+    "upgradeCard": {
+      "visible": true,
+      "priceText": "9.9元",
+      "headline": "已完成初判，可立即解锁完整提升报告",
+      "benefits": [
+        "完整报告",
+        "7天建议",
+        "错题修复"
+      ],
+      "complianceText": "结果基于当前资料分析，仅供学习参考。"
+    },
+    "paymentModal": {
+      "visible": true,
+      "title": "确认解锁完整报告",
+      "priceText": "9.9元",
+      "subtitle": "已完成初判，可立即解锁完整提分报告",
+      "unlockTitle": "支付后可解锁",
+      "benefits": [
+        "完整报告",
+        "7天行动建议",
+        "详细丢分点分析",
+        "关键错题修复",
+        "优先补弱顺序",
+        "家长学习建议"
+      ],
+      "primaryText": "确认支付 9.9元",
+      "secondaryText": "暂不解锁",
+      "state": "idle",
+      "error": ""
+    },
+    "controls": [
+      {
+        "id": "open-9-9-payment-modal",
+        "text": "立即支付 9.9元",
+        "action": "showPaymentModal"
+      },
+      {
+        "id": "confirm-full-payment",
+        "text": "确认支付 9.9元",
+        "api": "POST /api/payments/create -> POST /api/payments/wechat/callback -> POST /api/diagnosis-orders/{orderId}/generate-full -> GET /api/diagnosis-orders/{orderId}/full-report",
+        "targetRoute": "/pages/full-report/index"
+      },
+      {
+        "id": "cancel-9-9-payment",
+        "text": "暂不解锁",
+        "targetRoute": "/pages/basic-result/index"
+      }
+    ],
+    "lastPaymentResult": null
+  },
+  "pageJumpEvidence": [
+    {
+      "controlId": "open-9-9-payment-modal",
+      "result": {
+        "status": "MODAL_OPEN",
+        "modal": {
+          "visible": true,
+          "title": "确认解锁完整报告",
+          "priceText": "9.9元",
+          "subtitle": "已完成初判，可立即解锁完整提分报告",
+          "unlockTitle": "支付后可解锁",
+          "benefits": [
+            "完整报告",
+            "7天行动建议",
+            "详细丢分点分析",
+            "关键错题修复",
+            "优先补弱顺序",
+            "家长学习建议"
+          ],
+          "primaryText": "确认支付 9.9元",
+          "secondaryText": "暂不解锁",
+          "state": "idle",
+          "error": ""
+        }
+      }
+    },
+    {
+      "controlId": "cancel-9-9-payment",
+      "result": {
+        "status": "CANCELLED",
+        "targetRoute": "/pages/basic-result/index",
+        "query": {
+          "orderId": "order-v143-c07-basic"
+        },
+        "modalVisible": false
+      }
+    }
+  ],
+  "apiCalls": [
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-v143-c07-basic/basic-decision",
+      "payloadSummary": {
+        "source": "c07-basic-result-load"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "decision": {
+          "level": "basic",
+          "summary": "整体基础较好，计算粗心和几何证明是本次失分的主要原因。",
+          "evidenceQuality": "medium",
+          "quality": {
+            "uploadQuality": "normal",
+            "confidence": 0.86,
+            "recognized": true
+          },
+          "mainLossPoints": [
+            "计算失误、几何证明"
+          ],
+          "priorityWeaknesses": [
+            "优先提升几何证明能力"
+          ],
+          "answerQuality": "基础题较稳，步骤规范性一般",
+          "initialAdvice": [
+            "先修复高频错因，再看完整建议"
+          ],
+          "lockedModules": [
+            "详细丢分点分析",
+            "优先补弱顺序",
+            "7天行动建议",
+            "完整学习建议",
+            "关键错题修复 / 同类题练习入口"
+          ]
+        }
+      }
+    }
+  ]
+}

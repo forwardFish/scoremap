@@ -1,0 +1,162 @@
+{
+  "actual": [
+    {
+      "name": "mask",
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844
+    },
+    {
+      "name": "sheet",
+      "x": 0,
+      "y": 417,
+      "w": 390,
+      "h": 427
+    },
+    {
+      "name": "handle",
+      "x": 176,
+      "y": 428,
+      "w": 39,
+      "h": 4
+    },
+    {
+      "name": "close",
+      "x": 342,
+      "y": 447,
+      "w": 22,
+      "h": 24
+    },
+    {
+      "name": "icon",
+      "x": 96,
+      "y": 464,
+      "w": 42,
+      "h": 42
+    },
+    {
+      "name": "title",
+      "x": 149,
+      "y": 474,
+      "w": 146,
+      "h": 32
+    },
+    {
+      "name": "price",
+      "x": 130,
+      "y": 528,
+      "w": 128,
+      "h": 58
+    },
+    {
+      "name": "divider",
+      "x": 34,
+      "y": 591,
+      "w": 322,
+      "h": 1
+    },
+    {
+      "name": "unlock_title",
+      "x": 58,
+      "y": 616,
+      "w": 112,
+      "h": 24
+    },
+    {
+      "name": "benefits",
+      "x": 58,
+      "y": 651,
+      "w": 156,
+      "h": 83
+    },
+    {
+      "name": "pay_button",
+      "x": 34,
+      "y": 756,
+      "w": 322,
+      "h": 60
+    }
+  ],
+  "reference": [
+    {
+      "name": "preview_card",
+      "x": 145,
+      "y": 186,
+      "w": 650,
+      "h": 864
+    },
+    {
+      "name": "sheet",
+      "x": 138,
+      "y": 1054,
+      "w": 674,
+      "h": 685
+    },
+    {
+      "name": "handle",
+      "x": 440,
+      "y": 1081,
+      "w": 62,
+      "h": 7
+    },
+    {
+      "name": "close",
+      "x": 740,
+      "y": 1105,
+      "w": 30,
+      "h": 30
+    },
+    {
+      "name": "icon",
+      "x": 293,
+      "y": 1138,
+      "w": 61,
+      "h": 61
+    },
+    {
+      "name": "title",
+      "x": 367,
+      "y": 1148,
+      "w": 236,
+      "h": 49
+    },
+    {
+      "name": "price",
+      "x": 379,
+      "y": 1238,
+      "w": 181,
+      "h": 72
+    },
+    {
+      "name": "divider",
+      "x": 172,
+      "y": 1336,
+      "w": 600,
+      "h": 1
+    },
+    {
+      "name": "unlock_title",
+      "x": 296,
+      "y": 1374,
+      "w": 158,
+      "h": 34
+    },
+    {
+      "name": "benefits",
+      "x": 293,
+      "y": 1435,
+      "w": 214,
+      "h": 131
+    },
+    {
+      "name": "pay_button",
+      "x": 172,
+      "y": 1601,
+      "w": 599,
+      "h": 96
+    }
+  ],
+  "actualFile": "docs/auto-execute/evidence/screenshot-pixel/harness/runs/2026-06-22T09-53-46-508Z/screens/preview/actual.png",
+  "referenceFile": "docs/UI/小程序/v1.4.3-C05-初判预览-1元半屏支付.png"
+}

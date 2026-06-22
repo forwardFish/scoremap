@@ -25,13 +25,7 @@
           </view>
         </view>
         <view class="hero-owl" aria-hidden="true">
-          <view class="owl-cap"></view>
-          <view class="owl-body">
-            <view class="owl-eye left"><view></view></view>
-            <view class="owl-eye right"><text>^</text></view>
-            <view class="owl-beak"></view>
-          </view>
-          <view class="owl-book"><view></view></view>
+          <image class="hero-owl-image" src="/assets/icons/owl-teacher-pointer.png" mode="aspectFit" />
         </view>
       </view>
 
@@ -40,7 +34,7 @@
           <image class="upload-asset-image" src="/assets/icons/upload-folder.png" mode="aspectFit" />
         </view>
         <view class="upload-copy">
-          <text class="upload-hint">支持图片 / PDF</text>
+          <text class="upload-hint">支持图片 / PDF / Word</text>
           <button class="upload-button" data-action="upload" bindtap="onTap">
             <text class="upload-button-icon">☁</text>
             <text>上传资料</text>
@@ -52,14 +46,14 @@
     <view class="quick-actions">
       <button class="quick-card" data-action="sample" bindtap="onTap">
         <view class="quick-icon sample-icon">
-          <text class="quick-symbol">▤</text>
+          <image class="quick-icon-image" src="/assets/icons/document-list-purple.png" mode="aspectFit" />
         </view>
         <text class="quick-label">查看样例</text>
         <text class="quick-chevron">›</text>
       </button>
       <button class="quick-card" data-action="reports" bindtap="onTap">
         <view class="quick-icon reports-icon">
-          <text class="quick-symbol">▤</text>
+          <image class="quick-icon-image" src="/assets/icons/document-blue.png" mode="aspectFit" />
         </view>
         <text class="quick-label">我的报告</text>
         <text class="quick-chevron reports-chevron">›</text>
@@ -77,7 +71,7 @@
 
       <button class="report-row" data-action="reports" bindtap="onTap">
         <view class="report-leading math-icon">
-          <text class="report-symbol">▦</text>
+          <image src="/assets/icons/report-chart-clipboard.png" mode="aspectFit" />
         </view>
         <text class="report-title">初一数学月考</text>
         <view class="report-status status-done">
@@ -90,7 +84,7 @@
 
       <button class="report-row" data-action="reports" bindtap="onTap">
         <view class="report-leading error-icon">
-          <text class="report-symbol">×</text>
+          <image src="/assets/icons/error-x-eraser.png" mode="aspectFit" />
           <view class="error-dot"></view>
         </view>
         <text class="report-title">错题专项分析</text>
@@ -111,16 +105,5 @@
       <image class="tab-icon" src="/assets/icons/user-avatar-gray.png" mode="aspectFit" />
       <text>我的</text>
     </button>
-  </view>
-
-  <view class="auth-mask {{previewHidden}}" wx:if="{{authVisible}}">
-    <view class="auth-sheet">
-      <text class="auth-title">授权使用本地资料</text>
-      <text class="auth-copy">资料仅用于本次 AI 提分分析，写入本地 mock upload_files，不调用真实腾讯云、微信支付或线上数据库。</text>
-      <view class="auth-actions">
-        <button class="auth-secondary" bindtap="cancelAuthModal">暂不同意</button>
-        <button class="auth-primary" bindtap="confirmAuthModal">同意并选择</button>
-      </view>
-    </view>
   </view>
 </view>

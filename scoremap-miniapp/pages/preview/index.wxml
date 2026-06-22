@@ -13,7 +13,7 @@
     <view class="preview-card soft-blur">
       <view class="card-row">
         <text class="section-title">初步分析结果</text>
-        <view class="unlock-pill">
+        <view class="unlock-pill" data-action="pay" bindtap="onTap">
           <image class="pill-icon" src="/assets/icons/lock-purple.png" mode="aspectFit" />
           <text>完整内容需解锁</text>
         </view>
@@ -33,12 +33,14 @@
     </view>
   </scroll-view>
 
-  <view class="payment-mask">
+  <button wx:if="{{!showPayModal}}" class="floating-pay-button" data-action="pay" bindtap="onTap">立即支付 1 元</button>
+
+  <view wx:if="{{showPayModal}}" class="payment-mask">
     <view class="payment-sheet">
       <view class="sheet-handle"></view>
       <button class="sheet-close" data-action="close-pay" bindtap="onTap">×</button>
       <view class="sheet-title-row">
-        <image class="sheet-lock" src="/assets/clean-icons/shield-check-purple.png" mode="aspectFit" />
+        <image class="sheet-lock" src="/assets/icons/shield-check-purple-clean.png" mode="aspectFit" />
         <text>解锁完整初判</text>
       </view>
       <view class="price-row"><text>1.00</text><text>元</text></view>

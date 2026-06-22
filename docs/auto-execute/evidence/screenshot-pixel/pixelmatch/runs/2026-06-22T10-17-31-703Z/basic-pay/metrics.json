@@ -1,0 +1,21 @@
+{
+  "id": "UI-C06",
+  "screen": "basic-pay",
+  "route": "/pages/basic-pay/index",
+  "status": "PASS_NEEDS_REFERENCE",
+  "reference": null,
+  "sourceReference": null,
+  "actual": "docs/auto-execute/evidence/screenshot-pixel/pixelmatch/runs/2026-06-22T10-17-31-703Z/basic-pay/actual.png",
+  "diff": null,
+  "diffPixels": null,
+  "totalPixels": null,
+  "diffRatio": null,
+  "threshold": 0.01,
+  "sizeMismatch": null,
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "referenceNote": "V143 maps the 1 yuan payment modal to preview/C05, not a standalone basic-pay PNG.",
+  "knownGaps": []
+}

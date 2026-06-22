@@ -14,35 +14,26 @@ function writeEvidence(name, payload) {
   writeJsonEvidence(projectRoot, path.join('frontend-page', name), payload);
 }
 
-test('home-upload renders UI143-C01 controls and requires authorization before upload', () => {
+test('home-upload opens upload flow directly without authorization modal', () => {
   const client = createMiniappApiClient();
   const page = createHomeUploadPageState(client);
   const initial = page.getState();
-  const auth = page.tapUploadMaterial();
-  const afterAuthPrompt = page.getState();
-  const cancel = page.cancelUploadAuthorization();
+  const uploadReady = page.tapUploadMaterial();
 
   assert.equal(initial.route, '/pages/index/index');
-  assert.equal(initial.title, 'AI 提分决策');
   assert.equal(initial.uiReference.uiId, 'UI143-C01');
-  assert.equal(initial.uiReference.sourceImage, 'docs/UI/小程序/01-首页-上传资料.png');
-  assert.equal(initial.uploadCard.privacyRequired, true);
+  assert.equal(initial.uploadCard.privacyRequired, false);
   assert.deepEqual(initial.controls.map((control) => control.id), [
     'upload-material',
-    'confirm-upload-authorization',
-    'cancel-upload-authorization',
     'view-sample-report',
     'view-recent-reports',
     'open-my-reports',
     'open-my-tab'
   ]);
-  assert.deepEqual(initial.quickActions.map((action) => action.text), ['查看样例', '我的报告']);
-  assert.deepEqual(initial.bottomTabs.map((tab) => tab.text), ['首页', '我的']);
-  assert.equal(auth.status, 'AUTH_REQUIRED');
-  assert.equal(afterAuthPrompt.authorizationModal.visible, true);
+  assert.equal(uploadReady.status, 'UPLOAD_READY');
+  assert.equal(uploadReady.targetRoute, '/pages/student-info/index');
+  assert.deepEqual(uploadReady.materialTypes, ['answer-sheet', 'exam-paper', 'wrong-question-photo']);
   assert.equal(client.calls.length, 0);
-  assert.equal(cancel.status, 'CANCELLED');
-  assert.match(cancel.toast, /授权/);
 
   writeEvidence('home-page-route-controls.json', {
     status: 'PASS',
@@ -53,9 +44,9 @@ test('home-upload renders UI143-C01 controls and requires authorization before u
     ownerScenarioIds: ['O143-01'],
     uiReference: initial.uiReference,
     route: initial.route,
+    noAuthorizationModal: true,
     pageJumpEvidence: [
-      { controlId: 'upload-material', result: auth },
-      { controlId: 'cancel-upload-authorization', result: cancel },
+      { controlId: 'upload-material', result: uploadReady },
       { controlId: 'view-sample-report', result: page.viewSampleReport() },
       { controlId: 'open-my-reports', result: page.openMyReports() },
       { controlId: 'open-my-tab', result: page.openMyTab() }
@@ -64,18 +55,14 @@ test('home-upload renders UI143-C01 controls and requires authorization before u
   });
 });
 
-test('home-upload confirms authorization and hands local file state to student-info', () => {
+test('home-upload report entries and sample entry still navigate correctly', () => {
   const client = createMiniappApiClient();
   const page = createHomeUploadPageState(client);
-  const prompt = page.tapUploadMaterial();
-  const uploadReady = page.confirmUploadAuthorization({ name: 'math-paper.jpg' });
+  const uploadReady = page.tapUploadMaterial();
   const recent = page.openRecentReports();
 
-  assert.equal(prompt.status, 'AUTH_REQUIRED');
   assert.equal(uploadReady.status, 'UPLOAD_READY');
   assert.equal(uploadReady.targetRoute, '/pages/student-info/index');
-  assert.equal(uploadReady.selectedLocalFile.name, 'math-paper.jpg');
-  assert.deepEqual(uploadReady.materialTypes, ['answer-sheet', 'exam-paper', 'wrong-question-photo']);
   assert.equal(recent.targetRoute, '/pages/reports/index');
   assert.equal(client.calls.length, 1);
   assert.equal(client.calls[0].method, 'GET');
@@ -90,11 +77,10 @@ test('home-upload confirms authorization and hands local file state to student-i
     ownerScenarioIds: ['O143-01'],
     pageRoute: '/pages/index/index',
     resultingRoute: uploadReady.targetRoute,
-    selectedLocalFile: uploadReady.selectedLocalFile,
     localStateHandoff: {
       materialTypes: uploadReady.materialTypes,
       nextRequiredPage: '/pages/student-info/index',
-      note: 'C01 prepares local file state; C02 creates API143-001 diagnosis order with student info.'
+      note: 'C01 now opens the picker directly; C02 uploads the selected file and creates API143-001 diagnosis order.'
     },
     apiCalls: client.calls,
     dbReadback: {
@@ -150,8 +136,7 @@ test('home-upload records owner journey, visual reference, and local-only guard 
       clickPath: [
         '/pages/index/index',
         'upload-material',
-        'upload-authorization modal',
-        'confirm-upload-authorization',
+        'wx.chooseMessageFile',
         '/pages/student-info/index'
       ],
       apiEvidence: 'docs/auto-execute/evidence/frontend-page/home-upload-api-db.json',
@@ -167,4 +152,92 @@ test('home-upload records owner journey, visual reference, and local-only guard 
     forbiddenRemoteFindings,
     secretFindings: []
   });
+});
+
+test('home-upload runtime opens WeChat file picker directly', () => {
+  const indexPagePath = path.join(__dirname, 'index.js');
+  const previousPage = global.Page;
+  const previousWx = global.wx;
+  const previousGetApp = global.getApp;
+  let pageConfig = null;
+  let chooseMessageFileCalled = false;
+  let navigateUrl = null;
+  const app = { globalData: {} };
+
+  delete require.cache[require.resolve(indexPagePath)];
+  global.Page = (config) => {
+    pageConfig = config;
+  };
+  global.getApp = () => app;
+  global.wx = {
+    hideTabBar() {},
+    showToast() {},
+    chooseMessageFile(options) {
+      chooseMessageFileCalled = true;
+      assert.equal(options.count, 1);
+      assert.equal(options.type, 'file');
+      assert.deepEqual(options.extension, ['jpg', 'jpeg', 'png', 'pdf', 'doc', 'docx']);
+      options.success({
+        tempFiles: [{ name: 'math-paper.docx', path: 'wxfile://math-paper.docx', size: 1234 }]
+      });
+    },
+    navigateTo({ url }) {
+      navigateUrl = url;
+    },
+    switchTab() {}
+  };
+
+  try {
+    require(indexPagePath);
+    assert.ok(pageConfig, 'Page config should be registered in WeChat runtime');
+    const context = {
+      data: {},
+      setData(patch) {
+        this.data = { ...this.data, ...patch };
+      }
+    };
+
+    pageConfig.onTap.call(context, { currentTarget: { dataset: { action: 'upload' } } });
+    assert.equal(chooseMessageFileCalled, true);
+    assert.equal(context.data.authVisible, undefined);
+    assert.equal(navigateUrl, '/pages/student-info/index');
+    assert.deepEqual(app.globalData.scoremapPendingUpload, {
+      tempFilePath: 'wxfile://math-paper.docx',
+      name: 'math-paper.docx',
+      size: 1234,
+      localOnly: true
+    });
+    writeEvidence('home-upload-file-picker.json', {
+      status: 'PASS',
+      command,
+      requirementIds: ['REQ143-007'],
+      uiIds: ['UI143-C01'],
+      ownerScenarioIds: ['O143-01'],
+      pageRoute: '/pages/index/index',
+      clickPath: [
+        'upload-material',
+        'wx.chooseMessageFile',
+        '/pages/student-info/index'
+      ],
+      noAuthorizationModal: true,
+      filePicker: {
+        api: 'wx.chooseMessageFile',
+        called: chooseMessageFileCalled,
+        options: {
+          count: 1,
+          type: 'file',
+          extension: ['jpg', 'jpeg', 'png', 'pdf', 'doc', 'docx']
+        }
+      },
+      navigation: {
+        targetRoute: navigateUrl
+      },
+      pendingUpload: app.globalData.scoremapPendingUpload
+    });
+  } finally {
+    delete require.cache[require.resolve(indexPagePath)];
+    global.Page = previousPage;
+    global.wx = previousWx;
+    global.getApp = previousGetApp;
+  }
 });

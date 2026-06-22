@@ -31,13 +31,13 @@
       "subject": "math",
       "examType": "unit-test",
       "materialType": "answer-sheet",
-      "status": "full_report_ready",
+      "status": "full_done",
       "accessLevel": "full",
       "orderToken": "local-order-token-order-t21-failures",
-      "createdAt": "2026-05-27T11:31:02.605Z",
-      "updatedAt": "2026-05-27T11:31:02.666Z",
+      "createdAt": "2026-06-22T04:20:39.761Z",
+      "updatedAt": "2026-06-22T04:20:40.250Z",
       "uploadedCount": 1,
-      "previewTaskId": "task-f02226916e72",
+      "previewTaskId": "task-cc58e4f1c504",
       "previewDecisionId": "decision-order-t21-failures-preview",
       "questionInteractionQuotaTotal": 10,
       "questionInteractionQuotaUsed": 3,
@@ -64,8 +64,8 @@
       "promptId": "LLM-QUESTION-04",
       "traceId": "trace-llm-question-04-0004",
       "source": "llm-extraction",
-      "createdAt": "2026-05-27T11:31:02.641Z",
-      "updatedAt": "2026-05-27T11:31:02.667Z"
+      "createdAt": "2026-06-22T04:20:39.972Z",
+      "updatedAt": "2026-06-22T04:20:40.262Z"
     },
     "failedInteraction": {
       "id": "interaction-t21-provider-failure",
@@ -82,8 +82,8 @@
       "summary": null,
       "status": "failed",
       "errorCode": "LOCAL_AI_PROVIDER_FAILURE",
-      "createdAt": "2026-05-27T11:31:02.651Z",
-      "updatedAt": "2026-05-27T11:31:02.651Z"
+      "createdAt": "2026-06-22T04:20:40.084Z",
+      "updatedAt": "2026-06-22T04:20:40.084Z"
     },
     "traces": [
       {
@@ -275,7 +275,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.618Z"
+        "updatedAt": "2026-06-22T04:20:39.841Z"
       },
       {
         "id": "trace-llm-basic-02-0002",
@@ -498,7 +498,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.630Z"
+        "updatedAt": "2026-06-22T04:20:39.891Z"
       },
       {
         "id": "trace-llm-full-03-0003",
@@ -736,7 +736,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.636Z"
+        "updatedAt": "2026-06-22T04:20:39.934Z"
       },
       {
         "id": "trace-llm-question-04-0004",
@@ -946,7 +946,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.638Z"
+        "updatedAt": "2026-06-22T04:20:39.948Z"
       },
       {
         "id": "trace-llm-tutor-05-0005",
@@ -1032,7 +1032,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.649Z"
+        "updatedAt": "2026-06-22T04:20:40.068Z"
       },
       {
         "id": "trace-llm-tutor-05-0006",
@@ -1137,7 +1137,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.653Z"
+        "updatedAt": "2026-06-22T04:20:40.103Z"
       },
       {
         "id": "trace-llm-tutor-05-0007",
@@ -1242,7 +1242,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.659Z"
+        "updatedAt": "2026-06-22T04:20:40.170Z"
       },
       {
         "id": "trace-llm-tutor-05-0008",
@@ -1347,7 +1347,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.664Z"
+        "updatedAt": "2026-06-22T04:20:40.225Z"
       }
     ]
   },

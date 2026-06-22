@@ -2,12 +2,17 @@
   "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
   "command": "npm test -- full-report-ai-entry",
   "requirementIds": [
-    "V13-R09"
+    "V13-R09",
+    "REQ143-007",
+    "REQ143-009"
   ],
-  "reference": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/_3/screen-reference",
+  "uiReferences": [
+    "UI143-C10A"
+  ],
+  "reference": "docs/UI/小程序/v1.4.3-C10-完整报告-核心五卡.png",
   "actual": "docs/auto-execute/evidence/frontend-page/visual/v13-full-report/actual-v13-full-report-structure.svg",
   "diff": "docs/auto-execute/evidence/frontend-page/visual/v13-full-report/diff-v13-full-report-manual-review.svg",
   "metrics": "docs/auto-execute/evidence/frontend-page/visual/v13-full-report/metrics-v13-full-report.json",
   "summary": "docs/auto-execute/evidence/frontend-page/visual/v13-full-report/summary-v13-full-report.json",
-  "limitation": "T25 creates deterministic structural visual evidence for _3. T30 remains responsible for raster screenshot diff and pixel comparison."
+  "limitation": "T25 creates deterministic structural visual evidence for V143 C10. V143-18 remains responsible for raster screenshot diff and pixel comparison."
 }

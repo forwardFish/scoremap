@@ -1,0 +1,25 @@
+{
+  "id": "UI143-C03",
+  "screen": "analysis",
+  "route": "/pages/analysis/index",
+  "status": "PASS",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "rpxScale": 0.52,
+  "pageFiles": {
+    "pageDir": "scoremap-miniapp/pages/analysis",
+    "wxml": "scoremap-miniapp/pages/analysis/index.wxml",
+    "wxss": "scoremap-miniapp/pages/analysis/index.wxss",
+    "json": "scoremap-miniapp/pages/analysis/index.json",
+    "js": "scoremap-miniapp/pages/analysis/index.js"
+  },
+  "actual": "docs/auto-execute/evidence/screenshot-pixel/harness/runs/2026-06-22T08-55-09-402Z/screens/analysis/actual.png",
+  "htmlPreview": "docs/auto-execute/evidence/screenshot-pixel/harness/runs/2026-06-22T08-55-09-402Z/screens/analysis/preview.html",
+  "reference": "docs/UI/小程序/03-AI分析中.png",
+  "referenceNote": null,
+  "renderSource": "scoremap-miniapp page WXML/WXSS plus local assets",
+  "forbiddenActualReferenceMount": false,
+  "knownGaps": []
+}

@@ -15,8 +15,6 @@ function createIndexPageState(client = createMiniappApiClient(), options = {}) {
 
 function createHomeUploadPageState(client = createMiniappApiClient(), options = {}) {
   const loggedIn = options.loggedIn !== false;
-  let privacyAccepted = Boolean(options.privacyAccepted);
-  let authorizationModalVisible = false;
   let toast = null;
   let lastOrderId = options.orderId || null;
   let recentReports = [];
@@ -36,7 +34,7 @@ function createHomeUploadPageState(client = createMiniappApiClient(), options = 
       title: '上传孩子资料',
       description: '支持试卷、答题卡、错题照片或 PDF，本地流程会带着资料进入孩子信息页。',
       acceptedTypes: MATERIAL_TYPES,
-      privacyRequired: true
+      privacyRequired: false
     },
     quickActions: [
       { id: 'view-sample-report', text: '查看样例', targetRoute: PREVIEW_ROUTE },
@@ -48,8 +46,6 @@ function createHomeUploadPageState(client = createMiniappApiClient(), options = 
     ],
     controls: [
       { id: 'upload-material', text: '上传资料', run: () => page.tapUploadMaterial() },
-      { id: 'confirm-upload-authorization', text: '同意授权并选择本地文件', run: () => page.confirmUploadAuthorization() },
-      { id: 'cancel-upload-authorization', text: '暂不同意', run: () => page.cancelUploadAuthorization() },
       { id: 'view-sample-report', text: '查看样例', run: () => page.viewSampleReport() },
       { id: 'view-recent-reports', text: '最近报告', run: () => page.openRecentReports() },
       { id: 'open-my-reports', text: '我的报告', run: () => page.openMyReports() },
@@ -64,16 +60,6 @@ function createHomeUploadPageState(client = createMiniappApiClient(), options = 
         uiReference: page.uiReference,
         uploadCard: page.uploadCard,
         selectedLocalFile,
-        authorizationModal: {
-          id: 'upload-authorization',
-          visible: authorizationModalVisible,
-          accepted: privacyAccepted,
-          requiredCopy: [
-            '仅用于本次 AI 提分分析',
-            '资料会写入本地 mock upload_files',
-            '不会调用真实腾讯云、微信支付或线上数据库'
-          ]
-        },
         recentReports,
         toast,
         lastOrderId,
@@ -86,39 +72,7 @@ function createHomeUploadPageState(client = createMiniappApiClient(), options = 
     tapUploadMaterial() {
       toast = null;
       if (!loggedIn) return loginRequiredResult(HOME_ROUTE);
-      if (!privacyAccepted) {
-        authorizationModalVisible = true;
-        return {
-          status: 'AUTH_REQUIRED',
-          modalId: 'upload-authorization',
-          visible: true,
-          disabledReason: 'upload requires privacy authorization before local file selection'
-        };
-      }
       return prepareStudentInfo();
-    },
-
-    confirmUploadAuthorization(file = {}) {
-      privacyAccepted = true;
-      authorizationModalVisible = false;
-      selectedLocalFile = {
-        name: file.name || 'local-home-upload-sample.jpg',
-        type: file.type || 'image/jpeg',
-        localOnly: true
-      };
-      return prepareStudentInfo();
-    },
-
-    cancelUploadAuthorization() {
-      privacyAccepted = false;
-      authorizationModalVisible = false;
-      toast = '需要同意资料授权后才能上传分析';
-      return {
-        status: 'CANCELLED',
-        toast,
-        targetRoute: HOME_ROUTE,
-        disabledReason: 'privacy authorization declined'
-      };
     },
 
     viewSampleReport() {
@@ -204,32 +158,16 @@ if (typeof Page === 'function') {
       if (action === 'my') return wx.switchTab({ url: MY_ROUTE });
       return null;
     },
-    closeAuthModal() {
-      this.setData({ authVisible: false });
-    },
-    cancelAuthModal() {
-      this.setData({ authVisible: false, toastText: '需要同意资料授权后才能上传分析' });
-      if (typeof wx !== 'undefined') {
-        wx.showToast({ title: '需要同意资料授权', icon: 'none' });
-      }
-    },
-    confirmAuthModal() {
-      this.setData({ privacyAccepted: true, authVisible: false });
-      return chooseRuntimeUpload(this);
-    }
+    closeAuthModal() {}
   });
 }
 
 function chooseRuntimeUpload(context) {
-  if (!context.data.privacyAccepted) {
-    context.setData({ authVisible: true });
-    return null;
-  }
   if (typeof wx !== 'undefined' && typeof wx.chooseMessageFile === 'function') {
     wx.chooseMessageFile({
       count: 1,
       type: 'file',
-      extension: ['jpg', 'jpeg', 'png', 'pdf'],
+      extension: ['jpg', 'jpeg', 'png', 'pdf', 'doc', 'docx'],
       success(result) {
         const file = result.tempFiles && result.tempFiles[0];
         storePendingUpload(file || { name: 'local-home-upload-sample.jpg', path: '' });
@@ -261,8 +199,6 @@ function createInitialData() {
   return {
     title: 'AI 提分决策',
     subtitle: '上传孩子资料，先看 1 元初判，再决定是否解锁完整报告。',
-    authVisible: false,
-    privacyAccepted: false,
     toastText: '',
     recentReports: [
       { title: '初一数学月考', status: 'AI 初判已完成', statusClass: 'done' },

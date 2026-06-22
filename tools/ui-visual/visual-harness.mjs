@@ -935,7 +935,7 @@ function renderMiniappPreviewHtml(routeInfo, screen) {
   if (!fs.existsSync(wxmlPath)) throw new Error(`Missing WXML for ${screen.name}: ${routeInfo.wxml}`);
   if (!fs.existsSync(wxssPath)) throw new Error(`Missing WXSS for ${screen.name}: ${routeInfo.wxss}`);
   const css = convertWxssToCss(readWxssWithImports(wxssPath));
-  const body = convertWxmlToHtml(fs.readFileSync(wxmlPath, 'utf8'));
+  const body = convertWxmlToHtml(fs.readFileSync(wxmlPath, 'utf8'), screen);
   return `<!doctype html>
 <html>
 <head>
@@ -990,9 +990,10 @@ function mirrorMiniappTextSelectors(css) {
   });
 }
 
-function convertWxmlToHtml(wxml) {
+function convertWxmlToHtml(wxml, screen = {}) {
   let html = wxml.replace(/<!--[\s\S]*?-->/g, '');
   html = chooseNonReferenceElseBranch(html);
+  html = applyVisualDataDefaults(html, screen);
   html = html.replace(/<block\b([^>]*)>/g, '<div$1>').replace(/<\/block>/g, '</div>');
   html = html.replace(/<view\b([^>]*)>/g, '<div$1>').replace(/<\/view>/g, '</div>');
   html = html.replace(/<scroll-view\b([^>]*)>/g, '<div$1>').replace(/<\/scroll-view>/g, '</div>');
@@ -1002,6 +1003,38 @@ function convertWxmlToHtml(wxml) {
   html = html.replace(/\s(?:wx:if|wx:elif|wx:else|wx:for|wx:key|bindtap|binderror|catchtap|data-[\w-]+)="[^"]*"/g, '');
   html = html.replace(/\{\{([^}]*)\}\}/g, (_, expr) => readableBindingFallback(expr));
   return html;
+}
+
+function applyVisualDataDefaults(wxml, screen = {}) {
+  if (screen.name !== 'analysis' && screen.sourceName !== 'analysis') return wxml;
+  const steps = [
+    { status: 'done', nodeClass: '', nodeIcon: '/assets/icons/analysis-check.png', text: '已识别上传资料' },
+    { status: 'done', nodeClass: '', nodeIcon: '/assets/icons/analysis-check.png', text: '已匹配年级与学科' },
+    { status: 'active', nodeClass: 'spinner', nodeIcon: '', text: '正在定位主要丢分点' },
+    { status: 'pending', nodeClass: '', nodeIcon: '/assets/icons/analysis-clock.png', text: '正在生成初步建议' }
+  ];
+  const stepRows = steps.map((step) => {
+    const icon = step.nodeIcon
+      ? `<image src="${step.nodeIcon}" mode="aspectFit" />`
+      : '';
+    return `<view class="step-row ${step.status}">
+        <view class="step-node ${step.nodeClass}">
+          ${icon}
+        </view>
+        <text>${step.text}</text>
+      </view>`;
+  }).join('\n');
+  return wxml
+    .replace(/<view class="step-list">[\s\S]*?<view class="estimate">/g, `<view class="step-list">
+${stepRows}
+    </view>
+
+    <view class="estimate">`)
+    .replace(/<text class="analysis-toast" wx:if="\{\{toast\}\}">\{\{toast\}\}<\/text>/g, '')
+    .replace(/\{\{progress\}\}/g, '68')
+    .replace(/\{\{estimateText\}\}/g, '通常需要 10-30 秒')
+    .replace(/\{\{refreshing \? '刷新中' : '刷新进度'\}\}/g, '刷新进度')
+    .replace(/\{\{refreshing \? 'refreshing' : ''\}\}/g, '');
 }
 
 function chooseNonReferenceElseBranch(html) {

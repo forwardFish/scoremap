@@ -63,7 +63,7 @@ async function withApi(callback) {
   }
 }
 
-test('login page completes wx.login, backend token exchange, profile storage, /api/me, and redirect', async () => {
+test('login page completes local mock token exchange, profile storage, /api/me, and redirect', async () => {
   await withApi(async ({ baseUrl }) => {
     const originalBaseUrl = config.API_BASE_URL;
     config.API_BASE_URL = baseUrl;
@@ -151,7 +151,13 @@ test('login page completes wx.login, backend token exchange, profile storage, /a
       assert.ok(token);
       assert.equal(user.nickname, 'Scoremap Parent');
       assert.equal(user.avatarUrl, 'https://example.test/avatar.png');
-      assert.equal(calls.find((call) => call.type === 'request').data.code, 'wx-login-flow-code');
+      assert.deepEqual(calls.find((call) => call.type === 'request').data, {
+        mockOpenid: 'scoremap-devtools-parent',
+        userInfo: {
+          nickName: 'Scoremap Parent',
+          avatarUrl: 'https://example.test/avatar.png'
+        }
+      });
       assert.equal(calls.find((call) => call.type === 'switchTab').input.url, '/pages/my/index');
 
       const me = await api.getMe();
@@ -163,6 +169,50 @@ test('login page completes wx.login, backend token exchange, profile storage, /a
       delete global.wx;
     }
   });
+});
+
+test('login API can still send real wx.login code when local mock is disabled', async () => {
+  const store = new Map();
+  const requests = [];
+  const originalMock = config.LOCAL_WECHAT_LOGIN_MOCK;
+  config.LOCAL_WECHAT_LOGIN_MOCK = false;
+  global.wx = {
+    getStorageSync(key) {
+      return store.get(key);
+    },
+    setStorageSync(key, value) {
+      store.set(key, value);
+    },
+    removeStorageSync(key) {
+      store.delete(key);
+    },
+    request(options) {
+      requests.push(options);
+      options.success({
+        statusCode: 200,
+        data: {
+          token: 'real.jwt.signature',
+          user: { id: 'user-real-login', nickname: 'Scoremap Parent' }
+        }
+      });
+    }
+  };
+
+  try {
+    const login = await api.loginWechat({
+      code: 'wx-real-code',
+      userInfo: { nickName: 'Scoremap Parent' }
+    });
+    assert.equal(login.token, 'real.jwt.signature');
+    assert.deepEqual(requests[0].data, {
+      code: 'wx-real-code',
+      userInfo: { nickName: 'Scoremap Parent' }
+    });
+    assert.equal(Object.prototype.hasOwnProperty.call(requests[0].data, 'mockOpenid'), false);
+  } finally {
+    config.LOCAL_WECHAT_LOGIN_MOCK = originalMock;
+    delete global.wx;
+  }
 });
 
 test('local DevTools config disables urlCheck for 127.0.0.1 login API smoke tests', () => {

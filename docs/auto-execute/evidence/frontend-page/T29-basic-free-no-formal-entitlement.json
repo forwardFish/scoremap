@@ -26,6 +26,8 @@
       "paymentStatus": "paid",
       "accessLevel": "basic",
       "targetRoute": "/pages/basic-result/index",
+      "recoveryRoute": "/pages/basic-result/index",
+      "recoveryMode": "basicDecision",
       "actionText": "查看初判结果",
       "savedReport": true,
       "aiTutor": {
@@ -66,6 +68,8 @@
       "paymentStatus": "unpaid",
       "accessLevel": "preview",
       "targetRoute": "/pages/preview/index",
+      "recoveryRoute": "/pages/preview/index",
+      "recoveryMode": "previewDecision",
       "actionText": "查看初判预览",
       "savedReport": true,
       "aiTutor": {

@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "command": "npm test -- student-info",
+  "localOnly": {
+    "status": "PASS",
+    "localOnly": true,
+    "adapterMode": "local-mock",
+    "paymentAdapter": "local-wechat-pay-mock",
+    "cloudAdapter": "local-tencent-cloud-mock",
+    "databaseAdapter": "local-in-memory-db"
+  },
+  "forbiddenRemoteFindings": [],
+  "secretFindings": []
+}

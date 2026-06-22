@@ -1,0 +1,307 @@
+{
+  "status": "PASS",
+  "command": "npm test -- preview-basic-pay",
+  "requirementIds": [
+    "REQ143-004",
+    "REQ143-007",
+    "REQ143-008"
+  ],
+  "apiIds": [
+    "API143-005",
+    "API143-006",
+    "API143-007",
+    "API143-008"
+  ],
+  "ownerScenarioIds": [
+    "O143-02",
+    "O143-11"
+  ],
+  "uiReferences": [
+    "UI143-C05"
+  ],
+  "route": "/pages/preview/index",
+  "renderedStateBeforePay": {
+    "route": "/pages/preview/index",
+    "orderId": "order-v143-c05-preview",
+    "title": "初判报告预览",
+    "uiReference": {
+      "id": "UI143-C05",
+      "png": "docs/UI/小程序/v1.4.3-C05-初判预览-1元半屏支付.png"
+    },
+    "reportTitle": "初一数学月考初判预览",
+    "summary": "整体基础较稳，计算准确性和几何证明步骤是本次失分的主要来源。",
+    "visibleModules": [
+      {
+        "id": "main-loss-points",
+        "title": "主要失分点",
+        "summary": "计算符号、进位和几何证明条件遗漏最明显。"
+      },
+      {
+        "id": "priority-weakness",
+        "title": "优先补弱点",
+        "summary": "先补有理数运算，再补辅助线和证明表达。"
+      },
+      {
+        "id": "initial-advice",
+        "title": "初步建议",
+        "summary": "先用 7 天做同类错题复盘和基础纠错。"
+      }
+    ],
+    "visibleModuleLimit": 3,
+    "lockedArea": {
+      "visible": true,
+      "copy": "支付后查看完整初判内容",
+      "modules": [
+        {
+          "id": "detailed-cause",
+          "title": "详细错因判断"
+        },
+        {
+          "id": "seven-day-plan",
+          "title": "7 天行动建议"
+        },
+        {
+          "id": "next-step",
+          "title": "下一步学习建议"
+        }
+      ]
+    },
+    "paymentModal": {
+      "visible": false,
+      "type": "half-screen",
+      "price": {
+        "amountYuan": 1,
+        "text": "1.00 元"
+      },
+      "title": "解锁完整初判",
+      "ctaText": "立即支付 1 元",
+      "apiIds": [
+        "API143-006",
+        "API143-007",
+        "API143-008"
+      ]
+    },
+    "toast": null,
+    "controls": [
+      {
+        "id": "unlock-basic",
+        "text": "立即支付 1 元解锁完整初判"
+      },
+      {
+        "id": "back-to-reports",
+        "text": "稍后查看"
+      }
+    ]
+  },
+  "renderedStateWithModal": {
+    "route": "/pages/preview/index",
+    "orderId": "order-v143-c05-preview",
+    "title": "初判报告预览",
+    "uiReference": {
+      "id": "UI143-C05",
+      "png": "docs/UI/小程序/v1.4.3-C05-初判预览-1元半屏支付.png"
+    },
+    "reportTitle": "初一数学月考初判预览",
+    "summary": "整体基础较稳，计算准确性和几何证明步骤是本次失分的主要来源。",
+    "visibleModules": [
+      {
+        "id": "main-loss-points",
+        "title": "主要失分点",
+        "summary": "计算符号、进位和几何证明条件遗漏最明显。"
+      },
+      {
+        "id": "priority-weakness",
+        "title": "优先补弱点",
+        "summary": "先补有理数运算，再补辅助线和证明表达。"
+      },
+      {
+        "id": "initial-advice",
+        "title": "初步建议",
+        "summary": "先用 7 天做同类错题复盘和基础纠错。"
+      }
+    ],
+    "visibleModuleLimit": 3,
+    "lockedArea": {
+      "visible": true,
+      "copy": "支付后查看完整初判内容",
+      "modules": [
+        {
+          "id": "detailed-cause",
+          "title": "详细错因判断"
+        },
+        {
+          "id": "seven-day-plan",
+          "title": "7 天行动建议"
+        },
+        {
+          "id": "next-step",
+          "title": "下一步学习建议"
+        }
+      ]
+    },
+    "paymentModal": {
+      "visible": true,
+      "type": "half-screen",
+      "price": {
+        "amountYuan": 1,
+        "text": "1.00 元"
+      },
+      "title": "解锁完整初判",
+      "ctaText": "立即支付 1 元",
+      "apiIds": [
+        "API143-006",
+        "API143-007",
+        "API143-008"
+      ]
+    },
+    "toast": "已打开 1 元半屏支付确认",
+    "controls": [
+      {
+        "id": "unlock-basic",
+        "text": "立即支付 1 元解锁完整初判"
+      },
+      {
+        "id": "back-to-reports",
+        "text": "稍后查看"
+      }
+    ]
+  },
+  "pageJumpEvidence": [
+    {
+      "controlId": "unlock-basic",
+      "result": {
+        "status": "MODAL_OPEN",
+        "sourceRoute": "/pages/preview/index",
+        "targetRoute": "/pages/basic-pay/index",
+        "query": {
+          "orderId": "order-v143-c05-preview"
+        },
+        "modal": {
+          "visible": true,
+          "type": "half-screen",
+          "price": {
+            "amountYuan": 1,
+            "text": "1.00 元"
+          },
+          "title": "解锁完整初判",
+          "ctaText": "立即支付 1 元",
+          "apiIds": [
+            "API143-006",
+            "API143-007",
+            "API143-008"
+          ]
+        },
+        "ctaText": "立即支付 1 元"
+      }
+    },
+    {
+      "controlId": "login-gate",
+      "result": {
+        "status": "LOGIN_REQUIRED",
+        "loginRequired": true,
+        "targetRoute": "/pages/login/login",
+        "redirectUrl": "/pages/preview/index?orderId=order-v143-c05-login",
+        "toast": "请先完成微信登录后再继续"
+      }
+    },
+    {
+      "controlId": "back-to-reports",
+      "result": {
+        "status": "NAVIGATE",
+        "targetRoute": "/pages/reports/index",
+        "reportsCount": 2,
+        "toast": "已保存到我的报告，可稍后继续解锁完整初判"
+      }
+    }
+  ],
+  "apiCalls": [
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-v143-c05-preview/preview-decision",
+      "payloadSummary": {
+        "source": "v143-c05-preview-load"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "preview_done",
+        "accessLevel": "preview",
+        "decision": {
+          "reportTitle": "初一数学月考初判预览",
+          "summary": "整体基础较稳，计算准确性和几何证明步骤是本次失分的主要来源。",
+          "visibleModules": [
+            {
+              "id": "main-loss-points",
+              "title": "主要失分点",
+              "summary": "计算符号、进位和几何证明条件遗漏最明显。"
+            },
+            {
+              "id": "priority-weakness",
+              "title": "优先补弱点",
+              "summary": "先补有理数运算，再补辅助线和证明表达。"
+            },
+            {
+              "id": "initial-advice",
+              "title": "初步建议",
+              "summary": "先用 7 天做同类错题复盘和基础纠错。"
+            }
+          ],
+          "lockedModules": [
+            {
+              "id": "detailed-cause",
+              "title": "详细错因判断"
+            },
+            {
+              "id": "seven-day-plan",
+              "title": "7 天行动建议"
+            },
+            {
+              "id": "next-step",
+              "title": "下一步学习建议"
+            }
+          ],
+          "unlockPriceYuan": 1
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/my/reports",
+      "payloadSummary": {
+        "source": "v143-c05-later-view",
+        "orderId": "order-v143-c05-preview"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "items": [
+          {
+            "orderId": "order-v143-c05-preview",
+            "title": "Score analysis report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "preview_done",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-v143-c05-login",
+            "title": "Score analysis report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "preview_done",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-22T10:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          }
+        ]
+      }
+    }
+  ]
+}

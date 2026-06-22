@@ -13,7 +13,7 @@ function createDiagnosisOrdersRouter({ db, cloud, ai, authService }) {
     if (request.method === 'POST' && url.pathname === '/api/diagnosis-orders') {
       result = service.createOrder(await readJson(request), authFromRequest(request, { authService }));
     } else if (request.method === 'POST' && match.action === 'uploads') {
-      result = service.uploadFiles(match.orderId, await readJson(request), authFromRequest(request, { authService }));
+      result = await service.uploadFiles(match.orderId, await readJson(request), authFromRequest(request, { authService }));
     } else if (request.method === 'POST' && match.action === 'start-preview-analysis') {
       result = service.startPreviewAnalysis(match.orderId, await readJson(request), authFromRequest(request, { authService }));
     } else if (request.method === 'GET' && match.action === 'analysis-progress') {

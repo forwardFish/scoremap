@@ -1,4 +1,5 @@
 const crypto = require('node:crypto');
+const https = require('node:https');
 
 const CODE2SESSION_URL = 'https://api.weixin.qq.com/sns/jscode2session';
 
@@ -34,13 +35,54 @@ function httpError(message, statusCode = 400, code = 'AUTH_ERROR') {
   return error;
 }
 
+function readHttpsJson(url, { timeoutMs = 10000 } = {}) {
+  return new Promise((resolve, reject) => {
+    const request = https.get(url, {
+      timeout: timeoutMs,
+      headers: { accept: 'application/json' }
+    }, (response) => {
+      const chunks = [];
+      response.on('data', (chunk) => chunks.push(chunk));
+      response.on('end', () => {
+        let data = {};
+        try {
+          data = JSON.parse(Buffer.concat(chunks).toString('utf8') || '{}');
+        } catch {
+          data = {};
+        }
+        resolve({
+          ok: response.statusCode >= 200 && response.statusCode < 300,
+          status: response.statusCode,
+          data
+        });
+      });
+    });
+    request.on('timeout', () => request.destroy(new Error('wechat code2Session request timed out')));
+    request.on('error', reject);
+  });
+}
+
+function friendlyWechatSessionError(data = {}) {
+  const errcode = Number(data.errcode || 0);
+  const errmsg = String(data.errmsg || '').trim();
+  const normalized = errmsg.toLowerCase();
+  if (normalized.includes('resource is not found') || normalized.includes('reource is not found')) {
+    return 'WeChat code2Session resource was not found. Check WECHAT_APP_ID/WECHAT_APP_SECRET and mini-program binding.';
+  }
+  if (errcode === 40029) return 'WeChat login code is invalid or expired; please retry login.';
+  if (errcode === 40125) return 'WeChat AppSecret is invalid; check WECHAT_APP_SECRET.';
+  if (errcode === 40013) return 'WeChat AppID is invalid; check WECHAT_APP_ID.';
+  return `wechat code2Session failed: ${errcode || 'unknown'} ${errmsg}`.trim();
+}
+
 class AuthService {
-  constructor({ db, env, fetchImpl = globalThis.fetch } = {}) {
+  constructor({ db, env, fetchImpl = globalThis.fetch, httpsJsonImpl = readHttpsJson } = {}) {
     if (!db) throw new Error('AuthService requires db.');
     if (!env) throw new Error('AuthService requires env.');
     this.db = db;
     this.env = env;
     this.fetchImpl = fetchImpl;
+    this.httpsJsonImpl = httpsJsonImpl;
   }
 
   createToken(user) {
@@ -118,31 +160,42 @@ class AuthService {
     if (!this.env.wechatAppId || !this.env.wechatAppSecret) {
       throw httpError('WECHAT_APP_ID/WECHAT_APP_SECRET is not configured.', 500, 'WECHAT_CONFIG_MISSING');
     }
-    if (typeof this.fetchImpl !== 'function') {
-      throw httpError('fetch is not available for wechat code2Session.', 500, 'FETCH_UNAVAILABLE');
-    }
     const url = new URL(CODE2SESSION_URL);
     url.searchParams.set('appid', this.env.wechatAppId);
     url.searchParams.set('secret', this.env.wechatAppSecret);
     url.searchParams.set('js_code', code);
     url.searchParams.set('grant_type', 'authorization_code');
 
-    let response;
+    let result;
     try {
-      response = await this.fetchImpl(url, {
+      if (typeof this.fetchImpl !== 'function') throw new Error('fetch is not available');
+      const response = await this.fetchImpl(url, {
         method: 'GET',
         headers: { accept: 'application/json' },
         signal: AbortSignal.timeout(this.env.requestTimeoutMs || 10000)
       });
+      result = {
+        ok: response.ok,
+        status: response.status,
+        data: await response.json().catch(() => ({}))
+      };
     } catch (error) {
-      throw httpError(`wechat code2Session request failed: ${error.message}`, 502, 'WECHAT_NETWORK_ERROR');
+      try {
+        result = await this.httpsJsonImpl(url, { timeoutMs: this.env.requestTimeoutMs || 10000 });
+      } catch (fallbackError) {
+        throw httpError(
+          `wechat code2Session request failed after fetch/https fallback: ${fallbackError.message || error.message}`,
+          502,
+          'WECHAT_NETWORK_ERROR'
+        );
+      }
     }
-    const data = await response.json().catch(() => ({}));
-    if (!response.ok) {
-      throw httpError(`wechat code2Session HTTP ${response.status}`, 502, 'WECHAT_HTTP_ERROR');
+    const data = result.data || {};
+    if (!result.ok) {
+      throw httpError(`wechat code2Session HTTP ${result.status}`, 502, 'WECHAT_HTTP_ERROR');
     }
     if (data.errcode) {
-      throw httpError(`wechat code2Session failed: ${data.errcode} ${data.errmsg || ''}`.trim(), 401, 'WECHAT_CODE_INVALID');
+      throw httpError(friendlyWechatSessionError(data), 401, 'WECHAT_CODE_INVALID');
     }
     return data;
   }
@@ -163,5 +216,6 @@ function cleanText(value, maxLength) {
 module.exports = {
   AuthService,
   CODE2SESSION_URL,
+  friendlyWechatSessionError,
   publicUser
 };

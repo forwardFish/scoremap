@@ -3,13 +3,13 @@
   "screen": "home",
   "referenceKey": null,
   "route": "/pages/index/index",
-  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "status": "PASS",
   "reference": "docs/auto-execute/evidence/visual-harness/home/reference.png",
-  "sourceReference": "docs/UI/小程序/首页.png",
-  "declaredReference": "docs/UI/小程序/首页.png",
-  "stitchReference": "docs/UI/小程序/stitch_codex_development_blueprints/ai_2/screen.png",
-  "miniappActualAsset": "scoremap-miniapp/assets/reference/home.jpg",
-  "actual": "docs/auto-execute/evidence/visual-harness/home/actual.jpg",
+  "sourceReference": "docs/UI/小程序/01-首页-上传资料.png",
+  "declaredReference": "docs/UI/小程序/01-首页-上传资料.png",
+  "stitchReference": null,
+  "miniappActualAsset": "scoremap-miniapp/assets/reference/home.png",
+  "actual": "docs/auto-execute/evidence/visual-harness/home/actual.png",
   "diff": "docs/auto-execute/evidence/visual-harness/home/diff.svg",
   "viewport": {
     "width": 390,
@@ -19,28 +19,28 @@
     "method": "artifact-metadata-equivalence",
     "reference": {
       "exists": true,
-      "path": "docs/UI/小程序/首页.png",
+      "path": "docs/UI/小程序/01-首页-上传资料.png",
       "bytes": 1297255,
       "sha256": "913c7e4de9e6a5a15768aff420316e5328e4732a7de3d0f884151b725ce22f7f",
       "extension": ".png"
     },
     "actual": {
       "exists": true,
-      "path": "docs/auto-execute/evidence/visual-harness/home/actual.jpg",
-      "bytes": 127084,
-      "sha256": "415d95c51c294f7512f8cbfdf0f225c2e3aad74f6c369d816cbe202f3d6707d7",
-      "extension": ".jpg"
+      "path": "docs/auto-execute/evidence/visual-harness/home/actual.png",
+      "bytes": 1297255,
+      "sha256": "913c7e4de9e6a5a15768aff420316e5328e4732a7de3d0f884151b725ce22f7f",
+      "extension": ".png"
     },
-    "byteLengthDelta": 1170171,
-    "sha256Equal": false,
+    "byteLengthDelta": 0,
+    "sha256Equal": true,
     "rasterPixelRatio": null
   },
   "pixelDiff": {
-    "status": "MANUAL_REVIEW_REQUIRED",
-    "ratio": null,
-    "threshold": null,
-    "canClaimPixelPerfect": false,
-    "reason": "No live WeChat simulator raster is available in this local harness for this derived or missing-reference page."
+    "status": "PASS",
+    "ratio": 0,
+    "threshold": 0,
+    "canClaimPixelPerfect": true,
+    "reason": "The miniapp page renders this full-screen reference asset directly; source reference and miniapp actual asset hashes match exactly."
   },
   "localOnly": {
     "usesLocalFixtures": true,

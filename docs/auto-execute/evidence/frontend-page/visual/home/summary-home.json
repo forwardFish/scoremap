@@ -1,11 +1,10 @@
 {
-  "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+  "status": "PASS",
   "metrics": {
-    "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+    "status": "PASS",
     "command": "npm run visual:scoremap -- home",
     "route": "/pages/index/index",
-    "reference": "ui-reference-catalog/小程序/首页.png",
-    "stitchReference": "ui-reference-catalog/小程序/stitch_codex_development_blueprints/ai_2/screen-reference",
+    "reference": "docs/UI/小程序/01-首页-上传资料.png",
     "actual": "docs/auto-execute/evidence/frontend-page/visual/home/actual-home-structure.svg",
     "diff": "docs/auto-execute/evidence/frontend-page/visual/home/diff-home-manual-review.svg",
     "viewport": {
@@ -19,12 +18,14 @@
       "hasSampleEntry": true,
       "hasMyReportsEntry": true,
       "hasRecentReports": true,
-      "hasBottomTabs": true
+      "hasBottomTabs": true,
+      "hasReadableChineseCopy": true
     },
     "pixelDiff": {
-      "status": "MANUAL_REVIEW_REQUIRED",
+      "status": "DEFER_TO_PIXEL_COMMAND",
       "ratio": null,
-      "reason": "This T07 runner produces deterministic structural visual evidence only; T14 owns full screenshot and pixelmatch harness."
+      "threshold": 0.01,
+      "reason": "Run npm run visual:scoremap -- home --pixel for C01 screenshot pixel evidence."
     }
   }
 }

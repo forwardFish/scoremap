@@ -4,6 +4,7 @@ const { test } = require('node:test');
 const { createMiniappApiClient } = require('../../services/api-client');
 const api = require('../../services/api');
 const auth = require('../../utils/auth');
+const config = require('../../utils/config');
 const { shouldRequireLogin } = require('../../utils/replica-runtime');
 const storage = require('../../utils/storage');
 const { isLocalBypassToken } = storage;
@@ -80,6 +81,8 @@ test('requireLogin uses the unified WeChat-login redirect and toast contract', (
 test('real API auth stores token/user and clears both on 401', async () => {
   const store = new Map();
   const requests = [];
+  const originalMock = config.LOCAL_WECHAT_LOGIN_MOCK;
+  config.LOCAL_WECHAT_LOGIN_MOCK = false;
   global.wx = {
     getStorageSync(key) {
       return store.get(key);
@@ -127,6 +130,7 @@ test('real API auth stores token/user and clears both on 401', async () => {
     assert.equal(storage.getToken(), '');
     assert.equal(storage.getUser(), null);
   } finally {
+    config.LOCAL_WECHAT_LOGIN_MOCK = originalMock;
     delete global.wx;
   }
 });

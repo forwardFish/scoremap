@@ -1,0 +1,42 @@
+{
+  "status": "PASS_WITH_LIMITATION",
+  "command": "npm test -- preview-basic-pay",
+  "requirementIds": [
+    "REQ143-004",
+    "REQ143-007",
+    "REQ143-008"
+  ],
+  "ownerJourneyEvidence": {
+    "status": "PASS_WITH_LIMITATION",
+    "scenarios": [
+      "O143-02",
+      "O143-11"
+    ],
+    "clickPath": [
+      "/pages/preview/index",
+      "unlock-basic",
+      "half-screen-payment-modal",
+      "confirm-basic-payment",
+      "/pages/basic-result/index"
+    ],
+    "apiEvidence": "docs/auto-execute/evidence/frontend-page/V143-11-c05-payment-entitlement-c07.json",
+    "dbEvidence": "docs/auto-execute/evidence/frontend-page/V143-11-c05-payment-entitlement-c07.json",
+    "limitation": "This task records deterministic page-state and structural evidence. Full WeChat simulator screenshots and pixel diff remain outside this child task."
+  },
+  "visualEvidence": {
+    "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
+    "reference": "docs/UI/小程序/v1.4.3-C05-初判预览-1元半屏支付.png",
+    "expectedVisualCommand": "npm run visual:scoremap -- preview basic-pay",
+    "limitation": "The focused C05 visual runner produces deterministic structural SVG evidence, not a real WeChat screenshot pixel PASS."
+  },
+  "localOnly": {
+    "status": "PASS",
+    "localOnly": true,
+    "adapterMode": "local-mock",
+    "paymentAdapter": "local-wechat-pay-mock",
+    "cloudAdapter": "local-tencent-cloud-mock",
+    "databaseAdapter": "local-in-memory-db"
+  },
+  "forbiddenRemoteFindings": [],
+  "secretFindings": []
+}

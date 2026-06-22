@@ -1,21 +1,27 @@
 {
   "status": "PASS",
   "command": "npm test -- navigation",
-  "pageCount": 18,
-  "loadedPageCount": 18,
+  "pageCount": 20,
+  "loadedPageCount": 20,
   "pagesWithoutHotspots": [
+    "/pages/index/index",
+    "/pages/login/login",
+    "/pages/preview/index",
+    "/pages/basic-result/index",
     "/pages/full-report/index",
     "/pages/wrong-question/index",
     "/pages/ai-exercise/index",
     "/pages/ai-exercise-feedback/index"
   ],
-  "clickCount": 37,
+  "clickCount": 34,
   "tabRoutes": [
     "/pages/index/index",
     "/pages/my/index"
   ],
   "appRoutes": [
     "/pages/index/index",
+    "/pages/login/login",
+    "/pages/student-info/index",
     "/pages/analysis/index",
     "/pages/failure/index",
     "/pages/preview/index",
@@ -37,7 +43,17 @@
   "pageCoverage": [
     {
       "page": "/pages/index/index",
-      "hotspotCount": 4,
+      "hotspotCount": 0,
+      "status": "LOADED"
+    },
+    {
+      "page": "/pages/login/login",
+      "hotspotCount": 0,
+      "status": "LOADED"
+    },
+    {
+      "page": "/pages/student-info/index",
+      "hotspotCount": 2,
       "status": "LOADED"
     },
     {
@@ -52,7 +68,7 @@
     },
     {
       "page": "/pages/preview/index",
-      "hotspotCount": 1,
+      "hotspotCount": 0,
       "status": "LOADED"
     },
     {
@@ -62,7 +78,7 @@
     },
     {
       "page": "/pages/basic-result/index",
-      "hotspotCount": 2,
+      "hotspotCount": 0,
       "status": "LOADED"
     },
     {
@@ -102,7 +118,7 @@
     },
     {
       "page": "/pages/my/index",
-      "hotspotCount": 5,
+      "hotspotCount": 7,
       "status": "LOADED"
     },
     {
@@ -128,43 +144,25 @@
   ],
   "matrix": [
     {
-      "page": "/pages/index/index",
-      "action": "upload",
-      "label": "上传资料",
-      "className": "home-upload",
-      "expectedWxMethod": "navigateTo",
-      "actualWxMethod": "navigateTo",
-      "targetRoute": "/pages/analysis/index",
-      "status": "PASS"
-    },
-    {
-      "page": "/pages/index/index",
-      "action": "sample",
-      "label": "查看样例",
-      "className": "home-sample",
-      "expectedWxMethod": "navigateTo",
-      "actualWxMethod": "navigateTo",
-      "targetRoute": "/pages/preview/index",
-      "status": "PASS"
-    },
-    {
-      "page": "/pages/index/index",
-      "action": "reports",
-      "label": "我的报告",
-      "className": "home-reports",
-      "expectedWxMethod": "navigateTo",
-      "actualWxMethod": "navigateTo",
-      "targetRoute": "/pages/reports/index",
-      "status": "PASS"
-    },
-    {
-      "page": "/pages/index/index",
-      "action": "my",
-      "label": "我的",
-      "className": "tab-my",
+      "page": "/pages/student-info/index",
+      "action": "back",
+      "label": "返回上一步",
+      "className": "student-info-back",
       "expectedWxMethod": "switchTab",
       "actualWxMethod": "switchTab",
-      "targetRoute": "/pages/my/index",
+      "targetRoute": "/pages/index/index",
+      "targetPage": "/pages/index/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/student-info/index",
+      "action": "submit",
+      "label": "提交并开始分析",
+      "className": "student-info-submit",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/login/login?redirect=%2Fpages%2Fstudent-info%2Findex",
+      "targetPage": "/pages/login/login",
       "status": "PASS"
     },
     {
@@ -175,6 +173,7 @@
       "expectedWxMethod": "navigateTo",
       "actualWxMethod": "navigateTo",
       "targetRoute": "/pages/reports/index",
+      "targetPage": "/pages/reports/index",
       "status": "PASS"
     },
     {
@@ -185,6 +184,7 @@
       "expectedWxMethod": "navigateTo",
       "actualWxMethod": "navigateTo",
       "targetRoute": "/pages/preview/index",
+      "targetPage": "/pages/preview/index",
       "status": "PASS"
     },
     {
@@ -195,6 +195,7 @@
       "expectedWxMethod": "navigateTo",
       "actualWxMethod": "navigateTo",
       "targetRoute": "/pages/analysis/index",
+      "targetPage": "/pages/analysis/index",
       "status": "PASS"
     },
     {
@@ -205,6 +206,7 @@
       "expectedWxMethod": "switchTab",
       "actualWxMethod": "switchTab",
       "targetRoute": "/pages/index/index",
+      "targetPage": "/pages/index/index",
       "status": "PASS"
     },
     {
@@ -215,16 +217,7 @@
       "expectedWxMethod": "switchTab",
       "actualWxMethod": "switchTab",
       "targetRoute": "/pages/index/index",
-      "status": "PASS"
-    },
-    {
-      "page": "/pages/preview/index",
-      "action": "pay",
-      "label": "立即支付 1 元",
-      "className": "bottom-cta",
-      "expectedWxMethod": "navigateTo",
-      "actualWxMethod": "navigateTo",
-      "targetRoute": "/pages/basic-pay/index",
+      "targetPage": "/pages/index/index",
       "status": "PASS"
     },
     {
@@ -234,27 +227,8 @@
       "className": "bottom-cta",
       "expectedWxMethod": "navigateTo",
       "actualWxMethod": "navigateTo",
-      "targetRoute": "/pages/basic-result/index",
-      "status": "PASS"
-    },
-    {
-      "page": "/pages/basic-result/index",
-      "action": "unlock",
-      "label": "解锁完整分析",
-      "className": "bottom-cta",
-      "expectedWxMethod": "navigateTo",
-      "actualWxMethod": "navigateTo",
-      "targetRoute": "/pages/full-unlock/index",
-      "status": "PASS"
-    },
-    {
-      "page": "/pages/basic-result/index",
-      "action": "home",
-      "label": "首页",
-      "className": "tab-home",
-      "expectedWxMethod": "switchTab",
-      "actualWxMethod": "switchTab",
-      "targetRoute": "/pages/index/index",
+      "targetRoute": "/pages/login/login?redirect=%2Fpages%2Fmy%2Findex",
+      "targetPage": "/pages/login/login",
       "status": "PASS"
     },
     {
@@ -264,7 +238,8 @@
       "className": "bottom-cta",
       "expectedWxMethod": "navigateTo",
       "actualWxMethod": "navigateTo",
-      "targetRoute": "/pages/full-report-entry/index",
+      "targetRoute": "/pages/login/login?redirect=%2Fpages%2Fmy%2Findex",
+      "targetPage": "/pages/login/login",
       "status": "PASS"
     },
     {
@@ -275,6 +250,7 @@
       "expectedWxMethod": "navigateTo",
       "actualWxMethod": "navigateTo",
       "targetRoute": "/pages/full-report/index",
+      "targetPage": "/pages/full-report/index",
       "status": "PASS"
     },
     {
@@ -282,9 +258,10 @@
       "action": "save",
       "label": "保存报告",
       "className": "report-save",
-      "expectedWxMethod": "switchTab",
-      "actualWxMethod": "switchTab",
-      "targetRoute": "/pages/my/index",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/login/login?redirect=%2Fpages%2Fmy%2Findex",
+      "targetPage": "/pages/login/login",
       "status": "PASS"
     },
     {
@@ -295,6 +272,7 @@
       "expectedWxMethod": "switchTab",
       "actualWxMethod": "switchTab",
       "targetRoute": "/pages/index/index",
+      "targetPage": "/pages/index/index",
       "status": "PASS"
     },
     {
@@ -305,6 +283,7 @@
       "expectedWxMethod": "navigateTo",
       "actualWxMethod": "navigateTo",
       "targetRoute": "/pages/wrong-question/index",
+      "targetPage": "/pages/wrong-question/index",
       "status": "PASS"
     },
     {
@@ -315,6 +294,7 @@
       "expectedWxMethod": "navigateTo",
       "actualWxMethod": "navigateTo",
       "targetRoute": "/pages/ai-tutor/index",
+      "targetPage": "/pages/ai-tutor/index",
       "status": "PASS"
     },
     {
@@ -325,6 +305,7 @@
       "expectedWxMethod": "navigateTo",
       "actualWxMethod": "navigateTo",
       "targetRoute": "/pages/ai-tutor/index",
+      "targetPage": "/pages/ai-tutor/index",
       "status": "PASS"
     },
     {
@@ -335,6 +316,7 @@
       "expectedWxMethod": "navigateTo",
       "actualWxMethod": "navigateTo",
       "targetRoute": "/pages/ai-tutor/index",
+      "targetPage": "/pages/ai-tutor/index",
       "status": "PASS"
     },
     {
@@ -345,6 +327,7 @@
       "expectedWxMethod": "navigateTo",
       "actualWxMethod": "navigateTo",
       "targetRoute": "/pages/ai-tutor/index",
+      "targetPage": "/pages/ai-tutor/index",
       "status": "PASS"
     },
     {
@@ -355,6 +338,7 @@
       "expectedWxMethod": "navigateTo",
       "actualWxMethod": "navigateTo",
       "targetRoute": "/pages/ai-exercise/index",
+      "targetPage": "/pages/ai-exercise/index",
       "status": "PASS"
     },
     {
@@ -365,6 +349,7 @@
       "expectedWxMethod": "navigateTo",
       "actualWxMethod": "navigateTo",
       "targetRoute": "/pages/full-report/index",
+      "targetPage": "/pages/full-report/index",
       "status": "PASS"
     },
     {
@@ -375,6 +360,18 @@
       "expectedWxMethod": "navigateTo",
       "actualWxMethod": "navigateTo",
       "targetRoute": "/pages/wrong-question/index",
+      "targetPage": "/pages/wrong-question/index",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/my/index",
+      "action": "profile",
+      "label": "登录/个人资料",
+      "className": "my-profile",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/login/login?redirect=%2Fpages%2Fmy%2Findex",
+      "targetPage": "/pages/login/login",
       "status": "PASS"
     },
     {
@@ -384,7 +381,8 @@
       "className": "my-reports",
       "expectedWxMethod": "navigateTo",
       "actualWxMethod": "navigateTo",
-      "targetRoute": "/pages/reports/index",
+      "targetRoute": "/pages/login/login?redirect=%2Fpages%2Fmy%2Findex",
+      "targetPage": "/pages/login/login",
       "status": "PASS"
     },
     {
@@ -394,7 +392,19 @@
       "className": "my-orders",
       "expectedWxMethod": "navigateTo",
       "actualWxMethod": "navigateTo",
-      "targetRoute": "/pages/orders/index",
+      "targetRoute": "/pages/login/login?redirect=%2Fpages%2Fmy%2Findex",
+      "targetPage": "/pages/login/login",
+      "status": "PASS"
+    },
+    {
+      "page": "/pages/my/index",
+      "action": "purchases",
+      "label": "购买记录",
+      "className": "my-purchases",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/login/login?redirect=%2Fpages%2Fmy%2Findex",
+      "targetPage": "/pages/login/login",
       "status": "PASS"
     },
     {
@@ -404,7 +414,8 @@
       "className": "my-feedback",
       "expectedWxMethod": "navigateTo",
       "actualWxMethod": "navigateTo",
-      "targetRoute": "/pages/feedback/index",
+      "targetRoute": "/pages/login/login?redirect=%2Fpages%2Fmy%2Findex",
+      "targetPage": "/pages/login/login",
       "status": "PASS"
     },
     {
@@ -415,6 +426,7 @@
       "expectedWxMethod": "switchTab",
       "actualWxMethod": "switchTab",
       "targetRoute": "/pages/index/index",
+      "targetPage": "/pages/index/index",
       "status": "PASS"
     },
     {
@@ -425,6 +437,7 @@
       "expectedWxMethod": "switchTab",
       "actualWxMethod": "switchTab",
       "targetRoute": "/pages/index/index",
+      "targetPage": "/pages/index/index",
       "status": "PASS"
     },
     {
@@ -434,7 +447,8 @@
       "className": "reports-card-full",
       "expectedWxMethod": "navigateTo",
       "actualWxMethod": "navigateTo",
-      "targetRoute": "/pages/full-report/index",
+      "targetRoute": "/pages/login/login?redirect=%2Fpages%2Freports%2Findex",
+      "targetPage": "/pages/login/login",
       "status": "PASS"
     },
     {
@@ -444,7 +458,8 @@
       "className": "reports-card-analyzing",
       "expectedWxMethod": "navigateTo",
       "actualWxMethod": "navigateTo",
-      "targetRoute": "/pages/analysis/index",
+      "targetRoute": "/pages/login/login?redirect=%2Fpages%2Freports%2Findex",
+      "targetPage": "/pages/login/login",
       "status": "PASS"
     },
     {
@@ -455,6 +470,7 @@
       "expectedWxMethod": "switchTab",
       "actualWxMethod": "switchTab",
       "targetRoute": "/pages/index/index",
+      "targetPage": "/pages/index/index",
       "status": "PASS"
     },
     {
@@ -465,26 +481,29 @@
       "expectedWxMethod": "switchTab",
       "actualWxMethod": "switchTab",
       "targetRoute": "/pages/my/index",
+      "targetPage": "/pages/my/index",
       "status": "PASS"
     },
     {
       "page": "/pages/orders/index",
       "action": "my",
-      "label": "我的",
+      "label": "My",
       "className": "bottom-cta",
       "expectedWxMethod": "switchTab",
       "actualWxMethod": "switchTab",
       "targetRoute": "/pages/my/index",
+      "targetPage": "/pages/my/index",
       "status": "PASS"
     },
     {
       "page": "/pages/feedback/index",
       "action": "my",
-      "label": "提交并返回",
+      "label": "Submit and return",
       "className": "bottom-cta",
-      "expectedWxMethod": "switchTab",
-      "actualWxMethod": "switchTab",
-      "targetRoute": "/pages/my/index",
+      "expectedWxMethod": "navigateTo",
+      "actualWxMethod": "navigateTo",
+      "targetRoute": "/pages/login/login?redirect=%2Fpages%2Ffeedback%2Findex",
+      "targetPage": "/pages/login/login",
       "status": "PASS"
     },
     {
@@ -495,6 +514,7 @@
       "expectedWxMethod": "switchTab",
       "actualWxMethod": "switchTab",
       "targetRoute": "/pages/index/index",
+      "targetPage": "/pages/index/index",
       "status": "PASS"
     }
   ]

@@ -83,7 +83,7 @@ test('T20 local adapter records timeout and provider-failure simulations without
   writeEvidence('T20-failure-simulation.json', { status: 'PASS', command, traces, remoteCalls: ai.remoteCalls });
 });
 
-test('T20 services route preview, basic, and full AI-shaped generation through the adapter', () => {
+test('T20 services route preview, basic, and full AI-shaped generation through the adapter', async () => {
   const { db, cloud } = makeAdapters();
   const ai = createLocalAiAdapter();
   const diagnosis = new DiagnosisOrdersService({ db, cloud, ai });
@@ -98,7 +98,7 @@ test('T20 services route preview, basic, and full AI-shaped generation through t
     materialType: 'answer-sheet'
   });
   const auth = { orderToken: created.body.orderToken };
-  diagnosis.uploadFiles('order-t20', {
+  await diagnosis.uploadFiles('order-t20', {
     authorizationAccepted: true,
     files: [{ id: 'upload-t20', content: 'local mock upload bytes' }]
   }, auth);
@@ -166,7 +166,7 @@ test('T20 local-only guard finds no provider endpoint strings or secret-bearing 
   });
 });
 
-test('V143-02 local schema and AI report contracts cover full report, repair state, quotas, and teacher intervention', () => {
+test('V143-02 local schema and AI report contracts cover full report, repair state, quotas, and teacher intervention', async () => {
   const { db, cloud } = makeAdapters();
   const ai = createLocalAiAdapter({ traceStore: new LocalAiTraceStore({ db }) });
   const diagnosis = new DiagnosisOrdersService({ db, cloud, ai });
@@ -188,7 +188,7 @@ test('V143-02 local schema and AI report contracts cover full report, repair sta
     materialType: 'answer-sheet'
   });
   const auth = { orderToken: created.body.orderToken };
-  diagnosis.uploadFiles('order-v143-02', {
+  await diagnosis.uploadFiles('order-v143-02', {
     authorizationAccepted: true,
     files: [{ id: 'upload-v143-02', content: 'local mock upload bytes' }]
   }, auth);

@@ -13,8 +13,8 @@
       "responseStatus": 201,
       "response": {
         "status": "created",
-        "orderId": "order-b67588bacdc4",
-        "orderToken": "local-order-token-order-b67588bacdc4"
+        "orderId": "order-0793677234d5",
+        "orderToken": "local-order-token-order-0793677234d5"
       }
     },
     {
@@ -22,7 +22,7 @@
       "path": "/api/diagnosis-orders/{orderId}/uploads",
       "responseStatus": 200,
       "response": {
-        "orderId": "order-b67588bacdc4",
+        "orderId": "order-0793677234d5",
         "status": "uploaded",
         "uploadedCount": 1
       }
@@ -32,7 +32,7 @@
       "path": "/api/diagnosis-orders/{orderId}/start-preview-analysis",
       "responseStatus": 200,
       "response": {
-        "taskId": "task-8e6bb9b61322",
+        "taskId": "task-535031203244",
         "status": "preview_done"
       }
     },
@@ -41,8 +41,8 @@
       "path": "/api/diagnosis-orders/{orderId}/analysis-progress",
       "responseStatus": 200,
       "response": {
-        "orderId": "order-b67588bacdc4",
-        "taskId": "task-8e6bb9b61322",
+        "orderId": "order-0793677234d5",
+        "taskId": "task-535031203244",
         "status": "preview_done",
         "progress": 100,
         "currentStep": "preview_decision_ready",
@@ -101,7 +101,7 @@
   ],
   "dbReadback": {
     "order": {
-      "id": "order-b67588bacdc4",
+      "id": "order-0793677234d5",
       "ownerId": "local-user-scoremap-t03",
       "source": "T03-success",
       "grade": "grade-5",
@@ -110,33 +110,39 @@
       "materialType": "answer-sheet",
       "status": "preview_done",
       "accessLevel": "preview",
-      "orderToken": "local-order-token-order-b67588bacdc4",
-      "createdAt": "2026-05-27T11:31:02.360Z",
-      "updatedAt": "2026-05-27T11:31:02.374Z",
+      "orderToken": "local-order-token-order-0793677234d5",
+      "createdAt": "2026-06-22T04:20:26.773Z",
+      "updatedAt": "2026-06-22T04:20:26.954Z",
       "uploadedCount": 1,
-      "previewTaskId": "task-8e6bb9b61322",
-      "previewDecisionId": "decision-order-b67588bacdc4-preview"
+      "previewTaskId": "task-535031203244",
+      "previewDecisionId": "decision-order-0793677234d5-preview"
     },
     "upload": {
       "id": "upload-t03-success",
       "ownerId": "local-user-scoremap-t03",
-      "orderId": "order-b67588bacdc4",
+      "orderId": "order-0793677234d5",
       "originalName": "answer-sheet.png",
       "mimeType": "image/png",
-      "storagePath": "C:\\Users\\LINYAN~1\\AppData\\Local\\Temp\\scoremap-t03-cWZcbY\\local-cloud\\local-user-scoremap-t03\\order-b67588bacdc4\\upload-t03-success-answer-sheet.png",
-      "cloudPath": "local-mock://local-user-scoremap-t03/order-b67588bacdc4/upload-t03-success-answer-sheet.png",
+      "storagePath": "C:\\Users\\LINYAN~1\\AppData\\Local\\Temp\\scoremap-t03-Km4zKT\\local-cloud\\local-user-scoremap-t03\\order-0793677234d5\\upload-t03-success-answer-sheet.png",
+      "cloudPath": "local-mock://local-user-scoremap-t03/order-0793677234d5/upload-t03-success-answer-sheet.png",
       "fileId": "local-cloud-file-upload-t03-success",
       "size": 23,
       "adapter": "local-tencent-cloud-mock",
-      "createdAt": "2026-05-27T11:31:02.366Z",
-      "updatedAt": "2026-05-27T11:31:02.367Z",
+      "createdAt": "2026-06-22T04:20:26.860Z",
+      "updatedAt": "2026-06-22T04:20:26.873Z",
       "authorizationAccepted": true,
+      "extension": ".png",
+      "parseStatus": "parsed",
+      "parsedTextLength": 69,
+      "parsedTextPreview": "[image upload accepted; OCR is not enabled in local scoremap runtime]",
+      "parseErrorCode": null,
+      "parseErrorMessage": null,
       "quality": "normal",
       "localOnly": true
     },
     "task": {
-      "id": "task-8e6bb9b61322",
-      "orderId": "order-b67588bacdc4",
+      "id": "task-535031203244",
+      "orderId": "order-0793677234d5",
       "ownerId": "local-user-scoremap-t03",
       "type": "preview",
       "status": "preview_done",
@@ -144,16 +150,16 @@
       "currentStep": "preview_decision_ready",
       "retryCount": 0,
       "errorCode": null,
-      "createdAt": "2026-05-27T11:31:02.370Z",
-      "updatedAt": "2026-05-27T11:31:02.370Z"
+      "createdAt": "2026-06-22T04:20:26.910Z",
+      "updatedAt": "2026-06-22T04:20:26.910Z"
     },
-    "decisionId": "decision-order-b67588bacdc4-preview"
+    "decisionId": "decision-order-0793677234d5-preview"
   },
   "localOnly": {
     "cloudAdapter": {
       "status": "PASS",
       "adapter": "local-tencent-cloud-mock",
-      "rootDir": "C:\\Users\\LINYAN~1\\AppData\\Local\\Temp\\scoremap-t03-cWZcbY\\local-cloud",
+      "rootDir": "C:\\Users\\LINYAN~1\\AppData\\Local\\Temp\\scoremap-t03-Km4zKT\\local-cloud",
       "remoteCalls": []
     },
     "remoteCalls": []

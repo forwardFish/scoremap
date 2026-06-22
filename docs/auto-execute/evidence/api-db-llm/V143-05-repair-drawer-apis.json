@@ -1,0 +1,199 @@
+{
+  "status": "PASS",
+  "command": "npm --prefix server test -- ai-tutor quota auth failures",
+  "requirementIds": [
+    "REQ143-005"
+  ],
+  "apiIds": [
+    "API143-011",
+    "API143-012",
+    "API143-013",
+    "API143-014",
+    "API143-015"
+  ],
+  "ownerScenarios": [
+    "O143-05",
+    "O143-06",
+    "O143-07",
+    "O143-08",
+    "O143-11"
+  ],
+  "apiCalls": [
+    {
+      "apiId": "API143-011",
+      "route": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/teach-child",
+      "responseStatus": 201
+    },
+    {
+      "apiId": "API143-012",
+      "route": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/similar-exercise",
+      "responseStatus": 201
+    },
+    {
+      "apiId": "API143-013",
+      "route": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/exercise-answer",
+      "responseStatus": 200
+    },
+    {
+      "apiId": "API143-014",
+      "route": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/check-mastery",
+      "responseStatus": 200
+    },
+    {
+      "apiId": "API143-015",
+      "route": "GET /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "responseStatus": 200
+    }
+  ],
+  "branchEvidence": {
+    "success": {
+      "teachChild": 201,
+      "similarExercise": 201,
+      "exerciseAnswer": 200,
+      "checkMastery": 200,
+      "history": 200
+    },
+    "quotaExceeded": {
+      "responseStatus": 429,
+      "response": {
+        "status": "error",
+        "code": "QUESTION_INTERACTION_QUOTA_EXCEEDED",
+        "message": "这道题的 AI 错题追问次数已用完。"
+      }
+    },
+    "unpaidGuard": {
+      "responseStatus": 403,
+      "response": {
+        "status": "error",
+        "code": "FULL_ENTITLEMENT_REQUIRED"
+      }
+    },
+    "missingQuestion": {
+      "responseStatus": 404,
+      "response": {
+        "status": "error",
+        "code": "NOT_FOUND",
+        "message": "Diagnosis question not found."
+      }
+    },
+    "invalidAnswer": {
+      "responseStatus": 404,
+      "response": {
+        "status": "error",
+        "code": "NOT_FOUND",
+        "message": "Exercise interaction not found."
+      }
+    },
+    "providerFailure": {
+      "responseStatus": 502,
+      "response": {
+        "status": "error",
+        "code": "LOCAL_AI_PROVIDER_FAILURE",
+        "interactionId": "interaction-v143-05-provider-failure"
+      }
+    }
+  },
+  "dbReadback": {
+    "question": {
+      "id": "question-order-d696caae55fa-1",
+      "orderId": "order-d696caae55fa",
+      "ownerId": "local-user-scoremap-t03",
+      "index": 1,
+      "title": "Missed condition in a multi-step calculation",
+      "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
+      "studentAnswer": "24",
+      "correctAnswer": "27",
+      "knowledgePoint": "Fraction multiplication",
+      "diagnosis": "The answer used an incomplete fraction relationship and skipped the condition check.",
+      "explanationSummary": "Turn three quarters into 36 x 3 / 4, then verify the result is reasonable.",
+      "masteryStatus": "initial_mastery",
+      "questionInteractionQuotaTotal": 3,
+      "questionInteractionQuotaUsed": 3,
+      "questionInteractionQuotaRemaining": 0,
+      "promptId": "LLM-QUESTION-04",
+      "traceId": "trace-llm-question-04-0003",
+      "source": "llm-extraction",
+      "createdAt": "2026-06-22T04:20:05.308Z",
+      "updatedAt": "2026-06-22T04:20:05.732Z",
+      "latestInteractionSummary": "Answer matches the local reference.",
+      "latestInteractionId": "interaction-v143-05-mastery-exercise"
+    },
+    "reportCard": {
+      "id": "question-order-d696caae55fa-1",
+      "index": 1,
+      "title": "Missed condition in a multi-step calculation",
+      "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
+      "studentAnswer": "24",
+      "correctAnswer": "27",
+      "knowledgePoint": "Fraction multiplication",
+      "diagnosis": "The answer used an incomplete fraction relationship and skipped the condition check.",
+      "explanationSummary": "Turn three quarters into 36 x 3 / 4, then verify the result is reasonable.",
+      "masteryStatus": "initial_mastery",
+      "quota": {
+        "total": 3,
+        "used": 0,
+        "remaining": 3
+      },
+      "aiTeacherCta": "Let the AI teacher explain this to the child",
+      "latestHistory": "Answer matches the local reference.",
+      "interactionCount": 2
+    },
+    "interactions": [
+      {
+        "id": "interaction-v143-05-teach",
+        "actionType": "teach_child",
+        "status": "success",
+        "submittedAnswer": null
+      },
+      {
+        "id": "interaction-v143-05-exercise",
+        "actionType": "similar_exercise",
+        "status": "success",
+        "submittedAnswer": "B"
+      },
+      {
+        "id": "interaction-v143-05-mastery-exercise",
+        "actionType": "similar_exercise",
+        "status": "success",
+        "submittedAnswer": "B"
+      }
+    ],
+    "providerFailureInteraction": {
+      "id": "interaction-v143-05-provider-failure",
+      "orderId": "order-d696caae55fa",
+      "questionId": "question-order-d696caae55fa-2",
+      "ownerId": "local-user-scoremap-t03",
+      "actionType": "teach_child",
+      "promptId": "LLM-TUTOR-05",
+      "traceId": "trace-llm-tutor-05-0009",
+      "response": null,
+      "exercise": null,
+      "submittedAnswer": null,
+      "correctness": null,
+      "summary": null,
+      "status": "failed",
+      "errorCode": "LOCAL_AI_PROVIDER_FAILURE",
+      "createdAt": "2026-06-22T04:20:05.798Z",
+      "updatedAt": "2026-06-22T04:20:05.798Z"
+    }
+  },
+  "localOnly": {
+    "paymentAdapter": {
+      "status": "PASS",
+      "adapter": "local-wechat-pay-mock",
+      "remoteCalls": [],
+      "supportedStatuses": [
+        "paid",
+        "failed",
+        "cancelled"
+      ]
+    },
+    "cloudAdapter": {
+      "status": "PASS",
+      "adapter": "local-tencent-cloud-mock",
+      "rootDir": "C:\\Users\\LINYAN~1\\AppData\\Local\\Temp\\scoremap-t23-KjLrYu\\local-cloud",
+      "remoteCalls": []
+    },
+    "remoteCalls": []
+  }
+}

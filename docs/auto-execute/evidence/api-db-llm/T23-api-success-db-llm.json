@@ -17,8 +17,8 @@
         "status": "ready",
         "questions": [
           {
-            "id": "question-order-dc49599fbd01-1",
-            "orderId": "order-dc49599fbd01",
+            "id": "question-order-a26224ca54d9-1",
+            "orderId": "order-a26224ca54d9",
             "ownerId": "local-user-scoremap-t03",
             "index": 1,
             "title": "Missed condition in a multi-step calculation",
@@ -35,12 +35,12 @@
             "promptId": "LLM-QUESTION-04",
             "traceId": "trace-llm-question-04-0003",
             "source": "llm-extraction",
-            "createdAt": "2026-05-27T11:31:01.732Z",
-            "updatedAt": "2026-05-27T11:31:01.732Z"
+            "createdAt": "2026-06-22T04:20:02.026Z",
+            "updatedAt": "2026-06-22T04:20:02.026Z"
           },
           {
-            "id": "question-order-dc49599fbd01-2",
-            "orderId": "order-dc49599fbd01",
+            "id": "question-order-a26224ca54d9-2",
+            "orderId": "order-a26224ca54d9",
             "ownerId": "local-user-scoremap-t03",
             "index": 2,
             "title": "Unit conversion omitted in the final answer",
@@ -57,8 +57,8 @@
             "promptId": "LLM-QUESTION-04",
             "traceId": "trace-llm-question-04-0003",
             "source": "llm-extraction",
-            "createdAt": "2026-05-27T11:31:01.733Z",
-            "updatedAt": "2026-05-27T11:31:01.733Z"
+            "createdAt": "2026-06-22T04:20:02.038Z",
+            "updatedAt": "2026-06-22T04:20:02.038Z"
           }
         ],
         "quota": {
@@ -77,6 +77,28 @@
       "response": {
         "status": "created",
         "interactionId": "interaction-t23-tutor",
+        "interaction": {
+          "id": "interaction-t23-tutor",
+          "orderId": "order-a26224ca54d9",
+          "questionId": "question-order-a26224ca54d9-1",
+          "ownerId": "local-user-scoremap-t03",
+          "actionType": "explain_step",
+          "promptId": "LLM-TUTOR-05",
+          "traceId": "trace-llm-tutor-05-0004",
+          "response": {
+            "mode": "fixed-follow-up",
+            "action": "explain_step",
+            "summary": "Focus on the current wrong question: identify the missed condition, then verify the final answer."
+          },
+          "exercise": null,
+          "submittedAnswer": null,
+          "correctness": null,
+          "summary": "Focus on the current wrong question: identify the missed condition, then verify the final answer.",
+          "status": "success",
+          "errorCode": null,
+          "createdAt": "2026-06-22T04:20:02.122Z",
+          "updatedAt": "2026-06-22T04:20:02.122Z"
+        },
         "quota": {
           "report": {
             "total": 10,
@@ -105,6 +127,33 @@
       "response": {
         "status": "created",
         "interactionId": "interaction-t23-exercise",
+        "interaction": {
+          "id": "interaction-t23-exercise",
+          "orderId": "order-a26224ca54d9",
+          "questionId": "question-order-a26224ca54d9-1",
+          "ownerId": "local-user-scoremap-t03",
+          "actionType": "similar_question",
+          "promptId": "LLM-EXERCISE-06",
+          "traceId": "trace-llm-exercise-06-0005",
+          "response": null,
+          "exercise": {
+            "stem": "Use the same method to solve a similar one-step variant.",
+            "options": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "correctOption": "B"
+          },
+          "submittedAnswer": null,
+          "correctness": null,
+          "summary": "Similar exercise generated for the current wrong question.",
+          "status": "success",
+          "errorCode": null,
+          "createdAt": "2026-06-22T04:20:02.179Z",
+          "updatedAt": "2026-06-22T04:20:02.179Z"
+        },
         "quota": {
           "report": {
             "total": 10,
@@ -141,7 +190,8 @@
         "feedback": {
           "correct": true,
           "summary": "Answer matches the local reference."
-        }
+        },
+        "masteryStatus": "initial_mastery"
       }
     },
     {
@@ -153,8 +203,8 @@
         "items": [
           {
             "id": "interaction-t23-tutor",
-            "orderId": "order-dc49599fbd01",
-            "questionId": "question-order-dc49599fbd01-1",
+            "orderId": "order-a26224ca54d9",
+            "questionId": "question-order-a26224ca54d9-1",
             "ownerId": "local-user-scoremap-t03",
             "actionType": "explain_step",
             "promptId": "LLM-TUTOR-05",
@@ -170,13 +220,13 @@
             "summary": "Focus on the current wrong question: identify the missed condition, then verify the final answer.",
             "status": "success",
             "errorCode": null,
-            "createdAt": "2026-05-27T11:31:01.744Z",
-            "updatedAt": "2026-05-27T11:31:01.744Z"
+            "createdAt": "2026-06-22T04:20:02.122Z",
+            "updatedAt": "2026-06-22T04:20:02.122Z"
           },
           {
             "id": "interaction-t23-exercise",
-            "orderId": "order-dc49599fbd01",
-            "questionId": "question-order-dc49599fbd01-1",
+            "orderId": "order-a26224ca54d9",
+            "questionId": "question-order-a26224ca54d9-1",
             "ownerId": "local-user-scoremap-t03",
             "actionType": "similar_question",
             "promptId": "LLM-EXERCISE-06",
@@ -197,14 +247,15 @@
             "summary": "Answer matches the local reference.",
             "status": "success",
             "errorCode": null,
-            "createdAt": "2026-05-27T11:31:01.753Z",
-            "updatedAt": "2026-05-27T11:31:01.763Z",
+            "createdAt": "2026-06-22T04:20:02.179Z",
+            "updatedAt": "2026-06-22T04:20:02.263Z",
             "answerPromptId": "LLM-CHECK-07",
             "answerTraceId": "trace-llm-check-07-0006",
             "answerFeedback": {
               "correct": true,
               "summary": "Answer matches the local reference."
-            }
+            },
+            "masteryStatus": "initial_mastery"
           }
         ],
         "quota": {
@@ -224,30 +275,30 @@
   ],
   "dbReadback": {
     "order": {
-      "id": "order-dc49599fbd01",
+      "id": "order-a26224ca54d9",
       "ownerId": "local-user-scoremap-t03",
       "source": "T23-success",
       "grade": "grade-5",
       "subject": "math",
       "examType": "unit-test",
       "materialType": "answer-sheet",
-      "status": "full_report_ready",
+      "status": "full_done",
       "accessLevel": "full",
-      "orderToken": "local-order-token-order-dc49599fbd01",
-      "createdAt": "2026-05-27T11:31:01.676Z",
-      "updatedAt": "2026-05-27T11:31:01.754Z",
+      "orderToken": "local-order-token-order-a26224ca54d9",
+      "createdAt": "2026-06-22T04:20:01.529Z",
+      "updatedAt": "2026-06-22T04:20:02.193Z",
       "uploadedCount": 1,
-      "previewTaskId": "task-961c239d6d90",
-      "previewDecisionId": "decision-order-dc49599fbd01-preview",
+      "previewTaskId": "task-873a32ca8ddf",
+      "previewDecisionId": "decision-order-a26224ca54d9-preview",
       "questionInteractionQuotaTotal": 10,
       "questionInteractionQuotaUsed": 2,
       "questionInteractionQuotaRemaining": 8,
       "fullTaskId": "task-full-t23-success",
-      "fullDecisionId": "decision-order-dc49599fbd01-full"
+      "fullDecisionId": "decision-order-a26224ca54d9-full"
     },
     "question": {
-      "id": "question-order-dc49599fbd01-1",
-      "orderId": "order-dc49599fbd01",
+      "id": "question-order-a26224ca54d9-1",
+      "orderId": "order-a26224ca54d9",
       "ownerId": "local-user-scoremap-t03",
       "index": 1,
       "title": "Missed condition in a multi-step calculation",
@@ -257,20 +308,22 @@
       "knowledgePoint": "Fraction multiplication",
       "diagnosis": "The answer used an incomplete fraction relationship and skipped the condition check.",
       "explanationSummary": "Turn three quarters into 36 x 3 / 4, then verify the result is reasonable.",
-      "masteryStatus": "needs_practice",
+      "masteryStatus": "initial_mastery",
       "questionInteractionQuotaTotal": 3,
       "questionInteractionQuotaUsed": 2,
       "questionInteractionQuotaRemaining": 1,
       "promptId": "LLM-QUESTION-04",
       "traceId": "trace-llm-question-04-0003",
       "source": "llm-extraction",
-      "createdAt": "2026-05-27T11:31:01.732Z",
-      "updatedAt": "2026-05-27T11:31:01.755Z"
+      "createdAt": "2026-06-22T04:20:02.026Z",
+      "updatedAt": "2026-06-22T04:20:02.277Z",
+      "latestInteractionSummary": "Answer matches the local reference.",
+      "latestInteractionId": "interaction-t23-exercise"
     },
     "tutorInteraction": {
       "id": "interaction-t23-tutor",
-      "orderId": "order-dc49599fbd01",
-      "questionId": "question-order-dc49599fbd01-1",
+      "orderId": "order-a26224ca54d9",
+      "questionId": "question-order-a26224ca54d9-1",
       "ownerId": "local-user-scoremap-t03",
       "actionType": "explain_step",
       "promptId": "LLM-TUTOR-05",
@@ -286,13 +339,13 @@
       "summary": "Focus on the current wrong question: identify the missed condition, then verify the final answer.",
       "status": "success",
       "errorCode": null,
-      "createdAt": "2026-05-27T11:31:01.744Z",
-      "updatedAt": "2026-05-27T11:31:01.744Z"
+      "createdAt": "2026-06-22T04:20:02.122Z",
+      "updatedAt": "2026-06-22T04:20:02.122Z"
     },
     "exerciseInteraction": {
       "id": "interaction-t23-exercise",
-      "orderId": "order-dc49599fbd01",
-      "questionId": "question-order-dc49599fbd01-1",
+      "orderId": "order-a26224ca54d9",
+      "questionId": "question-order-a26224ca54d9-1",
       "ownerId": "local-user-scoremap-t03",
       "actionType": "similar_question",
       "promptId": "LLM-EXERCISE-06",
@@ -313,14 +366,15 @@
       "summary": "Answer matches the local reference.",
       "status": "success",
       "errorCode": null,
-      "createdAt": "2026-05-27T11:31:01.753Z",
-      "updatedAt": "2026-05-27T11:31:01.763Z",
+      "createdAt": "2026-06-22T04:20:02.179Z",
+      "updatedAt": "2026-06-22T04:20:02.263Z",
       "answerPromptId": "LLM-CHECK-07",
       "answerTraceId": "trace-llm-check-07-0006",
       "answerFeedback": {
         "correct": true,
         "summary": "Answer matches the local reference."
-      }
+      },
+      "masteryStatus": "initial_mastery"
     },
     "traces": [
       {
@@ -355,7 +409,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "af1c2b117c6e862e",
+                  "sha256": "f253d1b4f5e0fc5d",
                   "redacted": false
                 },
                 "grade": {
@@ -544,7 +598,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:01.724Z"
+        "updatedAt": "2026-06-22T04:20:01.925Z"
       },
       {
         "id": "trace-llm-full-03-0002",
@@ -577,7 +631,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "af1c2b117c6e862e",
+                  "sha256": "f253d1b4f5e0fc5d",
                   "redacted": false
                 },
                 "grade": {
@@ -631,7 +685,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "af1c2b117c6e862e",
+                  "sha256": "f253d1b4f5e0fc5d",
                   "redacted": false
                 },
                 "summary": {
@@ -782,7 +836,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:01.728Z"
+        "updatedAt": "2026-06-22T04:20:01.962Z"
       },
       {
         "id": "trace-llm-question-04-0003",
@@ -814,7 +868,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "af1c2b117c6e862e",
+                  "sha256": "f253d1b4f5e0fc5d",
                   "redacted": false
                 },
                 "reportSummary": {
@@ -992,7 +1046,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:01.729Z"
+        "updatedAt": "2026-06-22T04:20:01.975Z"
       },
       {
         "id": "trace-llm-tutor-05-0004",
@@ -1025,13 +1079,13 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "af1c2b117c6e862e",
+                  "sha256": "f253d1b4f5e0fc5d",
                   "redacted": false
                 },
                 "questionId": {
                   "type": "string",
                   "length": 29,
-                  "sha256": "b7521016400f1103",
+                  "sha256": "c32d8af4d9079f12",
                   "redacted": false
                 },
                 "action": {
@@ -1097,7 +1151,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:01.742Z"
+        "updatedAt": "2026-06-22T04:20:02.110Z"
       },
       {
         "id": "trace-llm-exercise-06-0005",
@@ -1130,13 +1184,13 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "af1c2b117c6e862e",
+                  "sha256": "f253d1b4f5e0fc5d",
                   "redacted": false
                 },
                 "questionId": {
                   "type": "string",
                   "length": 29,
-                  "sha256": "b7521016400f1103",
+                  "sha256": "c32d8af4d9079f12",
                   "redacted": false
                 },
                 "action": {
@@ -1226,7 +1280,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:01.751Z"
+        "updatedAt": "2026-06-22T04:20:02.167Z"
       },
       {
         "id": "trace-llm-check-07-0006",
@@ -1259,13 +1313,13 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "af1c2b117c6e862e",
+                  "sha256": "f253d1b4f5e0fc5d",
                   "redacted": false
                 },
                 "questionId": {
                   "type": "string",
                   "length": 29,
-                  "sha256": "b7521016400f1103",
+                  "sha256": "c32d8af4d9079f12",
                   "redacted": false
                 },
                 "interactionId": {
@@ -1322,7 +1376,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:01.761Z"
+        "updatedAt": "2026-06-22T04:20:02.251Z"
       }
     ]
   }

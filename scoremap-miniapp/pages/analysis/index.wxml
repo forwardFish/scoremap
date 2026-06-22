@@ -1,11 +1,10 @@
 <view class="analysis-page">
   <view class="analysis-header">
-    <button class="back-button" data-action="later" bindtap="onTap" aria-label="返回">
+    <button class="back-button" data-action="back" bindtap="onTap" aria-label="返回">
       <text>‹</text>
     </button>
     <view class="robot-icon">
-      <image src="/assets/icons/user-avatar-gray.png" mode="aspectFit" />
-      <view class="avatar-drawn"><view></view></view>
+      <image src="/assets/icons/analysis-robot.png" mode="aspectFit" />
     </view>
     <text class="brand-title">AI 提分决策</text>
   </view>
@@ -24,51 +23,32 @@
         <view class="ring-arc arc-top"></view>
         <view class="ring-arc arc-bottom"></view>
         <view class="ring-center">
-          <text class="progress-number">68</text>
+          <text class="progress-number">{{progress}}</text>
           <text class="percent">%</text>
         </view>
       </view>
-      <image class="owl" src="/assets/icons/owl-dashboard-teacher.png" mode="aspectFit" />
-      <view class="owl-drawn">
-        <view class="owl-ear left"></view>
-        <view class="owl-ear right"></view>
-        <view class="owl-head">
-          <view class="owl-eye left"><view></view></view>
-          <view class="owl-eye right"><view></view></view>
-          <view class="owl-beak"></view>
-          <view class="owl-feather"></view>
-        </view>
-        <view class="owl-body">
-          <view class="owl-belly"></view>
-        </view>
-      </view>
+      <image class="owl" src="/assets/icons/analysis-teacher-pointer.png" mode="aspectFit" />
     </view>
 
     <view class="step-list">
-      <view class="step-row done">
-        <view class="step-node">✓</view>
-        <text>已识别上传资料</text>
-      </view>
-      <view class="step-row done">
-        <view class="step-node">✓</view>
-        <text>已匹配年级与学科</text>
-      </view>
-      <view class="step-row active">
-        <view class="step-node spinner"></view>
-        <text>正在定位主要丢分点</text>
-      </view>
-      <view class="step-row pending">
-        <view class="step-node hourglass">⌛</view>
-        <text>正在生成初步建议</text>
+      <view class="step-row {{item.status}}" wx:for="{{steps}}" wx:key="id">
+        <view class="step-node {{item.nodeClass}}">
+          <image wx:if="{{item.nodeIcon}}" src="{{item.nodeIcon}}" mode="aspectFit" />
+        </view>
+        <text>{{item.text}}</text>
       </view>
     </view>
 
     <view class="estimate">
-      <text class="clock">◷</text>
-      <text>通常需要 20-30秒</text>
+      <image class="clock-icon" src="/assets/icons/analysis-clock.png" mode="aspectFit" />
+      <text>{{estimateText}}</text>
     </view>
   </view>
 
   <button class="primary-button" data-action="later" bindtap="onTap">稍后查看</button>
-  <button class="refresh-button" data-action="refresh" bindtap="onTap">↻ 刷新进度</button>
+  <button class="refresh-button {{refreshing ? 'refreshing' : ''}}" data-action="refresh" bindtap="onTap">
+    <image class="refresh-icon" src="/assets/icons/analysis-refresh.png" mode="aspectFit" />
+    <text>{{refreshing ? '刷新中' : '刷新进度'}}</text>
+  </button>
+  <text class="analysis-toast" wx:if="{{toast}}">{{toast}}</text>
 </view>

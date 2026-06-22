@@ -1,0 +1,155 @@
+{
+  "status": "PASS",
+  "command": "npm test -- student-info",
+  "route": "/pages/student-info/index",
+  "blocked": {
+    "status": "WECHAT_LOGIN_REQUIRED",
+    "targetRoute": "/pages/student-info/index",
+    "loginRequired": true,
+    "nextAction": "wx.login",
+    "toast": "请先完成微信登录后再开始分析"
+  },
+  "login": {
+    "status": "WECHAT_LOGIN_READY",
+    "auth": {
+      "loggedIn": true,
+      "provider": "wechat",
+      "code": "test-wechat-code",
+      "source": "student-info-submit",
+      "loginAt": "2026-06-22T06:19:51.653Z",
+      "localOnly": true
+    },
+    "targetRoute": "/pages/student-info/index",
+    "toast": "微信登录成功，可以开始分析"
+  },
+  "submitted": {
+    "status": "SUBMITTED",
+    "targetRoute": "/pages/analysis/index",
+    "orderId": "order-v143-c02-student-info",
+    "apiCalls": [
+      {
+        "method": "POST",
+        "path": "/api/diagnosis-orders",
+        "payloadSummary": {
+          "orderId": "order-v143-c02-student-info",
+          "source": "student-info-submit",
+          "grade": "初一",
+          "subject": "math",
+          "examType": "未填写",
+          "currentScore": null,
+          "targetScore": null,
+          "materialTypes": "array(3)"
+        },
+        "responseStatus": 201,
+        "responseBody": {
+          "status": "created",
+          "orderId": "order-v143-c02-student-info",
+          "orderToken": "local-order-token-order-v143-c02-student-info"
+        }
+      },
+      {
+        "method": "POST",
+        "path": "/api/diagnosis-orders/order-v143-c02-student-info/uploads",
+        "payloadSummary": {
+          "uploadId": "upload-v143-c02-student-info",
+          "authorizationAccepted": true,
+          "files": "array(3)",
+          "materialTypes": "array(3)"
+        },
+        "responseStatus": 200,
+        "responseBody": {
+          "status": "uploaded",
+          "orderId": "order-v143-c02-student-info",
+          "uploadedCount": 1
+        }
+      },
+      {
+        "method": "POST",
+        "path": "/api/diagnosis-orders/order-v143-c02-student-info/start-preview-analysis",
+        "payloadSummary": {
+          "taskId": "task-v143-c02-preview",
+          "studentInfo": {
+            "grade": "初一",
+            "subject": "数学",
+            "currentScore": null,
+            "targetScore": null,
+            "examType": null,
+            "materialTypes": [
+              "exam-paper",
+              "wrong-question-photo",
+              "score-report"
+            ]
+          }
+        },
+        "responseStatus": 200,
+        "responseBody": {
+          "status": "preview_done",
+          "taskId": "task-v143-c02-preview"
+        }
+      }
+    ],
+    "toast": "已提交，开始 AI 分析"
+  },
+  "apiCallsAfterLogin": [
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders",
+      "payloadSummary": {
+        "orderId": "order-v143-c02-student-info",
+        "source": "student-info-submit",
+        "grade": "初一",
+        "subject": "math",
+        "examType": "未填写",
+        "currentScore": null,
+        "targetScore": null,
+        "materialTypes": "array(3)"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "created",
+        "orderId": "order-v143-c02-student-info",
+        "orderToken": "local-order-token-order-v143-c02-student-info"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-v143-c02-student-info/uploads",
+      "payloadSummary": {
+        "uploadId": "upload-v143-c02-student-info",
+        "authorizationAccepted": true,
+        "files": "array(3)",
+        "materialTypes": "array(3)"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "uploaded",
+        "orderId": "order-v143-c02-student-info",
+        "uploadedCount": 1
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-v143-c02-student-info/start-preview-analysis",
+      "payloadSummary": {
+        "taskId": "task-v143-c02-preview",
+        "studentInfo": {
+          "grade": "初一",
+          "subject": "数学",
+          "currentScore": null,
+          "targetScore": null,
+          "examType": null,
+          "materialTypes": [
+            "exam-paper",
+            "wrong-question-photo",
+            "score-report"
+          ]
+        }
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "preview_done",
+        "taskId": "task-v143-c02-preview"
+      }
+    }
+  ]
+}

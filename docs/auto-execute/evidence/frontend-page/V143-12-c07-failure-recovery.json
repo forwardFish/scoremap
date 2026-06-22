@@ -1,0 +1,144 @@
+{
+  "status": "PASS",
+  "command": "npm test -- basic-result-full-unlock",
+  "requirementIds": [
+    "REQ143-004",
+    "REQ143-007",
+    "REQ143-008"
+  ],
+  "apiIds": [
+    "API143-006",
+    "API143-007",
+    "API143-009",
+    "API143-010"
+  ],
+  "ownerScenarioIds": [
+    "O143-03",
+    "O143-04",
+    "O143-11",
+    "O143-12"
+  ],
+  "branches": {
+    "loginRequired": {
+      "status": "LOGIN_REQUIRED",
+      "loginRequired": true,
+      "targetRoute": "/pages/login/login",
+      "redirectUrl": "/pages/basic-result/index?orderId=order-v143-c07-recovery"
+    },
+    "paymentFailed": {
+      "status": "PAYMENT_OR_GENERATION_FAILED",
+      "targetRoute": "/pages/basic-result/index",
+      "retryAction": "confirmFullPayment",
+      "query": {
+        "orderId": "order-v143-c07-recovery"
+      },
+      "paymentCreateStatus": 201,
+      "callbackStatus": null,
+      "generateFullStatus": null,
+      "errorCode": "LOCAL_PAYMENT_FAILED"
+    },
+    "retryPaid": {
+      "status": "PAID",
+      "targetRoute": "/pages/full-report/index",
+      "query": {
+        "orderId": "order-v143-c07-recovery"
+      },
+      "paymentId": "payment-t06-full",
+      "paymentCreateStatus": 201,
+      "callbackStatus": 200,
+      "generateFullStatus": 200,
+      "fullReportStatus": 200,
+      "accessLevel": "full",
+      "paymentReadback": {
+        "id": "payment-t06-full",
+        "orderId": "order-v143-c07-recovery",
+        "ownerId": "local-user-scoremap-t06",
+        "paymentType": "full",
+        "amountYuan": 9.9,
+        "status": "paid",
+        "adapter": "local-wechat-pay-mock",
+        "mockTransactionId": "local-mock-c07-full-order-v143-c07-recovery",
+        "callbackAdapter": "local-wechat-pay-mock"
+      },
+      "orderReadback": {
+        "id": "order-v143-c07-recovery",
+        "ownerId": "local-user-scoremap-t06",
+        "status": "basic_ready",
+        "accessLevel": "full",
+        "source": "V143-12-C07-basic-result"
+      },
+      "fullDecisionReadback": {
+        "id": "decision-order-v143-c07-recovery-full",
+        "orderId": "order-v143-c07-recovery",
+        "ownerId": "local-user-scoremap-t06",
+        "level": "full",
+        "full": {
+          "level": "full",
+          "reportTitle": "初一数学月考提分报告",
+          "orderId": "order-v143-c07-recovery",
+          "generatedStatus": "full_report_ready",
+          "summary": "整体基础较好，计算粗心和几何证明步骤不完整是本次失分的主要原因。",
+          "modules": [
+            {
+              "id": "knowledge-diagnosis",
+              "title": "主要丢分点",
+              "content": "计算失误、几何证明步骤缺失、应用题等量关系不清。"
+            },
+            {
+              "id": "loss-point-breakdown",
+              "title": "优先补弱顺序",
+              "content": "先补几何证明表达，再巩固方程应用题和计算检查。"
+            },
+            {
+              "id": "seven-day-plan",
+              "title": "7 天建议",
+              "content": "每天 20 分钟错题复盘，隔天完成同类题迁移练习。"
+            },
+            {
+              "id": "parent-guidance",
+              "title": "家长陪伴建议",
+              "content": "关注孩子是否能讲清思路，不用分数承诺替代过程反馈。"
+            }
+          ],
+          "tabs": [
+            "overview",
+            "loss points",
+            "7-day plan",
+            "parent guidance"
+          ],
+          "reportQuota": {
+            "used": 2,
+            "total": 10,
+            "remaining": 8,
+            "text": "本报告 AI 错题追问剩余 8/10 次"
+          },
+          "wrongQuestionCards": [
+            {
+              "questionId": "order-v143-c07-recovery-q1",
+              "index": 1,
+              "title": "错题 1 二元一次方程应用题",
+              "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+              "knowledgePoint": "方程应用题",
+              "severity": "high",
+              "masteryStatus": "未掌握",
+              "remainingQuestionQuota": 3,
+              "aiEntryText": "让 AI 老师讲给孩子听"
+            },
+            {
+              "questionId": "order-v143-c07-recovery-q2",
+              "index": 2,
+              "title": "错题 2 几何证明题",
+              "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+              "knowledgePoint": "几何证明",
+              "severity": "medium",
+              "masteryStatus": "中等",
+              "remainingQuestionQuota": 2,
+              "aiEntryText": "让 AI 老师讲给孩子听"
+            }
+          ],
+          "complianceNotice": "内容仅供学习参考，请结合课堂学习与老师建议使用。"
+        }
+      }
+    }
+  }
+}

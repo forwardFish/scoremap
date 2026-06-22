@@ -2,30 +2,30 @@
   "status": "PASS_WITH_LIMITATION",
   "command": "npm test -- my-reports-feedback",
   "requirementIds": [
-    "R10",
-    "R15"
+    "REQ143-006",
+    "REQ143-007",
+    "REQ143-008"
   ],
   "ownerJourneyEvidence": {
     "status": "PASS_WITH_LIMITATION",
     "scenarios": [
-      "O05",
-      "O06",
-      "O07"
+      "O143-09",
+      "O143-10"
     ],
     "clickPath": [
       "/pages/my/index",
       "open-reports",
       "/pages/reports/index",
-      "open-full-report-card",
+      "open-report-card",
       "/pages/full-report/index",
       "/pages/my/index",
       "open-feedback",
       "/pages/feedback/index",
       "submit-feedback"
     ],
-    "apiEvidence": "docs/auto-execute/evidence/frontend-page/my-reports-feedback-api-db.json",
-    "dbEvidence": "docs/auto-execute/evidence/frontend-page/my-reports-feedback-api-db.json",
-    "limitation": "T12 records deterministic C11/C12 owner actions. Full rendered O01-O12 owner E2E remains assigned to T15."
+    "apiEvidence": "docs/auto-execute/evidence/frontend-page/V143-15-c11-c12-all-status-recovery.json",
+    "dbEvidence": "docs/auto-execute/evidence/frontend-page/V143-15-c11-c12-all-status-recovery.json",
+    "limitation": "V143-15 records deterministic C11/C12 owner actions. Pixel-perfect WeChat screenshot comparison remains outside this task."
   },
   "feedbackEvidence": {
     "route": "/pages/feedback/index",
@@ -44,24 +44,25 @@
         "decisionLevel": "full",
         "rating": "very_helpful",
         "tags": [
-          "判断清楚",
-          "知道下一步怎么做"
+          "clear_decision",
+          "next_step_clear"
         ],
-        "text": "本地 T12 反馈：知道下一步怎么做。",
+        "text": "Local V143-15 feedback: next step is clear.",
         "source": "T12-feedback-page"
       },
-      "toast": "反馈已记录"
+      "toast": "Feedback saved"
     },
     "apiCall": {
       "method": "POST",
-      "path": "/api/diagnosis-orders/order-t12-full/feedback",
+      "path": "/api/feedbacks",
       "payloadSummary": {
         "feedbackId": "feedback-t12-my",
         "decisionLevel": "full",
         "rating": "very_helpful",
         "tags": "array(2)",
-        "text": "本地 T12 反馈：知道下一步怎么做。",
-        "source": "T12-feedback-page"
+        "text": "Local V143-15 feedback: next step is clear.",
+        "source": "T12-feedback-page",
+        "orderId": "order-t12-full"
       },
       "responseStatus": 201,
       "responseBody": {
@@ -73,12 +74,11 @@
   "visualEvidence": {
     "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
     "references": [
-      "ui-reference-catalog/小程序/我的.png",
-      "ui-reference-catalog/小程序/stitch_codex_development_blueprints/_1/screen-reference",
-      "PRD C12 我的报告列表页"
+      "docs/UI/*v1.4.3-C11-my-reports-merged*.png",
+      "UI143-C11C12"
     ],
     "expectedVisualCommand": "npm run visual:scoremap -- my reports",
-    "limitation": "T12 visual runner produces deterministic structural artifacts and metrics. Pixel-perfect screenshot capture remains assigned to T14."
+    "limitation": "V143-15 uses structural visual evidence only. Pixel-perfect screenshot capture remains assigned to visual/final gates."
   },
   "localOnly": {
     "status": "PASS",

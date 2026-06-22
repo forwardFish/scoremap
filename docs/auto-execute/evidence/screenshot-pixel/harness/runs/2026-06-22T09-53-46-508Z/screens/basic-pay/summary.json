@@ -1,0 +1,25 @@
+{
+  "id": "UI-C06",
+  "screen": "basic-pay",
+  "route": "/pages/basic-pay/index",
+  "status": "PASS",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "rpxScale": 0.52,
+  "pageFiles": {
+    "pageDir": "scoremap-miniapp/pages/basic-pay",
+    "wxml": "scoremap-miniapp/pages/basic-pay/index.wxml",
+    "wxss": "scoremap-miniapp/pages/basic-pay/index.wxss",
+    "json": "scoremap-miniapp/pages/basic-pay/index.json",
+    "js": "scoremap-miniapp/pages/basic-pay/index.js"
+  },
+  "actual": "docs/auto-execute/evidence/screenshot-pixel/harness/runs/2026-06-22T09-53-46-508Z/screens/basic-pay/actual.png",
+  "htmlPreview": "docs/auto-execute/evidence/screenshot-pixel/harness/runs/2026-06-22T09-53-46-508Z/screens/basic-pay/preview.html",
+  "reference": null,
+  "referenceNote": "V143 maps the 1 yuan payment modal to preview/C05, not a standalone basic-pay PNG.",
+  "renderSource": "scoremap-miniapp page WXML/WXSS plus local assets",
+  "forbiddenActualReferenceMount": false,
+  "knownGaps": []
+}

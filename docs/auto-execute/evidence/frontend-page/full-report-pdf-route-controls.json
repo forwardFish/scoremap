@@ -18,8 +18,8 @@
     "title": "Complete score improvement report",
     "subtitle": "The 9.9 yuan local mock payment has generated the complete report.",
     "uiReference": {
-      "png": "ui-reference-catalog/灏忕▼搴?瀹屾暣鎻愬垎鎶ュ憡.png",
-      "stitch": "ui-reference-catalog/灏忕▼搴?stitch_codex_development_blueprints/_2/screen-reference"
+      "png": "ui-reference-catalog/小程序/完整提分报告.png",
+      "stitch": "ui-reference-catalog/小程序/stitch_codex_development_blueprints/_2/screen-reference"
     },
     "generatedStatus": "full_report_ready",
     "statusCard": {
@@ -66,7 +66,7 @@
       {
         "id": "save-report",
         "text": "Save report locally",
-        "api": "POST /api/diagnosis-orders/order-t11-entry/save-report",
+        "api": "POST /api/reports/order-t11-entry/save",
         "targetRoute": "/pages/my/index"
       },
       {
@@ -216,7 +216,7 @@
     },
     {
       "method": "POST",
-      "path": "/api/diagnosis-orders/order-t11-entry/save-report",
+      "path": "/api/reports/order-t11-entry/save",
       "payloadSummary": {
         "source": "full-report-entry-save"
       },

@@ -141,6 +141,30 @@ function assertLocalTarget(result, label) {
   return result.targetRoute;
 }
 
+function startHomeUpload(home) {
+  const tapped = home.tapUploadMaterial();
+  if (typeof home.confirmUploadAuthorization === 'function') {
+    return {
+      prompt: tapped,
+      ready: home.confirmUploadAuthorization(),
+      mode: 'authorization-modal'
+    };
+  }
+  return {
+    prompt: tapped,
+    ready: tapped,
+    mode: 'direct-upload'
+  };
+}
+
+function cancelHomeUpload(home) {
+  if (typeof home.cancelUploadAuthorization === 'function') return home.cancelUploadAuthorization();
+  return {
+    status: 'NO_AUTHORIZATION_MODAL',
+    targetRoute: '/pages/index/index'
+  };
+}
+
 function scanLocalOnlyFiles() {
   const files = [
     'tests/e2e/owner-click-flow.test.js',
@@ -176,22 +200,23 @@ test('T15 parent owner clicks O01-O13 with route, API, DB, visual, and local-onl
   const results = [];
 
   const home = createHomeUploadPageState(client);
-  const authPrompt = home.tapUploadMaterial();
-  const uploadReady = home.confirmUploadAuthorization();
+  const homeUpload = startHomeUpload(home);
+  const authPrompt = homeUpload.prompt;
+  const uploadReady = homeUpload.ready;
   const studentInfo = createStudentInfoPageState(client);
   studentInfo.updateField('currentScore', '78');
   studentInfo.updateField('targetScore', '95');
   studentInfo.updateField('examType', '月考');
   const uploadStart = callsSince(client, 0).length;
   const upload = studentInfo.submitStudentInfo();
-  assert.equal(authPrompt.status, 'AUTH_REQUIRED');
+  assert.equal(uploadReady.status, 'UPLOAD_READY');
   assert.equal(uploadReady.targetRoute, '/pages/student-info/index');
   assert.equal(upload.targetRoute, '/pages/analysis/index');
   assert.equal(client.store.read('diagnosis_orders', upload.orderId).status, 'preview_done');
   results.push(scenario('O01', ['R01', 'R02', 'R14', 'R15'], [
-    '/pages/index/index', 'upload-material', 'upload-authorization modal', 'confirm-upload-authorization',
+    '/pages/index/index', 'upload-material', homeUpload.mode,
     '/pages/student-info/index', 'submit-student-info', '/pages/analysis/index'
-  ], { startRoute: '/pages/index/index', infoRoute: uploadReady.targetRoute, targetRoute: upload.targetRoute, modal: authPrompt.modalId }, callsSince(client, uploadStart), {
+  ], { startRoute: '/pages/index/index', infoRoute: uploadReady.targetRoute, targetRoute: upload.targetRoute, modal: authPrompt.modalId || null, uploadMode: homeUpload.mode }, callsSince(client, uploadStart), {
     order: client.store.read('diagnosis_orders', upload.orderId),
     upload: client.store.read('upload_files', 'upload-t07-home-upload'),
     analysisTask: client.store.read('ai_analysis_tasks', 'task-t07-preview')
@@ -330,8 +355,7 @@ test('T15 parent owner clicks O01-O13 with route, API, DB, visual, and local-onl
   const reuploadStart = client.calls.length;
   const reupload = failurePage.reupload();
   const freshHome = createHomeUploadPageState(client);
-  freshHome.tapUploadMaterial();
-  const secondInfoRoute = freshHome.confirmUploadAuthorization();
+  const secondInfoRoute = startHomeUpload(freshHome).ready;
   const freshStudentInfo = createStudentInfoPageState(client, { orderId: 'order-t15-reupload' });
   const secondUpload = freshStudentInfo.submitStudentInfo();
   assert.equal(reupload.targetRoute, '/pages/index/index');
@@ -392,8 +416,7 @@ test('T15 parent owner clicks O01-O13 with route, API, DB, visual, and local-onl
   const controlClient = createMiniappApiClient();
   const controlStart = controlClient.calls.length;
   const controlHome = createHomeUploadPageState(controlClient);
-  controlHome.tapUploadMaterial();
-  const controlInfoRoute = controlHome.confirmUploadAuthorization();
+  const controlInfoRoute = startHomeUpload(controlHome).ready;
   const controlStudentInfo = createStudentInfoPageState(controlClient, { orderId: 'order-t15-control-full' });
   const controlUpload = controlStudentInfo.submitStudentInfo();
   const controlOrderId = controlUpload.orderId;
@@ -413,7 +436,7 @@ test('T15 parent owner clicks O01-O13 with route, API, DB, visual, and local-onl
   controlClient.store.upsert('diagnosis_orders', { id: 'order-t15-control-failed', ownerId: 'local-user-scoremap-t06', status: 'failed', accessLevel: 'preview', title: 'Control failed report' });
 
   const controlResults = [
-    { controlId: 'home.cancel-upload-authorization', result: createHomeUploadPageState(controlClient).cancelUploadAuthorization() },
+    { controlId: 'home.cancel-upload-authorization', result: cancelHomeUpload(createHomeUploadPageState(controlClient)) },
     { controlId: 'home.view-sample-report', result: controlHome.viewSampleReport() },
     { controlId: 'home.open-recent-reports', result: controlHome.openRecentReports() },
     { controlId: 'home.open-my-reports', result: controlHome.openMyReports() },

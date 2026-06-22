@@ -2,6 +2,7 @@
 const path = require('node:path');
 
 const requested = new Set(process.argv.slice(2).map((arg) => arg.toLowerCase()));
+const supportsTestIsolation = nodeSupports('--test-isolation');
 const allTests = [
   { tags: ['ai-adapter', 'prompt-registry', 'local-only'], file: 'ai-adapter.test.js' },
   { tags: ['real-llm', 'deepseek', 'ai-config'], file: 'deepseek-real-adapter.test.js' },
@@ -9,6 +10,7 @@ const allTests = [
   { tags: ['orders', 'uploads', 'preview'], file: 'diagnosis-orders.test.js' },
   { tags: ['payment', 'entitlement'], file: 'payment-api.test.js' },
   { tags: ['wechat-auth', 'upload', 'wechat-payment', 'express-app'], file: 'wechat-auth-upload-payment.test.js' },
+  { tags: ['backend-migration', 'cloudbase', 'wechat-login', 'payment'], file: 'backend-migration.test.js' },
   { tags: ['report', 'feedback', 'export', 'full-report', 'wrong-questions'], file: 'reports-api.test.js' },
   { tags: ['question-interactions', 'db-readback'], file: 'question-interactions.test.js' },
   { tags: ['ai-tutor', 'quota', 'auth', 'failures'], file: 'ai-tutor-api.test.js' },
@@ -20,7 +22,7 @@ const selected = allTests
 
 const args = [
   '--test',
-  '--test-isolation=none',
+  ...(supportsTestIsolation ? ['--test-isolation=none'] : []),
   '--test-concurrency=1',
   ...selected
 ];
@@ -36,3 +38,8 @@ const result = spawnSync(process.execPath, args, {
 });
 
 process.exit(result.status === null ? 1 : result.status);
+
+function nodeSupports(flag) {
+  const help = spawnSync(process.execPath, ['--help'], { encoding: 'utf8' });
+  return `${help.stdout || ''}\n${help.stderr || ''}`.includes(flag);
+}

@@ -1,0 +1,84 @@
+{
+  "status": "PASS",
+  "command": "npm test -- student-info",
+  "route": "/pages/student-info/index",
+  "steps": [
+    {
+      "id": "upload",
+      "text": "上传资料",
+      "status": "done"
+    },
+    {
+      "id": "info",
+      "text": "填写信息",
+      "status": "active"
+    },
+    {
+      "id": "analysis",
+      "text": "AI 分析",
+      "status": "pending"
+    }
+  ],
+  "controls": [
+    {
+      "id": "submit-student-info",
+      "text": "提交并开始分析",
+      "targetRoute": "/pages/analysis/index"
+    },
+    {
+      "id": "back-upload",
+      "text": "返回上一步",
+      "targetRoute": "/pages/index/index"
+    }
+  ],
+  "defaultForm": {
+    "grade": "初一",
+    "subject": "数学",
+    "currentScore": "",
+    "targetScore": "",
+    "examType": "",
+    "materialTypes": [
+      "paper",
+      "wrong",
+      "score"
+    ],
+    "authorizationAccepted": true
+  },
+  "availableGrades": [
+    "小一",
+    "小二",
+    "小三",
+    "小四",
+    "小五",
+    "小六",
+    "初一",
+    "初二",
+    "初三",
+    "高一",
+    "高二",
+    "高三"
+  ],
+  "markup": {
+    "hasAuthorizationControl": true,
+    "usesPageLocalVisualSlices": false,
+    "usesCodeRenderedFormControls": true,
+    "malformedClosingTagFindings": []
+  },
+  "validationCases": {
+    "missingGrade": {
+      "valid": false,
+      "field": "grade",
+      "message": "请选择年级"
+    },
+    "invalidScore": {
+      "valid": false,
+      "field": "currentScore",
+      "message": "当前分数需为 0-150 的数字"
+    },
+    "missingAuthorization": {
+      "valid": false,
+      "field": "authorizationAccepted",
+      "message": "请先确认资料授权"
+    }
+  }
+}

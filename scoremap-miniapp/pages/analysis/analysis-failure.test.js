@@ -24,6 +24,24 @@ function writeEvidence(name, payload) {
   writeJsonEvidence(projectRoot, path.join('frontend-page', name), payload);
 }
 
+function waitFor(predicate) {
+  return new Promise((resolve, reject) => {
+    const started = Date.now();
+    const tick = () => {
+      if (predicate()) {
+        resolve();
+        return;
+      }
+      if (Date.now() - started > 2000) {
+        reject(new Error('Timed out waiting for analysis runtime event.'));
+        return;
+      }
+      setTimeout(tick, 20);
+    };
+    tick();
+  });
+}
+
 function seedAnalysisTask(client, overrides = {}) {
   const orderId = overrides.orderId || 'order-v143-10-analysis';
   const taskId = overrides.taskId || 'task-v143-10-analysis';
@@ -125,6 +143,107 @@ test('C03 analysis page renders progress controls, two-second polling, manual re
     ],
     apiCalls: client.calls
   });
+});
+
+test('C03 runtime polling refreshes progress and only navigates when analysis is ready', async () => {
+  const indexPath = path.join(__dirname, 'index.js');
+  const previousPage = global.Page;
+  const previousWx = global.wx;
+  const previousGetApp = global.getApp;
+  const previousSetInterval = global.setInterval;
+  const previousClearInterval = global.clearInterval;
+  const requests = [];
+  const navigation = [];
+  let pageConfig = null;
+  let intervalHandler = null;
+  let progressResponse = {
+    orderId: 'order-runtime-analysis',
+    status: 'analyzing',
+    progress: 68,
+    currentStep: 'locate-loss-points',
+    steps: [
+      { id: 'read-material', text: '已识别上传资料', status: 'done' },
+      { id: 'match-subject', text: '已匹配年级与学科', status: 'done' },
+      { id: 'locate-loss-points', text: '正在定位主要丢分点', status: 'active' },
+      { id: 'generate-preview', text: '正在生成初步建议', status: 'pending' }
+    ]
+  };
+
+  delete require.cache[require.resolve(indexPath)];
+  global.Page = (definition) => {
+    pageConfig = definition;
+  };
+  global.getApp = () => ({ globalData: {} });
+  global.setInterval = (handler, ms) => {
+    intervalHandler = { handler, ms };
+    return 101;
+  };
+  global.clearInterval = () => {
+    intervalHandler = null;
+  };
+  global.wx = {
+    getStorageSync() {
+      return '';
+    },
+    hideTabBar() {},
+    showToast() {},
+    request(input) {
+      requests.push(input);
+      input.success({ statusCode: 200, data: progressResponse });
+    },
+    navigateTo(input) {
+      navigation.push(input.url);
+    },
+    redirectTo(input) {
+      navigation.push(input.url);
+    },
+    switchTab(input) {
+      navigation.push(input.url);
+    },
+    navigateBack(input) {
+      navigation.push('BACK');
+      if (input && typeof input.success === 'function') input.success();
+    }
+  };
+
+  try {
+    require(indexPath);
+    assert.ok(pageConfig);
+    const page = {
+      ...pageConfig,
+      data: { ...pageConfig.data },
+      setData(patch) {
+        this.data = { ...this.data, ...patch };
+      }
+    };
+
+    page.onLoad({ orderId: 'order-runtime-analysis' });
+    await waitFor(() => requests.length >= 1);
+    assert.equal(intervalHandler.ms, 2000);
+    assert.equal(page.data.progress, 68);
+    assert.deepEqual(navigation, []);
+
+    await page.refreshRuntimeProgress('manual-refresh');
+    assert.equal(requests.length, 2);
+    assert.deepEqual(navigation, []);
+
+    progressResponse = {
+      ...progressResponse,
+      status: 'review_done',
+      progress: 100,
+      currentStep: 'preview_ready'
+    };
+    await page.refreshRuntimeProgress('poll');
+    assert.equal(navigation[0], '/pages/preview/index?orderId=order-runtime-analysis');
+    assert.equal(intervalHandler, null);
+  } finally {
+    delete require.cache[require.resolve(indexPath)];
+    global.Page = previousPage;
+    global.wx = previousWx;
+    global.getApp = previousGetApp;
+    global.setInterval = previousSetInterval;
+    global.clearInterval = previousClearInterval;
+  }
 });
 
 test('C03/C04 records local API calls, DB readbacks, timeout, failure, retry, reupload, and home recovery', () => {

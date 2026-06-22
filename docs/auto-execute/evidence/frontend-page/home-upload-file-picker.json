@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "command": "npm test -- home-upload",
+  "requirementIds": [
+    "REQ143-007"
+  ],
+  "uiIds": [
+    "UI143-C01"
+  ],
+  "ownerScenarioIds": [
+    "O143-01"
+  ],
+  "pageRoute": "/pages/index/index",
+  "clickPath": [
+    "upload-material",
+    "wx.chooseMessageFile",
+    "/pages/student-info/index"
+  ],
+  "noAuthorizationModal": true,
+  "filePicker": {
+    "api": "wx.chooseMessageFile",
+    "called": true,
+    "options": {
+      "count": 1,
+      "type": "file",
+      "extension": [
+        "jpg",
+        "jpeg",
+        "png",
+        "pdf",
+        "doc",
+        "docx"
+      ]
+    }
+  },
+  "navigation": {
+    "targetRoute": "/pages/student-info/index"
+  },
+  "pendingUpload": {
+    "tempFilePath": "wxfile://math-paper.docx",
+    "name": "math-paper.docx",
+    "size": 1234,
+    "localOnly": true
+  }
+}

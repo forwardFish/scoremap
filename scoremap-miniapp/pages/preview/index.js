@@ -39,7 +39,10 @@ if (typeof Page === 'function') {
 
     onLoad(options = {}) {
       const orderId = options.orderId || 'order-v143-c05-preview';
-      this.setData({ orderId });
+      const shouldOpenPayModal = options.openPay !== '0'
+        && options.showPayModal !== '0'
+        && options.modal !== '0';
+      this.setData({ orderId, showPayModal: shouldOpenPayModal });
       if (typeof this.loadPreview === 'function') {
         this.loadPreview(orderId);
       }
@@ -157,9 +160,9 @@ if (typeof Page === 'function') {
           paymentModal: {
             visible: showPayModal,
             type: 'half-screen',
-            price: { amountYuan: 1, text: '1 元' },
-            title: '确认支付 1 元',
-            ctaText: '确认支付并查看完整初判',
+            price: { amountYuan: 1, text: '1.00 元' },
+            title: '解锁完整初判',
+            ctaText: '立即支付 1 元',
             apiIds: ['API143-006', 'API143-007', 'API143-008']
           },
           toast,
@@ -180,7 +183,7 @@ if (typeof Page === 'function') {
           targetRoute: BASIC_PAY_ROUTE,
           query: { orderId },
           modal: page.getState().paymentModal,
-          ctaText: '确认支付并查看完整初判'
+          ctaText: '立即支付 1 元'
         };
       },
       closePaymentModal() {

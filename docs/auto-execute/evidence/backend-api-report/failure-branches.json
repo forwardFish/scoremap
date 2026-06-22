@@ -34,7 +34,7 @@
     },
     {
       "method": "POST",
-      "path": "/api/diagnosis-orders/{orderId}/feedback",
+      "path": "/api/feedbacks",
       "branch": "validation",
       "responseStatus": 400,
       "response": {
@@ -57,7 +57,7 @@
   ],
   "dbReadback": {
     "previewOnlyOrder": {
-      "id": "order-d406f199d29f",
+      "id": "order-ad00ad5290b8",
       "ownerId": "local-user-scoremap-t03",
       "source": "T05-preview-only",
       "grade": "grade-5",
@@ -66,15 +66,15 @@
       "materialType": "answer-sheet",
       "status": "preview_done",
       "accessLevel": "preview",
-      "orderToken": "local-order-token-order-d406f199d29f",
-      "createdAt": "2026-05-27T11:31:03.076Z",
-      "updatedAt": "2026-05-27T11:31:03.087Z",
+      "orderToken": "local-order-token-order-ad00ad5290b8",
+      "createdAt": "2026-06-22T04:20:46.028Z",
+      "updatedAt": "2026-06-22T04:20:46.198Z",
       "uploadedCount": 1,
-      "previewTaskId": "task-1e3950418feb",
-      "previewDecisionId": "decision-order-d406f199d29f-preview"
+      "previewTaskId": "task-e6ab58e7b0d1",
+      "previewDecisionId": "decision-order-ad00ad5290b8-preview"
     },
     "protectedOrder": {
-      "id": "order-9fde4875c0f1",
+      "id": "order-14299934d83c",
       "ownerId": "local-user-scoremap-t03",
       "source": "T05-errors",
       "grade": "grade-5",
@@ -83,12 +83,12 @@
       "materialType": "answer-sheet",
       "status": "full_paid",
       "accessLevel": "full",
-      "orderToken": "local-order-token-order-9fde4875c0f1",
-      "createdAt": "2026-05-27T11:31:03.091Z",
-      "updatedAt": "2026-05-27T11:31:03.114Z",
+      "orderToken": "local-order-token-order-14299934d83c",
+      "createdAt": "2026-06-22T04:20:46.248Z",
+      "updatedAt": "2026-06-22T04:20:46.475Z",
       "uploadedCount": 1,
-      "previewTaskId": "task-2cc2a4c4ec1b",
-      "previewDecisionId": "decision-order-9fde4875c0f1-preview"
+      "previewTaskId": "task-9bddfe0592b1",
+      "previewDecisionId": "decision-order-14299934d83c-preview"
     }
   }
 }

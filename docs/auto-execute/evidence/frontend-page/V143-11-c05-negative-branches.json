@@ -1,0 +1,269 @@
+{
+  "status": "PASS",
+  "command": "npm test -- preview-basic-pay",
+  "requirementIds": [
+    "REQ143-004",
+    "REQ143-007",
+    "REQ143-008"
+  ],
+  "apiIds": [
+    "API143-005",
+    "API143-006",
+    "API143-007",
+    "API143-008"
+  ],
+  "ownerScenarioIds": [
+    "O143-02"
+  ],
+  "uiReferences": [
+    "UI143-C05"
+  ],
+  "negativeBranches": {
+    "unpaidBasicDecision": {
+      "status": 403,
+      "body": {
+        "status": "error",
+        "code": "BASIC_PAYMENT_REQUIRED"
+      }
+    },
+    "loggedOutOpen": {
+      "status": "LOGIN_REQUIRED",
+      "loginRequired": true,
+      "targetRoute": "/pages/login/login",
+      "redirectUrl": "/pages/preview/index?orderId=order-v143-c05-logged-out",
+      "toast": "请先完成微信登录后再继续"
+    },
+    "loggedOutConfirm": {
+      "status": "LOGIN_REQUIRED",
+      "loginRequired": true,
+      "targetRoute": "/pages/login/login",
+      "redirectUrl": "/pages/preview/index?orderId=order-v143-c05-logged-out",
+      "toast": "请先完成微信登录后再继续"
+    },
+    "loggedOutPaymentCount": 0,
+    "failedPayment": {
+      "status": "PAYMENT_FAILED",
+      "sourceRoute": "/pages/preview/index",
+      "targetRoute": "/pages/preview/index",
+      "query": {
+        "orderId": "order-v143-c05-failed"
+      },
+      "paymentId": "payment-t06-basic",
+      "paymentCreateStatus": 201,
+      "callbackStatus": 200,
+      "callbackPaymentStatus": "failed",
+      "accessLevel": "preview",
+      "paymentReadback": {
+        "id": "payment-t06-basic",
+        "orderId": "order-v143-c05-failed",
+        "ownerId": "local-user-scoremap-t06",
+        "paymentType": "basic",
+        "amountYuan": 1,
+        "status": "failed",
+        "adapter": "local-wechat-pay-mock",
+        "mockTransactionId": "local-mock-basic-order-v143-c05-failed",
+        "callbackAdapter": "local-wechat-pay-mock"
+      },
+      "orderReadback": {
+        "id": "order-v143-c05-failed",
+        "ownerId": "local-user-scoremap-t06",
+        "status": "preview_done",
+        "accessLevel": "preview",
+        "source": "V143-11-c05-preview"
+      },
+      "toast": "本地支付未完成，仍停留在初判预览"
+    },
+    "failedBasicDecision": {
+      "status": 403,
+      "body": {
+        "status": "error",
+        "code": "BASIC_PAYMENT_REQUIRED"
+      }
+    }
+  },
+  "apiCalls": [
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-v143-c05-unpaid/preview-decision",
+      "payloadSummary": {
+        "source": "v143-c05-preview-load"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "preview_done",
+        "accessLevel": "preview",
+        "decision": {
+          "reportTitle": "初一数学月考初判预览",
+          "summary": "整体基础较稳，计算准确性和几何证明步骤是本次失分的主要来源。",
+          "visibleModules": [
+            {
+              "id": "main-loss-points",
+              "title": "主要失分点",
+              "summary": "计算符号、进位和几何证明条件遗漏最明显。"
+            },
+            {
+              "id": "priority-weakness",
+              "title": "优先补弱点",
+              "summary": "先补有理数运算，再补辅助线和证明表达。"
+            },
+            {
+              "id": "initial-advice",
+              "title": "初步建议",
+              "summary": "先用 7 天做同类错题复盘和基础纠错。"
+            }
+          ],
+          "lockedModules": [
+            {
+              "id": "detailed-cause",
+              "title": "详细错因判断"
+            },
+            {
+              "id": "seven-day-plan",
+              "title": "7 天行动建议"
+            },
+            {
+              "id": "next-step",
+              "title": "下一步学习建议"
+            }
+          ],
+          "unlockPriceYuan": 1
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-v143-c05-unpaid/basic-decision",
+      "payloadSummary": {
+        "source": "v143-c05-unpaid-direct-basic-read"
+      },
+      "responseStatus": 403,
+      "responseBody": {
+        "status": "error",
+        "code": "BASIC_PAYMENT_REQUIRED"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-v143-c05-failed/preview-decision",
+      "payloadSummary": {
+        "source": "v143-c05-preview-load"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "preview_done",
+        "accessLevel": "preview",
+        "decision": {
+          "reportTitle": "初一数学月考初判预览",
+          "summary": "整体基础较稳，计算准确性和几何证明步骤是本次失分的主要来源。",
+          "visibleModules": [
+            {
+              "id": "main-loss-points",
+              "title": "主要失分点",
+              "summary": "计算符号、进位和几何证明条件遗漏最明显。"
+            },
+            {
+              "id": "priority-weakness",
+              "title": "优先补弱点",
+              "summary": "先补有理数运算，再补辅助线和证明表达。"
+            },
+            {
+              "id": "initial-advice",
+              "title": "初步建议",
+              "summary": "先用 7 天做同类错题复盘和基础纠错。"
+            }
+          ],
+          "lockedModules": [
+            {
+              "id": "detailed-cause",
+              "title": "详细错因判断"
+            },
+            {
+              "id": "seven-day-plan",
+              "title": "7 天行动建议"
+            },
+            {
+              "id": "next-step",
+              "title": "下一步学习建议"
+            }
+          ],
+          "unlockPriceYuan": 1
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-v143-c05-failed",
+        "paymentType": "basic",
+        "amountYuan": 1,
+        "source": "v143-c05-half-screen-payment"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "paid",
+        "paymentId": "payment-t06-basic",
+        "amountYuan": 1,
+        "paymentParams": {
+          "adapter": "local-mock"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/payments/wechat/callback",
+      "payloadSummary": {
+        "paymentId": "payment-t06-basic",
+        "status": "failed",
+        "mockTransactionId": "local-mock-basic-order-v143-c05-failed",
+        "mockSignature": "local-mock-signature",
+        "source": "v143-c05-half-screen-payment"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "ok": true,
+        "status": "failed",
+        "paymentId": "payment-t06-basic"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-v143-c05-failed/basic-decision",
+      "payloadSummary": {
+        "source": "v143-c05-failed-direct-basic-read"
+      },
+      "responseStatus": 403,
+      "responseBody": {
+        "status": "error",
+        "code": "BASIC_PAYMENT_REQUIRED"
+      }
+    }
+  ],
+  "dbReadback": {
+    "unpaidOrder": {
+      "id": "order-v143-c05-unpaid",
+      "ownerId": "local-user-scoremap-t06",
+      "status": "preview_done",
+      "accessLevel": "preview",
+      "source": "V143-11-c05-preview"
+    },
+    "failedOrder": {
+      "id": "order-v143-c05-failed",
+      "ownerId": "local-user-scoremap-t06",
+      "status": "preview_done",
+      "accessLevel": "preview",
+      "source": "V143-11-c05-preview"
+    },
+    "failedPayment": {
+      "id": "payment-t06-basic",
+      "orderId": "order-v143-c05-failed",
+      "ownerId": "local-user-scoremap-t06",
+      "paymentType": "basic",
+      "amountYuan": 1,
+      "status": "failed",
+      "adapter": "local-wechat-pay-mock",
+      "mockTransactionId": "local-mock-basic-order-v143-c05-failed",
+      "callbackAdapter": "local-wechat-pay-mock"
+    }
+  }
+}

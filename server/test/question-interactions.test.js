@@ -30,7 +30,7 @@ function makeHarness(suffix) {
   return { ...adapters, ai, diagnosis, reports, questions };
 }
 
-function createFullOrder(api, suffix) {
+async function createFullOrder(api, suffix) {
   const created = api.diagnosis.createOrder({
     orderId: `order-t21-${suffix}`,
     source: 'T21-db-schema',
@@ -41,7 +41,7 @@ function createFullOrder(api, suffix) {
   });
   assert.equal(created.statusCode, 201);
   const auth = { orderToken: created.body.orderToken };
-  const upload = api.diagnosis.uploadFiles(created.body.orderId, {
+  const upload = await api.diagnosis.uploadFiles(created.body.orderId, {
     authorizationAccepted: true,
     files: [{ id: `upload-t21-${suffix}`, content: 'local mock upload bytes' }]
   }, auth);
@@ -52,9 +52,9 @@ function createFullOrder(api, suffix) {
   return { orderId: created.body.orderId, auth };
 }
 
-test('T21 persists wrong-question cards, interactions, exercise answers, quota, and AI traces with direct readback', () => {
+test('T21 persists wrong-question cards, interactions, exercise answers, quota, and AI traces with direct readback', async () => {
   const api = makeHarness('success');
-  const { orderId, auth } = createFullOrder(api, 'success');
+  const { orderId, auth } = await createFullOrder(api, 'success');
   const cards = api.questions.ensureQuestionCards(orderId, {}, auth);
   assert.ok([200, 201].includes(cards.statusCode));
   const question = cards.body.questions[0];
@@ -103,9 +103,9 @@ test('T21 persists wrong-question cards, interactions, exercise answers, quota, 
   });
 });
 
-test('T21 failed validation, entitlement, provider, and quota branches do not increment successful usage counters', () => {
+test('T21 failed validation, entitlement, provider, and quota branches do not increment successful usage counters', async () => {
   const api = makeHarness('failures');
-  const { orderId, auth } = createFullOrder(api, 'failures');
+  const { orderId, auth } = await createFullOrder(api, 'failures');
   const cards = api.questions.ensureQuestionCards(orderId, {}, auth);
   const question = cards.body.questions[0];
 

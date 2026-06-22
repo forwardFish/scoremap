@@ -1,0 +1,661 @@
+{
+  "status": "PASS_WITH_LIMITATION",
+  "command": "npm test -- full-report-v143-core-cards",
+  "requirementIds": [
+    "REQ143-004",
+    "REQ143-006",
+    "REQ143-007",
+    "REQ143-008"
+  ],
+  "apiIds": [
+    "API143-010",
+    "API143-016"
+  ],
+  "uiReferences": [
+    "UI143-C10A"
+  ],
+  "ownerScenarioIds": [
+    "O143-04"
+  ],
+  "renderedState": {
+    "route": "/pages/full-report/index",
+    "orderId": "order-v143-c10",
+    "title": "完整提分报告",
+    "uiReference": {
+      "id": "UI143-C10A",
+      "source": "docs/UI/小程序/v1.4.3-C10-完整报告-核心五卡.png"
+    },
+    "hero": {
+      "title": "初一数学月考提分报告",
+      "summary": "整体基础较好，计算粗心和几何证明步骤不完整是本次失分的主要原因。",
+      "statusText": "Full analysis ready",
+      "quotaText": "本报告 AI 错题追问剩余 8/10 次"
+    },
+    "paper": {
+      "reportTitle": "初一数学月考提分报告",
+      "summary": "整体基础较好，计算粗心和几何证明步骤不完整是本次失分的主要原因。",
+      "modules": [
+        {
+          "id": "knowledge-diagnosis",
+          "title": "主要丢分点",
+          "content": "计算失误、几何证明步骤缺失、应用题等量关系不清。"
+        },
+        {
+          "id": "loss-point-breakdown",
+          "title": "优先补弱顺序",
+          "content": "先补几何证明表达，再巩固方程应用题和计算检查。"
+        },
+        {
+          "id": "seven-day-plan",
+          "title": "7 天建议",
+          "content": "每天 20 分钟错题复盘，隔天完成同类题迁移练习。"
+        },
+        {
+          "id": "parent-guidance",
+          "title": "家长陪伴建议",
+          "content": "关注孩子是否能讲清思路，不用分数承诺替代过程反馈。"
+        }
+      ],
+      "fiveCoreCards": [
+        {
+          "id": "recoverable-score",
+          "title": "可追回分数",
+          "eyebrow": "机会区间",
+          "value": "8-14分",
+          "content": "基于本次错题类型估算，不承诺固定提分。",
+          "tone": "score"
+        },
+        {
+          "id": "evidence-anchors",
+          "title": "证据锚点",
+          "eyebrow": "从哪里失分",
+          "value": "3 个证据",
+          "content": "主要丢分点、优先补弱顺序、7 天建议",
+          "anchors": [
+            {
+              "id": "knowledge-diagnosis",
+              "label": "主要丢分点",
+              "detail": "计算失误、几何证明步骤缺失、应用题等量关系不清。"
+            },
+            {
+              "id": "loss-point-breakdown",
+              "label": "优先补弱顺序",
+              "detail": "先补几何证明表达，再巩固方程应用题和计算检查。"
+            },
+            {
+              "id": "seven-day-plan",
+              "label": "7 天建议",
+              "detail": "每天 20 分钟错题复盘，隔天完成同类题迁移练习。"
+            }
+          ],
+          "tone": "evidence"
+        },
+        {
+          "id": "improvement-priority",
+          "title": "提分优先级",
+          "eyebrow": "先修最值钱",
+          "value": "先做 主要丢分点",
+          "content": "1. 主要丢分点 / 2. 优先补弱顺序 / 3. 7 天建议",
+          "priorities": [
+            {
+              "id": "knowledge-diagnosis",
+              "rank": 1,
+              "title": "主要丢分点",
+              "reason": "计算失误、几何证明步骤缺失、应用题等量关系不清。"
+            },
+            {
+              "id": "loss-point-breakdown",
+              "rank": 2,
+              "title": "优先补弱顺序",
+              "reason": "先补几何证明表达，再巩固方程应用题和计算检查。"
+            },
+            {
+              "id": "seven-day-plan",
+              "rank": 3,
+              "title": "7 天建议",
+              "reason": "每天 20 分钟错题复盘，隔天完成同类题迁移练习。"
+            }
+          ],
+          "tone": "priority"
+        },
+        {
+          "id": "wrong-question-focus",
+          "title": "关键错题",
+          "eyebrow": "可打开修复",
+          "value": "2 题",
+          "content": "错题 1 二元一次方程应用题、错题 2 几何证明题",
+          "questionIds": [
+            "order-v143-c10-q1",
+            "order-v143-c10-q2"
+          ],
+          "tone": "question"
+        },
+        {
+          "id": "teacher-intervention",
+          "title": "老师介入判断",
+          "eyebrow": "建议介入",
+          "value": "建议介入",
+          "content": "几何证明表达和应用题关系建模需要老师或家长旁听讲题过程。",
+          "intervention": {
+            "level": "建议介入",
+            "reason": "几何证明表达和应用题关系建模需要老师或家长旁听讲题过程。",
+            "nextAction": "先让孩子复述错因，再决定是否请老师讲同类题。"
+          },
+          "tone": "teacher"
+        }
+      ],
+      "complianceNotice": "内容仅供学习参考，请结合课堂学习与老师建议使用。"
+    },
+    "valueCards": [
+      {
+        "id": "recoverable-score",
+        "title": "可追回分数",
+        "eyebrow": "机会区间",
+        "value": "8-14分",
+        "content": "基于本次错题类型估算，不承诺固定提分。",
+        "tone": "score",
+        "index": 1,
+        "iconSrc": "/assets/clean-icons/target-purple.png"
+      },
+      {
+        "id": "evidence-anchors",
+        "title": "证据锚点",
+        "eyebrow": "从哪里失分",
+        "value": "3 个证据",
+        "content": "主要丢分点、优先补弱顺序、7 天建议",
+        "anchors": [
+          {
+            "id": "knowledge-diagnosis",
+            "label": "主要丢分点",
+            "detail": "计算失误、几何证明步骤缺失、应用题等量关系不清。"
+          },
+          {
+            "id": "loss-point-breakdown",
+            "label": "优先补弱顺序",
+            "detail": "先补几何证明表达，再巩固方程应用题和计算检查。"
+          },
+          {
+            "id": "seven-day-plan",
+            "label": "7 天建议",
+            "detail": "每天 20 分钟错题复盘，隔天完成同类题迁移练习。"
+          }
+        ],
+        "tone": "evidence",
+        "index": 2,
+        "iconSrc": "/assets/icons/document-blue.png"
+      },
+      {
+        "id": "improvement-priority",
+        "title": "提分优先级",
+        "eyebrow": "先修最值钱",
+        "value": "先做 主要丢分点",
+        "content": "1. 主要丢分点 / 2. 优先补弱顺序 / 3. 7 天建议",
+        "priorities": [
+          {
+            "id": "knowledge-diagnosis",
+            "rank": 1,
+            "title": "主要丢分点",
+            "reason": "计算失误、几何证明步骤缺失、应用题等量关系不清。"
+          },
+          {
+            "id": "loss-point-breakdown",
+            "rank": 2,
+            "title": "优先补弱顺序",
+            "reason": "先补几何证明表达，再巩固方程应用题和计算检查。"
+          },
+          {
+            "id": "seven-day-plan",
+            "rank": 3,
+            "title": "7 天建议",
+            "reason": "每天 20 分钟错题复盘，隔天完成同类题迁移练习。"
+          }
+        ],
+        "tone": "priority",
+        "index": 3,
+        "iconSrc": "/assets/icons/growth-chart-green.png"
+      },
+      {
+        "id": "wrong-question-focus",
+        "title": "关键错题",
+        "eyebrow": "可打开修复",
+        "value": "2 题",
+        "content": "错题 1 二元一次方程应用题、错题 2 几何证明题",
+        "questionIds": [
+          "order-v143-c10-q1",
+          "order-v143-c10-q2"
+        ],
+        "tone": "question",
+        "index": 4,
+        "iconSrc": "/assets/icons/book-open-orange.png"
+      },
+      {
+        "id": "teacher-intervention",
+        "title": "老师介入判断",
+        "eyebrow": "建议介入",
+        "value": "建议介入",
+        "content": "几何证明表达和应用题关系建模需要老师或家长旁听讲题过程。",
+        "intervention": {
+          "level": "建议介入",
+          "reason": "几何证明表达和应用题关系建模需要老师或家长旁听讲题过程。",
+          "nextAction": "先让孩子复述错因，再决定是否请老师讲同类题。"
+        },
+        "tone": "teacher",
+        "index": 5,
+        "iconSrc": "/assets/icons/user-avatar-gray.png"
+      }
+    ],
+    "reportRows": [
+      {
+        "id": "knowledge-diagnosis",
+        "title": "主要丢分点",
+        "content": "计算失误、几何证明步骤缺失、应用题等量关系不清。",
+        "iconSrc": "/assets/clean-icons/target-purple.png"
+      },
+      {
+        "id": "loss-point-breakdown",
+        "title": "优先补弱顺序",
+        "content": "先补几何证明表达，再巩固方程应用题和计算检查。",
+        "iconSrc": "/assets/icons/growth-chart-green.png"
+      },
+      {
+        "id": "seven-day-plan",
+        "title": "7 天建议",
+        "content": "每天 20 分钟错题复盘，隔天完成同类题迁移练习。",
+        "iconSrc": "/assets/icons/calendar-seven-red.png"
+      },
+      {
+        "id": "parent-guidance",
+        "title": "家长陪伴建议",
+        "content": "关注孩子是否能讲清思路，不用分数承诺替代过程反馈。",
+        "iconSrc": "/assets/icons/book-open-orange.png"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "报告总览",
+        "active": true
+      },
+      {
+        "id": "失分证据",
+        "active": false
+      },
+      {
+        "id": "7天计划",
+        "active": false
+      },
+      {
+        "id": "家长建议",
+        "active": false
+      }
+    ],
+    "activeTab": "报告总览",
+    "reportQuota": {
+      "used": 2,
+      "total": 10,
+      "remaining": 8,
+      "text": "本报告 AI 错题追问剩余 8/10 次"
+    },
+    "wrongQuestionCards": [
+      {
+        "questionId": "order-v143-c10-q1",
+        "index": 1,
+        "title": "错题 1 二元一次方程应用题",
+        "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+        "knowledgePoint": "方程应用题",
+        "severity": "high",
+        "masteryStatus": "未掌握",
+        "remainingQuestionQuota": 3,
+        "aiEntryText": "让 AI 老师讲给孩子听"
+      },
+      {
+        "questionId": "order-v143-c10-q2",
+        "index": 2,
+        "title": "错题 2 几何证明题",
+        "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+        "knowledgePoint": "几何证明",
+        "severity": "medium",
+        "masteryStatus": "中等",
+        "remainingQuestionQuota": 2,
+        "aiEntryText": "让 AI 老师讲给孩子听"
+      }
+    ],
+    "repairDrawer": null,
+    "controls": [
+      {
+        "id": "load-full-report",
+        "text": "刷新完整报告",
+        "api": "GET /api/diagnosis-orders/order-v143-c10/full-report"
+      },
+      {
+        "id": "load-wrong-questions",
+        "text": "鍔犺浇鍏抽敭閿欓",
+        "api": "GET /api/diagnosis-orders/order-v143-c10/questions"
+      },
+      {
+        "id": "open-wrong-question-card",
+        "text": "查看错题详情",
+        "targetRoute": "/pages/wrong-question/index"
+      },
+      {
+        "id": "open-repair-drawer",
+        "text": "打开修复抽屉",
+        "behavior": "drawer-diagnosis",
+        "visible": true
+      },
+      {
+        "id": "open-ai-tutor-from-card",
+        "text": "Ask AI tutor",
+        "targetRoute": "/pages/ai-tutor/index"
+      },
+      {
+        "id": "share-report",
+        "text": "分享报告",
+        "behavior": "local-share-placeholder",
+        "visible": true
+      },
+      {
+        "id": "save-report",
+        "text": "保存报告",
+        "api": "POST /api/reports/order-v143-c10/save",
+        "targetRoute": "/pages/my/index",
+        "visible": true
+      },
+      {
+        "id": "export-pdf",
+        "text": "瀵煎嚭 PDF",
+        "api": "POST /api/diagnosis-orders/order-v143-c10/export-pdf",
+        "visible": false,
+        "reason": "PDF 导出入口保持隐藏，直到本地导出文件准备完成。"
+      },
+      {
+        "id": "pdf-export-entry",
+        "text": "PDF 文件",
+        "visible": false,
+        "fileUrl": null,
+        "filePath": null,
+        "status": "hidden_until_export_ready"
+      },
+      {
+        "id": "return-entry",
+        "text": "返回报告入口",
+        "targetRoute": "/pages/full-report-entry/index"
+      }
+    ],
+    "toast": null
+  },
+  "controlEvidence": [
+    {
+      "controlId": "share-report",
+      "result": {
+        "status": "SHARE_READY",
+        "behavior": "local-share-placeholder",
+        "targetRoute": "/pages/full-report/index",
+        "toast": "报告分享卡片已生成，可发送给家长共同查看"
+      }
+    },
+    {
+      "controlId": "save-report",
+      "result": {
+        "status": "SAVED",
+        "apiStatus": 200,
+        "targetRoute": "/pages/my/index",
+        "response": {
+          "saved": true
+        },
+        "dbReadback": {
+          "id": "order-v143-c10",
+          "accessLevel": "full",
+          "savedReport": true
+        },
+        "toast": "报告已保存到我的报告"
+      }
+    },
+    {
+      "controlId": "open-repair-drawer",
+      "result": {
+        "status": "REPAIR_DRAWER_READY",
+        "drawerState": "diagnosis",
+        "repairDrawer": {
+          "visible": true,
+          "step": "diagnosis",
+          "activeStepIndex": 1,
+          "totalSteps": 4,
+          "questionId": "order-v143-c10-q1",
+          "card": {
+            "questionId": "order-v143-c10-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          "title": "C13 repair drawer",
+          "steps": [
+            {
+              "id": "diagnosis",
+              "index": 1,
+              "label": "Diagnosis",
+              "uiReference": "UI143-C13-1"
+            },
+            {
+              "id": "explanation",
+              "index": 2,
+              "label": "Explanation",
+              "uiReference": "UI143-C13-2"
+            },
+            {
+              "id": "exercise",
+              "index": 3,
+              "label": "Exercise",
+              "uiReference": "UI143-C13-3"
+            },
+            {
+              "id": "mastery",
+              "index": 4,
+              "label": "Mastery",
+              "uiReference": "UI143-C13-4"
+            }
+          ],
+          "apis": {
+            "teachChild": "/api/diagnosis-orders/order-v143-c10/questions/order-v143-c10-q1/teach-child",
+            "similarExercise": "/api/diagnosis-orders/order-v143-c10/questions/order-v143-c10-q1/similar-exercise",
+            "exerciseAnswer": "/api/diagnosis-orders/order-v143-c10/questions/order-v143-c10-q1/exercise-answer",
+            "checkMastery": "/api/diagnosis-orders/order-v143-c10/questions/order-v143-c10-q1/check-mastery",
+            "interactions": "/api/diagnosis-orders/order-v143-c10/questions/order-v143-c10-q1/interactions"
+          }
+        },
+        "query": {
+          "orderId": "order-v143-c10",
+          "questionId": "order-v143-c10-q1"
+        },
+        "card": {
+          "questionId": "order-v143-c10-q1",
+          "index": 1,
+          "title": "错题 1 二元一次方程应用题",
+          "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+          "knowledgePoint": "方程应用题",
+          "severity": "high",
+          "masteryStatus": "未掌握",
+          "remainingQuestionQuota": 3,
+          "aiEntryText": "让 AI 老师讲给孩子听"
+        }
+      }
+    },
+    {
+      "controlId": "export-pdf-hidden",
+      "result": {
+        "id": "export-pdf",
+        "text": "瀵煎嚭 PDF",
+        "api": "POST /api/diagnosis-orders/order-v143-c10/export-pdf",
+        "visible": false,
+        "reason": "PDF 导出入口保持隐藏，直到本地导出文件准备完成。"
+      }
+    }
+  ],
+  "apiCalls": [
+    {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-v143-c10",
+        "paymentType": "full",
+        "source": "V143-13-fixture"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "paid",
+        "paymentId": "payment-t06-full",
+        "amountYuan": 9.9,
+        "paymentParams": {
+          "adapter": "local-mock"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-v143-c10/generate-full",
+      "payloadSummary": {
+        "source": "V143-13-fixture"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-v143-c10/full-report",
+      "payloadSummary": {
+        "source": "v143-c10-page-load"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_report_ready",
+        "decision": {
+          "level": "full",
+          "reportTitle": "初一数学月考提分报告",
+          "orderId": "order-v143-c10",
+          "generatedStatus": "full_report_ready",
+          "summary": "整体基础较好，计算粗心和几何证明步骤不完整是本次失分的主要原因。",
+          "modules": [
+            {
+              "id": "knowledge-diagnosis",
+              "title": "主要丢分点",
+              "content": "计算失误、几何证明步骤缺失、应用题等量关系不清。"
+            },
+            {
+              "id": "loss-point-breakdown",
+              "title": "优先补弱顺序",
+              "content": "先补几何证明表达，再巩固方程应用题和计算检查。"
+            },
+            {
+              "id": "seven-day-plan",
+              "title": "7 天建议",
+              "content": "每天 20 分钟错题复盘，隔天完成同类题迁移练习。"
+            },
+            {
+              "id": "parent-guidance",
+              "title": "家长陪伴建议",
+              "content": "关注孩子是否能讲清思路，不用分数承诺替代过程反馈。"
+            }
+          ],
+          "tabs": [
+            "overview",
+            "loss points",
+            "7-day plan",
+            "parent guidance"
+          ],
+          "reportQuota": {
+            "used": 2,
+            "total": 10,
+            "remaining": 8,
+            "text": "本报告 AI 错题追问剩余 8/10 次"
+          },
+          "wrongQuestionCards": [
+            {
+              "questionId": "order-v143-c10-q1",
+              "index": 1,
+              "title": "错题 1 二元一次方程应用题",
+              "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+              "knowledgePoint": "方程应用题",
+              "severity": "high",
+              "masteryStatus": "未掌握",
+              "remainingQuestionQuota": 3,
+              "aiEntryText": "让 AI 老师讲给孩子听"
+            },
+            {
+              "questionId": "order-v143-c10-q2",
+              "index": 2,
+              "title": "错题 2 几何证明题",
+              "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+              "knowledgePoint": "几何证明",
+              "severity": "medium",
+              "masteryStatus": "中等",
+              "remainingQuestionQuota": 2,
+              "aiEntryText": "让 AI 老师讲给孩子听"
+            }
+          ],
+          "complianceNotice": "内容仅供学习参考，请结合课堂学习与老师建议使用。"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-v143-c10/questions",
+      "payloadSummary": {
+        "source": "v143-c10-wrong-question-cards"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "orderId": "order-v143-c10",
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-v143-c10-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-v143-c10-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/reports/order-v143-c10/save",
+      "payloadSummary": {
+        "source": "v143-c10-page-save"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "saved": true
+      }
+    }
+  ],
+  "limitation": "Structural/state evidence verifies C10 data binding and controls. Pixel-perfect WeChat screenshot comparison remains assigned to V143-18."
+}

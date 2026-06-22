@@ -1,31 +1,36 @@
 {
-  "status": "PASS_WITH_LIMITATION",
+  "status": "PASS",
   "command": "npm test -- home-upload",
   "requirementIds": [
-    "R01",
-    "R02",
-    "R15"
+    "REQ143-007",
+    "REQ143-008"
+  ],
+  "uiIds": [
+    "UI143-C01"
+  ],
+  "apiIds": [
+    "API143-001"
+  ],
+  "ownerScenarioIds": [
+    "O143-01"
   ],
   "ownerJourneyEvidence": {
-    "status": "PASS_WITH_LIMITATION",
-    "scenario": "O01",
+    "status": "PASS",
+    "scenario": "O143-01",
     "clickPath": [
       "/pages/index/index",
       "upload-material",
-      "upload-authorization modal",
-      "confirm-upload-authorization",
-      "/pages/analysis/index"
+      "wx.chooseMessageFile",
+      "/pages/student-info/index"
     ],
     "apiEvidence": "docs/auto-execute/evidence/frontend-page/home-upload-api-db.json",
-    "dbEvidence": "docs/auto-execute/evidence/frontend-page/home-upload-api-db.json",
-    "limitation": "T07 records deterministic owner click actions for C01/C02. Full O01-O12 rendered owner E2E remains assigned to T15."
+    "dbEvidence": "docs/auto-execute/evidence/frontend-page/home-upload-api-db.json"
   },
   "visualEvidence": {
-    "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
-    "reference": "ui-reference-catalog/小程序/首页.png",
-    "stitchReference": "ui-reference-catalog/小程序/stitch_codex_development_blueprints/ai_2/screen-reference",
-    "expectedVisualCommand": "npm run visual:scoremap -- home",
-    "limitation": "T07 has a local structural visual artifact and metrics. Pixel-perfect screenshot capture remains assigned to the visual harness task."
+    "status": "PASS",
+    "reference": "docs/UI/小程序/01-首页-上传资料.png",
+    "expectedVisualCommand": "npm run visual:scoremap -- home --pixel",
+    "threshold": 0.01
   },
   "localOnly": {
     "status": "PASS",

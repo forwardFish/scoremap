@@ -6,7 +6,8 @@ const STUDENT_INFO_ROUTE = '/pages/student-info/index';
 const HOME_ROUTE = '/pages/index/index';
 const ANALYSIS_ROUTE = '/pages/analysis/index';
 
-const GRADES = ['初一', '初二', '初三', '高一', '高二', '高三'];
+const GRADES = ['小一', '小二', '小三', '小四', '小五', '小六', '初一', '初二', '初三', '高一', '高二', '高三'];
+const DEFAULT_GRADE = '初一';
 const SUBJECTS = ['数学', '语文', '英语', '物理', '化学'];
 const MATERIAL_TYPES = [
   { id: 'paper', text: '试卷', apiValue: 'exam-paper', icon: '/assets/icons/student-info-paper.png' },
@@ -22,7 +23,7 @@ function createStudentInfoPageState(client = createMiniappApiClient(), options =
     icon: item.icon
   }));
   let form = {
-    grade: options.grade || '初一',
+    grade: options.grade || DEFAULT_GRADE,
     subject: options.subject || '数学',
     currentScore: options.currentScore || '',
     targetScore: options.targetScore || '',
@@ -56,6 +57,7 @@ function createStudentInfoPageState(client = createMiniappApiClient(), options =
           { id: 'analysis', text: 'AI 分析', status: 'pending' }
         ],
         uploadedMaterials,
+        grades: [...GRADES],
         wechatLogin: authGate.read ? authGate.read() : null,
         form: { ...form, materialTypes: [...form.materialTypes] },
         materialTypeOptions: MATERIAL_TYPES.map((item) => ({ ...item, selected: form.materialTypes.includes(item.id) })),
@@ -365,9 +367,9 @@ function createInitialData() {
     ],
     grades: GRADES,
     subjects: SUBJECTS,
-    gradeIndex: 0,
+    gradeIndex: GRADES.indexOf(DEFAULT_GRADE),
     subjectIndex: 0,
-    grade: GRADES[0],
+    grade: DEFAULT_GRADE,
     subject: SUBJECTS[0],
     currentScore: '',
     targetScore: '',
@@ -393,6 +395,7 @@ module.exports = {
   createStudentInfoPageState,
   validateForm,
   GRADES,
+  DEFAULT_GRADE,
   SUBJECTS,
   MATERIAL_TYPES,
   materialSelectionMap

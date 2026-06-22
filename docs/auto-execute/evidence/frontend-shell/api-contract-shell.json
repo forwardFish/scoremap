@@ -78,11 +78,11 @@
           {
             "id": "locate-loss-points",
             "text": "locating score-loss points",
-            "status": "active"
+            "status": "done"
           },
           {
             "id": "generate-preview",
-            "text": "generating preview advice",
+            "text": "analysis result ready",
             "status": "done"
           }
         ],
@@ -297,9 +297,9 @@
           {
             "orderId": "order-t06-shell",
             "title": "Complete score improvement report",
-            "grade": "Grade 5",
-            "subject": "Math",
-            "examType": "Unit test",
+            "grade": "grade-5",
+            "subject": "math",
+            "examType": "unit-test",
             "status": "preview_done",
             "accessLevel": "full",
             "createdAt": "2026-05-22T10:00:00Z",
@@ -318,6 +318,12 @@
       "status": "preview_done",
       "accessLevel": "full",
       "source": "miniapp-shell",
+      "grade": "grade-5",
+      "subject": "math",
+      "examType": "unit-test",
+      "currentScore": null,
+      "targetScore": null,
+      "materialTypes": [],
       "uploadedCount": 1,
       "savedReport": true
     },

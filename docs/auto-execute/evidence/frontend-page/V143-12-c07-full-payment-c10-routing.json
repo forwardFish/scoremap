@@ -1,0 +1,433 @@
+{
+  "status": "PASS",
+  "command": "npm test -- basic-result-full-unlock",
+  "requirementIds": [
+    "REQ143-004",
+    "REQ143-007",
+    "REQ143-008"
+  ],
+  "apiIds": [
+    "API143-006",
+    "API143-007",
+    "API143-008",
+    "API143-009",
+    "API143-010"
+  ],
+  "ownerScenarioIds": [
+    "O143-03",
+    "O143-04"
+  ],
+  "uiReferences": [
+    "UI143-C07"
+  ],
+  "pageJumpEvidence": [
+    {
+      "controlId": "open-9-9-payment-modal",
+      "result": {
+        "status": "MODAL_OPEN",
+        "modal": {
+          "visible": true,
+          "title": "确认解锁完整报告",
+          "priceText": "9.9元",
+          "subtitle": "已完成初判，可立即解锁完整提分报告",
+          "unlockTitle": "支付后可解锁",
+          "benefits": [
+            "完整报告",
+            "7天行动建议",
+            "详细丢分点分析",
+            "关键错题修复",
+            "优先补弱顺序",
+            "家长学习建议"
+          ],
+          "primaryText": "确认支付 9.9元",
+          "secondaryText": "暂不解锁",
+          "state": "idle",
+          "error": ""
+        }
+      }
+    },
+    {
+      "controlId": "confirm-full-payment",
+      "result": {
+        "status": "PAID",
+        "targetRoute": "/pages/full-report/index",
+        "query": {
+          "orderId": "order-v143-c07-full"
+        },
+        "paymentId": "payment-t06-full",
+        "paymentCreateStatus": 201,
+        "callbackStatus": 200,
+        "generateFullStatus": 200,
+        "fullReportStatus": 200,
+        "accessLevel": "full",
+        "paymentReadback": {
+          "id": "payment-t06-full",
+          "orderId": "order-v143-c07-full",
+          "ownerId": "local-user-scoremap-t06",
+          "paymentType": "full",
+          "amountYuan": 9.9,
+          "status": "paid",
+          "adapter": "local-wechat-pay-mock",
+          "mockTransactionId": "local-mock-c07-full-order-v143-c07-full",
+          "callbackAdapter": "local-wechat-pay-mock"
+        },
+        "orderReadback": {
+          "id": "order-v143-c07-full",
+          "ownerId": "local-user-scoremap-t06",
+          "status": "basic_ready",
+          "accessLevel": "full",
+          "source": "V143-12-C07-basic-result"
+        },
+        "fullDecisionReadback": {
+          "id": "decision-order-v143-c07-full-full",
+          "orderId": "order-v143-c07-full",
+          "ownerId": "local-user-scoremap-t06",
+          "level": "full",
+          "full": {
+            "level": "full",
+            "reportTitle": "初一数学月考提分报告",
+            "orderId": "order-v143-c07-full",
+            "generatedStatus": "full_report_ready",
+            "summary": "整体基础较好，计算粗心和几何证明步骤不完整是本次失分的主要原因。",
+            "modules": [
+              {
+                "id": "knowledge-diagnosis",
+                "title": "主要丢分点",
+                "content": "计算失误、几何证明步骤缺失、应用题等量关系不清。"
+              },
+              {
+                "id": "loss-point-breakdown",
+                "title": "优先补弱顺序",
+                "content": "先补几何证明表达，再巩固方程应用题和计算检查。"
+              },
+              {
+                "id": "seven-day-plan",
+                "title": "7 天建议",
+                "content": "每天 20 分钟错题复盘，隔天完成同类题迁移练习。"
+              },
+              {
+                "id": "parent-guidance",
+                "title": "家长陪伴建议",
+                "content": "关注孩子是否能讲清思路，不用分数承诺替代过程反馈。"
+              }
+            ],
+            "tabs": [
+              "overview",
+              "loss points",
+              "7-day plan",
+              "parent guidance"
+            ],
+            "reportQuota": {
+              "used": 2,
+              "total": 10,
+              "remaining": 8,
+              "text": "本报告 AI 错题追问剩余 8/10 次"
+            },
+            "wrongQuestionCards": [
+              {
+                "questionId": "order-v143-c07-full-q1",
+                "index": 1,
+                "title": "错题 1 二元一次方程应用题",
+                "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+                "knowledgePoint": "方程应用题",
+                "severity": "high",
+                "masteryStatus": "未掌握",
+                "remainingQuestionQuota": 3,
+                "aiEntryText": "让 AI 老师讲给孩子听"
+              },
+              {
+                "questionId": "order-v143-c07-full-q2",
+                "index": 2,
+                "title": "错题 2 几何证明题",
+                "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+                "knowledgePoint": "几何证明",
+                "severity": "medium",
+                "masteryStatus": "中等",
+                "remainingQuestionQuota": 2,
+                "aiEntryText": "让 AI 老师讲给孩子听"
+              }
+            ],
+            "complianceNotice": "内容仅供学习参考，请结合课堂学习与老师建议使用。"
+          }
+        }
+      }
+    }
+  ],
+  "apiEvidence": {
+    "basicDecision": {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-v143-c07-full/basic-decision",
+      "payloadSummary": {
+        "source": "c07-basic-result-load"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "ok",
+        "decision": {
+          "level": "basic",
+          "summary": "整体基础较好，计算粗心和几何证明是本次失分的主要原因。",
+          "evidenceQuality": "medium",
+          "quality": {
+            "uploadQuality": "normal",
+            "confidence": 0.86,
+            "recognized": true
+          },
+          "mainLossPoints": [
+            "计算失误、几何证明"
+          ],
+          "priorityWeaknesses": [
+            "优先提升几何证明能力"
+          ],
+          "answerQuality": "基础题较稳，步骤规范性一般",
+          "initialAdvice": [
+            "先修复高频错因，再看完整建议"
+          ],
+          "lockedModules": [
+            "详细丢分点分析",
+            "优先补弱顺序",
+            "7天行动建议",
+            "完整学习建议",
+            "关键错题修复 / 同类题练习入口"
+          ]
+        }
+      }
+    },
+    "paymentCreate": {
+      "method": "POST",
+      "path": "/api/payments/create",
+      "payloadSummary": {
+        "orderId": "order-v143-c07-full",
+        "paymentType": "full",
+        "amountYuan": 9.9,
+        "source": "c07-full-payment"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "paid",
+        "paymentId": "payment-t06-full",
+        "amountYuan": 9.9,
+        "paymentParams": {
+          "adapter": "local-mock"
+        }
+      }
+    },
+    "paymentCallback": {
+      "method": "POST",
+      "path": "/api/payments/wechat/callback",
+      "payloadSummary": {
+        "paymentId": "payment-t06-full",
+        "status": "paid",
+        "mockTransactionId": "local-mock-c07-full-order-v143-c07-full"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "ok": true,
+        "status": "paid",
+        "paymentId": "payment-t06-full"
+      }
+    },
+    "generateFull": {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-v143-c07-full/generate-full",
+      "payloadSummary": {
+        "source": "c07-full-payment"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "taskId": "task-t06-full"
+      }
+    },
+    "fullReport": {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-v143-c07-full/full-report",
+      "payloadSummary": {
+        "source": "c07-route-readback"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_report_ready",
+        "decision": {
+          "level": "full",
+          "reportTitle": "初一数学月考提分报告",
+          "orderId": "order-v143-c07-full",
+          "generatedStatus": "full_report_ready",
+          "summary": "整体基础较好，计算粗心和几何证明步骤不完整是本次失分的主要原因。",
+          "modules": [
+            {
+              "id": "knowledge-diagnosis",
+              "title": "主要丢分点",
+              "content": "计算失误、几何证明步骤缺失、应用题等量关系不清。"
+            },
+            {
+              "id": "loss-point-breakdown",
+              "title": "优先补弱顺序",
+              "content": "先补几何证明表达，再巩固方程应用题和计算检查。"
+            },
+            {
+              "id": "seven-day-plan",
+              "title": "7 天建议",
+              "content": "每天 20 分钟错题复盘，隔天完成同类题迁移练习。"
+            },
+            {
+              "id": "parent-guidance",
+              "title": "家长陪伴建议",
+              "content": "关注孩子是否能讲清思路，不用分数承诺替代过程反馈。"
+            }
+          ],
+          "tabs": [
+            "overview",
+            "loss points",
+            "7-day plan",
+            "parent guidance"
+          ],
+          "reportQuota": {
+            "used": 2,
+            "total": 10,
+            "remaining": 8,
+            "text": "本报告 AI 错题追问剩余 8/10 次"
+          },
+          "wrongQuestionCards": [
+            {
+              "questionId": "order-v143-c07-full-q1",
+              "index": 1,
+              "title": "错题 1 二元一次方程应用题",
+              "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+              "knowledgePoint": "方程应用题",
+              "severity": "high",
+              "masteryStatus": "未掌握",
+              "remainingQuestionQuota": 3,
+              "aiEntryText": "让 AI 老师讲给孩子听"
+            },
+            {
+              "questionId": "order-v143-c07-full-q2",
+              "index": 2,
+              "title": "错题 2 几何证明题",
+              "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+              "knowledgePoint": "几何证明",
+              "severity": "medium",
+              "masteryStatus": "中等",
+              "remainingQuestionQuota": 2,
+              "aiEntryText": "让 AI 老师讲给孩子听"
+            }
+          ],
+          "complianceNotice": "内容仅供学习参考，请结合课堂学习与老师建议使用。"
+        }
+      }
+    }
+  },
+  "dbReadback": {
+    "order": {
+      "id": "order-v143-c07-full",
+      "ownerId": "local-user-scoremap-t06",
+      "status": "basic_ready",
+      "accessLevel": "full",
+      "source": "V143-12-C07-basic-result"
+    },
+    "payment": {
+      "id": "payment-t06-full",
+      "orderId": "order-v143-c07-full",
+      "ownerId": "local-user-scoremap-t06",
+      "paymentType": "full",
+      "amountYuan": 9.9,
+      "status": "paid",
+      "adapter": "local-wechat-pay-mock",
+      "mockTransactionId": "local-mock-c07-full-order-v143-c07-full",
+      "callbackAdapter": "local-wechat-pay-mock"
+    },
+    "fullDecision": {
+      "id": "decision-order-v143-c07-full-full",
+      "orderId": "order-v143-c07-full",
+      "ownerId": "local-user-scoremap-t06",
+      "level": "full",
+      "full": {
+        "level": "full",
+        "reportTitle": "初一数学月考提分报告",
+        "orderId": "order-v143-c07-full",
+        "generatedStatus": "full_report_ready",
+        "summary": "整体基础较好，计算粗心和几何证明步骤不完整是本次失分的主要原因。",
+        "modules": [
+          {
+            "id": "knowledge-diagnosis",
+            "title": "主要丢分点",
+            "content": "计算失误、几何证明步骤缺失、应用题等量关系不清。"
+          },
+          {
+            "id": "loss-point-breakdown",
+            "title": "优先补弱顺序",
+            "content": "先补几何证明表达，再巩固方程应用题和计算检查。"
+          },
+          {
+            "id": "seven-day-plan",
+            "title": "7 天建议",
+            "content": "每天 20 分钟错题复盘，隔天完成同类题迁移练习。"
+          },
+          {
+            "id": "parent-guidance",
+            "title": "家长陪伴建议",
+            "content": "关注孩子是否能讲清思路，不用分数承诺替代过程反馈。"
+          }
+        ],
+        "tabs": [
+          "overview",
+          "loss points",
+          "7-day plan",
+          "parent guidance"
+        ],
+        "reportQuota": {
+          "used": 2,
+          "total": 10,
+          "remaining": 8,
+          "text": "本报告 AI 错题追问剩余 8/10 次"
+        },
+        "wrongQuestionCards": [
+          {
+            "questionId": "order-v143-c07-full-q1",
+            "index": 1,
+            "title": "错题 1 二元一次方程应用题",
+            "stem": "甲、乙两人同时从 A 地出发，甲每小时行 60km，乙每小时行 50km，3 小时后甲比乙多行多少千米？",
+            "knowledgePoint": "方程应用题",
+            "severity": "high",
+            "masteryStatus": "未掌握",
+            "remainingQuestionQuota": 3,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          },
+          {
+            "questionId": "order-v143-c07-full-q2",
+            "index": 2,
+            "title": "错题 2 几何证明题",
+            "stem": "已知 AB=AC，点 D 在 BC 上且 BD=CD，求证：∠BAD = ∠CAD。",
+            "knowledgePoint": "几何证明",
+            "severity": "medium",
+            "masteryStatus": "中等",
+            "remainingQuestionQuota": 2,
+            "aiEntryText": "让 AI 老师讲给孩子听"
+          }
+        ],
+        "complianceNotice": "内容仅供学习参考，请结合课堂学习与老师建议使用。"
+      }
+    },
+    "allPayments": [
+      {
+        "id": "payment-t06-full",
+        "orderId": "order-v143-c07-full",
+        "ownerId": "local-user-scoremap-t06",
+        "paymentType": "full",
+        "amountYuan": 9.9,
+        "status": "paid",
+        "adapter": "local-wechat-pay-mock",
+        "mockTransactionId": "local-mock-c07-full-order-v143-c07-full",
+        "callbackAdapter": "local-wechat-pay-mock"
+      }
+    ],
+    "allTasks": [
+      {
+        "id": "task-t06-full",
+        "orderId": "order-v143-c07-full",
+        "ownerId": "local-user-scoremap-t06",
+        "type": "full",
+        "status": "full_done"
+      }
+    ]
+  }
+}

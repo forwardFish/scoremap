@@ -4,6 +4,8 @@ const http = require('node:http');
 const os = require('node:os');
 const path = require('node:path');
 const { test } = require('node:test');
+const PDFDocument = require('pdfkit');
+const { Document, Packer, Paragraph, TextRun } = require('docx');
 const { DEFAULT_FORBIDDEN_PATTERNS, assertLocalOnlyEnvironment, scanTextForForbiddenRemoteCalls } = require('../../shared/local-only');
 const { writeJsonEvidence } = require('../../shared/evidence-paths');
 const { createLocalAdapters } = require('../src/adapters');
@@ -104,6 +106,31 @@ async function createUploadedOrder(api, suffix = 'success') {
   return { create, upload };
 }
 
+async function createPdfBuffer(text) {
+  return new Promise((resolve, reject) => {
+    const doc = new PDFDocument();
+    const chunks = [];
+    doc.on('data', (chunk) => chunks.push(chunk));
+    doc.on('end', () => resolve(Buffer.concat(chunks)));
+    doc.on('error', reject);
+    doc.text(text);
+    doc.end();
+  });
+}
+
+async function createDocxBuffer(text) {
+  const doc = new Document({
+    sections: [{
+      children: [
+        new Paragraph({
+          children: [new TextRun(text)]
+        })
+      ]
+    }]
+  });
+  return Packer.toBuffer(doc);
+}
+
 test('T03 creates order, uploads file, starts preview, polls progress, and reads preview decision', async () => {
   await withApi(async (api) => {
     const { create, upload } = await createUploadedOrder(api);
@@ -161,6 +188,149 @@ test('T03 creates order, uploads file, starts preview, polls progress, and reads
         remoteCalls: api.cloud.remoteCalls
       }
     });
+  });
+});
+
+test('T03 upload service reads PDF and Word text from uploaded files', async () => {
+  await withApi(async (api) => {
+    const create = await requestJson(api.baseUrl, 'POST', '/api/diagnosis-orders', {
+      source: 'T03-pdf-word-read',
+      grade: 'grade-5',
+      subject: 'math',
+      examType: 'unit-test',
+      materialType: 'answer-sheet'
+    });
+    assert.equal(create.status, 201);
+
+    const pdfText = 'Scoremap PDF upload sample: linear equations and fractions.';
+    const docxText = 'Scoremap Word upload sample: geometry mistakes and correction steps.';
+    const pdfBuffer = await createPdfBuffer(pdfText);
+    const docxBuffer = await createDocxBuffer(docxText);
+    const upload = await requestJson(api.baseUrl, 'POST', `/api/diagnosis-orders/${create.body.orderId}/uploads`, {
+      authorizationAccepted: true,
+      files: [
+        {
+          id: 'upload-t03-pdf-read',
+          originalName: 'scoremap-sample.pdf',
+          mimeType: 'application/pdf',
+          base64: pdfBuffer.toString('base64')
+        },
+        {
+          id: 'upload-t03-docx-read',
+          originalName: 'scoremap-sample.docx',
+          mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+          base64: docxBuffer.toString('base64')
+        }
+      ]
+    }, { 'x-order-token': create.body.orderToken });
+
+    assert.equal(upload.status, 200);
+    assert.equal(upload.body.uploadedCount, 2);
+    const pdfReadback = api.db.assertReadback('upload_files', 'upload-t03-pdf-read', {
+      extension: '.pdf',
+      parseStatus: 'parsed'
+    });
+    const docxReadback = api.db.assertReadback('upload_files', 'upload-t03-docx-read', {
+      extension: '.docx',
+      parseStatus: 'parsed'
+    });
+    assert.match(pdfReadback.parsedTextPreview, /linear equations/);
+    assert.match(docxReadback.parsedTextPreview, /geometry mistakes/);
+
+    writeEvidence('orders-upload-pdf-word-read.json', {
+      status: 'PASS',
+      command,
+      requirementIds: ['REQ143-007'],
+      uiIds: ['UI143-C01'],
+      apiIds: ['API143-001'],
+      pageRoute: '/pages/index/index',
+      uploadResponse: upload.body,
+      parser: {
+        sourceProject: 'C:/LYH/Code/printersheet',
+        pdf: {
+          originalName: pdfReadback.originalName,
+          extension: pdfReadback.extension,
+          parseStatus: pdfReadback.parseStatus,
+          parsedTextLength: pdfReadback.parsedTextLength,
+          preview: pdfReadback.parsedTextPreview
+        },
+        word: {
+          originalName: docxReadback.originalName,
+          extension: docxReadback.extension,
+          parseStatus: docxReadback.parseStatus,
+          parsedTextLength: docxReadback.parsedTextLength,
+          preview: docxReadback.parsedTextPreview
+        }
+      }
+    });
+  });
+});
+
+test('T03 multipart upload honors originalName form field for Word parsing', async () => {
+  await withApi(async (api) => {
+    const create = await requestJson(api.baseUrl, 'POST', '/api/diagnosis-orders', {
+      source: 'T03-multipart-word-read',
+      grade: 'grade-5',
+      subject: 'math',
+      examType: 'unit-test',
+      materialType: 'answer-sheet'
+    });
+    assert.equal(create.status, 201);
+
+    const service = require('../src/app').createApp({
+      adapters: { db: api.db, cloud: api.cloud, ai: api.ai },
+      authService: api.authService,
+      env: {
+        port: 0,
+        publicBaseUrl: api.baseUrl,
+        paymentProvider: 'local',
+        localMockEnabled: true,
+        exportRootDir: path.join(os.tmpdir(), 'scoremap-export-test')
+      }
+    }).app;
+    const server = http.createServer(service);
+    const address = await listen(server);
+    try {
+      const docxText = 'Multipart Word upload sample: algebra review from wx.uploadFile.';
+      const docxBuffer = await createDocxBuffer(docxText);
+      const form = new FormData();
+      form.append('authorizationAccepted', 'true');
+      form.append('uploadId', 'upload-t03-multipart-docx');
+      form.append('originalName', 'wx-upload-word.docx');
+      form.append('files', new Blob([docxBuffer], {
+        type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+      }), 'files');
+      const response = await fetch(`http://127.0.0.1:${address.port}/api/diagnosis-orders/${create.body.orderId}/uploads`, {
+        method: 'POST',
+        headers: { 'x-order-token': create.body.orderToken },
+        body: form
+      });
+      const body = await response.json();
+      assert.equal(response.status, 200);
+      assert.equal(body.uploadedCount, 1);
+      const readback = api.db.assertReadback('upload_files', 'upload-t03-multipart-docx', {
+        originalName: 'wx-upload-word.docx',
+        extension: '.docx',
+        parseStatus: 'parsed'
+      });
+      assert.match(readback.parsedTextPreview, /algebra review/);
+
+      writeEvidence('orders-upload-multipart-word-read.json', {
+        status: 'PASS',
+        command,
+        sourceProject: 'C:/LYH/Code/printersheet',
+        uploadResponse: body,
+        readback: {
+          originalName: readback.originalName,
+          extension: readback.extension,
+          parseStatus: readback.parseStatus,
+          parsedTextLength: readback.parsedTextLength,
+          preview: readback.parsedTextPreview
+        }
+      });
+    } finally {
+      await close(server);
+    }
   });
 });
 

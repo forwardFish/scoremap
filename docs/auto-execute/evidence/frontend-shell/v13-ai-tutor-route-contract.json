@@ -271,33 +271,33 @@
         {
           "id": "ask-step-explanation",
           "action": "api",
-          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
-          "fixedAction": "explain_step"
+          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/teach-child",
+          "fixedAction": "teach_child"
         },
         {
           "id": "ask-why-method",
           "action": "api",
-          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
-          "fixedAction": "why_method"
+          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/teach-child",
+          "fixedAction": "explain_differently"
         },
         {
           "id": "ask-another-explanation",
           "action": "api",
-          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
-          "fixedAction": "another_explanation"
+          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/teach-child",
+          "fixedAction": "simpler_example"
         },
         {
           "id": "generate-similar-exercise",
           "action": "apiNavigate",
-          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/similar-exercise",
           "fixedAction": "similar_exercise",
           "targetRoute": "/pages/ai-exercise/index"
         },
         {
           "id": "mark-understood",
           "action": "apiNavigate",
-          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
-          "fixedAction": "mark_understood",
+          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/check-mastery",
+          "fixedAction": "check_mastery",
           "targetRoute": "/pages/full-report/index"
         },
         {
@@ -341,7 +341,7 @@
         {
           "id": "refresh-exercise",
           "action": "api",
-          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/similar-exercise",
           "fixedAction": "similar_exercise"
         },
         {
@@ -421,7 +421,7 @@
         {
           "id": "retry-similar-exercise",
           "action": "apiNavigate",
-          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/similar-exercise",
           "fixedAction": "similar_exercise",
           "targetRoute": "/pages/ai-exercise/index"
         },

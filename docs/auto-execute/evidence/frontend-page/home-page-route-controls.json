@@ -2,31 +2,38 @@
   "status": "PASS",
   "command": "npm test -- home-upload",
   "requirementIds": [
-    "R01",
-    "R02"
+    "REQ143-007",
+    "REQ143-008"
+  ],
+  "uiIds": [
+    "UI143-C01"
+  ],
+  "apiIds": [
+    "API143-001"
+  ],
+  "ownerScenarioIds": [
+    "O143-01"
   ],
   "uiReference": {
-    "png": "ui-reference-catalog/小程序/首页.png",
-    "stitch": "ui-reference-catalog/小程序/stitch_codex_development_blueprints/ai_2/screen-reference"
+    "uiId": "UI143-C01",
+    "sourceImage": "docs/UI/小程序/01-首页-上传资料.png",
+    "route": "pages/index/index"
   },
   "route": "/pages/index/index",
+  "noAuthorizationModal": true,
   "pageJumpEvidence": [
     {
       "controlId": "upload-material",
       "result": {
-        "status": "AUTH_REQUIRED",
-        "modalId": "upload-authorization",
-        "visible": true,
-        "disabledReason": "upload requires privacy authorization before local file selection"
-      }
-    },
-    {
-      "controlId": "cancel-upload-authorization",
-      "result": {
-        "status": "CANCELLED",
-        "toast": "需要同意资料授权后才能上传分析",
-        "targetRoute": "/pages/index/index",
-        "disabledReason": "privacy authorization declined"
+        "status": "UPLOAD_READY",
+        "targetRoute": "/pages/student-info/index",
+        "selectedLocalFile": null,
+        "materialTypes": [
+          "answer-sheet",
+          "exam-paper",
+          "wrong-question-photo"
+        ],
+        "modalClosed": true
       }
     },
     {
@@ -46,46 +53,42 @@
         "targetRoute": "/pages/reports/index",
         "reportsCount": 0
       }
+    },
+    {
+      "controlId": "open-my-tab",
+      "result": {
+        "status": "SWITCH_TAB",
+        "targetRoute": "/pages/my/index"
+      }
     }
   ],
   "renderedState": {
     "route": "/pages/index/index",
-    "title": "AI提分教练",
+    "title": "AI 提分决策",
+    "subtitle": "上传孩子资料，先看 1 元初判，再决定是否解锁完整报告。",
+    "uiReference": {
+      "uiId": "UI143-C01",
+      "sourceImage": "docs/UI/小程序/01-首页-上传资料.png",
+      "route": "pages/index/index"
+    },
     "uploadCard": {
-      "title": "上传资料",
-      "description": "支持试卷、答题卡、错题照片，本地 mock 会生成预览分析任务。",
+      "title": "上传孩子资料",
+      "description": "支持试卷、答题卡、错题照片或 PDF，本地流程会带着资料进入孩子信息页。",
       "acceptedTypes": [
         "answer-sheet",
         "exam-paper",
         "wrong-question-photo"
       ],
-      "privacyRequired": true
+      "privacyRequired": false
     },
-    "authorizationModal": {
-      "id": "upload-authorization",
-      "visible": false,
-      "accepted": false,
-      "requiredCopy": [
-        "仅用于本次 AI 提分分析",
-        "资料会写入本地 mock upload_files",
-        "不会调用真实腾讯云、微信支付或线上数据库"
-      ]
-    },
+    "selectedLocalFile": null,
     "recentReports": [],
-    "toast": "需要同意资料授权后才能上传分析",
+    "toast": null,
     "lastOrderId": null,
     "controls": [
       {
         "id": "upload-material",
         "text": "上传资料"
-      },
-      {
-        "id": "confirm-upload-authorization",
-        "text": "同意授权并选择本地图片"
-      },
-      {
-        "id": "cancel-upload-authorization",
-        "text": "暂不同意"
       },
       {
         "id": "view-sample-report",
@@ -98,6 +101,22 @@
       {
         "id": "open-my-reports",
         "text": "我的报告"
+      },
+      {
+        "id": "open-my-tab",
+        "text": "我的"
+      }
+    ],
+    "quickActions": [
+      {
+        "id": "view-sample-report",
+        "text": "查看样例",
+        "targetRoute": "/pages/preview/index"
+      },
+      {
+        "id": "open-my-reports",
+        "text": "我的报告",
+        "targetRoute": "/pages/reports/index"
       }
     ],
     "bottomTabs": [

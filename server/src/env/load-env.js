@@ -10,8 +10,12 @@ const REFERENCE_ENV_KEYS = new Set([
   'AI_MODEL',
   'AI_TIMEOUT_MS',
   'AUTH_SECRET',
+  'CLOUDBASE_ENV_ID',
+  'DB_PROVIDER',
   'DEEPSEEK_API_KEY',
+  'FILE_PROVIDER',
   'PAYMENT_PROVIDER',
+  'PAYMENT_TEST_MODE',
   'PUBLIC_BASE_URL',
   'REQUEST_TIMEOUT_MS',
   'WECHAT_APP_ID',
@@ -49,6 +53,8 @@ function loadEnv(options = {}) {
   const exportRootDir = resolveFromRoot(root, merged.LOCAL_REPORT_EXPORT_ROOT || path.join('.runtime', 'server', 'report-exports'));
 
   const paymentProvider = String(merged.PAYMENT_PROVIDER || 'local').toLowerCase();
+  const dbProvider = String(merged.DB_PROVIDER || 'local').toLowerCase();
+  const fileProvider = String(merged.FILE_PROVIDER || 'local').toLowerCase();
   const nodeEnv = merged.NODE_ENV || 'development';
 
   return {
@@ -62,7 +68,11 @@ function loadEnv(options = {}) {
     localDbPath: dbPath,
     cloudRootDir,
     exportRootDir,
+    dbProvider,
+    fileProvider,
+    cloudbaseEnvId: merged.CLOUDBASE_ENV_ID || '',
     paymentProvider,
+    paymentTestMode: merged.PAYMENT_TEST_MODE === 'true' && nodeEnv !== 'production',
     localMockEnabled: paymentProvider !== 'wechat',
     wechatAppId: merged.WECHAT_APP_ID || '',
     wechatAppSecret: merged.WECHAT_APP_SECRET || '',

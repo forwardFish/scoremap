@@ -22,10 +22,13 @@
         "png": "ui-reference-catalog/小程序/我的.png",
         "stitch": "ui-reference-catalog/小程序/stitch_codex_development_blueprints/_1/screen-reference"
       },
+      "isLoggedIn": true,
       "profile": {
         "avatarText": "家长",
         "nickname": "匿名家长",
+        "avatarUrl": "/assets/icons/user-avatar-gray.png",
         "userId": "local-user-scoremap-t06",
+        "loginStateText": "微信已登录",
         "copyControl": {
           "id": "copy-user-id",
           "text": "复制 ID"
@@ -45,12 +48,12 @@
         {
           "id": "analyzing",
           "label": "分析中",
-          "value": 1
+          "value": 2
         },
         {
           "id": "need-material",
           "label": "待补资料",
-          "value": 0
+          "value": 1
         }
       ],
       "recentReports": [
@@ -254,6 +257,8 @@
           "paymentStatus": "paid",
           "accessLevel": "full",
           "targetRoute": "/pages/full-report/index",
+          "recoveryRoute": "/pages/full-report/index",
+          "recoveryMode": "savedFullReport",
           "actionText": "查看完整报告",
           "savedReport": true,
           "aiTutor": {
@@ -330,6 +335,8 @@
           "paymentStatus": "unpaid",
           "accessLevel": "preview",
           "targetRoute": "/pages/analysis/index",
+          "recoveryRoute": "/pages/analysis/index",
+          "recoveryMode": "analysisProgress",
           "actionText": "查看进度",
           "savedReport": false,
           "aiTutor": {
@@ -370,6 +377,8 @@
           "paymentStatus": "paid",
           "accessLevel": "basic",
           "targetRoute": "/pages/basic-result/index",
+          "recoveryRoute": "/pages/basic-result/index",
+          "recoveryMode": "basicDecision",
           "actionText": "查看初判结果",
           "savedReport": true,
           "aiTutor": {
@@ -393,6 +402,216 @@
             {
               "id": "resume-ai-tutor-history",
               "targetRoute": "/pages/basic-result/index",
+              "enabled": false,
+              "disabledReason": "FULL_REPORT_ENTITLEMENT_REQUIRED"
+            }
+          ]
+        },
+        {
+          "orderId": "order-v143-preview",
+          "title": "Preview decision recovery report",
+          "grade": "Grade 5",
+          "subject": "Math",
+          "examType": "Unit test",
+          "createdAt": "2026-05-24T09:00:00Z",
+          "status": "preview_done",
+          "statusText": "初判预览已生成",
+          "paymentStatus": "unpaid",
+          "accessLevel": "preview",
+          "targetRoute": "/pages/preview/index",
+          "recoveryRoute": "/pages/preview/index",
+          "recoveryMode": "previewDecision",
+          "actionText": "查看初判预览",
+          "savedReport": false,
+          "aiTutor": {
+            "formalEntitlement": false,
+            "statusText": "未解锁 AI 追问",
+            "remainingText": "解锁完整报告后可用",
+            "reportQuota": null,
+            "questionQuota": null,
+            "historyCount": 0,
+            "historyEntry": null
+          },
+          "resumeTargets": [
+            {
+              "id": "resume-report-card",
+              "targetRoute": "/pages/preview/index",
+              "query": {
+                "orderId": "order-v143-preview"
+              },
+              "enabled": true
+            },
+            {
+              "id": "resume-ai-tutor-history",
+              "targetRoute": "/pages/preview/index",
+              "enabled": false,
+              "disabledReason": "FULL_REPORT_ENTITLEMENT_REQUIRED"
+            }
+          ]
+        },
+        {
+          "orderId": "order-v143-uploaded",
+          "title": "Uploaded material waiting analysis",
+          "grade": "Grade 5",
+          "subject": "Math",
+          "examType": "Homework",
+          "createdAt": "2026-05-24T10:00:00Z",
+          "status": "uploaded",
+          "statusText": "分析中",
+          "paymentStatus": "unpaid",
+          "accessLevel": "preview",
+          "targetRoute": "/pages/analysis/index",
+          "recoveryRoute": "/pages/analysis/index",
+          "recoveryMode": "analysisProgress",
+          "actionText": "查看进度",
+          "savedReport": false,
+          "aiTutor": {
+            "formalEntitlement": false,
+            "statusText": "未解锁 AI 追问",
+            "remainingText": "解锁完整报告后可用",
+            "reportQuota": null,
+            "questionQuota": null,
+            "historyCount": 0,
+            "historyEntry": null
+          },
+          "resumeTargets": [
+            {
+              "id": "resume-report-card",
+              "targetRoute": "/pages/analysis/index",
+              "query": {
+                "orderId": "order-v143-uploaded"
+              },
+              "enabled": true
+            },
+            {
+              "id": "resume-ai-tutor-history",
+              "targetRoute": "/pages/analysis/index",
+              "enabled": false,
+              "disabledReason": "FULL_REPORT_ENTITLEMENT_REQUIRED"
+            }
+          ]
+        },
+        {
+          "orderId": "order-v143-need-material",
+          "title": "Need more material recovery report",
+          "grade": "Grade 5",
+          "subject": "Math",
+          "examType": "Unit test",
+          "createdAt": "2026-05-24T11:00:00Z",
+          "status": "need_more_material",
+          "statusText": "待补资料",
+          "paymentStatus": "unpaid",
+          "accessLevel": "preview",
+          "targetRoute": "/pages/student-info/index",
+          "recoveryRoute": "/pages/student-info/index",
+          "recoveryMode": "supplementMaterial",
+          "actionText": "补充资料",
+          "savedReport": false,
+          "aiTutor": {
+            "formalEntitlement": false,
+            "statusText": "未解锁 AI 追问",
+            "remainingText": "解锁完整报告后可用",
+            "reportQuota": null,
+            "questionQuota": null,
+            "historyCount": 0,
+            "historyEntry": null
+          },
+          "resumeTargets": [
+            {
+              "id": "resume-report-card",
+              "targetRoute": "/pages/student-info/index",
+              "query": {
+                "orderId": "order-v143-need-material"
+              },
+              "enabled": true
+            },
+            {
+              "id": "resume-ai-tutor-history",
+              "targetRoute": "/pages/student-info/index",
+              "enabled": false,
+              "disabledReason": "FULL_REPORT_ENTITLEMENT_REQUIRED"
+            }
+          ]
+        },
+        {
+          "orderId": "order-v143-failed",
+          "title": "Failed analysis recovery report",
+          "grade": "Grade 5",
+          "subject": "Math",
+          "examType": "Unit test",
+          "createdAt": "2026-05-24T12:00:00Z",
+          "status": "failed",
+          "statusText": "处理失败",
+          "paymentStatus": "unpaid",
+          "accessLevel": "preview",
+          "targetRoute": "/pages/failure/index",
+          "recoveryRoute": "/pages/failure/index",
+          "recoveryMode": "failureRecovery",
+          "actionText": "重新处理",
+          "savedReport": false,
+          "aiTutor": {
+            "formalEntitlement": false,
+            "statusText": "未解锁 AI 追问",
+            "remainingText": "解锁完整报告后可用",
+            "reportQuota": null,
+            "questionQuota": null,
+            "historyCount": 0,
+            "historyEntry": null
+          },
+          "resumeTargets": [
+            {
+              "id": "resume-report-card",
+              "targetRoute": "/pages/failure/index",
+              "query": {
+                "orderId": "order-v143-failed"
+              },
+              "enabled": true
+            },
+            {
+              "id": "resume-ai-tutor-history",
+              "targetRoute": "/pages/failure/index",
+              "enabled": false,
+              "disabledReason": "FULL_REPORT_ENTITLEMENT_REQUIRED"
+            }
+          ]
+        },
+        {
+          "orderId": "order-v143-timeout",
+          "title": "Timeout recovery report",
+          "grade": "Grade 5",
+          "subject": "Math",
+          "examType": "Unit test",
+          "createdAt": "2026-05-24T13:00:00Z",
+          "status": "timeout",
+          "statusText": "处理失败",
+          "paymentStatus": "unpaid",
+          "accessLevel": "preview",
+          "targetRoute": "/pages/failure/index",
+          "recoveryRoute": "/pages/failure/index",
+          "recoveryMode": "failureRecovery",
+          "actionText": "重新处理",
+          "savedReport": false,
+          "aiTutor": {
+            "formalEntitlement": false,
+            "statusText": "未解锁 AI 追问",
+            "remainingText": "解锁完整报告后可用",
+            "reportQuota": null,
+            "questionQuota": null,
+            "historyCount": 0,
+            "historyEntry": null
+          },
+          "resumeTargets": [
+            {
+              "id": "resume-report-card",
+              "targetRoute": "/pages/failure/index",
+              "query": {
+                "orderId": "order-v143-timeout"
+              },
+              "enabled": true
+            },
+            {
+              "id": "resume-ai-tutor-history",
+              "targetRoute": "/pages/failure/index",
               "enabled": false,
               "disabledReason": "FULL_REPORT_ENTITLEMENT_REQUIRED"
             }
@@ -572,6 +791,71 @@
             "savedReport": true,
             "paymentStatus": "paid",
             "paidAmountYuan": 1
+          },
+          {
+            "orderId": "order-v143-preview",
+            "title": "Preview decision recovery report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "preview_done",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-24T09:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-v143-uploaded",
+            "title": "Uploaded material waiting analysis",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Homework",
+            "status": "uploaded",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-24T10:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-v143-need-material",
+            "title": "Need more material recovery report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "need_more_material",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-24T11:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-v143-failed",
+            "title": "Failed analysis recovery report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "failed",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-24T12:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-v143-timeout",
+            "title": "Timeout recovery report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "timeout",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-24T13:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
           }
         ]
       }
@@ -624,6 +908,71 @@
             "savedReport": true,
             "paymentStatus": "paid",
             "paidAmountYuan": 1
+          },
+          {
+            "orderId": "order-v143-preview",
+            "title": "Preview decision recovery report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "preview_done",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-24T09:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-v143-uploaded",
+            "title": "Uploaded material waiting analysis",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Homework",
+            "status": "uploaded",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-24T10:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-v143-need-material",
+            "title": "Need more material recovery report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "need_more_material",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-24T11:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-v143-failed",
+            "title": "Failed analysis recovery report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "failed",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-24T12:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-v143-timeout",
+            "title": "Timeout recovery report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "timeout",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-24T13:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
           }
         ]
       }
@@ -760,6 +1109,71 @@
             "savedReport": true,
             "paymentStatus": "paid",
             "paidAmountYuan": 1
+          },
+          {
+            "orderId": "order-v143-preview",
+            "title": "Preview decision recovery report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "preview_done",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-24T09:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-v143-uploaded",
+            "title": "Uploaded material waiting analysis",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Homework",
+            "status": "uploaded",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-24T10:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-v143-need-material",
+            "title": "Need more material recovery report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "need_more_material",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-24T11:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-v143-failed",
+            "title": "Failed analysis recovery report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "failed",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-24T12:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
+          },
+          {
+            "orderId": "order-v143-timeout",
+            "title": "Timeout recovery report",
+            "grade": "Grade 5",
+            "subject": "Math",
+            "examType": "Unit test",
+            "status": "timeout",
+            "accessLevel": "preview",
+            "createdAt": "2026-05-24T13:00:00Z",
+            "savedReport": false,
+            "paymentStatus": "unpaid",
+            "paidAmountYuan": 0
           }
         ]
       }

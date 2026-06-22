@@ -27,14 +27,14 @@
       "controls": [
         {
           "id": "upload-material",
-          "action": "create-order-and-upload",
-          "targetRoute": "/pages/analysis/index",
+          "action": "chooseLocalFile",
+          "targetRoute": "/pages/student-info/index",
           "api": null
         },
         {
           "id": "select-upload-file",
           "action": "chooseLocalFile",
-          "targetRoute": "/pages/analysis/index",
+          "targetRoute": "/pages/student-info/index",
           "api": null
         },
         {
@@ -59,6 +59,55 @@
           "id": "open-my-tab",
           "action": "switchTab",
           "targetRoute": "/pages/my/index",
+          "api": null
+        }
+      ]
+    },
+    {
+      "id": "C02",
+      "path": "/pages/student-info/index",
+      "title": "Student info form",
+      "controls": [
+        {
+          "id": "submit-student-info",
+          "action": "apiNavigate",
+          "targetRoute": "/pages/analysis/index",
+          "api": "POST /api/diagnosis-orders"
+        },
+        {
+          "id": "back-upload",
+          "action": "navigateTo",
+          "targetRoute": "/pages/index/index",
+          "api": null
+        },
+        {
+          "id": "select-grade",
+          "action": "noNavigation",
+          "targetRoute": null,
+          "api": null
+        },
+        {
+          "id": "select-subject",
+          "action": "noNavigation",
+          "targetRoute": null,
+          "api": null
+        },
+        {
+          "id": "toggle-material-paper",
+          "action": "noNavigation",
+          "targetRoute": null,
+          "api": null
+        },
+        {
+          "id": "toggle-material-wrong",
+          "action": "noNavigation",
+          "targetRoute": null,
+          "api": null
+        },
+        {
+          "id": "toggle-material-score",
+          "action": "noNavigation",
+          "targetRoute": null,
           "api": null
         }
       ]
@@ -303,31 +352,31 @@
           "id": "ask-step-explanation",
           "action": "api",
           "targetRoute": null,
-          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions"
+          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/teach-child"
         },
         {
           "id": "ask-why-method",
           "action": "api",
           "targetRoute": null,
-          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions"
+          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/teach-child"
         },
         {
           "id": "ask-another-explanation",
           "action": "api",
           "targetRoute": null,
-          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions"
+          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/teach-child"
         },
         {
           "id": "generate-similar-exercise",
           "action": "apiNavigate",
           "targetRoute": "/pages/ai-exercise/index",
-          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions"
+          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/similar-exercise"
         },
         {
           "id": "mark-understood",
           "action": "apiNavigate",
           "targetRoute": "/pages/full-report/index",
-          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions"
+          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/check-mastery"
         },
         {
           "id": "toggle-question-context",
@@ -370,7 +419,7 @@
           "id": "refresh-exercise",
           "action": "api",
           "targetRoute": null,
-          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions"
+          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/similar-exercise"
         },
         {
           "id": "select-option-a",
@@ -455,7 +504,7 @@
           "id": "retry-similar-exercise",
           "action": "apiNavigate",
           "targetRoute": "/pages/ai-exercise/index",
-          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions"
+          "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/similar-exercise"
         },
         {
           "id": "return-full-report",
@@ -582,18 +631,18 @@
     {
       "from": "/pages/index/index",
       "controlId": "upload-material",
-      "action": "create-order-and-upload",
-      "targetRoute": "/pages/analysis/index",
+      "action": "chooseLocalFile",
+      "targetRoute": "/pages/student-info/index",
       "api": null,
-      "assertion": "C03"
+      "assertion": "C02"
     },
     {
       "from": "/pages/index/index",
       "controlId": "select-upload-file",
       "action": "chooseLocalFile",
-      "targetRoute": "/pages/analysis/index",
+      "targetRoute": "/pages/student-info/index",
       "api": null,
-      "assertion": "C03"
+      "assertion": "C02"
     },
     {
       "from": "/pages/index/index",
@@ -626,6 +675,62 @@
       "targetRoute": "/pages/my/index",
       "api": null,
       "assertion": "C11"
+    },
+    {
+      "from": "/pages/student-info/index",
+      "controlId": "submit-student-info",
+      "action": "apiNavigate",
+      "targetRoute": "/pages/analysis/index",
+      "api": "POST /api/diagnosis-orders",
+      "assertion": "C03"
+    },
+    {
+      "from": "/pages/student-info/index",
+      "controlId": "back-upload",
+      "action": "navigateTo",
+      "targetRoute": "/pages/index/index",
+      "api": null,
+      "assertion": "C01"
+    },
+    {
+      "from": "/pages/student-info/index",
+      "controlId": "select-grade",
+      "action": "noNavigation",
+      "targetRoute": null,
+      "api": null,
+      "assertion": "api-or-guarded-action-recorded"
+    },
+    {
+      "from": "/pages/student-info/index",
+      "controlId": "select-subject",
+      "action": "noNavigation",
+      "targetRoute": null,
+      "api": null,
+      "assertion": "api-or-guarded-action-recorded"
+    },
+    {
+      "from": "/pages/student-info/index",
+      "controlId": "toggle-material-paper",
+      "action": "noNavigation",
+      "targetRoute": null,
+      "api": null,
+      "assertion": "api-or-guarded-action-recorded"
+    },
+    {
+      "from": "/pages/student-info/index",
+      "controlId": "toggle-material-wrong",
+      "action": "noNavigation",
+      "targetRoute": null,
+      "api": null,
+      "assertion": "api-or-guarded-action-recorded"
+    },
+    {
+      "from": "/pages/student-info/index",
+      "controlId": "toggle-material-score",
+      "action": "noNavigation",
+      "targetRoute": null,
+      "api": null,
+      "assertion": "api-or-guarded-action-recorded"
     },
     {
       "from": "/pages/analysis/index",
@@ -856,7 +961,7 @@
       "controlId": "ask-step-explanation",
       "action": "api",
       "targetRoute": null,
-      "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/teach-child",
       "assertion": "api-or-guarded-action-recorded"
     },
     {
@@ -864,7 +969,7 @@
       "controlId": "ask-why-method",
       "action": "api",
       "targetRoute": null,
-      "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/teach-child",
       "assertion": "api-or-guarded-action-recorded"
     },
     {
@@ -872,7 +977,7 @@
       "controlId": "ask-another-explanation",
       "action": "api",
       "targetRoute": null,
-      "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/teach-child",
       "assertion": "api-or-guarded-action-recorded"
     },
     {
@@ -880,7 +985,7 @@
       "controlId": "generate-similar-exercise",
       "action": "apiNavigate",
       "targetRoute": "/pages/ai-exercise/index",
-      "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/similar-exercise",
       "assertion": "V13-C03"
     },
     {
@@ -888,7 +993,7 @@
       "controlId": "mark-understood",
       "action": "apiNavigate",
       "targetRoute": "/pages/full-report/index",
-      "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/check-mastery",
       "assertion": "C10"
     },
     {
@@ -936,7 +1041,7 @@
       "controlId": "refresh-exercise",
       "action": "api",
       "targetRoute": null,
-      "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/similar-exercise",
       "assertion": "api-or-guarded-action-recorded"
     },
     {
@@ -1040,7 +1145,7 @@
       "controlId": "retry-similar-exercise",
       "action": "apiNavigate",
       "targetRoute": "/pages/ai-exercise/index",
-      "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/interactions",
+      "api": "POST /api/diagnosis-orders/{orderId}/questions/{questionId}/similar-exercise",
       "assertion": "V13-C03"
     },
     {

@@ -15,13 +15,13 @@
       "subject": "math",
       "examType": "unit-test",
       "materialType": "answer-sheet",
-      "status": "full_report_ready",
+      "status": "full_done",
       "accessLevel": "full",
       "orderToken": "local-order-token-order-t21-success",
-      "createdAt": "2026-05-27T11:31:02.555Z",
-      "updatedAt": "2026-05-27T11:31:02.597Z",
+      "createdAt": "2026-06-22T04:20:39.198Z",
+      "updatedAt": "2026-06-22T04:20:39.652Z",
       "uploadedCount": 1,
-      "previewTaskId": "task-85d23cfe8102",
+      "previewTaskId": "task-2a984587d972",
       "previewDecisionId": "decision-order-t21-success-preview",
       "questionInteractionQuotaTotal": 10,
       "questionInteractionQuotaUsed": 2,
@@ -41,15 +41,17 @@
       "knowledgePoint": "Fraction multiplication",
       "diagnosis": "The answer used an incomplete fraction relationship and skipped the condition check.",
       "explanationSummary": "Turn three quarters into 36 x 3 / 4, then verify the result is reasonable.",
-      "masteryStatus": "needs_practice",
+      "masteryStatus": "initial_mastery",
       "questionInteractionQuotaTotal": 3,
       "questionInteractionQuotaUsed": 2,
       "questionInteractionQuotaRemaining": 1,
       "promptId": "LLM-QUESTION-04",
       "traceId": "trace-llm-question-04-0004",
       "source": "llm-extraction",
-      "createdAt": "2026-05-27T11:31:02.577Z",
-      "updatedAt": "2026-05-27T11:31:02.599Z"
+      "createdAt": "2026-06-22T04:20:39.517Z",
+      "updatedAt": "2026-06-22T04:20:39.708Z",
+      "latestInteractionSummary": "Answer matches the local reference.",
+      "latestInteractionId": "interaction-t21-exercise"
     },
     "tutorInteraction": {
       "id": "interaction-t21-tutor",
@@ -70,8 +72,8 @@
       "summary": "Focus on the current wrong question: identify the missed condition, then verify the final answer.",
       "status": "success",
       "errorCode": null,
-      "createdAt": "2026-05-27T11:31:02.585Z",
-      "updatedAt": "2026-05-27T11:31:02.585Z"
+      "createdAt": "2026-06-22T04:20:39.585Z",
+      "updatedAt": "2026-06-22T04:20:39.585Z"
     },
     "exerciseInteraction": {
       "id": "interaction-t21-exercise",
@@ -97,14 +99,15 @@
       "summary": "Answer matches the local reference.",
       "status": "success",
       "errorCode": null,
-      "createdAt": "2026-05-27T11:31:02.596Z",
-      "updatedAt": "2026-05-27T11:31:02.601Z",
+      "createdAt": "2026-06-22T04:20:39.639Z",
+      "updatedAt": "2026-06-22T04:20:39.694Z",
       "answerPromptId": "LLM-CHECK-07",
       "answerTraceId": "trace-llm-check-07-0007",
       "answerFeedback": {
         "correct": true,
         "summary": "Answer matches the local reference."
-      }
+      },
+      "masteryStatus": "initial_mastery"
     },
     "aiModelTraces": [
       {
@@ -296,7 +299,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.565Z"
+        "updatedAt": "2026-06-22T04:20:39.356Z"
       },
       {
         "id": "trace-llm-basic-02-0002",
@@ -519,7 +522,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.570Z"
+        "updatedAt": "2026-06-22T04:20:39.408Z"
       },
       {
         "id": "trace-llm-full-03-0003",
@@ -757,7 +760,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.573Z"
+        "updatedAt": "2026-06-22T04:20:39.467Z"
       },
       {
         "id": "trace-llm-question-04-0004",
@@ -967,7 +970,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.574Z"
+        "updatedAt": "2026-06-22T04:20:39.481Z"
       },
       {
         "id": "trace-llm-tutor-05-0005",
@@ -1072,7 +1075,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.583Z"
+        "updatedAt": "2026-06-22T04:20:39.572Z"
       },
       {
         "id": "trace-llm-exercise-06-0006",
@@ -1201,7 +1204,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.593Z"
+        "updatedAt": "2026-06-22T04:20:39.625Z"
       },
       {
         "id": "trace-llm-check-07-0007",
@@ -1297,7 +1300,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.600Z"
+        "updatedAt": "2026-06-22T04:20:39.680Z"
       }
     ]
   }

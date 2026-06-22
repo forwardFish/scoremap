@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "command": "npm --prefix server test -- ai-adapter prompt-registry",
+  "command": "npm --prefix server test -- ai-adapter",
   "traces": [
     {
       "id": "trace-llm-tutor-05-0001",

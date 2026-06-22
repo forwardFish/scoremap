@@ -1,6 +1,7 @@
 ﻿const crypto = require('node:crypto');
 const { unauthorized } = require('../middleware/auth');
 const { createLocalAiAdapter } = require('../ai');
+const { effectiveExtension, parseUploadedBuffer } = require('../upload/parse-uploaded-file');
 
 const LOCAL_OWNER_ID = 'local-user-scoremap-t03';
 
@@ -73,7 +74,7 @@ class DiagnosisOrdersService {
     };
   }
 
-  uploadFiles(orderId, input = {}, auth = {}) {
+  async uploadFiles(orderId, input = {}, auth = {}) {
     const ownerCheck = this.assertOrderAccess(orderId, auth);
     if (ownerCheck.error) return ownerCheck.error;
     if (input.authorizationAccepted !== true) {
@@ -83,9 +84,11 @@ class DiagnosisOrdersService {
       return validationError('files must contain at least one upload.');
     }
 
-    const uploads = input.files.map((file, index) => {
+    const uploads = [];
+    for (const [index, file] of input.files.entries()) {
       const uploadId = file.id || createId('upload');
       const buffer = decodeFileContent(file);
+      const parseResult = await parseUpload(file, buffer);
       const stored = this.cloud.uploadBuffer({
         id: uploadId,
         ownerId: ownerCheck.order.ownerId,
@@ -94,12 +97,18 @@ class DiagnosisOrdersService {
         mimeType: file.mimeType || 'image/png',
         buffer
       });
-      return this.db.update('upload_files', stored.id, {
+      uploads.push(this.db.update('upload_files', stored.id, {
         authorizationAccepted: true,
+        extension: parseResult.extension,
+        parseStatus: parseResult.status,
+        parsedTextLength: parseResult.text.length,
+        parsedTextPreview: parseResult.text.slice(0, 240),
+        parseErrorCode: parseResult.errorCode,
+        parseErrorMessage: parseResult.errorMessage,
         quality: file.quality || (buffer.length < 8 ? 'low' : 'normal'),
         localOnly: true
-      });
-    });
+      }));
+    }
 
     const order = this.db.update('diagnosis_orders', orderId, {
       status: 'uploaded',
@@ -308,6 +317,28 @@ function decodeFileContent(file = {}) {
   if (file.base64) return Buffer.from(file.base64, 'base64');
   if (file.content) return Buffer.from(String(file.content));
   return Buffer.from('local mock upload bytes');
+}
+
+async function parseUpload(file, buffer) {
+  const extension = effectiveExtension(file);
+  try {
+    const text = await parseUploadedBuffer(file, buffer);
+    return {
+      extension,
+      status: text ? 'parsed' : 'empty',
+      text,
+      errorCode: null,
+      errorMessage: null
+    };
+  } catch (error) {
+    return {
+      extension,
+      status: 'parse_failed',
+      text: '',
+      errorCode: error.code || 'UPLOAD_PARSE_FAILED',
+      errorMessage: error.message
+    };
+  }
 }
 
 function previewSteps(currentStep) {

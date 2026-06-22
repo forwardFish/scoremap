@@ -148,7 +148,8 @@
           "headline": "还差一步",
           "explanation": "这类题先比较每小时相差多少，再乘以相同的时间，不要把两个人的速度相加。",
           "summary": "需要再练一次速度差乘时间。"
-        }
+        },
+        "masteryStatus": "needs_more_practice"
       }
     },
     {

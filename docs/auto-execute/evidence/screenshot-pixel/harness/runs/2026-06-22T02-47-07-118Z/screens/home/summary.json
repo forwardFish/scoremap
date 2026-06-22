@@ -1,0 +1,25 @@
+{
+  "id": "UI-C01",
+  "screen": "home",
+  "route": "/pages/index/index",
+  "status": "PASS",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "rpxScale": 0.52,
+  "pageFiles": {
+    "pageDir": "scoremap-miniapp/pages/index",
+    "wxml": "scoremap-miniapp/pages/index/index.wxml",
+    "wxss": "scoremap-miniapp/pages/index/index.wxss",
+    "json": "scoremap-miniapp/pages/index/index.json",
+    "js": "scoremap-miniapp/pages/index/index.js"
+  },
+  "actual": "docs/auto-execute/evidence/screenshot-pixel/harness/runs/2026-06-22T02-47-07-118Z/screens/home/actual.png",
+  "htmlPreview": "docs/auto-execute/evidence/screenshot-pixel/harness/runs/2026-06-22T02-47-07-118Z/screens/home/preview.html",
+  "reference": "docs/UI/小程序/01-首页-上传资料.png",
+  "referenceNote": null,
+  "renderSource": "scoremap-miniapp page WXML/WXSS plus local assets",
+  "forbiddenActualReferenceMount": false,
+  "knownGaps": []
+}

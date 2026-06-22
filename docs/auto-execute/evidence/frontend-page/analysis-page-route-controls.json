@@ -1,46 +1,68 @@
 {
   "status": "PASS",
+  "taskId": "V143-10",
   "command": "npm test -- analysis-failure",
   "requirementIds": [
-    "R03"
+    "REQ143-007",
+    "REQ143-008"
+  ],
+  "apiIds": [
+    "API143-004",
+    "API143-017"
+  ],
+  "uiIds": [
+    "UI143-C03"
   ],
   "ownerScenarioIds": [
-    "O02",
-    "O07"
+    "O143-01"
   ],
-  "uiReference": {
-    "png": "ui-reference-catalog/小程序/AI分析.png",
-    "stitch": "ui-reference-catalog/小程序/stitch_codex_development_blueprints/ai_1/screen-reference"
-  },
   "route": "/pages/analysis/index",
+  "uiReference": {
+    "id": "UI143-C03",
+    "png": "docs/UI/小程序/03-AI分析中.png",
+    "route": "/pages/analysis/index"
+  },
   "renderedState": {
     "route": "/pages/analysis/index",
-    "orderId": "order-t08-analysis",
+    "orderId": "order-v143-10-analysis",
     "title": "AI 正在分析中",
     "estimateText": "通常需要 10-30 秒",
     "progress": 100,
-    "status": "preview_done",
-    "currentStep": "preview_ready",
+    "progressArcDeg": 360,
+    "status": "full_done",
+    "currentStep": "full_report_ready",
     "steps": [
       {
         "id": "read-material",
         "text": "uploaded material recognized",
-        "status": "done"
+        "status": "done",
+        "nodeIcon": "/assets/icons/analysis-check.png",
+        "nodeText": "",
+        "nodeClass": ""
       },
       {
         "id": "match-subject",
         "text": "grade and subject matched",
-        "status": "done"
+        "status": "done",
+        "nodeIcon": "/assets/icons/analysis-check.png",
+        "nodeText": "",
+        "nodeClass": ""
       },
       {
         "id": "locate-loss-points",
         "text": "locating score-loss points",
-        "status": "active"
+        "status": "done",
+        "nodeIcon": "/assets/icons/analysis-check.png",
+        "nodeText": "",
+        "nodeClass": ""
       },
       {
         "id": "generate-preview",
-        "text": "generating preview advice",
-        "status": "done"
+        "text": "analysis result ready",
+        "status": "done",
+        "nodeIcon": "/assets/icons/analysis-check.png",
+        "nodeText": "",
+        "nodeClass": ""
       }
     ],
     "pollIntervalMs": 2000,
@@ -57,8 +79,9 @@
       }
     ],
     "uiReference": {
-      "png": "ui-reference-catalog/小程序/AI分析.png",
-      "stitch": "ui-reference-catalog/小程序/stitch_codex_development_blueprints/ai_1/screen-reference"
+      "id": "UI143-C03",
+      "png": "docs/UI/小程序/03-AI分析中.png",
+      "route": "/pages/analysis/index"
     }
   },
   "pageJumpEvidence": [
@@ -82,10 +105,19 @@
       }
     },
     {
-      "event": "auto-complete",
+      "event": "auto-review-done",
       "result": {
         "status": "READY",
         "targetRoute": "/pages/preview/index",
+        "source": "poll",
+        "progress": 100
+      }
+    },
+    {
+      "event": "auto-full-done",
+      "result": {
+        "status": "FULL_READY",
+        "targetRoute": "/pages/full-report/index",
         "source": "poll",
         "progress": 100
       }
@@ -94,7 +126,7 @@
   "apiCalls": [
     {
       "method": "GET",
-      "path": "/api/diagnosis-orders/order-t08-analysis/analysis-progress",
+      "path": "/api/diagnosis-orders/order-v143-10-analysis/analysis-progress",
       "payloadSummary": {
         "source": "poll",
         "elapsedMs": 2000
@@ -131,7 +163,7 @@
     },
     {
       "method": "GET",
-      "path": "/api/diagnosis-orders/order-t08-analysis/analysis-progress",
+      "path": "/api/diagnosis-orders/order-v143-10-analysis/analysis-progress",
       "payloadSummary": {
         "source": "manual-refresh",
         "elapsedMs": 0
@@ -171,14 +203,14 @@
       "path": "/api/my/reports",
       "payloadSummary": {
         "source": "analysis-later-view",
-        "orderId": "order-t08-analysis"
+        "orderId": "order-v143-10-analysis"
       },
       "responseStatus": 200,
       "responseBody": {
         "status": "ok",
         "items": [
           {
-            "orderId": "order-t08-analysis",
+            "orderId": "order-v143-10-analysis",
             "title": "Analysis in progress",
             "grade": "Grade 5",
             "subject": "Math",
@@ -195,14 +227,14 @@
     },
     {
       "method": "GET",
-      "path": "/api/diagnosis-orders/order-t08-analysis/analysis-progress",
+      "path": "/api/diagnosis-orders/order-v143-10-analysis/analysis-progress",
       "payloadSummary": {
         "source": "poll",
         "elapsedMs": 4000
       },
       "responseStatus": 200,
       "responseBody": {
-        "status": "preview_done",
+        "status": "review_done",
         "progress": 100,
         "currentStep": "preview_ready",
         "steps": [
@@ -219,11 +251,48 @@
           {
             "id": "locate-loss-points",
             "text": "locating score-loss points",
-            "status": "active"
+            "status": "done"
           },
           {
             "id": "generate-preview",
-            "text": "generating preview advice",
+            "text": "analysis result ready",
+            "status": "done"
+          }
+        ],
+        "errorCode": null
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/diagnosis-orders/order-v143-10-analysis/analysis-progress",
+      "payloadSummary": {
+        "source": "poll",
+        "elapsedMs": 6000
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "full_done",
+        "progress": 100,
+        "currentStep": "full_report_ready",
+        "steps": [
+          {
+            "id": "read-material",
+            "text": "uploaded material recognized",
+            "status": "done"
+          },
+          {
+            "id": "match-subject",
+            "text": "grade and subject matched",
+            "status": "done"
+          },
+          {
+            "id": "locate-loss-points",
+            "text": "locating score-loss points",
+            "status": "done"
+          },
+          {
+            "id": "generate-preview",
+            "text": "analysis result ready",
             "status": "done"
           }
         ],

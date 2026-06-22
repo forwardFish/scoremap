@@ -26,7 +26,7 @@
         "ok": true,
         "status": "paid",
         "paymentId": "payment-t13-basic-recovery",
-        "orderId": "order-f63faaf9b025",
+        "orderId": "order-d4491da91a6e",
         "accessLevel": "basic",
         "idempotent": true,
         "repaired": true
@@ -41,7 +41,7 @@
         "ok": true,
         "status": "paid",
         "paymentId": "payment-t13-full-recovery",
-        "orderId": "order-f63faaf9b025",
+        "orderId": "order-d4491da91a6e",
         "accessLevel": "full",
         "idempotent": false,
         "repaired": false
@@ -52,11 +52,11 @@
       "path": "/api/diagnosis-orders/{orderId}/generate-full",
       "responseStatus": 200,
       "response": {
-        "taskId": "task-full-4bfe26382b63",
-        "status": "full_report_ready",
+        "taskId": "task-full-ba06f3072719",
+        "status": "full_done",
         "wrongQuestionCards": [
           {
-            "id": "question-order-f63faaf9b025-1",
+            "id": "question-order-d4491da91a6e-1",
             "index": 1,
             "title": "Missed condition in a multi-step calculation",
             "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
@@ -74,7 +74,7 @@
             "aiTeacherCta": "Let the AI teacher explain this to the child"
           },
           {
-            "id": "question-order-f63faaf9b025-2",
+            "id": "question-order-d4491da91a6e-2",
             "index": 2,
             "title": "Unit conversion omitted in the final answer",
             "originalQuestion": "A rope is 2.4 meters long and is cut into 6 equal pieces. How many centimeters is each piece?",
@@ -100,13 +100,13 @@
           },
           "questions": [
             {
-              "questionId": "question-order-f63faaf9b025-1",
+              "questionId": "question-order-d4491da91a6e-1",
               "total": 3,
               "used": 0,
               "remaining": 3
             },
             {
-              "questionId": "question-order-f63faaf9b025-2",
+              "questionId": "question-order-d4491da91a6e-2",
               "total": 3,
               "used": 0,
               "remaining": 3
@@ -128,7 +128,7 @@
   "dbReadback": {
     "basicPayment": {
       "id": "payment-t13-basic-recovery",
-      "orderId": "order-f63faaf9b025",
+      "orderId": "order-d4491da91a6e",
       "ownerId": "local-user-scoremap-t03",
       "paymentType": "basic",
       "channel": "local-wechat-pay-mock",
@@ -136,13 +136,13 @@
       "status": "paid",
       "mockTransactionId": "mock-tx-t13-basic-recovery",
       "callbackCount": 1,
-      "createdAt": "2026-05-27T11:31:02.263Z",
-      "updatedAt": "2026-05-27T11:31:02.266Z",
+      "createdAt": "2026-06-22T04:20:11.113Z",
+      "updatedAt": "2026-06-22T04:20:11.139Z",
       "paidAt": "1970-01-01T00:00:00.000Z"
     },
     "fullPayment": {
       "id": "payment-t13-full-recovery",
-      "orderId": "order-f63faaf9b025",
+      "orderId": "order-d4491da91a6e",
       "ownerId": "local-user-scoremap-t03",
       "paymentType": "full",
       "channel": "local-wechat-pay-mock",
@@ -150,40 +150,40 @@
       "status": "paid",
       "mockTransactionId": "mock-tx-t13-full-recovery",
       "callbackCount": 1,
-      "createdAt": "2026-05-27T11:31:02.277Z",
-      "updatedAt": "2026-05-27T11:31:02.283Z",
+      "createdAt": "2026-06-22T04:20:11.218Z",
+      "updatedAt": "2026-06-22T04:20:11.236Z",
       "paidAt": "1970-01-01T00:00:00.000Z"
     },
     "order": {
-      "id": "order-f63faaf9b025",
+      "id": "order-d4491da91a6e",
       "ownerId": "local-user-scoremap-t03",
       "source": "T13-recovery",
       "grade": "grade-5",
       "subject": "math",
       "examType": "unit-test",
       "materialType": "answer-sheet",
-      "status": "full_report_ready",
+      "status": "full_done",
       "accessLevel": "full",
-      "orderToken": "local-order-token-order-f63faaf9b025",
-      "createdAt": "2026-05-27T11:31:02.245Z",
-      "updatedAt": "2026-05-27T11:31:02.303Z",
+      "orderToken": "local-order-token-order-d4491da91a6e",
+      "createdAt": "2026-06-22T04:20:10.906Z",
+      "updatedAt": "2026-06-22T04:20:11.406Z",
       "uploadedCount": 1,
-      "previewTaskId": "task-549b16b7ac89",
-      "previewDecisionId": "decision-order-f63faaf9b025-preview",
+      "previewTaskId": "task-a0ccce79b53e",
+      "previewDecisionId": "decision-order-d4491da91a6e-preview",
       "questionInteractionQuotaTotal": 10,
       "questionInteractionQuotaUsed": 0,
       "questionInteractionQuotaRemaining": 10,
-      "fullTaskId": "task-full-4bfe26382b63",
-      "fullDecisionId": "decision-order-f63faaf9b025-full"
+      "fullTaskId": "task-full-ba06f3072719",
+      "fullDecisionId": "decision-order-d4491da91a6e-full"
     },
     "fullDecision": {
-      "id": "decision-order-f63faaf9b025-full",
-      "orderId": "order-f63faaf9b025",
+      "id": "decision-order-d4491da91a6e-full",
+      "orderId": "order-d4491da91a6e",
       "ownerId": "local-user-scoremap-t03",
       "level": "full",
       "full": {
         "reportTitle": "Complete score improvement report",
-        "orderId": "order-f63faaf9b025",
+        "orderId": "order-d4491da91a6e",
         "summary": "Local full report for grade-5 math.",
         "modules": [
           {
@@ -211,7 +211,7 @@
         "complianceNotice": "Local mock report only; no guaranteed score wording.",
         "wrongQuestionCards": [
           {
-            "id": "question-order-f63faaf9b025-1",
+            "id": "question-order-d4491da91a6e-1",
             "index": 1,
             "title": "Missed condition in a multi-step calculation",
             "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
@@ -229,7 +229,7 @@
             "aiTeacherCta": "Let the AI teacher explain this to the child"
           },
           {
-            "id": "question-order-f63faaf9b025-2",
+            "id": "question-order-d4491da91a6e-2",
             "index": 2,
             "title": "Unit conversion omitted in the final answer",
             "originalQuestion": "A rope is 2.4 meters long and is cut into 6 equal pieces. How many centimeters is each piece?",
@@ -257,8 +257,8 @@
       "traceId": "trace-llm-full-03-0002",
       "modelAdapter": "local-deterministic-ai-mock",
       "localOnly": true,
-      "createdAt": "2026-05-27T11:31:02.302Z",
-      "updatedAt": "2026-05-27T11:31:02.302Z"
+      "createdAt": "2026-06-22T04:20:11.394Z",
+      "updatedAt": "2026-06-22T04:20:11.394Z"
     }
   },
   "localOnly": {

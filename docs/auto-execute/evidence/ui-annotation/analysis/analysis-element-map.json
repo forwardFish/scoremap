@@ -1,0 +1,286 @@
+{
+  "reference": {
+    "image": "C:\\LYH\\Code\\scoremap\\docs\\UI\\小程序\\03-AI分析中.png",
+    "width": 941,
+    "height": 1672,
+    "elements": [
+      {
+        "id": "back",
+        "label": "back",
+        "x": 49,
+        "y": 72,
+        "w": 48,
+        "h": 58,
+        "color": "#1565ff"
+      },
+      {
+        "id": "brand_robot",
+        "label": "brand_robot",
+        "x": 124,
+        "y": 32,
+        "w": 112,
+        "h": 106,
+        "color": "#00a6ff"
+      },
+      {
+        "id": "brand_title",
+        "label": "brand_title",
+        "x": 243,
+        "y": 64,
+        "w": 346,
+        "h": 62,
+        "color": "#ff7a00"
+      },
+      {
+        "id": "main_card",
+        "label": "main_card",
+        "x": 40,
+        "y": 181,
+        "w": 862,
+        "h": 1149,
+        "color": "#ffd400"
+      },
+      {
+        "id": "page_title",
+        "label": "page_title",
+        "x": 277,
+        "y": 249,
+        "w": 390,
+        "h": 82,
+        "color": "#ff00b8"
+      },
+      {
+        "id": "progress_ring",
+        "label": "progress_ring",
+        "x": 281,
+        "y": 369,
+        "w": 378,
+        "h": 387,
+        "color": "#20c933"
+      },
+      {
+        "id": "progress_text",
+        "label": "progress_text",
+        "x": 386,
+        "y": 520,
+        "w": 176,
+        "h": 92,
+        "color": "#8b00ff"
+      },
+      {
+        "id": "teacher_owl",
+        "label": "teacher_owl",
+        "x": 657,
+        "y": 540,
+        "w": 198,
+        "h": 252,
+        "color": "#00c2ff"
+      },
+      {
+        "id": "step_1",
+        "label": "step_1",
+        "x": 99,
+        "y": 807,
+        "w": 741,
+        "h": 92,
+        "color": "#2ecc71"
+      },
+      {
+        "id": "step_2",
+        "label": "step_2",
+        "x": 99,
+        "y": 912,
+        "w": 741,
+        "h": 92,
+        "color": "#2ecc71"
+      },
+      {
+        "id": "step_3",
+        "label": "step_3",
+        "x": 99,
+        "y": 1016,
+        "w": 741,
+        "h": 92,
+        "color": "#8b5cf6"
+      },
+      {
+        "id": "step_4",
+        "label": "step_4",
+        "x": 99,
+        "y": 1118,
+        "w": 741,
+        "h": 92,
+        "color": "#8b5cf6"
+      },
+      {
+        "id": "estimate",
+        "label": "estimate",
+        "x": 339,
+        "y": 1251,
+        "w": 264,
+        "h": 42,
+        "color": "#667085"
+      },
+      {
+        "id": "later_button",
+        "label": "later_button",
+        "x": 49,
+        "y": 1375,
+        "w": 843,
+        "h": 120,
+        "color": "#ff00b8"
+      },
+      {
+        "id": "refresh_button",
+        "label": "refresh_button",
+        "x": 374,
+        "y": 1547,
+        "w": 194,
+        "h": 48,
+        "color": "#1565ff"
+      }
+    ]
+  },
+  "actual": {
+    "image": "C:\\LYH\\Code\\scoremap\\docs\\auto-execute\\evidence\\screenshot-pixel\\harness\\runs\\2026-06-22T08-55-09-402Z\\screens\\analysis\\actual.png",
+    "width": 390,
+    "height": 844,
+    "elements": [
+      {
+        "id": "back",
+        "label": "back",
+        "x": 29,
+        "y": 48,
+        "w": 10,
+        "h": 18,
+        "color": "#1565ff"
+      },
+      {
+        "id": "brand_robot",
+        "label": "brand_robot",
+        "x": 68,
+        "y": 38,
+        "w": 37,
+        "h": 31,
+        "color": "#00a6ff"
+      },
+      {
+        "id": "brand_title",
+        "label": "brand_title",
+        "x": 126,
+        "y": 40,
+        "w": 130,
+        "h": 27,
+        "color": "#ff7a00"
+      },
+      {
+        "id": "main_card",
+        "label": "main_card",
+        "x": 20,
+        "y": 96,
+        "w": 350,
+        "h": 614,
+        "color": "#ffd400"
+      },
+      {
+        "id": "page_title",
+        "label": "page_title",
+        "x": 99,
+        "y": 136,
+        "w": 191,
+        "h": 36,
+        "color": "#ff00b8"
+      },
+      {
+        "id": "progress_ring",
+        "label": "progress_ring",
+        "x": 102,
+        "y": 199,
+        "w": 190,
+        "h": 190,
+        "color": "#20c933"
+      },
+      {
+        "id": "progress_text",
+        "label": "progress_text",
+        "x": 155,
+        "y": 275,
+        "w": 86,
+        "h": 50,
+        "color": "#8b00ff"
+      },
+      {
+        "id": "teacher_owl",
+        "label": "teacher_owl",
+        "x": 227,
+        "y": 325,
+        "w": 102,
+        "h": 91,
+        "color": "#00c2ff"
+      },
+      {
+        "id": "step_1",
+        "label": "step_1",
+        "x": 56,
+        "y": 428,
+        "w": 278,
+        "h": 48,
+        "color": "#2ecc71"
+      },
+      {
+        "id": "step_2",
+        "label": "step_2",
+        "x": 56,
+        "y": 477,
+        "w": 278,
+        "h": 48,
+        "color": "#2ecc71"
+      },
+      {
+        "id": "step_3",
+        "label": "step_3",
+        "x": 56,
+        "y": 526,
+        "w": 278,
+        "h": 48,
+        "color": "#8b5cf6"
+      },
+      {
+        "id": "step_4",
+        "label": "step_4",
+        "x": 56,
+        "y": 575,
+        "w": 278,
+        "h": 48,
+        "color": "#8b5cf6"
+      },
+      {
+        "id": "estimate",
+        "label": "estimate",
+        "x": 137,
+        "y": 654,
+        "w": 117,
+        "h": 16,
+        "color": "#667085"
+      },
+      {
+        "id": "later_button",
+        "label": "later_button",
+        "x": 28,
+        "y": 724,
+        "w": 334,
+        "h": 61,
+        "color": "#ff00b8"
+      },
+      {
+        "id": "refresh_button",
+        "label": "refresh_button",
+        "x": 155,
+        "y": 807,
+        "w": 83,
+        "h": 17,
+        "color": "#1565ff"
+      }
+    ]
+  }
+}

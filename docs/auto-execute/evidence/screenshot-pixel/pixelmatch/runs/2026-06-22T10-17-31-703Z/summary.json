@@ -1,0 +1,50 @@
+{
+  "taskId": "T47",
+  "status": "REPAIR_REQUIRED",
+  "generatedAt": "2026-06-22T10:17:51.021Z",
+  "threshold": {
+    "diffRatioMax": 0.01
+  },
+  "method": {
+    "comparator": "pixelmatch",
+    "pngDecoder": "pngjs",
+    "sizeMismatchHandling": "preserve the source reference artifact, normalize reference-backed pages to the 390x844 browser viewport before pixelmatch, and report source/reference normalization in metrics"
+  },
+  "counts": {
+    "screens": 2,
+    "referenceBacked": 1,
+    "pass": 0,
+    "passNeedsReference": 1,
+    "repairRequired": 1
+  },
+  "screens": [
+    {
+      "screen": "preview",
+      "route": "/pages/preview/index",
+      "status": "REPAIR_REQUIRED",
+      "reference": "docs/auto-execute/evidence/screenshot-pixel/pixelmatch/runs/2026-06-22T10-17-31-703Z/preview/reference.png",
+      "actual": "docs/auto-execute/evidence/screenshot-pixel/pixelmatch/runs/2026-06-22T10-17-31-703Z/preview/actual.png",
+      "diff": "docs/auto-execute/evidence/screenshot-pixel/pixelmatch/runs/2026-06-22T10-17-31-703Z/preview/diff.png",
+      "metrics": "docs/auto-execute/evidence/screenshot-pixel/pixelmatch/runs/2026-06-22T10-17-31-703Z/preview/metrics.json",
+      "summary": "docs/auto-execute/evidence/screenshot-pixel/pixelmatch/runs/2026-06-22T10-17-31-703Z/preview/summary.json",
+      "diffPixels": 202608,
+      "totalPixels": 329160,
+      "diffRatio": 0.6155304411228582,
+      "sizeMismatch": false
+    },
+    {
+      "screen": "basic-pay",
+      "route": "/pages/basic-pay/index",
+      "status": "PASS_NEEDS_REFERENCE",
+      "reference": null,
+      "actual": "docs/auto-execute/evidence/screenshot-pixel/pixelmatch/runs/2026-06-22T10-17-31-703Z/basic-pay/actual.png",
+      "diff": null,
+      "metrics": "docs/auto-execute/evidence/screenshot-pixel/pixelmatch/runs/2026-06-22T10-17-31-703Z/basic-pay/metrics.json",
+      "summary": "docs/auto-execute/evidence/screenshot-pixel/pixelmatch/runs/2026-06-22T10-17-31-703Z/basic-pay/summary.json",
+      "diffPixels": null,
+      "totalPixels": null,
+      "diffRatio": null,
+      "sizeMismatch": null
+    }
+  ]
+}

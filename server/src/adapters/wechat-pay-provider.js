@@ -5,8 +5,16 @@ const WECHAT_PAY_API_BASE = 'https://api.mch.weixin.qq.com';
 const JSAPI_PREPAY_PATH = '/v3/pay/transactions/jsapi';
 const OUT_TRADE_NO_QUERY_PATH = '/v3/pay/transactions/out-trade-no';
 
-function amountForPaymentType(paymentType) {
+function baseAmountForPaymentType(paymentType) {
   return paymentType === 'basic' ? BASIC_AMOUNT_CENTS : FULL_AMOUNT_CENTS;
+}
+
+function amountForPaymentType(paymentType, env = {}) {
+  const baseAmount = baseAmountForPaymentType(paymentType);
+  if (env.paymentTestMode && baseAmount > 0) {
+    return Math.max(1, Number(env.wechatPayTestAmountCents || 1));
+  }
+  return baseAmount;
 }
 
 function nextAccessLevel(paymentType) {
@@ -29,6 +37,33 @@ function signRsa(message, privateKey) {
 
 function getHeader(headers = {}, name) {
   return headers[name.toLowerCase()] || headers[name] || '';
+}
+
+function normalizeSerial(serial = '') {
+  return String(serial || '').replace(/:/g, '').toUpperCase();
+}
+
+function assertMerchantCertificate({ cert, privateKey, serialNo }) {
+  if (!cert) return;
+  let x509;
+  try {
+    x509 = new crypto.X509Certificate(cert);
+  } catch (error) {
+    throw new Error(`WECHAT_PAY_MERCHANT_CERT parse failed: ${error.message}`);
+  }
+  const certSerial = normalizeSerial(x509.serialNumber);
+  const configuredSerial = normalizeSerial(serialNo);
+  if (certSerial !== configuredSerial) {
+    throw new Error(`WECHAT_PAY_SERIAL_NO mismatch: configured ${configuredSerial}, merchant cert ${certSerial}`);
+  }
+  try {
+    const payload = Buffer.from('wechat-pay-merchant-cert-check');
+    const signature = crypto.sign('RSA-SHA256', payload, normalizePrivateKey(privateKey));
+    const verified = crypto.verify('RSA-SHA256', payload, x509.publicKey, signature);
+    if (!verified) throw new Error('private key does not match merchant certificate public key');
+  } catch (error) {
+    throw new Error(`WECHAT_PAY_PRIVATE_KEY mismatch: ${error.message}`);
+  }
 }
 
 function decryptAes256Gcm({ apiV3Key, ciphertext, nonce: resourceNonce, associatedData = '' }) {
@@ -84,8 +119,9 @@ class WechatPayProvider {
       openid,
       paymentType,
       channel: 'wechat-pay-jsapi',
-      amountCents: amountForPaymentType(paymentType),
-      expectedAmountCents: paymentType === 'basic' ? BASIC_AMOUNT_CENTS : FULL_AMOUNT_CENTS,
+      amountCents: amountForPaymentType(paymentType, this.env),
+      expectedAmountCents: baseAmountForPaymentType(paymentType),
+      paymentTestMode: this.env.paymentTestMode === true,
       status: 'pending',
       callbackCount: 0,
       transactionId: null,
@@ -235,6 +271,7 @@ class WechatPayProvider {
     if (this.env.wechatPaySkipNotifySignature) return true;
     this.assertNotifyConfig();
     const signature = getHeader(headers, 'wechatpay-signature');
+    if (String(signature).startsWith('WECHATPAY/SIGNTEST/')) return false;
     const timestamp = getHeader(headers, 'wechatpay-timestamp');
     const nonceStr = getHeader(headers, 'wechatpay-nonce');
     const message = `${timestamp}\n${nonceStr}\n${rawBody || ''}\n`;
@@ -299,6 +336,11 @@ class WechatPayProvider {
       ['WECHAT_PAY_NOTIFY_URL', this.env.wechatPayNotifyUrl]
     ].filter(([, value]) => !value).map(([name]) => name);
     if (missing.length) throw new Error(`WeChat Pay config missing: ${missing.join(', ')}`);
+    assertMerchantCertificate({
+      cert: this.env.wechatPayMerchantCert,
+      privateKey: this.env.wechatPayPrivateKey,
+      serialNo: this.env.wechatPaySerialNo
+    });
   }
 
   assertNotifyConfig() {
@@ -323,5 +365,7 @@ module.exports = {
   OUT_TRADE_NO_QUERY_PATH,
   WECHAT_PAY_API_BASE,
   WechatPayProvider,
+  assertMerchantCertificate,
+  baseAmountForPaymentType,
   amountForPaymentType
 };

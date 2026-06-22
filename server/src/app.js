@@ -12,7 +12,7 @@ const { createPaymentsRouter } = require('./routes/payments');
 const { createQuestionInteractionsRouter } = require('./routes/question-interactions');
 const { createReportsRouter } = require('./routes/reports');
 
-const SUPPORTED_UPLOAD_EXTENSIONS = new Set(['.pdf', '.png', '.jpg', '.jpeg', '.webp']);
+const SUPPORTED_UPLOAD_EXTENSIONS = new Set(['.pdf', '.doc', '.docx', '.png', '.jpg', '.jpeg', '.webp']);
 
 function createApp(options = {}) {
   const env = options.env || loadEnv(options);
@@ -27,7 +27,7 @@ function createApp(options = {}) {
         callback(null, true);
         return;
       }
-      callback(new Error('Only PDF, PNG, JPG, JPEG, and WEBP files are supported.'));
+      callback(new Error('Only PDF, Word, PNG, JPG, JPEG, and WEBP files are supported.'));
     }
   });
 
@@ -41,6 +41,8 @@ function createApp(options = {}) {
     response.json({
       ok: true,
       service: 'scoremap-api',
+      dbProvider: env.dbProvider,
+      fileProvider: env.fileProvider,
       paymentProvider: env.paymentProvider,
       localMockEnabled: env.localMockEnabled
     });
@@ -86,16 +88,16 @@ function createApp(options = {}) {
   });
 
   const multipartUpload = upload.array('files', 12);
-  app.post('/api/files/upload', onlyMultipart, multipartUpload, (request, response) => {
+  app.post('/api/files/upload', onlyMultipart, multipartUpload, async (request, response) => {
     const orderId = request.body && request.body.orderId;
     if (!orderId) {
       response.status(400).json({ status: 'error', code: 'VALIDATION_ERROR', message: 'orderId is required.' });
       return;
     }
-    sendServiceResult(response, handleMultipartUpload({ request, adapters, authService, orderId }));
+    await sendServiceResult(response, handleMultipartUpload({ request, adapters, authService, orderId }));
   });
-  app.post('/api/diagnosis-orders/:orderId/uploads', onlyMultipart, multipartUpload, (request, response) => {
-    sendServiceResult(response, handleMultipartUpload({
+  app.post('/api/diagnosis-orders/:orderId/uploads', onlyMultipart, multipartUpload, async (request, response) => {
+    await sendServiceResult(response, handleMultipartUpload({
       request,
       adapters,
       authService,
@@ -153,7 +155,7 @@ function handleMultipartUpload({ request, adapters, authService, orderId }) {
       id: request.body && request.body.uploadId
         ? `${request.body.uploadId}${index === 0 ? '' : `-${index + 1}`}`
         : undefined,
-      originalName: file.originalname,
+      originalName: request.body && request.body.originalName || file.originalname,
       mimeType: file.mimetype,
       buffer: file.buffer
     }))
@@ -164,8 +166,9 @@ function parseBoolean(value) {
   return value === true || String(value).toLowerCase() === 'true' || value === '1';
 }
 
-function sendServiceResult(response, result) {
-  response.status(result.statusCode).json(result.body);
+async function sendServiceResult(response, result) {
+  const resolved = await result;
+  response.status(resolved.statusCode).json(resolved.body);
 }
 
 module.exports = {

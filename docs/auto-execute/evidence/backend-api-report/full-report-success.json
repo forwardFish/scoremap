@@ -50,11 +50,11 @@
       "path": "/api/diagnosis-orders/{orderId}/generate-full",
       "responseStatus": 200,
       "response": {
-        "taskId": "task-full-15ca58c681b7",
-        "status": "full_report_ready",
+        "taskId": "task-full-fb14dab1bacd",
+        "status": "full_done",
         "wrongQuestionCards": [
           {
-            "id": "question-order-3d8ba3e62f5c-1",
+            "id": "question-order-c9253485eb41-1",
             "index": 1,
             "title": "Missed condition in a multi-step calculation",
             "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
@@ -72,7 +72,7 @@
             "aiTeacherCta": "Let the AI teacher explain this to the child"
           },
           {
-            "id": "question-order-3d8ba3e62f5c-2",
+            "id": "question-order-c9253485eb41-2",
             "index": 2,
             "title": "Unit conversion omitted in the final answer",
             "originalQuestion": "A rope is 2.4 meters long and is cut into 6 equal pieces. How many centimeters is each piece?",
@@ -98,13 +98,13 @@
           },
           "questions": [
             {
-              "questionId": "question-order-3d8ba3e62f5c-1",
+              "questionId": "question-order-c9253485eb41-1",
               "total": 3,
               "used": 0,
               "remaining": 3
             },
             {
-              "questionId": "question-order-3d8ba3e62f5c-2",
+              "questionId": "question-order-c9253485eb41-2",
               "total": 3,
               "used": 0,
               "remaining": 3
@@ -122,7 +122,7 @@
         "accessLevel": "full",
         "decision": {
           "reportTitle": "Complete score improvement report",
-          "orderId": "order-3d8ba3e62f5c",
+          "orderId": "order-c9253485eb41",
           "summary": "Local full report for grade-5 math.",
           "modules": [
             {
@@ -150,7 +150,7 @@
           "complianceNotice": "Local mock report only; no guaranteed score wording.",
           "wrongQuestionCards": [
             {
-              "id": "question-order-3d8ba3e62f5c-1",
+              "id": "question-order-c9253485eb41-1",
               "index": 1,
               "title": "Missed condition in a multi-step calculation",
               "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
@@ -168,7 +168,7 @@
               "aiTeacherCta": "Let the AI teacher explain this to the child"
             },
             {
-              "id": "question-order-3d8ba3e62f5c-2",
+              "id": "question-order-c9253485eb41-2",
               "index": 2,
               "title": "Unit conversion omitted in the final answer",
               "originalQuestion": "A rope is 2.4 meters long and is cut into 6 equal pieces. How many centimeters is each piece?",
@@ -194,7 +194,7 @@
         },
         "wrongQuestionCards": [
           {
-            "id": "question-order-3d8ba3e62f5c-1",
+            "id": "question-order-c9253485eb41-1",
             "index": 1,
             "title": "Missed condition in a multi-step calculation",
             "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
@@ -212,7 +212,7 @@
             "aiTeacherCta": "Let the AI teacher explain this to the child"
           },
           {
-            "id": "question-order-3d8ba3e62f5c-2",
+            "id": "question-order-c9253485eb41-2",
             "index": 2,
             "title": "Unit conversion omitted in the final answer",
             "originalQuestion": "A rope is 2.4 meters long and is cut into 6 equal pieces. How many centimeters is each piece?",
@@ -238,13 +238,13 @@
           },
           "questions": [
             {
-              "questionId": "question-order-3d8ba3e62f5c-1",
+              "questionId": "question-order-c9253485eb41-1",
               "total": 3,
               "used": 0,
               "remaining": 3
             },
             {
-              "questionId": "question-order-3d8ba3e62f5c-2",
+              "questionId": "question-order-c9253485eb41-2",
               "total": 3,
               "used": 0,
               "remaining": 3
@@ -255,11 +255,11 @@
     },
     {
       "method": "POST",
-      "path": "/api/diagnosis-orders/{orderId}/save-report",
+      "path": "/api/reports/{reportId}/save",
       "responseStatus": 200,
       "response": {
         "saved": true,
-        "orderId": "order-3d8ba3e62f5c",
+        "orderId": "order-c9253485eb41",
         "savedAt": "1970-01-01T00:00:00.000Z"
       }
     },
@@ -271,8 +271,8 @@
         "status": "ok",
         "items": [
           {
-            "orderId": "order-3d8ba3e62f5c",
-            "status": "full_report_ready",
+            "orderId": "order-c9253485eb41",
+            "status": "full_done",
             "accessLevel": "full",
             "saved": true,
             "paymentCount": 2,
@@ -290,32 +290,32 @@
   ],
   "dbReadback": {
     "order": {
-      "id": "order-3d8ba3e62f5c",
+      "id": "order-c9253485eb41",
       "ownerId": "local-user-scoremap-t03",
       "source": "T05-report",
       "grade": "grade-5",
       "subject": "math",
       "examType": "unit-test",
       "materialType": "answer-sheet",
-      "status": "full_report_ready",
+      "status": "full_done",
       "accessLevel": "full",
-      "orderToken": "local-order-token-order-3d8ba3e62f5c",
-      "createdAt": "2026-05-27T11:31:02.676Z",
-      "updatedAt": "2026-05-27T11:31:02.756Z",
+      "orderToken": "local-order-token-order-c9253485eb41",
+      "createdAt": "2026-06-22T04:20:43.116Z",
+      "updatedAt": "2026-06-22T04:20:43.636Z",
       "uploadedCount": 1,
-      "previewTaskId": "task-caebc61f5c6d",
-      "previewDecisionId": "decision-order-3d8ba3e62f5c-preview",
+      "previewTaskId": "task-a9f1832f33b5",
+      "previewDecisionId": "decision-order-c9253485eb41-preview",
       "questionInteractionQuotaTotal": 10,
       "questionInteractionQuotaUsed": 0,
       "questionInteractionQuotaRemaining": 10,
-      "fullTaskId": "task-full-15ca58c681b7",
-      "fullDecisionId": "decision-order-3d8ba3e62f5c-full",
+      "fullTaskId": "task-full-fb14dab1bacd",
+      "fullDecisionId": "decision-order-c9253485eb41-full",
       "savedReport": true,
       "savedAt": "1970-01-01T00:00:00.000Z"
     },
     "basicDecision": {
-      "id": "decision-order-3d8ba3e62f5c-basic",
-      "orderId": "order-3d8ba3e62f5c",
+      "id": "decision-order-c9253485eb41-basic",
+      "orderId": "order-c9253485eb41",
       "ownerId": "local-user-scoremap-t03",
       "level": "basic",
       "basic": {
@@ -346,30 +346,30 @@
       "traceId": "trace-llm-basic-02-0001",
       "modelAdapter": "local-deterministic-ai-mock",
       "localOnly": true,
-      "createdAt": "2026-05-27T11:31:02.727Z",
-      "updatedAt": "2026-05-27T11:31:02.727Z"
+      "createdAt": "2026-06-22T04:20:43.445Z",
+      "updatedAt": "2026-06-22T04:20:43.445Z"
     },
     "fullTask": {
-      "id": "task-full-15ca58c681b7",
-      "orderId": "order-3d8ba3e62f5c",
+      "id": "task-full-fb14dab1bacd",
+      "orderId": "order-c9253485eb41",
       "ownerId": "local-user-scoremap-t03",
       "type": "full",
-      "status": "full_report_ready",
+      "status": "full_done",
       "progress": 100,
       "currentStep": "full_report_ready",
       "retryCount": 0,
       "errorCode": null,
-      "createdAt": "2026-05-27T11:31:02.733Z",
-      "updatedAt": "2026-05-27T11:31:02.733Z"
+      "createdAt": "2026-06-22T04:20:43.468Z",
+      "updatedAt": "2026-06-22T04:20:43.468Z"
     },
     "fullDecision": {
-      "id": "decision-order-3d8ba3e62f5c-full",
-      "orderId": "order-3d8ba3e62f5c",
+      "id": "decision-order-c9253485eb41-full",
+      "orderId": "order-c9253485eb41",
       "ownerId": "local-user-scoremap-t03",
       "level": "full",
       "full": {
         "reportTitle": "Complete score improvement report",
-        "orderId": "order-3d8ba3e62f5c",
+        "orderId": "order-c9253485eb41",
         "summary": "Local full report for grade-5 math.",
         "modules": [
           {
@@ -397,7 +397,7 @@
         "complianceNotice": "Local mock report only; no guaranteed score wording.",
         "wrongQuestionCards": [
           {
-            "id": "question-order-3d8ba3e62f5c-1",
+            "id": "question-order-c9253485eb41-1",
             "index": 1,
             "title": "Missed condition in a multi-step calculation",
             "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
@@ -415,7 +415,7 @@
             "aiTeacherCta": "Let the AI teacher explain this to the child"
           },
           {
-            "id": "question-order-3d8ba3e62f5c-2",
+            "id": "question-order-c9253485eb41-2",
             "index": 2,
             "title": "Unit conversion omitted in the final answer",
             "originalQuestion": "A rope is 2.4 meters long and is cut into 6 equal pieces. How many centimeters is each piece?",
@@ -443,8 +443,8 @@
       "traceId": "trace-llm-full-03-0002",
       "modelAdapter": "local-deterministic-ai-mock",
       "localOnly": true,
-      "createdAt": "2026-05-27T11:31:02.749Z",
-      "updatedAt": "2026-05-27T11:31:02.749Z"
+      "createdAt": "2026-06-22T04:20:43.568Z",
+      "updatedAt": "2026-06-22T04:20:43.568Z"
     }
   }
 }

@@ -1,9 +1,9 @@
 {
   "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
-  "command": "npm run visual:scoremap -- full-report-entry full-report",
+  "command": "npm run visual:scoremap -- v13-full-report",
   "route": "/pages/full-report/index",
-  "reference": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/_3/screen-reference",
-  "stitchReference": "ui-reference-catalog/小程序/stitch_codex_ui_design_kit/_3/code.html",
+  "reference": "docs/UI/小程序/v1.4.3-C10-完整报告-核心五卡.png",
+  "stitchReference": "docs/UI/小程序/v1.4.3-C10-完整报告-核心五卡.png",
   "actual": "docs/auto-execute/evidence/frontend-page/visual/v13-full-report/actual-v13-full-report-structure.svg",
   "diff": "docs/auto-execute/evidence/frontend-page/visual/v13-full-report/diff-v13-full-report-manual-review.svg",
   "viewport": {
@@ -11,18 +11,22 @@
     "height": 844
   },
   "structuralChecks": {
-    "hasV13Reference": true,
+    "hasV143Reference": true,
     "hasChineseTitle": true,
-    "hasReportRows": true,
+    "hasFiveCoreCards": true,
+    "hasRecoverableScoreCard": true,
+    "hasEvidenceAnchorCard": true,
+    "hasPriorityCard": true,
+    "hasWrongQuestionCard": true,
+    "hasTeacherInterventionCard": true,
     "hasWrongQuestionCards": true,
-    "hasAiTutorEntry": true,
     "hasShareButton": true,
     "hasSaveButton": true,
-    "hasPdfButton": true
+    "hidesPdfButton": true
   },
   "pixelDiff": {
     "status": "MANUAL_REVIEW_REQUIRED",
     "ratio": null,
-    "reason": "This T11 runner produces deterministic structural visual evidence only; T14 owns full screenshot and pixelmatch harness."
+    "reason": "This runner produces deterministic structural visual evidence only; V143-18 owns screenshot and pixelmatch evidence."
   }
 }

@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "command": "npm --prefix server test -- ai-adapter prompt-registry",
+  "command": "npm --prefix server test -- ai-adapter",
   "routedPromptIds": [
     "LLM-PREVIEW-01",
     "LLM-BASIC-02",
@@ -39,8 +39,8 @@
       "traceId": "trace-llm-preview-01-0001",
       "modelAdapter": "local-deterministic-ai-mock",
       "localOnly": true,
-      "createdAt": "2026-05-27T11:31:01.613Z",
-      "updatedAt": "2026-05-27T11:31:01.613Z"
+      "createdAt": "2026-06-22T04:19:57.129Z",
+      "updatedAt": "2026-06-22T04:19:57.129Z"
     },
     {
       "id": "decision-order-t20-basic",
@@ -75,8 +75,8 @@
       "traceId": "trace-llm-basic-02-0002",
       "modelAdapter": "local-deterministic-ai-mock",
       "localOnly": true,
-      "createdAt": "2026-05-27T11:31:01.618Z",
-      "updatedAt": "2026-05-27T11:31:01.618Z"
+      "createdAt": "2026-06-22T04:19:57.167Z",
+      "updatedAt": "2026-06-22T04:19:57.167Z"
     },
     {
       "id": "decision-order-t20-full",
@@ -159,8 +159,8 @@
       "traceId": "trace-llm-full-03-0003",
       "modelAdapter": "local-deterministic-ai-mock",
       "localOnly": true,
-      "createdAt": "2026-05-27T11:31:01.624Z",
-      "updatedAt": "2026-05-27T11:31:01.624Z"
+      "createdAt": "2026-06-22T04:19:57.232Z",
+      "updatedAt": "2026-06-22T04:19:57.232Z"
     }
   ],
   "traces": [

@@ -34,7 +34,8 @@ function runPreviewBasicPayVisualEvidence(args = process.argv.slice(2)) {
       modalOpenedFromC05: modalResult.status === 'MODAL_OPEN',
       hasHalfScreenModal: modalState.paymentModal.visible === true && modalState.paymentModal.type === 'half-screen',
       hasOneYuanPrice: modalState.paymentModal.price.amountYuan === 1,
-      hasCompleteBasicPayButton: /完整初判/.test(modalState.paymentModal.ctaText),
+      hasCompleteBasicTitle: modalState.paymentModal.title === '解锁完整初判',
+      hasOneYuanPayButton: modalState.paymentModal.ctaText === '立即支付 1 元',
       avoidsFullReportCopy: !/完整报告/.test(modalState.paymentModal.ctaText)
     },
     body: renderPreviewBody(modalState)

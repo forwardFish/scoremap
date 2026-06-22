@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "command": "npm --prefix server test -- orders uploads preview",
+  "requirementIds": [
+    "REQ143-007"
+  ],
+  "uiIds": [
+    "UI143-C01"
+  ],
+  "apiIds": [
+    "API143-001"
+  ],
+  "pageRoute": "/pages/index/index",
+  "uploadResponse": {
+    "orderId": "order-b5f092a66059",
+    "status": "uploaded",
+    "uploadedCount": 2
+  },
+  "parser": {
+    "sourceProject": "C:/LYH/Code/printersheet",
+    "pdf": {
+      "originalName": "scoremap-sample.pdf",
+      "extension": ".pdf",
+      "parseStatus": "parsed",
+      "parsedTextLength": 72,
+      "preview": "Scoremap PDF upload sample: linear equations and fractions. -- 1 of 1 --"
+    },
+    "word": {
+      "originalName": "scoremap-sample.docx",
+      "extension": ".docx",
+      "parseStatus": "parsed",
+      "parsedTextLength": 68,
+      "preview": "Scoremap Word upload sample: geometry mistakes and correction steps."
+    }
+  }
+}

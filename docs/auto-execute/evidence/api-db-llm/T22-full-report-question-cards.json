@@ -13,10 +13,10 @@
       "responseStatus": 200,
       "response": {
         "taskId": "task-full-t22-cards",
-        "status": "full_report_ready",
+        "status": "full_done",
         "wrongQuestionCards": [
           {
-            "id": "question-order-8aeaac64925a-1",
+            "id": "question-order-faae25ecdc87-1",
             "index": 1,
             "title": "Missed condition in a multi-step calculation",
             "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
@@ -34,7 +34,7 @@
             "aiTeacherCta": "Let the AI teacher explain this to the child"
           },
           {
-            "id": "question-order-8aeaac64925a-2",
+            "id": "question-order-faae25ecdc87-2",
             "index": 2,
             "title": "Unit conversion omitted in the final answer",
             "originalQuestion": "A rope is 2.4 meters long and is cut into 6 equal pieces. How many centimeters is each piece?",
@@ -60,13 +60,13 @@
           },
           "questions": [
             {
-              "questionId": "question-order-8aeaac64925a-1",
+              "questionId": "question-order-faae25ecdc87-1",
               "total": 3,
               "used": 0,
               "remaining": 3
             },
             {
-              "questionId": "question-order-8aeaac64925a-2",
+              "questionId": "question-order-faae25ecdc87-2",
               "total": 3,
               "used": 0,
               "remaining": 3
@@ -84,7 +84,7 @@
         "accessLevel": "full",
         "decision": {
           "reportTitle": "Complete score improvement report",
-          "orderId": "order-8aeaac64925a",
+          "orderId": "order-faae25ecdc87",
           "summary": "Local full report for grade-5 math.",
           "modules": [
             {
@@ -112,7 +112,7 @@
           "complianceNotice": "Local mock report only; no guaranteed score wording.",
           "wrongQuestionCards": [
             {
-              "id": "question-order-8aeaac64925a-1",
+              "id": "question-order-faae25ecdc87-1",
               "index": 1,
               "title": "Missed condition in a multi-step calculation",
               "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
@@ -130,7 +130,7 @@
               "aiTeacherCta": "Let the AI teacher explain this to the child"
             },
             {
-              "id": "question-order-8aeaac64925a-2",
+              "id": "question-order-faae25ecdc87-2",
               "index": 2,
               "title": "Unit conversion omitted in the final answer",
               "originalQuestion": "A rope is 2.4 meters long and is cut into 6 equal pieces. How many centimeters is each piece?",
@@ -156,7 +156,7 @@
         },
         "wrongQuestionCards": [
           {
-            "id": "question-order-8aeaac64925a-1",
+            "id": "question-order-faae25ecdc87-1",
             "index": 1,
             "title": "Missed condition in a multi-step calculation",
             "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
@@ -174,7 +174,7 @@
             "aiTeacherCta": "Let the AI teacher explain this to the child"
           },
           {
-            "id": "question-order-8aeaac64925a-2",
+            "id": "question-order-faae25ecdc87-2",
             "index": 2,
             "title": "Unit conversion omitted in the final answer",
             "originalQuestion": "A rope is 2.4 meters long and is cut into 6 equal pieces. How many centimeters is each piece?",
@@ -200,13 +200,13 @@
           },
           "questions": [
             {
-              "questionId": "question-order-8aeaac64925a-1",
+              "questionId": "question-order-faae25ecdc87-1",
               "total": 3,
               "used": 0,
               "remaining": 3
             },
             {
-              "questionId": "question-order-8aeaac64925a-2",
+              "questionId": "question-order-faae25ecdc87-2",
               "total": 3,
               "used": 0,
               "remaining": 3
@@ -218,31 +218,31 @@
   ],
   "dbReadback": {
     "order": {
-      "id": "order-8aeaac64925a",
+      "id": "order-faae25ecdc87",
       "ownerId": "local-user-scoremap-t03",
       "source": "T05-t22-cards",
       "grade": "grade-5",
       "subject": "math",
       "examType": "unit-test",
       "materialType": "answer-sheet",
-      "status": "full_report_ready",
+      "status": "full_done",
       "accessLevel": "full",
-      "orderToken": "local-order-token-order-8aeaac64925a",
-      "createdAt": "2026-05-27T11:31:02.772Z",
-      "updatedAt": "2026-05-27T11:31:02.834Z",
+      "orderToken": "local-order-token-order-faae25ecdc87",
+      "createdAt": "2026-06-22T04:20:43.720Z",
+      "updatedAt": "2026-06-22T04:20:44.127Z",
       "uploadedCount": 1,
-      "previewTaskId": "task-972003c2b0c0",
-      "previewDecisionId": "decision-order-8aeaac64925a-preview",
+      "previewTaskId": "task-a3b328689d67",
+      "previewDecisionId": "decision-order-faae25ecdc87-preview",
       "questionInteractionQuotaTotal": 10,
       "questionInteractionQuotaUsed": 0,
       "questionInteractionQuotaRemaining": 10,
       "fullTaskId": "task-full-t22-cards",
-      "fullDecisionId": "decision-order-8aeaac64925a-full"
+      "fullDecisionId": "decision-order-faae25ecdc87-full"
     },
     "questions": [
       {
-        "id": "question-order-8aeaac64925a-1",
-        "orderId": "order-8aeaac64925a",
+        "id": "question-order-faae25ecdc87-1",
+        "orderId": "order-faae25ecdc87",
         "ownerId": "local-user-scoremap-t03",
         "index": 1,
         "title": "Missed condition in a multi-step calculation",
@@ -259,12 +259,12 @@
         "promptId": "LLM-QUESTION-04",
         "traceId": "trace-llm-question-04-0003",
         "source": "llm-extraction",
-        "createdAt": "2026-05-27T11:31:02.828Z",
-        "updatedAt": "2026-05-27T11:31:02.828Z"
+        "createdAt": "2026-06-22T04:20:44.077Z",
+        "updatedAt": "2026-06-22T04:20:44.077Z"
       },
       {
-        "id": "question-order-8aeaac64925a-2",
-        "orderId": "order-8aeaac64925a",
+        "id": "question-order-faae25ecdc87-2",
+        "orderId": "order-faae25ecdc87",
         "ownerId": "local-user-scoremap-t03",
         "index": 2,
         "title": "Unit conversion omitted in the final answer",
@@ -281,8 +281,8 @@
         "promptId": "LLM-QUESTION-04",
         "traceId": "trace-llm-question-04-0003",
         "source": "llm-extraction",
-        "createdAt": "2026-05-27T11:31:02.830Z",
-        "updatedAt": "2026-05-27T11:31:02.830Z"
+        "createdAt": "2026-06-22T04:20:44.089Z",
+        "updatedAt": "2026-06-22T04:20:44.089Z"
       }
     ],
     "traces": [
@@ -318,7 +318,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "da9755dd57d9b4ee",
+                  "sha256": "508b44e4ce531ebc",
                   "redacted": false
                 },
                 "grade": {
@@ -507,7 +507,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.810Z"
+        "updatedAt": "2026-06-22T04:20:43.978Z"
       },
       {
         "id": "trace-llm-full-03-0002",
@@ -540,7 +540,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "da9755dd57d9b4ee",
+                  "sha256": "508b44e4ce531ebc",
                   "redacted": false
                 },
                 "grade": {
@@ -594,7 +594,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "da9755dd57d9b4ee",
+                  "sha256": "508b44e4ce531ebc",
                   "redacted": false
                 },
                 "summary": {
@@ -745,7 +745,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.820Z"
+        "updatedAt": "2026-06-22T04:20:44.019Z"
       },
       {
         "id": "trace-llm-question-04-0003",
@@ -777,7 +777,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "da9755dd57d9b4ee",
+                  "sha256": "508b44e4ce531ebc",
                   "redacted": false
                 },
                 "reportSummary": {
@@ -955,7 +955,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.823Z"
+        "updatedAt": "2026-06-22T04:20:44.051Z"
       }
     ]
   },

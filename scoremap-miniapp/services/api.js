@@ -61,8 +61,18 @@ function uploadFile({ url, filePath, name = 'files', formData = {}, header = {} 
   });
 }
 
+function createWechatLoginBody({ code, userInfo } = {}) {
+  if (config.LOCAL_WECHAT_LOGIN_MOCK) {
+    return {
+      mockOpenid: config.LOCAL_WECHAT_MOCK_OPENID || 'scoremap-devtools-parent',
+      userInfo
+    };
+  }
+  return { code, userInfo };
+}
+
 async function loginWechat({ code, userInfo } = {}) {
-  const body = { code, userInfo };
+  const body = createWechatLoginBody({ code, userInfo });
   const data = await request({
     method: 'POST',
     url: '/api/auth/wechat-login',
@@ -321,6 +331,7 @@ module.exports = {
   createDiagnosisOrder,
   createQuestionInteraction,
   createPayment,
+  createWechatLoginBody,
   exportPdf,
   generateFullReport,
   getAnalysisProgress,

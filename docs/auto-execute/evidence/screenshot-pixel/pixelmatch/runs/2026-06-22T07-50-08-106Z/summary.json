@@ -1,0 +1,36 @@
+{
+  "taskId": "T47",
+  "status": "REPAIR_REQUIRED",
+  "generatedAt": "2026-06-22T07:50:31.293Z",
+  "threshold": {
+    "diffRatioMax": 0.01
+  },
+  "method": {
+    "comparator": "pixelmatch",
+    "pngDecoder": "pngjs",
+    "sizeMismatchHandling": "preserve the source reference artifact, normalize reference-backed pages to the 390x844 browser viewport before pixelmatch, and report source/reference normalization in metrics"
+  },
+  "counts": {
+    "screens": 1,
+    "referenceBacked": 1,
+    "pass": 0,
+    "passNeedsReference": 0,
+    "repairRequired": 1
+  },
+  "screens": [
+    {
+      "screen": "analysis",
+      "route": "/pages/analysis/index",
+      "status": "REPAIR_REQUIRED",
+      "reference": "docs/auto-execute/evidence/screenshot-pixel/pixelmatch/runs/2026-06-22T07-50-08-106Z/analysis/reference.png",
+      "actual": "docs/auto-execute/evidence/screenshot-pixel/pixelmatch/runs/2026-06-22T07-50-08-106Z/analysis/actual.png",
+      "diff": "docs/auto-execute/evidence/screenshot-pixel/pixelmatch/runs/2026-06-22T07-50-08-106Z/analysis/diff.png",
+      "metrics": "docs/auto-execute/evidence/screenshot-pixel/pixelmatch/runs/2026-06-22T07-50-08-106Z/analysis/metrics.json",
+      "summary": "docs/auto-execute/evidence/screenshot-pixel/pixelmatch/runs/2026-06-22T07-50-08-106Z/analysis/summary.json",
+      "diffPixels": 54993,
+      "totalPixels": 329160,
+      "diffRatio": 0.16707072548304777,
+      "sizeMismatch": false
+    }
+  ]
+}

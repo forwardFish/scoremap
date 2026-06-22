@@ -2,6 +2,8 @@ const API_BASE_URL = 'http://127.0.0.1:3101';
 
 module.exports = {
   API_BASE_URL,
+  LOCAL_WECHAT_LOGIN_MOCK: true,
+  LOCAL_WECHAT_MOCK_OPENID: 'scoremap-devtools-parent',
   REQUEST_TIMEOUT_MS: 120000,
   UPLOAD_TIMEOUT_MS: 120000,
   PAYMENT_REFRESH_RETRIES: 5,

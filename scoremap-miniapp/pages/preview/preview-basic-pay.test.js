@@ -35,7 +35,9 @@ test('V143-11 C05 renders three preview modules, locked area, login gate, and 1 
   assert.equal(modal.modal.type, 'half-screen');
   assert.equal(stateWithModal.paymentModal.visible, true);
   assert.equal(stateWithModal.paymentModal.price.amountYuan, 1);
-  assert.match(stateWithModal.paymentModal.ctaText, /完整初判/);
+  assert.equal(stateWithModal.paymentModal.price.text, '1.00 元');
+  assert.equal(stateWithModal.paymentModal.title, '解锁完整初判');
+  assert.equal(stateWithModal.paymentModal.ctaText, '立即支付 1 元');
   assert.doesNotMatch(stateWithModal.paymentModal.ctaText, /完整报告/);
   assert.equal(loginGate.status, 'LOGIN_REQUIRED');
   assert.equal(loginGate.targetRoute, '/pages/login/login');
@@ -180,6 +182,7 @@ test('V143-11 C05 records structural visual limitation and local-only guard evid
     'scoremap-miniapp/services/local-fixture-store.js'
   ];
   const forbiddenRemoteFindings = [];
+  const previewWxml = fs.readFileSync(path.join(projectRoot, 'scoremap-miniapp/pages/preview/index.wxml'), 'utf8');
   for (const relativePath of filesToScan) {
     const text = fs.readFileSync(path.join(projectRoot, relativePath), 'utf8');
     for (const match of scanTextForForbiddenRemoteCalls(text, DEFAULT_FORBIDDEN_PATTERNS)) {
@@ -188,6 +191,15 @@ test('V143-11 C05 records structural visual limitation and local-only guard evid
   }
 
   assert.deepEqual(forbiddenRemoteFindings, []);
+  assert.match(previewWxml, /<view wx:if="\{\{showPayModal\}\}" class="payment-mask">/);
+  assert.match(previewWxml, /class="unlock-pill" data-action="pay" bindtap="onTap"/);
+  assert.match(previewWxml, /class="floating-pay-button" data-action="pay" bindtap="onTap"/);
+  assert.match(previewWxml, /解锁完整初判/);
+  assert.match(previewWxml, /立即支付 1 元/);
+  assert.match(
+    fs.readFileSync(path.join(projectRoot, 'scoremap-miniapp/pages/preview/index.js'), 'utf8'),
+    /showPayModal: shouldOpenPayModal/
+  );
 
   writeEvidence('V143-11-c05-owner-local.json', {
     status: 'PASS_WITH_LIMITATION',

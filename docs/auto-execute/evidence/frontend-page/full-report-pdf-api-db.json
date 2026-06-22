@@ -88,9 +88,9 @@
     },
     "saveReport": {
       "method": "POST",
-      "path": "/api/diagnosis-orders/order-t11-pdf/save-report",
+      "path": "/api/reports/order-t11-pdf/save",
       "payloadSummary": {
-        "source": "full-report-v13-page-save"
+        "source": "v143-c10-page-save"
       },
       "responseStatus": 200,
       "responseBody": {
@@ -102,7 +102,7 @@
       "path": "/api/diagnosis-orders/order-t11-pdf/export-pdf",
       "payloadSummary": {
         "exportId": "report-export-order-t11-pdf",
-        "source": "full-report-v13-page-pdf"
+        "source": "v143-c10-page-pdf-hidden-action"
       },
       "responseStatus": 201,
       "responseBody": {
@@ -117,7 +117,7 @@
       "controlId": "switch-tab-7-day-plan",
       "result": {
         "status": "TAB_CHANGED",
-        "activeTab": "7-day plan"
+        "activeTab": "7天计划"
       }
     },
     {
@@ -141,7 +141,18 @@
       }
     },
     {
-      "controlId": "export-pdf",
+      "controlId": "pdf-entry-hidden-before-export",
+      "result": {
+        "id": "pdf-export-entry",
+        "text": "PDF 文件",
+        "visible": false,
+        "fileUrl": null,
+        "filePath": null,
+        "status": "hidden_until_export_ready"
+      }
+    },
+    {
+      "controlId": "export-pdf-hidden-action",
       "result": {
         "status": "PDF_READY",
         "apiStatus": 201,
@@ -162,6 +173,17 @@
         },
         "filePath": "docs/auto-execute/evidence/frontend-page/pdf/order-t11-pdf-report-export-order-t11-pdf.pdf",
         "toast": "PDF 已导出到本地证据目录"
+      }
+    },
+    {
+      "controlId": "pdf-entry-visible-after-export",
+      "result": {
+        "id": "pdf-export-entry",
+        "text": "PDF 文件",
+        "visible": true,
+        "fileUrl": "local-report-export://order-t11-pdf/report-export-order-t11-pdf.pdf",
+        "filePath": "docs/auto-execute/evidence/frontend-page/pdf/order-t11-pdf-report-export-order-t11-pdf.pdf",
+        "status": "ready"
       }
     },
     {

@@ -28,11 +28,11 @@
     "noQuestionFallback": {
       "responseStatus": 200,
       "response": {
-        "taskId": "task-full-11a39320f5f0",
-        "status": "full_report_ready",
+        "taskId": "task-full-86088dcde77b",
+        "status": "full_done",
         "wrongQuestionCards": [
           {
-            "id": "question-order-4adb04a482a0-1",
+            "id": "question-order-e65dee066b48-1",
             "index": 1,
             "title": "Fallback card: calculation process gap",
             "originalQuestion": "Local math wrong-question context was unavailable, so this card uses the report weakness summary.",
@@ -50,7 +50,7 @@
             "aiTeacherCta": "Let the AI teacher explain this to the child"
           },
           {
-            "id": "question-order-4adb04a482a0-2",
+            "id": "question-order-e65dee066b48-2",
             "index": 2,
             "title": "Fallback card: answer checking gap",
             "originalQuestion": "Check whether the final answer matches the unit and condition in the original problem.",
@@ -76,13 +76,13 @@
           },
           "questions": [
             {
-              "questionId": "question-order-4adb04a482a0-1",
+              "questionId": "question-order-e65dee066b48-1",
               "total": 3,
               "used": 0,
               "remaining": 3
             },
             {
-              "questionId": "question-order-4adb04a482a0-2",
+              "questionId": "question-order-e65dee066b48-2",
               "total": 3,
               "used": 0,
               "remaining": 3
@@ -94,31 +94,31 @@
   },
   "dbReadback": {
     "fallbackOrder": {
-      "id": "order-4adb04a482a0",
+      "id": "order-e65dee066b48",
       "ownerId": "local-user-scoremap-t03",
       "source": "T05-t22-fallback",
       "grade": "grade-5",
       "subject": "math",
       "examType": "unit-test",
       "materialType": "answer-sheet",
-      "status": "full_report_ready",
+      "status": "full_done",
       "accessLevel": "full",
-      "orderToken": "local-order-token-order-4adb04a482a0",
-      "createdAt": "2026-05-27T11:31:02.953Z",
-      "updatedAt": "2026-05-27T11:31:03.003Z",
+      "orderToken": "local-order-token-order-e65dee066b48",
+      "createdAt": "2026-06-22T04:20:44.956Z",
+      "updatedAt": "2026-06-22T04:20:45.370Z",
       "uploadedCount": 1,
-      "previewTaskId": "task-45468c84360f",
-      "previewDecisionId": "decision-order-4adb04a482a0-preview",
+      "previewTaskId": "task-b366087d4f95",
+      "previewDecisionId": "decision-order-e65dee066b48-preview",
       "questionInteractionQuotaTotal": 10,
       "questionInteractionQuotaUsed": 0,
       "questionInteractionQuotaRemaining": 10,
-      "fullTaskId": "task-full-11a39320f5f0",
-      "fullDecisionId": "decision-order-4adb04a482a0-full"
+      "fullTaskId": "task-full-86088dcde77b",
+      "fullDecisionId": "decision-order-e65dee066b48-full"
     },
     "fallbackQuestions": [
       {
-        "id": "question-order-4adb04a482a0-1",
-        "orderId": "order-4adb04a482a0",
+        "id": "question-order-e65dee066b48-1",
+        "orderId": "order-e65dee066b48",
         "ownerId": "local-user-scoremap-t03",
         "index": 1,
         "title": "Fallback card: calculation process gap",
@@ -135,12 +135,12 @@
         "promptId": "LLM-QUESTION-04",
         "traceId": "trace-llm-question-04-0006",
         "source": "fallback",
-        "createdAt": "2026-05-27T11:31:02.999Z",
-        "updatedAt": "2026-05-27T11:31:02.999Z"
+        "createdAt": "2026-06-22T04:20:45.322Z",
+        "updatedAt": "2026-06-22T04:20:45.322Z"
       },
       {
-        "id": "question-order-4adb04a482a0-2",
-        "orderId": "order-4adb04a482a0",
+        "id": "question-order-e65dee066b48-2",
+        "orderId": "order-e65dee066b48",
         "ownerId": "local-user-scoremap-t03",
         "index": 2,
         "title": "Fallback card: answer checking gap",
@@ -157,8 +157,8 @@
         "promptId": "LLM-QUESTION-04",
         "traceId": "trace-llm-question-04-0006",
         "source": "fallback",
-        "createdAt": "2026-05-27T11:31:03.000Z",
-        "updatedAt": "2026-05-27T11:31:03.000Z"
+        "createdAt": "2026-06-22T04:20:45.344Z",
+        "updatedAt": "2026-06-22T04:20:45.344Z"
       }
     ],
     "traces": [
@@ -194,7 +194,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "ce6cc4f84d70a455",
+                  "sha256": "513959ff4f432832",
                   "redacted": false
                 },
                 "grade": {
@@ -383,7 +383,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.938Z"
+        "updatedAt": "2026-06-22T04:20:44.820Z"
       },
       {
         "id": "trace-llm-full-03-0002",
@@ -416,7 +416,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "ce6cc4f84d70a455",
+                  "sha256": "513959ff4f432832",
                   "redacted": false
                 },
                 "grade": {
@@ -470,7 +470,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "ce6cc4f84d70a455",
+                  "sha256": "513959ff4f432832",
                   "redacted": false
                 },
                 "summary": {
@@ -621,7 +621,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.943Z"
+        "updatedAt": "2026-06-22T04:20:44.895Z"
       },
       {
         "id": "trace-llm-question-04-0003",
@@ -653,7 +653,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "ce6cc4f84d70a455",
+                  "sha256": "513959ff4f432832",
                   "redacted": false
                 },
                 "reportSummary": {
@@ -698,7 +698,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.945Z"
+        "updatedAt": "2026-06-22T04:20:44.908Z"
       },
       {
         "id": "trace-llm-basic-02-0004",
@@ -732,7 +732,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "09ecc7a35bf369fb",
+                  "sha256": "68938345b6228661",
                   "redacted": false
                 },
                 "grade": {
@@ -921,7 +921,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.989Z"
+        "updatedAt": "2026-06-22T04:20:45.199Z"
       },
       {
         "id": "trace-llm-full-03-0005",
@@ -954,7 +954,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "09ecc7a35bf369fb",
+                  "sha256": "68938345b6228661",
                   "redacted": false
                 },
                 "grade": {
@@ -1008,7 +1008,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "09ecc7a35bf369fb",
+                  "sha256": "68938345b6228661",
                   "redacted": false
                 },
                 "summary": {
@@ -1159,7 +1159,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.995Z"
+        "updatedAt": "2026-06-22T04:20:45.255Z"
       },
       {
         "id": "trace-llm-question-04-0006",
@@ -1191,7 +1191,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "09ecc7a35bf369fb",
+                  "sha256": "68938345b6228661",
                   "redacted": false
                 },
                 "reportSummary": {
@@ -1232,7 +1232,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.997Z"
+        "updatedAt": "2026-06-22T04:20:45.287Z"
       }
     ]
   },

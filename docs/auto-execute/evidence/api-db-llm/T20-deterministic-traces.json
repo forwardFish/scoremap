@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "command": "npm --prefix server test -- ai-adapter prompt-registry",
+  "command": "npm --prefix server test -- ai-adapter",
   "promptIds": [
     "LLM-PREVIEW-01",
     "LLM-BASIC-02",

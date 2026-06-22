@@ -1,0 +1,16 @@
+{
+  "id": "UI-C06",
+  "screen": "basic-pay",
+  "route": "/pages/basic-pay/index",
+  "status": "PASS_NEEDS_REFERENCE",
+  "reference": null,
+  "actual": "docs/auto-execute/evidence/screenshot-pixel/pixelmatch/runs/2026-06-22T10-17-31-703Z/basic-pay/actual.png",
+  "diff": null,
+  "metrics": "docs/auto-execute/evidence/screenshot-pixel/pixelmatch/runs/2026-06-22T10-17-31-703Z/basic-pay/metrics.json",
+  "diffPixels": null,
+  "totalPixels": null,
+  "diffRatio": null,
+  "threshold": 0.01,
+  "sizeMismatch": null,
+  "knownGaps": []
+}

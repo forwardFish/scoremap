@@ -3,10 +3,68 @@
   "exportedAt": "1970-01-01T00:00:00.000Z",
   "localOnly": true,
   "tables": {
+    "users": [
+      {
+        "id": "local-user-scoremap-t03",
+        "role": "parent_owner",
+        "displayName": "Local Parent Owner",
+        "createdAt": "2026-06-22T04:20:45.443Z",
+        "updatedAt": "2026-06-22T04:20:45.443Z"
+      }
+    ],
+    "diagnosis_orders": [
+      {
+        "id": "order-a1d120db2bd9",
+        "ownerId": "local-user-scoremap-t03",
+        "source": "T05-feedback-export",
+        "grade": "grade-5",
+        "subject": "math",
+        "examType": "unit-test",
+        "materialType": "answer-sheet",
+        "status": "full_done",
+        "accessLevel": "full",
+        "orderToken": "local-order-token-order-a1d120db2bd9",
+        "createdAt": "2026-06-22T04:20:45.455Z",
+        "updatedAt": "2026-06-22T04:20:45.890Z",
+        "uploadedCount": 1,
+        "previewTaskId": "task-2be2ecb9e269",
+        "previewDecisionId": "decision-order-a1d120db2bd9-preview",
+        "questionInteractionQuotaTotal": 10,
+        "questionInteractionQuotaUsed": 0,
+        "questionInteractionQuotaRemaining": 10,
+        "fullTaskId": "task-full-3f4a92044c7c",
+        "fullDecisionId": "decision-order-a1d120db2bd9-full"
+      }
+    ],
+    "upload_files": [
+      {
+        "id": "upload-t05-feedback-export",
+        "ownerId": "local-user-scoremap-t03",
+        "orderId": "order-a1d120db2bd9",
+        "originalName": "answer-sheet.png",
+        "mimeType": "image/png",
+        "storagePath": "C:\\Users\\LINYAN~1\\AppData\\Local\\Temp\\scoremap-t05-hSmff9\\local-cloud\\local-user-scoremap-t03\\order-a1d120db2bd9\\upload-t05-feedback-export-answer-sheet.png",
+        "cloudPath": "local-mock://local-user-scoremap-t03/order-a1d120db2bd9/upload-t05-feedback-export-answer-sheet.png",
+        "fileId": "local-cloud-file-upload-t05-feedback-export",
+        "size": 23,
+        "adapter": "local-tencent-cloud-mock",
+        "createdAt": "2026-06-22T04:20:45.500Z",
+        "updatedAt": "2026-06-22T04:20:45.515Z",
+        "authorizationAccepted": true,
+        "extension": ".png",
+        "parseStatus": "parsed",
+        "parsedTextLength": 69,
+        "parsedTextPreview": "[image upload accepted; OCR is not enabled in local scoremap runtime]",
+        "parseErrorCode": null,
+        "parseErrorMessage": null,
+        "quality": "normal",
+        "localOnly": true
+      }
+    ],
     "ai_analysis_tasks": [
       {
-        "id": "task-891a722ff6b6",
-        "orderId": "order-4a5816dffebe",
+        "id": "task-2be2ecb9e269",
+        "orderId": "order-a1d120db2bd9",
         "ownerId": "local-user-scoremap-t03",
         "type": "preview",
         "status": "preview_done",
@@ -14,23 +72,227 @@
         "currentStep": "preview_decision_ready",
         "retryCount": 0,
         "errorCode": null,
-        "createdAt": "2026-05-27T11:31:03.024Z",
-        "updatedAt": "2026-05-27T11:31:03.024Z"
+        "createdAt": "2026-06-22T04:20:45.564Z",
+        "updatedAt": "2026-06-22T04:20:45.564Z"
       },
       {
-        "id": "task-full-644692f6305e",
-        "orderId": "order-4a5816dffebe",
+        "id": "task-full-3f4a92044c7c",
+        "orderId": "order-a1d120db2bd9",
         "ownerId": "local-user-scoremap-t03",
         "type": "full",
-        "status": "full_report_ready",
+        "status": "full_done",
         "progress": 100,
         "currentStep": "full_report_ready",
         "retryCount": 0,
         "errorCode": null,
-        "createdAt": "2026-05-27T11:31:03.045Z",
-        "updatedAt": "2026-05-27T11:31:03.045Z"
+        "createdAt": "2026-06-22T04:20:45.752Z",
+        "updatedAt": "2026-06-22T04:20:45.752Z"
       }
     ],
+    "diagnosis_decisions": [
+      {
+        "id": "decision-order-a1d120db2bd9-preview",
+        "orderId": "order-a1d120db2bd9",
+        "ownerId": "local-user-scoremap-t03",
+        "level": "preview",
+        "preview": {
+          "summary": "Local mock preview decision is ready.",
+          "visibleModules": [
+            {
+              "title": "Paper overview",
+              "content": "Answer-sheet structure and basic material metadata were recognized."
+            },
+            {
+              "title": "Main score-loss points",
+              "content": "Calculation-step completeness needs focused review."
+            },
+            {
+              "title": "Improvement advice",
+              "content": "Review mistake categories before unlocking the complete initial decision."
+            }
+          ],
+          "lockedModules": [
+            "Full knowledge diagnosis",
+            "Per-question improvement advice",
+            "Complete score improvement report"
+          ],
+          "cta": "1 CNY unlock complete initial decision"
+        },
+        "promptId": "LLM-PREVIEW-01",
+        "traceId": "trace-llm-preview-01-0001",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "localOnly": true,
+        "createdAt": "2026-06-22T04:20:45.585Z",
+        "updatedAt": "2026-06-22T04:20:45.585Z"
+      },
+      {
+        "id": "decision-order-a1d120db2bd9-basic",
+        "orderId": "order-a1d120db2bd9",
+        "ownerId": "local-user-scoremap-t03",
+        "level": "basic",
+        "basic": {
+          "reportTitle": "Complete initial score decision",
+          "summary": "Local basic decision for grade-5 math.",
+          "scoreLevel": "needs-focused-improvement",
+          "quality": {
+            "recognized": true,
+            "uploadQuality": "normal",
+            "confidence": 0.86
+          },
+          "lossPoints": [
+            "Calculation process is incomplete in multi-step questions.",
+            "Key formulas are present but final answer checking is weak."
+          ],
+          "weaknesses": [
+            "Paper overview",
+            "Main score-loss points",
+            "Improvement advice"
+          ],
+          "advice": [
+            "Review mistake categories before the next practice round.",
+            "Keep every calculation step visible for teacher review."
+          ],
+          "upgradeCta": "Unlock the complete score improvement report"
+        },
+        "promptId": "LLM-BASIC-02",
+        "traceId": "trace-llm-basic-02-0001",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "localOnly": true,
+        "createdAt": "2026-06-22T04:20:45.736Z",
+        "updatedAt": "2026-06-22T04:20:45.736Z"
+      },
+      {
+        "id": "decision-order-a1d120db2bd9-full",
+        "orderId": "order-a1d120db2bd9",
+        "ownerId": "local-user-scoremap-t03",
+        "level": "full",
+        "full": {
+          "reportTitle": "Complete score improvement report",
+          "orderId": "order-a1d120db2bd9",
+          "summary": "Local full report for grade-5 math.",
+          "modules": [
+            {
+              "id": "knowledge-diagnosis",
+              "title": "Knowledge diagnosis",
+              "content": "Calculation rules, formula usage, and answer checking need staged practice."
+            },
+            {
+              "id": "question-level-advice",
+              "title": "Per-question improvement advice",
+              "content": "Mark the missing condition, write the formula, solve, then verify the unit."
+            },
+            {
+              "id": "seven-day-plan",
+              "title": "7-day score improvement plan",
+              "content": "Three short reviews, two targeted exercises, and one full correction review."
+            },
+            {
+              "id": "parent-guidance",
+              "title": "Parent guidance",
+              "content": "Focus feedback on process completeness instead of a guaranteed score outcome."
+            }
+          ],
+          "basicSummary": "Local basic decision for grade-5 math.",
+          "complianceNotice": "Local mock report only; no guaranteed score wording.",
+          "wrongQuestionCards": [
+            {
+              "id": "question-order-a1d120db2bd9-1",
+              "index": 1,
+              "title": "Missed condition in a multi-step calculation",
+              "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
+              "studentAnswer": "24",
+              "correctAnswer": "27",
+              "knowledgePoint": "Fraction multiplication",
+              "diagnosis": "The answer used an incomplete fraction relationship and skipped the condition check.",
+              "explanationSummary": "Turn three quarters into 36 x 3 / 4, then verify the result is reasonable.",
+              "masteryStatus": "needs_practice",
+              "quota": {
+                "total": 3,
+                "used": 0,
+                "remaining": 3
+              },
+              "aiTeacherCta": "Let the AI teacher explain this to the child"
+            },
+            {
+              "id": "question-order-a1d120db2bd9-2",
+              "index": 2,
+              "title": "Unit conversion omitted in the final answer",
+              "originalQuestion": "A rope is 2.4 meters long and is cut into 6 equal pieces. How many centimeters is each piece?",
+              "studentAnswer": "0.4 cm",
+              "correctAnswer": "40 cm",
+              "knowledgePoint": "Unit conversion",
+              "diagnosis": "The calculation found 0.4 meters but did not convert meters to centimeters.",
+              "explanationSummary": "First divide meters, then convert 0.4 m to 40 cm before writing the answer.",
+              "masteryStatus": "needs_practice",
+              "quota": {
+                "total": 3,
+                "used": 0,
+                "remaining": 3
+              },
+              "aiTeacherCta": "Let the AI teacher explain this to the child"
+            }
+          ],
+          "questionInteractionQuota": {
+            "total": 10,
+            "used": 0,
+            "remaining": 10
+          }
+        },
+        "promptId": "LLM-FULL-03",
+        "traceId": "trace-llm-full-03-0002",
+        "modelAdapter": "local-deterministic-ai-mock",
+        "localOnly": true,
+        "createdAt": "2026-06-22T04:20:45.872Z",
+        "updatedAt": "2026-06-22T04:20:45.872Z"
+      }
+    ],
+    "diagnosis_questions": [
+      {
+        "id": "question-order-a1d120db2bd9-1",
+        "orderId": "order-a1d120db2bd9",
+        "ownerId": "local-user-scoremap-t03",
+        "index": 1,
+        "title": "Missed condition in a multi-step calculation",
+        "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
+        "studentAnswer": "24",
+        "correctAnswer": "27",
+        "knowledgePoint": "Fraction multiplication",
+        "diagnosis": "The answer used an incomplete fraction relationship and skipped the condition check.",
+        "explanationSummary": "Turn three quarters into 36 x 3 / 4, then verify the result is reasonable.",
+        "masteryStatus": "needs_practice",
+        "questionInteractionQuotaTotal": 3,
+        "questionInteractionQuotaUsed": 0,
+        "questionInteractionQuotaRemaining": 3,
+        "promptId": "LLM-QUESTION-04",
+        "traceId": "trace-llm-question-04-0003",
+        "source": "llm-extraction",
+        "createdAt": "2026-06-22T04:20:45.834Z",
+        "updatedAt": "2026-06-22T04:20:45.834Z"
+      },
+      {
+        "id": "question-order-a1d120db2bd9-2",
+        "orderId": "order-a1d120db2bd9",
+        "ownerId": "local-user-scoremap-t03",
+        "index": 2,
+        "title": "Unit conversion omitted in the final answer",
+        "originalQuestion": "A rope is 2.4 meters long and is cut into 6 equal pieces. How many centimeters is each piece?",
+        "studentAnswer": "0.4 cm",
+        "correctAnswer": "40 cm",
+        "knowledgePoint": "Unit conversion",
+        "diagnosis": "The calculation found 0.4 meters but did not convert meters to centimeters.",
+        "explanationSummary": "First divide meters, then convert 0.4 m to 40 cm before writing the answer.",
+        "masteryStatus": "needs_practice",
+        "questionInteractionQuotaTotal": 3,
+        "questionInteractionQuotaUsed": 0,
+        "questionInteractionQuotaRemaining": 3,
+        "promptId": "LLM-QUESTION-04",
+        "traceId": "trace-llm-question-04-0003",
+        "source": "llm-extraction",
+        "createdAt": "2026-06-22T04:20:45.854Z",
+        "updatedAt": "2026-06-22T04:20:45.854Z"
+      }
+    ],
+    "question_interactions": [],
     "ai_model_traces": [
       {
         "id": "trace-llm-basic-02-0001",
@@ -64,7 +326,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "871baca58003c966",
+                  "sha256": "3225149afab3b4f1",
                   "redacted": false
                 },
                 "grade": {
@@ -253,7 +515,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:03.042Z"
+        "updatedAt": "2026-06-22T04:20:45.719Z"
       },
       {
         "id": "trace-llm-full-03-0002",
@@ -286,7 +548,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "871baca58003c966",
+                  "sha256": "3225149afab3b4f1",
                   "redacted": false
                 },
                 "grade": {
@@ -340,7 +602,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "871baca58003c966",
+                  "sha256": "3225149afab3b4f1",
                   "redacted": false
                 },
                 "summary": {
@@ -491,7 +753,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:03.047Z"
+        "updatedAt": "2026-06-22T04:20:45.769Z"
       },
       {
         "id": "trace-llm-question-04-0003",
@@ -523,7 +785,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "871baca58003c966",
+                  "sha256": "3225149afab3b4f1",
                   "redacted": false
                 },
                 "reportSummary": {
@@ -701,240 +963,57 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:03.048Z"
+        "updatedAt": "2026-06-22T04:20:45.795Z"
       }
     ],
-    "diagnosis_decisions": [
+    "payments": [
       {
-        "id": "decision-order-4a5816dffebe-preview",
-        "orderId": "order-4a5816dffebe",
+        "id": "payment-basic-a94e889b5803",
+        "orderId": "order-a1d120db2bd9",
         "ownerId": "local-user-scoremap-t03",
-        "level": "preview",
-        "preview": {
-          "summary": "Local mock preview decision is ready.",
-          "visibleModules": [
-            {
-              "title": "Paper overview",
-              "content": "Answer-sheet structure and basic material metadata were recognized."
-            },
-            {
-              "title": "Main score-loss points",
-              "content": "Calculation-step completeness needs focused review."
-            },
-            {
-              "title": "Improvement advice",
-              "content": "Review mistake categories before unlocking the complete initial decision."
-            }
-          ],
-          "lockedModules": [
-            "Full knowledge diagnosis",
-            "Per-question improvement advice",
-            "Complete score improvement report"
-          ],
-          "cta": "1 CNY unlock complete initial decision"
-        },
-        "promptId": "LLM-PREVIEW-01",
-        "traceId": "trace-llm-preview-01-0001",
-        "modelAdapter": "local-deterministic-ai-mock",
-        "localOnly": true,
-        "createdAt": "2026-05-27T11:31:03.025Z",
-        "updatedAt": "2026-05-27T11:31:03.025Z"
+        "paymentType": "basic",
+        "channel": "local-wechat-pay-mock",
+        "amountCents": 100,
+        "status": "paid",
+        "mockTransactionId": "mock-tx-t05-feedback-export-basic",
+        "callbackCount": 1,
+        "createdAt": "2026-06-22T04:20:45.617Z",
+        "updatedAt": "2026-06-22T04:20:45.634Z",
+        "paidAt": "1970-01-01T00:00:00.000Z"
       },
       {
-        "id": "decision-order-4a5816dffebe-basic",
-        "orderId": "order-4a5816dffebe",
+        "id": "payment-full-2a2db5067753",
+        "orderId": "order-a1d120db2bd9",
         "ownerId": "local-user-scoremap-t03",
-        "level": "basic",
-        "basic": {
-          "reportTitle": "Complete initial score decision",
-          "summary": "Local basic decision for grade-5 math.",
-          "scoreLevel": "needs-focused-improvement",
-          "quality": {
-            "recognized": true,
-            "uploadQuality": "normal",
-            "confidence": 0.86
-          },
-          "lossPoints": [
-            "Calculation process is incomplete in multi-step questions.",
-            "Key formulas are present but final answer checking is weak."
-          ],
-          "weaknesses": [
-            "Paper overview",
-            "Main score-loss points",
-            "Improvement advice"
-          ],
-          "advice": [
-            "Review mistake categories before the next practice round.",
-            "Keep every calculation step visible for teacher review."
-          ],
-          "upgradeCta": "Unlock the complete score improvement report"
-        },
-        "promptId": "LLM-BASIC-02",
-        "traceId": "trace-llm-basic-02-0001",
-        "modelAdapter": "local-deterministic-ai-mock",
-        "localOnly": true,
-        "createdAt": "2026-05-27T11:31:03.044Z",
-        "updatedAt": "2026-05-27T11:31:03.044Z"
-      },
-      {
-        "id": "decision-order-4a5816dffebe-full",
-        "orderId": "order-4a5816dffebe",
-        "ownerId": "local-user-scoremap-t03",
-        "level": "full",
-        "full": {
-          "reportTitle": "Complete score improvement report",
-          "orderId": "order-4a5816dffebe",
-          "summary": "Local full report for grade-5 math.",
-          "modules": [
-            {
-              "id": "knowledge-diagnosis",
-              "title": "Knowledge diagnosis",
-              "content": "Calculation rules, formula usage, and answer checking need staged practice."
-            },
-            {
-              "id": "question-level-advice",
-              "title": "Per-question improvement advice",
-              "content": "Mark the missing condition, write the formula, solve, then verify the unit."
-            },
-            {
-              "id": "seven-day-plan",
-              "title": "7-day score improvement plan",
-              "content": "Three short reviews, two targeted exercises, and one full correction review."
-            },
-            {
-              "id": "parent-guidance",
-              "title": "Parent guidance",
-              "content": "Focus feedback on process completeness instead of a guaranteed score outcome."
-            }
-          ],
-          "basicSummary": "Local basic decision for grade-5 math.",
-          "complianceNotice": "Local mock report only; no guaranteed score wording.",
-          "wrongQuestionCards": [
-            {
-              "id": "question-order-4a5816dffebe-1",
-              "index": 1,
-              "title": "Missed condition in a multi-step calculation",
-              "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
-              "studentAnswer": "24",
-              "correctAnswer": "27",
-              "knowledgePoint": "Fraction multiplication",
-              "diagnosis": "The answer used an incomplete fraction relationship and skipped the condition check.",
-              "explanationSummary": "Turn three quarters into 36 x 3 / 4, then verify the result is reasonable.",
-              "masteryStatus": "needs_practice",
-              "quota": {
-                "total": 3,
-                "used": 0,
-                "remaining": 3
-              },
-              "aiTeacherCta": "Let the AI teacher explain this to the child"
-            },
-            {
-              "id": "question-order-4a5816dffebe-2",
-              "index": 2,
-              "title": "Unit conversion omitted in the final answer",
-              "originalQuestion": "A rope is 2.4 meters long and is cut into 6 equal pieces. How many centimeters is each piece?",
-              "studentAnswer": "0.4 cm",
-              "correctAnswer": "40 cm",
-              "knowledgePoint": "Unit conversion",
-              "diagnosis": "The calculation found 0.4 meters but did not convert meters to centimeters.",
-              "explanationSummary": "First divide meters, then convert 0.4 m to 40 cm before writing the answer.",
-              "masteryStatus": "needs_practice",
-              "quota": {
-                "total": 3,
-                "used": 0,
-                "remaining": 3
-              },
-              "aiTeacherCta": "Let the AI teacher explain this to the child"
-            }
-          ],
-          "questionInteractionQuota": {
-            "total": 10,
-            "used": 0,
-            "remaining": 10
-          }
-        },
-        "promptId": "LLM-FULL-03",
-        "traceId": "trace-llm-full-03-0002",
-        "modelAdapter": "local-deterministic-ai-mock",
-        "localOnly": true,
-        "createdAt": "2026-05-27T11:31:03.055Z",
-        "updatedAt": "2026-05-27T11:31:03.055Z"
+        "paymentType": "full",
+        "channel": "local-wechat-pay-mock",
+        "amountCents": 990,
+        "status": "paid",
+        "mockTransactionId": "mock-tx-t05-feedback-export-full",
+        "callbackCount": 1,
+        "createdAt": "2026-06-22T04:20:45.667Z",
+        "updatedAt": "2026-06-22T04:20:45.686Z",
+        "paidAt": "1970-01-01T00:00:00.000Z"
       }
     ],
-    "diagnosis_orders": [
+    "report_exports": [
       {
-        "id": "order-4a5816dffebe",
+        "id": "report-export-t05",
+        "orderId": "order-a1d120db2bd9",
         "ownerId": "local-user-scoremap-t03",
-        "source": "T05-feedback-export",
-        "grade": "grade-5",
-        "subject": "math",
-        "examType": "unit-test",
-        "materialType": "answer-sheet",
-        "status": "full_report_ready",
-        "accessLevel": "full",
-        "orderToken": "local-order-token-order-4a5816dffebe",
-        "createdAt": "2026-05-27T11:31:03.013Z",
-        "updatedAt": "2026-05-27T11:31:03.056Z",
-        "uploadedCount": 1,
-        "previewTaskId": "task-891a722ff6b6",
-        "previewDecisionId": "decision-order-4a5816dffebe-preview",
-        "questionInteractionQuotaTotal": 10,
-        "questionInteractionQuotaUsed": 0,
-        "questionInteractionQuotaRemaining": 10,
-        "fullTaskId": "task-full-644692f6305e",
-        "fullDecisionId": "decision-order-4a5816dffebe-full"
-      }
-    ],
-    "diagnosis_questions": [
-      {
-        "id": "question-order-4a5816dffebe-1",
-        "orderId": "order-4a5816dffebe",
-        "ownerId": "local-user-scoremap-t03",
-        "index": 1,
-        "title": "Missed condition in a multi-step calculation",
-        "originalQuestion": "A class has 36 students. Three quarters joined clubs. How many students joined clubs?",
-        "studentAnswer": "24",
-        "correctAnswer": "27",
-        "knowledgePoint": "Fraction multiplication",
-        "diagnosis": "The answer used an incomplete fraction relationship and skipped the condition check.",
-        "explanationSummary": "Turn three quarters into 36 x 3 / 4, then verify the result is reasonable.",
-        "masteryStatus": "needs_practice",
-        "questionInteractionQuotaTotal": 3,
-        "questionInteractionQuotaUsed": 0,
-        "questionInteractionQuotaRemaining": 3,
-        "promptId": "LLM-QUESTION-04",
-        "traceId": "trace-llm-question-04-0003",
-        "source": "llm-extraction",
-        "createdAt": "2026-05-27T11:31:03.052Z",
-        "updatedAt": "2026-05-27T11:31:03.052Z"
-      },
-      {
-        "id": "question-order-4a5816dffebe-2",
-        "orderId": "order-4a5816dffebe",
-        "ownerId": "local-user-scoremap-t03",
-        "index": 2,
-        "title": "Unit conversion omitted in the final answer",
-        "originalQuestion": "A rope is 2.4 meters long and is cut into 6 equal pieces. How many centimeters is each piece?",
-        "studentAnswer": "0.4 cm",
-        "correctAnswer": "40 cm",
-        "knowledgePoint": "Unit conversion",
-        "diagnosis": "The calculation found 0.4 meters but did not convert meters to centimeters.",
-        "explanationSummary": "First divide meters, then convert 0.4 m to 40 cm before writing the answer.",
-        "masteryStatus": "needs_practice",
-        "questionInteractionQuotaTotal": 3,
-        "questionInteractionQuotaUsed": 0,
-        "questionInteractionQuotaRemaining": 3,
-        "promptId": "LLM-QUESTION-04",
-        "traceId": "trace-llm-question-04-0003",
-        "source": "llm-extraction",
-        "createdAt": "2026-05-27T11:31:03.053Z",
-        "updatedAt": "2026-05-27T11:31:03.053Z"
+        "status": "ready",
+        "format": "pdf-local-text",
+        "fileUrl": "local-report-export://local-user-scoremap-t03/order-a1d120db2bd9/report-export-t05.txt",
+        "filePath": "C:\\LYH\\Code\\scoremap\\docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-a1d120db2bd9\\report-export-t05.txt",
+        "byteLength": 662,
+        "createdAt": "2026-06-22T04:20:45.936Z",
+        "updatedAt": "2026-06-22T04:20:45.936Z"
       }
     ],
     "feedbacks": [
       {
-        "id": "feedback-c2c91791c21c",
-        "orderId": "order-4a5816dffebe",
+        "id": "feedback-f7f8b2dd8da4",
+        "orderId": "order-a1d120db2bd9",
         "ownerId": "local-user-scoremap-t03",
         "decisionLevel": "full",
         "rating": 5,
@@ -943,81 +1022,8 @@
           "useful"
         ],
         "text": "Local test feedback only.",
-        "createdAt": "2026-05-27T11:31:03.059Z",
-        "updatedAt": "2026-05-27T11:31:03.059Z"
-      }
-    ],
-    "payments": [
-      {
-        "id": "payment-basic-b3e59207542e",
-        "orderId": "order-4a5816dffebe",
-        "ownerId": "local-user-scoremap-t03",
-        "paymentType": "basic",
-        "channel": "local-wechat-pay-mock",
-        "amountCents": 100,
-        "status": "paid",
-        "mockTransactionId": "mock-tx-t05-feedback-export-basic",
-        "callbackCount": 1,
-        "createdAt": "2026-05-27T11:31:03.029Z",
-        "updatedAt": "2026-05-27T11:31:03.032Z",
-        "paidAt": "1970-01-01T00:00:00.000Z"
-      },
-      {
-        "id": "payment-full-b4f655e55ff4",
-        "orderId": "order-4a5816dffebe",
-        "ownerId": "local-user-scoremap-t03",
-        "paymentType": "full",
-        "channel": "local-wechat-pay-mock",
-        "amountCents": 990,
-        "status": "paid",
-        "mockTransactionId": "mock-tx-t05-feedback-export-full",
-        "callbackCount": 1,
-        "createdAt": "2026-05-27T11:31:03.037Z",
-        "updatedAt": "2026-05-27T11:31:03.039Z",
-        "paidAt": "1970-01-01T00:00:00.000Z"
-      }
-    ],
-    "question_interactions": [],
-    "report_exports": [
-      {
-        "id": "report-export-t05",
-        "orderId": "order-4a5816dffebe",
-        "ownerId": "local-user-scoremap-t03",
-        "status": "ready",
-        "format": "pdf-local-text",
-        "fileUrl": "local-report-export://local-user-scoremap-t03/order-4a5816dffebe/report-export-t05.txt",
-        "filePath": "D:\\lyh\\agent\\agent-frame\\scoremap\\docs\\auto-execute\\evidence\\backend-api-report\\local-report-exports\\local-user-scoremap-t03\\order-4a5816dffebe\\report-export-t05.txt",
-        "byteLength": 662,
-        "createdAt": "2026-05-27T11:31:03.064Z",
-        "updatedAt": "2026-05-27T11:31:03.064Z"
-      }
-    ],
-    "upload_files": [
-      {
-        "id": "upload-t05-feedback-export",
-        "ownerId": "local-user-scoremap-t03",
-        "orderId": "order-4a5816dffebe",
-        "originalName": "answer-sheet.png",
-        "mimeType": "image/png",
-        "storagePath": "C:\\Users\\LINYAN~1\\AppData\\Local\\Temp\\scoremap-t05-tQQZMM\\local-cloud\\local-user-scoremap-t03\\order-4a5816dffebe\\upload-t05-feedback-export-answer-sheet.png",
-        "cloudPath": "local-mock://local-user-scoremap-t03/order-4a5816dffebe/upload-t05-feedback-export-answer-sheet.png",
-        "fileId": "local-cloud-file-upload-t05-feedback-export",
-        "size": 23,
-        "adapter": "local-tencent-cloud-mock",
-        "createdAt": "2026-05-27T11:31:03.018Z",
-        "updatedAt": "2026-05-27T11:31:03.020Z",
-        "authorizationAccepted": true,
-        "quality": "normal",
-        "localOnly": true
-      }
-    ],
-    "users": [
-      {
-        "id": "local-user-scoremap-t03",
-        "role": "parent_owner",
-        "displayName": "Local Parent Owner",
-        "createdAt": "2026-05-27T11:31:03.011Z",
-        "updatedAt": "2026-05-27T11:31:03.011Z"
+        "createdAt": "2026-06-22T04:20:45.910Z",
+        "updatedAt": "2026-06-22T04:20:45.910Z"
       }
     ]
   }

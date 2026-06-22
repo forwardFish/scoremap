@@ -18,7 +18,8 @@
         "headline": "回答正确",
         "explanation": "你先算出每小时多走 12 千米，再乘以 3 小时，数量关系抓对了。",
         "summary": "同类题迁移已掌握。"
-      }
+      },
+      "masteryStatus": "initial_mastery"
     },
     "trace": {
       "id": "trace-interaction-order-t28-answer-q1-similar_exercise-1-answer",
@@ -72,7 +73,8 @@
         "summary": "同类题迁移已掌握。"
       },
       "answerPromptId": "LLM-CHECK-07",
-      "answerTraceId": "trace-interaction-order-t28-answer-q1-similar_exercise-1-answer"
+      "answerTraceId": "trace-interaction-order-t28-answer-q1-similar_exercise-1-answer",
+      "masteryStatus": "initial_mastery"
     },
     "answerTrace": {
       "id": "trace-interaction-order-t28-answer-q1-similar_exercise-1-answer",
@@ -184,7 +186,8 @@
             "summary": "同类题迁移已掌握。"
           },
           "answerPromptId": "LLM-CHECK-07",
-          "answerTraceId": "trace-interaction-order-t28-answer-q1-similar_exercise-1-answer"
+          "answerTraceId": "trace-interaction-order-t28-answer-q1-similar_exercise-1-answer",
+          "masteryStatus": "initial_mastery"
         }
       ]
     }
@@ -356,7 +359,8 @@
           "headline": "回答正确",
           "explanation": "你先算出每小时多走 12 千米，再乘以 3 小时，数量关系抓对了。",
           "summary": "同类题迁移已掌握。"
-        }
+        },
+        "masteryStatus": "initial_mastery"
       }
     },
     {
@@ -453,7 +457,8 @@
               "summary": "同类题迁移已掌握。"
             },
             "answerPromptId": "LLM-CHECK-07",
-            "answerTraceId": "trace-interaction-order-t28-answer-q1-similar_exercise-1-answer"
+            "answerTraceId": "trace-interaction-order-t28-answer-q1-similar_exercise-1-answer",
+            "masteryStatus": "initial_mastery"
           }
         ]
       }

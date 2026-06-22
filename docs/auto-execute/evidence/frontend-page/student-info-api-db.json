@@ -1,0 +1,141 @@
+{
+  "status": "PASS",
+  "command": "npm test -- student-info",
+  "route": "/pages/student-info/index",
+  "targetRoute": "/pages/analysis/index",
+  "apiCalls": [
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders",
+      "payloadSummary": {
+        "orderId": "order-v143-c02-student-info",
+        "source": "student-info-submit",
+        "grade": "初一",
+        "subject": "math",
+        "examType": "月考",
+        "currentScore": "78",
+        "targetScore": "95",
+        "materialTypes": "array(3)"
+      },
+      "responseStatus": 201,
+      "responseBody": {
+        "status": "created",
+        "orderId": "order-v143-c02-student-info",
+        "orderToken": "local-order-token-order-v143-c02-student-info"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-v143-c02-student-info/uploads",
+      "payloadSummary": {
+        "uploadId": "upload-v143-c02-student-info",
+        "authorizationAccepted": true,
+        "files": "array(3)",
+        "materialTypes": "array(3)"
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "uploaded",
+        "orderId": "order-v143-c02-student-info",
+        "uploadedCount": 1
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/diagnosis-orders/order-v143-c02-student-info/start-preview-analysis",
+      "payloadSummary": {
+        "taskId": "task-v143-c02-preview",
+        "studentInfo": {
+          "grade": "初一",
+          "subject": "数学",
+          "currentScore": "78",
+          "targetScore": "95",
+          "examType": "月考",
+          "materialTypes": [
+            "exam-paper",
+            "wrong-question-photo",
+            "score-report"
+          ]
+        }
+      },
+      "responseStatus": 200,
+      "responseBody": {
+        "status": "preview_done",
+        "taskId": "task-v143-c02-preview"
+      }
+    }
+  ],
+  "apiSequence": [
+    "POST /api/diagnosis-orders",
+    "POST /api/diagnosis-orders/{orderId}/uploads",
+    "POST /api/diagnosis-orders/{orderId}/start-preview-analysis",
+    "navigate /pages/analysis/index"
+  ],
+  "dbReadback": {
+    "order": {
+      "id": "order-v143-c02-student-info",
+      "ownerId": "local-user-scoremap-t06",
+      "status": "preview_done",
+      "accessLevel": "preview",
+      "source": "student-info-submit",
+      "grade": "初一",
+      "subject": "math",
+      "examType": "月考",
+      "currentScore": "78",
+      "targetScore": "95",
+      "materialTypes": [
+        "exam-paper",
+        "wrong-question-photo",
+        "score-report"
+      ],
+      "uploadedCount": 1
+    },
+    "upload": {
+      "id": "upload-v143-c02-student-info",
+      "orderId": "order-v143-c02-student-info",
+      "ownerId": "local-user-scoremap-t06",
+      "authorizationAccepted": true,
+      "localOnly": true
+    },
+    "analysisTask": {
+      "id": "task-v143-c02-preview",
+      "orderId": "order-v143-c02-student-info",
+      "ownerId": "local-user-scoremap-t06",
+      "type": "preview",
+      "status": "preview_done",
+      "progress": 100,
+      "currentStep": "preview_ready",
+      "errorCode": null,
+      "retryCount": 0
+    },
+    "previewDecision": {
+      "id": "decision-order-v143-c02-student-info-preview",
+      "orderId": "order-v143-c02-student-info",
+      "ownerId": "local-user-scoremap-t06",
+      "level": "preview",
+      "preview": {
+        "visibleModules": [
+          "overview",
+          "loss-points",
+          "advice"
+        ],
+        "lockedModules": [
+          "full-report"
+        ]
+      }
+    }
+  },
+  "submittedForm": {
+    "grade": "初一",
+    "subject": "数学",
+    "currentScore": "78",
+    "targetScore": "95",
+    "examType": "月考",
+    "materialTypes": [
+      "paper",
+      "wrong",
+      "score"
+    ],
+    "authorizationAccepted": true
+  }
+}

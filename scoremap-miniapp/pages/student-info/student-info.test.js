@@ -6,7 +6,7 @@ const { writeJsonEvidence } = require('../../../shared/evidence-paths');
 const { DEFAULT_FORBIDDEN_PATTERNS, assertLocalOnlyEnvironment, scanTextForForbiddenRemoteCalls } = require('../../../shared/local-only');
 const { createMiniappApiClient } = require('../../services/api-client');
 const { createWechatAuthGate } = require('../../utils/wechat-auth');
-const { createStudentInfoPageState, validateForm } = require('./index');
+const { createStudentInfoPageState, validateForm, GRADES, DEFAULT_GRADE } = require('./index');
 
 const projectRoot = path.resolve(__dirname, '..', '..', '..');
 const command = 'npm test -- student-info';
@@ -20,7 +20,12 @@ test('student-info renders C02 form defaults and validates required inputs', () 
   const state = page.getState();
   const wxml = fs.readFileSync(path.join(__dirname, 'index.wxml'), 'utf8');
   assert.equal(state.route, '/pages/student-info/index');
-  assert.equal(state.form.grade, '初一');
+  assert.equal(state.form.grade, DEFAULT_GRADE);
+  assert.deepEqual(state.grades, GRADES);
+  assert.deepEqual(GRADES, ['小一', '小二', '小三', '小四', '小五', '小六', '初一', '初二', '初三', '高一', '高二', '高三']);
+  assert.equal(page.selectGrade(0).value, '小一');
+  assert.equal(page.selectGrade(5).value, '小六');
+  assert.equal(page.selectGrade(6).value, '初一');
   assert.equal(state.form.subject, '数学');
   assert.equal(state.form.authorizationAccepted, true);
   assert.deepEqual(state.form.materialTypes, ['paper', 'wrong', 'score']);
@@ -45,6 +50,7 @@ test('student-info renders C02 form defaults and validates required inputs', () 
     steps: state.steps,
     controls: state.controls,
     defaultForm: state.form,
+    availableGrades: GRADES,
     markup: {
       hasAuthorizationControl: true,
       usesPageLocalVisualSlices: false,

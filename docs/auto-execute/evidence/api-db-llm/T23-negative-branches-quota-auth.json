@@ -136,30 +136,30 @@
   },
   "dbReadback": {
     "orderAfterFailures": {
-      "id": "order-c1b591c80785",
+      "id": "order-e4ae16f8f9e6",
       "ownerId": "local-user-scoremap-t03",
       "source": "T23-branches",
       "grade": "grade-5",
       "subject": "math",
       "examType": "unit-test",
       "materialType": "answer-sheet",
-      "status": "full_report_ready",
+      "status": "full_done",
       "accessLevel": "full",
-      "orderToken": "local-order-token-order-c1b591c80785",
-      "createdAt": "2026-05-27T11:31:01.784Z",
-      "updatedAt": "2026-05-27T11:31:01.917Z",
+      "orderToken": "local-order-token-order-e4ae16f8f9e6",
+      "createdAt": "2026-06-22T04:20:02.428Z",
+      "updatedAt": "2026-06-22T04:20:03.695Z",
       "uploadedCount": 1,
-      "previewTaskId": "task-eb726be6ea28",
-      "previewDecisionId": "decision-order-c1b591c80785-preview",
+      "previewTaskId": "task-949ec31773d9",
+      "previewDecisionId": "decision-order-e4ae16f8f9e6-preview",
       "questionInteractionQuotaTotal": 10,
       "questionInteractionQuotaUsed": 2,
       "questionInteractionQuotaRemaining": 8,
       "fullTaskId": "task-full-t23-branches",
-      "fullDecisionId": "decision-order-c1b591c80785-full"
+      "fullDecisionId": "decision-order-e4ae16f8f9e6-full"
     },
     "questionAfterFailures": {
-      "id": "question-order-c1b591c80785-1",
-      "orderId": "order-c1b591c80785",
+      "id": "question-order-e4ae16f8f9e6-1",
+      "orderId": "order-e4ae16f8f9e6",
       "ownerId": "local-user-scoremap-t03",
       "index": 1,
       "title": "Missed condition in a multi-step calculation",
@@ -169,20 +169,22 @@
       "knowledgePoint": "Fraction multiplication",
       "diagnosis": "The answer used an incomplete fraction relationship and skipped the condition check.",
       "explanationSummary": "Turn three quarters into 36 x 3 / 4, then verify the result is reasonable.",
-      "masteryStatus": "needs_practice",
+      "masteryStatus": "initial_mastery",
       "questionInteractionQuotaTotal": 3,
       "questionInteractionQuotaUsed": 2,
       "questionInteractionQuotaRemaining": 1,
       "promptId": "LLM-QUESTION-04",
       "traceId": "trace-llm-question-04-0003",
       "source": "llm-extraction",
-      "createdAt": "2026-05-27T11:31:01.826Z",
-      "updatedAt": "2026-05-27T11:31:01.919Z"
+      "createdAt": "2026-06-22T04:20:02.822Z",
+      "updatedAt": "2026-06-22T04:20:03.759Z",
+      "latestInteractionSummary": "Answer matches the local reference.",
+      "latestInteractionId": "interaction-t23-answer-branches"
     },
     "timeoutInteraction": {
       "id": "interaction-t23-timeout",
-      "orderId": "order-c1b591c80785",
-      "questionId": "question-order-c1b591c80785-1",
+      "orderId": "order-e4ae16f8f9e6",
+      "questionId": "question-order-e4ae16f8f9e6-1",
       "ownerId": "local-user-scoremap-t03",
       "actionType": "explain_differently",
       "promptId": "LLM-TUTOR-05",
@@ -194,13 +196,13 @@
       "summary": null,
       "status": "failed",
       "errorCode": "LOCAL_AI_TIMEOUT",
-      "createdAt": "2026-05-27T11:31:01.895Z",
-      "updatedAt": "2026-05-27T11:31:01.895Z"
+      "createdAt": "2026-06-22T04:20:03.521Z",
+      "updatedAt": "2026-06-22T04:20:03.521Z"
     },
     "providerFailureInteraction": {
       "id": "interaction-t23-provider-failure",
-      "orderId": "order-c1b591c80785",
-      "questionId": "question-order-c1b591c80785-1",
+      "orderId": "order-e4ae16f8f9e6",
+      "questionId": "question-order-e4ae16f8f9e6-1",
       "ownerId": "local-user-scoremap-t03",
       "actionType": "simpler_example",
       "promptId": "LLM-TUTOR-05",
@@ -212,13 +214,13 @@
       "summary": null,
       "status": "failed",
       "errorCode": "LOCAL_AI_PROVIDER_FAILURE",
-      "createdAt": "2026-05-27T11:31:01.899Z",
-      "updatedAt": "2026-05-27T11:31:01.899Z"
+      "createdAt": "2026-06-22T04:20:03.553Z",
+      "updatedAt": "2026-06-22T04:20:03.553Z"
     },
     "redirectedInteraction": {
       "id": "interaction-t23-redirect",
-      "orderId": "order-c1b591c80785",
-      "questionId": "question-order-c1b591c80785-1",
+      "orderId": "order-e4ae16f8f9e6",
+      "questionId": "question-order-e4ae16f8f9e6-1",
       "ownerId": "local-user-scoremap-t03",
       "actionType": "explain_step",
       "promptId": "LLM-TUTOR-05",
@@ -234,30 +236,30 @@
       "summary": "Out-of-scope request redirected to the current wrong question.",
       "status": "redirected",
       "errorCode": "OUT_OF_SCOPE_REDIRECT",
-      "createdAt": "2026-05-27T11:31:01.901Z",
-      "updatedAt": "2026-05-27T11:31:01.901Z"
+      "createdAt": "2026-06-22T04:20:03.572Z",
+      "updatedAt": "2026-06-22T04:20:03.572Z"
     },
     "quotaOrder": {
-      "id": "order-068082ef0881",
+      "id": "order-75a0fc131459",
       "ownerId": "local-user-scoremap-t03",
       "source": "T23-quota",
       "grade": "grade-5",
       "subject": "math",
       "examType": "unit-test",
       "materialType": "answer-sheet",
-      "status": "full_report_ready",
+      "status": "full_done",
       "accessLevel": "full",
-      "orderToken": "local-order-token-order-068082ef0881",
-      "createdAt": "2026-05-27T11:31:01.932Z",
-      "updatedAt": "2026-05-27T11:31:02.187Z",
+      "orderToken": "local-order-token-order-75a0fc131459",
+      "createdAt": "2026-06-22T04:20:03.817Z",
+      "updatedAt": "2026-06-22T04:20:04.986Z",
       "uploadedCount": 1,
-      "previewTaskId": "task-963504856d86",
-      "previewDecisionId": "decision-order-068082ef0881-preview",
+      "previewTaskId": "task-4c792246f4dc",
+      "previewDecisionId": "decision-order-75a0fc131459-preview",
       "questionInteractionQuotaTotal": 10,
       "questionInteractionQuotaUsed": 10,
       "questionInteractionQuotaRemaining": 0,
       "fullTaskId": "task-full-t23-quota",
-      "fullDecisionId": "decision-order-068082ef0881-full"
+      "fullDecisionId": "decision-order-75a0fc131459-full"
     },
     "traces": [
       {
@@ -292,7 +294,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "0de006dc81893da7",
+                  "sha256": "4945bfe87a094fa2",
                   "redacted": false
                 },
                 "grade": {
@@ -481,7 +483,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:01.819Z"
+        "updatedAt": "2026-06-22T04:20:02.742Z"
       },
       {
         "id": "trace-llm-full-03-0002",
@@ -514,7 +516,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "0de006dc81893da7",
+                  "sha256": "4945bfe87a094fa2",
                   "redacted": false
                 },
                 "grade": {
@@ -568,7 +570,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "0de006dc81893da7",
+                  "sha256": "4945bfe87a094fa2",
                   "redacted": false
                 },
                 "summary": {
@@ -719,7 +721,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:01.823Z"
+        "updatedAt": "2026-06-22T04:20:02.780Z"
       },
       {
         "id": "trace-llm-question-04-0003",
@@ -751,7 +753,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "0de006dc81893da7",
+                  "sha256": "4945bfe87a094fa2",
                   "redacted": false
                 },
                 "reportSummary": {
@@ -929,7 +931,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:01.824Z"
+        "updatedAt": "2026-06-22T04:20:02.799Z"
       },
       {
         "id": "trace-llm-tutor-05-0004",
@@ -962,13 +964,13 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "0de006dc81893da7",
+                  "sha256": "4945bfe87a094fa2",
                   "redacted": false
                 },
                 "questionId": {
                   "type": "string",
                   "length": 29,
-                  "sha256": "5fc72b1a5774af87",
+                  "sha256": "fe23c5b8ac35f68a",
                   "redacted": false
                 },
                 "action": {
@@ -1015,7 +1017,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:01.894Z"
+        "updatedAt": "2026-06-22T04:20:03.504Z"
       },
       {
         "id": "trace-llm-tutor-05-0005",
@@ -1048,13 +1050,13 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "0de006dc81893da7",
+                  "sha256": "4945bfe87a094fa2",
                   "redacted": false
                 },
                 "questionId": {
                   "type": "string",
                   "length": 29,
-                  "sha256": "5fc72b1a5774af87",
+                  "sha256": "fe23c5b8ac35f68a",
                   "redacted": false
                 },
                 "action": {
@@ -1101,7 +1103,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:01.898Z"
+        "updatedAt": "2026-06-22T04:20:03.539Z"
       },
       {
         "id": "trace-llm-tutor-05-0006",
@@ -1134,13 +1136,13 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "0de006dc81893da7",
+                  "sha256": "4945bfe87a094fa2",
                   "redacted": false
                 },
                 "questionId": {
                   "type": "string",
                   "length": 29,
-                  "sha256": "5fc72b1a5774af87",
+                  "sha256": "fe23c5b8ac35f68a",
                   "redacted": false
                 },
                 "action": {
@@ -1206,7 +1208,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:01.904Z"
+        "updatedAt": "2026-06-22T04:20:03.597Z"
       },
       {
         "id": "trace-llm-exercise-06-0007",
@@ -1239,13 +1241,13 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "0de006dc81893da7",
+                  "sha256": "4945bfe87a094fa2",
                   "redacted": false
                 },
                 "questionId": {
                   "type": "string",
                   "length": 29,
-                  "sha256": "5fc72b1a5774af87",
+                  "sha256": "fe23c5b8ac35f68a",
                   "redacted": false
                 },
                 "action": {
@@ -1335,7 +1337,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:01.914Z"
+        "updatedAt": "2026-06-22T04:20:03.663Z"
       },
       {
         "id": "trace-llm-check-07-0008",
@@ -1368,13 +1370,13 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "0de006dc81893da7",
+                  "sha256": "4945bfe87a094fa2",
                   "redacted": false
                 },
                 "questionId": {
                   "type": "string",
                   "length": 29,
-                  "sha256": "5fc72b1a5774af87",
+                  "sha256": "fe23c5b8ac35f68a",
                   "redacted": false
                 },
                 "interactionId": {
@@ -1431,7 +1433,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:01.924Z"
+        "updatedAt": "2026-06-22T04:20:03.733Z"
       },
       {
         "id": "trace-llm-basic-02-0009",
@@ -1465,7 +1467,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "105d3c5ead07ab94",
+                  "sha256": "4a75467ca296277e",
                   "redacted": false
                 },
                 "grade": {
@@ -1654,7 +1656,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:01.980Z"
+        "updatedAt": "2026-06-22T04:20:04.079Z"
       },
       {
         "id": "trace-llm-full-03-0010",
@@ -1687,7 +1689,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "105d3c5ead07ab94",
+                  "sha256": "4a75467ca296277e",
                   "redacted": false
                 },
                 "grade": {
@@ -1741,7 +1743,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "105d3c5ead07ab94",
+                  "sha256": "4a75467ca296277e",
                   "redacted": false
                 },
                 "summary": {
@@ -1892,7 +1894,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:01.987Z"
+        "updatedAt": "2026-06-22T04:20:04.134Z"
       },
       {
         "id": "trace-llm-question-04-0011",
@@ -1924,7 +1926,7 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "105d3c5ead07ab94",
+                  "sha256": "4a75467ca296277e",
                   "redacted": false
                 },
                 "reportSummary": {
@@ -2102,7 +2104,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:01.991Z"
+        "updatedAt": "2026-06-22T04:20:04.151Z"
       },
       {
         "id": "trace-llm-tutor-05-0012",
@@ -2135,13 +2137,13 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "105d3c5ead07ab94",
+                  "sha256": "4a75467ca296277e",
                   "redacted": false
                 },
                 "questionId": {
                   "type": "string",
                   "length": 29,
-                  "sha256": "b3c13ecb6d10158b",
+                  "sha256": "f27dd3d61aa3ed04",
                   "redacted": false
                 },
                 "action": {
@@ -2207,7 +2209,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.019Z"
+        "updatedAt": "2026-06-22T04:20:04.284Z"
       },
       {
         "id": "trace-llm-tutor-05-0013",
@@ -2240,13 +2242,13 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "105d3c5ead07ab94",
+                  "sha256": "4a75467ca296277e",
                   "redacted": false
                 },
                 "questionId": {
                   "type": "string",
                   "length": 29,
-                  "sha256": "b3c13ecb6d10158b",
+                  "sha256": "f27dd3d61aa3ed04",
                   "redacted": false
                 },
                 "action": {
@@ -2312,7 +2314,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.041Z"
+        "updatedAt": "2026-06-22T04:20:04.350Z"
       },
       {
         "id": "trace-llm-tutor-05-0014",
@@ -2345,13 +2347,13 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "105d3c5ead07ab94",
+                  "sha256": "4a75467ca296277e",
                   "redacted": false
                 },
                 "questionId": {
                   "type": "string",
                   "length": 29,
-                  "sha256": "b3c13ecb6d10158b",
+                  "sha256": "f27dd3d61aa3ed04",
                   "redacted": false
                 },
                 "action": {
@@ -2417,7 +2419,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.061Z"
+        "updatedAt": "2026-06-22T04:20:04.419Z"
       },
       {
         "id": "trace-llm-tutor-05-0015",
@@ -2450,13 +2452,13 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "105d3c5ead07ab94",
+                  "sha256": "4a75467ca296277e",
                   "redacted": false
                 },
                 "questionId": {
                   "type": "string",
                   "length": 29,
-                  "sha256": "566daeb958695c89",
+                  "sha256": "75315e59d5952d77",
                   "redacted": false
                 },
                 "action": {
@@ -2522,7 +2524,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.078Z"
+        "updatedAt": "2026-06-22T04:20:04.501Z"
       },
       {
         "id": "trace-llm-tutor-05-0016",
@@ -2555,13 +2557,13 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "105d3c5ead07ab94",
+                  "sha256": "4a75467ca296277e",
                   "redacted": false
                 },
                 "questionId": {
                   "type": "string",
                   "length": 29,
-                  "sha256": "566daeb958695c89",
+                  "sha256": "75315e59d5952d77",
                   "redacted": false
                 },
                 "action": {
@@ -2627,7 +2629,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.089Z"
+        "updatedAt": "2026-06-22T04:20:04.595Z"
       },
       {
         "id": "trace-llm-tutor-05-0017",
@@ -2660,13 +2662,13 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "105d3c5ead07ab94",
+                  "sha256": "4a75467ca296277e",
                   "redacted": false
                 },
                 "questionId": {
                   "type": "string",
                   "length": 29,
-                  "sha256": "566daeb958695c89",
+                  "sha256": "75315e59d5952d77",
                   "redacted": false
                 },
                 "action": {
@@ -2732,7 +2734,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.104Z"
+        "updatedAt": "2026-06-22T04:20:04.658Z"
       },
       {
         "id": "trace-llm-tutor-05-0018",
@@ -2765,13 +2767,13 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "105d3c5ead07ab94",
+                  "sha256": "4a75467ca296277e",
                   "redacted": false
                 },
                 "questionId": {
                   "type": "string",
                   "length": 34,
-                  "sha256": "fb49c88a24146e12",
+                  "sha256": "e19713f278db1133",
                   "redacted": false
                 },
                 "action": {
@@ -2837,7 +2839,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.117Z"
+        "updatedAt": "2026-06-22T04:20:04.743Z"
       },
       {
         "id": "trace-llm-tutor-05-0019",
@@ -2870,13 +2872,13 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "105d3c5ead07ab94",
+                  "sha256": "4a75467ca296277e",
                   "redacted": false
                 },
                 "questionId": {
                   "type": "string",
                   "length": 34,
-                  "sha256": "fb49c88a24146e12",
+                  "sha256": "e19713f278db1133",
                   "redacted": false
                 },
                 "action": {
@@ -2942,7 +2944,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.134Z"
+        "updatedAt": "2026-06-22T04:20:04.816Z"
       },
       {
         "id": "trace-llm-tutor-05-0020",
@@ -2975,13 +2977,13 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "105d3c5ead07ab94",
+                  "sha256": "4a75467ca296277e",
                   "redacted": false
                 },
                 "questionId": {
                   "type": "string",
                   "length": 34,
-                  "sha256": "fb49c88a24146e12",
+                  "sha256": "e19713f278db1133",
                   "redacted": false
                 },
                 "action": {
@@ -3047,7 +3049,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.165Z"
+        "updatedAt": "2026-06-22T04:20:04.891Z"
       },
       {
         "id": "trace-llm-tutor-05-0021",
@@ -3080,13 +3082,13 @@
                 "orderId": {
                   "type": "string",
                   "length": 18,
-                  "sha256": "105d3c5ead07ab94",
+                  "sha256": "4a75467ca296277e",
                   "redacted": false
                 },
                 "questionId": {
                   "type": "string",
                   "length": 34,
-                  "sha256": "dfd0a2499c07bf61",
+                  "sha256": "6b4bce2b47fd1385",
                   "redacted": false
                 },
                 "action": {
@@ -3152,7 +3154,7 @@
         "providerId": null,
         "localOnly": true,
         "createdAt": "1970-01-01T00:00:00.000Z",
-        "updatedAt": "2026-05-27T11:31:02.180Z"
+        "updatedAt": "2026-06-22T04:20:04.953Z"
       }
     ]
   },

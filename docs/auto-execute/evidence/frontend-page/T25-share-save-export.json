@@ -2,7 +2,12 @@
   "status": "PASS",
   "command": "npm test -- full-report-ai-entry",
   "requirementIds": [
-    "V13-R09"
+    "V13-R09",
+    "REQ143-006",
+    "REQ143-007"
+  ],
+  "uiReferences": [
+    "UI143-C10A"
   ],
   "visibleControls": [
     {
@@ -12,7 +17,7 @@
     },
     {
       "id": "load-wrong-questions",
-      "text": "加载错题卡片",
+      "text": "鍔犺浇鍏抽敭閿欓",
       "api": "GET /api/diagnosis-orders/order-t25-controls/questions"
     },
     {
@@ -21,8 +26,14 @@
       "targetRoute": "/pages/wrong-question/index"
     },
     {
+      "id": "open-repair-drawer",
+      "text": "打开修复抽屉",
+      "behavior": "drawer-diagnosis",
+      "visible": true
+    },
+    {
       "id": "open-ai-tutor-from-card",
-      "text": "让 AI 老师讲给孩子听",
+      "text": "Ask AI tutor",
       "targetRoute": "/pages/ai-tutor/index"
     },
     {
@@ -34,20 +45,23 @@
     {
       "id": "save-report",
       "text": "保存报告",
-      "api": "POST /api/diagnosis-orders/order-t25-controls/save-report",
+      "api": "POST /api/reports/order-t25-controls/save",
       "targetRoute": "/pages/my/index",
-      "visible": true
-    },
-    {
-      "id": "export-pdf",
-      "text": "导出 PDF",
-      "api": "POST /api/diagnosis-orders/order-t25-controls/export-pdf",
       "visible": true
     },
     {
       "id": "return-entry",
       "text": "返回报告入口",
       "targetRoute": "/pages/full-report-entry/index"
+    }
+  ],
+  "hiddenControls": [
+    {
+      "id": "export-pdf",
+      "text": "瀵煎嚭 PDF",
+      "api": "POST /api/diagnosis-orders/order-t25-controls/export-pdf",
+      "visible": false,
+      "reason": "PDF 导出入口保持隐藏，直到本地导出文件准备完成。"
     }
   ],
   "behaviorEvidence": {
@@ -91,6 +105,14 @@
       },
       "filePath": "docs/auto-execute/evidence/frontend-page/pdf/order-t25-controls-report-export-order-t25-controls.pdf",
       "toast": "PDF 已导出到本地证据目录"
+    },
+    "pdfReadyEntry": {
+      "id": "pdf-export-entry",
+      "text": "PDF 文件",
+      "visible": true,
+      "fileUrl": "local-report-export://order-t25-controls/report-export-order-t25-controls.pdf",
+      "filePath": "docs/auto-execute/evidence/frontend-page/pdf/order-t25-controls-report-export-order-t25-controls.pdf",
+      "status": "ready"
     }
   },
   "localPdf": {

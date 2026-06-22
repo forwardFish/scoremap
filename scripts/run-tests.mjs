@@ -3,6 +3,7 @@ import path from 'node:path';
 
 const requested = new Set(process.argv.slice(2).map((arg) => arg.toLowerCase()));
 const projectRoot = path.resolve(import.meta.dirname, '..');
+const supportsTestIsolation = nodeSupports('--test-isolation');
 
 const testGroups = [
   { tags: ['navigation'], files: ['scoremap-miniapp/navigation-click-audit.test.js'] },
@@ -25,6 +26,7 @@ const testGroups = [
   { tags: ['scaffold'], files: ['shared/**/*.test.js', 'scoremap-miniapp/scaffold.test.js'] },
   { tags: ['payment-api', 'payment', 'entitlement'], files: ['server/test/payment-api.test.js'] },
   { tags: ['wechat-auth', 'upload', 'wechat-payment', 'express-app'], files: ['server/test/wechat-auth-upload-payment.test.js'] },
+  { tags: ['backend-migration', 'cloudbase', 'wechat-login', 'payment'], files: ['server/test/backend-migration.test.js'] },
   { tags: ['server'], files: ['server/**/*.test.js'], runner: 'server/test/run-tests.js' }
 ];
 
@@ -46,7 +48,7 @@ const runGroups = requested.size === 0 || (selectedGroups.length === 1 && select
 for (const group of runGroups) {
   const args = group.runner
     ? [group.runner]
-    : ['--test', '--test-isolation=none', '--test-concurrency=1', ...group.files];
+    : ['--test', ...(supportsTestIsolation ? ['--test-isolation=none'] : []), '--test-concurrency=1', ...group.files];
   const result = spawnSync(process.execPath, args, {
     cwd: projectRoot,
     stdio: 'inherit',
@@ -63,3 +65,8 @@ for (const group of runGroups) {
 }
 
 process.exit(status);
+
+function nodeSupports(flag) {
+  const help = spawnSync(process.execPath, ['--help'], { encoding: 'utf8' });
+  return `${help.stdout || ''}\n${help.stderr || ''}`.includes(flag);
+}

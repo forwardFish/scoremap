@@ -1,20 +1,26 @@
 {
   "status": "PASS_WITH_LIMITATION",
+  "taskId": "V143-10",
   "command": "npm test -- analysis-failure",
   "requirementIds": [
-    "R03",
-    "R04",
-    "R15"
+    "REQ143-007",
+    "REQ143-008"
+  ],
+  "apiIds": [
+    "API143-003",
+    "API143-004",
+    "API143-017"
+  ],
+  "uiIds": [
+    "UI143-C03",
+    "UI143-C04"
+  ],
+  "ownerScenarioIds": [
+    "O143-01",
+    "O143-12"
   ],
   "ownerJourneyEvidence": {
     "status": "PASS_WITH_LIMITATION",
-    "scenarios": [
-      "O02",
-      "O07",
-      "O08",
-      "O09",
-      "O11"
-    ],
     "clickPath": [
       "/pages/analysis/index",
       "refresh-progress",
@@ -27,18 +33,16 @@
     ],
     "apiEvidence": "docs/auto-execute/evidence/frontend-page/analysis-failure-api-db.json",
     "dbEvidence": "docs/auto-execute/evidence/frontend-page/analysis-failure-api-db.json",
-    "limitation": "T08 records deterministic C03/C04 owner actions. Full rendered O01-O12 owner E2E remains assigned to T15."
+    "limitation": "V143-10 records deterministic C03/C04 owner actions locally; full WeChat simulator/device UI acceptance is not claimed."
   },
   "visualEvidence": {
     "status": "PASS_NEEDS_MANUAL_UI_REVIEW",
     "references": [
-      "ui-reference-catalog/小程序/AI分析.png",
-      "ui-reference-catalog/小程序/处理失败.png",
-      "ui-reference-catalog/小程序/stitch_codex_development_blueprints/ai_1/screen-reference",
-      "ui-reference-catalog/小程序/stitch_codex_development_blueprints/_3/screen-reference"
+      "docs/UI/小程序/03-AI分析中.png",
+      "docs/UI/小程序/08-处理失败.png"
     ],
     "expectedVisualCommand": "npm run visual:scoremap -- analysis failure",
-    "limitation": "T08 visual runner produces deterministic structural artifacts and metrics. Pixel-perfect screenshot capture remains assigned to T14."
+    "limitation": "The local visual runner provides structural/raster evidence. Manual UI review or later final visual acceptance remains required before full PASS."
   },
   "localOnly": {
     "status": "PASS",

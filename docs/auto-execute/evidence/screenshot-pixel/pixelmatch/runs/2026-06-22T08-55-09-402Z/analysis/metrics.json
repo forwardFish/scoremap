@@ -1,0 +1,51 @@
+{
+  "id": "UI143-C03",
+  "screen": "analysis",
+  "route": "/pages/analysis/index",
+  "status": "REPAIR_REQUIRED",
+  "reference": "docs/auto-execute/evidence/screenshot-pixel/pixelmatch/runs/2026-06-22T08-55-09-402Z/analysis/reference.png",
+  "sourceReference": "docs/UI/小程序/03-AI分析中.png",
+  "sourceReferenceArtifact": "docs/auto-execute/evidence/screenshot-pixel/pixelmatch/runs/2026-06-22T08-55-09-402Z/analysis/source-reference.png",
+  "actual": "docs/auto-execute/evidence/screenshot-pixel/pixelmatch/runs/2026-06-22T08-55-09-402Z/analysis/actual.png",
+  "diff": "docs/auto-execute/evidence/screenshot-pixel/pixelmatch/runs/2026-06-22T08-55-09-402Z/analysis/diff.png",
+  "diffPixels": 57596,
+  "totalPixels": 329160,
+  "diffRatio": 0.17497873374650627,
+  "threshold": 0.01,
+  "sizeMismatch": false,
+  "sourceSizeMismatch": true,
+  "dimensions": {
+    "sourceReference": {
+      "width": 941,
+      "height": 1672
+    },
+    "reference": {
+      "width": 390,
+      "height": 844
+    },
+    "actual": {
+      "width": 390,
+      "height": 844
+    },
+    "compared": {
+      "width": 390,
+      "height": 844
+    }
+  },
+  "referenceNormalization": {
+    "applied": true,
+    "method": "viewport-resize-bilinear-rgba",
+    "sourceArtifact": "docs/auto-execute/evidence/screenshot-pixel/pixelmatch/runs/2026-06-22T08-55-09-402Z/analysis/source-reference.png",
+    "normalizedArtifact": "docs/auto-execute/evidence/screenshot-pixel/pixelmatch/runs/2026-06-22T08-55-09-402Z/analysis/reference.png",
+    "targetViewport": {
+      "width": 390,
+      "height": 844
+    },
+    "semantics": "The normalized reference is the comparator input; the actual artifact remains a Playwright browser screenshot, and pixelmatch runs on real 390x844 RGBA pixels."
+  },
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "knownGaps": []
+}
