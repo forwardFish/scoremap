@@ -8,28 +8,15 @@
 
   <view class="failure-card">
     <view class="illustration">
-      <view class="failure-illustration">
-        <view class="mini-header">
-          <text class="mini-back">‹</text>
-          <text>处理失败</text>
-        </view>
-        <view class="mini-card">
-          <view class="mini-art">
-            <view class="mini-paper">
-              <view></view>
-              <view></view>
-              <view></view>
-            </view>
-            <image class="mini-owl" src="/assets/clean-icons/owl-dashboard-teacher-clean.png" mode="aspectFit" />
-            <view class="mini-error">×</view>
-          </view>
-          <text class="mini-title">分析没有成功</text>
-          <text class="mini-copy">可能是资料不清晰或网络异常，请稍后重试。</text>
-          <view class="mini-primary">重新开始分析</view>
-          <view class="mini-secondary">重新上传资料</view>
-          <text class="mini-home">返回首页 ›</text>
-        </view>
+      <view class="paper-ghost">
+        <view></view>
+        <view></view>
+        <view></view>
       </view>
+      <image class="failure-owl" src="/assets/icons/analysis-owl.png" mode="aspectFit" />
+      <view class="error-badge">×</view>
+      <text class="spark spark-one">•</text>
+      <text class="spark spark-two">✦</text>
     </view>
 
     <text class="failure-title">分析没有成功</text>

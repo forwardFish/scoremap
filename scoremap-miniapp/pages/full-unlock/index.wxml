@@ -1,7 +1,7 @@
 <view class="unlock-page">
   <view class="status-bar">
     <text>9:41</text>
-    <text>▰ wifi ▰</text>
+    <text>wifi</text>
   </view>
 
   <view class="top-bar">
@@ -37,12 +37,12 @@
       <view class="benefit-panel">
         <view class="benefit-title"><text>✦</text><text>支付后可解锁</text><text>✦</text></view>
         <view class="benefit-grid">
-          <text>完整报告</text>
-          <text>7天行动建议</text>
-          <text>详细丢分点分析</text>
-          <text>关键错题修复</text>
-          <text>优先补弱顺序</text>
-          <text>家长学习建议</text>
+          <text>✓ 完整报告</text>
+          <text>✓ 7天行动建议</text>
+          <text>✓ 详细丢分点分析</text>
+          <text>✓ 关键错题修复</text>
+          <text>✓ 优先补弱顺序</text>
+          <text>✓ 家长学习建议</text>
         </view>
       </view>
       <button class="pay-button" data-action="pay" bindtap="onTap">确认支付 9.9元</button>

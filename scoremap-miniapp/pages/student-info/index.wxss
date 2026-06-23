@@ -27,7 +27,7 @@ button::after {
   overflow: hidden;
   background: linear-gradient(135deg, #f0f4ff 0%, #f8efff 42%, #f7f8fc 100%);
   color: #1f2937;
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "Inter", "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", "Noto Sans SC", "DengXian", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 .top-area {
@@ -91,12 +91,12 @@ button::after {
   color: #111827;
   font-size: 20px;
   line-height: 28px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .page-subtitle {
   margin-top: 7px;
-  color: #6b7280;
+  color: #4b5563;
   font-size: 14px;
   line-height: 20px;
 }
@@ -129,7 +129,7 @@ button::after {
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  color: #9ca3af;
+  color: #7b8190;
   font-size: 12px;
   line-height: 17px;
   font-weight: 600;
@@ -183,7 +183,7 @@ button::after {
   color: #1f2937;
   font-size: 16px;
   line-height: 22px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .uploaded-list {
@@ -242,16 +242,16 @@ button::after {
 }
 
 .field-label {
-  color: #5f6675;
+  color: #374151;
   font-size: 14px;
   line-height: 20px;
   font-weight: 700;
 }
 
 .optional {
-  color: #a2a8b4;
+  color: #7b8190;
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .field-control {
@@ -263,31 +263,21 @@ button::after {
   box-sizing: border-box;
 }
 
-body[data-screen="student-info"] .text-input {
-  border-color: #9ca3af;
-  background: #ffffff;
-}
-
-body[data-screen="student-info"] .privacy-note,
-body[data-screen="student-info"] .bottom-actions {
-  display: none;
-}
-
 body[data-screen="student-info"] .top-area {
-  padding-top: 53px;
+  padding-top: 25px;
 }
 
 body[data-screen="student-info"] .back-button {
-  top: 53px;
+  top: 25px;
 }
 
 body[data-screen="student-info"] .form-scroll {
-  padding-top: 20px;
+  padding-top: 15px;
 }
 
 body[data-screen="student-info"] .material-section {
-  padding-top: 27px;
-  padding-bottom: 27px;
+  padding-top: 17px;
+  padding-bottom: 17px;
 }
 
 body[data-screen="student-info"] .steps {
@@ -313,6 +303,7 @@ body[data-screen="student-info"] .picker-value {
   box-sizing: border-box;
   color: #1f2937;
   font-size: 14px;
+  font-weight: 500;
 }
 
 .chevron-icon {
@@ -325,40 +316,42 @@ body[data-screen="student-info"] .picker-value {
   padding: 0 14px;
   color: #1f2937;
   font-size: 14px;
+  font-weight: 500;
 }
 
 .text-input::placeholder {
-  color: #c0c6d0;
+  color: #9ca3af;
 }
 
 .material-row {
   align-items: flex-start;
+  grid-template-columns: 86px 1fr;
 }
 
 .material-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 4px;
 }
 
 .material-tag {
   position: relative;
-  height: 34px;
-  padding: 0 9px;
+  height: 32px;
+  padding: 0 6px;
   border-radius: 9px;
   border: 1px solid #e5e7eb;
   background: #ffffff;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   color: #374151;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 18px;
 }
 
 .tag-icon {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   flex: 0 0 auto;
 }
 
@@ -385,7 +378,7 @@ body[data-screen="student-info"] .picker-value {
   align-items: center;
   justify-content: center;
   gap: 7px;
-  color: #6b7280;
+  color: #4b5563;
   font-size: 12px;
   line-height: 18px;
   font-weight: 700;
@@ -416,7 +409,7 @@ body[data-screen="student-info"] .picker-value {
   color: #ffffff;
   font-size: 16px;
   line-height: 22px;
-  font-weight: 800;
+  font-weight: 700;
   text-align: center;
   display: flex;
   align-items: center;

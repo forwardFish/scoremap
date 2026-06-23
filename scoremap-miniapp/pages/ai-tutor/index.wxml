@@ -12,9 +12,12 @@
     <view class="c13-bg-score full">
       <view class="c13-score-row">
         <image class="c13-score-icon" src="/assets/clean-icons/shield-check-purple.png" mode="aspectFit" />
-        <view><text>可追回分数</text><text class="c13-score-sub">可优先改善</text></view>
+        <view>
+          <text>可追回分数</text>
+          <text class="c13-score-sub">可优先改善</text>
+        </view>
       </view>
-      <view class="c13-score-value"><text>6-10</text><text>分</text><text>↑</text></view>
+      <view class="c13-score-value"><text>6-10</text><text>分</text><text>↗</text></view>
       <text class="c13-score-note">通过优先修复关键错因，有机会追回的分数区间</text>
     </view>
   </view>
@@ -47,7 +50,7 @@
         <view class="c13-method-card">
           <image class="c13-method-icon" src="/assets/icons/idea-bulb-soft.png" mode="aspectFit" />
           <text>更容易理解的讲法</text>
-          <text>把两辆车想象成一直在并排走，甲每小时多走 10 千米，2 小时后，甲就比乙多走了 2 × 10 = 20（千米）。</text>
+          <text>把两辆车想象成一直在并排走，甲每小时多走 10 千米。2 小时后，甲就比乙多走了 2 × 10 = 20（千米）。</text>
         </view>
       </view>
       <button class="c13-primary" bindtap="onTap" data-action="exercise">下一步：做 1 道验证题</button>

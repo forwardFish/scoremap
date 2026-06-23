@@ -24,7 +24,7 @@ button::after {
   overflow: hidden;
   background: #fbf7ff;
   color: #161b35;
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "Inter", "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", "Noto Sans SC", "DengXian", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
   box-sizing: border-box;
 }
 
@@ -62,7 +62,7 @@ button::after {
   color: #6044dc;
   font-size: 16px;
   line-height: 22px;
-  font-weight: 900;
+  font-weight: 700;
   text-align: center;
 }
 
@@ -100,7 +100,7 @@ button::after {
   height: 50px;
   color: #1d2438;
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 700;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -135,7 +135,7 @@ button::after {
   overflow: hidden;
   background: #f4f6ff;
   color: #111827;
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "Inter", "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", "Noto Sans SC", "DengXian", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 .c13-step-one::after {
@@ -197,7 +197,7 @@ button::after {
   grid-template-columns: 40px 1fr 78px;
   align-items: center;
   font-size: 14px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .c13-bg-top button {
@@ -223,7 +223,7 @@ button::after {
   color: #10193b;
   font-size: 22px;
   line-height: 30px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .c13-bg-time {
@@ -264,7 +264,7 @@ button::after {
   color: #6554ff;
   font-size: 28px;
   line-height: 32px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .c13-score-row {
@@ -274,7 +274,7 @@ button::after {
   color: #5d52ff;
   font-size: 11px;
   line-height: 15px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .c13-score-icon {
@@ -293,7 +293,7 @@ button::after {
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  font-weight: 900;
+  font-weight: 700;
   box-shadow: 0 5px 14px rgba(96, 68, 220, 0.18);
 }
 
@@ -316,19 +316,19 @@ button::after {
   color: #6655ff;
   font-size: 30px;
   line-height: 34px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .c13-score-value text:nth-child(2) {
   color: #6655ff;
   font-size: 16px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .c13-score-value text:nth-child(3) {
   color: #ef6670;
   font-size: 22px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .c13-score-note {
@@ -372,7 +372,7 @@ button::after {
 .c13-bg-card text:first-child {
   color: #111935;
   font-size: 14px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .c13-bg-card text:last-child {
@@ -460,7 +460,7 @@ button::after {
 }
 
 .c13-step-one .c13-overlay {
-  background: rgba(0, 0, 0, 0.42);
+  background: transparent;
 }
 
 .c13-step-one .c13-primary {
@@ -489,7 +489,7 @@ button::after {
 }
 
 .c13-step-two .c13-drawer {
-  height: 574px;
+  height: 536px;
 }
 
 .c13-step-two .c13-primary {
@@ -500,7 +500,7 @@ button::after {
 }
 
 .c13-step-two .c13-drawer-scroll {
-  height: 470px;
+  height: 432px;
   padding-bottom: 60px;
 }
 
@@ -570,7 +570,7 @@ button::after {
   justify-content: center;
   color: #111827;
   font-size: 18px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .c13-drawer-head > text {
@@ -640,12 +640,12 @@ button::after {
   text-align: center;
   line-height: 28px;
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .c13-step.active {
   color: #5c52ff;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .c13-step.active text:first-child,
@@ -709,7 +709,7 @@ button::after {
   color: #111827;
   font-size: 15px;
   line-height: 22px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .c13-question {
@@ -779,7 +779,7 @@ button::after {
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .c13-primary {
@@ -837,7 +837,7 @@ button::after {
 .c13-practice-head text:first-child {
   color: #111827;
   font-size: 17px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .c13-practice-head text:last-child {
@@ -877,7 +877,7 @@ button::after {
   color: #5b52ff;
   text-align: center;
   line-height: 30px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .c13-options + .c13-primary {
@@ -906,14 +906,14 @@ button::after {
   color: #ffffff;
   align-items: center;
   justify-content: center;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .c13-success-title {
   display: inline;
   color: #16a34a;
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .c13-step-four .c13-success > text:last-child {
@@ -934,7 +934,7 @@ button::after {
 }
 
 .c13-status-row text:first-child {
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .c13-status-row.good text:first-child {
@@ -1032,11 +1032,11 @@ button::after {
 .c13-step-three .c13-drawer {
   left: 0;
   right: 0;
-  height: 744px;
+  height: 536px;
 }
 
 .c13-step-three .c13-overlay.dark {
-  background: rgba(0, 0, 0, 0.42);
+  background: transparent;
 }
 
 .c13-step-three .c13-progress {
@@ -1110,16 +1110,10 @@ button::after {
 .c13-step-two .c13-primary {
   height: 40px;
   min-height: 40px;
-  margin: 4px 20px 0;
+  margin: 70px 20px 0;
   border-radius: 9px;
   font-size: 15px;
   line-height: 40px;
-}
-
-.c13-step-one .c13-bg-score,
-.c13-step-one .c13-bg-owl,
-.c13-step-one .c13-bg-card {
-  display: none;
 }
 
 .c13-step-one .c13-drawer-head {
@@ -1143,6 +1137,7 @@ button::after {
 }
 
 .c13-step-one .c13-panel:first-child .c13-panel-title::after {
+  content: "（证据锚点）";
   content: "（证据锚点）";
   display: inline-block;
   margin-left: 6px;
@@ -1173,8 +1168,8 @@ button::after {
 }
 
 .c13-step-three .c13-drawer-scroll {
-  height: 576px;
-  padding: 20px 16px 112px;
+  height: 374px;
+  padding: 16px 16px 96px;
 }
 
 .c13-step-three .exercise-panel {
@@ -1209,7 +1204,7 @@ button::after {
   right: 36px;
   height: 56px;
   border-radius: 12px;
-  bottom: 17px;
+  bottom: 24px;
 }
 
 .c13-step-three .c13-practice-head text:last-child::before {
@@ -1225,5 +1220,5 @@ button::after {
   justify-content: center;
   font-size: 9px;
   line-height: 16px;
-  font-weight: 900;
+  font-weight: 700;
 }

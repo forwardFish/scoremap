@@ -25,7 +25,7 @@ button::after {
   overflow: hidden;
   background: linear-gradient(180deg, #f0fff7 0%, #f8f9ff 45%, #ffffff 100%);
   color: #111827;
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "Inter", "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", "Noto Sans SC", "DengXian", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 .success-card {
@@ -50,7 +50,7 @@ button::after {
   margin-top: 18px;
   color: #111827;
   font-size: 24px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .copy {
@@ -83,7 +83,7 @@ button::after {
 .num {
   color: #6044dc;
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .view-button,
@@ -98,7 +98,7 @@ button::after {
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .view-button {

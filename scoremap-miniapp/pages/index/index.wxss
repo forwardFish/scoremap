@@ -26,7 +26,7 @@ button::after {
   background: #f8f9ff;
   color: #333333;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "Inter", "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", "Noto Sans SC", "DengXian", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 .home-header {
@@ -86,9 +86,9 @@ button::after {
 
 .brand-title {
   color: #202433;
-  font-size: 22px;
-  line-height: 30px;
-  font-weight: 800;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
 }
 
 .icon-button {
@@ -147,8 +147,8 @@ button::after {
 .hero-card {
   position: relative;
   min-height: 416px;
-  padding: 32px 24px 24px;
-  margin-bottom: 16px;
+  padding: 32px 16px 24px;
+  margin-bottom: 11px;
   overflow: hidden;
 }
 
@@ -170,7 +170,7 @@ button::after {
 }
 
 .hero-copy {
-  width: 72%;
+  width: 78%;
   position: relative;
   z-index: 2;
 }
@@ -180,7 +180,7 @@ button::after {
   color: #242637;
   font-size: 23px;
   line-height: 34px;
-  font-weight: 900;
+  font-weight: 700;
   white-space: nowrap;
 }
 
@@ -194,19 +194,19 @@ button::after {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 3px;
+  gap: 2px;
   color: #888888;
-  font-size: 12px;
-  line-height: 18px;
+  font-size: 11px;
+  line-height: 17px;
   white-space: nowrap;
 }
 
 .hero-owl {
   position: absolute;
-  right: -4px;
-  top: -12px;
-  width: 130px;
-  height: 166px;
+  right: -25px;
+  top: -65px;
+  width: 170px;
+  height: 210px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -216,10 +216,10 @@ button::after {
 }
 
 .hero-owl-image {
-  width: 162px;
-  height: 162px;
+  width: 190px;
+  height: 190px;
   display: block;
-  transform: translateX(26px);
+  transform: none;
 }
 
 .owl-cap {
@@ -336,16 +336,16 @@ button::after {
   position: relative;
   width: 118px;
   height: 112px;
-  margin-left: 2px;
+  margin-left: 0;
   flex: 0 0 auto;
 }
 
 .upload-asset-image {
   position: relative;
-  left: -18px;
+  left: -10px;
   top: -18px;
-  width: 150px;
-  height: 150px;
+  width: 168px;
+  height: 168px;
   display: block;
   opacity: 1;
 }
@@ -412,13 +412,14 @@ button::after {
 
 .upload-copy {
   flex: 1;
-  margin-right: 8px;
+  margin-right: -2px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .upload-hint {
+  align-self: center;
   margin-bottom: 12px;
   color: #888888;
   font-size: 14px;
@@ -426,7 +427,7 @@ button::after {
 }
 
 .upload-button {
-  width: 158px;
+  width: 136px;
   height: 52px;
   border-radius: 25px;
   background: linear-gradient(90deg, #9c7eff 0%, #7a5cf0 100%);
@@ -455,8 +456,8 @@ button::after {
 
 .quick-card {
   height: 64px;
-  padding: 16px;
-  border-radius: 20px;
+  padding: 14px 15px;
+  border-radius: 18px;
   background: #ffffff;
   box-shadow: 0 4px 16px rgba(138, 108, 242, 0.08);
   display: flex;
@@ -473,9 +474,9 @@ button::after {
 }
 
 .quick-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
   margin-right: 12px;
   overflow: visible;
 }
@@ -485,8 +486,8 @@ button::after {
 }
 
 .quick-icon-image {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   display: block;
   flex: 0 0 auto;
 }
@@ -504,7 +505,7 @@ button::after {
 .quick-label {
   flex: 1;
   color: #333333;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 20px;
   font-weight: 700;
 }
@@ -523,8 +524,8 @@ button::after {
 }
 
 .recent-card {
-  min-height: 160px;
-  padding: 16px 20px;
+  min-height: 154px;
+  padding: 15px 16px;
   margin-bottom: 24px;
 }
 
@@ -538,9 +539,9 @@ button::after {
 
 .section-title {
   color: #252938;
-  font-size: 17px;
-  line-height: 24px;
-  font-weight: 900;
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 700;
 }
 
 .more-link {
@@ -558,25 +559,25 @@ button::after {
 }
 
 .report-row {
-  height: 56px;
+  height: 52px;
   display: flex;
   align-items: center;
   width: 100%;
 }
 
 .report-leading {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 10px;
-  margin-right: 12px;
+  margin-right: 11px;
   border: 1px solid transparent;
   box-sizing: border-box;
   overflow: visible;
 }
 
 .report-leading image {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   display: block;
   flex: 0 0 auto;
 }
@@ -618,22 +619,22 @@ button::after {
   text-overflow: ellipsis;
   white-space: nowrap;
   color: #333333;
-  font-size: 15px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 21px;
   font-weight: 600;
 }
 
 .report-status {
   flex: 0 0 auto;
-  max-width: 105px;
-  height: 24px;
-  padding: 0 8px;
+  max-width: 100px;
+  height: 22px;
+  padding: 0 7px;
   border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 16px;
   white-space: nowrap;
   overflow: hidden;
@@ -735,7 +736,7 @@ button::after {
   color: #111827;
   font-size: 34rpx;
   line-height: 44rpx;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .auth-copy {
@@ -761,7 +762,7 @@ button::after {
   align-items: center;
   justify-content: center;
   font-size: 29rpx;
-  font-weight: 800;
+  font-weight: 700;
   text-align: center;
 }
 

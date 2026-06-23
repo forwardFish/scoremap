@@ -23,7 +23,7 @@ button::after {
   overflow: hidden;
   background: linear-gradient(180deg, #fbfbff 0%, #f8f7ff 100%);
   color: #151b3a;
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "Inter", "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", "Noto Sans SC", "DengXian", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 .status-bar {
@@ -97,7 +97,7 @@ button::after {
 .page-title {
   color: #111827;
   font-size: 17px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .page-subtitle {
@@ -110,7 +110,7 @@ button::after {
 
 .dimmed-content {
   padding: 0 24px;
-  filter: blur(5px);
+  filter: none;
   opacity: 0.7;
 }
 
@@ -125,11 +125,11 @@ button::after {
 
 .hero-card {
   height: 132px;
-  padding: 23px 14px 14px 4px;
+  padding: 18px 14px 14px 18px;
   display: flex;
   justify-content: space-between;
-  background: transparent;
-  box-shadow: none;
+  background: #ffffff;
+  box-shadow: 0 7px 22px rgba(108, 91, 190, 0.1);
 }
 
 .hero-owl {
@@ -149,7 +149,7 @@ button::after {
   width: 190px;
   color: #172047;
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 24px;
 }
 
@@ -174,9 +174,9 @@ button::after {
 }
 
 .summary-card {
-  margin-top: 20px;
+  margin-top: 14px;
   padding: 0 14px;
-  background: rgba(255, 255, 255, 0.72);
+  background: #ffffff;
 }
 
 .summary-card view {
@@ -198,11 +198,11 @@ button::after {
   font-size: 13px;
   line-height: 23px;
   text-align: center;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .summary-card view text:nth-child(2) {
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .summary-card view text:nth-child(3) {
@@ -214,7 +214,7 @@ button::after {
 .sheet-mask {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.72);
+  background: rgba(0, 0, 0, 0.56);
   display: flex;
   align-items: flex-end;
 }
@@ -222,8 +222,8 @@ button::after {
 .modal-card {
   position: relative;
   width: 390px;
-  height: 508px;
-  padding: 43px 24px 32px;
+  height: 478px;
+  padding: 38px 24px 24px;
   border-radius: 24px 24px 0 0;
   background: #fdfdff;
   text-align: center;
@@ -262,20 +262,20 @@ button::after {
 
 .title {
   color: #121a43;
-  font-size: 22px;
+  font-size: 21px;
   line-height: 28px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .price {
-  margin-top: 18px;
+  margin-top: 14px;
   color: #7052ff;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .price text:first-child {
-  font-size: 56px;
-  line-height: 56px;
+  font-size: 52px;
+  line-height: 52px;
 }
 
 .price text:last-child {
@@ -290,9 +290,9 @@ button::after {
 }
 
 .benefit-panel {
-  margin-top: 28px;
-  min-height: 176px;
-  padding: 20px 18px 18px;
+  margin-top: 22px;
+  min-height: 160px;
+  padding: 17px 18px 15px;
   border-radius: 16px;
   border: 1px solid rgba(233, 213, 255, 0.5);
   background: #f8f8ff;
@@ -316,21 +316,21 @@ button::after {
 }
 
 .benefit-grid {
-  margin-top: 13px;
+  margin-top: 11px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  row-gap: 12px;
+  row-gap: 10px;
   column-gap: 10px;
   text-align: left;
 }
 
 .benefit-grid text {
   color: #23305a;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .benefit-grid text::before {
-  content: "âœ“";
+  content: "âœ?;
   margin-right: 6px;
   color: #654cff;
 }
@@ -338,7 +338,7 @@ button::after {
 .pay-button {
   width: 342px;
   height: 50px;
-  margin: 33px auto 0;
+  margin: 23px auto 0;
   border-radius: 14px;
   background: linear-gradient(180deg, #805cff 0%, #5b3df4 100%);
   color: #ffffff;
@@ -346,7 +346,7 @@ button::after {
   align-items: center;
   justify-content: center;
   font-size: 15px;
-  font-weight: 900;
+  font-weight: 700;
   box-shadow: 0 8px 18px rgba(91, 61, 244, 0.22);
 }
 
@@ -359,5 +359,5 @@ button::after {
   align-items: center;
   justify-content: center;
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 700;
 }

@@ -46,7 +46,7 @@ button::after {
   color: #181b2a;
   font-size: 30rpx;
   line-height: 40rpx;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .login-hero {
@@ -70,7 +70,7 @@ button::after {
   color: #151928;
   font-size: 72rpx;
   line-height: 84rpx;
-  font-weight: 900;
+  font-weight: 700;
   text-align: center;
 }
 
@@ -91,7 +91,7 @@ button::after {
   color: #9199aa;
   font-size: 32rpx;
   line-height: 44rpx;
-  font-weight: 900;
+  font-weight: 700;
   text-align: center;
 }
 
@@ -110,7 +110,7 @@ button::after {
   border-radius: 18rpx;
   font-size: 30rpx;
   line-height: 90rpx;
-  font-weight: 900;
+  font-weight: 700;
   text-align: center;
   box-sizing: border-box;
 }
@@ -150,7 +150,7 @@ button::after {
   color: #7d8494;
   font-size: 26rpx;
   line-height: 40rpx;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .checkbox {
@@ -175,7 +175,7 @@ button::after {
 .terms-link {
   color: #5653e7;
   margin: 0 4rpx;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .terms-mask,
@@ -232,7 +232,7 @@ button::after {
   color: #161b2d;
   font-size: 44rpx;
   line-height: 58rpx;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .terms-content {
@@ -273,7 +273,7 @@ button::after {
   border-radius: 20rpx;
   font-size: 30rpx;
   line-height: 86rpx;
-  font-weight: 900;
+  font-weight: 700;
   text-align: center;
 }
 
@@ -316,7 +316,7 @@ button::after {
   color: #1f2937;
   font-size: 38rpx;
   line-height: 50rpx;
-  font-weight: 800;
+  font-weight: 700;
   text-align: center;
 }
 

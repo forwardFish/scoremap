@@ -25,7 +25,7 @@
           </view>
         </view>
         <view class="hero-owl" aria-hidden="true">
-          <image class="hero-owl-image" src="/assets/icons/owl-teacher-pointer.png" mode="aspectFit" />
+          <image class="hero-owl-image" src="/assets/icons/owl-study-stack.png" mode="aspectFit" />
         </view>
       </view>
 
@@ -34,7 +34,7 @@
           <image class="upload-asset-image" src="/assets/icons/upload-folder.png" mode="aspectFit" />
         </view>
         <view class="upload-copy">
-          <text class="upload-hint">支持图片 / PDF / Word</text>
+          <text class="upload-hint">支持图片 / PDF</text>
           <button class="upload-button" data-action="upload" bindtap="onTap">
             <text class="upload-button-icon">☁</text>
             <text>上传资料</text>

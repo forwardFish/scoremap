@@ -91,13 +91,13 @@ if (typeof Page === 'function') {
       })) {
         return;
       }
-        this.setData({
-          paymentModalVisible: true,
-          paymentState: 'idle',
-          paymentError: '',
-          paymentPrimaryText: '确认支付 9.9元',
-          paymentLoading: false
-        });
+      this.setData({
+        paymentModalVisible: true,
+        paymentState: 'idle',
+        paymentError: '',
+        paymentPrimaryText: '确认支付 9.9元',
+        paymentLoading: false
+      });
     },
 
     onClosePayment() {
@@ -315,7 +315,7 @@ if (typeof Page === 'function') {
           upgradeCard: {
             visible: true,
             priceText: '9.9元',
-            headline: '已完成初判，可立即解锁完整提升报告',
+            headline: '已完成初判，可立即解锁完整提分报告',
             benefits: ['完整报告', '7天建议', '错题修复'],
             complianceText: '结果基于当前资料分析，仅供学习参考。'
           },
@@ -422,7 +422,14 @@ function buildPaymentModal({ visible, paymentState, paymentError }) {
     priceText: '9.9元',
     subtitle: '已完成初判，可立即解锁完整提分报告',
     unlockTitle: '支付后可解锁',
-    benefits: ['完整报告', '7天行动建议', '详细丢分点分析', '关键错题修复', '优先补弱顺序', '家长学习建议'],
+    benefits: [
+      '完整报告',
+      '7天行动建议',
+      '详细丢分点分析',
+      '关键错题修复',
+      '优先补弱顺序',
+      '家长学习建议'
+    ],
     primaryText: paymentState === 'paying' ? '正在支付...' : '确认支付 9.9元',
     secondaryText: '暂不解锁',
     state: paymentState,

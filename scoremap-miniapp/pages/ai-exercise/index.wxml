@@ -12,9 +12,12 @@
     <view class="c13-bg-score full">
       <view class="c13-score-row">
         <image class="c13-score-icon" src="/assets/clean-icons/shield-check-purple.png" mode="aspectFit" />
-        <view><text>可追回分数</text><text class="c13-score-sub">可优先改善</text></view>
+        <view>
+          <text>可追回分数</text>
+          <text class="c13-score-sub">可优先改善</text>
+        </view>
       </view>
-      <view class="c13-score-value"><text>6-10</text><text>分</text><text>↑</text></view>
+      <view class="c13-score-value"><text>6-10</text><text>分</text><text>↗</text></view>
       <text class="c13-score-note">通过优先修复关键错因，有机会追回的分数区间</text>
     </view>
   </view>

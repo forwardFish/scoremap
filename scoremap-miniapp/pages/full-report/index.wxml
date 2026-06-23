@@ -24,8 +24,8 @@
           </view>
         </view>
       </view>
-      <image class="c10-owl c10-owl-core" src="/assets/icons/full-report-mascot.png" mode="aspectFill" />
-      <image class="c10-owl c10-owl-v13" src="/assets/icons/v13-full-report-mascot.png" mode="aspectFill" />
+      <image class="c10-owl c10-owl-core" src="/assets/icons/owl-teacher-pointer.png" mode="aspectFit" />
+      <image class="c10-owl c10-owl-v13" src="/assets/icons/owl-teacher-pointer.png" mode="aspectFit" />
     </view>
 
     <view class="c10-card c10-evidence">
@@ -53,8 +53,8 @@
         </view>
         <text class="c10-priority-copy">优先级依据：本次考试中该类问题失去 7 分，属于高频且可快速改善的题型。</text>
       </view>
-      <image class="c10-target c10-target-core" src="/assets/icons/full-report-target.png" mode="aspectFill" />
-      <image class="c10-target c10-target-v13" src="/assets/icons/v13-full-report-target.png" mode="aspectFill" />
+      <image class="c10-target c10-target-core" src="/assets/clean-icons/target-purple.png" mode="aspectFit" />
+      <image class="c10-target c10-target-v13" src="/assets/clean-icons/target-purple.png" mode="aspectFit" />
     </view>
 
     <view class="c10-card c10-question-list core-only">

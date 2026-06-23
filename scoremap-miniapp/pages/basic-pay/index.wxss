@@ -25,7 +25,7 @@ button::after {
   overflow: hidden;
   background: linear-gradient(180deg, #f1efff 0%, #f8f9ff 100%);
   color: #111827;
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "Inter", "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", "Noto Sans SC", "DengXian", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 .top-bar {
@@ -46,7 +46,7 @@ button::after {
   margin-right: 34px;
   text-align: center;
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .pay-card {
@@ -73,14 +73,14 @@ button::after {
   margin-top: 18px;
   color: #111827;
   font-size: 23px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .price {
   margin-top: 15px;
   color: #6044dc;
   font-size: 44px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .copy {
@@ -103,7 +103,7 @@ button::after {
   background: #f3efff;
   color: #6044dc;
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 36px;
 }
 
@@ -117,7 +117,7 @@ button::after {
   background: linear-gradient(90deg, #8e6bff 0%, #6044dc 100%);
   color: #ffffff;
   font-size: 17px;
-  font-weight: 900;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;

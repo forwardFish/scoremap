@@ -22,12 +22,12 @@ button::after {
   overflow: hidden;
   background: linear-gradient(180deg, #fbfbff 0%, #f8f7ff 100%);
   color: #151b3a;
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "Inter", "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", "Noto Sans SC", "DengXian", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 .status-bar {
-  height: 34px;
-  padding: 8px 34px 0;
+  height: 24px;
+  padding: 6px 34px 0;
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
@@ -78,7 +78,7 @@ button::after {
 
 .top-bar {
   position: relative;
-  height: 68px;
+  height: 56px;
   padding: 0 18px;
   display: flex;
   align-items: center;
@@ -89,7 +89,7 @@ button::after {
 .back-button {
   position: absolute;
   left: 18px;
-  top: 16px;
+  top: 11px;
   width: 24px;
   height: 32px;
   color: #111827;
@@ -100,20 +100,20 @@ button::after {
 .page-title {
   color: #111827;
   font-size: 19px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .page-subtitle {
   position: absolute;
   right: 24px;
-  top: 25px;
+  top: 20px;
   color: #1d2450;
   font-size: 10px;
 }
 
 .result-scroll {
-  height: 742px;
-  padding: 10px 16px 20px;
+  height: 764px;
+  padding: 0 16px 20px;
   box-sizing: border-box;
 }
 
@@ -129,8 +129,8 @@ button::after {
 }
 
 .hero-card {
-  height: 190px;
-  padding: 20px 0 16px 20px;
+  height: 142px;
+  padding: 15px 0 14px 20px;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -141,7 +141,7 @@ button::after {
 .hero-copy-wrap {
   position: relative;
   z-index: 1;
-  width: 190px;
+  width: 210px;
 }
 
 .hero-title,
@@ -158,49 +158,55 @@ button::after {
 .hero-title {
   color: #172047;
   font-size: 24px;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 29px;
 }
 
 .hero-copy {
-  margin-top: 8px;
+  margin-top: 6px;
   color: #2d365d;
   font-size: 14px;
-  line-height: 24px;
+  line-height: 20px;
 }
 
 .success-pill {
-  width: 122px;
+  width: 128px;
   height: 24px;
-  margin-top: 18px;
+  margin-top: 9px;
   border-radius: 999px;
   background: #dcfce7;
   color: #059669;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   font-size: 12px;
-  line-height: 24px;
   text-align: center;
-  font-weight: 800;
+  font-weight: 700;
+}
+
+.success-pill-icon {
+  width: 14px;
+  height: 14px;
 }
 
 .hero-owl {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 142px;
-  height: 140px;
-  border-top-left-radius: 0;
-  border-bottom-right-radius: 14px;
+  right: 12px;
+  bottom: 5px;
+  width: 118px;
+  height: 118px;
 }
 
 .summary-card {
-  margin-top: 14px;
-  padding: 6px 16px;
+  margin-top: 8px;
+  padding: 0 16px;
 }
 
 .summary-row {
-  height: 58px;
+  min-height: 38px;
   display: grid;
-  grid-template-columns: 44px 124px 1fr;
+  grid-template-columns: 36px 112px 1fr;
   align-items: center;
   border-bottom: 1px solid #f1f2f6;
 }
@@ -210,59 +216,59 @@ button::after {
 }
 
 .summary-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  color: #6366f1;
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
   background: #eef2ff;
-  font-size: 17px;
-  line-height: 32px;
-  text-align: center;
-  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.summary-icon image {
+  width: 20px;
+  height: 20px;
 }
 
 .summary-icon.trend {
-  color: #3b82f6;
   background: #eff6ff;
 }
 
 .summary-icon.doc {
-  color: #a855f7;
   background: #faf5ff;
 }
 
 .summary-icon.idea {
-  color: #eab308;
   background: #fefce8;
 }
 .summary-title {
   color: #374151;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 700;
 }
 
 .summary-copy {
   color: #1f2937;
-  font-size: 13px;
+  font-size: 11px;
   text-align: right;
-  font-weight: 900;
-  line-height: 20px;
+  font-weight: 700;
+  line-height: 15px;
+  word-break: keep-all;
 }
 
 .locked-card {
-  margin-top: 16px;
-  padding: 15px 16px 12px;
-  opacity: 0.82;
+  margin-top: 8px;
+  padding: 9px 16px 9px;
 }
 
 .locked-heading {
   display: flex;
   align-items: center;
   gap: 7px;
-  margin-bottom: 7px;
+  margin-bottom: 3px;
   color: #6366f1;
   font-size: 15px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .locked-heading-icon {
@@ -271,8 +277,8 @@ button::after {
 }
 
 .locked-row {
-  height: 47px;
-  margin-top: 8px;
+  height: 25px;
+  margin-top: 4px;
   padding: 0 14px;
   border: 0;
   border-radius: 10px;
@@ -281,7 +287,8 @@ button::after {
   grid-template-columns: 24px 1fr 18px;
   align-items: center;
   color: #9097b4;
-  font-size: 14px;
+  font-size: 11px;
+  line-height: 25px;
   box-sizing: border-box;
 }
 
@@ -293,8 +300,8 @@ button::after {
 
 .upgrade-card {
   margin-top: 12px;
-  min-height: 178px;
-  padding: 18px 12px 13px;
+  min-height: 146px;
+  padding: 13px 12px 10px;
   border: 1px solid #d881ff;
   box-shadow: 0 10px 26px rgba(123, 91, 255, 0.14);
 }
@@ -302,8 +309,8 @@ button::after {
 .price-lock {
   position: relative;
   float: left;
-  width: 56px;
-  height: 62px;
+  width: 52px;
+  height: 54px;
 }
 
 .price-lock::before {
@@ -311,8 +318,8 @@ button::after {
   position: absolute;
   left: -4px;
   top: -2px;
-  width: 58px;
-  height: 58px;
+  width: 52px;
+  height: 52px;
   border-radius: 18px;
   background: radial-gradient(circle at 50% 42%, #f4efff 0%, #f8f6ff 60%, transparent 70%);
 }
@@ -320,12 +327,12 @@ button::after {
 .price-lock-icon {
   position: relative;
   z-index: 1;
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
 }
 
 .price-line {
-  min-height: 58px;
+  min-height: 48px;
   color: #1a2145;
   font-size: 10px;
   line-height: 20px;
@@ -333,22 +340,22 @@ button::after {
 
 .price-line text:first-child {
   color: #6b4cff;
-  font-size: 29px;
-  font-weight: 900;
-  line-height: 32px;
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 30px;
 }
 
 .price-line text:nth-child(2) {
   margin: 0 12px 0 2px;
   color: #6b4cff;
   font-size: 13px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .mini-benefits {
   clear: both;
   height: 22px;
-  margin: 4px 0 12px;
+  margin: 2px 0 9px;
   display: flex;
   justify-content: center;
   gap: 23px;
@@ -358,7 +365,7 @@ button::after {
 
 .unlock-button {
   width: 274px;
-  height: 42px;
+  height: 38px;
   border-radius: 7px;
   background: linear-gradient(180deg, #805cff 0%, #5b3df4 100%);
   color: #ffffff;
@@ -366,20 +373,20 @@ button::after {
   align-items: center;
   justify-content: center;
   font-size: 15px;
-  font-weight: 900;
+  font-weight: 700;
   box-shadow: 0 8px 18px rgba(91, 61, 244, 0.22);
 }
 
 .skip-button {
   width: 274px;
-  height: 28px;
-  margin-top: 6px;
+  height: 24px;
+  margin-top: 4px;
   color: #5e47ff;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .disclaimer {

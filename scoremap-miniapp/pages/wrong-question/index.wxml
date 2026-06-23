@@ -12,12 +12,18 @@
     <view class="c13-bg-score full">
       <view class="c13-score-row">
         <image class="c13-score-icon" src="/assets/icons/shield-check-purple-clean.png" mode="aspectFit" />
-        <view><text>可追回分数</text><text class="c13-score-sub">可优先改善</text></view>
+        <view>
+          <text>可追回分数</text>
+          <text class="c13-score-sub">可优先改善</text>
+        </view>
       </view>
-      <view class="c13-score-value"><text>6-10</text><text>分</text><text>↑</text></view>
+      <view class="c13-score-value"><text>6-10</text><text>分</text><text>↗</text></view>
       <text class="c13-score-note">通过优先修复关键错因，有机会追回的分数区间</text>
     </view>
-    <view class="c13-bg-card"><text>证据锚点</text><text>本报告结论均基于事实题目分析</text></view>
+    <view class="c13-bg-card">
+      <text>证据锚点</text>
+      <text>本报告结论均基于事实题目分析</text>
+    </view>
   </view>
   <view class="c13-overlay"></view>
 

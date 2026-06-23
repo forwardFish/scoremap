@@ -24,7 +24,7 @@ button::after {
   overflow: hidden;
   background: #ffffff;
   color: #111827;
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "Inter", "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", "Noto Sans SC", "DengXian", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 .status-bar {
@@ -62,7 +62,7 @@ button::after {
   text-align: center;
   color: #111827;
   font-size: 16px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .preview-scroll {
@@ -82,8 +82,8 @@ button::after {
 }
 
 .soft-blur {
-  filter: blur(3px);
-  opacity: 0.72;
+  filter: blur(1.6px);
+  opacity: 0.68;
 }
 
 .card-row {
@@ -124,7 +124,7 @@ button::after {
   align-items: center;
   justify-content: center;
   font-size: 22px;
-  font-weight: 900;
+  font-weight: 700;
   box-shadow: 0 8px 18px rgba(91, 61, 244, 0.22);
 }
 
@@ -197,8 +197,8 @@ button::after {
   top: 0;
   bottom: 0;
   z-index: 10;
-  background: rgba(0, 0, 0, 0.48);
-  backdrop-filter: blur(5px);
+  background: transparent;
+  backdrop-filter: none;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -207,9 +207,9 @@ button::after {
 .payment-sheet {
   position: relative;
   width: 390px;
-  height: 428px;
+  height: 340px;
   margin-bottom: 0;
-  padding: 48px 34px 26px;
+  padding: 39px 34px 18px;
   border-radius: 24px 24px 0 0;
   background: #ffffff;
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
@@ -230,7 +230,7 @@ button::after {
 .sheet-close {
   position: absolute;
   right: 21px;
-  top: 25px;
+  top: 21px;
   width: 32px;
   height: 32px;
   color: #9ca3af;
@@ -242,15 +242,15 @@ button::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
   color: #10152f;
-  font-size: 24px;
-  font-weight: 900;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .sheet-lock {
-  width: 42px;
-  height: 42px;
+  width: 28px;
+  height: 28px;
   padding: 0;
   border-radius: 0;
   background: transparent;
@@ -258,48 +258,48 @@ button::after {
 }
 
 .price-row {
-  margin-top: 14px;
+  margin-top: 8px;
   color: #6254ff;
   text-align: center;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .price-row text:first-child {
-  font-size: 50px;
-  line-height: 52px;
+  font-size: 40px;
+  line-height: 44px;
 }
 
 .price-row text:last-child {
-  margin-left: 6px;
-  font-size: 18px;
+  margin-left: 5px;
+  font-size: 16px;
 }
 
 .sheet-divider {
   height: 1px;
-  margin: 18px 0 16px;
+  margin: 12px 0 12px;
   border-top: 1px dashed #e5e7eb;
   background: transparent;
 }
 
 .unlock-heading {
   display: block;
-  width: 274px;
+  width: 250px;
   margin: 0 auto;
   text-align: left;
   color: #11193a;
-  font-size: 18px;
-  font-weight: 800;
+  font-size: 15px;
+  font-weight: 700;
 }
 
 .benefit-line {
   display: flex;
   align-items: center;
-  gap: 14px;
-  width: 274px;
-  margin: 11px auto 0;
+  gap: 12px;
+  width: 250px;
+  margin: 7px auto 0;
   color: #19213c;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 13px;
+  line-height: 18px;
 }
 
 .benefit-line .dot {
@@ -310,17 +310,17 @@ button::after {
 }
 
 .pay-button {
-  width: 322px;
-  height: 60px;
-  margin: 24px auto 0;
-  border-radius: 16px;
+  width: 280px;
+  height: 48px;
+  margin: 15px auto 0;
+  border-radius: 10px;
   background: linear-gradient(180deg, #815cff 0%, #5b3df4 100%);
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  font-weight: 900;
+  font-size: 16px;
+  font-weight: 700;
   box-shadow: 0 8px 18px rgba(91, 61, 244, 0.22);
 }
 

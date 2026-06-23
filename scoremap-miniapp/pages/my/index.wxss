@@ -173,7 +173,7 @@ body[data-screen="my-stitch"] .v143-hotspot-profile-tab {
 
 .page-title {
   font-size: 34rpx;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0;
 }
 
@@ -219,7 +219,7 @@ body[data-screen="my-stitch"] .v143-hotspot-profile-tab {
 .upload-title {
   display: block;
   font-size: 27rpx;
-  font-weight: 800;
+  font-weight: 700;
   color: #12163c;
 }
 
@@ -263,7 +263,7 @@ body[data-screen="my-stitch"] .v143-hotspot-profile-tab {
 
 .filter-tab.active {
   color: #4a34fb;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .filter-tab.active::after {
@@ -306,7 +306,7 @@ body[data-screen="my-stitch"] .v143-hotspot-profile-tab {
 .report-title {
   color: #11143a;
   font-size: 28rpx;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .status-pill {
@@ -470,7 +470,7 @@ body[data-screen="my-stitch"] .v143-hotspot-profile-tab {
   box-sizing: border-box;
   color: #5a6dff;
   font-size: 19rpx;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 48rpx;
   text-align: center;
 }

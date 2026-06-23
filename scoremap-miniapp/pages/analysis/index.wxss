@@ -24,7 +24,7 @@ button::after {
   overflow: hidden;
   background: linear-gradient(135deg, #f2f0ff 0%, #fbfdff 100%);
   color: #111c3b;
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "Inter", "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", "Noto Sans SC", "DengXian", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
   box-sizing: border-box;
   padding: 28px 20px 0;
 }
@@ -48,8 +48,8 @@ button::after {
 }
 
 .robot-icon {
-  width: 70px;
-  height: 70px;
+  width: 44px;
+  height: 44px;
   border-radius: 0;
   overflow: hidden;
   background: transparent;
@@ -65,7 +65,7 @@ button::after {
   color: #101946;
   font-size: 22px;
   line-height: 32px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .analysis-card {
@@ -98,7 +98,7 @@ button::after {
   color: #101946;
   font-size: 30px;
   line-height: 42px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .analysis-title text {
@@ -186,7 +186,7 @@ button::after {
   color: #8b5cf6;
   font-size: 54px;
   line-height: 60px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .percent {
@@ -194,7 +194,7 @@ button::after {
   margin-top: 16px;
   color: #8b5cf6;
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .owl {
@@ -252,7 +252,7 @@ button::after {
   font-size: 15px;
   line-height: 24px;
   text-align: center;
-  font-weight: 900;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -309,7 +309,7 @@ button::after {
   background: linear-gradient(90deg, #a687ff 0%, #7b61ff 100%);
   color: #ffffff;
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
