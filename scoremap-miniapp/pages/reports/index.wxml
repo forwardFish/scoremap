@@ -1,7 +1,7 @@
 <view class="reports-screen">
   <view class="reports-header">
     <view class="header-spacer"></view>
-    <text class="reports-title">{{title}}</text>
+    <text class="reports-title">我的报告</text>
     <view class="header-capsule">
       <image class="capsule-dot" src="/assets/icons/message-bubble-purple.png" mode="aspectFit" />
       <view class="capsule-divider"></view>

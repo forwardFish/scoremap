@@ -1190,3 +1190,347 @@ body[data-screen="v13-full-report"] .c10-actions .share-action {
 body[data-screen="v13-full-report"] .c10-actions .outline-button {
   flex: 0 0 108px;
 }
+
+body[data-screen="full-report"] .c10-status {
+  visibility: visible;
+}
+
+body[data-screen="full-report"] .c10-report {
+  padding: 0 43px 70px;
+}
+
+body[data-screen="full-report"] .c10-top {
+  height: 48px;
+}
+
+body[data-screen="full-report"] .c10-back {
+  left: -2px;
+}
+
+body[data-screen="full-report"] .c10-count {
+  right: 0;
+}
+
+body[data-screen="full-report"] .c10-hero {
+  min-height: 172px;
+}
+
+body[data-screen="full-report"] .c10-heading {
+  margin-top: 4px;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+body[data-screen="full-report"] .c10-time {
+  margin-top: 1px;
+  font-size: 9px;
+}
+
+body[data-screen="full-report"] .c10-owl {
+  right: -8px;
+  top: -4px;
+  width: 106px;
+  height: 96px;
+}
+
+body[data-screen="full-report"] .c10-score-card {
+  top: 58px;
+  width: 302px;
+  min-height: 108px;
+  padding: 13px 12px 12px 57px;
+  border-radius: 12px;
+}
+
+body[data-screen="full-report"] .c10-score-icon {
+  left: 13px;
+  top: 14px;
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  border-radius: 12px;
+}
+
+body[data-screen="full-report"] .c10-score-label {
+  font-size: 11px;
+  line-height: 16px;
+}
+
+body[data-screen="full-report"] .c10-score-label::after {
+  height: 16px;
+  margin-left: 5px;
+  padding: 0 6px;
+  border-radius: 7px;
+  font-size: 9px;
+  line-height: 16px;
+}
+
+body[data-screen="full-report"] .c10-score-line text:first-child,
+body[data-screen="full-report"] .c10-score-line span:first-child {
+  font-size: 28px;
+  line-height: 30px;
+}
+
+body[data-screen="full-report"] .c10-score-line text:last-child,
+body[data-screen="full-report"] .c10-score-line span:last-child {
+  font-size: 13px;
+}
+
+body[data-screen="full-report"] .c10-score-note {
+  width: 172px;
+  margin-top: 4px;
+  font-size: 10px;
+  line-height: 15px;
+}
+
+body[data-screen="full-report"] .c10-card {
+  width: 302px;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+body[data-screen="full-report"] .c10-card-icon {
+  width: 29px;
+  height: 29px;
+  padding: 6px;
+  border-radius: 11px;
+  flex-basis: 29px;
+}
+
+body[data-screen="full-report"] .c10-card-title {
+  font-size: 12px;
+  line-height: 17px;
+}
+
+body[data-screen="full-report"] .c10-card-sub,
+body[data-screen="full-report"] .c10-priority-copy {
+  margin-top: 2px;
+  font-size: 9px;
+  line-height: 13px;
+}
+
+body[data-screen="full-report"] .c10-evidence {
+  min-height: 93px;
+  padding-top: 12px;
+}
+
+body[data-screen="full-report"] .c10-evidence .c10-table {
+  margin-top: 8px;
+}
+
+body[data-screen="full-report"] .c10-table {
+  grid-template-columns: 36px 56px 56px 1fr;
+}
+
+body[data-screen="full-report"] .c10-table text,
+body[data-screen="full-report"] .c10-table span {
+  min-height: 19px;
+  padding: 3px 2px;
+  font-size: 8px;
+  line-height: 12px;
+}
+
+body[data-screen="full-report"] .c10-priority {
+  min-height: 90px;
+  padding: 12px 70px 12px 12px;
+}
+
+body[data-screen="full-report"] .c10-priority-title {
+  font-size: 12px;
+  line-height: 17px;
+}
+
+body[data-screen="full-report"] .c10-target {
+  right: 13px;
+  top: 24px;
+  width: 56px;
+  height: 56px;
+}
+
+body[data-screen="full-report"] .c10-question-list {
+  min-height: 262px;
+  padding: 10px 10px 11px;
+}
+
+body[data-screen="full-report"] .c10-section-title {
+  font-size: 13px;
+  line-height: 18px;
+}
+
+body[data-screen="full-report"] .c10-section-sub {
+  left: 78px;
+  top: 12px;
+  font-size: 8px;
+}
+
+body[data-screen="full-report"] .c10-question {
+  grid-template-columns: 22px 1fr;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+body[data-screen="full-report"] .c10-question.second {
+  padding-top: 8px;
+}
+
+body[data-screen="full-report"] .c10-number {
+  width: 18px;
+  height: 18px;
+  font-size: 11px;
+  line-height: 18px;
+}
+
+body[data-screen="full-report"] .c10-badge {
+  height: 18px;
+  padding: 0 6px;
+  border-radius: 7px;
+  font-size: 9px;
+  line-height: 18px;
+}
+
+body[data-screen="full-report"] .c10-fix {
+  width: 112px;
+  height: 22px;
+  margin-top: 5px;
+  font-size: 9px;
+  line-height: 22px;
+}
+
+body[data-screen="full-report"] .c10-teacher {
+  min-height: 55px;
+  margin-bottom: 4px;
+}
+
+body[data-screen="full-report"] .c10-actions {
+  left: 43px;
+  width: 302px;
+  padding: 8px 0 12px;
+}
+
+body[data-screen="full-report"] .c10-actions .outline-button {
+  flex-basis: 72px;
+}
+body[data-screen="v13-full-report"] .c10-status {
+  visibility: visible;
+}
+
+body[data-screen="v13-full-report"] .c10-top {
+  transform: none;
+}
+
+body[data-screen="v13-full-report"] .c10-heading {
+  margin-top: 14px;
+}
+
+body[data-screen="v13-full-report"] .c10-hero {
+  min-height: 210px;
+}
+
+body[data-screen="v13-full-report"] .c10-owl {
+  right: -2px;
+  top: 0;
+  width: 126px;
+  height: 126px;
+}
+
+body[data-screen="v13-full-report"] .c10-score-card {
+  left: 0;
+  top: 76px;
+  width: 214px;
+  min-height: 133px;
+  padding: 14px 12px 12px 56px;
+}
+
+body[data-screen="v13-full-report"] .c10-score-icon {
+  left: 12px;
+  top: 16px;
+  width: 32px;
+  height: 32px;
+  padding: 5px;
+}
+
+body[data-screen="v13-full-report"] .c10-score-label {
+  font-size: 11px;
+  line-height: 16px;
+}
+
+body[data-screen="v13-full-report"] .c10-score-line text:first-child,
+body[data-screen="v13-full-report"] .c10-score-line span:first-child {
+  font-size: 30px;
+  line-height: 34px;
+}
+
+body[data-screen="v13-full-report"] .c10-score-note,
+body[data-screen="v13-full-report"] .c10-score-note::after {
+  width: 140px;
+  font-size: 9px;
+  line-height: 13px;
+}
+
+body[data-screen="v13-full-report"] .c10-evidence {
+  min-height: 121px;
+  padding-top: 12px;
+}
+
+body[data-screen="v13-full-report"] .c10-priority {
+  min-height: 100px;
+  padding-top: 14px;
+}
+
+body[data-screen="v13-full-report"] .c10-table text,
+body[data-screen="v13-full-report"] .c10-table span {
+  min-height: 24px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+body[data-screen="v13-full-report"] .c10-target {
+  top: 26px;
+  width: 62px;
+  height: 62px;
+}
+
+body[data-screen="v13-full-report"] .c10-question-list .c10-question {
+  margin-top: 18px;
+  min-height: 142px;
+  padding: 12px 12px 10px;
+}
+body[data-screen="v13-full-report"] .c10-hero {
+  min-height: 190px;
+}
+
+body[data-screen="v13-full-report"] .c10-score-card {
+  top: 60px;
+}
+
+body[data-screen="v13-full-report"] .c10-question-list .c10-question {
+  min-height: 118px;
+  padding: 10px 12px 9px;
+}
+
+body[data-screen="v13-full-report"] .c10-question-body text,
+body[data-screen="v13-full-report"] .c10-question-body span {
+  margin-top: 2px;
+  font-size: 8px;
+  line-height: 12px;
+}
+
+body[data-screen="v13-full-report"] .c10-question-body .c10-blue {
+  font-size: 9px;
+  line-height: 13px;
+}
+
+body[data-screen="v13-full-report"] .c10-teacher {
+  min-height: 58px;
+}
+body[data-screen="v13-full-report"] .c10-question-list {
+  margin-top: -18px;
+}
+
+body[data-screen="v13-full-report"] .c10-question-list .c10-question {
+  min-height: 108px;
+}
+
+body[data-screen="v13-full-report"] .c10-question-list .c10-section-sub {
+  top: 9px;
+}

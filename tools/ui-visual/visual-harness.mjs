@@ -108,11 +108,11 @@ const screenMap = [
   {
     id: 'UI-C08',
     name: 'full-unlock',
-    route: '/pages/full-unlock/index',
+    route: '/pages/basic-result/index?modal=full-unlock',
     commandArgs: ['basic-result', 'full-unlock'],
-    actualAsset: 'scoremap-miniapp/assets/reference/full-unlock.jpg',
     reference: 'docs/UI/小程序/v1.4.3-C07-确认9.9支付半屏弹窗.png',
-    stitchReference: null
+    stitchReference: null,
+    referenceNote: 'C07 9.9 confirmation is a half-screen modal state rendered on /pages/basic-result/index, not the standalone /pages/full-unlock/index page.'
   },
   {
     id: 'UI-C09',
@@ -265,6 +265,11 @@ const visualRunners = [
     key: 'home',
     args: ['home'],
     run: () => require('../../scoremap-miniapp/pages/index/visual-home.js').runHomeVisualEvidence(['home'])
+  },
+  {
+    key: 'student-info',
+    args: ['student-info'],
+    run: () => require('../../scoremap-miniapp/pages/student-info/visual-student-info.js').runStudentInfoVisualEvidence(['student-info'])
   },
   {
     key: 'analysis-failure',
@@ -972,15 +977,17 @@ function convertWxssToCss(wxss) {
     .replace(/\/\*[\s\S]*?\*\//g, '')
     .replace(/(^|[}\s,])page(?=[\s,{.#[:])/g, '$1body')
     .replace(/(-?\d*\.?\d+)rpx\b/g, (_, value) => `${roundPx(Number(value) * rpxScale)}px`);
-  return mirrorMiniappTextSelectors(css);
+  return mirrorMiniappElementSelectors(css);
 }
 
-function mirrorMiniappTextSelectors(css) {
+function mirrorMiniappElementSelectors(css) {
   return css.replace(/([^{}]+)\{([^{}]*)\}/g, (block, selectorText, declarations) => {
     const selectors = selectorText.split(',').map((selector) => selector.trim()).filter(Boolean);
     const mirrored = [];
     for (const selector of selectors) {
-      const htmlSelector = selector.replace(/(^|[\s>+~])text(?=($|[\s>+~:.[#)]))/g, '$1span');
+      const htmlSelector = selector
+        .replace(/(^|[\s>+~])text(?=($|[\s>+~:.[#)]))/g, '$1span')
+        .replace(/(^|[\s>+~])image(?=($|[\s>+~:.[#)]))/g, '$1img');
       if (htmlSelector !== selector && !selectors.includes(htmlSelector) && !mirrored.includes(htmlSelector)) {
         mirrored.push(htmlSelector);
       }
@@ -1006,6 +1013,16 @@ function convertWxmlToHtml(wxml, screen = {}) {
 }
 
 function applyVisualDataDefaults(wxml, screen = {}) {
+  if (screen.name === 'basic-result') {
+    return stripBasicResultPaymentModal(wxml);
+  }
+  if (screen.name === 'full-unlock') {
+    return wxml
+      .replace(/<text class="payment-error" wx:if="\{\{paymentError\}\}">\{\{paymentError\}\}<\/text>/g, '')
+      .replace(/\{\{paymentLoading \? 'is-loading' : ''\}\}/g, '')
+      .replace(/\sloading="\{\{paymentLoading\}\}"/g, '')
+      .replace(/\{\{paymentPrimaryText\}\}/g, '确认支付 9.9元');
+  }
   if (screen.name !== 'analysis' && screen.sourceName !== 'analysis') return wxml;
   const steps = [
     { status: 'done', nodeClass: '', nodeIcon: '/assets/icons/analysis-check.png', text: '已识别上传资料' },
@@ -1035,6 +1052,14 @@ ${stepRows}
     .replace(/\{\{estimateText\}\}/g, '通常需要 10-30 秒')
     .replace(/\{\{refreshing \? '刷新中' : '刷新进度'\}\}/g, '刷新进度')
     .replace(/\{\{refreshing \? 'refreshing' : ''\}\}/g, '');
+}
+
+function stripBasicResultPaymentModal(wxml) {
+  const start = wxml.indexOf('<view class="payment-mask"');
+  if (start === -1) return wxml;
+  const outerClose = wxml.lastIndexOf('</view>');
+  if (outerClose === -1 || outerClose <= start) return wxml;
+  return `${wxml.slice(0, start)}${wxml.slice(outerClose)}`;
 }
 
 function chooseNonReferenceElseBranch(html) {

@@ -34,7 +34,7 @@
           <image class="upload-asset-image" src="/assets/icons/upload-folder.png" mode="aspectFit" />
         </view>
         <view class="upload-copy">
-          <text class="upload-hint">支持图片 / PDF</text>
+          <text class="upload-hint">支持图片 / PDF / Word</text>
           <button class="upload-button" data-action="upload" bindtap="onTap">
             <text class="upload-button-icon">☁</text>
             <text>上传资料</text>

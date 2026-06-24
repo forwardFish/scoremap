@@ -70,8 +70,8 @@ button::after {
 
 .analysis-card {
   position: relative;
-  height: 614px;
-  margin-top: 20px;
+  height: 578px;
+  margin-top: 15px;
   padding: 31px 24px 0;
   border-radius: 24px;
   background: linear-gradient(180deg, #ffffff 0%, #fdfcff 100%);
@@ -131,13 +131,13 @@ button::after {
 
 .progress-stage {
   position: relative;
-  height: 258px;
+  height: 238px;
 }
 
 .progress-ring {
   position: absolute;
   left: 58px;
-  top: 29px;
+  top: 22px;
   width: 190px;
   height: 190px;
 }
@@ -200,9 +200,9 @@ button::after {
 .owl {
   position: absolute;
   right: -10px;
-  top: 131px;
-  width: 155px;
-  height: 155px;
+  top: 102px;
+  width: 142px;
+  height: 142px;
   display: block;
 }
 
@@ -214,7 +214,7 @@ button::after {
 
 .step-row {
   position: relative;
-  height: 49px;
+  height: 45px;
   margin-bottom: 0;
   padding: 0 14px;
   border-radius: 12px;
@@ -284,7 +284,7 @@ button::after {
 
 .estimate {
   height: 28px;
-  margin-top: 20px;
+  margin-top: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -302,7 +302,7 @@ button::after {
 .primary-button {
   position: absolute;
   left: 28px;
-  top: 724px;
+  top: 694px;
   width: 334px;
   height: 60px;
   border-radius: 30px;
@@ -319,7 +319,7 @@ button::after {
 .refresh-button {
   position: absolute;
   left: 130px;
-  top: 794px;
+  top: 780px;
   width: 130px;
   height: 34px;
   color: #8b5cf6;

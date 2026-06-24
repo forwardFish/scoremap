@@ -1,47 +1,47 @@
 <view class="orders-screen">
   <view class="orders-header">
-    <text class="orders-title">Order records</text>
-    <text class="orders-subtitle">Local payment and report history from the My flow. This page uses the same product shell but has no independent pixel reference.</text>
+    <text class="orders-title">订单记录</text>
+    <text class="orders-subtitle">展示本地支付与报告解锁记录，用于“我的”页面的记录入口。</text>
   </view>
 
   <view class="orders-summary">
     <view class="summary-item">
       <text class="summary-value">3</text>
-      <text class="summary-label">Total records</text>
+      <text class="summary-label">全部记录</text>
     </view>
     <view class="summary-divider"></view>
     <view class="summary-item">
       <text class="summary-value">2</text>
-      <text class="summary-label">Paid items</text>
+      <text class="summary-label">已支付</text>
     </view>
   </view>
 
   <view class="order-card">
     <image class="order-icon basic" src="/assets/icons/document-blue.png" mode="aspectFit" />
     <view class="order-copy">
-      <text class="order-title">1 yuan basic analysis</text>
-      <text class="order-meta">Paid with local-wechat-pay-mock</text>
+      <text class="order-title">1 元初判分析</text>
+      <text class="order-meta">已通过本地微信支付模拟完成</text>
     </view>
-    <text class="order-amount">CNY 1</text>
+    <text class="order-amount">¥1</text>
   </view>
 
   <view class="order-card">
     <image class="order-icon full" src="/assets/icons/report-docs-blue.png" mode="aspectFit" />
     <view class="order-copy">
-      <text class="order-title">9.9 full report unlock</text>
-      <text class="order-meta">Full AI report and practice support</text>
+      <text class="order-title">9.9 元完整报告解锁</text>
+      <text class="order-meta">完整 AI 报告与练习支持</text>
     </view>
-    <text class="order-amount">CNY 9.9</text>
+    <text class="order-amount">¥9.9</text>
   </view>
 
   <view class="order-card pending">
     <image class="order-icon pending-dot" src="/assets/icons/history-clock.png" mode="aspectFit" />
     <view class="order-copy">
-      <text class="order-title">Preview analysis created</text>
-      <text class="order-meta">Waiting for parent to decide whether to unlock</text>
+      <text class="order-title">初判分析已生成</text>
+      <text class="order-meta">等待决定是否解锁完整报告</text>
     </view>
-    <text class="order-status">Pending</text>
+    <text class="order-status">待处理</text>
   </view>
 
-  <button class="orders-back" data-action="my" bindtap="onTap">Back to My</button>
+  <button class="orders-back" data-action="my" bindtap="onTap">返回我的</button>
 </view>

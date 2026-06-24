@@ -54,6 +54,11 @@
         <text class="c13-bullet">知识点：二元一次方程的应用-行程问题</text>
         <text class="c13-bullet">你的错误：把“速度差”当成了“速度和”。</text>
         <text class="c13-bullet">本质原因：没有理解“速度差 × 时间 = 路程差”的数量关系。</text>
+        <text class="c13-bullet">下次避免：先画示意图或写出数量关系，再列式计算。</text>
+      </view>
+      <view class="c13-panel c13-ai-tip">
+        <text class="c13-panel-title">AI 提示</text>
+        <text class="c13-tip-text">这类题的关键是先找出“速度差”，再乘上时间，不要把“两车同时出发”理解错。</text>
       </view>
       <button class="c13-primary" bindtap="onOpenAiTutor">下一步：换法讲解</button>
     </scroll-view>

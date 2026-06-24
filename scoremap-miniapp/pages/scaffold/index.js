@@ -3,7 +3,7 @@ if (typeof Page === 'function') {
     data: {
       reference: '',
       derived: true,
-      title: 'Scoremap Local Scaffold',
+      title: 'Scoremap 本地脚手架',
       hotspots: [
         { action: 'home', label: '进入首页', className: 'bottom-cta' }
       ]
@@ -26,18 +26,18 @@ const { SCAFFOLD_API_CONTRACTS } = require('../../../shared/scaffold-contract');
 function createScaffoldPageState() {
   return {
     route: '/pages/scaffold/index',
-    title: 'Scoremap Local Scaffold',
+    title: 'Scoremap 本地脚手架',
     status: 'ready',
     controls: [
       {
         id: 'start-local-check',
         target: '/api/scaffold/ping',
-        expected: 'API call returns local adapter status.'
+        expected: 'API 调用返回本地适配器状态。'
       },
       {
         id: 'readback-local-db',
         target: '/api/scaffold/db-readback',
-        expected: 'API call mutates and reads back diagnosis_orders locally.'
+        expected: 'API 调用会在本地写入并回读 diagnosis_orders。'
       }
     ],
     apiContracts: SCAFFOLD_API_CONTRACTS

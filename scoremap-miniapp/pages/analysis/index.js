@@ -202,7 +202,15 @@ if (typeof Page === 'function') {
       progressArcDeg: progressToDegrees(DEFAULT_PROGRESS),
       steps: decorateSteps(DEFAULT_STEPS),
       refreshing: false,
-      toast: ''
+      toast: '',
+      reference: '',
+      hotspots: [
+        {
+          action: 'later',
+          label: '稍后查看',
+          className: 'primary-button'
+        }
+      ]
     },
     onLoad(query = {}) {
       this.analysisStartedAt = Date.now();
@@ -210,18 +218,28 @@ if (typeof Page === 'function') {
       const orderId = resolveOrderId(query);
       this.setData({ orderId });
       hideNativeTabBar();
-      this.refreshRuntimeProgress('initial');
-      this.startAnalysisPolling();
+      if (typeof this.refreshRuntimeProgress === 'function') {
+        this.refreshRuntimeProgress('initial');
+      }
+      if (typeof this.startAnalysisPolling === 'function') {
+        this.startAnalysisPolling();
+      }
     },
     onShow() {
       hideNativeTabBar();
-      this.startAnalysisPolling();
+      if (typeof this.startAnalysisPolling === 'function') {
+        this.startAnalysisPolling();
+      }
     },
     onHide() {
-      this.stopAnalysisPolling();
+      if (typeof this.stopAnalysisPolling === 'function') {
+        this.stopAnalysisPolling();
+      }
     },
     onUnload() {
-      this.stopAnalysisPolling();
+      if (typeof this.stopAnalysisPolling === 'function') {
+        this.stopAnalysisPolling();
+      }
     },
     onTap(event) {
       const action = event.currentTarget.dataset.action;
@@ -231,7 +249,9 @@ if (typeof Page === 'function') {
         return;
       }
       if (action === 'later') {
-        this.stopAnalysisPolling();
+        if (typeof this.stopAnalysisPolling === 'function') {
+          this.stopAnalysisPolling();
+        }
         wx.navigateTo({ url: MY_REPORTS_ROUTE, fail: () => wx.redirectTo({ url: MY_REPORTS_ROUTE }) });
         return;
       }

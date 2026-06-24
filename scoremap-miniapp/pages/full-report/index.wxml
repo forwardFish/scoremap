@@ -24,8 +24,8 @@
           </view>
         </view>
       </view>
-      <image class="c10-owl c10-owl-core" src="/assets/icons/owl-teacher-pointer.png" mode="aspectFit" />
-      <image class="c10-owl c10-owl-v13" src="/assets/icons/owl-teacher-pointer.png" mode="aspectFit" />
+      <image class="c10-owl c10-owl-core" src="/assets/icons/owl-teacher-pointer-transparent.png" mode="aspectFit" />
+      <image class="c10-owl c10-owl-v13" src="/assets/icons/owl-teacher-pointer-transparent.png" mode="aspectFit" />
     </view>
 
     <view class="c10-card c10-evidence">

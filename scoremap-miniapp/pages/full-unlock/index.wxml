@@ -17,7 +17,7 @@
         <text class="hero-copy">整体基础较好，计算粗心和几何证明是本次失分的主要原因。</text>
         <view class="success-pill">✓ 初步分析已生成</view>
       </view>
-      <image class="hero-owl" src="/assets/icons/owl-report-teacher.png" mode="aspectFit" />
+      <image class="hero-owl" src="/assets/clean-icons/owl-report-teacher.png" mode="aspectFit" />
     </view>
     <view class="summary-card">
       <view><text>◎</text><text>主要丢分点</text><text>计算失误、几何证明</text></view>

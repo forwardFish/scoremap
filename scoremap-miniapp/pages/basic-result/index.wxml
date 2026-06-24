@@ -20,7 +20,11 @@
           <text>初步分析已生成</text>
         </view>
       </view>
-      <image class="hero-owl" src="/assets/clean-icons/owl-teacher-pointer.png" mode="aspectFit" />
+      <view class="hero-visual" aria-hidden="true">
+        <image class="hero-report-icon" src="/assets/icons/report-chart-clipboard.png" mode="aspectFit" />
+        <image class="hero-owl" src="/assets/icons/owl-teacher-pointer-transparent.png" mode="aspectFit" />
+        <image class="hero-shield-icon" src="/assets/clean-icons/shield-check-purple.png" mode="aspectFit" />
+      </view>
     </view>
 
     <view class="summary-card">
@@ -106,4 +110,60 @@
 
     <text class="disclaimer">ⓘ 结果基于当前资料分析，仅供学习参考。</text>
   </scroll-view>
+
+  <view class="payment-mask" wx:if="{{paymentModalVisible}}" catchtouchmove="noop">
+    <view class="payment-sheet">
+      <view class="sheet-handle"></view>
+      <button class="sheet-close" data-action="close-payment" bindtap="onTap">×</button>
+
+      <view class="sheet-head">
+        <text class="sheet-title">确认解锁完整报告</text>
+        <view class="sheet-price">
+          <text class="sheet-price-number">9.9</text>
+          <text class="sheet-price-unit">元</text>
+        </view>
+        <text class="sheet-subtitle">已完成初判，可立即解锁完整提分报告</text>
+      </view>
+
+      <view class="benefit-panel">
+        <view class="benefit-title">
+          <image src="/assets/icons/sparkle-gold.png" mode="aspectFit" />
+          <text>支付后可解锁</text>
+          <image src="/assets/icons/sparkle-gold.png" mode="aspectFit" />
+        </view>
+        <view class="benefit-grid">
+          <view class="benefit-item">
+            <image src="/assets/icons/success-check-green.png" mode="aspectFit" />
+            <text>完整报告</text>
+          </view>
+          <view class="benefit-item">
+            <image src="/assets/icons/success-check-green.png" mode="aspectFit" />
+            <text>7天行动建议</text>
+          </view>
+          <view class="benefit-item">
+            <image src="/assets/icons/success-check-green.png" mode="aspectFit" />
+            <text>详细丢分点分析</text>
+          </view>
+          <view class="benefit-item">
+            <image src="/assets/icons/success-check-green.png" mode="aspectFit" />
+            <text>关键错题修复</text>
+          </view>
+          <view class="benefit-item">
+            <image src="/assets/icons/success-check-green.png" mode="aspectFit" />
+            <text>优先补弱顺序</text>
+          </view>
+          <view class="benefit-item">
+            <image src="/assets/icons/success-check-green.png" mode="aspectFit" />
+            <text>家长学习建议</text>
+          </view>
+        </view>
+      </view>
+
+      <text class="payment-error" wx:if="{{paymentError}}">{{paymentError}}</text>
+      <button class="sheet-primary {{paymentLoading ? 'is-loading' : ''}}" data-action="confirm-payment" bindtap="onTap" loading="{{paymentLoading}}">
+        {{paymentPrimaryText}}
+      </button>
+      <button class="sheet-secondary" data-action="close-payment" bindtap="onTap">暂不解锁</button>
+    </view>
+  </view>
 </view>

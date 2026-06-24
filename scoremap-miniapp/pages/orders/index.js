@@ -14,14 +14,14 @@ if (typeof Page === 'function') {
     data: {
       reference: '',
       derived: true,
-      title: 'Order records',
+      title: '订单记录',
       hotspots: [
         { action: 'my', label: 'My', className: 'bottom-cta' }
       ]
     },
     onLoad(query) {
       this.query = query || {};
-      if (query && query.mode === 'purchases') this.setData({ title: 'Purchase records' });
+      if (query && query.mode === 'purchases') this.setData({ title: '购买记录' });
       if (typeof wx !== 'undefined' && wx.hideTabBar) wx.hideTabBar({ animation: false, fail() {} });
     },
     onShow() {
@@ -48,7 +48,7 @@ function createOrdersPageState(client = createMiniappApiClient(), options = {}) 
 
   const page = {
     route: ORDERS_ROUTE,
-    title: mode === 'purchases' ? 'Purchase records' : 'Order records',
+    title: mode === 'purchases' ? '购买记录' : '订单记录',
     loadRecords() {
       if (!loggedIn) {
         response = { status: 401, body: { items: [] } };
@@ -75,8 +75,8 @@ function createOrdersPageState(client = createMiniappApiClient(), options = {}) 
         title: page.title,
         mode,
         controls: [
-          { id: 'back-my', text: 'My', targetRoute: MY_ROUTE },
-          { id: 'load-order-records', text: 'Refresh records', api: 'GET /api/my/reports' }
+          { id: 'back-my', text: '我的', targetRoute: MY_ROUTE },
+          { id: 'load-order-records', text: '刷新记录', api: 'GET /api/my/reports' }
         ],
         records: items.map((item) => ({
           orderId: item.orderId,
@@ -88,7 +88,7 @@ function createOrdersPageState(client = createMiniappApiClient(), options = {}) 
           visibleInPurchaseMode: mode === 'purchases' ? item.paymentStatus === 'paid' : true
         })).filter((item) => mode !== 'purchases' || item.visibleInPurchaseMode),
         emptyState: items.length === 0
-          ? { visible: true, text: 'No records yet' }
+          ? { visible: true, text: '暂无记录' }
           : { visible: false }
       };
     }

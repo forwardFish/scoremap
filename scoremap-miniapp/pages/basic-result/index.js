@@ -53,6 +53,8 @@ if (typeof Page === 'function') {
       return null;
     },
 
+    noop() {},
+
     onBack() {
       wx.navigateBack({
         fail: () => wx.reLaunch({ url: '/pages/index/index' })

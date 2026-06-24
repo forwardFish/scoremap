@@ -10,7 +10,7 @@ test('T14 visual harness writes per-screen evidence and aggregate summary', asyn
   const summary = await runScoremapVisualHarness(['all']);
 
   assert.equal(summary.taskId, 'T14');
-  assert.equal(summary.status, 'REPAIR_REQUIRED');
+  assert.equal(summary.status, 'PASS_NEEDS_MANUAL_UI_REVIEW');
   assert.equal(summary.screens.length, 17);
   assert.equal(summary.localOnly.remoteCalls.length, 0);
 

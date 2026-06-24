@@ -10,11 +10,11 @@ if (typeof Page === 'function') {
     data: {
       reference: '',
       derived: true,
-      title: 'Help and feedback',
+      title: '帮助与反馈',
       selectedRating: 'helpful',
-      selectedTags: ['Clear decision', 'Next step is clear'],
+      selectedTags: ['决策清晰', '下一步清楚'],
       hotspots: [
-        { action: 'my', label: 'Submit and return', className: 'bottom-cta' }
+        { action: 'my', label: '提交并返回', className: 'bottom-cta' }
       ]
     },
     onLoad(query) {
@@ -27,7 +27,7 @@ if (typeof Page === 'function') {
     onTap(event) {
       if (event.currentTarget.dataset.action !== 'my') return;
       if (!requireLogin({ redirectUrl: '/pages/feedback/index' })) return;
-      if (typeof wx !== 'undefined' && wx.showToast) wx.showToast({ title: 'Feedback saved', icon: 'none' });
+      if (typeof wx !== 'undefined' && wx.showToast) wx.showToast({ title: '反馈已保存', icon: 'none' });
       navigate('/pages/my/index');
     }
   });
@@ -47,12 +47,12 @@ function createFeedbackPageState(client = createMiniappApiClient(), options = {}
 
   const page = {
     route: FEEDBACK_ROUTE,
-    title: 'Help and feedback',
+    title: '帮助与反馈',
     orderId,
     form: {
       ratingOptions: ['very_helpful', 'helpful', 'unclear', 'inaccurate'],
-      tagOptions: ['Clear decision', 'Next step is clear', 'Inaccurate', 'Hard to understand'],
-      defaultTags: ['Clear decision', 'Next step is clear']
+      tagOptions: ['决策清晰', '下一步清楚', '不准确', '不易理解'],
+      defaultTags: ['决策清晰', '下一步清楚']
     },
     submitFeedback(input = {}) {
       if (!loggedIn) return loginRequiredResult(FEEDBACK_ROUTE);
@@ -61,7 +61,7 @@ function createFeedbackPageState(client = createMiniappApiClient(), options = {}
         decisionLevel: input.decisionLevel || 'full',
         rating: input.rating || 'very_helpful',
         tags: input.tags || page.form.defaultTags,
-        text: input.text || 'Local T12 feedback: the next practice step is clear.',
+        text: input.text || '本地 T12 反馈：下一步练习建议清晰。',
         source: 'T12-feedback-page'
       };
       const response = client.request('POST', '/api/feedbacks', { ...payload, orderId });
@@ -71,7 +71,7 @@ function createFeedbackPageState(client = createMiniappApiClient(), options = {}
         targetRoute: response.status === 201 ? MY_ROUTE : FEEDBACK_ROUTE,
         response: response.body,
         dbReadback: client.store.read('feedbacks', payload.feedbackId),
-        toast: response.status === 201 ? 'Feedback saved' : 'Feedback submit failed'
+        toast: response.status === 201 ? '反馈已保存' : '反馈提交失败'
       };
       return lastSubmit;
     },
@@ -89,7 +89,7 @@ function createFeedbackPageState(client = createMiniappApiClient(), options = {}
         form: page.form,
         controls: [
           { id: 'return-my', text: 'My', targetRoute: MY_ROUTE },
-          { id: 'submit-feedback', text: 'Submit feedback', api: 'POST /api/feedbacks' }
+          { id: 'submit-feedback', text: '提交反馈', api: 'POST /api/feedbacks' }
         ],
         lastSubmit
       };
