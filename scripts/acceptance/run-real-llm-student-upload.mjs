@@ -91,7 +91,7 @@ async function main() {
   const preview = requireOk('read preview decision', diagnosis.getPreviewDecision(orderId, auth));
   steps.push(step('getPreviewDecision', preview));
 
-  const basicPayment = requireOk('create basic payment', payments.createPayment({ orderId, paymentType: 'basic' }, auth));
+  const basicPayment = requireOk('create basic payment', await payments.createPayment({ orderId, paymentType: 'basic' }, auth));
   steps.push(step('createBasicPayment', basicPayment));
   const basicCallback = requireOk('basic payment callback', payments.handleWechatCallback({
     paymentId: basicPayment.body.paymentId,
@@ -124,7 +124,7 @@ async function main() {
   steps.push(step('getBasicDecision', basic));
 
   const fullPaymentId = createPaymentId(orderId, 'full');
-  const fullPayment = requireOk('create full payment', payments.createPayment({ orderId, paymentType: 'full', paymentId: fullPaymentId }, auth));
+  const fullPayment = requireOk('create full payment', await payments.createPayment({ orderId, paymentType: 'full', paymentId: fullPaymentId }, auth));
   steps.push(step('createFullPayment', fullPayment));
   const fullCallback = requireOk('full payment callback', payments.handleWechatCallback({
     paymentId: fullPayment.body.paymentId,

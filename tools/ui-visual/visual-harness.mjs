@@ -48,7 +48,7 @@ const screenMap = [
     route: '/pages/index/index',
     commandArgs: ['home'],
     actualAsset: 'scoremap-miniapp/assets/reference/home.png',
-    reference: 'docs/UI/小程序/01-首页-上传资料.png',
+    reference: 'docs/UI/小程序/ui_code/01/screen.png',
     stitchReference: null
   },
   {
@@ -56,7 +56,7 @@ const screenMap = [
     name: 'student-info',
     route: '/pages/student-info/index',
     commandArgs: ['student-info'],
-    reference: 'docs/UI/小程序/02-填写孩子信息.png',
+    reference: 'docs/UI/小程序/ui_code/02/screen.png',
     stitchReference: null
   },
   {
@@ -65,7 +65,7 @@ const screenMap = [
     route: '/pages/analysis/index',
     commandArgs: ['analysis', 'failure'],
     actualAsset: 'scoremap-miniapp/assets/reference/analysis.jpg',
-    reference: 'docs/UI/小程序/03-AI分析中.png',
+    reference: 'docs/UI/小程序/ui_code/03_ai/screen.png',
     stitchReference: null
   },
   {
@@ -74,7 +74,7 @@ const screenMap = [
     route: '/pages/failure/index',
     commandArgs: ['analysis', 'failure'],
     actualAsset: 'scoremap-miniapp/assets/reference/failure.jpg',
-    reference: 'docs/UI/小程序/08-处理失败.png',
+    reference: 'docs/UI/小程序/ui_code/08/screen.png',
     stitchReference: null
   },
   {
@@ -83,7 +83,7 @@ const screenMap = [
     route: '/pages/preview/index',
     commandArgs: ['preview', 'basic-pay'],
     actualAsset: 'scoremap-miniapp/assets/reference/preview.jpg',
-    reference: 'docs/UI/小程序/v1.4.3-C05-初判预览-1元半屏支付.png',
+    reference: 'docs/UI/小程序/ui_code/v1.4.3_c05_1/screen.png',
     stitchReference: null
   },
   {
@@ -102,17 +102,17 @@ const screenMap = [
     route: '/pages/basic-result/index',
     commandArgs: ['basic-result', 'full-unlock'],
     actualAsset: 'scoremap-miniapp/assets/reference/basic-result.jpg',
-    reference: 'docs/UI/小程序/v1.4.3-C07-完整初判-9.9解锁.png',
+    reference: 'docs/UI/小程序/ui_code/v1.4.3_c07_9.9_1/screen.png',
     stitchReference: null
   },
   {
     id: 'UI-C08',
     name: 'full-unlock',
-    route: '/pages/basic-result/index?modal=full-unlock',
+    route: '/pages/full-unlock/index',
     commandArgs: ['basic-result', 'full-unlock'],
-    reference: 'docs/UI/小程序/v1.4.3-C07-确认9.9支付半屏弹窗.png',
-    stitchReference: null,
-    referenceNote: 'C07 9.9 confirmation is a half-screen modal state rendered on /pages/basic-result/index, not the standalone /pages/full-unlock/index page.'
+    actualAsset: 'scoremap-miniapp/assets/reference/full-unlock.jpg',
+    reference: 'docs/UI/小程序/ui_code/v1.4.3_c07_9.9_2/screen.png',
+    stitchReference: null
   },
   {
     id: 'UI-C09',
@@ -130,7 +130,7 @@ const screenMap = [
     route: '/pages/full-report/index',
     commandArgs: ['full-report-entry', 'full-report'],
     actualAsset: 'scoremap-miniapp/assets/reference/full-report.jpg',
-    reference: 'docs/UI/小程序/v1.4.3-C10-完整报告-核心五卡.png',
+    reference: 'docs/UI/小程序/ui_code/v1.4.3_c10_1/screen.png',
     stitchReference: null
   },
   {
@@ -140,7 +140,7 @@ const screenMap = [
     v13EvidenceName: 'full-report',
     route: '/pages/full-report/index?state=aiTutorReady',
     commandArgs: ['v13-full-report', 'full-report-core-cards'],
-    reference: 'docs/UI/小程序/v1.4.3-C10-完整报告-修复后回写.png',
+    reference: 'docs/UI/小程序/ui_code/v1.4.3_c10_2/screen.png',
     stitchReference: null
   },
   {
@@ -150,7 +150,7 @@ const screenMap = [
     v13EvidenceName: 'wrong-question-detail',
     route: '/pages/wrong-question/index?questionId={questionId}',
     commandArgs: ['v13-wrong-question-detail'],
-    reference: 'docs/UI/小程序/v1.4.3-C13修复抽屉-第1步错因诊断.png',
+    reference: 'docs/UI/小程序/ui_code/v1.4.3_c13_1/screen.png',
     stitchReference: null
   },
   {
@@ -170,7 +170,7 @@ const screenMap = [
     v13EvidenceName: 'similar-exercise',
     route: '/pages/ai-exercise/index?interactionId={interactionId}',
     commandArgs: ['v13-similar-exercise', 'ai-exercise-feedback'],
-    reference: 'docs/UI/小程序/v1.4.3-C13修复抽屉-第3步验证练习.png',
+    reference: 'docs/UI/小程序/ui_code/v1.4.3_c13_3/screen.png',
     stitchReference: null
   },
   {
@@ -180,7 +180,7 @@ const screenMap = [
     v13EvidenceName: 'answer-feedback',
     route: '/pages/ai-exercise-feedback/index?interactionId={interactionId}',
     commandArgs: ['v13-answer-feedback', 'ai-exercise-feedback'],
-    reference: 'docs/UI/小程序/v1.4.3-C13修复抽屉-第4步掌握判断.png',
+    reference: 'docs/UI/小程序/ui_code/v1.4.3_c13_4/screen.png',
     stitchReference: null
   },
   {
@@ -189,7 +189,7 @@ const screenMap = [
     route: '/pages/my/index',
     commandArgs: ['my', 'reports'],
     actualAsset: 'scoremap-miniapp/assets/reference/my.jpg',
-    reference: 'docs/UI/小程序/v1.4.3-C11-我的报告-合并版.png',
+    reference: 'docs/UI/小程序/ui_code/v1.4.3_c11/screen.png',
     stitchReference: null
   },
   {
@@ -218,7 +218,7 @@ const screenshotPixelScreens = [
     name: 'my-stitch',
     sourceName: 'my',
     route: '/pages/my/index',
-    reference: 'docs/UI/小程序/v1.4.3-C11-我的报告-合并版.png',
+    reference: 'docs/UI/小程序/ui_code/v1.4.3_c11/screen.png',
     stitchReference: null,
     referenceNote: 'Secondary my/report support capture uses the same V143 C11/C12 merged reference.'
   },
@@ -640,11 +640,11 @@ async function comparePngFiles({ id, screen, route, referencePath, sourceReferen
     },
     referenceNormalization: {
       applied: sourceSizeMismatch,
-      method: sourceSizeMismatch ? 'viewport-resize-bilinear-rgba' : 'none',
+      method: sourceSizeMismatch ? 'width-fit-crop-to-viewport-bilinear-rgba' : 'none',
       sourceArtifact: toRelative(sourceReferencePath),
       normalizedArtifact: toRelative(referencePath),
       targetViewport: pixelViewport,
-      semantics: 'The normalized reference is the comparator input; the actual artifact remains a Playwright browser screenshot, and pixelmatch runs on real 390x844 RGBA pixels.'
+      semantics: 'The normalized reference is width-fitted and cropped to the first viewport; the actual artifact remains a Playwright browser screenshot, and pixelmatch runs on real 390x844 RGBA pixels.'
     },
     viewport: pixelViewport,
     knownGaps
@@ -659,8 +659,19 @@ async function writeComparableReferencePng({ sourceReferencePath, referencePath,
     fs.writeFileSync(referencePath, PNG.sync.write(flattenPngAlphaToWhite(source, PNG)));
     return;
   }
-  const resized = resizePngBilinear(source, targetWidth, targetHeight, PNG);
-  fs.writeFileSync(referencePath, PNG.sync.write(flattenPngAlphaToWhite(resized, PNG)));
+  const normalized = fitWidthAndCropToViewport(source, targetWidth, targetHeight, PNG);
+  fs.writeFileSync(referencePath, PNG.sync.write(flattenPngAlphaToWhite(normalized, PNG)));
+}
+
+function fitWidthAndCropToViewport(source, targetWidth, targetHeight, PNG) {
+  const scaledHeight = Math.max(1, Math.round(source.height * (targetWidth / source.width)));
+  const scaled = resizePngBilinear(source, targetWidth, scaledHeight, PNG);
+  if (scaled.height === targetHeight) return scaled;
+
+  const target = createWhitePng(targetWidth, targetHeight, PNG);
+  const copyHeight = Math.min(targetHeight, scaled.height);
+  PNG.bitblt(scaled, target, 0, 0, targetWidth, copyHeight, 0, 0);
+  return target;
 }
 
 function flattenPngAlphaToWhite(source, PNG) {
@@ -940,7 +951,7 @@ function renderMiniappPreviewHtml(routeInfo, screen) {
   if (!fs.existsSync(wxmlPath)) throw new Error(`Missing WXML for ${screen.name}: ${routeInfo.wxml}`);
   if (!fs.existsSync(wxssPath)) throw new Error(`Missing WXSS for ${screen.name}: ${routeInfo.wxss}`);
   const css = convertWxssToCss(readWxssWithImports(wxssPath));
-  const body = convertWxmlToHtml(fs.readFileSync(wxmlPath, 'utf8'), screen);
+  const body = convertWxmlToHtml(fs.readFileSync(wxmlPath, 'utf8'));
   return `<!doctype html>
 <html>
 <head>
@@ -977,17 +988,15 @@ function convertWxssToCss(wxss) {
     .replace(/\/\*[\s\S]*?\*\//g, '')
     .replace(/(^|[}\s,])page(?=[\s,{.#[:])/g, '$1body')
     .replace(/(-?\d*\.?\d+)rpx\b/g, (_, value) => `${roundPx(Number(value) * rpxScale)}px`);
-  return mirrorMiniappElementSelectors(css);
+  return mirrorMiniappTextSelectors(css);
 }
 
-function mirrorMiniappElementSelectors(css) {
+function mirrorMiniappTextSelectors(css) {
   return css.replace(/([^{}]+)\{([^{}]*)\}/g, (block, selectorText, declarations) => {
     const selectors = selectorText.split(',').map((selector) => selector.trim()).filter(Boolean);
     const mirrored = [];
     for (const selector of selectors) {
-      const htmlSelector = selector
-        .replace(/(^|[\s>+~])text(?=($|[\s>+~:.[#)]))/g, '$1span')
-        .replace(/(^|[\s>+~])image(?=($|[\s>+~:.[#)]))/g, '$1img');
+      const htmlSelector = selector.replace(/(^|[\s>+~])text(?=($|[\s>+~:.[#)]))/g, '$1span');
       if (htmlSelector !== selector && !selectors.includes(htmlSelector) && !mirrored.includes(htmlSelector)) {
         mirrored.push(htmlSelector);
       }
@@ -997,10 +1006,9 @@ function mirrorMiniappElementSelectors(css) {
   });
 }
 
-function convertWxmlToHtml(wxml, screen = {}) {
+function convertWxmlToHtml(wxml) {
   let html = wxml.replace(/<!--[\s\S]*?-->/g, '');
   html = chooseNonReferenceElseBranch(html);
-  html = applyVisualDataDefaults(html, screen);
   html = html.replace(/<block\b([^>]*)>/g, '<div$1>').replace(/<\/block>/g, '</div>');
   html = html.replace(/<view\b([^>]*)>/g, '<div$1>').replace(/<\/view>/g, '</div>');
   html = html.replace(/<scroll-view\b([^>]*)>/g, '<div$1>').replace(/<\/scroll-view>/g, '</div>');
@@ -1010,56 +1018,6 @@ function convertWxmlToHtml(wxml, screen = {}) {
   html = html.replace(/\s(?:wx:if|wx:elif|wx:else|wx:for|wx:key|bindtap|binderror|catchtap|data-[\w-]+)="[^"]*"/g, '');
   html = html.replace(/\{\{([^}]*)\}\}/g, (_, expr) => readableBindingFallback(expr));
   return html;
-}
-
-function applyVisualDataDefaults(wxml, screen = {}) {
-  if (screen.name === 'basic-result') {
-    return stripBasicResultPaymentModal(wxml);
-  }
-  if (screen.name === 'full-unlock') {
-    return wxml
-      .replace(/<text class="payment-error" wx:if="\{\{paymentError\}\}">\{\{paymentError\}\}<\/text>/g, '')
-      .replace(/\{\{paymentLoading \? 'is-loading' : ''\}\}/g, '')
-      .replace(/\sloading="\{\{paymentLoading\}\}"/g, '')
-      .replace(/\{\{paymentPrimaryText\}\}/g, '确认支付 9.9元');
-  }
-  if (screen.name !== 'analysis' && screen.sourceName !== 'analysis') return wxml;
-  const steps = [
-    { status: 'done', nodeClass: '', nodeIcon: '/assets/icons/analysis-check.png', text: '已识别上传资料' },
-    { status: 'done', nodeClass: '', nodeIcon: '/assets/icons/analysis-check.png', text: '已匹配年级与学科' },
-    { status: 'active', nodeClass: 'spinner', nodeIcon: '', text: '正在定位主要丢分点' },
-    { status: 'pending', nodeClass: '', nodeIcon: '/assets/icons/analysis-clock.png', text: '正在生成初步建议' }
-  ];
-  const stepRows = steps.map((step) => {
-    const icon = step.nodeIcon
-      ? `<image src="${step.nodeIcon}" mode="aspectFit" />`
-      : '';
-    return `<view class="step-row ${step.status}">
-        <view class="step-node ${step.nodeClass}">
-          ${icon}
-        </view>
-        <text>${step.text}</text>
-      </view>`;
-  }).join('\n');
-  return wxml
-    .replace(/<view class="step-list">[\s\S]*?<view class="estimate">/g, `<view class="step-list">
-${stepRows}
-    </view>
-
-    <view class="estimate">`)
-    .replace(/<text class="analysis-toast" wx:if="\{\{toast\}\}">\{\{toast\}\}<\/text>/g, '')
-    .replace(/\{\{progress\}\}/g, '68')
-    .replace(/\{\{estimateText\}\}/g, '通常需要 10-30 秒')
-    .replace(/\{\{refreshing \? '刷新中' : '刷新进度'\}\}/g, '刷新进度')
-    .replace(/\{\{refreshing \? 'refreshing' : ''\}\}/g, '');
-}
-
-function stripBasicResultPaymentModal(wxml) {
-  const start = wxml.indexOf('<view class="payment-mask"');
-  if (start === -1) return wxml;
-  const outerClose = wxml.lastIndexOf('</view>');
-  if (outerClose === -1 || outerClose <= start) return wxml;
-  return `${wxml.slice(0, start)}${wxml.slice(outerClose)}`;
 }
 
 function chooseNonReferenceElseBranch(html) {

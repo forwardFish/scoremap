@@ -342,8 +342,14 @@ if ($Scope -eq 'v143-mvp') {
 }
 
 if ($Scope -eq 'ui-one-to-one') {
-  $t43EvidenceDir = Join-Path $root 'docs/auto-execute/evidence/ui-one-to-one/T43'
-  New-Item -ItemType Directory -Force -Path $t43EvidenceDir | Out-Null
+  $t43EvidenceRel = 'docs/auto-execute/evidence-current/ui-one-to-one/T43'
+  $t43ResultRel = 'docs/auto-execute/results-current/T43.json'
+  $t43HandoffRel = 'docs/auto-execute/latest-current/T43-HANDOFF.md'
+  $t43LatestRel = 'docs/auto-execute/latest-current/HANDOFF.md'
+  $t43EvidenceDir = Join-Path $root $t43EvidenceRel
+  $uiResultsDir = Join-Path $root 'docs/auto-execute/results-current'
+  $uiLatestDir = Join-Path $root 'docs/auto-execute/latest-current'
+  New-Item -ItemType Directory -Force -Path $t43EvidenceDir, $uiResultsDir, $uiLatestDir | Out-Null
 
   $uiFailures = New-Object System.Collections.Generic.List[string]
   $uiLimitations = New-Object System.Collections.Generic.List[string]
@@ -439,17 +445,17 @@ if ($Scope -eq 'ui-one-to-one') {
   }
 
   $commandsRun = @(
-    [ordered]@{ command = 'npm.cmd test'; status = 'PASS'; evidence = 'docs/auto-execute/evidence/ui-one-to-one/T43/npm-test-npmcmd.log' }
-    [ordered]@{ command = 'npm.cmd run e2e:owner'; status = 'PASS'; evidence = 'docs/auto-execute/evidence/ui-one-to-one/T43/e2e-owner.log' }
-    [ordered]@{ command = 'npm.cmd run visual:scoremap'; status = 'PASS_NEEDS_MANUAL_UI_REVIEW'; evidence = @('docs/auto-execute/evidence/ui-one-to-one/T43/visual-scoremap.log','docs/auto-execute/evidence/visual-harness/summary.json') }
-    [ordered]@{ command = 'npm.cmd run build'; status = 'PASS'; evidence = 'docs/auto-execute/evidence/ui-one-to-one/T43/build.log' }
-    [ordered]@{ command = 'git diff --check'; status = 'PASS'; evidence = 'docs/auto-execute/evidence/ui-one-to-one/T43/git-diff-check.log' }
-    [ordered]@{ command = 'powershell -ExecutionPolicy Bypass -File .\scripts\acceptance\run-final-gate.ps1 -Scope ui-one-to-one'; status = 'PASS_NEEDS_MANUAL_UI_REVIEW'; evidence = 'docs/auto-execute/evidence/ui-one-to-one/T43/final-gate-ui-one-to-one.log' }
+    [ordered]@{ command = 'npm.cmd test'; status = 'PASS'; evidence = "$t43EvidenceRel/npm-test-npmcmd.log" }
+    [ordered]@{ command = 'npm.cmd run e2e:owner'; status = 'PASS'; evidence = "$t43EvidenceRel/e2e-owner.log" }
+    [ordered]@{ command = 'npm.cmd run visual:scoremap'; status = 'PASS_NEEDS_MANUAL_UI_REVIEW'; evidence = @("$t43EvidenceRel/visual-scoremap.log",'docs/auto-execute/evidence/visual-harness/summary.json') }
+    [ordered]@{ command = 'npm.cmd run build'; status = 'PASS'; evidence = "$t43EvidenceRel/build.log" }
+    [ordered]@{ command = 'git diff --check'; status = 'PASS'; evidence = "$t43EvidenceRel/git-diff-check.log" }
+    [ordered]@{ command = 'powershell -ExecutionPolicy Bypass -File .\scripts\acceptance\run-final-gate.ps1 -Scope ui-one-to-one'; status = 'PASS_NEEDS_MANUAL_UI_REVIEW'; evidence = "$t43EvidenceRel/final-gate-ui-one-to-one.log" }
   )
 
   foreach ($commandInfo in $commandsRun) {
     foreach ($ev in As-Array $commandInfo.evidence) {
-      if ($ev -like 'docs/auto-execute/evidence/ui-one-to-one/T43/*' -and -not (Test-RelativeFile $ev)) {
+      if ($ev -like "$t43EvidenceRel/*" -and -not (Test-RelativeFile $ev)) {
         Add-UiLimitation "Command evidence will be available after the wrapper finishes writing its log: $ev"
       }
     }
@@ -507,9 +513,9 @@ if ($Scope -eq 'ui-one-to-one') {
   $resultEvidence['t34ToT42Handoffs'] = 'docs/auto-execute/latest/T34-HANDOFF.md through docs/auto-execute/latest/T42-HANDOFF.md'
   $resultEvidence['visualHarnessSummary'] = 'docs/auto-execute/evidence/visual-harness/summary.json'
   $resultEvidence['visualDiffReport'] = 'docs/auto-execute/visual-diff-report.json'
-  $resultEvidence['finalGateSummary'] = 'docs/auto-execute/evidence/ui-one-to-one/T43/final-gate-summary.json'
-  $resultEvidence['t43EvidenceDir'] = 'docs/auto-execute/evidence/ui-one-to-one/T43'
-  $resultEvidence['t43Handoff'] = 'docs/auto-execute/latest/T43-HANDOFF.md'
+  $resultEvidence['finalGateSummary'] = "$t43EvidenceRel/final-gate-summary.json"
+  $resultEvidence['t43EvidenceDir'] = $t43EvidenceRel
+  $resultEvidence['t43Handoff'] = $t43HandoffRel
 
   $requiredScreensResult = [ordered]@{}
   $requiredScreensResult['count'] = 15
@@ -532,7 +538,7 @@ if ($Scope -eq 'ui-one-to-one') {
   $result['blockers'] = $uiFailures.ToArray()
   $result['limitations'] = $uiLimitations.ToArray()
   $result['nextStep'] = $resultNextStep
-  $result | ConvertTo-Json -Depth 20 | Set-Content -LiteralPath (Join-Path $resultsDir 'T43.json') -Encoding UTF8
+  $result | ConvertTo-Json -Depth 20 | Set-Content -LiteralPath (Join-Path $uiResultsDir 'T43.json') -Encoding UTF8
 
   $taskTable = @($taskRows | ForEach-Object { "| $($_.taskId) | $($_.scope) | $($_.status) | ``$($_.result)``, ``$($_.handoff)`` |" }) -join "`n"
   $screenTable = @($screenRows | ForEach-Object { "| $($_.screen) | ``$($_.route)`` | $($_.status) | ``$($_.actual)`` | ``$($_.diff)`` |" }) -join "`n"
@@ -557,7 +563,7 @@ Pure `PASS` is not claimed unless complete pixel-diff-quality evidence exists fo
 | Task | Scope | Status | Evidence |
 | --- | --- | --- | --- |
 $taskTable
-| T43 | $($taskLabels['T43']) | $finalStatus | docs/auto-execute/results/T43.json, docs/auto-execute/latest/T43-HANDOFF.md |
+| T43 | $($taskLabels['T43']) | $finalStatus | $t43ResultRel, $t43HandoffRel |
 
 ## Required 15-Screen Evidence
 
@@ -615,9 +621,9 @@ $commandTable
 ## Evidence
 
 - Final report: `docs/AUTO_EXECUTE_DELIVERY_REPORT.md`
-- T43 result: `docs/auto-execute/results/T43.json`
-- Final-gate summary: `docs/auto-execute/evidence/ui-one-to-one/T43/final-gate-summary.json`
-- T43 logs: `docs/auto-execute/evidence/ui-one-to-one/T43/`
+- T43 result: `$t43ResultRel`
+- Final-gate summary: `$t43EvidenceRel/final-gate-summary.json`
+- T43 logs: `$t43EvidenceRel/`
 - Visual harness summary: `docs/auto-execute/evidence/visual-harness/summary.json`
 - Pixel diff limitation: `docs/auto-execute/visual-diff-report.json`
 
@@ -633,8 +639,8 @@ $($manualReviewReasons | ForEach-Object { "- $_" } | Out-String)
 
 $($result.nextStep)
 "@
-  $handoff | Set-Content -LiteralPath (Join-Path $latestDir 'T43-HANDOFF.md') -Encoding UTF8
-  $handoff | Set-Content -LiteralPath (Join-Path $latestDir 'HANDOFF.md') -Encoding UTF8
+  $handoff | Set-Content -LiteralPath (Join-Path $uiLatestDir 'T43-HANDOFF.md') -Encoding UTF8
+  $handoff | Set-Content -LiteralPath (Join-Path $uiLatestDir 'HANDOFF.md') -Encoding UTF8
 
   $verification = @"
 # Verification Results
@@ -649,7 +655,7 @@ $commandTable
 
 The equivalent Windows-safe npm.cmd commands are the current gate evidence.
 "@
-  $verification | Set-Content -LiteralPath (Join-Path $latestDir 'verification-results.md') -Encoding UTF8
+  $verification | Set-Content -LiteralPath (Join-Path $uiLatestDir 'verification-results.md') -Encoding UTF8
 
   $blockersDoc = @"
 # Blockers
@@ -660,12 +666,12 @@ Manual-review limits:
 
 $limitLines
 "@
-  $blockersDoc | Set-Content -LiteralPath (Join-Path $latestDir 'blockers.md') -Encoding UTF8
+  $blockersDoc | Set-Content -LiteralPath (Join-Path $uiLatestDir 'blockers.md') -Encoding UTF8
 
   Write-Host "FINAL_GATE[$Scope]: $finalStatus"
-  Write-Host 'Summary: docs/auto-execute/evidence/ui-one-to-one/T43/final-gate-summary.json'
-  Write-Host 'Result: docs/auto-execute/results/T43.json'
-  Write-Host 'Handoff: docs/auto-execute/latest/T43-HANDOFF.md'
+  Write-Host "Summary: $t43EvidenceRel/final-gate-summary.json"
+  Write-Host "Result: $t43ResultRel"
+  Write-Host "Handoff: $t43HandoffRel"
 
   if ($finalStatus -eq 'PASS') { exit 0 }
   if ($finalStatus -in @('PASS_WITH_LIMITATION','PASS_NEEDS_MANUAL_UI_REVIEW')) { exit 3 }

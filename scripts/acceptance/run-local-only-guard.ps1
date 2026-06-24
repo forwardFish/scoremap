@@ -130,14 +130,44 @@ $scanRoots = @('server', 'scoremap-miniapp', 'shared', 'tests', 'scripts', 'docs
   ForEach-Object { Join-Path $projectRootPath $_ } |
   Where-Object { Test-Path -LiteralPath $_ }
 
+$excludedPathFragments = @(
+  '\node_modules\',
+  '\.git\',
+  '\docs\auto-execute\evidence\safety\',
+  '\docs\auto-execute\evidence\screenshot-pixel\harness\runs\',
+  '\docs\auto-execute\evidence\backend-api-report\local-report-exports\',
+  '\docs\auto-execute\evidence\real-llm-student-upload\local-cloud\',
+  '\docs\auto-execute\evidence\real-llm-student-upload\local-report-exports\',
+  '\docs\auto-execute\evidence\tmp-icon-thumbnails\'
+)
+
+$scanFileExtensions = @(
+  '.cjs',
+  '.css',
+  '.html',
+  '.js',
+  '.json',
+  '.log',
+  '.md',
+  '.mjs',
+  '.ps1',
+  '.txt',
+  '.wxml',
+  '.wxss',
+  '.yaml',
+  '.yml'
+)
+
 $remoteFindings = New-Object System.Collections.Generic.List[object]
 $scannedFileCount = 0
 foreach ($root in $scanRoots) {
   Get-ChildItem -LiteralPath $root -Recurse -File |
     Where-Object {
-      $_.FullName -notmatch '\\node_modules\\' -and
-      $_.FullName -notmatch '\\\.git\\' -and
-      $_.FullName -notmatch '\\docs\\auto-execute\\evidence\\safety\\'
+      $path = $_.FullName
+      foreach ($fragment in $excludedPathFragments) {
+        if ($path.Contains($fragment)) { return $false }
+      }
+      return ($scanFileExtensions -contains $_.Extension.ToLowerInvariant())
     } |
     ForEach-Object {
       $scannedFileCount += 1

@@ -1,5 +1,6 @@
 {
   "setting": {
+    "urlCheck": false,
     "es6": true,
     "postcss": true,
     "minified": true,
@@ -64,7 +65,27 @@
         "type": "glob"
       },
       {
-        "value": "scoremap-miniapp/assets/reference/*.png",
+        "value": "assets/reference",
+        "type": "folder"
+      },
+      {
+        "value": "assets/home-icons",
+        "type": "folder"
+      },
+      {
+        "value": "pages/*/*.png",
+        "type": "glob"
+      },
+      {
+        "value": "scoremap-miniapp/assets/reference",
+        "type": "folder"
+      },
+      {
+        "value": "scoremap-miniapp/assets/home-icons",
+        "type": "folder"
+      },
+      {
+        "value": "scoremap-miniapp/pages/*/*.png",
         "type": "glob"
       },
       {

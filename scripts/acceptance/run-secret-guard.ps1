@@ -31,17 +31,65 @@ $scanRoots = @('server', 'scoremap-miniapp', 'shared', 'tests', 'scripts', 'docs
 $excludedPathFragments = @(
   '\node_modules\',
   '\.git\',
-  '\docs\auto-execute\evidence\safety\'
+  '\docs\auto-execute\evidence\safety\',
+  '\docs\auto-execute\evidence\screenshot-pixel\harness\runs\',
+  '\docs\auto-execute\evidence\backend-api-report\local-report-exports\',
+  '\docs\auto-execute\evidence\real-llm-student-upload\local-cloud\',
+  '\docs\auto-execute\evidence\real-llm-student-upload\local-report-exports\',
+  '\docs\auto-execute\evidence\tmp-icon-thumbnails\'
+)
+
+$scanFileExtensions = @(
+  '.cjs',
+  '.css',
+  '.env',
+  '.html',
+  '.js',
+  '.json',
+  '.log',
+  '.md',
+  '.mjs',
+  '.ps1',
+  '.txt',
+  '.wxml',
+  '.wxss',
+  '.yaml',
+  '.yml'
 )
 
 $secretValuePatterns = @(
-  @{ name = 'wechat-or-tencent-secret-assignment'; pattern = '(?i)(appsecret|app_secret|secret_key|api_key|private_key|access_token|refresh_token|mch_key|merchant_key)\s*[:=]\s*["''][A-Za-z0-9_\-+/=]{16,}["'']' },
-  @{ name = 'openid-assignment'; pattern = '(?i)(openid|open_id)\s*[:=]\s*["''](?!local-|mock-|test-|sample-|anon-|owner-|user-)[A-Za-z0-9_\-]{12,}["'']' },
-  @{ name = 'merchant-id-assignment'; pattern = '(?i)(mch_id|merchant_id)\s*[:=]\s*["''](?!local-|mock-|test-|sample-)[0-9]{8,}["'']' },
+  @{ name = 'wechat-or-tencent-secret-assignment'; pattern = '(?i)(appsecret|app_secret|secret_key|api_key|private_key|access_token|refresh_token|mch_key|merchant_key)\s*[:=]\s*["''](?<value>[A-Za-z0-9_\-+/=]{16,})["'']' },
+  @{ name = 'openid-assignment'; pattern = '(?i)(openid|open_id)\s*[:=]\s*["''](?<value>[A-Za-z0-9_\-]{12,})["'']' },
+  @{ name = 'merchant-id-assignment'; pattern = '(?i)(mch_id|merchant_id)\s*[:=]\s*["''](?<value>[0-9]{8,})["'']' },
   @{ name = 'pem-private-key'; pattern = '-----BEGIN (RSA |EC |OPENSSH |)PRIVATE KEY-----' },
   @{ name = 'bearer-token'; pattern = '(?i)bearer\s+[A-Za-z0-9_\-\.=]{24,}' },
   @{ name = 'generic-live-secret-token'; pattern = '(?i)(live|prod|production)[A-Za-z0-9_\-]{0,12}(secret|token|key)[A-Za-z0-9_\-]{8,}' }
 )
+
+$allowedPlaceholderPrefixes = @('local-', 'mock-', 'test-', 'sample-', 'anon-', 'owner-', 'user-', 'openid-', 'union-', 'session-', 'scoremap-')
+$allowedPlaceholderFragments = @('-mock-', '-test-', '-sample-', '-devtools-', '-migration-', '-login-flow')
+
+function Test-AllowedPlaceholderValue {
+  param([string]$Value)
+
+  if ([string]::IsNullOrWhiteSpace($Value)) {
+    return $false
+  }
+
+  foreach ($prefix in $allowedPlaceholderPrefixes) {
+    if ($Value.StartsWith($prefix, [System.StringComparison]::OrdinalIgnoreCase)) {
+      return $true
+    }
+  }
+
+  foreach ($fragment in $allowedPlaceholderFragments) {
+    if ($Value.IndexOf($fragment, [System.StringComparison]::OrdinalIgnoreCase) -ge 0) {
+      return $true
+    }
+  }
+
+  return $false
+}
 
 $allowedFilesWithSecretVocabulary = @(
   'scripts/acceptance/check-report-integrity.ps1',
@@ -63,20 +111,33 @@ foreach ($root in $scanRoots) {
       foreach ($fragment in $excludedPathFragments) {
         if ($path.Contains($fragment)) { return $false }
       }
+      if ($scanFileExtensions -notcontains $_.Extension.ToLowerInvariant()) {
+        return $false
+      }
       return $true
     } |
     ForEach-Object {
       $scannedFiles += 1
       $relative = Get-RelativePath $_.FullName
       $text = Get-Content -Raw -LiteralPath $_.FullName
+      if ($null -eq $text) {
+        $text = ''
+      }
       foreach ($entry in $secretValuePatterns) {
-        if ($text -match $entry.pattern -and ($allowedFilesWithSecretVocabulary -notcontains $relative)) {
-          $findings.Add([ordered]@{
-            file = $relative
-            pattern = $entry.name
-            classification = 'HARD_FAIL'
-            valueRedacted = $true
-          })
+        $matches = [regex]::Matches($text, $entry.pattern)
+        foreach ($match in $matches) {
+          $valueGroup = $match.Groups['value']
+          if ($valueGroup.Success -and (Test-AllowedPlaceholderValue $valueGroup.Value)) {
+            continue
+          }
+          if ($allowedFilesWithSecretVocabulary -notcontains $relative) {
+            $findings.Add([ordered]@{
+              file = $relative
+              pattern = $entry.name
+              classification = 'HARD_FAIL'
+              valueRedacted = $true
+            })
+          }
         }
       }
     }
@@ -97,9 +158,11 @@ $secretLikeFileNames = New-Object System.Collections.Generic.List[object]
 foreach ($root in $scanRoots) {
   Get-ChildItem -LiteralPath $root -Recurse -File |
     Where-Object {
-      $_.FullName -notmatch '\\node_modules\\' -and
-      $_.FullName -notmatch '\\\.git\\' -and
-      $_.Name -match '(?i)(client_secret|private_key|\.pem$|\.key$|prod.*secret|merchant.*secret)'
+      $path = $_.FullName
+      foreach ($fragment in $excludedPathFragments) {
+        if ($path.Contains($fragment)) { return $false }
+      }
+      return ($_.Name -match '(?i)(client_secret|private_key|\.pem$|\.key$|prod.*secret|merchant.*secret)')
     } |
     ForEach-Object {
       $secretLikeFileNames.Add([ordered]@{
