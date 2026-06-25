@@ -330,7 +330,7 @@ button::after {
 }
 
 .benefit-grid text::before {
-  content: "âœ?;
+  content: "âœ“";
   margin-right: 6px;
   color: #654cff;
 }
